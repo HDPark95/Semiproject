@@ -12,10 +12,10 @@
                       
                     </ul>
                     <ul class="navbar-nav ml-auto2">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="semi.Project?page=estate&code=2">매물 등록</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" onclick="location = 'semi.Project?page=community&code=1'">커뮤니티</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="semi.Project?page=customer&code=1">고객센터</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="semi.Project?page=commercial&subcode=98">상가</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="estate">매물 등록</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="community">커뮤니티</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="customer">고객센터</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="commercial">상가</a></li>
                             
                     </ul>
                       <ul class="navbar-nav ml-auto2">
