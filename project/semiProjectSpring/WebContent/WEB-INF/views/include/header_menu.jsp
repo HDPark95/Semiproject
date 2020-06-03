@@ -5,22 +5,26 @@
        
           <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav2" >
          <div class="container .col-md-12">
+
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">К╘■Л²╦Л²╦К█╠Л┼╓</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
+
                 <a class="navbar-brand js-scroll-trigger" href="#page-top">Project</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
+
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                  <ul class="navbar-nav ml-auto">
-                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="#about">╟╜©бю╞╢т х╞©╣гу╢о╢ы.</a></li>
+                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="#about">Й╟∙Л≤╗Л°═К▀≤ М≥≤Л≤│М∙╘К▀┬К▀╓.</a></li>
                       
                     </ul>
                     <ul class="navbar-nav ml-auto2">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="estate">╦е╧╟ ╣Н╥о</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="community">д©╧б╢оф╪</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="customer">╟М╟╢╪╬ем</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="commercial">╩С╟║</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="estate">К╖╓К╛╪ К⌠╠К║²</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="community">Л╩╓К╝╓К▀┬М▀╟</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="customer">ЙЁ═Й╟²Л└╪М└╟</a></li>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="commercial">Л┐│Й╟─</a></li>
                             
                     </ul>
                       <ul class="navbar-nav ml-auto2">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Ё╩а╓╨╦</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">╥н╠в╬ф©Т</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">К┌╢Л═∙КЁ╢</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">К║°Й╥╦Л∙└Л⌡┐</a></li>
                     
                     </ul>
                 </div>

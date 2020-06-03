@@ -9,7 +9,8 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
 
-        <title>ป๓ฑว บะผฎ</title>
+
+        <title>ยปรณยฑร ยบรยผยฎ</title>
 
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
