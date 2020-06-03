@@ -5,8 +5,8 @@
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
                     <h1 class="mx-auto my-0 text-uppercase" id="title"><img style="width: 100px; height: 100px;" src="resources/assets/img/copyright.jpg"><span class="logotext typer">Grayscale</span></h1>
-                    <h3 class="text-white-50 mx-auto mt-2 mb-5">ProjectName 은 한발 앞서가는 분석으로 <br>최적의 매물과 가치를 만들어 드립니다. </h3>
-                    <a class="btn btn-primary js-scroll-trigger" href="login">Get Started</a>
+                    <h3 class="text-white-50 mx-auto mt-2 mb-5">ProjectName 은 한발 앞서가는 분석으로 <br>최적의 매물과 가치를 만들어 드립니다. 1212</h3>
+                    <a class="btn btn-primary js-scroll-trigger" href="login">로그인</a>
                    
                 </div>
             </div>
