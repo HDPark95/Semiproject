@@ -10,7 +10,7 @@
         <meta name="author" content="" />
 
 
-        <title>»ó±Ç ºÐ¼®</title>
+        <title>�ѱ��׽�Ʈ</title>
 
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
