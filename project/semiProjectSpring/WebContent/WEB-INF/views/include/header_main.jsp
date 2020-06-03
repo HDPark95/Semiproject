@@ -25,8 +25,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">±êÇéÅ×½ºÆ®</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">°í°´¼¾ÅÍ</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">·Î±×ÀÎ</a></li>
                     </ul>
                 </div>
             </div>
