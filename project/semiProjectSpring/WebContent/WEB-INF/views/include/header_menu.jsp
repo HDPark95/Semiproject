@@ -6,25 +6,27 @@
           <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav2" >
          <div class="container .col-md-12">
 
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">ë©”ì¸ì¸ë±ìŠ¤</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">¸ÞÀÎÀÎµ¦½º</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
 
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">Project</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
+            
 
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                  <ul class="navbar-nav ml-auto">
-                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="#about">ê°•ì˜¨ìœ ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.</a></li>
+                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="#about">°­¿ÂÀ¯´ÔÈ¯¿µÇÕ´Ï´Ù..</a></li>
                       
                     </ul>
                     <ul class="navbar-nav ml-auto2">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="estate">ë§¤ë¬¼ ë“±ë¡</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="community">ì»¤ë®¤ë‹ˆí‹°</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="customer">ê³ ê°ì„¼í„°</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="commercial">ìƒê°€</a></li>
+                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="commercial">»ó°¡</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="estate">ºÎµ¿»ê</a></li>
+                      <li class="nav-item"><a class="nav-link js-scroll-trigger" href="auction">°æ¸Å</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="community">Ä¿¹Â´ÏÆ¼</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="customer">°í°´¼¾ÅÍ</a></li>
+                           
                             
                     </ul>
                       <ul class="navbar-nav ml-auto2">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">ë‚´ì •ë³´</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">ë¡œê·¸ì•„ì›ƒ</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">³»Á¤º¸</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">·Î±×¾Æ¿ô</a></li>
                     
                     </ul>
                 </div>
