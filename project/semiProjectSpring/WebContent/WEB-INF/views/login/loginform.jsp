@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <%@ include file="../include/header_index.jsp"%>
 
@@ -28,7 +28,7 @@
 <!--               <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
               <div class="col-lg-6">
                 <div class="p-5">
-                  <div class="text-center">
+                  <div class="text-center"> 
                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                   </div>
                   <form class="user">
