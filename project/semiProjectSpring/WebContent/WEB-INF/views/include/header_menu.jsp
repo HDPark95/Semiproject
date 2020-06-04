@@ -41,10 +41,11 @@
 	                        <a class="nav-link js-scroll-trigger" href="#">경매</a>
 	                        
 	                        <ul class="invisible sub-menu">
-		                       		<li>매물</li>
-		                       	<li>매물</li>
-		                       	<li>매물</li>
-		                       	<li>매물등록</li>
+		                       		<li>물건검색</li>
+		                       	<li>판매관리</li>
+		                       	<li>구매관리</li>
+		                       	<li>부동산등록</li>
+		                       	<li>경매정보</li>
 	                       </ul>
                         </li>
                         <li class="nav-item">
