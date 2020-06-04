@@ -13,3 +13,6 @@ margin-left: 10px; margin-right: 10px;
 #writebutton{
 text-align: center; margin-top: 10px;
 }
+.btn{
+	padding: 0.75rem 2rem;
+}	

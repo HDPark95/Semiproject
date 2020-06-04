@@ -9,11 +9,11 @@
 		<form action="" method="post">
 			<ul class="nav nav-tabs">
 				<li class="nav-item"><a class="nav-link" data-toggle="tab" 
-					>상가</a></li>
-				<li class="nav-item"><a class="nav-link active" data-toggle="tab"
-					>부동산</a></li>
+					href="#commercial" id="com">상가</a></li>
+				<li class="nav-item" ><a class="nav-link active" data-toggle="tab"
+					href="#estate" id="est">부동산</a></li>
 				<li class="nav-item"><a class="nav-link" data-toggle="tab"
-					>경매</a></li>	
+					href="#auction" id="auc">경매</a></li>	
 			</ul>
 			<div id="myTabContent" class="tab-content">
 				<div class="tab-pane fade" id="commercial">
@@ -83,11 +83,20 @@
 				<textarea id="ir1" class="form-control" rows="20" contenteditable="true"></textarea>
 				<div id="writebutton">
 					<button type="button" class="btn btn-success">확인</button>
-					<button type="button" class="btn btn-secondary" onclick="location='community.jsp'">취소</button>
+					<button type="button" class="btn btn-secondary" onclick="location='comuMain'">취소</button>
 				</div>
 			</div>
 		</form>
 	</div>
 </section>
-
+<script>
+	$(function() {
+		$('#com').click(function() {
+			location = 'wriCom';
+		});
+		$('#auc').click(function() {
+			location = 'wriAuc';
+		});
+	});
+</script>
 <%@ include file="../include/footer.jsp"%>

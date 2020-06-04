@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-	
 <%@ include file="../include/header_index.jsp"%>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -9,9 +8,14 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link href="resources/css/community/signup_lessor.css" rel="stylesheet">
 <%@ include file="../include/header_menu.jsp"%>
-
-
-
+<style>
+#projects{
+	padding: 0 0 0 0; 
+	width: 700px;
+	margin: 0 auto;
+	margin-bottom: 150px;
+}
+</style>
 	<h1>로고</h1>
 	<br>
 	<h4>임대인 회원가입</h4>
@@ -80,15 +84,6 @@
 					<label for="inputTel" class="col-sm-2 control-label">전화번호</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" id="inputTel">
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10" id="checkrobot">
-						<div class="checkbox">
-							<label id="checkrobot"> <input type="checkbox">
-								로봇이 아닙니다!
-							</label>
-						</div>
 					</div>
 				</div>
 				<div class="form-group">
