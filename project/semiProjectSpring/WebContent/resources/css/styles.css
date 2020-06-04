@@ -10217,8 +10217,8 @@ background-color: transparent;
     color: rgba(255, 255, 255, 0.75);
   }
     #mainNav2 .nav-link:hover {
-    color: #343a40;
-    background-color: white;
+    color: #FE9A2E;
+   
   }
    #mainNav2 .nav-link2:hover {
     color: #343a40;
@@ -10546,5 +10546,36 @@ color:white;
 	
     width: 300px;
     height: 30px;
+	
+}
+
+.sub-menu {
+
+	width: 580px;
+
+	background-color: #778899;
+	color:white;
+	z-index: 1090;
+	position: absolute;
+	padding :auto;
+	list-style: none;
+}
+.sub-menu >li{
+	display: inline;
+	background-color: #778899;
+	color: white;
+	
+	margin-left: 10px;
+	font-size: 1.2em;
+}
+
+.sub-menu >li:hover{
+		background-color: #778899;
+	color: #FE9A2E;
+	width: 100px;
+	text-align: center; 
+	
+}
+.menu-other{
 	
 }
