@@ -22,7 +22,12 @@
 	            						종류선택
 	            					</td>
 	            					<td >
-	            					 원룸 투룸 쓰리룸 오피스텔(도시형) 아파트
+	            					  
+	            						<span>원룸 </span> 
+	            						<span>투룸</span> 
+	            						<span> 쓰리룸</span> 
+	            						<span>오피스텔(도시형)</span> 
+	            						<span>아파트</span> 
 	            					</td>
 	            				</tr>
 	            				<tr>
@@ -30,7 +35,11 @@
 	            						건물유형
 	            					</td>
 	            					<td>
-	            						단독 다가구 빌라/연립/다세대 상가주택
+	            						  
+	            						<span>단독</span>
+	            						<span>다가구 </span>
+	            						<span>빌라/연립/다세대</span>
+	            						<span>상가주택</span>
 	            					</td>
 	            				</tr>
 	            			</table>
@@ -68,7 +77,10 @@
 	            						거래종류
 	            					</td>
 	            					<td >
-	            							전세 월세  단기가능
+	            							   
+	            							<span>전세</span>
+	            							<span>월세</span>
+	            							<span>단기가능</span>
 	            					</td>
 	            				</tr>
 	            				
@@ -83,16 +95,42 @@
 	            					<td >
 	            						건물크기
 	            					</td>
-	            					<td style="width: 200px;">
-	            						<div class="col-md-12"></div>
+	            					<td >
+	            						<div class="col-md-12">
+	            							<label class="add-page">공급면적 <input type="text" class="add-page">평
+	            							<input type="text"class="add-page">㎡</label>
+	            						</div>
 	            						<hr>
-	            						<div class="col-md-12"></div>
+	            						<div class="col-md-12">
+	            							<label class="add-page">전용면적 <input type="text" class="add-page">평
+	            							<input type="text"class="add-page">㎡</label>
+	            							
+	            							<label class="add-page"></label>
+	            						</div>
 	            					</td>
-	            					<td style="background-color: #E6E6E6;">건물층수</td>
-	            					<td style="width:200px;">
-	            					<div class="col-md-12"></div>
+	            					<td >건물층수</td>
+	            					<td >
+	            					<div class="col-md-12">
+	            						<label class="add-page">건물층수</label>
+	            							<select class="add-page">
+	            								<option value="0">건물층수선택</option>
+	            								<c:forEach begin="1" end="20" step="1" var="i">
+	            									<option value="${i}">${i }층</option>
+	            								</c:forEach>
+	            							</select>
+	            					</div>
 	            						<hr>
-	            						<div class="col-md-12"></div>
+	            						<div class="col-md-12">
+	            							<label class="add-page">해당층수</label>
+	            							<select class="add-page">
+	            								<option value="0">건물층수선택</option>
+	            								<option value="-1">반지층</option>
+	            								<option value="99">옥탑</option>
+	            								<c:forEach begin="1" end="20" step="1" var="i">
+	            									<option value="${i}">${i }층</option>
+	            								</c:forEach>
+	            							</select>
+	            						</div>
 	            					</td>
 	            				</tr>
 	            				<tr>
@@ -100,7 +138,12 @@
 	            						난방종류선택
 	            					</td>
 	            					<td colspan="3">
-	            						select로 난방종류 설정
+	            						<select class="float-left">
+	            							<option selected="selected">난방종류 선택</option>
+	            							<option>중앙난방</option>
+	            							<option>개별난방</option>
+	            							<option>지역난방</option>
+	            						</select>
 	            					</td>
 	            				</tr>
 	            				<tr>
@@ -108,7 +151,9 @@
 	            						입주 가능일
 	            					</td>
 	            					<td colspan="3">
-	            						즉시입주 날짜협의 날짜선택
+	            						<label>즉시입주</label> 
+	            						<label>날짜협의 </label>
+	            						<label>날짜선택</label>
 	            					</td>
 	            				</tr>
 	            			</table>
@@ -213,7 +258,7 @@
 	            						상세 설명
 	            					</td>
 	            					<td>
-	            						<textarea rows="20" cols="100" placeholder="상세설명 작성 주의사항 
+	            						<textarea rows="20" cols="200" placeholder="상세설명 작성 주의사항 
 	            							- 방 정보와 관련없는 홍보성 정보는 입력하실수 없습니다
 	            								(홈페이지주소,블로그,SNS,메신저ID,전화번호,이메일등)
 	            							- 중계수수료를 언급한 내용은 입력할 수 없습니다.
@@ -230,7 +275,7 @@
 	            						비공개메모
 	            					</td>
 	            					<td >
-	            					<textarea rows="10" cols="100" placeholder="
+	            					<textarea rows="10" cols="200" placeholder="
 	            					외부에는 공개되지 않으며, 등록자에게만 보이는 메모입니다.
 	            						"></textarea>
 	            					</td>
