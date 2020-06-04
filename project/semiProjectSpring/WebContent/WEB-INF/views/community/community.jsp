@@ -9,7 +9,7 @@
 			<li class="nav-item"><a class="nav-link active"
 				data-toggle="tab" href="#all">전체</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
-				href="#commercial">상가11</a></li>
+				href="#commercial">상가</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
 				href="#estate">부동산</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
