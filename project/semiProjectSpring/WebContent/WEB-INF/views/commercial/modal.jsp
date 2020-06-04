@@ -1,68 +1,67 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link href="css/modal.css?after" rel="stylesheet" />
 <div id="myModal" class="modal">
 	<!-- Modal content -->
 	<div class="modal-content">
-		<h3>»ó°¡/Á¡Æ÷ ¸Å¹°µî·Ï ½ÅÃ»</h3>
+		<h3>ìƒê°€/ì í¬ ë§¤ë¬¼ë“±ë¡ ì‹ ì²­</h3>
 		<div class="row" id="regist">
 			<div class="col-md-12 mb-4 mb-md-0">
 				<!-- <div class="card-body text-center"> -->
-				¹°°Ç Á¤º¸
+				ë¬¼ê±´ ì •ë³´
 				<div class="card py-6 h-100"
 					style="width: 100%; border-top: 0.25rem solid #64a19d; border-bottom: none;">
 					<table
 						style="text-align: left; margin: 0 auto; width: 500px; height: 200px;"
 						class="regist">
 						<tr>
-							<th>¼ÒÀçÁö
+							<th>ì†Œìž¬ì§€
 							<td colspan="3"><input type="text" id='zipNo' name="zipNo"
 								style="margin-bottom: 10px" disabled>
-								<button id="postcodify_search_button" onclick="goPopup();">°Ë»ö</button>
+								<button id="postcodify_search_button" onclick="goPopup();">ê²€ìƒ‰</button>
 								<br /> <input type="text" id="roadAddrPart1"
 								name="roadAddrPart1" disabled style="width: 300px"> <input
 								type="text" id="addrDetail" name="addrDetail"></td>
 						</tr>
 						<tr>
-							<th>¹°°Ç ±¸ºÐ
-							<td><select id="law"><option>¼±ÅÃ</option>
-									<option value="±Ù¸°»ó°¡">±Ù¸°»ó°¡</option>
-									<option value="´ÜÁö³»»ó°¡">´ÜÁö³»»ó°¡</option>
-									<option value="º¹ÇÕ»ó°¡">º¹ÇÕ»ó°¡</option>
-									<option value="ÀÏ¹Ý»ó°¡">ÀÏ¹Ý»ó°¡</option>
-									<option value="±âÅ¸»ó°¡">±âÅ¸»ó°¡</option>
+							<th>ë¬¼ê±´ êµ¬ë¶„
+							<td><select id="law"><option>ì„ íƒ</option>
+									<option value="ê·¼ë¦°ìƒê°€">ê·¼ë¦°ìƒê°€</option>
+									<option value="ë‹¨ì§€ë‚´ìƒê°€">ë‹¨ì§€ë‚´ìƒê°€</option>
+									<option value="ë³µí•©ìƒê°€">ë³µí•©ìƒê°€</option>
+									<option value="ì¼ë°˜ìƒê°€">ì¼ë°˜ìƒê°€</option>
+									<option value="ê¸°íƒ€ìƒê°€">ê¸°íƒ€ìƒê°€</option>
 							</select></td>
-							<td>¸Å¹° Á¾·ù</td>
-							<td><select id="law"><option>¼±ÅÃ</option>
-									<option value="¸Å¸Å">¸Å¸Å</option>
-									<option value="Àü¼¼">Àü¼¼</option>
-									<option value="¿ù¼¼">¿ù¼¼</option>
+							<td>ë§¤ë¬¼ ì¢…ë¥˜</td>
+							<td><select id="law"><option>ì„ íƒ</option>
+									<option value="ë§¤ë§¤">ë§¤ë§¤</option>
+									<option value="ì „ì„¸">ì „ì„¸</option>
+									<option value="ì›”ì„¸">ì›”ì„¸</option>
 							</select></td>
 						</tr>
 						<tr>
-							<th>»óÈ£»ó°¡
+							<th>ìƒí˜¸ìƒê°€
 							<td><input type="text" id="size" name="size"></td>
-							<td>ÇØ´ç Ãþ</td>
+							<td>í•´ë‹¹ ì¸µ</td>
 							<td><input type="text" id="size" name="size"></td>
 						</tr>
 						<tr>
-							<th>¸éÀû
-							<td><input type="text" id="size" name="size"> Æò</td>
-							<td>½Ç¸éÀû</td>
-							<td><input type="text" id="size" name="size"> Æò</td>
+							<th>ë©´ì 
+							<td><input type="text" id="size" name="size"> í‰</td>
+							<td>ì‹¤ë©´ì </td>
+							<td><input type="text" id="size" name="size"> í‰</td>
 						</tr>
 						<tr>
-							<th>Çö¾÷Á¾
+							<th>í˜„ì—…ì¢…
 							<td><input type="text" id="size" name="size"></td>
-							<td>»ó°¡ÀÔÂ÷¹ý</td>
-							<td><select id="law"><option>¼±ÅÃ</option>
-									<option value="1">´ë»ó</option>
-									<option value="0">ºñ´ë»ó</option>
+							<td>ìƒê°€ìž…ì°¨ë²•</td>
+							<td><select id="law"><option>ì„ íƒ</option>
+									<option value="1">ëŒ€ìƒ</option>
+									<option value="0">ë¹„ëŒ€ìƒ</option>
 							</select></td>
 						</tr>
 					</table>
 					<!-- <hr class="my-4" /> -->
-					<!-- <div class="small text-black-50">ÇöµÎ ´ã´ç</div> -->
+					<!-- <div class="small text-black-50">í˜„ë‘ ë‹´ë‹¹</div> -->
 					<!-- </div> -->
 				</div>
 			</div>
@@ -73,7 +72,7 @@
 			<div
 				style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 10px; padding-top: 10px;"
 				onClick="close_pop();">
-				<span class="pop_bt" style="font-size: 13pt;"> ´Ý±â </span>
+				<span class="pop_bt" style="font-size: 13pt;"> ë‹«ê¸° </span>
 			</div>
 		</div>
 	</div>
@@ -82,7 +81,7 @@
 	function open_pop() {
 		$('#myModal').show();  
 	};
-	//ÆË¾÷ Close ±â´É
+	//íŒì—… Close ê¸°ëŠ¥
 	function close_pop(flag) {
 		$('#myModal').hide();
 	};

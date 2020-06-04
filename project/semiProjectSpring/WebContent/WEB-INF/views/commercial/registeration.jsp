@@ -1,79 +1,78 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="header_index.jsp"%>
 <section class="contact-section bg-white centered">
 	<div id="container"
 		style="width: 1200px; margin: 0 auto; text-align: center;"
 		class="centered">
-		<h3>»ó°¡/Á¡Æ÷ »ó¼¼Á¤º¸</h3>
+		<h3>ìƒê°€/ì í¬ ìƒì„¸ì •ë³´</h3>
 		<div class="col" id="regist">
 			<form action="" method="post">
 				<div class="col-md-8 mb-4 mb-md-0">
 					<!-- <div class="card-body text-center"> -->
-					<h3 style="text-align: left">¹°°Ç Á¤º¸</h3>
+					<h3 style="text-align: left">ë¬¼ê±´ ì •ë³´</h3>
 					<div class="card py-4 h-100"
 						style="width: 100%; border-top: 0.25rem solid #64a19d; border-bottom: none;">
 						<table
 							style="text-align: left; margin: 0 auto; width: 810px; height: 375px;"  class="regist">
 							<tr>
 								<th>
-									<h3 class="text-uppercase m-0">¼ÒÀçÁö</h3>
+									<h3 class="text-uppercase m-0">ì†Œìž¬ì§€</h3>
 								<td colspan="3"><input type="text" id='zipNo' name="zipNo"
 									style="margin-bottom: 10px" disabled>
-									<button id="postcodify_search_button" onclick="goPopup();">°Ë»ö</button>
+									<button id="postcodify_search_button" onclick="goPopup();">ê²€ìƒ‰</button>
 									<br /> <input type="text" id="roadAddrPart1"
 									name="roadAddrPart1" disabled style="width: 300px"> <input
 									type="text" id="addrDetail" name="addrDetail"></td>
 							</tr>
 							<tr>
 								<th>
-									<h3 class="text-uppercase m-0">¹°°Ç ±¸ºÐ</h3>
-								<td><select id="law" style="width: 200px; height: 30px"><option>¼±ÅÃ</option>
-										<option value="±Ù¸°»ó°¡">±Ù¸°»ó°¡</option>
-										<option value="´ÜÁö³»»ó°¡">´ÜÁö³»»ó°¡</option>
-										<option value="º¹ÇÕ»ó°¡">º¹ÇÕ»ó°¡</option>
-										<option value="ÀÏ¹Ý»ó°¡">ÀÏ¹Ý»ó°¡</option>
-										<option value="±âÅ¸»ó°¡">±âÅ¸»ó°¡</option>
+									<h3 class="text-uppercase m-0">ë¬¼ê±´ êµ¬ë¶„</h3>
+								<td><select id="law" style="width: 200px; height: 30px"><option>ì„ íƒ</option>
+										<option value="ê·¼ë¦°ìƒê°€">ê·¼ë¦°ìƒê°€</option>
+										<option value="ë‹¨ì§€ë‚´ìƒê°€">ë‹¨ì§€ë‚´ìƒê°€</option>
+										<option value="ë³µí•©ìƒê°€">ë³µí•©ìƒê°€</option>
+										<option value="ì¼ë°˜ìƒê°€">ì¼ë°˜ìƒê°€</option>
+										<option value="ê¸°íƒ€ìƒê°€">ê¸°íƒ€ìƒê°€</option>
 								</select></td>
-								<td><h3 class="text-uppercase m-0">¸Å¹° Á¾·ù</h3></td>
-								<td><select id="law" style="width: 180px; height: 30px"><option>¼±ÅÃ</option>
-										<option value="¸Å¸Å">¸Å¸Å</option>
-										<option value="Àü¼¼">Àü¼¼</option>
-										<option value="¿ù¼¼">¿ù¼¼</option>
+								<td><h3 class="text-uppercase m-0">ë§¤ë¬¼ ì¢…ë¥˜</h3></td>
+								<td><select id="law" style="width: 180px; height: 30px"><option>ì„ íƒ</option>
+										<option value="ë§¤ë§¤">ë§¤ë§¤</option>
+										<option value="ì „ì„¸">ì „ì„¸</option>
+										<option value="ì›”ì„¸">ì›”ì„¸</option>
 								</select></td>
 							</tr>
 							<tr>
 								<th>
-									<h3 class="text-uppercase m-0">»óÈ£»ó°¡</h3>
+									<h3 class="text-uppercase m-0">ìƒí˜¸ìƒê°€</h3>
 								<td><input type="text" id="size" name="size"></td>
-								<td><h3 class="text-uppercase m-0">ÇØ´ç Ãþ</h3></td>
+								<td><h3 class="text-uppercase m-0">í•´ë‹¹ ì¸µ</h3></td>
 								<td><input type="text" id="size" name="size"></td>
 							</tr>
 							<tr>
 								<th>
-									<h3 class="text-uppercase m-0">¸éÀû</h3>
-								<td><input type="text" id="size" name="size"> Æò</td>
-								<td><h3 class="text-uppercase m-0">½Ç¸éÀû</h3></td>
-								<td><input type="text" id="size" name="size"> Æò</td>
+									<h3 class="text-uppercase m-0">ë©´ì </h3>
+								<td><input type="text" id="size" name="size"> í‰</td>
+								<td><h3 class="text-uppercase m-0">ì‹¤ë©´ì </h3></td>
+								<td><input type="text" id="size" name="size"> í‰</td>
 							</tr>
 							<tr>
 								<th>
-									<h3 class="text-uppercase m-0">Çö¾÷Á¾</h3>
+									<h3 class="text-uppercase m-0">í˜„ì—…ì¢…</h3>
 								<td><input type="text" id="size" name="size"></td>
-								<td><h3 class="text-uppercase m-0">»ó°¡ÀÔÂ÷¹ý</h3></td>
-								<td><select id="law" style="width: 200px; height: 30px"><option>¼±ÅÃ</option>
-										<option value="1">´ë»ó</option>
-										<option value="0">ºñ´ë»ó</option>
+								<td><h3 class="text-uppercase m-0">ìƒê°€ìž…ì°¨ë²•</h3></td>
+								<td><select id="law" style="width: 200px; height: 30px"><option>ì„ íƒ</option>
+										<option value="1">ëŒ€ìƒ</option>
+										<option value="0">ë¹„ëŒ€ìƒ</option>
 								</select></td>
 							</tr>
 						</table>
 						<!-- <hr class="my-4" /> -->
-						<!-- <div class="small text-black-50">ÇöµÎ ´ã´ç</div> -->
+						<!-- <div class="small text-black-50">í˜„ë‘ ë‹´ë‹¹</div> -->
 						<!-- </div> -->
 					</div>
 				</div>
 				<div class="col-md-8 mb-3 mb-md-0">
-					<h3 style="text-align: left">»ó±Ç Á¤º¸</h3>
+					<h3 style="text-align: left">ìƒê¶Œ ì •ë³´</h3>
 					<div class="card py-4 h-100"
 						style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
 						<div class="card-body text-center">
@@ -81,29 +80,29 @@
 								style="text-align: left; margin: 0 auto; width: 810px; height: 200px;"class="regist">
 								<tr>
 									<th>
-										<h3 class="text-uppercase m-0">Æ¯Â¡</h3>
+										<h3 class="text-uppercase m-0">íŠ¹ì§•</h3>
 									<td colspan="3"><input type="text" id='feature'
 										name="feature" style="width: 370px; height: 40px;"></td>
 								</tr>
 								<tr>
 									<th>
-										<h3 class="text-uppercase m-0">ÁÖº¯ È¯°æ</h3>
+										<h3 class="text-uppercase m-0">ì£¼ë³€ í™˜ê²½</h3>
 									<td><input type="text" id=""></td>
-									<td><h3 class="text-uppercase m-0">ÃßÃµ ¾÷Á¾</h3></td>
+									<td><h3 class="text-uppercase m-0">ì¶”ì²œ ì—…ì¢…</h3></td>
 									<td><select id="law"
-										style="width: 185px; height: 30px; margin-bottom: 10px;"><option>¼±ÅÃ</option>
-											<option value="1">Çö¾÷Á¾°úµ¿ÀÏ</option>
-											<option value="¼­ºñ½º¾÷">¼­ºñ½º¾÷</option>
-											<option value="ÇÐ¿ø/±³À°¾÷">ÇÐ¿ø/±³À°¾÷</option>
-											<option value="¿À¶ô¾÷">¿À¶ô¾÷</option>
-											<option value="À½½ÄÁ¡¾÷">À½½ÄÁ¡¾÷</option>
-											<option value="ÀÇ·ù¾÷">ÀÇ·ù¾÷</option>
-											<option value="ÀÚÀ¯¾÷">ÀÚÀ¯¾÷</option>
-											<option value="ÀâÈ­Á¡">ÀâÈ­Á¡</option>
-											<option value="Àü¹«Á¡">Àü¹«Á¡</option>
-											<option value="ÁÖ·ù/À¯Èï¾÷">ÁÖ·ù/À¯Èï¾÷</option>
-											<option value="º´¿ø/ÀÇ·á¾÷">º´¿ø/ÀÇ·á¾÷</option>
-											<option value="±âÅ¸">±âÅ¸</option>
+										style="width: 185px; height: 30px; margin-bottom: 10px;"><option>ì„ íƒ</option>
+											<option value="1">í˜„ì—…ì¢…ê³¼ë™ì¼</option>
+											<option value="ì„œë¹„ìŠ¤ì—…">ì„œë¹„ìŠ¤ì—…</option>
+											<option value="í•™ì›/êµìœ¡ì—…">í•™ì›/êµìœ¡ì—…</option>
+											<option value="ì˜¤ë½ì—…">ì˜¤ë½ì—…</option>
+											<option value="ìŒì‹ì ì—…">ìŒì‹ì ì—…</option>
+											<option value="ì˜ë¥˜ì—…">ì˜ë¥˜ì—…</option>
+											<option value="ìžìœ ì—…">ìžìœ ì—…</option>
+											<option value="ìž¡í™”ì ">ìž¡í™”ì </option>
+											<option value="ì „ë¬´ì ">ì „ë¬´ì </option>
+											<option value="ì£¼ë¥˜/ìœ í¥ì—…">ì£¼ë¥˜/ìœ í¥ì—…</option>
+											<option value="ë³‘ì›/ì˜ë£Œì—…">ë³‘ì›/ì˜ë£Œì—…</option>
+											<option value="ê¸°íƒ€">ê¸°íƒ€</option>
 									</select> <br /> <input type="text" id=""></td>
 								</tr>
 							</table>
@@ -111,9 +110,9 @@
 					</div>
 				</div>
 				<div class="col-md-8 mb-3 mb-md-0">
-					<h3 style="text-align: left">°¡°Ý Á¤º¸</h3>
-					<span style="text-align: right; color: red;"> ÇØ´çºÎºÐÀÌ ¾øÀ¸¸é 0À»
-						ÀÔ·ÂÇÏ¼¼¿ä.</span>
+					<h3 style="text-align: left">ê°€ê²© ì •ë³´</h3>
+					<span style="text-align: right; color: red;"> í•´ë‹¹ë¶€ë¶„ì´ ì—†ìœ¼ë©´ 0ì„
+						ìž…ë ¥í•˜ì„¸ìš”.</span>
 					<div class="card py-12 h-100"
 						style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
 						<div class="card-body text-center">
@@ -121,24 +120,24 @@
 								style="text-align: left; margin: 0 auto; width: 810px; height: 200px;" class="regist">
 								<tr>
 									<th>
-										<h3 class="text-uppercase m-0">¸Å¸Å°¡</h3>
+										<h3 class="text-uppercase m-0">ë§¤ë§¤ê°€</h3>
 									<td><input type="text" id='address' name="address">
 									</td>
-									<td><h3 class="text-uppercase m-0">Àü¼¼°¡</h3></td>
+									<td><h3 class="text-uppercase m-0">ì „ì„¸ê°€</h3></td>
 									<td><input type="text" id='address' name="address"></td>
 								</tr>
 								<tr>
 									<th>
-										<h3 class="text-uppercase m-0">º¸Áõ±Ý</h3>
+										<h3 class="text-uppercase m-0">ë³´ì¦ê¸ˆ</h3>
 									<td><input type="text" id='address' name="address"></td>
-									<td><h3 class="text-uppercase m-0">¿ù¼¼</h3></td>
+									<td><h3 class="text-uppercase m-0">ì›”ì„¸</h3></td>
 									<td><input type="text" id='address' name="address"></td>
 								</tr>
 								<tr>
 									<th>
-										<h3 class="text-uppercase m-0">±Ç¸®±Ý</h3>
+										<h3 class="text-uppercase m-0">ê¶Œë¦¬ê¸ˆ</h3>
 									<td><input type="text" id='address' name="address"></td>
-									<td><h3 class="text-uppercase m-0">À¶ÀÚ</h3></td>
+									<td><h3 class="text-uppercase m-0">ìœµìž</h3></td>
 									<td><input type="text" id='address' name="address"></td>
 								</tr>
 							</table>
@@ -146,7 +145,7 @@
 					</div>
 				</div>
 				<div class="col-md-8 mb-3 mb-md-0">
-					<h3 style="text-align: left">´ã´çÀÚ Á¤º¸</h3>
+					<h3 style="text-align: left">ë‹´ë‹¹ìž ì •ë³´</h3>
 					<div class="card py-4 h-100"
 						style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
 						<div class="card-body text-center">
@@ -154,14 +153,14 @@
 								style="text-align: left; margin: 0 auto; width: 800px; height: 100px;" class="regist">
 								<tr>
 									<th>
-										<h3 class="text-uppercase m-0">ÀÌ¸§</h3>
+										<h3 class="text-uppercase m-0">ì´ë¦„</h3>
 									</th>
 									<td><input type="text" id='managerName' name="managerName">
 									</td>
-									<th><h3 class="text-uppercase m-0">ÈÞ´ëÀüÈ­¹øÈ£</h3></th>
+									<th><h3 class="text-uppercase m-0">íœ´ëŒ€ì „í™”ë²ˆí˜¸</h3></th>
 									<td><select name="phoneIdx" id="phoneIdx"
 										style="height: 30px">
-											<option>¼±ÅÃ</option>
+											<option>ì„ íƒ</option>
 											<option value="010">010</option>
 											<option value="011">011</option>
 											<option value="016">016</option>
@@ -175,11 +174,11 @@
 								</tr>
 								<tr>
 									<th>
-										<h3 class="text-uppercase m-0">ÀÌ¸ÞÀÏ</h3>
+										<h3 class="text-uppercase m-0">ì´ë©”ì¼</h3>
 									<td><input type="email" id="email"></td>
-									<th><h3 class="text-uppercase m-0">ÀüÈ­</h3></th>
+									<th><h3 class="text-uppercase m-0">ì „í™”</h3></th>
 									<td><select name="" id="" class="stx" style="height: 30px">
-											<option>¼±ÅÃ</option>
+											<option>ì„ íƒ</option>
 											<option value="02">02</option>
 											<option value="031">031</option>
 											<option value="032">032</option>
@@ -208,64 +207,64 @@
 				</div>
 				<textarea
 					style="resize: none; width: 800px; height: 500px; margin-right: 800px;"
-					readonly> ¼¼¹ÌÇÁ·ÎÁ§Æ®´Â Á¤º¸Åë½ÅºÎ¿¡¼­½ÃÇàÇÏ´Â Á¤º¸Åë½Å¸Á ÀÌ¿ëÃËÁø µî¿¡ °üÇÑ ¹ý·ü»óÀÇ °³ÀÎÁ¤º¸ º¸È£Á¦µµ¿¡ µû¶ó È¸¿øµéÀÇ °³ÀÎÁ¤º¸ °ü¸®¿¡ ¸¸ÀüÀ» ±âÇÏ°í ÀÖÀ¸¸ç È¸¿øµéÀÌ ¸¶ÀÎ¾ÖµåÀÇ ¸ðµç ¼­ºñ½º¸¦ ¾È½ÉÇÏ°í ÀÌ¿ëÇÒ¼ö ÀÖµµ·Ï ÇÏ±â À§ÇØ Ç×»ó ÃÖ¼±À» ´ÙÇÏ°í ÀÖ½À´Ï´Ù. Á¤ºÎÀÇ °ü·Ã ¹ý·ü ¹× ÁöÄ§ÀÇ º¯°æ, ¶Ç´Â ¸¶ÀÎ¾ÖµåÀÇ Á¤Ã¥ º¯È­¿¡ µû¶ó °³ÀÎÁ¤º¸º¸È£Á¤Ã¥Àº ÀÓÀÇ·Î º¯°æµÉ ¼ö ÀÖÀ¸´Ï »ç¿ëÀÚ º¸È£ Á¤Ã¥¿¡ °ü½ÉÀ» °¡Áö°í ¼ö½Ã·Î È®ÀÎÇØÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
+					readonly> ì„¸ë¯¸í”„ë¡œì íŠ¸ëŠ” ì •ë³´í†µì‹ ë¶€ì—ì„œì‹œí–‰í•˜ëŠ” ì •ë³´í†µì‹ ë§ ì´ìš©ì´‰ì§„ ë“±ì— ê´€í•œ ë²•ë¥ ìƒì˜ ê°œì¸ì •ë³´ ë³´í˜¸ì œë„ì— ë”°ë¼ íšŒì›ë“¤ì˜ ê°œì¸ì •ë³´ ê´€ë¦¬ì— ë§Œì „ì„ ê¸°í•˜ê³  ìžˆìœ¼ë©° íšŒì›ë“¤ì´ ë§ˆì¸ì• ë“œì˜ ëª¨ë“  ì„œë¹„ìŠ¤ë¥¼ ì•ˆì‹¬í•˜ê³  ì´ìš©í• ìˆ˜ ìžˆë„ë¡ í•˜ê¸° ìœ„í•´ í•­ìƒ ìµœì„ ì„ ë‹¤í•˜ê³  ìžˆìŠµë‹ˆë‹¤. ì •ë¶€ì˜ ê´€ë ¨ ë²•ë¥  ë° ì§€ì¹¨ì˜ ë³€ê²½, ë˜ëŠ” ë§ˆì¸ì• ë“œì˜ ì •ì±… ë³€í™”ì— ë”°ë¼ ê°œì¸ì •ë³´ë³´í˜¸ì •ì±…ì€ ìž„ì˜ë¡œ ë³€ê²½ë  ìˆ˜ ìžˆìœ¼ë‹ˆ ì‚¬ìš©ìž ë³´í˜¸ ì •ì±…ì— ê´€ì‹¬ì„ ê°€ì§€ê³  ìˆ˜ì‹œë¡œ í™•ì¸í•´ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.
 
-			1.È¸¿øÀÇ °³ÀÎÁ¤º¸ ¼öÁý¸ñÀû ¹× ÀÌ¿ë
-´ç»ç´Â ÀÌ¿ëÀÚ È®ÀÎ, ÀÌ¿ë´ë±Ý °áÁ¦, »óÇ° ¹è¼Û ¹× Åë°è ºÐ¼®À» ÅëÇÑ ¸¶ÄÉÆÃÀÚ·á·Î½á ±ÍÇÏÀÇ ÃëÇâ¿¡ ¸Â´Â ÃÖÀûÀÇ ¼­ºñ½º¸¦ Á¦°øÇÏ±â À§ÇÑ ¸ñÀûÀ¸·Î ±ÍÇÏÀÇ °³ÀÎÁ¤º¸¸¦ ¼öÁý ÀÌ¿ëÇÏ°í ÀÖ½À´Ï´Ù. ´ç»ç È¸¿øÀ¸·Î µî·ÏÇÏ½Å ¸ðµç °í°´ÀÇ °³ÀÎÁ¤º¸´Â À§¿¡¼­ ¹àÈù ¸ñÀû ÀÌ¿Ü¿¡´Â Àý´ë·Î »ç¿ëµÉ ¼ö ¾øÀ¸³ª, È¸¿ø °³ÀÎÁ¤º¸ÀÇ »ç¿ë ¸ñÀû°ú ¿ëµµ°¡ º¯°æµÉ °æ¿ì¿¡ ¹Ýµå½Ã ´ç»ç È¸¿øÀ¸·Î µî·ÏÇÏ½Å ¸ðµç °í°´´Ô²² µ¿ÀÇ¸¦ ±¸ÇÒ °ÍÀÔ´Ï´Ù.
+			1.íšŒì›ì˜ ê°œì¸ì •ë³´ ìˆ˜ì§‘ëª©ì  ë° ì´ìš©
+ë‹¹ì‚¬ëŠ” ì´ìš©ìž í™•ì¸, ì´ìš©ëŒ€ê¸ˆ ê²°ì œ, ìƒí’ˆ ë°°ì†¡ ë° í†µê³„ ë¶„ì„ì„ í†µí•œ ë§ˆì¼€íŒ…ìžë£Œë¡œì¨ ê·€í•˜ì˜ ì·¨í–¥ì— ë§žëŠ” ìµœì ì˜ ì„œë¹„ìŠ¤ë¥¼ ì œê³µí•˜ê¸° ìœ„í•œ ëª©ì ìœ¼ë¡œ ê·€í•˜ì˜ ê°œì¸ì •ë³´ë¥¼ ìˆ˜ì§‘ ì´ìš©í•˜ê³  ìžˆìŠµë‹ˆë‹¤. ë‹¹ì‚¬ íšŒì›ìœ¼ë¡œ ë“±ë¡í•˜ì‹  ëª¨ë“  ê³ ê°ì˜ ê°œì¸ì •ë³´ëŠ” ìœ„ì—ì„œ ë°ížŒ ëª©ì  ì´ì™¸ì—ëŠ” ì ˆëŒ€ë¡œ ì‚¬ìš©ë  ìˆ˜ ì—†ìœ¼ë‚˜, íšŒì› ê°œì¸ì •ë³´ì˜ ì‚¬ìš© ëª©ì ê³¼ ìš©ë„ê°€ ë³€ê²½ë  ê²½ìš°ì— ë°˜ë“œì‹œ ë‹¹ì‚¬ íšŒì›ìœ¼ë¡œ ë“±ë¡í•˜ì‹  ëª¨ë“  ê³ ê°ë‹˜ê»˜ ë™ì˜ë¥¼ êµ¬í•  ê²ƒìž…ë‹ˆë‹¤.
 
-¼öÁýÇÏ´Â °³ÀÎÁ¤º¸ Ç×¸ñ¿¡ µû¸¥ ±¸Ã¼ÀûÀÎ ¼öÁý¸ñÀû ¹× ÀÌ¿ë¸ñÀûÀº ´ÙÀ½°ú °°½À´Ï´Ù.
+ìˆ˜ì§‘í•˜ëŠ” ê°œì¸ì •ë³´ í•­ëª©ì— ë”°ë¥¸ êµ¬ì²´ì ì¸ ìˆ˜ì§‘ëª©ì  ë° ì´ìš©ëª©ì ì€ ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.
 
-* ¼º¸í, ¾ÆÀÌµð, ºñ¹Ð¹øÈ£, ÁÖ¹Îµî·Ï¹øÈ£ : È¸¿øÁ¦ ¼­ºñ½º ÀÌ¿ë¿¡ µû¸¥ º»ÀÎ È®ÀÎ ÀýÂ÷¿¡ ÀÌ¿ë
-* ÀÌ¸ÞÀÏÁÖ¼Ò, ÀüÈ­¹øÈ£ : °íÁö»çÇ× Àü´Þ, ºÒ¸¸Ã³¸® µîÀ» À§ÇÑ ¿øÈ°ÇÑ ÀÇ»ç¼ÒÅë °æ·ÎÀÇ È®º¸, »õ·Î¿î ¼­ºñ½º ¹× ½Å»óÇ°ÀÌ³ª ÀÌº¥Æ® Á¤º¸ µîÀÇ ¾È³»
-* ÀºÇà°èÁÂÁ¤º¸, ½Å¿ëÄ«µåÁ¤º¸ : À¯·áÁ¤º¸ ÀÌ¿ë ¹× »óÇ° ±¸¸Å¿¡ ´ëÇÑ °áÁ¦
-* ÁÖ¼Ò, ÀüÈ­¹øÈ£ : Ã»±¸¼­, °æÇ° ¹× ¼îÇÎ¹°Ç° ¹è¼Û¿¡ ´ëÇÑ Á¤È®ÇÑ ¹è¼ÛÁöÀÇ È®º¸
-* ±âÅ¸ ¼±ÅÃÇ×¸ñ : °³ÀÎ¸ÂÃã ¼­ºñ½º¸¦ Á¦°øÇÏ±â À§ÇÑ ÀÚ·á
-2.°³ÀÎÁ¤º¸ ¼öÁý Ç×¸ñ ¹× º¸À¯, ÀÌ¿ë±â°£
-´ç»ç È¸¿øÀ» ´ë»óÀ¸·Î °¢Á¾ ¼­ºñ½º¸¦ Á¦°øÇÏ±â À§ÇØ Á¦°ø ¹Þ´Â ÇÊ¼ö È¸¿øÁ¤º¸´Â ´ÙÀ½°ú °°½À´Ï´Ù.
+* ì„±ëª…, ì•„ì´ë””, ë¹„ë°€ë²ˆí˜¸, ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ : íšŒì›ì œ ì„œë¹„ìŠ¤ ì´ìš©ì— ë”°ë¥¸ ë³¸ì¸ í™•ì¸ ì ˆì°¨ì— ì´ìš©
+* ì´ë©”ì¼ì£¼ì†Œ, ì „í™”ë²ˆí˜¸ : ê³ ì§€ì‚¬í•­ ì „ë‹¬, ë¶ˆë§Œì²˜ë¦¬ ë“±ì„ ìœ„í•œ ì›í™œí•œ ì˜ì‚¬ì†Œí†µ ê²½ë¡œì˜ í™•ë³´, ìƒˆë¡œìš´ ì„œë¹„ìŠ¤ ë° ì‹ ìƒí’ˆì´ë‚˜ ì´ë²¤íŠ¸ ì •ë³´ ë“±ì˜ ì•ˆë‚´
+* ì€í–‰ê³„ì¢Œì •ë³´, ì‹ ìš©ì¹´ë“œì •ë³´ : ìœ ë£Œì •ë³´ ì´ìš© ë° ìƒí’ˆ êµ¬ë§¤ì— ëŒ€í•œ ê²°ì œ
+* ì£¼ì†Œ, ì „í™”ë²ˆí˜¸ : ì²­êµ¬ì„œ, ê²½í’ˆ ë° ì‡¼í•‘ë¬¼í’ˆ ë°°ì†¡ì— ëŒ€í•œ ì •í™•í•œ ë°°ì†¡ì§€ì˜ í™•ë³´
+* ê¸°íƒ€ ì„ íƒí•­ëª© : ê°œì¸ë§žì¶¤ ì„œë¹„ìŠ¤ë¥¼ ì œê³µí•˜ê¸° ìœ„í•œ ìžë£Œ
+2.ê°œì¸ì •ë³´ ìˆ˜ì§‘ í•­ëª© ë° ë³´ìœ , ì´ìš©ê¸°ê°„
+ë‹¹ì‚¬ íšŒì›ì„ ëŒ€ìƒìœ¼ë¡œ ê°ì¢… ì„œë¹„ìŠ¤ë¥¼ ì œê³µí•˜ê¸° ìœ„í•´ ì œê³µ ë°›ëŠ” í•„ìˆ˜ íšŒì›ì •ë³´ëŠ” ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.
 
-¨ç ¼º¸í
-¨è ÁÖ¹Îµî·Ï¹øÈ£(È¸¿øÀÇ °æ¿ì)
-¨é ÁÖ¼Ò
-¨ê ÀüÈ­¹øÈ£(ÀÏ¹ÝÀüÈ­¿Í ÇÚµåÆù)
-¨ë Èñ¸ÁID(È¸¿øÀÇ °æ¿ì)
-¨ì ºñ¹Ð¹øÈ£(È¸¿øÀÇ °æ¿ì)
-ÀÌ¿Ü¿¡ È¸¿ø°¡ÀÔ½Ã °í°´´ÔÀÌ ¿øÇÏ½Ç °æ¿ì¿¡ Ãß°¡ Á¤º¸¸¦ ¼±ÅÃÇÏ¿© Á¦°øÇÏ½Ç ¼ö ÀÖµµ·Ï µÇ¾î ÀÖÀ¸¸ç ÀÏºÎ ¹°Ç° ¹× ¼­ºñ½º »óÇ°¿¡ ´ëÇÑ ÁÖ¹® ¹× Á¢¼ö½Ã¿¡ °í°´´ÔÀÌ ¿øÇÏ½Ã´Â Á¤È®ÇÑ ÁÖ¹® ³»¿ëÀ» ÆÄ¾ÇÇÏ¿© ¿øÈ°ÇÑ ÁÖ¹® ¹× °áÁ¦¿Í ¹è¼ÛÀ» À§ÇÏ¿© Ãß°¡ Á¤º¸¸¦ ¿ä±¸ÇÏ°í ÀÖ½À´Ï´Ù.
+â‘  ì„±ëª…
+â‘¡ ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸(íšŒì›ì˜ ê²½ìš°)
+â‘¢ ì£¼ì†Œ
+â‘£ ì „í™”ë²ˆí˜¸(ì¼ë°˜ì „í™”ì™€ í•¸ë“œí°)
+â‘¤ í¬ë§ID(íšŒì›ì˜ ê²½ìš°)
+â‘¥ ë¹„ë°€ë²ˆí˜¸(íšŒì›ì˜ ê²½ìš°)
+ì´ì™¸ì— íšŒì›ê°€ìž…ì‹œ ê³ ê°ë‹˜ì´ ì›í•˜ì‹¤ ê²½ìš°ì— ì¶”ê°€ ì •ë³´ë¥¼ ì„ íƒí•˜ì—¬ ì œê³µí•˜ì‹¤ ìˆ˜ ìžˆë„ë¡ ë˜ì–´ ìžˆìœ¼ë©° ì¼ë¶€ ë¬¼í’ˆ ë° ì„œë¹„ìŠ¤ ìƒí’ˆì— ëŒ€í•œ ì£¼ë¬¸ ë° ì ‘ìˆ˜ì‹œì— ê³ ê°ë‹˜ì´ ì›í•˜ì‹œëŠ” ì •í™•í•œ ì£¼ë¬¸ ë‚´ìš©ì„ íŒŒì•…í•˜ì—¬ ì›í™œí•œ ì£¼ë¬¸ ë° ê²°ì œì™€ ë°°ì†¡ì„ ìœ„í•˜ì—¬ ì¶”ê°€ ì •ë³´ë¥¼ ìš”êµ¬í•˜ê³  ìžˆìŠµë‹ˆë‹¤.
 
-È¸¿øÀÌ Å»ÅðÇÏ½Ã°Å³ª ÄÚ¼¾ÀÇ ÀÌ¿ë¾à°ü¿¡ ÀÇÇÑ È¸¿ø ÀÚ°Ý »ó½ÇÀÇ °æ¿ì¿¡ ´ç»ç°¡ º¸À¯ÇÑ ÇØ´ç °í°´ÀÇ °³ÀÎ Á¤º¸´Â ÁöÃ¼ ¾øÀÌ ÆÄ±âµË´Ï´Ù.
+íšŒì›ì´ íƒˆí‡´í•˜ì‹œê±°ë‚˜ ì½”ì„¼ì˜ ì´ìš©ì•½ê´€ì— ì˜í•œ íšŒì› ìžê²© ìƒì‹¤ì˜ ê²½ìš°ì— ë‹¹ì‚¬ê°€ ë³´ìœ í•œ í•´ë‹¹ ê³ ê°ì˜ ê°œì¸ ì •ë³´ëŠ” ì§€ì²´ ì—†ì´ íŒŒê¸°ë©ë‹ˆë‹¤.
 
-´Ù¸¸, ´ç»ç´Â ºÒ·® È¸¿øÀÇ ºÎÁ¤ÇÑ ÀÌ¿ëÀÇ Àç¹ßÀ» ¹æÁöÇÏ±â À§ÇØ, ÀÌ¿ë°è¾à ÇØÁöÀÏ·ÎºÎÅÍ 1³â°£ ÇØ´ç È¸¿øÀÇ ÁÖ¹Îµî·Ï¹øÈ£¸¦ º¸À¯ÇÒ ¼ö ÀÖ½À´Ï´Ù. ±×¸®°í »ó¹ý, ÀüÀÚ»ó°Å·¡ µî¿¡¼­ÀÇ ¼ÒºñÀÚº¸È£¿¡ °üÇÑ ¹ý·ü µî °ü°è¹ý·ÉÀÇ ±ÔÁ¤¿¡ ÀÇÇÏ¿© º¸Á¸ÇÒ ÇÊ¿ä°¡ ÀÖ´Â °æ¿ì È¸»ç´Â °ü°è¹ý·É¿¡¼­ Á¤ÇÑ ÀÏÁ¤ÇÑ ±â°£ µ¿¾È È¸¿øÁ¤º¸¸¦ º¸°üÇÕ´Ï´Ù. ÀÌ °æ¿ì È¸»ç´Â È¸»ç´Â º¸°üÇÏ´Â Á¤º¸¸¦ ±× º¸°üÀÇ ¸ñÀûÀ¸·Î¸¸ ÀÌ¿ëÇÏ¸ç º¸Á¸±â°£Àº ¾Æ·¡¿Í °°½À´Ï´Ù.
+ë‹¤ë§Œ, ë‹¹ì‚¬ëŠ” ë¶ˆëŸ‰ íšŒì›ì˜ ë¶€ì •í•œ ì´ìš©ì˜ ìž¬ë°œì„ ë°©ì§€í•˜ê¸° ìœ„í•´, ì´ìš©ê³„ì•½ í•´ì§€ì¼ë¡œë¶€í„° 1ë…„ê°„ í•´ë‹¹ íšŒì›ì˜ ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ë¥¼ ë³´ìœ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ê·¸ë¦¬ê³  ìƒë²•, ì „ìžìƒê±°ëž˜ ë“±ì—ì„œì˜ ì†Œë¹„ìžë³´í˜¸ì— ê´€í•œ ë²•ë¥  ë“± ê´€ê³„ë²•ë ¹ì˜ ê·œì •ì— ì˜í•˜ì—¬ ë³´ì¡´í•  í•„ìš”ê°€ ìžˆëŠ” ê²½ìš° íšŒì‚¬ëŠ” ê´€ê³„ë²•ë ¹ì—ì„œ ì •í•œ ì¼ì •í•œ ê¸°ê°„ ë™ì•ˆ íšŒì›ì •ë³´ë¥¼ ë³´ê´€í•©ë‹ˆë‹¤. ì´ ê²½ìš° íšŒì‚¬ëŠ” íšŒì‚¬ëŠ” ë³´ê´€í•˜ëŠ” ì •ë³´ë¥¼ ê·¸ ë³´ê´€ì˜ ëª©ì ìœ¼ë¡œë§Œ ì´ìš©í•˜ë©° ë³´ì¡´ê¸°ê°„ì€ ì•„ëž˜ì™€ ê°™ìŠµë‹ˆë‹¤.
 
-- °è¾à ¶Ç´Â Ã»¾àÃ¶È¸ µî¿¡ °üÇÑ ±â·Ï : 5³â
-- ´ë±Ý°áÁ¦ ¹× ÀçÈ­µîÀÇ °ø±Þ¿¡ °üÇÑ ±â·Ï : 5³â
-- ¼ÒºñÀÚÀÇ ºÒ¸¸ ¶Ç´Â ºÐÀïÃ³¸®¿¡ °üÇÑ ±â·Ï : 3³â
-3.¾Æµ¿ÀÇ °³ÀÎÁ¤º¸º¸È£
-´ç»ç´Â "Á¤º¸Åë½Å¸ÁÀÌ¿ë ÃËÁø ¹× Á¤º¸º¸È£µî¿¡ °üÇÑ ¹ý·ü Á¦31Á¶ Á¦1Ç×"¿¡ ÀÇÇÏ¿© ¸¸14¼¼ ¹Ì¸¸ÀÇ ¾Æµ¿ÀÇ °³ÀÎÁ¤º¸ ¼öÁý½Ã ¹ýÁ¤´ë¸®ÀÎÀÇ µ¿ÀÇ¸¦ ¹Þ¾Æ¾ß ÇÕ´Ï´Ù. µû¶ó¼­, ´ç»ç´Â ¸¸14¼¼¹Ì¸¸ÀÇ ¾Æµ¿¿¡ ´ëÇØ¼­´Â °³ÀÎÁ¤º¸¸¦ ¹ÞÁö ¾ÊÀ» »Ó¸¸ ¾Æ´Ï¶ó, È¸¿øÀ¸·Î °¡ÀÔÀÌ µÇÁö ¾Ê½À´Ï´Ù. ´Ü, 14¼¼ ¹Ì¸¸ÀÇ ¾Æµ¿Àº ¹ýÁ¤´ë¸®ÀÎÀÇ µ¿ÀÇ ¹× ¼­¸é ÀÎÁõÈÄ¿¡, È¸¿øÀ¸·Î °¡ÀÔÇÒ ¼ö ÀÖ½À´Ï´Ù. ¶ÇÇÑ, ¸¸ 14¼¼ ¹Ì¸¸ ¾Æµ¿ÀÇ ¹ýÁ¤ ´ë¸®ÀÎÀº ¾Æµ¿ÀÇ °³ÀÎÁ¤º¸ÀÇ ¿­¶÷, Á¤Á¤, µ¿ÀÇ Ã¶È¸¸¦ ¿äÃ»ÇÒ ¼ö ÀÖÀ¸¸ç ÀÌ·± ¿äÃ»ÀÌ ÀÖÀ» °æ¿ì ´ç»ç´Â ÁöÃ¼ ¾øÀÌ ÇÊ¿äÇÑ Á¶Ä¡¸¦ ÃëÇÕ´Ï´Ù.
+- ê³„ì•½ ë˜ëŠ” ì²­ì•½ì² íšŒ ë“±ì— ê´€í•œ ê¸°ë¡ : 5ë…„
+- ëŒ€ê¸ˆê²°ì œ ë° ìž¬í™”ë“±ì˜ ê³µê¸‰ì— ê´€í•œ ê¸°ë¡ : 5ë…„
+- ì†Œë¹„ìžì˜ ë¶ˆë§Œ ë˜ëŠ” ë¶„ìŸì²˜ë¦¬ì— ê´€í•œ ê¸°ë¡ : 3ë…„
+3.ì•„ë™ì˜ ê°œì¸ì •ë³´ë³´í˜¸
+ë‹¹ì‚¬ëŠ” "ì •ë³´í†µì‹ ë§ì´ìš© ì´‰ì§„ ë° ì •ë³´ë³´í˜¸ë“±ì— ê´€í•œ ë²•ë¥  ì œ31ì¡° ì œ1í•­"ì— ì˜í•˜ì—¬ ë§Œ14ì„¸ ë¯¸ë§Œì˜ ì•„ë™ì˜ ê°œì¸ì •ë³´ ìˆ˜ì§‘ì‹œ ë²•ì •ëŒ€ë¦¬ì¸ì˜ ë™ì˜ë¥¼ ë°›ì•„ì•¼ í•©ë‹ˆë‹¤. ë”°ë¼ì„œ, ë‹¹ì‚¬ëŠ” ë§Œ14ì„¸ë¯¸ë§Œì˜ ì•„ë™ì— ëŒ€í•´ì„œëŠ” ê°œì¸ì •ë³´ë¥¼ ë°›ì§€ ì•Šì„ ë¿ë§Œ ì•„ë‹ˆë¼, íšŒì›ìœ¼ë¡œ ê°€ìž…ì´ ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¨, 14ì„¸ ë¯¸ë§Œì˜ ì•„ë™ì€ ë²•ì •ëŒ€ë¦¬ì¸ì˜ ë™ì˜ ë° ì„œë©´ ì¸ì¦í›„ì—, íšŒì›ìœ¼ë¡œ ê°€ìž…í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ë˜í•œ, ë§Œ 14ì„¸ ë¯¸ë§Œ ì•„ë™ì˜ ë²•ì • ëŒ€ë¦¬ì¸ì€ ì•„ë™ì˜ ê°œì¸ì •ë³´ì˜ ì—´ëžŒ, ì •ì •, ë™ì˜ ì² íšŒë¥¼ ìš”ì²­í•  ìˆ˜ ìžˆìœ¼ë©° ì´ëŸ° ìš”ì²­ì´ ìžˆì„ ê²½ìš° ë‹¹ì‚¬ëŠ” ì§€ì²´ ì—†ì´ í•„ìš”í•œ ì¡°ì¹˜ë¥¼ ì·¨í•©ë‹ˆë‹¤.
 
-4.°³ÀÎÁ¤º¸ Á¦°ø ¹× °øÀ¯
-´ç»ç È¸¿øÀÇ °í°´ °³ÀÎÁ¤º¸´Â ¿øÄ¢ÀûÀ¸·Î Á¦3±â°ü ¹× Á¦3ÀÚ¿¡°Ô Á¦°ø µÉ ¼ö ¾øÀ¸¸ç ´ç»ç°¡ È¸¿ø´Ô²² ÆíÀÇ¸¦ Á¦°øÇÏ±â À§ÇÏ¿© Æ¯Á¤ È¸»ç¿¡ °³ÀÎÁ¤º¸¸¦ Á¦°øÇÏ°íÀÚ ÇÒ °æ¿ì¿¡´Â ¹Ýµå½Ã È¸¿ø´Ô²² ÇØ´çµÇ´Â ÇÕ´çÇÑ ÀýÂ÷¸¦ ÅëÇÏ¿© µ¿ÀÇ¸¦ ±¸ÇÏµµ·Ï µÇ¾î ÀÖ½À´Ï´Ù. ´Ü, ´ÙÀ½ °æ¿ì¿¡ ÇÑÇÏ¿© °í°´ÀÇ µ¿ÀÇ ¾øÀÌ °³ÀÎÁ¤º¸¸¦ Á¦°øÇÒ ¼ö ÀÖ½À´Ï´Ù.
+4.ê°œì¸ì •ë³´ ì œê³µ ë° ê³µìœ 
+ë‹¹ì‚¬ íšŒì›ì˜ ê³ ê° ê°œì¸ì •ë³´ëŠ” ì›ì¹™ì ìœ¼ë¡œ ì œ3ê¸°ê´€ ë° ì œ3ìžì—ê²Œ ì œê³µ ë  ìˆ˜ ì—†ìœ¼ë©° ë‹¹ì‚¬ê°€ íšŒì›ë‹˜ê»˜ íŽ¸ì˜ë¥¼ ì œê³µí•˜ê¸° ìœ„í•˜ì—¬ íŠ¹ì • íšŒì‚¬ì— ê°œì¸ì •ë³´ë¥¼ ì œê³µí•˜ê³ ìž í•  ê²½ìš°ì—ëŠ” ë°˜ë“œì‹œ íšŒì›ë‹˜ê»˜ í•´ë‹¹ë˜ëŠ” í•©ë‹¹í•œ ì ˆì°¨ë¥¼ í†µí•˜ì—¬ ë™ì˜ë¥¼ êµ¬í•˜ë„ë¡ ë˜ì–´ ìžˆìŠµë‹ˆë‹¤. ë‹¨, ë‹¤ìŒ ê²½ìš°ì— í•œí•˜ì—¬ ê³ ê°ì˜ ë™ì˜ ì—†ì´ ê°œì¸ì •ë³´ë¥¼ ì œê³µí•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-¨ç ¾÷¹«»ó ¹è¼Û¾÷Ã¼¿¡ ¹è¼Û¿¡ ÇÊ¿äÇÑ ÃÖ¼ÒÇÑÀÇ ÀÌ¿ëÀÚÁ¤º¸(¼º¸í, ÁÖ¼Ò, ÀüÈ­¹øÈ£)¸¦ ¾Ë·ÁÁÖ´Â °æ¿ì
-¨è Åë°èÀÛ¼º, ÇÐ¼ú¿¬±¸ ¶Ç´Â ½ÃÀåÁ¶»ç¸¦ À§ÇÏ¿© ÇÊ¿äÇÑ °æ¿ì·Î¼­ Æ¯Á¤ °³ÀÎÀ» ½Äº°ÇÒ ¼ö ¾ø´Â ÇüÅÂ·Î Á¦°øÇÏ´Â °æ¿ì
-¨é Á¤ºÎ ±â°üÀÇ °ø½ÄÀû ¿äÃ»ÀÌ ÀÖÀ» °æ¿ì.
-5.°³ÀÎÁ¤º¸ ¿­¶÷,Á¤Á¤ ¹× »èÁ¦Ã³¸®
-È¸¿ø´ÔÀÌ ¿øÇÏ½Ç °æ¿ì ¾ðÁ¦¶óµµ ´ç»ç¿¡¼­ °³ÀÎÁ¤º¸¸¦ ¿­¶÷ÇÏ½Ç ¼ö ÀÖÀ¸¸ç º¸°üµÈ ÇÊ¼ö Á¤º¸¸¦ ¼öÁ¤ÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù. ¶ÇÇÑ È¸¿ø°¡ÀÔ½Ã ¿ä±¸µÈ ÇÊ¼ö Á¤º¸ ¿ÜÀÇ Ãß°¡ Á¤º¸´Â ¾ðÁ¦³ª ¿­¶÷, ¼öÁ¤, »èÁ¦ÇÒ ¼ö ÀÖ½À´Ï´Ù. È¸¿ø´ÔÀÇ °³ÀÎÁ¤º¸ º¯°æ ¹× »èÁ¦¿Í È¸¿øÅ»Åð´Â ´ç»çÀÇ °í°´¼¾ÅÍ¿¡¼­ ·Î±×ÀÎ(Login) ÈÄ ÀÌ¿ëÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù.
+â‘  ì—…ë¬´ìƒ ë°°ì†¡ì—…ì²´ì— ë°°ì†¡ì— í•„ìš”í•œ ìµœì†Œí•œì˜ ì´ìš©ìžì •ë³´(ì„±ëª…, ì£¼ì†Œ, ì „í™”ë²ˆí˜¸)ë¥¼ ì•Œë ¤ì£¼ëŠ” ê²½ìš°
+â‘¡ í†µê³„ìž‘ì„±, í•™ìˆ ì—°êµ¬ ë˜ëŠ” ì‹œìž¥ì¡°ì‚¬ë¥¼ ìœ„í•˜ì—¬ í•„ìš”í•œ ê²½ìš°ë¡œì„œ íŠ¹ì • ê°œì¸ì„ ì‹ë³„í•  ìˆ˜ ì—†ëŠ” í˜•íƒœë¡œ ì œê³µí•˜ëŠ” ê²½ìš°
+â‘¢ ì •ë¶€ ê¸°ê´€ì˜ ê³µì‹ì  ìš”ì²­ì´ ìžˆì„ ê²½ìš°.
+5.ê°œì¸ì •ë³´ ì—´ëžŒ,ì •ì • ë° ì‚­ì œì²˜ë¦¬
+íšŒì›ë‹˜ì´ ì›í•˜ì‹¤ ê²½ìš° ì–¸ì œë¼ë„ ë‹¹ì‚¬ì—ì„œ ê°œì¸ì •ë³´ë¥¼ ì—´ëžŒí•˜ì‹¤ ìˆ˜ ìžˆìœ¼ë©° ë³´ê´€ëœ í•„ìˆ˜ ì •ë³´ë¥¼ ìˆ˜ì •í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ë˜í•œ íšŒì›ê°€ìž…ì‹œ ìš”êµ¬ëœ í•„ìˆ˜ ì •ë³´ ì™¸ì˜ ì¶”ê°€ ì •ë³´ëŠ” ì–¸ì œë‚˜ ì—´ëžŒ, ìˆ˜ì •, ì‚­ì œí•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. íšŒì›ë‹˜ì˜ ê°œì¸ì •ë³´ ë³€ê²½ ë° ì‚­ì œì™€ íšŒì›íƒˆí‡´ëŠ” ë‹¹ì‚¬ì˜ ê³ ê°ì„¼í„°ì—ì„œ ë¡œê·¸ì¸(Login) í›„ ì´ìš©í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-6.ºñÈ¸¿ø°í°´ÀÇ °³ÀÎÁ¤º¸°ü¸®
-¨ç ´ç»ç´Â ºñÈ¸¿ø °í°´ ¶ÇÇÑ ¹°Ç° ¹× ¼­ºñ½º »óÇ°ÀÇ ±¸¸Å¸¦ ÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù. ´ç»ç´Â ºñÈ¸¿ø ÁÖ¹®ÀÇ °æ¿ì ¹è¼Û ¹× ´ë±Ý °áÁ¦, »óÇ° ¹è¼Û¿¡ ¹Ýµå½Ã ÇÊ¿äÇÑ °³ÀÎÁ¤º¸¸¸À» °í°´´Ô²² ¿äÃ»ÇÏ°í ÀÖ½À´Ï´Ù.
-¨è ´ç»ç¿¡¼­ ºñÈ¸¿øÀ¸·Î ±¸ÀÔÀ» ÇÏ½Å °æ¿ì ºñÈ¸¿ø °í°´²²¼­ ÀÔ·ÂÇÏ½Å ÁöºÒÀÎ Á¤º¸ ¹× ¼ö·ÉÀÎ Á¤º¸´Â ´ë±Ý °áÁ¦ ¹× »óÇ° ¹è¼Û¿¡ °ü·ÃÇÑ ¿ëµµ ¿Ü¿¡´Â ´Ù¸¥ ¾î¶°ÇÑ ¿ëµµ·Îµµ »ç¿ëµÇÁö ¾Ê½À´Ï´Ù.
-7.³»ºÎ º¸¾È ´ëÃ¥
-´ç»ç´Â °í°´ÀÇ °³ÀÎÁ¤º¸¸¦ Ãë±ÞÇÒ ¼ö ÀÖ´Â ÀÎ·ÂÀ» ÃÖ¼ÒÇÑÀ¸·Î ÇÑÁ¤ÇÏ°í ÇØ´ç ÀÎ¿ø¿¡°Ô Á¤±âÀû, ºÎÁ¤±âÀû º¸¾È±³À°À» ½Ç½ÃÇÏ°í ÀÖ½À´Ï´Ù. ¶ÇÇÑ °í°´´ÔÀÇ °³ÀÎÁ¤º¸¸¦ ¿­¶÷ÇÒ ¼ö ÀÖ´Â ½Ã½ºÅÛ¿¡´Â 2Â÷ ¾ÏÈ£ Ã¼Á¦¸¦ °®Ãß°í ¿ÜºÎ ³×Æ®¿öÅ©·ÎºÎÅÍ Ã¶ÀúÇÏ°Ô °Ý¸®½ÃÄÑ ¿ÜºÎ Ä§ÀÔ ¹× ³»ºÎ Ä§ÀÔ¿¡ ´ëÀÀÇÏ°í ÀÖ½À´Ï´Ù.
+6.ë¹„íšŒì›ê³ ê°ì˜ ê°œì¸ì •ë³´ê´€ë¦¬
+â‘  ë‹¹ì‚¬ëŠ” ë¹„íšŒì› ê³ ê° ë˜í•œ ë¬¼í’ˆ ë° ì„œë¹„ìŠ¤ ìƒí’ˆì˜ êµ¬ë§¤ë¥¼ í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ë‹¹ì‚¬ëŠ” ë¹„íšŒì› ì£¼ë¬¸ì˜ ê²½ìš° ë°°ì†¡ ë° ëŒ€ê¸ˆ ê²°ì œ, ìƒí’ˆ ë°°ì†¡ì— ë°˜ë“œì‹œ í•„ìš”í•œ ê°œì¸ì •ë³´ë§Œì„ ê³ ê°ë‹˜ê»˜ ìš”ì²­í•˜ê³  ìžˆìŠµë‹ˆë‹¤.
+â‘¡ ë‹¹ì‚¬ì—ì„œ ë¹„íšŒì›ìœ¼ë¡œ êµ¬ìž…ì„ í•˜ì‹  ê²½ìš° ë¹„íšŒì› ê³ ê°ê»˜ì„œ ìž…ë ¥í•˜ì‹  ì§€ë¶ˆì¸ ì •ë³´ ë° ìˆ˜ë ¹ì¸ ì •ë³´ëŠ” ëŒ€ê¸ˆ ê²°ì œ ë° ìƒí’ˆ ë°°ì†¡ì— ê´€ë ¨í•œ ìš©ë„ ì™¸ì—ëŠ” ë‹¤ë¥¸ ì–´ë– í•œ ìš©ë„ë¡œë„ ì‚¬ìš©ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+7.ë‚´ë¶€ ë³´ì•ˆ ëŒ€ì±…
+ë‹¹ì‚¬ëŠ” ê³ ê°ì˜ ê°œì¸ì •ë³´ë¥¼ ì·¨ê¸‰í•  ìˆ˜ ìžˆëŠ” ì¸ë ¥ì„ ìµœì†Œí•œìœ¼ë¡œ í•œì •í•˜ê³  í•´ë‹¹ ì¸ì›ì—ê²Œ ì •ê¸°ì , ë¶€ì •ê¸°ì  ë³´ì•ˆêµìœ¡ì„ ì‹¤ì‹œí•˜ê³  ìžˆìŠµë‹ˆë‹¤. ë˜í•œ ê³ ê°ë‹˜ì˜ ê°œì¸ì •ë³´ë¥¼ ì—´ëžŒí•  ìˆ˜ ìžˆëŠ” ì‹œìŠ¤í…œì—ëŠ” 2ì°¨ ì•”í˜¸ ì²´ì œë¥¼ ê°–ì¶”ê³  ì™¸ë¶€ ë„¤íŠ¸ì›Œí¬ë¡œë¶€í„° ì² ì €í•˜ê²Œ ê²©ë¦¬ì‹œì¼œ ì™¸ë¶€ ì¹¨ìž… ë° ë‚´ë¶€ ì¹¨ìž…ì— ëŒ€ì‘í•˜ê³  ìžˆìŠµë‹ˆë‹¤.
 
-8.ÄíÅ°»ç¿ë
-´ç»ç´Â ÄíÅ°¸¦ »ç¿ëÇÏÁö ¾Ê½À´Ï´Ù.
+8.ì¿ í‚¤ì‚¬ìš©
+ë‹¹ì‚¬ëŠ” ì¿ í‚¤ë¥¼ ì‚¬ìš©í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
 
-ÀÌ»óÀÇ ´ç»çÀÇ °³ÀÎÁ¤º¸ º¸È£Á¤Ã¥Àº »çÀÌÆ® ¿ÀÇÂ°ú µ¿½Ã¿¡ ½ÃÇàÇÕ´Ï´Ù.
-´ç»ç´Â °³ÀÎÁ¤º¸ º¸È£ °ü¸®Ã¥ÀÓÀÚ¸¦ ¾Æ·¡¿Í °°ÀÌ ÁöÁ¤ÇÕ´Ï´Ù.
+ì´ìƒì˜ ë‹¹ì‚¬ì˜ ê°œì¸ì •ë³´ ë³´í˜¸ì •ì±…ì€ ì‚¬ì´íŠ¸ ì˜¤í”ˆê³¼ ë™ì‹œì— ì‹œí–‰í•©ë‹ˆë‹¤.
+ë‹¹ì‚¬ëŠ” ê°œì¸ì •ë³´ ë³´í˜¸ ê´€ë¦¬ì±…ìž„ìžë¥¼ ì•„ëž˜ì™€ ê°™ì´ ì§€ì •í•©ë‹ˆë‹¤.
 			</textarea>
-				<br> <span style="position:relative;right:300px"><input type="checkbox" id="agree" style="left:0"> °³ÀÎÁ¤º¸ ¼öÁý ¹× ÀÌ¿ëµ¿ÀÇ¿¡
-				°üÇÑ »çÇ×À» ÀÐ¾úÀ¸¸ç, ÀÌ¿¡ µ¿ÀÇÇÕ´Ï´Ù. </span>
+				<br> <span style="position:relative;right:300px"><input type="checkbox" id="agree" style="left:0"> ê°œì¸ì •ë³´ ìˆ˜ì§‘ ë° ì´ìš©ë™ì˜ì—
+				ê´€í•œ ì‚¬í•­ì„ ì½ì—ˆìœ¼ë©°, ì´ì— ë™ì˜í•©ë‹ˆë‹¤. </span>
 			</form>
-			<input type="submit" class="btn" id="submission" value="¸Å¹°µî·Ï" style="position:relative;right:150px">
+			<input type="submit" class="btn" id="submission" value="ë§¤ë¬¼ë“±ë¡" style="position:relative;right:150px">
 		</div>
 	</div>
 </section>

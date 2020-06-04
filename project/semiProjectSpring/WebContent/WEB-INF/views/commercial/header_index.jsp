@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -27,7 +26,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
 		id="mainNav2">
 		<div class="container .col-md-12">
-			<a class="navbar-brand js-scroll-trigger" href="hyundoo.Project?page=commercial&code=1">╩С╠г ╨п╪╝</a>
+			<a class="navbar-brand js-scroll-trigger" href="hyundoo.Project?page=commercial&code=1">Л┐│Й╤▄ К╤└Л└²</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -37,21 +36,21 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item2"><a class="nav-link2 js-scroll-trigger"
-						href="#about">╟╜©бю╞╢т х╞©╣гу╢о╢ы.</a></li>
+						href="#about">Й╟∙Л≤╗Л°═К▀≤ М≥≤Л≤│М∙╘К▀┬К▀╓.</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto2">
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="semi.Project?page=index">х╗</a></li>
+						href="semi.Project?page=index">М≥┬</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="semi.Project?page=commercial&code=98">╦е╧╟</a></li>
+						href="semi.Project?page=commercial&code=98">К╖╓К╛╪</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="semi.Project?page=commercial&code=97">╦е╧╟╣Н╥о</a></li>
+						href="semi.Project?page=commercial&code=97">К╖╓К╛╪К⌠╠К║²</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto2">
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#about">Ё╩а╓╨╦</a></li>
+						href="#about">К┌╢Л═∙КЁ╢</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#projects">╥н╠в╬ф©Т</a></li>
+						href="#projects">К║°Й╥╦Л∙└Л⌡┐</a></li>
 
 				</ul>
 			</div>
