@@ -5,9 +5,9 @@
 }
 
 ul li {
-	list-style: none;
+	
 	display: inline;
-	outline: 1px solid black;
+	
 }
 
 .table {

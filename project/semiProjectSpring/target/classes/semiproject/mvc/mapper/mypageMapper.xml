@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mypage">
+
+<select id="lessor_infor" parameterType="String" resultType="mypagevo">
+	select id , pwd , email ,name , birth , gender , tel from testtable where id= #{id}
+</select>
+
+<update id="lessor_infor_amend" parameterType="mypagevo">
+update testtable set
+	pwd = #{pwd},
+	name = #{name} ,
+	email = #{email},
+	tel = #{tel}
+	where id = #{id}
+</update>
+	
+</mapper>
