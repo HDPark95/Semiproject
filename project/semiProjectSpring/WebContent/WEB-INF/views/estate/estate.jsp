@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ include file="../include/header_index.jsp"%>
 
@@ -11,10 +11,10 @@
 			<div class="col-md-12 mt-5">
 				<!--  body -->
 				<div class="col-md-8 col-sm-8 float-left">
-					<p>┴Ў╡╡</p>
+					<p>ьзАыПД</p>
 				</div>
 				<div class="col-md-4 col-sm-4 float-left">
-					<p>╕о╜║╞о</p>
+					<p>ыжмьКдэК╕</p>
 					<ul>
 						<c:forEach begin="1" end="10" step="1" varStatus="i">
 							<li class="list-inline">
@@ -22,12 +22,12 @@
 									<a href="#">
 										<div class="col-md-12 col-sm-12">
 											<img src="">
-											<p>└╠╣╠┴Ў!</p>
+											<p>ьЭ┤ып╕ьзА!</p>
 										</div>
 										<div class="col-md-12 col-sm-12">
-											<p>╕┼╣░┴╛╖∙${i.index }</p>
-											<span> ╕┼╣░ ░б░▌${i.index }</span>
-											<p>╕┼╣░╝│╕э${i.index }</p>
+											<p>ыздым╝ьвЕыеШ${i.index }</p>
+											<span> ыздым╝ ъ░Аъ▓й${i.index }</span>
+											<p>ыздым╝ьДдыкЕ${i.index }</p>
 										</div>
 									</a>
 								</div>
