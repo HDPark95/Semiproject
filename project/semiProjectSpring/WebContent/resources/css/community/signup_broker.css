@@ -1,8 +1,7 @@
 body {
-	background-color: #F2F2F2;
+background-color: #F2F2F2;
 }
-
-h1 {
+h1{
 	text-align: center;
 	font-size: 70px;
 	margin-top: 100px;
@@ -12,7 +11,6 @@ h1 {
 h4 {
 	text-align: center;
 }
-
 .container {
 	position: relative;
 	left: 80px;
@@ -33,6 +31,11 @@ div, label {
 
 .form-horizontal .control-label {
 	text-align: center;
+}
+
+section {
+	position: relative;
+	left: 270px;
 }
 
 .form-control {
@@ -71,9 +74,7 @@ div, label {
 #signup {
 	right: 20px;
 }
-
 #cancel {
 	background-color: #6E6E6E;
 	color: white;
 }
-

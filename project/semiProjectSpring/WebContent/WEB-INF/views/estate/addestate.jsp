@@ -240,25 +240,22 @@
 	            		<div class="col-md-12 mt-12  add-sub-page">
 	            			<table >
 	            				<tr>
-	            					<td colspan="2">사진등록</td>
+	            					<td colspan="2">매물종류</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						업로드할 사진
+	            						종류선택
 	            					</td>
 	            					<td >
-	            						<img src="resources/assets/img/main.jpg" style="width: 300px; height: 300px;">
+	            					 원룸 투룸 쓰리룸 오피스텔(도시형) 아파트
 	            					</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						파일 업로드
+	            						건물유형
 	            					</td>
 	            					<td>
-	            						<form action="imgupload" method="post" enctype="multipart" enctype="multipart/form-data">
-	            							<input type="file" value="파일선택"><br>
-	            							<input type="submit" value="파일업로드">
-	            						</form>
+	            						단독 다가구 빌라/연립/다세대 상가주택
 	            					</td>
 	            				</tr>
 	            			</table>

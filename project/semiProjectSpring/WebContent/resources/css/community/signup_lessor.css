@@ -35,6 +35,11 @@ div, label {
 	text-align: center;
 }
 
+section {
+	position: relative;
+	left: 270px;
+}
+
 .form-control {
 	height: 40px;
 }

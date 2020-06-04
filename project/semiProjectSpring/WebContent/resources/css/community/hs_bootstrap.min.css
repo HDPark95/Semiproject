@@ -4569,6 +4569,12 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 	text-decoration: none
 }
 
+.nav-link.disabled {
+	color: #adb5bd;
+	pointer-events: none;
+	cursor: default
+}
+
 .nav-tabs {
 	border-bottom: 1px solid #444
 }

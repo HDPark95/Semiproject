@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%@ include file="../include/header_index.jsp"%>
+ <link href="resources/css/community/writing.css" rel="stylesheet">
 <%@ include file="../include/header_menu.jsp"%>
 <link href="resources/css/community/writing.css" rel="stylesheet">
 <script type="text/javascript" src="resources/edit/js/service/HuskyEZCreator.js" charset="UTF-8"></script>
@@ -9,11 +11,11 @@
 		<form action="" method="post">
 			<ul class="nav nav-tabs">
 				<li class="nav-item"><a class="nav-link" data-toggle="tab" 
-					href="#commercial" id="com">상가</a></li>
+					>상가</a></li>
 				<li class="nav-item"><a class="nav-link" data-toggle="tab"
-					href="#estate" id="est">부동산</a></li>
+					>부동산</a></li>
 				<li class="nav-item"><a class="nav-link active" data-toggle="tab"
-					href="#auction" id="auc">경매</a></li>	
+					>경매</a></li>	
 			</ul>
 			<div id="myTabContent" class="tab-content">
 				<div class="tab-pane fade" id="commercial">
@@ -83,7 +85,7 @@
 				<textarea id="ir1" class="form-control" rows="20" contenteditable="true"></textarea>
 				<div id="writebutton">
 					<button type="button" class="btn btn-success">확인</button>
-					<button type="button" class="btn btn-secondary" onclick="location='comuMain'">취소</button>
+					<button type="button" class="btn btn-secondary" onclick="location='community.jsp'">취소</button>
 				</div>
 			</div>
 		</form>
@@ -112,5 +114,4 @@
 		})
 	});
 </script>
-
 <%@ include file="../include/footer.jsp"%>
