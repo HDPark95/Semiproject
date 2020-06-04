@@ -5098,19 +5098,15 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 
 .th_card {
 	position: relative;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	min-width: 0;
-	word-wrap: break-word;
-	background-color: #303030;
-	background-clip: border-box;
-	border: 1px solid rgba(0, 0, 0, 0.125);
-	border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 
 .card>hr {
@@ -5167,8 +5163,8 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 .th_card-header {
 	padding: 0.75rem 1.25rem;
 	margin-bottom: 0;
-	background-color: #444;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+/* 	background-color: #444; */
+	border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .th_card-header:first-child {

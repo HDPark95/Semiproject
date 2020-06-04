@@ -16,7 +16,7 @@
 		<div class="form-group ">
 			<label for="inputEmail" class="col-sm-2 control-label">아이디</label>
 			<div class="col-sm-3 container">
-				<input type="hidden" class="form-control" name="id"
+				<input type="email" class="form-control" name="id"
 					placeholder="" readonly="readonly" value="${vo.id }">
 			</div>
 		</div>
