@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="board">
+<insert id="add" parameterType="bvo">
+insert into b_board values(b_num_seq.nextVal,#{b_writer},#{b_subject},#{b_pwd},#{b_type},sysdate
+,#{b_readcnt},#{b_reg},#{re_step},#{re_level},#{content},#{ans},#{remove})
+</insert>
+<delete id="remove" parameterType="bvo">
+
+</delete>
+
+<update id="ans" parameterType="bvo">
+
+</update>
+
+
+
+
+</mapper>
