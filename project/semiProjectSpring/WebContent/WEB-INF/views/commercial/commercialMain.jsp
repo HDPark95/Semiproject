@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="header_index.jsp"%>
 <%@include file="sidemenu.jsp"%>
@@ -14,23 +13,23 @@
 				<select id="combobox1" class="form-control"
 					style="margin-right: 30px; width: 120px">
 					<!-- <input type="text" autocomplete="off" placeholder="Select a State" class="combobox input-large form-control"> -->
-					<option>±¸ ¼±ÅÃ</option>
+					<option>êµ¬ ì„ íƒ</option>
 				</select> <select id="combobox2" class="form-control"
 					style="margin-right: 30px; width: 120px">
 					<!-- <input type="text" autocomplete="off" placeholder="Select a State" class="combobox input-large form-control"> -->
-					<option>µ¿ ¼±ÅÃ</option>
+					<option>ë™ ì„ íƒ</option>
 				</select> <select id="combobox3" class="form-control"
 					style="margin-right: 30px; width: 200px">
-					<option>¾÷Á¾´ëºÐ·ù</option>
+					<option>ì—…ì¢…ëŒ€ë¶„ë¥˜</option>
 				</select> <select id="combobox4" class="form-control"
 					style="margin-right: 30px; width: 250px">
-					<option>¾÷Á¾ÁßºÐ·ù</option>
+					<option>ì—…ì¢…ì¤‘ë¶„ë¥˜</option>
 				</select> <select id="combobox5" class="form-control"
 					style="margin-right: 30px; width: 200px">
-					<option>¾÷Á¾¼ÒºÐ·ù</option>
+					<option>ì—…ì¢…ì†Œë¶„ë¥˜</option>
 				</select>
 			</form>
-			<!-- <p class="text-white m-0">Áöµµ À§Ä¡ ¼±ÅÃ ¹öÆ° µé¾î¿Ã ÀÚ¸®</p> -->
+			<!-- <p class="text-white m-0">ì§€ë„ ìœ„ì¹˜ ì„ íƒ ë²„íŠ¼ ë“¤ì–´ì˜¬ ìžë¦¬</p> -->
 		</div>
 	</div>
 	<!-- Heading Row -->
@@ -70,7 +69,7 @@
 					success : startDataLayer
 				});
 			});
-			//geoJson ·¹ÀÌ¾î Ãß°¡ÇÏ±â
+			//geoJson ë ˆì´ì–´ ì¶”ê°€í•˜ê¸°
 			function startDataLayer(geojson) {
 				map.data.addGeoJson(geojson);
 				map.data.setStyle(function(feature) {
@@ -103,9 +102,9 @@
 			}
 		</script>
 		<div class="col-lg-5" id="information">
-			<h1 class="font-weight-light">ÀÔÁö ¼±Á¤ ¼­ºñ½º</h1>
-			<p>Ã¢¾÷À» ¿øÇÏ½Ã´Â ÀÔÁöÀÇ ÁÂÇ¥¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä. ±× ÀÔÁö ±ÙÃ³ÀÇ À¯µ¿ÀÎ±¸, ÁÖº¯ »ó±ÇºÐ¼®, ½Ç°Å·¡°¡ µî ´Ù¾çÇÑ
-				Á¤º¸¸¦ Á¦°øÇØµå¸³´Ï´Ù. Á¶±Ý ´õ ÀÚ¼¼ÇÑ Á¤º¸¸¦ ¾ò°í ½ÍÀ¸½Ã¸é »ó°ÔÇÏ°Ô °Ë»öÇØº¸¼¼¿ä.</p>
+			<h1 class="font-weight-light">ìž…ì§€ ì„ ì • ì„œë¹„ìŠ¤</h1>
+			<p>ì°½ì—…ì„ ì›í•˜ì‹œëŠ” ìž…ì§€ì˜ ì¢Œí‘œë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”. ê·¸ ìž…ì§€ ê·¼ì²˜ì˜ ìœ ë™ì¸êµ¬, ì£¼ë³€ ìƒê¶Œë¶„ì„, ì‹¤ê±°ëž˜ê°€ ë“± ë‹¤ì–‘í•œ
+				ì •ë³´ë¥¼ ì œê³µí•´ë“œë¦½ë‹ˆë‹¤. ì¡°ê¸ˆ ë” ìžì„¸í•œ ì •ë³´ë¥¼ ì–»ê³  ì‹¶ìœ¼ì‹œë©´ ìƒê²Œí•˜ê²Œ ê²€ìƒ‰í•´ë³´ì„¸ìš”.</p>
 		</div>
 		<!-- <script>
 		$(function() {
@@ -121,8 +120,8 @@
 		<div class="col-md-4 mb-5">
 			<div class="card h-100">
 				<div class="card-body">
-					<h2 class="card-title">¸Å¹° 1</h2>
-					<p class="card-text">¸Å¹° Á¤º¸ ÀÌ¹ÌÁö µî µé¾î¿Ã ÀÚ¸®</p>
+					<h2 class="card-title">ë§¤ë¬¼ 1</h2>
+					<p class="card-text">ë§¤ë¬¼ ì •ë³´ ì´ë¯¸ì§€ ë“± ë“¤ì–´ì˜¬ ìžë¦¬</p>
 				</div>
 				<div class="card-footer">
 					<button onclick="open_pop()" class="btn btn-primary btn-sm">More
@@ -134,8 +133,8 @@
 		<div class="col-md-4 mb-5">
 			<div class="card h-100">
 				<div class="card-body">
-					<h2 class="card-title">¸Å¹° 2</h2>
-					<p class="card-text">¸Å¹° Á¤º¸ ÀÌ¹ÌÁö µî µé¾î¿Ã ÀÚ¸®</p>
+					<h2 class="card-title">ë§¤ë¬¼ 2</h2>
+					<p class="card-text">ë§¤ë¬¼ ì •ë³´ ì´ë¯¸ì§€ ë“± ë“¤ì–´ì˜¬ ìžë¦¬</p>
 				</div>
 				<div class="card-footer">
 					<button onclick="open_pop()" class="btn btn-primary btn-sm">More
@@ -147,8 +146,8 @@
 		<div class="col-md-4 mb-5">
 			<div class="card h-100">
 				<div class="card-body">
-					<h2 class="card-title">¸Å¹° 3</h2>
-					<p class="card-text">¸Å¹° Á¤º¸ ÀÌ¹ÌÁö µî µé¾î¿Ã ÀÚ¸®</p>
+					<h2 class="card-title">ë§¤ë¬¼ 3</h2>
+					<p class="card-text">ë§¤ë¬¼ ì •ë³´ ì´ë¯¸ì§€ ë“± ë“¤ì–´ì˜¬ ìžë¦¬</p>
 				</div>
 				<div class="card-footer">
 					<button onclick="open_pop()" class="btn btn-primary btn-sm">More

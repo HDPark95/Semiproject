@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,16 +10,16 @@
  <form method="post" action="addsurvey" enctype="multipart/form-data">
  <table>  
   <thead>
-   <tr><th colspan="2">Tboard ±ΫΐΫΌΊ Ζϋ</th></tr>
+   <tr><th colspan="2">Tboard κΈ€μ‘μ„± νΌ</th></tr>
   </thead>
   <tbody>
-   <tr><th>Α¦Έρ</th><td><input type="text" name="sub" id="sub"></td></tr>
-   <tr><th>Ή®ΗΧΌφ</th><td><input type="number" name="code" id="code"></td></tr>
-   <tr><th>Ό³Ή®Ή®ΗΧ1</th><td><input type="text" name="surveytitle" id="surveytitle"></td></tr>
-   <tr><th>Ό³Ή®Ή®ΗΧ2</th><td><input type="text" name="surveytitle" id="surveytitle"></td></tr>
-   <tr><th>Ό³Ή®Ή®ΗΧ3</th><td><input type="text" name="surveytitle" id="surveytitle"></td></tr>
-   <tr><th>Ό³Ή®Ή®ΗΧ4</th><td><input type="text" name="surveytitle" id="surveytitle"></td></tr>
-   <tr><th>Ό³Ή®Ή®ΗΧ5</th><td><input type="text" name="surveytitle" id="surveytitle"></td></tr>
+   <tr><th>μ λª©</th><td><input type="text" name="sub" id="sub"></td></tr>
+   <tr><th>λ¬Έν•­μ</th><td><input type="number" name="code" id="code"></td></tr>
+   <tr><th>μ„¤λ¬Έλ¬Έν•­1</th><td><input type="text" name="surveytitle" id="surveytitle"></td></tr>
+   <tr><th>μ„¤λ¬Έλ¬Έν•­2</th><td><input type="text" name="surveytitle" id="surveytitle"></td></tr>
+   <tr><th>μ„¤λ¬Έλ¬Έν•­3</th><td><input type="text" name="surveytitle" id="surveytitle"></td></tr>
+   <tr><th>μ„¤λ¬Έλ¬Έν•­4</th><td><input type="text" name="surveytitle" id="surveytitle"></td></tr>
+   <tr><th>μ„¤λ¬Έλ¬Έν•­5</th><td><input type="text" name="surveytitle" id="surveytitle"></td></tr>
   </tbody>
   <tfoot>
   <tr><th colspan="2"><input type="submit" value="send"></th></tr>

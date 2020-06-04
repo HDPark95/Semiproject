@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- Footer-->
 <footer class="footer bg-black small text-center text-white-50">
-	<div class="container">Copyright ¨Ï Your Website 2020</div>
+	<div class="container">Copyright â“’ Your Website 2020</div>
 </footer>
 <!-- Bootstrap core JS-->
 <script
@@ -22,7 +21,7 @@
 		/* 	$('#combobox1')
 					.change(
 							function() {
-								//¸¶Ä¿ Ãß°¡ÇÏ±â.
+								//ë§ˆì»¤ ì¶”ê°€í•˜ê¸°.
 								var param = $(this).val();
 								var url = 'hyundoo.Project?page=commercial&subcode=6&guname='
 										+ encodeURIComponent(param);
@@ -195,19 +194,19 @@
 						});
 	});
 	function goPopup() {
-		// ÁÖ¼Ò°Ë»öÀ» ¼öÇàÇÒ ÆË¾÷ ÆäÀÌÁö¸¦ È£ÃâÇÕ´Ï´Ù.
-		// È£ÃâµÈ ÆäÀÌÁö(jusopopup.jsp)¿¡¼­ ½ÇÁ¦ ÁÖ¼Ò°Ë»öURL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)¸¦ È£ÃâÇÏ°Ô µË´Ï´Ù.
+		// ì£¼ì†Œê²€ìƒ‰ì„ ìˆ˜í–‰í•  íŒì—… íŽ˜ì´ì§€ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤.
+		// í˜¸ì¶œëœ íŽ˜ì´ì§€(jusopopup.jsp)ì—ì„œ ì‹¤ì œ ì£¼ì†Œê²€ìƒ‰URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)ë¥¼ í˜¸ì¶œí•˜ê²Œ ë©ë‹ˆë‹¤.
 		var pop = window.open("semi.Project?page=commercial&subcode=96", "pop",
 				"width=570,height=420, scrollbars=yes, resizable=yes");
 
-		// ¸ð¹ÙÀÏ À¥ÀÎ °æ¿ì, È£ÃâµÈ ÆäÀÌÁö(jusopopup.jsp)¿¡¼­ ½ÇÁ¦ ÁÖ¼Ò°Ë»öURL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)¸¦ È£ÃâÇÏ°Ô µË´Ï´Ù.
+		// ëª¨ë°”ì¼ ì›¹ì¸ ê²½ìš°, í˜¸ì¶œëœ íŽ˜ì´ì§€(jusopopup.jsp)ì—ì„œ ì‹¤ì œ ì£¼ì†Œê²€ìƒ‰URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)ë¥¼ í˜¸ì¶œí•˜ê²Œ ë©ë‹ˆë‹¤.
 		//var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
 	}
 	function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 			roadAddrPart2, engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,
 			detBdNmList, bdNm, bdKdcd, siNm, sggNm, emdNm, liNm, rn, udrtYn,
 			buldMnnm, buldSlno, mtYn, lnbrMnnm, lnbrSlno, emdNo) {
-		// ÆË¾÷ÆäÀÌÁö¿¡¼­ ÁÖ¼ÒÀÔ·ÂÇÑ Á¤º¸¸¦ ¹Þ¾Æ¼­, Çö ÆäÀÌÁö¿¡ Á¤º¸¸¦ µî·ÏÇÕ´Ï´Ù.
+		// íŒì—…íŽ˜ì´ì§€ì—ì„œ ì£¼ì†Œìž…ë ¥í•œ ì •ë³´ë¥¼ ë°›ì•„ì„œ, í˜„ íŽ˜ì´ì§€ì— ì •ë³´ë¥¼ ë“±ë¡í•©ë‹ˆë‹¤.
 		//document.form.roadFullAddr.value = roadFullAddr;
 		$('#roadAddrPart1').val(roadAddrPart1);
 		$("#addrDetail").val(addrDetail);
@@ -215,7 +214,7 @@
 	}
 </script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-<!-- "°Ë»ö" ´ÜÃß¸¦ ´©¸£¸é ÆË¾÷ ·¹ÀÌ¾î°¡ ¿­¸®µµ·Ï ¼³Á¤ÇÑ´Ù -->
+<!-- "ê²€ìƒ‰" ë‹¨ì¶”ë¥¼ ëˆ„ë¥´ë©´ íŒì—… ë ˆì´ì–´ê°€ ì—´ë¦¬ë„ë¡ ì„¤ì •í•œë‹¤ -->
 <script>
 	$(function() {
 		$("#postcodify_search_button").postcodifyPopUp();
