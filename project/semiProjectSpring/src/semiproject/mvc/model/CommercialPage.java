@@ -42,6 +42,13 @@ public class CommercialPage{
 		model.addAttribute("result", list);
 		return  "commercial/server/searchServer";
 	}
+	@RequestMapping(value="/dong")
+	public String getDong(Model model, String guName) {
+		List<String> list = commercialDao.getDong(guName);
+		model.addAttribute("result", list);
+		return "commercial/server/searchServer";
+	}
+	
 	@RequestMapping(value="/largename")
 	public String getLarge(Model model) {
 		List<String> list = commercialDao.getLarge();
@@ -74,6 +81,10 @@ public class CommercialPage{
 		List<DataVO> list = commercialDao.getInformation2(vo);
 		model.addAttribute("result", list);
 		return "commercial/server/information2";
+	}
+	@RequestMapping(value="/juso")
+	public String goJuso() {
+		return "commercial/jusoPopup";
 	}
 //	private PageForward execute1(HttpServletRequest request, HttpServletResponse response) {
 //		List<String> list = CommercialDao.getDao().getGu();

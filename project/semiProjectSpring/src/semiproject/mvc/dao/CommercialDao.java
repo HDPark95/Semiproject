@@ -57,4 +57,9 @@ public class CommercialDao {
 	
 		return list;
 	}
+	public List<String> getDong(String guName){
+		List<String> list = ss.selectList("data.dong", guName);
+		return list;
+	}
+	
 }

@@ -17,7 +17,6 @@
 <script src="resources/js/text.js"></script>
 <script>
 	$(function() {
-
 		$(".typer").typed({
 			strings : [ " C조 Project", " Test용 문구", " 조장 : 박현두", " 대박임" ],
 			typeSpeed : 500,
@@ -26,14 +25,11 @@
 		});
 		$('#filter_close').click(
 				function() {
-					$('.filter-page').slideUp(1000).addClass('invisible')
-							.removeClass('visible');
+					$('.filter-page').slideUp(1000).addClass('invisible').removeClass('visible');
 					className = 'invisible';
 					invisible = 'invisible';
 					visible = 'visible';
-
 				})
-
 		$('.card').click(function() {
 			var num = $(this).index();
 			console.log(num)
@@ -52,19 +48,14 @@
 			} else {
 
 				$('.filter-page').slideDown(1000);
-
 			}
-
 			className = visible;
 			visible = invisible;
 			invisible = className;
-
 		});
-
 		$('.sub-menu').parent("li").hover(
 				function() {
 					// 인
-
 					$(this).children('.sub-menu').removeClass("invisible")
 							.addClass('visible');
 					$('#mainnav2').css("z-index", '0');
@@ -77,7 +68,6 @@
 					$('#mainnav2').css("z-index", '1030');
 					$('#search-nav').css("z-index", '1030');
 				});
-
 	});
 </script>
 <!-- Hyundoo JS-->
@@ -133,7 +123,7 @@
 				.change(
 						function() {
 							var param = $('#combobox1').val()
-							var url = 'largename?guName='
+							var url = 'dong?guName='
 									+ encodeURIComponent(param)
 							$.ajax({
 								url : url,
@@ -271,9 +261,8 @@
 	function goPopup() {
 		// 주소검색을 수행할 팝업 페이지를 호출합니다.
 		// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
-		var pop = window.open("semi.Project?page=commercial&subcode=96", "pop",
+		var pop = window.open("juso", "pop",
 				"width=570,height=420, scrollbars=yes, resizable=yes");
-
 		// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
 		//var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
 	}
