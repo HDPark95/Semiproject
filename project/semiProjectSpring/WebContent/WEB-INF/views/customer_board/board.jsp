@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="../include/header_index.jsp"%>
 <link rel="stylesheet" href="resources/css/customer_board/mj1.css">
 <%@ include file="../include/header_menu.jsp"%>
@@ -10,56 +10,56 @@
 	<div class="board_list_wrap">
 		<div class="board_list">
 			<div class="board_list_head">
-				<div class="num">╧Ьхё</div>
-				<div class="tit">а╕╦Я</div>
-				<div class="writer">╠ш╬╢юл</div>
-				<div class="date">юш╪╨юо</div>
-				<div class="view">╢Д╨╞╩Себ</div>
+				<div class="num">К╡┬М≤╦</div>
+				<div class="tit">Л═°К╙╘</div>
+				<div class="writer">Й╦─Л⌠╢Л²╢</div>
+				<div class="date">Л·▒Л└╠Л²╪</div>
+				<div class="view">К▀╣КЁ─Л┐│М┐°</div>
 			</div>
 			<div class="board_list_body">
 				<div class="item">
 					<div class="num">4</div>
-					<div class="tit"><a href="#">аЗ╧╝</a></div>
-					<div class="writer">ц╓╦Ма╓</div>
+					<div class="tit"><a href="#">Л╖┬К╛╦</a></div>
+					<div class="writer">Л╠└К╙┘Л═∙</div>
 					<div class="date">2020-05-07</div>
-					<div class="view">╢Д╨╞╩Себ</div>
+					<div class="view">К▀╣КЁ─Л┐│М┐°</div>
 				</div>
 				<div class="item">
 					<div class="num">3</div>
-					<div class="tit"><a href="#">аЗ╧╝</a></div>
-					<div class="writer">ц╓╦Ма╓</div>
+					<div class="tit"><a href="#">Л╖┬К╛╦</a></div>
+					<div class="writer">Л╠└К╙┘Л═∙</div>
 					<div class="date">2020-05-07</div>
-					<div class="view">╢Д╨╞╩Себ</div>
+					<div class="view">К▀╣КЁ─Л┐│М┐°</div>
 				</div>
 				<div class="item">
 					<div class="num">2</div>
-					<div class="tit"><a href="#">аЗ╧╝</a></div>
-					<div class="writer">ц╓╦Ма╓</div>
+					<div class="tit"><a href="#">Л╖┬К╛╦</a></div>
+					<div class="writer">Л╠└К╙┘Л═∙</div>
 					<div class="date">2020-05-07</div>
-					<div class="view">╢Д╨╞╩Себ</div>
+					<div class="view">К▀╣КЁ─Л┐│М┐°</div>
 				</div>
 				<div class="item">
 					<div class="num">1</div>
-					<div class="tit"><a href="#">аЗ╧╝</a></div>
-					<div class="writer">ц╓╦Ма╓</div>
+					<div class="tit"><a href="#">Л╖┬К╛╦</a></div>
+					<div class="writer">Л╠└К╙┘Л═∙</div>
 					<div class="date">2020-05-07</div>
-					<div class="view">╢Д╨╞╩Себ</div>
+					<div class="view">К▀╣КЁ─Л┐│М┐°</div>
 				</div>
 			</div>
 		
 		</div>
 		<div class = "paging">
-			<a href="#" class="bt first">цЁю╫</a>
-			<a href="#" class="bt prev">юлюЭ</a>
+			<a href="#" class="bt first">Л╡≤Л²▄</a>
+			<a href="#" class="bt prev">Л²╢Л═└</a>
 			<a href="#" class="num ">1</a>
 			<a href="#" class="num ">2</a>
 			<a href="#" class="num ">3</a>
-			<a href="#" class="bt next">╢ыю╫</a>
-			<a href="#" class="bt last">╦╤аЖ╦╥</a>
+			<a href="#" class="bt next">К▀╓Л²▄</a>
+			<a href="#" class="bt last">К╖┬Л╖─К╖┴</a>
 		</div>
 		<div class = "write">
 			
-			<input type="button" value="╠ш╬╡╠Б" onclick="location='semi.Project?page=customer&code=2'">
+			<input type="button" value="Й╦─Л⌠╟Й╦╟" onclick="location='semi.Project?page=customer&code=2'">
 		</div>
 		
 	</div>
