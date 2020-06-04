@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../commercial/header_index.jsp"%>
-
-
+<%@ include file="../include/header_index.jsp"%>
+ <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
+<%@ include file="../include/header_menu.jsp"%>
 
 <section class="contact-section bg-white">  
 	<div class="container">
@@ -77,5 +77,4 @@
 	</div>
 </section>
 <%@include file="../commercial/sidemenu.jsp" %>
-
-<%@ include file="../commercial/footer.jsp"%>
+<%@ include file="../include/footer.jsp"%>
