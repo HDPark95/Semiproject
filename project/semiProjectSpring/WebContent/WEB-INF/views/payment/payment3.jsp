@@ -20,15 +20,13 @@
 					<th colspan="2"><a>기업명</a><br>구독권가입을 축하드립니다!</th>
 				</tr>
 				<tr>
-					<td colspan="2" id="welcome1">보다 더 좋은 혜택을 누리실 수 있습니다!</td>
+					<td colspan="2" id="welcome1">곧 생길 혜택들을 모두 누리실 수 있게 되었습니다!</td>
 				</tr>
 				<tr>
-
 					<td id="welcome2"><br><br><button type="button" class="btn btn-success" onclick="location ='semi.Project?page=index#footerMenu'">서비스이용하기</button></td>
 					<td></td>
 
-				
-				</tr>
+</tr>
 			</table>
 		</div>
 	</section>

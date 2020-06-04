@@ -15,11 +15,16 @@
 					<td colspan="2" id="welcome1">구독권을 가입하시면 보다 많은 혜택을 누리실 수 있습니다!</td>
 				</tr>
 				<tr>
+<<<<<<< HEAD
+					<td id="welcome2">�����ϰ� �����ôٸ�!<br><br><button type="button" class="btn btn-warning" onclick="location ='pay2'">Subscribe</button></td>
+					<td id="welcome3">�ƴϿ�! �������ϴ�!<br><br><button type="button" class="btn btn-success" onclick="location = 'semi.Project?page=index'">Go Main</button></td>
+=======
 
 
 					<td id="welcome2">가입하고 싶으시다면!<br><br><button type="button" class="btn btn-warning" onclick="location ='pay2'">Subscribe</button></td>
 					<td id="welcome3">아니오! 괜찮습니다!<br><br><button type="button" class="btn btn-success" onclick="location = 'semi.Project?page=index'">Go Main</button></td>
 
+>>>>>>> branch 'master' of https://github.com/qkrgusen456/Semiproject.git
 				</tr>
 			</table>
 		</div>

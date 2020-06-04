@@ -115,7 +115,6 @@ td{
 			<tr>
 				<td>언제든 해지 가능</td>
 				<td class="basic return" aria-label="베이식">r</td>
-
 				<td class="st return"aria-label="기업">x</td>
 				<td class="pr return"aria-label="경매">o</td>
 			</tr>
@@ -137,17 +136,18 @@ td{
 				<td class="st return"aria-label="스탠다드">o</td>
 				<td class="pr return"aria-label="프리미엄">o</td>
 				</tr>
-
-				
-		</tbody>
+</tbody>
 		
 	
 		
 		<tfoot>
-
-		<tr><td><input type="button" value="뒤로가기" id="ee" onclick="location='semi.Project?page=community&code=5'">
+<tr><td><input type="button" value="뒤로가기" id="ee" onclick="location='semi.Project?page=community&code=5'">
 				<input type="button" value="다음" id="ee" style="background-color: green;" onclick="location='pay1'">
 		</td></tr>
+
+
+		
+
 
 		</tfoot>
 		
