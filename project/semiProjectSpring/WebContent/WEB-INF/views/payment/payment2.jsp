@@ -17,7 +17,7 @@
 	font-size: 20px;
 	margin: 0 auto;
 	position: relative;
-	left: 790px;
+	left: 600px;
 	  margin-left: 11.75rem
 	
 }
@@ -34,7 +34,6 @@
 	font-size: 20px;
 	
 	width: 227px;
-	
 	
 	
 	
@@ -71,15 +70,13 @@ td{
 </style>
 </head>
 <body>
-
-	
+	<h5>1/2단계</h5>
 	<h3>원하는 구독권을 선택하세요.</h3>
 	<h4>맘에 들지 않으신다면, 구독권을 변경하거나 취소 하실 수 있습니다.</h4>
 	<div class="to">
-	<span class="bb" id="basic">개인</span>
+	<span class="bb" id="basic">일반</span>
 	<span class="bb" id="st">기업</span>
-	<span class="bb" id="pr" style="right: 60px;">경매</span>
-
+	<span class="bb" id="pr">경매</span>
 	</div>
 	<br>
 	<p></p>
@@ -100,55 +97,34 @@ td{
 
 			<tr>
 				<td>언제든 해지 가능</td>
-
-				<td class="basic return" aria-label="개인">o</td>
-				<td class="st return"aria-label="기업">o</td>
-				<td class="pr return" aria-label="경매">o</td>
+				<td class="basic return" aria-label="베이식">o</td>
+				<td class="st return"aria-label="스탠다드">o</td>
+				<td class="pr return" aria-label="프리미엄">o</td>
 			</tr>
 			<tr>
 				<td>언제든 해지 가능</td>
-				<td  class="basic return" aria-label="개인">x</td>
-				<td class="st return"aria-label="기업">x</td>
-				<td class="pr return"aria-label="경매">o</td>
-
+				<td  class="basic return" aria-label="베이식">x</td>
+				<td class="st return"aria-label="스탠다드">x</td>
+				<td class="pr return"aria-label="프리미엄">o</td>
 			</tr>
 			<tr>
 				<td>언제든 해지 가능</td>
 				<td class="basic return" aria-label="베이식">r</td>
-
-				<td class="st return"aria-label="기업">x</td>
-				<td class="pr return"aria-label="경매">o</td>
+				<td class="st return"aria-label="스탠다드">x</td>
+				<td class="pr return"aria-label="프리미엄">o</td>
 			</tr>
 			<tr>
 				<td>언제든 해지 가능</td>
-				<td class="basic return" aria-label="개인">o</td>
-				<td class="st return"aria-label="기업">o</td>
-				<td class="pr return"aria-label="경매">o</td>
-				</tr>
-					<tr>
-				<td>언제든 해지 가능</td>
-				<td class="basic return" aria-label="개인">s</td>
+				<td class="basic return" aria-label="베이식">s</td>
 				<td class="st return"aria-label="스탠다드">x</td>
 				<td class="pr return"aria-label="프리미엄">o</td>
-				</tr>
-					<tr>
-				<td>언제든 해지 가능</td>
-				<td class="basic return" aria-label="개인">o</td>
-				<td class="st return"aria-label="스탠다드">o</td>
-				<td class="pr return"aria-label="프리미엄">o</td>
-				</tr>
-
 				
 		</tbody>
 		
 	
 		
 		<tfoot>
-
-		<tr><td><input type="button" value="뒤로가기" id="ee" onclick="location='semi.Project?page=community&code=5'">
-				<input type="button" value="다음" id="ee" style="background-color: green;" onclick="location='pay1'">
-		</td></tr>
-
+		<tr><td><input type="button" value="다음" id="ee" onclick="location='semi.Project?page=payment&code=1'"></td></tr>
 		</tfoot>
 		
 	</table>

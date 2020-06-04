@@ -1,21 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%
 	String code = request.getParameter("subcode");
 	if (code.equals("1")) {
 %>
-<option>╠╦ ╪╠ец</option>
+<option>Й╣╛ Л└═М┐²</option>
 <%
 	} else if (code.equals("2")) {
-%><option>╬Ва╬╢К╨п╥Ы ╪╠ец</option>
+%><option>Л≈┘Л╒┘К▄─К╤└К╔≤ Л└═М┐²</option>
 <%
 	} else if (code.equals("3")) {
-%><option>╬Ва╬аъ╨п╥Ы ╪╠ец</option>
+%><option>Л≈┘Л╒┘Л╓▒К╤└К╔≤ Л└═М┐²</option>
 <%
 	} else {
-%><option>╬Ва╬╪р╨п╥Ы╪╠ец</option>
+%><option>Л≈┘Л╒┘Л├▄К╤└К╔≤Л└═М┐²</option>
 <%
 	}
 %>

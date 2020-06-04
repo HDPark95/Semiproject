@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!-- Footer-->
 <footer class="footer bg-black small text-center text-white-50">
 	<div class="container">Copyright ⓒ Your Website 2020</div>
@@ -6,212 +7,146 @@
 <!-- Bootstrap core JS-->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-	$(function() {
-		var url = 'hyundoo.Project?page=commercial&subcode=1'
-		$.ajax({
-			url : url,
-			success : function(d) {
-				$('#combobox1').html(d);
-			},
-			error : function(e) {
-				console.log("Error : " + e);
-			}
-		});
-		/* 	$('#combobox1')
-					.change(
-							function() {
-								//마커 추가하기.
+<!-- <script>
+					$(function() {
+						var url = 'hyundoo.Project?page=commercial&subcode=1'
+						$.ajax({
+							url : url,
+							success : function(d) {
+								$('#combobox1').html(d);
+							},
+							error : function(e) {
+								console.log("Error : " + e);
+							}
+						});
+						$('#combobox1').change(function(){
+							//마커 추가하기.
 								var param = $(this).val();
-								var url = 'hyundoo.Project?page=commercial&subcode=6&guname='
-										+ encodeURIComponent(param);
-								$
-										.ajax({
-											url : url,
-											success : function(d) {
-												console.log(typeof (d));
-												var myObj = JSON.parse(d);
-												var i = 0;
-												//console.log(d);
-												for ( var e in myObj) {
-													//console.log("e : "+e);
-													var marker = new naver.maps.Marker(
-															{
-																position : new naver.maps.LatLng(
-																		myObj[e].lat,
-																		myObj[e].lng),
-																map : map
-															});
-												}
-												;
-											},
-											error : function(e) {
-												console.log("Error : " + e);
-											}
+								var url = 'hyundoo.Project?page=commercial&subcode=5&target='+encodeURIComponent(param);
+								$.ajax({
+									url : url,
+									success : function(d) {
+										console.log(typeof(d));
+										var myObj = JSON.parse(d);
+										var i = 0;
+										//console.log(d);
+										for ( var e in myObj) {
+											//console.log("e : "+e);
+											var marker= new naver.maps.Marker({
+											    position: new naver.maps.LatLng(myObj[e].lat, myObj[e].lng),
+											    map: map
+											});
+										};
+									},
+									error : function(e) {
+										console.log("Error : " + e);
+									}
+								});
+						})
+					});
+				</script>
+				<script>
+					$(function() {
+						var url = 'hyundoo.Project?page=commercial&subcode=2'
+						$.ajax({
+							url : url,
+							success : function(d) {
+								$('#combobox2').html(d);
+							},
+							error : function(e) {
+								console.log("Error : " + e);
+							}
+						});
+					});
+				</script>
+				<script>
+					$(function() {
+						$('#combobox2')
+								.change(
+										function() {
+											var param = $('#combobox2').val()
+											var url = 'hyundoo.Project?page=commercial&subcode=3&largeName='
+													+ encodeURIComponent(param)
+											$
+													.ajax({
+														url : url,
+														success : function(d) {
+															$('#combobox3')
+																	.html(d);
+														},
+														error : function(e) {
+															console
+																	.log("Error : "
+																			+ e);
+														}
+													});
 										});
-							}) */
-	});
-</script>
-<script>
-	$(function() {
-		$('#combobox1')
-				.change(
-						function() {
-							var param = $('#combobox1').val()
-							var url = 'hyundoo.Project?page=commercial&subcode=2&guName='
-									+ encodeURIComponent(param)
-							$.ajax({
-								url : url,
-								success : function(d) {
-									$('#combobox2').html(d);
-								},
-								error : function(e) {
-									console.log("Error : " + e);
-								}
-							});
-							var url = 'hyundoo.Project?page=commercial&subcode=96&guName='
-									+ encodeURIComponent(param)
-							$.ajax({
-								url : url,
-								success : function(d) {
-									$('#information').html(d);
-								},
-								error : function(e) {
-									console.log("Error : " + e);
-								}
-							});
-							var seoul = new naver.maps.LatLngBounds(
-									new naver.maps.LatLng(37.42829747263545,
-											126.76620435615891),
-									new naver.maps.LatLng(37.7010174173061,
-											127.18379493229875));
-							var map = new naver.maps.Map(document
-									.getElementById('map'), {
-								minZoom : 10.5,
-								zoom : 10.5,
-								mapTypeId : 'normal',
-								center : new naver.maps.LatLng(37.4098871,
-										126.989261),
-								maxBounds : seoul,
-								baseTileOpacity : 0,
-								scaleControl : false,
-								logoControl : false,
-								mapDataControl : false,
-								zoomControl : false,
-								mapTypeControl : false
-							});
+					});
+					</script>
+					<script>
+					$(function() {
+						$('#combobox3')
+								.change(
+										function() {
+											var largeName = $('#combobox2')
+													.val();
+											var mediumName = $('#combobox3')
+													.val();
+											var url = 'hyundoo.Project?page=commercial&subcode=4&largeName='
+													+ encodeURIComponent(largeName)
+													+ "&mediumName="
+													+ encodeURIComponent(mediumName)
+											$
+													.ajax({
+														url : url,
+														success : function(d) {
+															$('#combobox4')
+																	.html(d);
+														},
+														error : function(e) {
+															console
+																	.log("Error : "
+																			+ e);
+														}
+													});
+										});
+					});
+					function goPopup(){
+						// 주소검색을 수행할 팝업 페이지를 호출합니다.
+						// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+						var pop = window.open("semi.Project?page=commercial&subcode=96","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+						
+						// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+					    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+					}function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
+						// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+						//document.form.roadFullAddr.value = roadFullAddr;
+						$('#roadAddrPart1').val(roadAddrPart1);
+						$("#addrDetail").val(addrDetail);
+						$("#zipNo").val(zipNo);
+				}
 
-							/* var HOME_PATH = window.HOME_PATH || '.'; */
-							naver.maps.Event.once(map, 'init_stylemap',
-									function() {
-										$.ajax({
-											url : 'json/' + $(this).val()
-													+ '.json',
-											dataType : 'json',
-											success : startDataLayer
-										});
-									});
-						});
-	});
-</script>
+				</script> -->
 <script>
 	$(function() {
-		$('#combobox2')
-				.change(
-						function() {
-							var param = $('#combobox1').val()
-							var param2 = $('#combobox2').val()
-							var url = 'hyundoo.Project?page=commercial&subcode=95&guName='
-									+ encodeURIComponent(param)
-									+ '&dongName='
-									+ encodeURIComponent(param2)
-							$.ajax({
-								url : url,
-								success : function(d) {
-									$('#information').html(d);
-								},
-								error : function(e) {
-									console.log("Error : " + e);
-								}
-							});
-						});
-	});
-</script>
-<script>
-	$(function() {
-		var url = 'hyundoo.Project?page=commercial&subcode=3'
-		$.ajax({
-			url : url,
-			success : function(d) {
-				$('#combobox3').html(d);
-			},
-			error : function(e) {
-				console.log("Error : " + e);
+		$("#type").change(function() {
+			var type = $(this).val();
+			console.log(type);
+			if (type === '매매') {
+				$('#sales').prop("disabled", "false");
+				$('#monthly').prop("disabled", "true");
+				$('#charter').prop("disabled", "true");
+			} else if (type === '월세') {
+				$('#sales').prop("disabled", "true");
+				$('#monthly').prop("disabled", "false");
+				$('#charter').prop("disabled", "true");
+			} else if (type === '전세') {
+				$('#sales').prop("disabled", "true");
+				$('#monthly').prop("disabled", "true");
+				$('#charter').prop("disabled", "false");
 			}
-		});
-	});
-</script>
-<script>
-	$(function() {
-		$('#combobox3')
-				.change(
-						function() {
-							var param = $('#combobox3').val()
-							var url = 'hyundoo.Project?page=commercial&subcode=4&largeName='
-									+ encodeURIComponent(param)
-							$.ajax({
-								url : url,
-								success : function(d) {
-									$('#combobox4').html(d);
-								},
-								error : function(e) {
-									console.log("Error : " + e);
-								}
-							});
-						});
-	});
-</script>
-<script>
-	$(function() {
-		$('#combobox4')
-				.change(
-						function() {
-							var largeName = $('#combobox3').val();
-							var mediumName = $('#combobox4').val();
-							var url = 'hyundoo.Project?page=commercial&subcode=5&largeName='
-									+ encodeURIComponent(largeName)
-									+ "&mediumName="
-									+ encodeURIComponent(mediumName)
-							$.ajax({
-								url : url,
-								success : function(d) {
-									$('#combobox5').html(d);
-								},
-								error : function(e) {
-									console.log("Error : " + e);
-								}
-							});
-						});
-	});
-	function goPopup() {
-		// 주소검색을 수행할 팝업 페이지를 호출합니다.
-		// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
-		var pop = window.open("semi.Project?page=commercial&subcode=96", "pop",
-				"width=570,height=420, scrollbars=yes, resizable=yes");
-
-		// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
-		//var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
-	}
-	function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
-			roadAddrPart2, engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,
-			detBdNmList, bdNm, bdKdcd, siNm, sggNm, emdNm, liNm, rn, udrtYn,
-			buldMnnm, buldSlno, mtYn, lnbrMnnm, lnbrSlno, emdNo) {
-		// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
-		//document.form.roadFullAddr.value = roadFullAddr;
-		$('#roadAddrPart1').val(roadAddrPart1);
-		$("#addrDetail").val(addrDetail);
-		$("#zipNo").val(zipNo);
-	}
+		})
+	})
 </script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 <!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->

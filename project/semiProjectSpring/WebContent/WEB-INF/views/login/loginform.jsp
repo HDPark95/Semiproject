@@ -3,12 +3,16 @@
 
 <%@ include file="../include/header_index.jsp"%>
 
-  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+  <meta name="description" content="">
+  <meta name="author" content="">
    <link href="resources/css/customer_board/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="resources/css/login/sb-admin-2.min.css" rel="stylesheet">
+  <link href="resources/css/customer_board/sb-admin-2.min.css" rel="stylesheet">
   
 <%@ include file="../include/header_menu.jsp"%>
 
@@ -28,23 +32,23 @@
 <!--               <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
               <div class="col-lg-6">
                 <div class="p-5">
-                  <div class="text-center"> 
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">welcomback!</h1>
                   </div>
                   <form class="user">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="id를 입력해주세요.">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="비밀번호를 입력해주세요.">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+                        <label class="custom-control-label" for="customCheck">아이디를 기억하시겠습니까?</label>
                       </div>
                     </div>
-                    <a href="index#footerMenu" class="btn btn-primary btn-user btn-block">
+                    <a href="semi.Project?page=index#footerMenu" class="btn btn-primary btn-user btn-block">
                       Login
                     </a>
 <!--                     <hr> -->
@@ -57,10 +61,10 @@
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="#">Forgot Password?</a>
+                    <a class="small" href="#">비밀번호를 잊으셨나요?</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="choose">Create an Account!</a>
+                    <a class="small" href="choose">아직 계정이 없으시군요?</a>
                   </div>
                 </div>
               </div>

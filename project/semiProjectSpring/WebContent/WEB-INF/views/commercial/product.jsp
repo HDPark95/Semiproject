@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="../commercial/header_index.jsp"%>
 
 
 
-<section class="contact-section bg-white">  
+<section class="contact-section bg-white">
 	<div class="container">
 		<div id="map" class="col-lg-12" style="width: 100%; height: 820px;">
 		</div>

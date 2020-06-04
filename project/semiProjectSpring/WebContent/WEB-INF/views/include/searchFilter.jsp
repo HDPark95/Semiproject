@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
- <div class="container2 fixed-top " id="search-nav"style="margin-top: 88px;height: 80px;background-color: #f8f9fa;padding-top: auto;padding-top: 20px;">
-
+ <div class="container2 fixed-top"style="margin-top: 88px;height: 80px;background-color: #f8f9fa;padding-top: auto;padding-top: 20px;">
 		<div class="row">
 			<div class="col-md-6 mt-6 search">
 			

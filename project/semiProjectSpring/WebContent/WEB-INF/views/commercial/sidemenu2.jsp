@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<link href="css/sidebar.css?after" rel="stylesheet" />
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<link href="resources/css/commercial/sidebar.css?after" rel="stylesheet" />
 <div id="rightSide">
 
 	<div id="right_zzim">
 
-		<div class="recTit">  
+		<div class="recTit">
 			비슷한 매물 정보 <span id=recentCnt></span>
 		</div>
 		<ul></ul>

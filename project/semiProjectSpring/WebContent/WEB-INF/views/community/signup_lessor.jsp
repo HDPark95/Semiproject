@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
+	
 <%@ include file="../include/header_index.jsp"%>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -8,14 +9,9 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link href="resources/css/community/signup_lessor.css" rel="stylesheet">
 <%@ include file="../include/header_menu.jsp"%>
-<style>
-#projects{
-	padding: 0 0 0 0; 
-	width: 700px;
-	margin: 0 auto;
-	margin-bottom: 150px;
-}
-</style>
+
+
+
 	<h1>로고</h1>
 	<br>
 	<h4>임대인 회원가입</h4>
@@ -87,9 +83,18 @@
 					</div>
 				</div>
 				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10" id="checkrobot">
+						<div class="checkbox">
+							<label id="checkrobot"> <input type="checkbox">
+								로봇이 아닙니다!
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10" id="signup">
-						<button type="button" class="btn btn-secondary btn-lg" onclick="location = 'semi.Project?page=login&code=1'">취소</button>
-						<button type="submit" class="btn btn-success btn-lg" onclick="location = 'semi.Project?page=community&code=6'">확인</button>
+						<button type="button" class="btn btn-secondary btn-lg" onclick="location = 'login'">취소</button>
+						<button type="submit" class="btn btn-success btn-lg" onclick="location = 'subLessor'">확인</button>
 					</div>
 				</div>
 			</form>

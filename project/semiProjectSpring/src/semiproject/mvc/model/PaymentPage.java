@@ -21,9 +21,5 @@ public class PaymentPage {
 	public String pay3() {
 		return "payment/payment3";
 	}
-	@RequestMapping(value="bank")
-	public String bank() {
-		return "payment/bankbook";
-	}
 	
 }

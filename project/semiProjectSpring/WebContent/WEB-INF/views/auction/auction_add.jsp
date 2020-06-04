@@ -3,112 +3,21 @@
 
 <%@ include file="../include/header_index.jsp"%>
 <link rel="stylesheet" href="resources/css/auction/main/bootstrap.css">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<script type="text/javascript" src="resources/edit/js/service/HuskyEZCreator.js" charset="UTF-8"></script>
+
+<script type="text/javascript" src="resources/js/auction/HuskyEZCreator.js" charset="EUC-KR"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<script type="text/javascript" src="resources/js/auction/auction_add.js"></script>
 <%@ include file="../include/header_menu.jsp"%>
+
+<!--<script type="text/javascript" src="/_AXJ/jquery/jquery.min.js"></script>-->
+
 <style>
-#body {
-	width: 80%;
-	height: 100%;
-	margin: auto;
-}
 
-h2 {
-	margin-top: 40px;
-	margin-bottom: 50px;
-}
-
-#category {
-	width: 160px;
-}
-
-table {
-	width: 100%;
-	border-spacing: 0;
-	border-collapse: collapse;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-th {
-	height: 45px;
-	padding: 7px 25px;
-	vertical-align: middle;
-	border-bottom: 1px solid #ddd;
-	background: #f8f8f8;
-	color: #444444;
-	font-weight: bold;
-	font-size: 15px;
-	text-align: center;
-	width: 200px;
-	padding-top: 15px;
-}
-
-tbody {
-	line-height: 1.42857143;
-	color: #333;
-	border-top: 1px solid black;
-}
-
-td {
-	padding: 7px 25px;
-	vertical-align: middle;
-	border-bottom: 1px solid #ddd;
-	border-left: 1px solid #ddd;
-	height: 45px;
-}
-
-.btn-q {
-	padding: 3px 20px;
-	margin: 2.5px 0;
-	font-size: 14px;
-	line-height: 1.5;
-	border-radius: 30px;
-	background: #eeeeee;
-	color: #555555;
-	border: 1px solid #e1e1e1;
-	display: inline-block;
-	font-weight: normal;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	touch-action: manipulation;
-	cursor: pointer;
-}
-.modal{
-    overflow-x: hidden;
-    overflow-y: auto;
-	opacity: 1;
-	text-align: center;
-    padding: 0!important;
-    position: fixed;
-    z-index: 1050;
-    outline: 0;
-    position:fixed; 
-    top:50%; 
-    left:50%; 
-    transform: translate(-50%,-50%);
-    max-width: 1000px;
-}
-
-#myModal2{
-width: 700px;
-height: 600px;
-}
-#modal-dialog{
-    display: inline-block;
-    text-align: left;
-    vertical-align: middle;
-    width: 600px;
-    margin: 30px auto;
-    position: relative;
-}
-.modal a.close-modal {
-    top: 0px;
-    right: 0px;
-}
 </style>
+<script>
+
+</script>
 </head>
 <body>
 	<div style="width: 1500px;margin: 80px auto;">
@@ -123,7 +32,7 @@ height: 600px;
 
 			<div class="collapse navbar-collapse" id="navbarColor01">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="auctionMain">물건검색 </a></li>
+					<li class="nav-item"><a class="nav-link" href="#">물건검색 </a></li>
 					<li class="nav-item"><a class="nav-link" href="#">판매관리</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">구매관리</a></li>
 					<li class="nav-item active"><a class="nav-link" href="#">부동산등록</a>
@@ -134,7 +43,7 @@ height: 600px;
 		</nav>
 		<form method="post" action="" enctype="multipart/form-data">
 			<div id="body" class="form-group">
-				<h2>부동산 등록   </h2> 
+				<h2>부동산 등록</h2>
 				<div id="content">
 					<table>
 						<tbody>
@@ -268,40 +177,6 @@ height: 600px;
 			</div>
 		</div>
 	</div>
-<script>
-$(document).ready(function(){
-	$('#p_modal1').click(function(event) {
-	    event.preventDefault();
-	    $('#myModal2').modal({
-	      fadeDuration: 250
-	    });
-	  });
+	<div id="footer" style="clear: both;">footer.jsp here</div>
 	
-	//에디터 호출
-	var oEditors = [];
-	nhn.husky.EZCreator.createInIFrame({
-	 oAppRef: oEditors,
-	 elPlaceHolder: "ir1",
-	 sSkinURI: "resources/edit/SmartEditor2Skin.html",
-	 fCreator: "createSEditor2"
-	});
-	
-	//
-	$('#runin').click(function() {
-		var val1 = oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD",[]);
-		alert($('#ir1').val());
-	})
-	
-});
-
-function jusopop(){
-	var pop = window.open("jusopopup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes");
-}	
-
-function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
-document.getElementById("zipcode").value = zipNo; 
-document.getElementById("addr1").value = roadFullAddr;
-document.getElementById("addr2").value = addrDetail;
-}
-</script>
 <%@ include file="../include/footer.jsp"%>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ include file="../include/header_index.jsp"%>
 
@@ -13,28 +13,16 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <%@ include file="../include/header_menu.jsp"%>
 
-<style>
-.modal a.close-modal {
-	top: 0px;
-	right: 0px;
-}
-.search{
-	float: left;
 
-	margin-right: 20px;
-}
-.modal{
-	height: unset;
-}
 
-</style>
+
 
 	<div id="new" class="collapse navbar-collapse" style="width: 1200px; margin: 0 auto; display: block;">
 		<div class="container default" style="border-bottom: 1px solid black;">
 
 			<div class="row">
 				<h2 class="fs-md col-sm-6" style="margin-top: 50px;">
-					<strong>¾ÆÆÄÆ®/¹«½¼¹«½¼¾ÆÆÄÆ®</strong>
+					<strong>ì•„íŒŒíŠ¸/ë¬´ìŠ¨ë¬´ìŠ¨ì•„íŒŒíŠ¸</strong>
 				</h2>
 				<div class="subSearch col-sm-6 text-right"></div>
 			</div>
@@ -57,11 +45,89 @@
 									<li><img src="resources/images/seulgi.jpg" class="im" style="width: 120px;  height: 100px; margin-top: 10px;"></li>
 									<li><img src="resources/images/seulgi.jpg" class="im" style="width: 120px;  height: 100px; margin-top: 10px;"></li>
 								</ul>
-								
 							</div>
 					</tr>
 				</table>
+					<div class="topma bg-white">
+					<ul class="nav nav-tabs ">
+				<li class="nav-item"><a class="nav-link active"
+					data-toggle="tab" href="#home">ìž„ì°¨ì¸ê´€ê³„</a></li>
+				<li class="nav-item"><a class="nav-link" data-toggle="tab"
+					href="#profile">ë°°ë‹¹í‘œ</a></li>
+				<li class="nav-item"><a class="nav-link " data-toggle="tab"
+					href="#">ë“±ë“±</a></li>
+					<li class="nav-item"><a class="nav-link " data-toggle="tab"
+					href="#">ë“œë¥´ë¥´ë¥´ë“±</a></li>
+					
+
+			</ul>
+						
 		
+
+
+
+
+			<div id="myTabContent" class="tab-content bg-white container">
+
+				<div
+					
+					style="text-align: center;" id="home">
+
+					<table class="type11">
+
+						<tbody>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+
+						</tbody>
+					</table>
+
+					<div class="container topma">
+						<table class="type12">
+							<thead>
+								<tr>
+									<th scope="cols"><h1> !</h1>
+									<p> </p>
+									</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><h2>ìž„ìžì¸ë°°ë‹¹ë‚´ìš© </h2> <pre>
+  </pre></td>
+								</tr>
+
+							</tbody>
+						</table>
+
+
+
+					</div>
+
+				</div>
+
+		</div>
+
+	</div>
 				</div>
 
 			</div>
@@ -70,109 +136,109 @@
 			</div>
 			<div id="right" style="float: left; width: 48%">
 				<h3></h3>
-				<table id="tal" style="margin-top: 50px; text-align: center; width: 100%">
-					<h1>°æ¸Å¹°°ÇÁ¤º¸</h1>
+				<table id="tal" style="margin-top: 50px; text-align: center;">
+					<h1>ë§¤ë¬¼ì •ë³´</h1>
 
 					<tbody style="border-top: 1px solid black;">
 
 						<tr>
-							<th><div class="C">¹°Ç°¹øÈ£</div></th>
+							<th><div class="C">ìµœì €ê°€</div></th>
 							<td><div class="C Bold">
 									<span class='point_blueB'></span>
 								</div></td>
 						</tr>
 						<tr>
-							<th><div class="C">ÀÔÂûº¸Áõ±Ý</div></th>
+							<th><div class="C">ìž…ì°°ë³´ì¦ê¸ˆ</div></th>
 							<td><div class="C">1,000,000,000</div></td>
 						</tr>
 						<tr>
-							<th><div class="C">¿ëµµ</div></th>
+							<th><div class="C">ìš©ë„</div></th>
 							<td><div class="C"></div></td>
 						</tr>
 						<tr>
-							<th><div class="C">°Ç¹°¸éÀû</div></th>
+							<th><div class="C">ê±´ë¬¼ë©´ì </div></th>
 							<td><div class="C"></div></td>
 						</tr>
 						<tr>
-							<th><div class="C">ÅäÁö¸éÀû</div></th>
+							<th><div class="C">í† ì§€ë©´ì </div></th>
 							<td><div class="C"></div></td>
 						</tr>
 						<tr>
-							<th><div class="C">ÀÔÂû¼ö</div></th>
+							<th><div class="C">ê²½ë§¤ëŒ€ìƒ</div></th>
 							<td><div class="C"></div></td>
 						</tr>
 						<tr>
-							<th><div class="C">ÁøÇà´Ü°è</div></th>
+							<th><div class="C">ì§„í–‰ë‹¨ê³„</div></th>
 							<td><div class="C Bold"></div></td>
 						</tr>
 						<tr>
-							<th><div class="C">³²Àº±â°£</div></th>
+							<th><div class="C">ë²•ì›</div></th>
 							<td><div class="C">
 						</tr>
 						<tr>
 							<th class="border0">
-								<div class="C">Á¶È¸¼ö</div>
+								<div class="C">ì¡°íšŒìˆ˜</div>
 							</th>
 							<td class="border0"><div class="C"></div></td>
 						</tr>
 
 						<tr class="grayArea">
-							<th><div class="C">°æ¸Å»ó´ã½ÅÃ»</div></th>
+							<th><div class="C">ê²½ë§¤ìƒë‹´ì‹ ì²­</div></th>
 							<td></td>
 						</tr>
 					</tbody>
 				</table>
 				<table id="tal"
-					style="border-top: 1px solid black; text-align: center; margin-top: 25px; width: 100%" >
+					style="border-top: 1px solid black; text-align: center; margin-top: 25px;" >
 					<tr>
-						<th>ÆÇ¸ÅÀÚ ID</th>
+						<th>íŒë§¤ìž ID</th>
 						<td>uam1920</td>
 					</tr>
 					<tr>
-						<th>ÆÇ¸ÅÀÚ ½Å¿ëµµ</th>
+						<th>íŒë§¤ìž ì‹ ìš©ë„</th>
 						<td></td>
 					</tr>
 				</table>
 
 				<div id="ex1" class="modal">
-					
+					<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"></button>
-					<h4 class="modal-title"><strong>ÆÇ¸ÅÀÚ ½Å¿ëµµ</strong></h4>
+					<h4 class="modal-title"><strong>íŒë§¤ìž ì‹ ìš©ë„</strong></h4>
 				</div>
 				
 					<div class="modal-body">
 						
-				    <table class="table-data" id="sellCreditTable" style="width: 100%;">
+				    <table class="table-data" id="sellCreditTable">
 				        <thead>
 				            <tr>
-				         	<h2>¹°Ç°³»¿ë</h2>
+				         	<h2>ë¬¼í’ˆë‚´ìš©</h2>
 			                </tr>
 			            </thead>
 				        <tbody >
 							<tr>
-				                <th colspan="2">ÆÇ¸ÅÀÚ</th>
+				                <th colspan="2">íŒë§¤ìž</th>
 				                <td colspan="2" id="1">jbejsm</td>
 			                </tr>
 				            <tr>
-				                <th colspan="2">³²Àº±â°£</th>
-				                <td colspan="2" id="2">45 °Ç</td>
+				                <th colspan="2">ë‚¨ì€ê¸°ê°„</th>
+				                <td colspan="2" id="2">45 ê±´</td>
 			                </tr>
 				            <tr>
-				                <th colspan="2">ÀÔÂû´ÜÀ§</th>
-				                <td colspan="2" id="3">0 °Ç</td>
+				                <th colspan="2">ìž…ì°°ë‹¨ìœ„</th>
+				                <td colspan="2" id="3">0 ê±´</td>
 			                </tr>
 				            <tr>
-				                <th colspan="2">ÇöÀç°¡</th>
-				                <td colspan="2" id="4">0 °Ç</td>
+				                <th colspan="2">í˜„ìž¬ê°€</th>
+				                <td colspan="2" id="4">0 ê±´</td>
 			                </tr>
 				            <tr>
-				                <th colspan="2">ÀÔÂû±Ý¾×</th>
+				                <th colspan="2">ìž…ì°°ê¸ˆì•¡</th>
 				                <td colspan="2" id="5">100 %</td>
 			                </tr>
 				            <tr>
-				                <th colspan="2">ÃÑ ÀÔÂû±Ý¾×</th>
-				                <td colspan="2" id="6">30 °Ç</td>
+				                <th colspan="2">ì´ ìž…ì°°ê¸ˆì•¡</th>
+				                <td colspan="2" id="6">30 ê±´</td>
 			                </tr>
 			            </tbody>
 			        </table>
@@ -180,8 +246,7 @@
 					</div>
 
 					<div class="modal-footer text-center">
-						<a href="#." class="btn btn-success btn-lg" data-dismiss="modal" onclick="location='semi.Project?page=auction&code=4'">½ÅÁßÇÏ°ÔÀÔÂûÇÏ±â</a>
-						<a href="#." class="btn btn-danger btn-lg" data-dismiss="modal" onclick="location='semi.Project?page=auction&code=4'">Ãë¼Ò</a>
+						<a href="#." class="btn btn-blue btn-md" data-dismiss="modal">ìž…ì°°í•˜ê¸°</a>
 					</div>
 			</div>
 				</div>
@@ -189,16 +254,16 @@
 					<div class="search">
 						<p class="col-sm-4 btn-block-xs"style="font-size: 140%;">
 							<a href="#ex1" rel="modal:open"
-								class="btn btn-primary btn-lg">ÀÔÂûÇÏ±â</a>
+								class="btn btn-primary btn-lg">ìž…ì°°í•˜ê¸°</a>
 						</p>
 
 						<p class="col-sm-4 btn-block-xs"style="font-size: 140%;">
-							<a 
-								class="btn btn-success btn-lg" style="padding: 3px 0px;">°ü½É¹°Ç°µî·Ï</a>
+							<a href=""
+								class="btn btn-success btn-lg" style="padding: 3px 0px;">ê´€ì‹¬ë¬¼í’ˆë“±ë¡</a>
 						</p>
 						<p class="col-sm-4 btn-block-xs" style="font-size: 140%;">
-						 <a
-								class="btn btn-danger btn-lg">¹®ÀÇÇÏ±â</a>
+						 <a href=""
+								class="btn btn-danger btn-lg">ë¬¸ì˜í•˜ê¸°</a>
 						</p>
 
 					</div>

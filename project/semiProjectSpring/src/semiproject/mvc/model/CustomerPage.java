@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CustomerPage{
 	
 	
-	@RequestMapping(value="board")
+	@RequestMapping(value="/customer")
 	public String goBoard() {
 		return "customer_board/board";
 	}
-	@RequestMapping(value="boardWriter")
+	@RequestMapping(value="/boardWriter")
 	public String writeBoard() {
 		return "customer_board/boardwriter";
 	}
-	@RequestMapping(value="customerBody")
+	@RequestMapping(value="/boardDetail")
 	public String customerBody() {
-		return "customer_board/body1";
+		return "customer_board/boarddetail";
 	}
 }

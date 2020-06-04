@@ -1,13 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="header_index.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="../commercial/header_index.jsp"%>
+
 <section class="contact-section bg-white centered">
-	<div id="container"
-		style="width: 1200px; margin: 0 auto; text-align: center;"
+	<div id="container" style="width: 1200px; margin: 0 auto; text-align: center;"
 		class="centered">
-		<h3>상가/점포 상세정보</h3>
+		<h3>상가/점포 매물등록 신청</h3>
 		<div class="col" id="regist">
 			<form action="" method="post">
-				<div class="col-md-8 mb-4 mb-md-0">
+				<div class="col-md-11 mb-4 mb-md-0">
 					<!-- <div class="card-body text-center"> -->
 					<h3 style="text-align: left">물건 정보</h3>
 					<div class="card py-4 h-100"
@@ -68,10 +69,12 @@
 						</table>
 						<!-- <hr class="my-4" /> -->
 						<!-- <div class="small text-black-50">현두 담당</div> -->
+
 						<!-- </div> -->
+
 					</div>
 				</div>
-				<div class="col-md-8 mb-3 mb-md-0">
+				<div class="col-md-11 mb-3 mb-md-0">
 					<h3 style="text-align: left">상권 정보</h3>
 					<div class="card py-4 h-100"
 						style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
@@ -109,7 +112,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-8 mb-3 mb-md-0">
+				<div class="col-md-11 mb-3 mb-md-0">
 					<h3 style="text-align: left">가격 정보</h3>
 					<span style="text-align: right; color: red;"> 해당부분이 없으면 0을
 						입력하세요.</span>
@@ -144,7 +147,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-8 mb-3 mb-md-0">
+				<div class="col-md-11 mb-3 mb-md-0">
 					<h3 style="text-align: left">담당자 정보</h3>
 					<div class="card py-4 h-100"
 						style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
@@ -206,7 +209,7 @@
 					</div>
 				</div>
 				<textarea
-					style="resize: none; width: 800px; height: 500px; margin-right: 800px;"
+					style="resize: none; width: 1100px; height: 500px; margin-right: 600px;"
 					readonly> 세미프로젝트는 정보통신부에서시행하는 정보통신망 이용촉진 등에 관한 법률상의 개인정보 보호제도에 따라 회원들의 개인정보 관리에 만전을 기하고 있으며 회원들이 마인애드의 모든 서비스를 안심하고 이용할수 있도록 하기 위해 항상 최선을 다하고 있습니다. 정부의 관련 법률 및 지침의 변경, 또는 마인애드의 정책 변화에 따라 개인정보보호정책은 임의로 변경될 수 있으니 사용자 보호 정책에 관심을 가지고 수시로 확인해주시기 바랍니다.
 
 			1.회원의 개인정보 수집목적 및 이용
@@ -269,5 +272,6 @@
 	</div>
 </section>
 
-<%@ include file="sidemenu2.jsp"%>
-<%@ include file="footer.jsp"%>
+<%@ include file="../commercial/sidemenu2.jsp"%>
+<%@ include file="../commercial/footer.jsp"%>
+

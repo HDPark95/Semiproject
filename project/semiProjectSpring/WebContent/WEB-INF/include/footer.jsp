@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
   <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright ⓒ   Your Website 2020</div></footer>
         <!-- Bootstrap core JS-->

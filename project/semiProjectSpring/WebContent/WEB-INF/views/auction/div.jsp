@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="../include/header_index.jsp"%>
 <link rel="stylesheet" href="resources/css/auction/bootstrap.css" />
 <link rel="stylesheet" href="resources/css/auction/hyunstyle.css" />
@@ -33,12 +33,12 @@
 <section class="contact-section bg-white aa">
 	<div class="card col-md-9 container" style="margin-top: 50px">
 		<div class="container">
-			<button type="button" class="btn btn-outline-primary">½Å°Ç</button>
-			<button type="button" class="btn btn-outline-secondary">À¯Âû</button>
-			<button type="button" class="btn btn-outline-success">ÁøÇà</button>
-			<button type="button" class="btn btn-outline-info">º¯°æ</button>
-			<button type="button" class="btn btn-outline-warning">¿¹Á¤</button>
-			<button type="button" class="btn btn-outline-danger">³«Âû</button>
+			<button type="button" class="btn btn-outline-primary">ì‹ ê±´</button>
+			<button type="button" class="btn btn-outline-secondary">ìœ ì°°</button>
+			<button type="button" class="btn btn-outline-success">ì§„í–‰</button>
+			<button type="button" class="btn btn-outline-info">ë³€ê²½</button>
+			<button type="button" class="btn btn-outline-warning">ì˜ˆì •</button>
+			<button type="button" class="btn btn-outline-danger">ë‚™ì°°</button>
 		
 
 		
@@ -47,41 +47,41 @@
 			
 			<div>
 				<h2>
-					<span class="C" style="float: left;">2019 Å¸°æ 107180</span><br>
+					<span class="C" style="float: left;">2019 íƒ€ê²½ 107180</span><br>
 				</h2>
 				<p>
-					<span class="C" style="text-align: center;">[¾ÆÆÄÆ®] ¼­¿ï ¾ÆÆÄÆ®</span>
+					<span class="C" style="text-align: center;">[ì•„íŒŒíŠ¸] ì„œìš¸ ì•„íŒŒíŠ¸</span>
 				</p>
 				<div class="container" style="position: relative; left: 300px; margin-bottom: 30px;" >
 				<select name="place" id="place">
-			<option value="">µµ½Ã¼±ÅÃ</option>
-			<option value="µµ½Ã">¼­¿ï</option>
-			<option value="µµ½Ã">°æ±â</option>
-			<option value="µµ½Ã">ºÎ»ê</option>
+			<option value="">ë„ì‹œì„ íƒ</option>
+			<option value="ë„ì‹œ">ì„œìš¸</option>
+			<option value="ë„ì‹œ">ê²½ê¸°</option>
+			<option value="ë„ì‹œ">ë¶€ì‚°</option>
 		</select> 
 		<select name="loc" id="place">
-			<option value="Áö¿ª">½Ã/±º/±¸</option>
-			<option value="Áö¿ª">°­³²</option>
-			<option value="Áö¿ª">±ÝÃµ±¸Ã»</option>
-			<option value="Áö¿ª">±¸·Î</option>
+			<option value="ì§€ì—­">ì‹œ/êµ°/êµ¬</option>
+			<option value="ì§€ì—­">ê°•ë‚¨</option>
+			<option value="ì§€ì—­">ê¸ˆì²œêµ¬ì²­</option>
+			<option value="ì§€ì—­">êµ¬ë¡œ</option>
 		</select> 
 		<select name="oc" id="place">
-			<option value="Áö¿ª">À¾/¸é/µ¿</option>
-			<option value="Áö¿ª">¼¼±³µ¿</option>
-			<option value="Áö¿ª">µ¿»èµ¿</option>
-			<option value="Áö¿ª">ºñÀüµ¿</option>
-		</select> <input type="button" value="°Ë»ö" id="place"/>
+			<option value="ì§€ì—­">ì/ë©´/ë™</option>
+			<option value="ì§€ì—­">ì„¸êµë™</option>
+			<option value="ì§€ì—­">ë™ì‚­ë™</option>
+			<option value="ì§€ì—­">ë¹„ì „ë™</option>
+		</select> <input type="button" value="ê²€ìƒ‰" id="place"/>
 		</div>
 			</div>
 		
 		<div class="wrap">
 			<div class="target">
 				<table border="1px solid black;">
-					<caption>¸Å¹°Á¤º¸</caption>
+					<caption>ë§¤ë¬¼ì •ë³´</caption>
 					<tbody>
 						
 						<tr>
-							<th><div class="C">°¨Á¤°¡</div></th>
+							<th><div class="C">ê°ì •ê°€</div></th>
 							<td><div class="C Bold"></td>
 							<td rowspan="11">
 								<div id="target" class="bul">
@@ -100,48 +100,48 @@
 							
 						</tr>
 						<tr>
-							<th><div class="C">ÃÖÀú°¡</div></th>
+							<th><div class="C">ìµœì €ê°€</div></th>
 							<td><div class="C Bold">
 									<span class='point_blueB'></span>
 								</div></td>
 						</tr>
 						<tr>
-							<th><div class="C">ÀÔÂûº¸Áõ±Ý</div></th>
+							<th><div class="C">ìž…ì°°ë³´ì¦ê¸ˆ</div></th>
 							<td><div class="C">1,000,000,000</div></td>
 						</tr>
 						<tr>
-							<th><div class="C">¿ëµµ</div></th>
+							<th><div class="C">ìš©ë„</div></th>
 							<td><div class="C"></div></td>
 						</tr>
 						<tr>
-							<th><div class="C">°Ç¹°¸éÀû</div></th>
+							<th><div class="C">ê±´ë¬¼ë©´ì </div></th>
 							<td><div class="C"></div></td>
 						</tr>
 						<tr>
-							<th><div class="C">ÅäÁö¸éÀû</div></th>
+							<th><div class="C">í† ì§€ë©´ì </div></th>
 							<td><div class="C"></div></td>
 						</tr>
 						<tr>
-							<th><div class="C">°æ¸Å´ë»ó</div></th>
+							<th><div class="C">ê²½ë§¤ëŒ€ìƒ</div></th>
 							<td><div class="C"></div></td>
 						</tr>
 						<tr>
-							<th><div class="C">ÁøÇà´Ü°è</div></th>
+							<th><div class="C">ì§„í–‰ë‹¨ê³„</div></th>
 							<td><div class="C Bold"></div></td>
 						</tr>
 						<tr>
-							<th><div class="C">¹ý¿ø</div></th>
+							<th><div class="C">ë²•ì›</div></th>
 							<td><div class="C">
 						</tr>
 						<tr>
 							<th class="border0">
-								<div class="C">Á¶È¸¼ö</div>
+								<div class="C">ì¡°íšŒìˆ˜</div>
 							</th>
 							<td class="border0"><div class="C"></div></td>
 						</tr>
 
 						<tr class="grayArea">
-							<th><div class="C">°æ¸Å»ó´ã½ÅÃ»</div></th>
+							<th><div class="C">ê²½ë§¤ìƒë‹´ì‹ ì²­</div></th>
 							<td></td>
 						</tr>
 					</tbody>
