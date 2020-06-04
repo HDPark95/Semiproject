@@ -5,7 +5,7 @@
 
 	<div id="right_zzim">
 
-		<div class="recTit">
+		<div class="recTit">  
 			비슷한 매물 정보 <span id=recentCnt></span>
 		</div>
 		<ul></ul>

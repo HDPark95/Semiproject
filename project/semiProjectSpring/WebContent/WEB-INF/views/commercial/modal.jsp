@@ -80,7 +80,7 @@
 </div>
 <script>
 	function open_pop() {
-		$('#myModal').show();
+		$('#myModal').show();  
 	};
 	//ÆË¾÷ Close ±â´É
 	function close_pop(flag) {

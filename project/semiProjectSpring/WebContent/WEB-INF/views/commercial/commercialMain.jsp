@@ -161,6 +161,6 @@
 	<!-- /.row -->
 </div>
 <!-- /.container -->
-<%@include file="modal.jsp"%>
+<%@include file="modal.jsp"%>   
 <%@include file="footer.jsp"%>
 </html>

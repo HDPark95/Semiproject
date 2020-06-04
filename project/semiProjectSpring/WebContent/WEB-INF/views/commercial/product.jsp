@@ -4,7 +4,7 @@
 
 
 
-<section class="contact-section bg-white">
+<section class="contact-section bg-white">  
 	<div class="container">
 		<div id="map" class="col-lg-12" style="width: 100%; height: 820px;">
 		</div>
