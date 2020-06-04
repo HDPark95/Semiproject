@@ -23,8 +23,10 @@
 					<td colspan="2" id="welcome1">보다 더 좋은 혜택을 누리실 수 있습니다!</td>
 				</tr>
 				<tr>
+
 					<td id="welcome2"><br><br><button type="button" class="btn btn-success" onclick="location ='semi.Project?page=index#footerMenu'">서비스이용하기</button></td>
 					<td></td>
+
 				
 				</tr>
 			</table>

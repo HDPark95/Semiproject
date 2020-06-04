@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
  <%@ include file="include/header_main.jsp"%>
   <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
                     <h1 class="mx-auto my-0 text-uppercase" id="title"><img style="width: 100px; height: 100px;" src="resources/assets/img/copyright.jpg"><span class="logotext typer">Grayscale</span></h1>
-                    <h3 class="text-white-50 mx-auto mt-2 mb-5">ProjectName Àº ÇÑ¹ß ¾Õ¼­°¡´Â ºÐ¼®À¸·Î <br>ÃÖÀûÀÇ ¸Å¹°°ú °¡Ä¡¸¦ ¸¸µé¾î µå¸³´Ï´Ù. 1212</h3>
-                    <a class="btn btn-primary js-scroll-trigger" href="login">·Î±×ÀÎ</a>
+                    <h3 class="text-white-50 mx-auto mt-2 mb-5">ProjectName ì€ í•œë°œ ì•žì„œê°€ëŠ” ë¶„ì„ìœ¼ë¡œ <br>ìµœì ì˜ ë§¤ë¬¼ê³¼ ê°€ì¹˜ë¥¼ ë§Œë“¤ì–´ ë“œë¦½ë‹ˆë‹¤. 1212</h3>
+                    <a class="btn btn-primary js-scroll-trigger" href="login">ë¡œê·¸ì¸</a>
                    
                 </div>
             </div>
@@ -23,11 +23,11 @@
                         	<a href="commercialMain">
                             <div class="card-body text-center">
                                 <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h3 class="text-uppercase m-0">»ó°¡</h3>
+                                <h3 class="text-uppercase m-0">ìƒê°€</h3>
                                 <hr class="my-4" />
-                                <div class="small text-black-50">ÇöµÎ ´ã´ç</div>
+                                <div class="small text-black-50">í˜„ë‘ ë‹´ë‹¹</div>
                                 <div>
-                                	<!--  ¼³¸í ±ÛÀû´Â°÷ -->
+                                	<!--  ì„¤ëª… ê¸€ì ëŠ”ê³³ -->
                                 </div>
                             </div>
                              </a>
@@ -38,11 +38,11 @@
                         	<a href="estateMain">
                             <div class="card-body text-center">
                                 <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h3 class="text-uppercase m-0">ºÎµ¿»ê</h3>
+                                <h3 class="text-uppercase m-0">ë¶€ë™ì‚°</h3>
                                 <hr class="my-4" />
-                                <div class="small text-black-50"><a href="#!">¿ÂÀ¯´ã´ç</a></div>
+                                <div class="small text-black-50"><a href="#!">ì˜¨ìœ ë‹´ë‹¹</a></div>
                                 <div>
-                                	<!--  ¼³¸í ±ÛÀû´Â°÷ -->
+                                	<!--  ì„¤ëª… ê¸€ì ëŠ”ê³³ -->
                                 </div>
                             </div>
                             </a>
@@ -53,11 +53,11 @@
                         	<a href="auctionMain">
                             <div class="card-body text-center">
                                 <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h3 class="text-uppercase m-0">°æ¸Å</h3>
+                                <h3 class="text-uppercase m-0">ê²½ë§¤</h3>
                                 <hr class="my-4" />
-                                <div class="small text-black-50">ÅÂÁØÇü´Ô</div>
+                                <div class="small text-black-50">íƒœì¤€í˜•ë‹˜</div>
                                 <div>
-                                	<!--  ¼³¸í ±ÛÀû´Â°÷ -->
+                                	<!--  ì„¤ëª… ê¸€ì ëŠ”ê³³ -->
                                 </div>
                             </div>
                          </a>

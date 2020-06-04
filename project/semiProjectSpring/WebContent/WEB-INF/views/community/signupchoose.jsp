@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ include file="../include/header_index.jsp"%>
  <link href="resources/css/community/signupchoose.css" rel="stylesheet">
@@ -11,11 +11,11 @@
 		<div class="container">
 			<table class="table">
 				<tr class="success">
-					<th colspan="2"><a>╠Б╬В╦М</a><br>х╦©Ь╟║ютю╩ х╞©╣гу╢о╢ы!</th>
+					<th colspan="2"><a>Й╦╟Л≈┘К╙┘</a><br>М ▄Л⌡░Й╟─Л·┘Л²└ М≥≤Л≤│М∙╘К▀┬К▀╓!</th>
 				</tr>
 				<tr>
-					<td><button type="button" class="btn btn-outline-success" onclick="location = 'broker'">╟Ьюнаъ╟Ё╩Гюл╫е╟║©Д?</button></td>
-					<td><button type="button" class="btn btn-outline-success" onclick="location = 'lessor'">юс╢Кюнюл╫е╟║©Д?</button></td>
+					<td><button type="button" class="btn btn-outline-success" onclick="location = 'semi.Project?page=community&code=2'">ЙЁ╣Л²╦Л╓▒Й╟°Л┌╛Л²╢Л▀═Й╟─Л ■?</button></td>
+					<td><button type="button" class="btn btn-outline-success" onclick="location = 'semi.Project?page=community&code=3'">Л·└К▄─Л²╦Л²╢Л▀═Й╟─Л ■?</button></td>
 				</tr>
 			</table>
 		</div>

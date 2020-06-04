@@ -39,6 +39,7 @@ div.final_price {
 			<span style="display:"> <span style="display: none"><input
 					type="radio" id="pmCard" name="pay" checked="checked">신용카드</span>
 				<label class="selected"><input type="radio" id="cardType0"
+
 					name="pay" checked="checked">신용카드(일반)</label>
 					
 
@@ -46,6 +47,7 @@ div.final_price {
 					type="radio" id="pmRealtime" name="pay">실시간계좌이체</label>
 			</span> <span style="display:"> <label><input type="radio"
 					id="bank1" name="pay">무통장입금</label>
+
 			</span> <span style="display: none" disabled=""> <label><input
 					type="radio" id="pmPhone" name="pay">휴대폰결제</label>
 			</span> <span style="display: none" disabled=""> <label><input
@@ -74,7 +76,9 @@ div.final_price {
 				</tr>
 
 				<tr>
+
 					<th>그외카드선택</th>
+
 					<td><select style="width: 140px;"><option value="">선택하세요</option>
 							<option>제주카드</option>
 							<option>신협체크카드</option>
@@ -161,6 +165,7 @@ div.final_price {
 
 	</div>
 	<div class="container">
+
 		<h4>
 			<span id="finalPayTxt ">신용카드</span> 최종 결제금액
 		</h4>
@@ -183,6 +188,7 @@ div.final_price {
 						<col width="70%">
 					</colgroup>
 					<tbody>
+
 						<tr>
 							<th>제공받는자</th>
 							<td>[예스이십사 주식회사]</td>
@@ -193,8 +199,10 @@ div.final_price {
 						</tr>
 						<tr>
 							<th>항목</th>
+
 							<td>성명, 주소, 연락처(안심번호 적용 시 연락처는 제외), 개인통관고유부호(선택시), 공동현관
 								출입번호(입력시)</td>
+
 						</tr>
 						<tr>
 							<th>보유기간</th>
@@ -204,6 +212,7 @@ div.final_price {
 				</table>
 			</div>
 		</div>
+
 	</div>
 	<div class="container">
 		<h5>
@@ -239,6 +248,7 @@ $(document).ready(function() {
 
 	
 </script>
+
 
 
 </body>

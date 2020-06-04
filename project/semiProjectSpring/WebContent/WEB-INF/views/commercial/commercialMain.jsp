@@ -1,50 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<%@ include file="../commercial/header_index.jsp"%>
-
-
-<%@include file="../commercial/sidemenu.jsp" %>
+<%@include file="header_index.jsp"%>
+<%@include file="sidemenu.jsp"%>
 <!-- Page Content -->
 <div class="container">
 	<!-- Call to Action Well -->
 	<script src="js/json2.js"></script>
-	<div class="card text-white bg-secondary my-5 py-4 text-center">
+	<div
+		class="card text-white bg-secondary my-5 py-4 text-center col-lg-12">
 		<div class="card-body">
 			<form class="form-inline">
 				<select id="combobox1" class="form-control"
 					style="margin-right: 30px; width: 120px">
 					<!-- <input type="text" autocomplete="off" placeholder="Select a State" class="combobox input-large form-control"> -->
-					<option>±¸ ¼±ÅÃ</option>
-				</select>	
-				<select id="combobox6" class="form-control" style="margin-right:30px;width:120px">
-				<!-- <input type="text" autocomplete="off" placeholder="Select a State" class="combobox input-large form-control"> -->
-				<option>µ¿ ¼±ÅÃ</option>
-			</select>
-				<select id="combobox2" class="form-control"
+					<option>êµ¬ ì„ íƒ</option>
+				</select> <select id="combobox2" class="form-control"
+					style="margin-right: 30px; width: 120px">
+					<!-- <input type="text" autocomplete="off" placeholder="Select a State" class="combobox input-large form-control"> -->
+					<option>ë™ ì„ íƒ</option>
+				</select> <select id="combobox3" class="form-control"
 					style="margin-right: 30px; width: 200px">
-					<option>¾÷Á¾´ëºĞ·ù</option>
-				</select>			
-				<select id="combobox3" class="form-control"
+					<option>ì—…ì¢…ëŒ€ë¶„ë¥˜</option>
+				</select> <select id="combobox4" class="form-control"
 					style="margin-right: 30px; width: 250px">
-					<option>¾÷Á¾ÁßºĞ·ù</option>
-				</select>			
-				<select id="combobox4" class="form-control"
+					<option>ì—…ì¢…ì¤‘ë¶„ë¥˜</option>
+				</select> <select id="combobox5" class="form-control"
 					style="margin-right: 30px; width: 200px">
-					<option>¾÷Á¾¼ÒºĞ·ù</option>
-				</select>			
+					<option>ì—…ì¢…ì†Œë¶„ë¥˜</option>
+				</select>
 			</form>
-			<!-- <p class="text-white m-0">Áöµµ À§Ä¡ ¼±ÅÃ ¹öÆ° µé¾î¿Ã ÀÚ¸®</p> -->
+			<!-- <p class="text-white m-0">ì§€ë„ ìœ„ì¹˜ ì„ íƒ ë²„íŠ¼ ë“¤ì–´ì˜¬ ìë¦¬</p> -->
 		</div>
 	</div>
 	<!-- Heading Row -->
 	<div class="row align-items-center my-5">
-		<div id="map" class="col-lg-7" style="width: 100%; height: 400px;">
+		<div id="map" class="col-lg-7" style="width: 100%; height: 655px;z-index:0;">
 			<!-- <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400"> -->
 		</div>
-		     <script type="text/javascript"
+		<script type="text/javascript"
 			src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wejnreaybi"></script>
+		<script type="js/MarkerClustering.js"></script>
 		<script>
 			var seoul = new naver.maps.LatLngBounds(new naver.maps.LatLng(
 					37.42829747263545, 126.76620435615891),
@@ -55,22 +50,30 @@
 				mapTypeId : 'normal',
 				center : new naver.maps.LatLng(37.4098871, 126.989261),
 				maxBounds : seoul,
+				baseTileOpacity : 1,
+				scaleControl : false,
 				logoControl : false,
-				baseTileOpacity : 0
+				mapDataControl : false,
+				zoomControl : false,
+				mapTypeControl : false,
+				draggable:false,
+				maxZoom : 10.5,
+				disableKineticPan:false,
+				pinchZoom:false,
+				scrollWheel:false,
 			});
-			/* var HOME_PATH = window.HOME_PATH || '.'; */
 			naver.maps.Event.once(map, 'init_stylemap', function() {
 				$.ajax({
-					url : 'resources/js/commercial/seoul_municipalities_geo.json',
+					url : 'js/seoul_municipalities_geo.json',
 					dataType : 'json',
 					success : startDataLayer
 				});
 			});
-			//geoJson ·¹ÀÌ¾î Ãß°¡ÇÏ±â
+			//geoJson ë ˆì´ì–´ ì¶”ê°€í•˜ê¸°
 			function startDataLayer(geojson) {
 				map.data.addGeoJson(geojson);
 				map.data.setStyle(function(feature) {
-					var color = 'black';
+					var color = 'white';
 					if (feature.getProperty('isColorful')) {
 						color = feature.getProperty('color');
 					}
@@ -78,16 +81,14 @@
 						fillColor : 'white',
 						strokeColor : color,
 						strokeWeight : 2,
-						icon : null
+						icon : null,
 					};
 				});
 				map.data.addListener('click', function(e) {
 					e.feature.setProperty('isColorful', true);
-					
 				});
 				map.data.addListener('dblclick', function(e) {
 					var bounds = e.feature.getBounds();
-
 					if (bounds) {
 						map.panToBounds(bounds);
 					}
@@ -95,41 +96,36 @@
 				map.data.addListener('mouseover', function(e) {
 					map.data.overrideStyle(e.feature, {
 						strokeWeight : 8,
-						icon : 'resources/js/commercial/seoul_municipalities_geo.json'
+						icon : 'js/seoul_municipalities_geo.json'
 					});
 				});
-				map.data.addListener('mouseout', function(e) {
-					map.data.revertStyle();
-				});
 			}
-			/* 	for (var i = 0; i < ${array.length}; i++) {
-					var marker = new naver.maps.Marker({
-						position: new naver.maps.LatLng(x,y),
-						map : map,
-						title : 'Ç×¸ñ'
-					})
-				}*/
 		</script>
-		<div class="col-lg-5">
-			<h1 class="font-weight-light">ÀÔÁö ¼±Á¤ ¼­ºñ½º</h1>
-			<p>Ã¢¾÷À» ¿øÇÏ½Ã´Â ÀÔÁöÀÇ ÁÂÇ¥¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä. ±× ÀÔÁö ±ÙÃ³ÀÇ À¯µ¿ÀÎ±¸, ÁÖº¯ »ó±ÇºĞ¼®, ½Ç°Å·¡°¡ µî ´Ù¾çÇÑ
-				Á¤º¸¸¦ Á¦°øÇØµå¸³´Ï´Ù. Á¶±İ ´õ ÀÚ¼¼ÇÑ Á¤º¸¸¦ ¾ò°í ½ÍÀ¸½Ã¸é ¾Æ·¡ ¹öÆ°À» ´­·¯ÁÖ¼¼¿ä.</p>
-			<a class="btn btn-primary" href="#"
-				style="margin: 0 auto;width=300px;">Contect Us!</a>
+		<div class="col-lg-5" id="information">
+			<h1 class="font-weight-light">ì…ì§€ ì„ ì • ì„œë¹„ìŠ¤</h1>
+			<p>ì°½ì—…ì„ ì›í•˜ì‹œëŠ” ì…ì§€ì˜ ì¢Œí‘œë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”. ê·¸ ì…ì§€ ê·¼ì²˜ì˜ ìœ ë™ì¸êµ¬, ì£¼ë³€ ìƒê¶Œë¶„ì„, ì‹¤ê±°ë˜ê°€ ë“± ë‹¤ì–‘í•œ
+				ì •ë³´ë¥¼ ì œê³µí•´ë“œë¦½ë‹ˆë‹¤. ì¡°ê¸ˆ ë” ìì„¸í•œ ì •ë³´ë¥¼ ì–»ê³  ì‹¶ìœ¼ì‹œë©´ ìƒê²Œí•˜ê²Œ ê²€ìƒ‰í•´ë³´ì„¸ìš”.</p>
 		</div>
+		<!-- <script>
+		$(function() {
+			$('#combobox1').change(function() {
+							});
+		});
+		</script> -->
 		<!-- /.col-md-4 -->
 	</div>
 	<!-- /.row -->
 	<!-- Content Row -->
-	<div class="row">
+	<div class="row" id="product">
 		<div class="col-md-4 mb-5">
 			<div class="card h-100">
 				<div class="card-body">
-					<h2 class="card-title">¸Å¹° 1</h2>
-					<p class="card-text">¸Å¹° Á¤º¸ ÀÌ¹ÌÁö µî µé¾î¿Ã ÀÚ¸®</p>
+					<h2 class="card-title">ë§¤ë¬¼ 1</h2>
+					<p class="card-text">ë§¤ë¬¼ ì •ë³´ ì´ë¯¸ì§€ ë“± ë“¤ì–´ì˜¬ ìë¦¬</p>
 				</div>
 				<div class="card-footer">
-					<a href="#" class="btn btn-primary btn-sm">More Info</a>
+					<button onclick="open_pop()" class="btn btn-primary btn-sm">More
+						Info</button>
 				</div>
 			</div>
 		</div>
@@ -137,11 +133,12 @@
 		<div class="col-md-4 mb-5">
 			<div class="card h-100">
 				<div class="card-body">
-					<h2 class="card-title">¸Å¹° 2</h2>
-					<p class="card-text">¸Å¹° Á¤º¸ ÀÌ¹ÌÁö µî µé¾î¿Ã ÀÚ¸®</p>
+					<h2 class="card-title">ë§¤ë¬¼ 2</h2>
+					<p class="card-text">ë§¤ë¬¼ ì •ë³´ ì´ë¯¸ì§€ ë“± ë“¤ì–´ì˜¬ ìë¦¬</p>
 				</div>
 				<div class="card-footer">
-					<a href="#" class="btn btn-primary btn-sm">More Info</a>
+					<button onclick="open_pop()" class="btn btn-primary btn-sm">More
+						Info</button>
 				</div>
 			</div>
 		</div>
@@ -149,11 +146,12 @@
 		<div class="col-md-4 mb-5">
 			<div class="card h-100">
 				<div class="card-body">
-					<h2 class="card-title">¸Å¹° 3</h2>
-					<p class="card-text">¸Å¹° Á¤º¸ ÀÌ¹ÌÁö µî µé¾î¿Ã ÀÚ¸®</p>
+					<h2 class="card-title">ë§¤ë¬¼ 3</h2>
+					<p class="card-text">ë§¤ë¬¼ ì •ë³´ ì´ë¯¸ì§€ ë“± ë“¤ì–´ì˜¬ ìë¦¬</p>
 				</div>
 				<div class="card-footer">
-					<a href="#" class="btn btn-primary btn-sm">More Info</a>
+					<button onclick="open_pop()" class="btn btn-primary btn-sm">More
+						Info</button>
 				</div>
 			</div>
 		</div>
@@ -162,5 +160,6 @@
 	<!-- /.row -->
 </div>
 <!-- /.container -->
-<%@ include file="../commercial/footer.jsp"%>
+<%@include file="modal.jsp"%>   
+<%@include file="footer.jsp"%>
 </html>
