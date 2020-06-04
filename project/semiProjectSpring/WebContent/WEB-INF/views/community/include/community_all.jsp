@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <style>
 #Select1, #Select2 {
 	margin-left: 10px;
@@ -19,90 +19,90 @@
 </style>
 <div class="tab-pane fade show active" id="all">
 	<br>
-	<p>'±¸'´Â ¹Ýµå½Ã ¼±ÅÃÇÏ¿©¾ß ÇÏ¸ç, ±× ÇÏÀ§ Áö¿ªÀ» Æ÷ÇÔÇÏ¿© °Ë»öµË´Ï´Ù.</p>
+	<p>'êµ¬'ëŠ” ë°˜ë“œì‹œ ì„ íƒí•˜ì—¬ì•¼ í•˜ë©°, ê·¸ í•˜ìœ„ ì§€ì—­ì„ í¬í•¨í•˜ì—¬ ê²€ìƒ‰ë©ë‹ˆë‹¤.</p>
 	<div>
 		<div class="form-inline form-group" id="location1">
-			<label for="Select1">Áö¿ª</label> <select class="form-control col-md-1"
+			<label for="Select1">ì§€ì—­</label> <select class="form-control col-md-1"
 				id="Select1">
-				<option selected="selected">¼±ÅÃ</option>
-				<option>°­³²±¸</option>
-				<option>°­µ¿±¸</option>
-				<option>°­ºÏ±¸</option>
-				<option>°­¼­±¸</option>
-				<option>°ü¾Ç±¸</option>
-				<option>±¤Áø±¸</option>
-				<option>±¸·Î±¸</option>
-				<option>±ÝÃµ±¸</option>
-				<option>³ë¿ø±¸</option>
-				<option>µµºÀ±¸</option>
-				<option>µ¿´ë¹®±¸</option>
-				<option>µ¿ÀÛ±¸</option>
-				<option>¸¶Æ÷±¸</option>
-				<option>¼­´ë¹®±¸</option>
-				<option>¼­ÃÊ±¸</option>
-				<option>¼ºµ¿±¸</option>
-				<option>¼ººÏ±¸</option>
-				<option>¼ÛÆÄ±¸</option>
-				<option>¾çÃµ±¸</option>
-				<option>¿µµîÆ÷±¸</option>
-				<option>¿ë»ê±¸</option>
-				<option>ÀºÆò±¸</option>
-				<option>Á¾·Î±¸</option>
-				<option>Áß±¸</option>
-				<option>Áß¶û±¸</option>
-			</select> <label for="Select2">¸Å¹°Á¾·ù</label> <select
+				<option selected="selected">ì„ íƒ</option>
+				<option>ê°•ë‚¨êµ¬</option>
+				<option>ê°•ë™êµ¬</option>
+				<option>ê°•ë¶êµ¬</option>
+				<option>ê°•ì„œêµ¬</option>
+				<option>ê´€ì•…êµ¬</option>
+				<option>ê´‘ì§„êµ¬</option>
+				<option>êµ¬ë¡œêµ¬</option>
+				<option>ê¸ˆì²œêµ¬</option>
+				<option>ë…¸ì›êµ¬</option>
+				<option>ë„ë´‰êµ¬</option>
+				<option>ë™ëŒ€ë¬¸êµ¬</option>
+				<option>ë™ìž‘êµ¬</option>
+				<option>ë§ˆí¬êµ¬</option>
+				<option>ì„œëŒ€ë¬¸êµ¬</option>
+				<option>ì„œì´ˆêµ¬</option>
+				<option>ì„±ë™êµ¬</option>
+				<option>ì„±ë¶êµ¬</option>
+				<option>ì†¡íŒŒêµ¬</option>
+				<option>ì–‘ì²œêµ¬</option>
+				<option>ì˜ë“±í¬êµ¬</option>
+				<option>ìš©ì‚°êµ¬</option>
+				<option>ì€í‰êµ¬</option>
+				<option>ì¢…ë¡œêµ¬</option>
+				<option>ì¤‘êµ¬</option>
+				<option>ì¤‘ëž‘êµ¬</option>
+			</select> <label for="Select2">ë§¤ë¬¼ì¢…ë¥˜</label> <select
 				class="form-control col-md-1" id="Select2">
-				<option selected="selected">ÀüÃ¼</option>
-				<option>¾ÆÆÄÆ®</option>
-				<option>¿ÀÇÇ½ºÅÚ</option>
-				<option>ºÐ¾ç±Ç</option>
-				<option>ÁÖÅÃ</option>
-				<option>ÅäÁö</option>
-				<option>¿ø·ë</option>
-				<option>»ó°¡</option>
-				<option>»ç¹«½Ç</option>
-				<option>°øÀå</option>
-				<option>Àç°³¹ß</option>
-				<option>°Ç¹°</option>
+				<option selected="selected">ì „ì²´</option>
+				<option>ì•„íŒŒíŠ¸</option>
+				<option>ì˜¤í”¼ìŠ¤í…”</option>
+				<option>ë¶„ì–‘ê¶Œ</option>
+				<option>ì£¼íƒ</option>
+				<option>í† ì§€</option>
+				<option>ì›ë£¸</option>
+				<option>ìƒê°€</option>
+				<option>ì‚¬ë¬´ì‹¤</option>
+				<option>ê³µìž¥</option>
+				<option>ìž¬ê°œë°œ</option>
+				<option>ê±´ë¬¼</option>
 			</select>
-			<button type="button" class="btn-primary btn-sm">°Ë»ö</button>
+			<button type="button" class="btn-primary btn-sm">ê²€ìƒ‰</button>
 		</div>
 		<div id="checkorder1">
 			<div class="form-check-inline">
 				<label class="form-check-label"> <input type="radio"
 					class="form-check-input" name="alloptions" id="alloptions1"
-					value="option1" checked="checked">ÃÖ½Å¼ø
+					value="option1" checked="checked">ìµœì‹ ìˆœ
 				</label>
 			</div>
 			<div class="form-check-inline">
 				<label class="form-check-label"> <input type="radio"
 					class="form-check-input" name="alloptions" id="alloptions2"
-					value="option2">Á¶È¸¼ø
+					value="option2">ì¡°íšŒìˆœ
 				</label>
 			</div>
 			<div class="form-check-inline">
 				<label class="form-check-label"> <input type="radio"
 					class="form-check-input" name="alloptions" id="alloptions3"
-					value="option3">ÃßÃµ¼ø
+					value="option3">ì¶”ì²œìˆœ
 				</label>&nbsp;
-				<button type="button" class="btn-primary btn-sm" id="writeBtn1">±Û¾²±â</button>
+				<button type="button" class="btn-primary btn-sm" id="writeBtn1">ê¸€ì“°ê¸°</button>
 			</div>
 		</div>
 	</div>
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th scope="col">Áö¿ª</th>
-				<th scope="col">Á¦¸ñ</th>
-				<th scope="col">µî·ÏÀÏ</th>
-				<th scope="col">Á¶È¸</th>
-				<th scope="col">ÃßÃµ</th>
+				<th scope="col">ì§€ì—­</th>
+				<th scope="col">ì œëª©</th>
+				<th scope="col">ë“±ë¡ì¼</th>
+				<th scope="col">ì¡°íšŒ</th>
+				<th scope="col">ì¶”ì²œ</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<th scope="row">°­³²±¸</th>
-				<td>¾È³çÇÏ¼¼¿ä!</td>
+				<th scope="row">ê°•ë‚¨êµ¬</th>
+				<td>ì•ˆë…•í•˜ì„¸ìš”!</td>
 				<td>2020-05-27</td>
 				<td>27</td>
 				<td>5</td>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ include file="../include/header_index.jsp"%>
 <link rel="stylesheet"
@@ -11,40 +11,40 @@
 
 
 
-	<h1>·Î°í</h1><br>
-	<h4>°øÀÎÁß°³»ç È¸¿ø°¡ÀÔ</h4>
+	<h1>ë¡œê³ </h1><br>
+	<h4>ê³µì¸ì¤‘ê°œì‚¬ íšŒì›ê°€ìž…</h4>
 	<section class="projects-section bg-light" id="projects" >
 		<div class="container">
 			<form class="form-horizontal">
 				<div class="form-group">
-					<label for="inputEmail" class="col-sm-2 control-label">¾ÆÀÌµð</label>
+					<label for="inputEmail" class="col-sm-2 control-label">ì•„ì´ë””</label>
 					<div class="col-sm-3">
 						<input type="email" class="form-control" id="inputEmail"
 							placeholder="Email" required="required">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputPassword" class="col-sm-2 control-label">ºñ¹Ð¹øÈ£</label>
+					<label for="inputPassword" class="col-sm-2 control-label">ë¹„ë°€ë²ˆí˜¸</label>
 					<div class="col-sm-3">
 						<input type="password" class="form-control" id="inputPassword"
 							placeholder="Password">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputName" class="col-sm-2 control-label">ÀÌ¸§</label>
+					<label for="inputName" class="col-sm-2 control-label">ì´ë¦„</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" id="inputName">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="row">
-						<label for="inputName" class="col-sm-2 control-label">»ý³â¿ùÀÏ</label>
+						<label for="inputName" class="col-sm-2 control-label">ìƒë…„ì›”ì¼</label>
 						<div class="col-xs-1" id="year">
-							<input type="text" class="form-control" placeholder="³â(4ÀÚ)">
+							<input type="text" class="form-control" placeholder="ë…„(4ìž)">
 						</div>
 						<div class="col-xs-1" id="month">
 							<select class="form-control" id="monthSelect">
-								<option selected="selected">¿ù</option>
+								<option selected="selected">ì›”</option>
 								<option>1</option>
 								<option>2</option>
 								<option>3</option>
@@ -60,22 +60,22 @@
 							</select>
 						</div>
 						<div class="col-xs-1" id="day">
-							<input type="text" class="form-control" placeholder="ÀÏ">
+							<input type="text" class="form-control" placeholder="ì¼">
 						</div>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputName" class="col-sm-2 control-label">¼ºº°</label>
+					<label for="inputName" class="col-sm-2 control-label">ì„±ë³„</label>
 					<div class="col-sm-3">
 						<select class="form-control" id="genderSelect">
-							<option selected="selected">¼ºº°</option>
-							<option>³²ÀÚ</option>
-							<option>¿©ÀÚ</option>
+							<option selected="selected">ì„±ë³„</option>
+							<option>ë‚¨ìž</option>
+							<option>ì—¬ìž</option>
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputTel" class="col-sm-2 control-label">ÀüÈ­¹øÈ£</label>
+					<label for="inputTel" class="col-sm-2 control-label">ì „í™”ë²ˆí˜¸</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" id="inputTel">
 					</div>
@@ -84,15 +84,15 @@
 					<div class="col-sm-offset-2 col-sm-10" id="checkrobot">
 						<div class="checkbox">
 							<label id="checkrobot"> <input type="checkbox">
-								·Îº¿ÀÌ ¾Æ´Õ´Ï´Ù!
+								ë¡œë´‡ì´ ì•„ë‹™ë‹ˆë‹¤!
 							</label>
 						</div>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10" id="signup">
-						<button type="button" class="btn btn-secondary btn-lg" onclick="location = 'semi.Project?page=login&code=1'">Ãë¼Ò</button>
-						<button type="submit" class="btn btn-success btn-lg" onclick="location = 'semi.Project?page=community&code=5'">È®ÀÎ</button>
+						<button type="button" class="btn btn-secondary btn-lg" onclick="location = 'semi.Project?page=login&code=1'">ì·¨ì†Œ</button>
+						<button type="submit" class="btn btn-success btn-lg" onclick="location = 'semi.Project?page=community&code=5'">í™•ì¸</button>
 					</div>
 				</div>
 			</form>

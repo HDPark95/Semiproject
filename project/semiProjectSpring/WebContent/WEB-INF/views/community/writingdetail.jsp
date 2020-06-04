@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ include file="../include/header_index.jsp"%>
 <link href="resources/css/community/writing_question.css"
@@ -111,26 +111,26 @@
 	<div class="container">
 		<div id="area">
 			<div id="location">
-				<h2>�츮���� �� �̾߱�</h2>
+				<h2>우리동네 상가 이야기</h2>
 				<div id="tag">
-					<p id="tag2">#������&nbsp;#��</p>
+					<p id="tag2">#강남구&nbsp;#상가</p>
 				</div>
 			</div>
 			<div id="writing0001">
 				<div id="head">
 					<table>
 						<tr>
-							<td><h3 id="title">���� ������ �� �κ��Դϴ�.</h3></td>
-							<td id="rec">��õ�ϱ�</td>
+							<td><h3 id="title">글의 제목이 들어갈 부분입니다.</h3></td>
+							<td id="rec">추천하기</td>
 						</tr>
 						<tr>
 							<td><div id="toggle">
-									<span>���̵� ��</span> <span>�ø� ��¥�� �� </span> <span>��ȸ
-										��ȸ��</span>
+									<span>아이디가 들어감</span> <span>올린 날짜가 들어감 </span> <span>조회
+										조회수</span>
 								</div></td>
 							<td id="total">
 								<div>
-									<button type="button" class="btn btn-default" id="totalRec">��õ
+									<button type="button" class="btn btn-default" id="totalRec">추천
 										0</button>
 								</div>
 							</td>
@@ -139,11 +139,11 @@
 				</div>
 			</div>
 			<div id="buttons">
-				<button type="button" class="btn btn-default btn-sm" id="writing">�۾���
+				<button type="button" class="btn btn-default btn-sm" id="writing">글쓰기
 				</button>
-				<button type="button" class="btn btn-default btn-sm" id="list">�������
+				<button type="button" class="btn btn-default btn-sm" id="list">목록으로
 				</button>
-				<button type="button" class="btn btn-default btn-sm" id="delete">�����ϱ�
+				<button type="button" class="btn btn-default btn-sm" id="delete">삭제하기
 				</button>
 			</div>
 		</div>

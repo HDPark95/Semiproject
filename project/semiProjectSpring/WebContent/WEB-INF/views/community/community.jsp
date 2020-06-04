@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="../include/header_index.jsp"%>
 <%@ include file="../include/header_menu.jsp"%>
 
@@ -7,13 +7,13 @@
 	<div class="container">
 		<ul class="nav nav-tabs">
 			<li class="nav-item"><a class="nav-link active"
-				data-toggle="tab" href="#all">ÀüÃ¼</a></li>
+				data-toggle="tab" href="#all">ì „ì²´</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
-				href="#commercial">»ó°¡</a></li>
+				href="#commercial">ìƒê°€</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
-				href="#estate">ºÎµ¿»ê</a></li>
+				href="#estate">ë¶€ë™ì‚°</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
-				href="#auction">°æ¸Å</a></li>
+				href="#auction">ê²½ë§¤</a></li>
 		</ul>
 		<div id="myTabContent" class="tab-content">
 			<%@ include file="../community/include/community_all.jsp" %>
