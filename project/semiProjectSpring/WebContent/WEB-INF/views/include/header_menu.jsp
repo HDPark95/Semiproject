@@ -54,12 +54,12 @@
                         <li class="nav-item">
 	                        <a class="nav-link js-scroll-trigger" href="#">커뮤니티</a>
 	                      
-	                        <ul class="invisible sub-menu">
+	                        <!-- <ul class="invisible sub-menu">
 		                       	<li>매물</li>
 		                       	<li>매물</li>
 		                       	<li>매물</li>
 		                       	<li>매물등록</li>
-	                       </ul>
+	                       </ul> -->
                         </li>
                         <li class="nav-item">
 	                        <a class="nav-link js-scroll-trigger menu-other" href="#">고객센터</a>

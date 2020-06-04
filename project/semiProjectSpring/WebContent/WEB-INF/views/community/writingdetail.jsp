@@ -69,44 +69,14 @@
 
 #buttons {
 	width: 698px;
-	margin: 0 auto;
+	margin: 5px 0 0 0;
 	float: right;
 }
+#writing, #list, #delete{
+	background-color: #088A68;
+	color: white;
+}
 </style>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script>
-	$(function() {
-		$('#writing').hover(function() {
-			$('#writing').css('background-color', '#E6E6E6');
-		}, function() {
-			$('#writing').css('background-color', 'white');
-		});
-		$('#list').hover(function() {
-			$('#list').css('background-color', '#E6E6E6');
-		}, function() {
-			$('#list').css('background-color', 'white');
-		});
-		$('#delete').hover(function() {
-			$('#delete').css('background-color', '#E6E6E6');
-		}, function() {
-			$('#delete').css('background-color', 'white');
-		});
-		$('#writing').click(function() {
-			location = 'wriCom';
-		});
-		$('#list').click(function() {
-			location = 'comuMain';
-		});
-		$('#delete').click(function() {
-
-		});
-		$('#totalRec').hover(function() {
-			$('#totalRec').css('border', '1px solid red');
-		},function(){
-			$('#totalRec').css('border', '1px solid white');
-		});
-	});
-</script>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
 		<div id="area">
@@ -149,3 +119,37 @@
 		</div>
 	</div>
 </section>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	$(function() {
+		$('#writing').hover(function() {
+			$('#writing').css('background-color', '#04B45F');
+		}, function() {
+			$('#writing').css('background-color', '#088A68');
+		});
+		$('#list').hover(function() {
+			$('#list').css('background-color', '#04B45F');
+		}, function() {
+			$('#list').css('background-color', '#088A68');
+		});
+		$('#delete').hover(function() {
+			$('#delete').css('background-color', '#04B45F');
+		}, function() {
+			$('#delete').css('background-color', '#088A68');
+		});
+		$('#writing').click(function() {
+			location = 'wriCom';
+		});
+		$('#list').click(function() {
+			location = 'comuMain';
+		});
+		$('#delete').click(function() {
+
+		});
+		$('#totalRec').hover(function() {
+			$('#totalRec').css('border', '1px solid red');
+		},function(){
+			$('#totalRec').css('border', '1px solid white');
+		});
+	});
+</script>
