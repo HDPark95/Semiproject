@@ -9,7 +9,7 @@
 <body>
 <div id="container">
  <form method="post" action="addsurvey" enctype="multipart/form-data">
- <table>
+ <table>  
   <thead>
    <tr><th colspan="2">Tboard ±ÛÀÛ¼º Æû</th></tr>
   </thead>
