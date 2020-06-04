@@ -10560,20 +10560,24 @@ color:white;
 	padding :auto;
 	list-style: none;
 }
-.sub-menu >li{
+.sub-menu >li a{
 	display: inline;
 	background-color: #778899;
 	color: white;
-	
+	text-decoration: none;
+
 	margin-left: 10px;
 	font-size: 1.2em;
 }
-
-.sub-menu >li:hover{
+.sub-menu >li{
+	display: inline;
+}
+.sub-menu >li a:hover{
 		background-color: #778899;
 	color: #FE9A2E;
 	width: 100px;
 	text-align: center; 
+	cursor: pointer;
 	
 }
 .menu-other{
