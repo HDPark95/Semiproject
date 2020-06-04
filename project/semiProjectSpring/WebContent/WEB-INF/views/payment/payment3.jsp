@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ include file="../include/header_index.jsp"%>
  <link href="resources/css/community/subscriptioncheck_lessor.css" rel="stylesheet">
@@ -10,13 +10,13 @@
 		<div class="container">
 			<table class="table">
 				<tr class="success">
-					<th colspan="2"><a>±â¾÷¸í</a><br>±¸µ¶±Ç°¡ÀÔÀ» ÃàÇÏµå¸³´Ï´Ù!</th>
+					<th colspan="2"><a>ê¸°ì—…ëª…</a><br>êµ¬ë…ê¶Œê°€ìž…ì„ ì¶•í•˜ë“œë¦½ë‹ˆë‹¤!</th>
 				</tr>
 				<tr>
-					<td colspan="2" id="welcome1">º¸´Ù ´õ ÁÁÀº ÇýÅÃÀ» ´©¸®½Ç ¼ö ÀÖ½À´Ï´Ù!</td>
+					<td colspan="2" id="welcome1">ë³´ë‹¤ ë” ì¢‹ì€ í˜œíƒì„ ëˆ„ë¦¬ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤!</td>
 				</tr>
 				<tr>
-					<td id="welcome2">È¨ÆäÀÌÁö·Î ÀÌµ¿ÇÏ±â<br><br><button type="button" class="btn btn-success" onclick="location ='semi.Project?page=index#footerMenu'">¼­ºñ½ºÀÌ¿ëÇÏ±â</button></td>
+					<td id="welcome2">í™ˆíŽ˜ì´ì§€ë¡œ ì´ë™í•˜ê¸°<br><br><button type="button" class="btn btn-success" onclick="location ='semi.Project?page=index#footerMenu'">ì„œë¹„ìŠ¤ì´ìš©í•˜ê¸°</button></td>
 				
 				</tr>
 			</table>

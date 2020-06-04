@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
-        <meta charset="EUC-KR" />
+        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -25,9 +25,9 @@
                 <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">ฑ๊ว้ลืฝบฦฎ</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">ฐํฐดผพลอ</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">ทฮฑืภฮ</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">๊นํ—ํ…์คํธ</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">๊ณ ๊ฐ์ผํฐ</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">๋ก๊ทธ์ธ</a></li>
                     </ul>
                 </div>
             </div>

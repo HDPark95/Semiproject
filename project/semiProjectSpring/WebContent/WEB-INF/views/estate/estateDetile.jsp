@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 	<%@ include file="../include/header_index.jsp"%>
 	  <link href="resources/css/estate_one/estate_on.css" rel="stylesheet" />
 	    <link href="resources/css/estate_one/th_bootstrap.css" rel="stylesheet" />
@@ -13,11 +13,11 @@
 
 	<div class="th_card bg-white property_border_st">
 
-		<h3 class="th_card-header  property_color bg-white">¿ÀÇÇ½ºÅÚ ¡¤
-			¹Ì»ç¿ª¸¶ÀÌ¿òÇª¸£Áö¿À½ÃÆ¼</h3>
+		<h3 class="th_card-header  property_color bg-white">ì˜¤í”¼ìŠ¤í…” Â·
+			ë¯¸ì‚¬ì—­ë§ˆì´ì›€í‘¸ë¥´ì§€ì˜¤ì‹œí‹°</h3>
 		<div class="th_card-body bg-white">
-			<h3 class="th_card-title ">¿ù¼¼ 500/40 ¸¸¿ø</h3>
-			<h6 class="th_card-subtitle th_text-muted ">Ç®¿É¼Ç , °ü¸®ºñ : 5¸¸¿ø</h6>
+			<h3 class="th_card-title ">ì›”ì„¸ 500/40 ë§Œì›</h3>
+			<h6 class="th_card-subtitle th_text-muted ">í’€ì˜µì…˜ , ê´€ë¦¬ë¹„ : 5ë§Œì›</h6>
 		</div>
 		<div>
 		<img class="th_property_img" src="assets/img/home.jpg"
@@ -36,11 +36,11 @@
 		<div class="topma bg-white">
 			<ul class="nav nav-tabs ">
 				<li class="nav-item"><a class="nav-link active"
-					data-toggle="tab" href="#home">¸Å¹° Á¤º¸ </a></li>
+					data-toggle="tab" href="#home">ë§¤ë¬¼ ì •ë³´ </a></li>
 				<li class="nav-item"><a class="nav-link" data-toggle="tab"
-					href="#profile">»ó¼¼ ¼³¸í</a></li>
+					href="#profile">ìƒì„¸ ì„¤ëª…</a></li>
 				<li class="nav-item"><a class="nav-link " data-toggle="tab"
-					href="#">±× ¿Ü ¸¸µé°í ½ÍÀº ÅÇ Ãß°¡ ÇÏ±â</a></li>
+					href="#">ê·¸ ì™¸ ë§Œë“¤ê³  ì‹¶ì€ íƒ­ ì¶”ê°€ í•˜ê¸°</a></li>
 
 			</ul>
 
@@ -57,23 +57,23 @@
 
 						<tbody>
 							<tr>
-								<td><strong>ÇØ´çÃþ/°Ç¹°Ãþ : </strong> 10Ãþ / 23Ãþ</td>
-								<td><strong>Àü¿ë/°è¾à¸éÀû : </strong> 120.48 / 49.86§³</td>
-								<td><strong>³­¹æÁ¾·ù : </strong> Áö¿ª³­¹æ</td>
+								<td><strong>í•´ë‹¹ì¸µ/ê±´ë¬¼ì¸µ : </strong> 10ì¸µ / 23ì¸µ</td>
+								<td><strong>ì „ìš©/ê³„ì•½ë©´ì  : </strong> 120.48 / 49.86ãŽ¡</td>
+								<td><strong>ë‚œë°©ì¢…ë¥˜ : </strong> ì§€ì—­ë‚œë°©</td>
 							</tr>
 							<tr>
-								<td><strong>ºôÆ®ÀÎ : </strong> ºôÆ®ÀÎ ÁÖ¹æ</td>
-								<td><strong>ÁØ°ø³â¿ù : </strong> 2020.08ÁØ°ø</td>
-								<td><strong>ÃÑ ¼¼´ë¼ö : </strong> 1090¼¼´ë</td>
+								<td><strong>ë¹ŒíŠ¸ì¸ : </strong> ë¹ŒíŠ¸ì¸ ì£¼ë°©</td>
+								<td><strong>ì¤€ê³µë…„ì›” : </strong> 2020.08ì¤€ê³µ</td>
+								<td><strong>ì´ ì„¸ëŒ€ìˆ˜ : </strong> 1090ì„¸ëŒ€</td>
 							</tr>
 							<tr>
-								<td><strong>¼¼´ë´ç ÁÖÂ÷¼ö : </strong> 0.7´ë</td>
-								<td><strong>¹Ý·Áµ¿¹° : </strong> °¡´É</td>
-								<td><strong>º£¶õ´Ù/¹ßÄÚ´Ï : </strong> ¾øÀ½</td>
+								<td><strong>ì„¸ëŒ€ë‹¹ ì£¼ì°¨ìˆ˜ : </strong> 0.7ëŒ€</td>
+								<td><strong>ë°˜ë ¤ë™ë¬¼ : </strong> ê°€ëŠ¥</td>
+								<td><strong>ë² ëž€ë‹¤/ë°œì½”ë‹ˆ : </strong> ì—†ìŒ</td>
 							</tr>
 							<tr>
-								<td><strong>Àü¼¼ÀÚ±Ý´ëÃâ : </strong> °¡´É</td>
-								<td><strong>ÀÔÁÖ°¡´ÉÀÏ : </strong> 2020.07.08</td>
+								<td><strong>ì „ì„¸ìžê¸ˆëŒ€ì¶œ : </strong> ê°€ëŠ¥</td>
+								<td><strong>ìž…ì£¼ê°€ëŠ¥ì¼ : </strong> 2020.07.08</td>
 								<td></td>
 							</tr>
 
@@ -84,39 +84,39 @@
 						<table class="type12">
 							<thead>
 								<tr>
-									<th scope="cols"><h1>ÁÖÀÎÀÌ Á÷Á¢ ¾´ »ó¼¼ ¼³¸í µ¥ÀÌÅÍ Á¦¸ñ !</h1>
-									<pre>¿¡µ§ºÎµ¿»ê.¿¬Áß¹«ÈÞ24½Ã°£»ó´ã°¡´É.»ó´ë³ó´ëÀüÃ¶¿ìºÎ±Ù.¿ëºÀµ¿.ÀúÈñµµ±â´Ù¸®´À¶óÁöÃÆ´ø¹æ.´Üµ¶Áß°³ÀÔ´Ï´Ù.½Å¼ÓÇÏ°íºü¸£°ÔÁß°³ÇØµå¸³´Ï´Ù.</pre>
+									<th scope="cols"><h1>ì£¼ì¸ì´ ì§ì ‘ ì“´ ìƒì„¸ ì„¤ëª… ë°ì´í„° ì œëª© !</h1>
+									<pre>ì—ë´ë¶€ë™ì‚°.ì—°ì¤‘ë¬´íœ´24ì‹œê°„ìƒë‹´ê°€ëŠ¥.ìƒëŒ€ë†ëŒ€ì „ì² ìš°ë¶€ê·¼.ìš©ë´‰ë™.ì €í¬ë„ê¸°ë‹¤ë¦¬ëŠë¼ì§€ì³¤ë˜ë°©.ë‹¨ë…ì¤‘ê°œìž…ë‹ˆë‹¤.ì‹ ì†í•˜ê³ ë¹ ë¥´ê²Œì¤‘ê°œí•´ë“œë¦½ë‹ˆë‹¤.</pre>
 									</th>
 
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td><h3>ÁÖÀÎÀÌ Á÷Á¢ ¾´ »ó¼¼ ¼³¸í µ¥ÀÌÅÍ ³»¿ë !</h3> <pre>
-¿¹½Ã ) :
+									<td><h3>ì£¼ì¸ì´ ì§ì ‘ ì“´ ìƒì„¸ ì„¤ëª… ë°ì´í„° ë‚´ìš© !</h3> <pre>
+ì˜ˆì‹œ ) :
 									
-ÆíÀÇ ½Ã¼³ µµº¸ 5ºÐ 
+íŽ¸ì˜ ì‹œì„¤ ë„ë³´ 5ë¶„ 
 
-¸®ºä ¸¸Á·µµ 1µî
+ë¦¬ë·° ë§Œì¡±ë„ 1ë“±
 
-º¸Áõ±Ý ºÐ³³ OK
+ë³´ì¦ê¸ˆ ë¶„ë‚© OK
 
-¿©¼ººÐµéµµ ¾È½ÉÇÏ½Ç ¼ö ÀÖ´Â ¹æ
+ì—¬ì„±ë¶„ë“¤ë„ ì•ˆì‹¬í•˜ì‹¤ ìˆ˜ ìžˆëŠ” ë°©
 
- ÀÎ±Ù ÆíÀÇ½Ã¼³ÀÌ ÀÖ¾î Æí¸®ÇÕ´Ï´Ù
+ ì¸ê·¼ íŽ¸ì˜ì‹œì„¤ì´ ìžˆì–´ íŽ¸ë¦¬í•©ë‹ˆë‹¤
 
-ÇãÀ§¸Å¹° º¸´Ü ½Ç¸Å¹°·Î ½ÂºÎº¸°Ú½À´Ï´Ù
+í—ˆìœ„ë§¤ë¬¼ ë³´ë‹¨ ì‹¤ë§¤ë¬¼ë¡œ ìŠ¹ë¶€ë³´ê² ìŠµë‹ˆë‹¤
 
-´Ù¸¥ ±¸Á¶ÀÇ ¿ø·ë ¹× Åõ·ëµµ °¡°Ý´ëº°
-  ´Ù¾çÇÏ°Ô ÀÖÀ¸´Ï ÀÏ´Ü ¿¬¶ôÁÖ¼¼¿ä
+ë‹¤ë¥¸ êµ¬ì¡°ì˜ ì›ë£¸ ë° íˆ¬ë£¸ë„ ê°€ê²©ëŒ€ë³„
+  ë‹¤ì–‘í•˜ê²Œ ìžˆìœ¼ë‹ˆ ì¼ë‹¨ ì—°ë½ì£¼ì„¸ìš”
 
-º¸Áõ±Ý ¹× ¿ù¼¼ Á¶Àý ÃÖ´ëÇÑ ¸ÂÃçµå¸³´Ï´Ù
+ë³´ì¦ê¸ˆ ë° ì›”ì„¸ ì¡°ì ˆ ìµœëŒ€í•œ ë§žì¶°ë“œë¦½ë‹ˆë‹¤
 
-ÀüÈ­°¡ ºÎ²ô·¯¿ì½ÅºÐÀº Ä«Åå»ó´ã youhyun1099
+ì „í™”ê°€ ë¶€ë„ëŸ¬ìš°ì‹ ë¶„ì€ ì¹´í†¡ìƒë‹´ youhyun1099
 
-Àúµµ ¾î¸°½ÃÀýºÎÅÍ ÀÚÃë¸¦ ÇØ¿Ô½À´Ï´Ù Á¦°¡ »ì±â ½ÈÀº ¹æÀº Áß°³ÇÏÁö ¾Ê½À´Ï´Ù
+ì €ë„ ì–´ë¦°ì‹œì ˆë¶€í„° ìžì·¨ë¥¼ í•´ì™”ìŠµë‹ˆë‹¤ ì œê°€ ì‚´ê¸° ì‹«ì€ ë°©ì€ ì¤‘ê°œí•˜ì§€ ì•ŠìŠµë‹ˆë‹¤
 
-»ó°¡ ¿ù¼¼ ¿ø·ë °Ç¹° ¸ÅÀÔ ¹®ÀÇµµ ¹Þ¾Æ¿ä  </pre></td>
+ìƒê°€ ì›”ì„¸ ì›ë£¸ ê±´ë¬¼ ë§¤ìž… ë¬¸ì˜ë„ ë°›ì•„ìš”  </pre></td>
 								</tr>
 
 							</tbody>
@@ -133,49 +133,49 @@
 
 					<div id="p_list">
 						<p>
-							<a class="th_a" href="#a">°¡°Ý Á¤º¸ </a>
+							<a class="th_a" href="#a">ê°€ê²© ì •ë³´ </a>
 						</p>
 						<p>
-							<a class="th_a" href="#b">¿É¼Ç </a>
+							<a class="th_a" href="#b">ì˜µì…˜ </a>
 						</p>
 						<p>
-							<a class="th_a" href="#c">À§Ä¡ ¹× ÁÖº¯½Ã¼³</a>
+							<a class="th_a" href="#c">ìœ„ì¹˜ ë° ì£¼ë³€ì‹œì„¤</a>
 						</p>
 						<p>
-							<a class="th_a" href="#d">´Ù¹æ¸é ½ºÄÚ¾î</a>
+							<a class="th_a" href="#d">ë‹¤ë°©ë©´ ìŠ¤ì½”ì–´</a>
 						</p>
 						<p>
-							<a class="th_a" href="#e">ÀÌ °øÀÎÁß°³»ç ´Ù¸¥¹æ </a>
+							<a class="th_a" href="#e">ì´ ê³µì¸ì¤‘ê°œì‚¬ ë‹¤ë¥¸ë°© </a>
 						</p>
 					</div>
 					
 					<div id="a" class="th_b">
-						<p class="container" >°¡°Ý Á¤º¸¸¦ È®ÀÎ ÇÒ¼ö ÀÖ´Â
-							ºÎºÐ ÀÔ´Ï´Ù.</p>
+						<p class="container" >ê°€ê²© ì •ë³´ë¥¼ í™•ì¸ í• ìˆ˜ ìžˆëŠ”
+							ë¶€ë¶„ ìž…ë‹ˆë‹¤.</p>
 							<div class="testestest">
 							</div>
 					</div>
 					<div id="b" class="th_b">
-						<p class="container" >¿É¼Ç Á¤º¸¸¦ È®ÀÎ ÇÒ¼ö ÀÖ´Â
-							ºÎºÐ ÀÔ´Ï´Ù.</p>
+						<p class="container" >ì˜µì…˜ ì •ë³´ë¥¼ í™•ì¸ í• ìˆ˜ ìžˆëŠ”
+							ë¶€ë¶„ ìž…ë‹ˆë‹¤.</p>
 							<div class="testestest">
 							</div>
 					</div>
 					<div id="c" class="th_b">
-						<p class="container" >À§Ä¡ ¹× ÁÖº¯½Ã¼³ Á¤º¸¸¦ È®ÀÎ
-							ÇÒ¼ö ÀÖ´Â ºÎºÐ ÀÔ´Ï´Ù.</p>
+						<p class="container" >ìœ„ì¹˜ ë° ì£¼ë³€ì‹œì„¤ ì •ë³´ë¥¼ í™•ì¸
+							í• ìˆ˜ ìžˆëŠ” ë¶€ë¶„ ìž…ë‹ˆë‹¤.</p>
 							<div class="testestest">
 							</div>
 					</div>
 					<div id="d" class="th_b">
-						<p class="container" >´Ù¹æ¸é ½ºÄÚ¾î Á¤º¸¸¦ È®ÀÎ ÇÒ¼ö
-							ÀÖ´Â ºÎºÐ ÀÔ´Ï´Ù.</p>
+						<p class="container" >ë‹¤ë°©ë©´ ìŠ¤ì½”ì–´ ì •ë³´ë¥¼ í™•ì¸ í• ìˆ˜
+							ìžˆëŠ” ë¶€ë¶„ ìž…ë‹ˆë‹¤.</p>
 							<div class="testestest">
 							</div>
 					</div>
 					<div id="e" class="th_b">
-						<p class="container" >ÀÌ °øÀÎÁß°³»ç ´Ù¸¥¹æ Á¤º¸¸¦
-							È®ÀÎ ÇÒ¼ö ÀÖ´Â ºÎºÐ ÀÔ´Ï´Ù.</p>
+						<p class="container" >ì´ ê³µì¸ì¤‘ê°œì‚¬ ë‹¤ë¥¸ë°© ì •ë³´ë¥¼
+							í™•ì¸ í• ìˆ˜ ìžˆëŠ” ë¶€ë¶„ ìž…ë‹ˆë‹¤.</p>
 							<div class="testestest">
 							</div>
 					</div>
@@ -202,12 +202,12 @@
 
 	<div class="th_card bg-white property_border_st">
 		<div class="th_card-body">
-			<h3 class="th_card-title">¹Ì»ç¿ª¹Ì·¡°øÀÎÁß°³»ç»ç¹«¼Ò</h3>
-			<h4 class="th_card-subtitle mb-2 text-muted">ÀÌÀºÈñ</h4>
-			<p class="th_card-text">¾ðÁ¦µçÁö ÆíÇÏ°Ô ¿¬¶ôÁÖ¼¼¿ä .</p>
+			<h3 class="th_card-title">ë¯¸ì‚¬ì—­ë¯¸ëž˜ê³µì¸ì¤‘ê°œì‚¬ì‚¬ë¬´ì†Œ</h3>
+			<h4 class="th_card-subtitle mb-2 text-muted">ì´ì€í¬</h4>
+			<p class="th_card-text">ì–¸ì œë“ ì§€ íŽ¸í•˜ê²Œ ì—°ë½ì£¼ì„¸ìš” .</p>
 			<p class="th_card-text">tel - 010-5555-6666 , 02) 222 - 5656</p>
-			<a href="#" class="th_card-link">ÀüÈ­ °É±â</a> <a href="#"
-				class="th_card-link">Áöµµ Ç¥½Ã ÇÏ±â</a>
+			<a href="#" class="th_card-link">ì „í™” ê±¸ê¸°</a> <a href="#"
+				class="th_card-link">ì§€ë„ í‘œì‹œ í•˜ê¸°</a>
 		</div>
 	</div>
 

@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <title>Insert title here</title>
@@ -28,25 +28,25 @@ div.final_price {
 </style>
 </head>
 <body>
-	<h2>°áÁ¦È®ÀÎÃ¢</h2>
+	<h2>ê²°ì œí™•ì¸ì°½</h2>
 	<div class="container">
 		<div class="etc_payment">
 			<span style="display:"> <span style="display: none"><input
-					type="radio" id="pmCard" name="pay" checked="checked">½Å¿ëÄ«µå</span>
+					type="radio" id="pmCard" name="pay" checked="checked">ì‹ ìš©ì¹´ë“œ</span>
 				<label class="selected"><input type="radio" id="cardType0"
-					name="pay" checked="checked">½Å¿ëÄ«µå(ÀÏ¹Ý)</label> <label><input
-					type="radio" id="cardType1" name="pay">½Å¿ëÄ«µå(¹ýÀÎ)</label> <label><input
-					type="radio" id="cardType2" name="pay">ÇØ¿Ü¹ß±ÞÄ«µå</label>
+					name="pay" checked="checked">ì‹ ìš©ì¹´ë“œ(ì¼ë°˜)</label> <label><input
+					type="radio" id="cardType1" name="pay">ì‹ ìš©ì¹´ë“œ(ë²•ì¸)</label> <label><input
+					type="radio" id="cardType2" name="pay">í•´ì™¸ë°œê¸‰ì¹´ë“œ</label>
 			</span> <span style="display: none" disabled=""> <label><input
-					type="radio" id="pmRealtime" name="pay">½Ç½Ã°£°èÁÂÀÌÃ¼</label>
+					type="radio" id="pmRealtime" name="pay">ì‹¤ì‹œê°„ê³„ì¢Œì´ì²´</label>
 			</span> <span style="display:"> <label><input type="radio"
-					id="pmAccount" name="pay">¹«ÅëÀåÀÔ±Ý</label>
+					id="pmAccount" name="pay">ë¬´í†µìž¥ìž…ê¸ˆ</label>
 			</span> <span style="display: none" disabled=""> <label><input
-					type="radio" id="pmPhone" name="pay">ÈÞ´ëÆù°áÁ¦</label>
+					type="radio" id="pmPhone" name="pay">íœ´ëŒ€í°ê²°ì œ</label>
 			</span> <span style="display: none" disabled=""> <label><input
 					type="radio" id="pmPayco" name="pay">PAYCO</label>
 			</span> <span style="display: none" disabled=""> <label><input
-					type="radio" id="pmTcash" name="pay">¸ð¹ÙÀÏÆ¼¸Ó´Ï</label>
+					type="radio" id="pmTcash" name="pay">ëª¨ë°”ì¼í‹°ë¨¸ë‹ˆ</label>
 			</span>
 		</div>
 		<table border="1px solid black">
@@ -54,7 +54,7 @@ div.final_price {
 
 			<tbody>
 				<tr>
-					<th scope="row">Ä«µå¼±ÅÃ</th>
+					<th scope="row">ì¹´ë“œì„ íƒ</th>
 					<td bordercolor="red">
 						<div id="target">
 							<img src="resources/image/dnfl.png"> <img
@@ -69,76 +69,76 @@ div.final_price {
 				</tr>
 
 				<tr>
-					<th>Ä«µå¼±ÅÃ</th>
-					<td><select style="width: 140px;"><option value="">¼±ÅÃÇÏ¼¼¿ä</option>
-							<option>Á¦ÁÖÄ«µå</option>
-							<option>½ÅÇùÃ¼Å©Ä«µå</option>
-							<option>±¤ÁÖÄ«µå</option>
-							<option>¼öÇùÄ«µå</option>
-							<option>ÀüºÏÄ«µå</option>
-							<option>¿ìÃ¼±¹Ä«µå</option>
-							<option>KDBÄ«µå</option>
-							<option>KB[±¸ Çö´ë]Áõ±ÇÃ¼Å©Ä«µå</option></select></td>
+					<th>ì¹´ë“œì„ íƒ</th>
+					<td><select style="width: 140px;"><option value="">ì„ íƒí•˜ì„¸ìš”</option>
+							<option>ì œì£¼ì¹´ë“œ</option>
+							<option>ì‹ í˜‘ì²´í¬ì¹´ë“œ</option>
+							<option>ê´‘ì£¼ì¹´ë“œ</option>
+							<option>ìˆ˜í˜‘ì¹´ë“œ</option>
+							<option>ì „ë¶ì¹´ë“œ</option>
+							<option>ìš°ì²´êµ­ì¹´ë“œ</option>
+							<option>KDBì¹´ë“œ</option>
+							<option>KB[êµ¬ í˜„ëŒ€]ì¦ê¶Œì²´í¬ì¹´ë“œ</option></select></td>
 
 				</tr>
 
 
 				<tr>
-					<th><label>ÇÒºÎ¹æ½Ä</label></th>
+					<th><label>í• ë¶€ë°©ì‹</label></th>
 					<td><select>
-							<option>ÀÏ½ÃºÒ</option>
-							<option>1°³¿ù</option>
-							<option>2°³¿ù</option>
-							<option>3°³¿ù</option>
-							<option>4°³¿ù</option>
-							<option>5°³¿ù</option>
-							<option>6°³¿ù</option>
-							<option>7°³¿ù</option>
-							<option>8°³¿ù</option>
-							<option>9°³¿ù</option>
-							<option>10°³¿ù</option>
-							<option>11°³¿ù</option>
-							<option>12°³¿ù</option>
+							<option>ì¼ì‹œë¶ˆ</option>
+							<option>1ê°œì›”</option>
+							<option>2ê°œì›”</option>
+							<option>3ê°œì›”</option>
+							<option>4ê°œì›”</option>
+							<option>5ê°œì›”</option>
+							<option>6ê°œì›”</option>
+							<option>7ê°œì›”</option>
+							<option>8ê°œì›”</option>
+							<option>9ê°œì›”</option>
+							<option>10ê°œì›”</option>
+							<option>11ê°œì›”</option>
+							<option>12ê°œì›”</option>
 					</select></td>
 				</tr>
 
 				<tr>
-					<th>°áÁ¦¾È³»</th>
-					<td><a href="#"><span>°£Æí°áÁ¦¾È³»</span></a> <a href="#"><span>°øÀÎÀÎÁõ¾È³»</span></a>
-						<a href="#"><span>¾ÈÀü°áÁ¦¾È³»</span></a> <a href="#"><span>¾È½ÉÅ¬¸¯¾È³»</span></a>
-						<a href="#"><span>ÇØ¿Ü¹ß±ÞÄ«µå¾È³»</span></a></td>
+					<th>ê²°ì œì•ˆë‚´</th>
+					<td><a href="#"><span>ê°„íŽ¸ê²°ì œì•ˆë‚´</span></a> <a href="#"><span>ê³µì¸ì¸ì¦ì•ˆë‚´</span></a>
+						<a href="#"><span>ì•ˆì „ê²°ì œì•ˆë‚´</span></a> <a href="#"><span>ì•ˆì‹¬í´ë¦­ì•ˆë‚´</span></a>
+						<a href="#"><span>í•´ì™¸ë°œê¸‰ì¹´ë“œì•ˆë‚´</span></a></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	<div class="container">
-	<h4><span id="finalPayTxt ">½Å¿ëÄ«µå</span> ÃÖÁ¾ °áÁ¦±Ý¾×</h4>
+	<h4><span id="finalPayTxt ">ì‹ ìš©ì¹´ë“œ</span> ìµœì¢… ê²°ì œê¸ˆì•¡</h4>
 	</div>
-	<div class="final_price container" id="CalcAmount">8,000<span>¿ø</span></div>
+	<div class="final_price container" id="CalcAmount">8,000<span>ì›</span></div>
 	<div class="my_agrmt_wrap container">
-			<h5><input type="checkbox" id="idArmt" name="idArmt"> °³ÀÎÁ¤º¸ ÆÇ¸ÅÀÚ Á¦°ø¿¡ µ¿ÀÇÇÕ´Ï´Ù.</h5>
+			<h5><input type="checkbox" id="idArmt" name="idArmt"> ê°œì¸ì •ë³´ íŒë§¤ìž ì œê³µì— ë™ì˜í•©ë‹ˆë‹¤.</h5>
 			<div>
 				<div class="id_agrmt">
-					<p>°í°´´Ô²²¼­´Â ¾Æ·¡ ³»¿ë¿¡ ´ëÇÏ¿© µ¿ÀÇ¸¦ °ÅºÎÇÏ½Ç ¼ö ÀÖÀ¸¸ç, °ÅºÎ½Ã »óÇ° ¹è¼Û, CS°¡ Á¦ÇÑµË´Ï´Ù.</p>
+					<p>ê³ ê°ë‹˜ê»˜ì„œëŠ” ì•„ëž˜ ë‚´ìš©ì— ëŒ€í•˜ì—¬ ë™ì˜ë¥¼ ê±°ë¶€í•˜ì‹¤ ìˆ˜ ìžˆìœ¼ë©°, ê±°ë¶€ì‹œ ìƒí’ˆ ë°°ì†¡, CSê°€ ì œí•œë©ë‹ˆë‹¤.</p>
 					<table border="1px solid black">
-						<p>°³ÀÎÁ¤º¸ ¼öÁý ³»¿ë</p>
+						<p>ê°œì¸ì •ë³´ ìˆ˜ì§‘ ë‚´ìš©</p>
 						<colgroup><col width="30%"><col width="70%"></colgroup>
 						<tbody>
 						<tr>
-							<th>Á¦°ø¹Þ´ÂÀÚ</th>
-							<td>[¿¹½ºÀÌ½Ê»ç ÁÖ½ÄÈ¸»ç]</td>
+							<th>ì œê³µë°›ëŠ”ìž</th>
+							<td>[ì˜ˆìŠ¤ì´ì‹­ì‚¬ ì£¼ì‹íšŒì‚¬]</td>
 						</tr>
 						<tr>
-							<th>¸ñÀû</th>
-							<td>ÁÖ¹®»óÇ°ÀÇ ¹è¼Û(¿¹¾à), °í°´»ó´ã ¹× ºÒ¸¸Ã³¸®</td>
+							<th>ëª©ì </th>
+							<td>ì£¼ë¬¸ìƒí’ˆì˜ ë°°ì†¡(ì˜ˆì•½), ê³ ê°ìƒë‹´ ë° ë¶ˆë§Œì²˜ë¦¬</td>
 						</tr>
 						<tr>
-							<th>Ç×¸ñ</th>
-							<td>¼º¸í, ÁÖ¼Ò, ¿¬¶ôÃ³(¾È½É¹øÈ£ Àû¿ë ½Ã ¿¬¶ôÃ³´Â Á¦¿Ü), °³ÀÎÅë°ü°íÀ¯ºÎÈ£(¼±ÅÃ½Ã), °øµ¿Çö°ü ÃâÀÔ¹øÈ£(ÀÔ·Â½Ã)</td>
+							<th>í•­ëª©</th>
+							<td>ì„±ëª…, ì£¼ì†Œ, ì—°ë½ì²˜(ì•ˆì‹¬ë²ˆí˜¸ ì ìš© ì‹œ ì—°ë½ì²˜ëŠ” ì œì™¸), ê°œì¸í†µê´€ê³ ìœ ë¶€í˜¸(ì„ íƒì‹œ), ê³µë™í˜„ê´€ ì¶œìž…ë²ˆí˜¸(ìž…ë ¥ì‹œ)</td>
 						</tr>
 						<tr>
-							<th>º¸À¯±â°£</th>
-							<td>±¸¸ÅÈ®Á¤ ÈÄ 3°³¿ù±îÁö</td>
+							<th>ë³´ìœ ê¸°ê°„</th>
+							<td>êµ¬ë§¤í™•ì • í›„ 3ê°œì›”ê¹Œì§€</td>
 						</tr>
 						</tbody>
 					</table>
@@ -146,14 +146,14 @@ div.final_price {
 			</div>
 		</div>
 		<div class="container">
-		<h5><input type="checkbox"> °³ÀÎÁ¤º¸ ¼öÁý ¹× ÀÌ¿ë¿¡ µ¿ÀÇÇÕ´Ï´Ù.</h5>
-		<p>°í°´´Ô²²¼­´Â ¾Æ·¡ ³»¿ë¿¡ ´ëÇÏ¿© µ¿ÀÇ¸¦ °ÅºÎÇÏ½Ç ¼ö ÀÖÀ¸¸ç, °ÅºÎ ½Ã »óÇ°¹è¼Û, ±¸¸Å ¹× °áÁ¦, ÀÏºÎ Æ÷ÀÎÆ® Àû¸³ÀÌ Á¦ÇÑµË´Ï´Ù.</p>
+		<h5><input type="checkbox"> ê°œì¸ì •ë³´ ìˆ˜ì§‘ ë° ì´ìš©ì— ë™ì˜í•©ë‹ˆë‹¤.</h5>
+		<p>ê³ ê°ë‹˜ê»˜ì„œëŠ” ì•„ëž˜ ë‚´ìš©ì— ëŒ€í•˜ì—¬ ë™ì˜ë¥¼ ê±°ë¶€í•˜ì‹¤ ìˆ˜ ìžˆìœ¼ë©°, ê±°ë¶€ ì‹œ ìƒí’ˆë°°ì†¡, êµ¬ë§¤ ë° ê²°ì œ, ì¼ë¶€ í¬ì¸íŠ¸ ì ë¦½ì´ ì œí•œë©ë‹ˆë‹¤.</p>
 		
-		<h5><input type="checkbox">ÁÖ¹® »óÇ°Á¤º¸¿¡ µ¿ÀÇÇÕ´Ï´Ù.</h5>
-		<p>ÁÖ¹® »óÇ°ÀÇ »óÇ°¸í,°¡°Ý,¹è¼ÛÁ¤º¸¿¡ µ¿ÀÇÇÕ´Ï´Ù</p>
-		<input type="checkbox">À§ ³»¿ëÀ» ¸ðµÎ È®ÀÎÇÏ¿´À¸¸ç, ÀÌ ³»¿ë¿¡ ¸ðµÎ µ¿ÀÇÇÏ½Ã°Ú½À´Ï±î?<br>
-		 <button type="button" class="btn btn-success" id="button1" onclick="location='semi.Project?page=payment&code=3'">°áÁ¦ÇÏ±â</button>
-  <button type="button" class="btn btn-danger" id="button1">Ãë¼ÒÇÏ±â</button>
+		<h5><input type="checkbox">ì£¼ë¬¸ ìƒí’ˆì •ë³´ì— ë™ì˜í•©ë‹ˆë‹¤.</h5>
+		<p>ì£¼ë¬¸ ìƒí’ˆì˜ ìƒí’ˆëª…,ê°€ê²©,ë°°ì†¡ì •ë³´ì— ë™ì˜í•©ë‹ˆë‹¤</p>
+		<input type="checkbox">ìœ„ ë‚´ìš©ì„ ëª¨ë‘ í™•ì¸í•˜ì˜€ìœ¼ë©°, ì´ ë‚´ìš©ì— ëª¨ë‘ ë™ì˜í•˜ì‹œê² ìŠµë‹ˆê¹Œ?<br>
+		 <button type="button" class="btn btn-success" id="button1" onclick="location='semi.Project?page=payment&code=3'">ê²°ì œí•˜ê¸°</button>
+  <button type="button" class="btn btn-danger" id="button1">ì·¨ì†Œí•˜ê¸°</button>
   </div>
   
 
