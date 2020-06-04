@@ -10551,21 +10551,22 @@ color:white;
 
 .sub-menu {
 
-	width: 320px;
+	width: 580px;
 
 	background-color: #778899;
 	color:white;
 	z-index: 1090;
 	position: absolute;
-	padding :20px;
+	padding :auto;
 	list-style: none;
 }
 .sub-menu >li{
 	display: inline;
 	background-color: #778899;
 	color: white;
+	
 	margin-left: 10px;
-	font-size: 1.3em;
+	font-size: 1.2em;
 }
 
 .sub-menu >li:hover{
