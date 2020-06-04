@@ -4,6 +4,13 @@
 <%@ include file="../include/header_index.jsp"%>
  <link href="resources/css/community/subscriptioncheck_lessor.css" rel="stylesheet">
 <%@ include file="../include/header_menu.jsp"%>
+<style>
+.btn {
+
+    margin-left: 35px;
+}
+
+</style>
 
 
 	<section class="projects-section bg-light" id="projects">
@@ -16,7 +23,10 @@
 					<td colspan="2" id="welcome1">보다 더 좋은 혜택을 누리실 수 있습니다!</td>
 				</tr>
 				<tr>
-					<td id="welcome2">홈페이지로 이동하기<br><br><button type="button" class="btn btn-success" onclick="location ='semi.Project?page=index#footerMenu'">서비스이용하기</button></td>
+
+					<td id="welcome2"><br><br><button type="button" class="btn btn-success" onclick="location ='semi.Project?page=index#footerMenu'">서비스이용하기</button></td>
+					<td></td>
+
 				
 				</tr>
 			</table>

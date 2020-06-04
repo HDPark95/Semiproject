@@ -13,9 +13,21 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <%@ include file="../include/header_menu.jsp"%>
 
+<style>
+.modal a.close-modal {
+	top: 0px;
+	right: 0px;
+}
+.search{
+	float: left;
 
+	margin-right: 20px;
+}
+.modal{
+	height: unset;
+}
 
-
+</style>
 
 	<div id="new" class="collapse navbar-collapse" style="width: 1200px; margin: 0 auto; display: block;">
 		<div class="container default" style="border-bottom: 1px solid black;">
@@ -45,89 +57,11 @@
 									<li><img src="resources/images/seulgi.jpg" class="im" style="width: 120px;  height: 100px; margin-top: 10px;"></li>
 									<li><img src="resources/images/seulgi.jpg" class="im" style="width: 120px;  height: 100px; margin-top: 10px;"></li>
 								</ul>
+								
 							</div>
 					</tr>
 				</table>
-					<div class="topma bg-white">
-					<ul class="nav nav-tabs ">
-				<li class="nav-item"><a class="nav-link active"
-					data-toggle="tab" href="#home">임차인관계</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab"
-					href="#profile">배당표</a></li>
-				<li class="nav-item"><a class="nav-link " data-toggle="tab"
-					href="#">등등</a></li>
-					<li class="nav-item"><a class="nav-link " data-toggle="tab"
-					href="#">드르르르등</a></li>
-					
-
-			</ul>
-						
 		
-
-
-
-
-			<div id="myTabContent" class="tab-content bg-white container">
-
-				<div
-					
-					style="text-align: center;" id="home">
-
-					<table class="type11">
-
-						<tbody>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-
-						</tbody>
-					</table>
-
-					<div class="container topma">
-						<table class="type12">
-							<thead>
-								<tr>
-									<th scope="cols"><h1> !</h1>
-									<p> </p>
-									</th>
-
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><h2>임자인배당내용 </h2> <pre>
-  </pre></td>
-								</tr>
-
-							</tbody>
-						</table>
-
-
-
-					</div>
-
-				</div>
-
-		</div>
-
-	</div>
 				</div>
 
 			</div>
@@ -136,13 +70,13 @@
 			</div>
 			<div id="right" style="float: left; width: 48%">
 				<h3></h3>
-				<table id="tal" style="margin-top: 50px; text-align: center;">
-					<h1>매물정보</h1>
+				<table id="tal" style="margin-top: 50px; text-align: center; width: 100%">
+					<h1>경매물건정보</h1>
 
 					<tbody style="border-top: 1px solid black;">
 
 						<tr>
-							<th><div class="C">최저가</div></th>
+							<th><div class="C">물품번호</div></th>
 							<td><div class="C Bold">
 									<span class='point_blueB'></span>
 								</div></td>
@@ -164,7 +98,7 @@
 							<td><div class="C"></div></td>
 						</tr>
 						<tr>
-							<th><div class="C">경매대상</div></th>
+							<th><div class="C">입찰수</div></th>
 							<td><div class="C"></div></td>
 						</tr>
 						<tr>
@@ -172,7 +106,7 @@
 							<td><div class="C Bold"></div></td>
 						</tr>
 						<tr>
-							<th><div class="C">법원</div></th>
+							<th><div class="C">남은기간</div></th>
 							<td><div class="C">
 						</tr>
 						<tr>
@@ -189,7 +123,7 @@
 					</tbody>
 				</table>
 				<table id="tal"
-					style="border-top: 1px solid black; text-align: center; margin-top: 25px;" >
+					style="border-top: 1px solid black; text-align: center; margin-top: 25px; width: 100%" >
 					<tr>
 						<th>판매자 ID</th>
 						<td>uam1920</td>
@@ -201,7 +135,7 @@
 				</table>
 
 				<div id="ex1" class="modal">
-					<div class="modal-content">
+					
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"></button>
 					<h4 class="modal-title"><strong>판매자 신용도</strong></h4>
@@ -209,7 +143,7 @@
 				
 					<div class="modal-body">
 						
-				    <table class="table-data" id="sellCreditTable">
+				    <table class="table-data" id="sellCreditTable" style="width: 100%;">
 				        <thead>
 				            <tr>
 				         	<h2>물품내용</h2>
@@ -246,7 +180,8 @@
 					</div>
 
 					<div class="modal-footer text-center">
-						<a href="#." class="btn btn-blue btn-md" data-dismiss="modal">입찰하기</a>
+						<a href="#." class="btn btn-success btn-lg" data-dismiss="modal" onclick="location='semi.Project?page=auction&code=4'">신중하게입찰하기</a>
+						<a href="#." class="btn btn-danger btn-lg" data-dismiss="modal" onclick="location='semi.Project?page=auction&code=4'">취소</a>
 					</div>
 			</div>
 				</div>
@@ -258,11 +193,11 @@
 						</p>
 
 						<p class="col-sm-4 btn-block-xs"style="font-size: 140%;">
-							<a href=""
+							<a 
 								class="btn btn-success btn-lg" style="padding: 3px 0px;">관심물품등록</a>
 						</p>
 						<p class="col-sm-4 btn-block-xs" style="font-size: 140%;">
-						 <a href=""
+						 <a
 								class="btn btn-danger btn-lg">문의하기</a>
 						</p>
 

@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%> 
 <%@ include file="../include/header_index.jsp"%>
@@ -178,3 +179,4 @@
 	</div>
 		<script type="text/javascript" src="resources/js/auction/auction_main.js"></script>
 <%@ include file="../include/footer.jsp"%>
+
