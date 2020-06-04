@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<link href="css/sidebar.css?after" rel="stylesheet" />
+
 <div id="rightSide">
 	<div id="right_zzim">
 		<div class="recTit">

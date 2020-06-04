@@ -14,36 +14,47 @@ public class CommercialDao {
 	private SqlSessionTemplate ss;
 
 	public List<String> getGu() {
+		System.out.println( "호출완료");
 		List<String> list = ss.selectList("data.gu");
 		System.out.println("ListSize:" + list.size());
-		ss.close();
 		return list;
 	}
 
 	public List<String> getLarge() {
 		List<String> list = ss.selectList("data.large");
 		System.out.println("ListSize:" + list.size());
-		ss.close();
 		return list;
 	}
 
 	public List<String> getMedium(String largeName) {
 		List<String> list = ss.selectList("data.medium", largeName);
 		System.out.println("ListSize:" + list.size());
-		ss.close();
+	
 		return list;
 	}
 
 	public List<DataVO> getSmall(DataVO vo) {
 		List<DataVO> list = ss.selectList("data.small", vo);
 		System.out.println("ListSize:" + list.size());
-		ss.close();
+	
 		return list;
 	}
 	public List<DataVO> getMark(DataVO vo) {
 		List<DataVO> list = ss.selectList("data.map", vo);
 		System.out.println("ListSize:" + list.size());
-		ss.close();
+	
+		return list;
+	}
+	public List<DataVO> getInformation(String guname) {
+		List<DataVO> list = ss.selectList("data.information", guname);
+		System.out.println("ListSize:" + list.size());
+
+		return list;
+	}
+	public List<DataVO> getInformation2(DataVO vo) {
+		List<DataVO> list = ss.selectList("data.information2", vo);
+		System.out.println("ListSize:" + list.size());
+	
 		return list;
 	}
 }

@@ -39,12 +39,12 @@ public class CommunityPage{
 	
 	@RequestMapping(value = "/wriEst")
 	public String writeEstate() {
-		return "community/writing_estate";
+		return "community/writing_commercial";
 	}
 	
 	@RequestMapping(value = "/wriAuc")
 	public String writeAuction() {
-		return "community/writing_auction";
+		return "community/writing_commercial";
 	}
 	
 	@RequestMapping(value = "/wriDtl")

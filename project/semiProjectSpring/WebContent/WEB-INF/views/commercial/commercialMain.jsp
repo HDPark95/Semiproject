@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@include file="header_index.jsp"%>
+<%@ include file="../include/header_index.jsp"%>
+ <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
+  <link href="resources/css/commercial/style.css?after" rel="stylesheet" />
+<%@ include file="../include/header_menu.jsp"%>
 <%@include file="sidemenu.jsp"%>
 <!-- Page Content -->
 <div class="container">
 	<!-- Call to Action Well -->
 	<script src="js/json2.js"></script>
 	<div
-		class="card text-white bg-secondary my-5 py-4 text-center col-lg-12">
+		class="card text-white bg-secondary my-6 py-4 text-center col-lg-12">
 		<div class="card-body">
 			<form class="form-inline">
 				<select id="combobox1" class="form-control"
@@ -33,14 +36,14 @@
 		</div>
 	</div>
 	<!-- Heading Row -->
-	<div class="row align-items-center my-5">
+	<div class="row align-items-center my-7">
 		<div id="map" class="col-lg-7" style="width: 100%; height: 655px;z-index:0;">
 			<!-- <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400"> -->
 		</div>
 		<script type="text/javascript"
 			src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wejnreaybi"></script>
 		<script type="js/MarkerClustering.js"></script>
-		<script>
+		<!-- <script>
 			var seoul = new naver.maps.LatLngBounds(new naver.maps.LatLng(
 					37.42829747263545, 126.76620435615891),
 					new naver.maps.LatLng(37.7010174173061, 127.18379493229875));
@@ -100,11 +103,11 @@
 					});
 				});
 			}
-		</script>
+		</script> -->
 		<div class="col-lg-5" id="information">
 			<h1 class="font-weight-light">입지 선정 서비스</h1>
 			<p>창업을 원하시는 입지의 좌표를 선택해주세요. 그 입지 근처의 유동인구, 주변 상권분석, 실거래가 등 다양한
-				정보를 제공해드립니다. 조금 더 자세한 정보를 얻고 싶으시면 상게하게 검색해보세요.</p>
+				정보를 제공해드립니다. 조금 더 자세한 정보를 얻고 싶으시면 상세하게 검색해보세요.</p>
 		</div>
 		<!-- <script>
 		$(function() {
@@ -161,5 +164,5 @@
 </div>
 <!-- /.container -->
 <%@include file="modal.jsp"%>   
-<%@include file="footer.jsp"%>
+<%@ include file="../include/footer.jsp"%>
 </html>

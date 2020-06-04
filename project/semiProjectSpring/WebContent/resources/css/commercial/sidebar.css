@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset "EUC-KR";
 <Style>
 
 
@@ -21,7 +21,10 @@ margin-left: 600px;
 border:1px solid #B0B5BD;
 width:320px;
 height:700px;
+
 }
+
+
 
 #rightSide #right_zzim  div {text-align:center;}
 
@@ -29,7 +32,7 @@ height:700px;
 
 #right_zzim #recentCnt {color:yellow;}
 
-#rightSide #right_zzim ul {min-height:495px; background: gray;}
+#rightSide #right_zzim ul {min-height:495px;}
 
 #rightSide #right_zzim  li{text-align:center;padding:5px;position:relative;} 
 
@@ -92,11 +95,55 @@ text-indent: -9000px;
 .noData {color:#ccc;text-align:center;margin-top:223px;}
 
 
+
 }
 
 #paging {display:;position:relative;line-height:1em;}
 
+#paging .btn_prev {
+
+position: absolute;
+
+top: 526px;
+
+left: 4px;
+
+width: 13px;
+
+height: 11px;
+
+background: url(/images/ico_arrow.png)  no-repeat ;
+
+text-indent: -9000px;
+
+border:1px solid #CCC;
+
+display:inline-block;
+
+}
 
 
-</style>
+
+#paging .btn_next {
+
+position: absolute;
+
+top: 526px;
+
+right: 4px;
+
+width: 13px;
+
+height: 11px;
+
+background: url(/images/ico_arrow.png) -11px 0px;
+
+text-indent: -9000px;
+
+border:1px solid #CCC;
+
+display:inline-block;
+
+}
+
 
