@@ -109,7 +109,7 @@
                                       <label class="custom-control-label" for="sabunch1">2020-0001</label>
                                    </div></th>
 								<td id="coltd1_1" style="width: 130px;"><img src="images/kosmo.jpg" style="width: 120px;height: 120px;float: left;"></td>
-								<td id="coltd1_2" style="width: 500px;"><label id="t1addr1_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><b>[아파트형공장]</b><br/>서울 특별시 금천구 가산동 426-5 월드 메르디앙 벤처센터 2차 410호</a></label>
+								<td id="coltd1_2" style="width: 500px;"><label id="t1addr1_1"><a href="http://localhost:8080/uiProject/semi.Project?page=ggg" style="color: black;"><b>[아파트형공장]</b><br/>서울 특별시 금천구 가산동 426-5 월드 메르디앙 벤처센터 2차 410호</a></label>
 								<br/><label id="t1addr1_2" style="font-size: 11pt;height: 6px;">토지 70.28㎡/건물 226.2㎡</label>
 								<br/><label id="t1addr1_3" style="font-size: 11pt;color: red;height: 6px;">유치권</label>
 								</td>

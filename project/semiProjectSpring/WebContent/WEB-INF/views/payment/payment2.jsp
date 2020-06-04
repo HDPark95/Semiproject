@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style>
@@ -17,7 +17,7 @@
 	font-size: 20px;
 	margin: 0 auto;
 	position: relative;
-	left: 600px;
+	left: 790px;
 	  margin-left: 11.75rem
 	
 }
@@ -34,6 +34,7 @@
 	font-size: 20px;
 	
 	width: 227px;
+	
 	
 	
 	
@@ -70,13 +71,13 @@ td{
 </style>
 </head>
 <body>
-	<h5>1/2´Ü°è</h5>
-	<h3>¿øÇÏ´Â ±¸µ¶±ÇÀ» ¼±ÅÃÇÏ¼¼¿ä.</h3>
-	<h4>¸¾¿¡ µéÁö ¾ÊÀ¸½Å´Ù¸é, ±¸µ¶±ÇÀ» º¯°æÇÏ°Å³ª Ãë¼Ò ÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù.</h4>
+	
+	<h3>ì›í•˜ëŠ” êµ¬ë…ê¶Œì„ ì„ íƒí•˜ì„¸ìš”.</h3>
+	<h4>ë§˜ì— ë“¤ì§€ ì•Šìœ¼ì‹ ë‹¤ë©´, êµ¬ë…ê¶Œì„ ë³€ê²½í•˜ê±°ë‚˜ ì·¨ì†Œ í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</h4>
 	<div class="to">
-	<span class="bb" id="basic">ÀÏ¹Ý</span>
-	<span class="bb" id="st">±â¾÷</span>
-	<span class="bb" id="pr">°æ¸Å</span>
+	<span class="bb" id="basic">ê°œì¸</span>
+	<span class="bb" id="st">ê¸°ì—…</span>
+	<span class="bb" id="pr" style="right: 60px;">ê²½ë§¤</span>
 	</div>
 	<br>
 	<p></p>
@@ -87,44 +88,59 @@ td{
 
 			<tr>
 
-				<td>¿ù ¿ä±Ý</td>
-				<td class="basic return" aria-label="º£ÀÌ½Ä" >9,500¿ø</td>
-				<td class="st return" aria-label="½ºÅÄ´Ùµå">12,000¿ø</td>
-				<td class="pr return"aria-label="ÇÁ¸®¹Ì¾ö">14,500¿ø</td>
+				<td>ì›” ìš”ê¸ˆ</td>
+				<td class="basic return" aria-label="ë² ì´ì‹" >9,500ì›</td>
+				<td class="st return" aria-label="ìŠ¤íƒ ë‹¤ë“œ">12,000ì›</td>
+				<td class="pr return"aria-label="í”„ë¦¬ë¯¸ì—„">14,500ì›</td>
 
 			</tr>
 
 
 			<tr>
-				<td>¾ðÁ¦µç ÇØÁö °¡´É</td>
-				<td class="basic return" aria-label="º£ÀÌ½Ä">o</td>
-				<td class="st return"aria-label="½ºÅÄ´Ùµå">o</td>
-				<td class="pr return" aria-label="ÇÁ¸®¹Ì¾ö">o</td>
+				<td>ì–¸ì œë“  í•´ì§€ ê°€ëŠ¥</td>
+				<td class="basic return" aria-label="ê°œì¸">o</td>
+				<td class="st return"aria-label="ê¸°ì—…">o</td>
+				<td class="pr return" aria-label="ê²½ë§¤">o</td>
 			</tr>
 			<tr>
-				<td>¾ðÁ¦µç ÇØÁö °¡´É</td>
-				<td  class="basic return" aria-label="º£ÀÌ½Ä">x</td>
-				<td class="st return"aria-label="½ºÅÄ´Ùµå">x</td>
-				<td class="pr return"aria-label="ÇÁ¸®¹Ì¾ö">o</td>
+				<td>ì–¸ì œë“  í•´ì§€ ê°€ëŠ¥</td>
+				<td  class="basic return" aria-label="ê°œì¸">x</td>
+				<td class="st return"aria-label="ê¸°ì—…">x</td>
+				<td class="pr return"aria-label="ê²½ë§¤">o</td>
 			</tr>
 			<tr>
-				<td>¾ðÁ¦µç ÇØÁö °¡´É</td>
-				<td class="basic return" aria-label="º£ÀÌ½Ä">r</td>
-				<td class="st return"aria-label="½ºÅÄ´Ùµå">x</td>
-				<td class="pr return"aria-label="ÇÁ¸®¹Ì¾ö">o</td>
+				<td>ì–¸ì œë“  í•´ì§€ ê°€ëŠ¥</td>
+				<td class="basic return" aria-label="ë² ì´ì‹">r</td>
+				<td class="st return"aria-label="ê¸°ì—…">x</td>
+				<td class="pr return"aria-label="ê²½ë§¤">o</td>
 			</tr>
 			<tr>
-				<td>¾ðÁ¦µç ÇØÁö °¡´É</td>
-				<td class="basic return" aria-label="º£ÀÌ½Ä">s</td>
-				<td class="st return"aria-label="½ºÅÄ´Ùµå">x</td>
-				<td class="pr return"aria-label="ÇÁ¸®¹Ì¾ö">o</td>
+				<td>ì–¸ì œë“  í•´ì§€ ê°€ëŠ¥</td>
+				<td class="basic return" aria-label="ê°œì¸">o</td>
+				<td class="st return"aria-label="ê¸°ì—…">o</td>
+				<td class="pr return"aria-label="ê²½ë§¤">o</td>
+				</tr>
+					<tr>
+				<td>ì–¸ì œë“  í•´ì§€ ê°€ëŠ¥</td>
+				<td class="basic return" aria-label="ê°œì¸">s</td>
+				<td class="st return"aria-label="ìŠ¤íƒ ë‹¤ë“œ">x</td>
+				<td class="pr return"aria-label="í”„ë¦¬ë¯¸ì—„">o</td>
+				</tr>
+					<tr>
+				<td>ì–¸ì œë“  í•´ì§€ ê°€ëŠ¥</td>
+				<td class="basic return" aria-label="ê°œì¸">o</td>
+				<td class="st return"aria-label="ìŠ¤íƒ ë‹¤ë“œ">o</td>
+				<td class="pr return"aria-label="í”„ë¦¬ë¯¸ì—„">o</td>
+				</tr>
 				
 		</tbody>
 		
 	
 		
 		<tfoot>
-		<tr><td><input type="button" value="´ÙÀ½" id="ee" onclick="location='semi.Project?page=payment&code=1'"></td></tr>
+		<tr><td><input type="button" value="ë’¤ë¡œê°€ê¸°" id="ee" onclick="location='semi.Project?page=community&code=5'">
+				<input type="button" value="ë‹¤ìŒ" id="ee" style="background-color: green;" onclick="location='pay1'">
+		</td></tr>
 		</tfoot>
 		
 	</table>
