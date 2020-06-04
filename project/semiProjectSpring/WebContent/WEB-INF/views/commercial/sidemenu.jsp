@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<link href="resources/css/commercial/sidebar.css?after" rel="stylesheet" />
+<link href="css/sidebar.css?after" rel="stylesheet" />
 <div id="rightSide">
 	<div id="right_zzim">
 		<div class="recTit">
