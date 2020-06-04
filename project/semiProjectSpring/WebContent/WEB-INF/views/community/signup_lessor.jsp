@@ -93,8 +93,8 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10" id="signup">
-						<button type="button" class="btn btn-secondary btn-lg" onclick="location = 'login'">취소</button>
-						<button type="submit" class="btn btn-success btn-lg" onclick="location = 'subLessor'">확인</button>
+						<button type="button" class="btn btn-secondary btn-lg" onclick="location = 'semi.Project?page=login&code=1'">취소</button>
+						<button type="submit" class="btn btn-success btn-lg" onclick="location = 'semi.Project?page=community&code=6'">확인</button>
 					</div>
 				</div>
 			</form>

@@ -31,12 +31,24 @@ public class CommunityPage{
 	public String subLessor() {
 		return "community/subscriptioncheck_lessor";
 	}
-	@RequestMapping(value="/write")
-	public String writeQuest() {
-		return "community/writing_question";
+	
+	@RequestMapping(value = "/wriCom")
+	public String writeCommercial() {
+		return "community/writing_commercial";
 	}
-	@RequestMapping(value="/writeStroy")
-	public String writeStory() {
-		return "community/writing_question";
+	
+	@RequestMapping(value = "/wriEst")
+	public String writeEstate() {
+		return "community/writing_commercial";
+	}
+	
+	@RequestMapping(value = "/wriAuc")
+	public String writeAuction() {
+		return "community/writing_commercial";
+	}
+	
+	@RequestMapping(value = "/wriDtl")
+	public String writeDetail() {
+		return "community/writingdetail";
 	}
 }
