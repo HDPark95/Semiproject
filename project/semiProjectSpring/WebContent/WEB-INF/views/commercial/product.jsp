@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../commercial/header_index.jsp"%>
 
 
 
-<section class="contact-section bg-white">
+<section class="contact-section bg-white">  
 	<div class="container">
 		<div id="map" class="col-lg-12" style="width: 100%; height: 820px;">
 		</div>
@@ -31,7 +30,7 @@
 					success : startDataLayer
 				});
 			});
-			//geoJson ·¹ÀÌ¾î Ãß°¡ÇÏ±â
+			//geoJson ë ˆì´ì–´ ì¶”ê°€í•˜ê¸°
 			function startDataLayer(geojson) {
 				map.data.addGeoJson(geojson);
 				map.data.setStyle(function(feature) {
@@ -71,7 +70,7 @@
 					var marker = new naver.maps.Marker({
 						position: new naver.maps.LatLng(x,y),
 						map : map,
-						title : 'Ç×¸ñ'
+						title : 'í•­ëª©'
 					})
 				}*/
 		</script>

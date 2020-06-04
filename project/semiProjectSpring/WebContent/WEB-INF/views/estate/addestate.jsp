@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <%@ include file="../include/header_index.jsp"%>
 <%@ include file="../include/header_menu.jsp"%>
@@ -8,29 +8,29 @@
 <div class="container2">
 	<div class="row">
 		<div class="col-md-12 mt-4 add-page" >
-			<h1>¹æ ³»³õ±â</h1>
+			<h1>ë°© ë‚´ë†“ê¸°</h1>
 			<hr>
 			<div class="col-md-1"></div>
 				<div class="col-md-9 add-page" style="margin: auto;">
 						<div class="col-md-12 mt-12 add-sub-page ">
 	            			<table >
 	            				<tr>
-	            					<td colspan="2">¸Å¹°Á¾·ù</td>
+	            					<td colspan="2">ë§¤ë¬¼ì¢…ë¥˜</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						Á¾·ù¼±ÅÃ
+	            						ì¢…ë¥˜ì„ íƒ
 	            					</td>
 	            					<td >
-	            					 ¿ø·ë Åõ·ë ¾²¸®·ë ¿ÀÇÇ½ºÅÚ(µµ½ÃÇü) ¾ÆÆÄÆ®
+	            					 ì›ë£¸ íˆ¬ë£¸ ì“°ë¦¬ë£¸ ì˜¤í”¼ìŠ¤í…”(ë„ì‹œí˜•) ì•„íŒŒíŠ¸
 	            					</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						°Ç¹°À¯Çü
+	            						ê±´ë¬¼ìœ í˜•
 	            					</td>
 	            					<td>
-	            						´Üµ¶ ´Ù°¡±¸ ºô¶ó/¿¬¸³/´Ù¼¼´ë »ó°¡ÁÖÅÃ
+	            						ë‹¨ë… ë‹¤ê°€êµ¬ ë¹Œë¼/ì—°ë¦½/ë‹¤ì„¸ëŒ€ ìƒê°€ì£¼íƒ
 	            					</td>
 	            				</tr>
 	            			</table>
@@ -38,21 +38,21 @@
 	            		<div class="col-md-12 mt-12  add-sub-page">
 	            		<table >
 	            				<tr>
-	            					<td colspan="3">À§Ä¡Á¤º¸</td>
+	            					<td colspan="3">ìœ„ì¹˜ì •ë³´</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						ÁÖ¼Ò
+	            						ì£¼ì†Œ
 	            					</td>
 	            					<td >
 		            					<div class="search">
-		            						<input type="text" class="address-search" placeholder="°­³²±¸ ¿ª»ïµ¿" ><span class="btn" style="width: 150px;">ÁÖ¼Ò°Ë»ö</span><br>
-	            						ÁÖ¼Ò API»ç¿ë
+		            						<input type="text" class="address-search" placeholder="ê°•ë‚¨êµ¬ ì—­ì‚¼ë™" ><span class="btn" style="width: 150px;">ì£¼ì†Œê²€ìƒ‰</span><br>
+	            						ì£¼ì†Œ APIì‚¬ìš©
 		            					</div>
 	            				
 	            					</td>
 	            					<td >
-	            				<div class="col-md-12" style="width:300px; ">ÁöµµAPI</div>
+	            				<div class="col-md-12" style="width:300px; ">ì§€ë„API</div>
 	            					</td>
 	            				</tr>
 	            				
@@ -61,14 +61,14 @@
 	            		<div class="col-md-12 mt-12 add-sub-page">
 	            			<table >
 	            				<tr>
-	            					<td colspan="2">°Å·¡Á¤º¸</td>
+	            					<td colspan="2">ê±°ëž˜ì •ë³´</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						°Å·¡Á¾·ù
+	            						ê±°ëž˜ì¢…ë¥˜
 	            					</td>
 	            					<td >
-	            							Àü¼¼ ¿ù¼¼  ´Ü±â°¡´É
+	            							ì „ì„¸ ì›”ì„¸  ë‹¨ê¸°ê°€ëŠ¥
 	            					</td>
 	            				</tr>
 	            				
@@ -77,18 +77,18 @@
 	            		<div class="col-md-12 mt-12  add-sub-page">
 	            			<table >
 	            				<tr>
-	            					<td colspan="4">±âº»Á¤º¸</td>
+	            					<td colspan="4">ê¸°ë³¸ì •ë³´</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						°Ç¹°Å©±â
+	            						ê±´ë¬¼í¬ê¸°
 	            					</td>
 	            					<td style="width: 200px;">
 	            						<div class="col-md-12"></div>
 	            						<hr>
 	            						<div class="col-md-12"></div>
 	            					</td>
-	            					<td style="background-color: #E6E6E6;">°Ç¹°Ãþ¼ö</td>
+	            					<td style="background-color: #E6E6E6;">ê±´ë¬¼ì¸µìˆ˜</td>
 	            					<td style="width:200px;">
 	            					<div class="col-md-12"></div>
 	            						<hr>
@@ -97,18 +97,18 @@
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						³­¹æÁ¾·ù¼±ÅÃ
+	            						ë‚œë°©ì¢…ë¥˜ì„ íƒ
 	            					</td>
 	            					<td colspan="3">
-	            						select·Î ³­¹æÁ¾·ù ¼³Á¤
+	            						selectë¡œ ë‚œë°©ì¢…ë¥˜ ì„¤ì •
 	            					</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						ÀÔÁÖ °¡´ÉÀÏ
+	            						ìž…ì£¼ ê°€ëŠ¥ì¼
 	            					</td>
 	            					<td colspan="3">
-	            						Áï½ÃÀÔÁÖ ³¯Â¥ÇùÀÇ ³¯Â¥¼±ÅÃ
+	            						ì¦‰ì‹œìž…ì£¼ ë‚ ì§œí˜‘ì˜ ë‚ ì§œì„ íƒ
 	            					</td>
 	            				</tr>
 	            			</table>
@@ -116,80 +116,80 @@
 	            		<div class="col-md-12 mt-12  add-sub-page">
 	            			<table >
 	            				<tr>
-	            					<td colspan="4">Ãß°¡Á¤º¸</td>
+	            					<td colspan="4">ì¶”ê°€ì •ë³´</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						°ü¸®ºñ
+	            						ê´€ë¦¬ë¹„
 	            					</td>
 	            					<td colspan="3" >
 	            						<div class="col-md-12">
-	            							<input type="text" class="address-search">¸¸¿ø 
+	            							<input type="text" class="address-search">ë§Œì› 
 	            						</div>
 	            						<hr>
 	            						<div class="col-md-12 text-left">
-	            							°ü¸®ºñÇ×¸ñ  : ÀÎÅÍ³Ý , À¯¼±TV, Ã»¼Òºñ, ¼öµµ¼¼, µµ½Ã°¡½º, Àü±â¼¼, ±âÅ¸
+	            							ê´€ë¦¬ë¹„í•­ëª©  : ì¸í„°ë„· , ìœ ì„ TV, ì²­ì†Œë¹„, ìˆ˜ë„ì„¸, ë„ì‹œê°€ìŠ¤, ì „ê¸°ì„¸, ê¸°íƒ€
 	            						</div>
 	            					</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						ÁÖÂ÷¿©ºÎ
+	            						ì£¼ì°¨ì—¬ë¶€
 	            					</td>
 	            					<td>
-	            						°¡´É ºÒ°¡´É 
+	            						ê°€ëŠ¥ ë¶ˆê°€ëŠ¥ 
 	            					</td>
 	            					<td>
-	            						¹Ý·Áµ¿¹°
+	            						ë°˜ë ¤ë™ë¬¼
 	            					</td>
 	            					<td>
-	            						°¡´É ºÒ°¡´É 
+	            						ê°€ëŠ¥ ë¶ˆê°€ëŠ¥ 
 	            					</td>
 	            				</tr>
 	            					<tr>
 	            					<td >
-	            						¿¤¸®º£ÀÌÅÍ
+	            						ì—˜ë¦¬ë² ì´í„°
 	            					</td>
 	            					<td>
-	            						ÀÖÀ½ ¾øÀ½
+	            						ìžˆìŒ ì—†ìŒ
 	            					</td>
 	            					<td >
-	            						º£¶õ´Ù/¹ßÄÚ´Ï
+	            						ë² ëž€ë‹¤/ë°œì½”ë‹ˆ
 	            					</td>
 	            					<td>
-	            						ÀÖÀ½¾øÀ½
+	            						ìžˆìŒì—†ìŒ
 	            					</td>
 	            				</tr>
 	            				
 	            				<tr>
 	            					<td >
-	            						ºôÆ®ÀÎ
+	            						ë¹ŒíŠ¸ì¸
 	            					</td>
 	            					<td>
-	            						ÀÖÀ½ ¾øÀ½
+	            						ìžˆìŒ ì—†ìŒ
 	            					</td>
 	            					<td >
-	            						±¸Á¶
+	            						êµ¬ì¡°
 	            					</td>
 	            					<td>
-	            						º¹Ãþ , 1.5·ë/ÁÖ¹æºÐ¸®Çü
+	            						ë³µì¸µ , 1.5ë£¸/ì£¼ë°©ë¶„ë¦¬í˜•
 	            					</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						¿É¼Ç Ç×¸ñ
+	            						ì˜µì…˜ í•­ëª©
 	            					</td>
 	            					<td colspan="3">
-	            						¿¡¾îÄÁ , ¼¼Å¹±â , Ä§´ë, Ã¥»ó, ¿ÊÀå, TV, ½Å¹ßÀå, ³ÃÀå°í, °¡½º·¹ÀÎÁö, ÀÎ´ö¼Ç, ÀüÀÚ·¹ÀÎÁö, ÀüÀÚ µµ¾î¶ô, ºñµ¥
+	            						ì—ì–´ì»¨ , ì„¸íƒê¸° , ì¹¨ëŒ€, ì±…ìƒ, ì˜·ìž¥, TV, ì‹ ë°œìž¥, ëƒ‰ìž¥ê³ , ê°€ìŠ¤ë ˆì¸ì§€, ì¸ë•ì…˜, ì „ìžë ˆì¸ì§€, ì „ìž ë„ì–´ë½, ë¹„ë°
 	            					</td>
 	            					
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						Àü¼¼ ÀÚ±Ý´ëÃâ
+	            						ì „ì„¸ ìžê¸ˆëŒ€ì¶œ
 	            					</td>
 	            					<td colspan="3">
-	            						°¡´É, ºÒ°¡´É
+	            						ê°€ëŠ¥, ë¶ˆê°€ëŠ¥
 	            					</td>
 	            					
 	            				</tr>
@@ -198,40 +198,40 @@
 	            		<div class="col-md-12 mt-12  add-sub-page">
 	            			<table >
 	            				<tr>
-	            					<td colspan="2">»ó¼¼¼³¸í</td>
+	            					<td colspan="2">ìƒì„¸ì„¤ëª…</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						Á¦¸ñ
+	            						ì œëª©
 	            					</td>
 	            					<td style="text-align: left;">
-	            					<input type="text" style="width: 50%;" placeholder="¿¹)½Å³íÇö¿ª µµº¸ 5ºÐ°Å¸®,È¥ÀÚ»ì±â ÁÁÀº¹æÀÔ´Ï´Ù.">
+	            					<input type="text" style="width: 50%;" placeholder="ì˜ˆ)ì‹ ë…¼í˜„ì—­ ë„ë³´ 5ë¶„ê±°ë¦¬,í˜¼ìžì‚´ê¸° ì¢‹ì€ë°©ìž…ë‹ˆë‹¤.">
 	            					</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						»ó¼¼ ¼³¸í
+	            						ìƒì„¸ ì„¤ëª…
 	            					</td>
 	            					<td>
-	            						<textarea rows="20" cols="100" placeholder="»ó¼¼¼³¸í ÀÛ¼º ÁÖÀÇ»çÇ× 
-	            							- ¹æ Á¤º¸¿Í °ü·Ã¾ø´Â È«º¸¼º Á¤º¸´Â ÀÔ·ÂÇÏ½Ç¼ö ¾ø½À´Ï´Ù
-	            								(È¨ÆäÀÌÁöÁÖ¼Ò,ºí·Î±×,SNS,¸Þ½ÅÀúID,ÀüÈ­¹øÈ£,ÀÌ¸ÞÀÏµî)
-	            							- Áß°è¼ö¼ö·á¸¦ ¾ð±ÞÇÑ ³»¿ëÀº ÀÔ·ÂÇÒ ¼ö ¾ø½À´Ï´Ù.
-	            								(Áß°è¼ö¼ö·á¹«·á, °øÂ¥, ¹Ý°ª µî)
+	            						<textarea rows="20" cols="100" placeholder="ìƒì„¸ì„¤ëª… ìž‘ì„± ì£¼ì˜ì‚¬í•­ 
+	            							- ë°© ì •ë³´ì™€ ê´€ë ¨ì—†ëŠ” í™ë³´ì„± ì •ë³´ëŠ” ìž…ë ¥í•˜ì‹¤ìˆ˜ ì—†ìŠµë‹ˆë‹¤
+	            								(í™ˆíŽ˜ì´ì§€ì£¼ì†Œ,ë¸”ë¡œê·¸,SNS,ë©”ì‹ ì €ID,ì „í™”ë²ˆí˜¸,ì´ë©”ì¼ë“±)
+	            							- ì¤‘ê³„ìˆ˜ìˆ˜ë£Œë¥¼ ì–¸ê¸‰í•œ ë‚´ìš©ì€ ìž…ë ¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+	            								(ì¤‘ê³„ìˆ˜ìˆ˜ë£Œë¬´ë£Œ, ê³µì§œ, ë°˜ê°’ ë“±)
 	            							
-	            							* ÁÖÀÇ»çÇ× À§¹Ý½Ã ÇãÀ§¸Å¹°·Î °£ÁÖµÇ¾î ¸Å¹° »èÁ¦ ¹× ÀÌ¿ëÀÇ Á¦ÇÑÀÌ 
-	            								ÀÖÀ» ¼ö ÀÖ½À´Ï´Ù.
-	            							* ´Ù¹æÀÇ ¸Å¹°µî·Ï ±ÔÁ¤¿¡ À§¹ÝµÇ´Â ±ÝÄ¢¾î´Â µî·ÏÀÌ ºÒ°¡´ÉÇÕ´Ï´Ù.
+	            							* ì£¼ì˜ì‚¬í•­ ìœ„ë°˜ì‹œ í—ˆìœ„ë§¤ë¬¼ë¡œ ê°„ì£¼ë˜ì–´ ë§¤ë¬¼ ì‚­ì œ ë° ì´ìš©ì˜ ì œí•œì´ 
+	            								ìžˆì„ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+	            							* ë‹¤ë°©ì˜ ë§¤ë¬¼ë“±ë¡ ê·œì •ì— ìœ„ë°˜ë˜ëŠ” ê¸ˆì¹™ì–´ëŠ” ë“±ë¡ì´ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤.
 	            						"></textarea>
 	            					</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						ºñ°ø°³¸Þ¸ð
+	            						ë¹„ê³µê°œë©”ëª¨
 	            					</td>
 	            					<td >
 	            					<textarea rows="10" cols="100" placeholder="
-	            					¿ÜºÎ¿¡´Â °ø°³µÇÁö ¾ÊÀ¸¸ç, µî·ÏÀÚ¿¡°Ô¸¸ º¸ÀÌ´Â ¸Þ¸ðÀÔ´Ï´Ù.
+	            					ì™¸ë¶€ì—ëŠ” ê³µê°œë˜ì§€ ì•Šìœ¼ë©°, ë“±ë¡ìžì—ê²Œë§Œ ë³´ì´ëŠ” ë©”ëª¨ìž…ë‹ˆë‹¤.
 	            						"></textarea>
 	            					</td>
 	            				</tr>
@@ -240,22 +240,22 @@
 	            		<div class="col-md-12 mt-12  add-sub-page">
 	            			<table >
 	            				<tr>
-	            					<td colspan="2">¸Å¹°Á¾·ù</td>
+	            					<td colspan="2">ë§¤ë¬¼ì¢…ë¥˜</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						Á¾·ù¼±ÅÃ
+	            						ì¢…ë¥˜ì„ íƒ
 	            					</td>
 	            					<td >
-	            					 ¿ø·ë Åõ·ë ¾²¸®·ë ¿ÀÇÇ½ºÅÚ(µµ½ÃÇü) ¾ÆÆÄÆ®
+	            					 ì›ë£¸ íˆ¬ë£¸ ì“°ë¦¬ë£¸ ì˜¤í”¼ìŠ¤í…”(ë„ì‹œí˜•) ì•„íŒŒíŠ¸
 	            					</td>
 	            				</tr>
 	            				<tr>
 	            					<td >
-	            						°Ç¹°À¯Çü
+	            						ê±´ë¬¼ìœ í˜•
 	            					</td>
 	            					<td>
-	            						´Üµ¶ ´Ù°¡±¸ ºô¶ó/¿¬¸³/´Ù¼¼´ë »ó°¡ÁÖÅÃ
+	            						ë‹¨ë… ë‹¤ê°€êµ¬ ë¹Œë¼/ì—°ë¦½/ë‹¤ì„¸ëŒ€ ìƒê°€ì£¼íƒ
 	            					</td>
 	            				</tr>
 	            			</table>
@@ -265,13 +265,13 @@
 	            				<div class="col-md-2" style="width: 100px;"></div>
 	            				<div class="col-md-10" style="text-align: center;">
 	            					<input type="checkbox" >
-	            									¸Å¹° °ü¸® ±ÔÁ¤À» È®ÀÎÇÏ¿´À¸¸ç ÀÔ·ÂÇÑ Á¤º¸´Â ½ÇÁ¦ ¸Å¹°°ú ´Ù¸§ÀÌ ¾ø½À´Ï´Ù.
+	            									ë§¤ë¬¼ ê´€ë¦¬ ê·œì •ì„ í™•ì¸í•˜ì˜€ìœ¼ë©° ìž…ë ¥í•œ ì •ë³´ëŠ” ì‹¤ì œ ë§¤ë¬¼ê³¼ ë‹¤ë¦„ì´ ì—†ìŠµë‹ˆë‹¤.
 	            				</div>
 	            				
 	            			</div>
 	            			<div class="col-md-12"  style="text-align: center;">
-	            				<a class="btn" id="filter_apply" href="">¸Å¹°µî·Ï</a>
-	            				<a class="btn" id="filter_close" href="semi.Project?page=estate&code=1">Ãë¼Ò</a>
+	            				<a class="btn" id="filter_apply" href="">ë§¤ë¬¼ë“±ë¡</a>
+	            				<a class="btn" id="filter_close" href="semi.Project?page=estate&code=1">ì·¨ì†Œ</a>
 	            				</div>
 	            		</div>
 	          	 </div>

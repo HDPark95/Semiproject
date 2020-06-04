@@ -1,19 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<link href="resources/css/commercial/sidebar.css?after" rel="stylesheet" />
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<link href="css/sidebar.css?after" rel="stylesheet" />
 <div id="rightSide">
 
 	<div id="right_zzim">
 
-		<div class="recTit">
-			ºñ½ÁÇÑ ¸Å¹° Á¤º¸ <span id=recentCnt></span>
+		<div class="recTit">  
+			ë¹„ìŠ·í•œ ë§¤ë¬¼ ì •ë³´ <span id=recentCnt></span>
 		</div>
 		<ul></ul>
-		<!-- º» »óÇ°ÀÌ »Ñ·ÁÁú ºÎºÐ  -->
+		<!-- ë³¸ ìƒí’ˆì´ ë¿Œë ¤ì§ˆ ë¶€ë¶„  -->
 		<div id="paging">
-			<a class="btn_prev" style="cursor: pointer">ÀÌÀü</a><span
+			<a class="btn_prev" style="cursor: pointer">ì´ì „</a><span
 				id="currentPage"></span><span id="totalPageCount"></span><a
-				class="btn_next" style="cursor: pointer">´ÙÀ½</a>
+				class="btn_next" style="cursor: pointer">ë‹¤ìŒ</a>
 		</div>
 	</div>
 </div>

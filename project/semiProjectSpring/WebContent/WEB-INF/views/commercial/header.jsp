@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -21,14 +20,14 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav1">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="hyundoo.Project?page=commercial&subcode=0">ªÛ±«¡§∫∏ ∏ﬁ¿Œ</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
+                <a class="navbar-brand js-scroll-trigger" href="hyundoo.Project?page=commercial&subcode=0">ÏÉÅÍ∂åÏ†ïÎ≥¥ Î©îÏù∏</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="semi.Project?page=index&subcode=0">»®</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="semi.Project?page=commercial&subcode=98">∏≈π∞</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="semi.Project?page=commercial&subcode=97">∏≈π∞ µÓ∑œ</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">¥∫Ω∫</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">ƒøπ¬¥œ∆º</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="semi.Project?page=index&subcode=0">Ìôà</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="semi.Project?page=commercial&subcode=98">Îß§Î¨º</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="semi.Project?page=commercial&subcode=97">Îß§Î¨º Îì±Î°ù</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Îâ¥Ïä§</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Ïª§ÎÆ§ÎãàÌã∞</a></li>
                     </ul>
                 </div>
             </div>

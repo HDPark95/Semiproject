@@ -1,17 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
- <div class="container2 fixed-top"style="margin-top: 88px;height: 80px;background-color: #f8f9fa;padding-top: auto;padding-top: 20px;">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+ <div class="container2 fixed-top " id="search-nav"style="margin-top: 88px;height: 80px;background-color: #f8f9fa;padding-top: auto;padding-top: 20px;">
+
 		<div class="row">
 			<div class="col-md-6 mt-6 search">
 			
-					<input type="text" placeholder="°­³²±¸ ¿ª»ïµ¿" ><span class="btn">°Ë»ö</span>
+					<input type="text" placeholder="ê°•ë‚¨êµ¬ ì—­ì‚¼ë™" ><span class="btn">ê²€ìƒ‰</span>
 			
 				
 			</div>
 			<div class="col-md-6 mt-6 filter-section " >
 			 <div class="container .col-md-12 filter-div">
-                <a class="navbar-brand js-scroll-trigger btn" href="#page-top">ÇÊÅÍ</a>
-                <a class="navbar-brand js-scroll-trigger btn" href="#page-top">ÃÊ±âÈ­</a>
+                <a class="navbar-brand js-scroll-trigger btn" href="#page-top">í•„í„°</a>
+                <a class="navbar-brand js-scroll-trigger btn" href="#page-top">ì´ˆê¸°í™”</a>
                
             </div>
             </div>
@@ -19,61 +21,61 @@
             	<div class="col-md-12 mt-12 filter-sub-page">
             		
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h2 id="page-up">¹æÁ¾·ù <label>Áßº¹¼±ÅÃÀÌ °¡´ÉÇÕ´Ï´Ù</label></h2> 
-	            			<input type="checkbox" ><label>¿ø·ë </label>
-	            			<input type="checkbox" ><label>Åõ¤ý¾²¸®·ë</label>
-	            		<input type="checkbox" >	<label>¿ÀÇÇ½ºÅÚ</label>
-	            		<input type="checkbox" >	<label>¾ÆÆÄÆ® / ´ÙÁß¼±ÅÃ½Ã ¾ÆÆÄÆ®´Â ¼±ÅÃÇÒ¼ö ¾ø½À´Ï´Ù.</label>
+	            			<h2 id="page-up">ë°©ì¢…ë¥˜ <label>ì¤‘ë³µì„ íƒì´ ê°€ëŠ¥í•©ë‹ˆë‹¤</label></h2> 
+	            			<input type="checkbox" ><label>ì›ë£¸ </label>
+	            			<input type="checkbox" ><label>íˆ¬ã†ì“°ë¦¬ë£¸</label>
+	            		<input type="checkbox" >	<label>ì˜¤í”¼ìŠ¤í…”</label>
+	            		<input type="checkbox" >	<label>ì•„íŒŒíŠ¸ / ë‹¤ì¤‘ì„ íƒì‹œ ì•„íŒŒíŠ¸ëŠ” ì„ íƒí• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.</label>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h2>¸Å¹° Á¾·ù <label>Áßº¹¼±ÅÃÀÌ °¡´ÉÇÕ´Ï´Ù</label></h2>
-	            			<input type="checkbox" >	<label>¿ù¼¼</label>
-	            			<input type="checkbox" >	<label>Àü¼¼ </label>
-	            			<input type="checkbox" >	<label>¸Å¸Å</label>
+	            			<h2>ë§¤ë¬¼ ì¢…ë¥˜ <label>ì¤‘ë³µì„ íƒì´ ê°€ëŠ¥í•©ë‹ˆë‹¤</label></h2>
+	            			<input type="checkbox" >	<label>ì›”ì„¸</label>
+	            			<input type="checkbox" >	<label>ì „ì„¸ </label>
+	            			<input type="checkbox" >	<label>ë§¤ë§¤</label>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h2>º¸Áõ±Ý / Àü¼¼°¡</h2>
-	            			<input type="range" class="custom-range custom-range">Å×½ºÆ®
+	            			<h2>ë³´ì¦ê¸ˆ / ì „ì„¸ê°€</h2>
+	            			<input type="range" class="custom-range custom-range">í…ŒìŠ¤íŠ¸
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h2>¹æÅ©±â(Àü¿ë¸éÀû)</h2>
+	            			<h2>ë°©í¬ê¸°(ì „ìš©ë©´ì )</h2>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h2>°ü¸®ºñ</h2>
+	            			<h2>ê´€ë¦¬ë¹„</h2>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h2>Ãþ¼ö <label>Áßº¹¼±ÅÃÀÌ °¡´ÉÇÕ´Ï´Ù</label></h2>
-	            			<input type="checkbox" >	<label>ÀüÃ¼</label>
-	            			<input type="checkbox" >	<label>1Ãþ</label>
-	            			<input type="checkbox" >	<label>2Ãþ</label>
-	            			<input type="checkbox" >	<label>3Ãþ</label>
-	            			<input type="checkbox" >	<label>4Ãþ</label>
-	            			<input type="checkbox" >	<label>5Ãþ</label>
-	            			<input type="checkbox" >	<label>6Ãþ</label>
-	            			<input type="checkbox" >	<label>7ÃþÀÌ»ó</label>
-	            			<input type="checkbox" >	<label>¹ÝÁöÃþ</label>
-	            			<input type="checkbox" >	<label>¿ÁÅ¾</label>
+	            			<h2>ì¸µìˆ˜ <label>ì¤‘ë³µì„ íƒì´ ê°€ëŠ¥í•©ë‹ˆë‹¤</label></h2>
+	            			<input type="checkbox" >	<label>ì „ì²´</label>
+	            			<input type="checkbox" >	<label>1ì¸µ</label>
+	            			<input type="checkbox" >	<label>2ì¸µ</label>
+	            			<input type="checkbox" >	<label>3ì¸µ</label>
+	            			<input type="checkbox" >	<label>4ì¸µ</label>
+	            			<input type="checkbox" >	<label>5ì¸µ</label>
+	            			<input type="checkbox" >	<label>6ì¸µ</label>
+	            			<input type="checkbox" >	<label>7ì¸µì´ìƒ</label>
+	            			<input type="checkbox" >	<label>ë°˜ì§€ì¸µ</label>
+	            			<input type="checkbox" >	<label>ì˜¥íƒ‘</label>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h2>¹æ±¸Á¶<label>Áßº¹¼±ÅÃÀÌ °¡´ÉÇÕ´Ï´Ù</label></h2>
-	            			<p>Áßº¹¼±ÅÃÀÌ °¡´ÉÇÕ´Ï´Ù</p>
+	            			<h2>ë°©êµ¬ì¡°<label>ì¤‘ë³µì„ íƒì´ ê°€ëŠ¥í•©ë‹ˆë‹¤</label></h2>
+	            			<p>ì¤‘ë³µì„ íƒì´ ê°€ëŠ¥í•©ë‹ˆë‹¤</p>
 	            			
-	            			<input type="checkbox" >	<label>ÁÖ¹æºÐ¸®Çü(1.5·ë)</label>
-	            			<input type="checkbox" >	<label>º¹Ãþ</label>
-	            			<input type="checkbox" >	<label>Åõ¸§</label>
-	            			<input type="checkbox" >	<label>¾²¸®·ë</label>
+	            			<input type="checkbox" >	<label>ì£¼ë°©ë¶„ë¦¬í˜•(1.5ë£¸)</label>
+	            			<input type="checkbox" >	<label>ë³µì¸µ</label>
+	            			<input type="checkbox" >	<label>íˆ¬ë¦„</label>
+	            			<input type="checkbox" >	<label>ì“°ë¦¬ë£¸</label>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h2>Ãß°¡¿É¼Ç<label>Áßº¹¼±ÅÃÀÌ °¡´ÉÇÕ´Ï´Ù</label></h2>
+	            			<h2>ì¶”ê°€ì˜µì…˜<label>ì¤‘ë³µì„ íƒì´ ê°€ëŠ¥í•©ë‹ˆë‹¤</label></h2>
 	            			
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h2>°Å·¡Á¾·ù</h2>
+	            			<h2>ê±°ëž˜ì¢…ë¥˜</h2>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div last">
 	            			
-	            				<a class="btn" id="filter_apply">Àû¿ëÇÏ±â</a>
-	            				<a class="btn" id="filter_close" href="#page-up">´Ý±â</a>
+	            				<a class="btn" id="filter_apply">ì ìš©í•˜ê¸°</a>
+	            				<a class="btn" id="filter_close" href="#page-up">ë‹«ê¸°</a>
 	            		</div>
             	
             	</div>

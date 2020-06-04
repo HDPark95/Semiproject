@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
    
 
   </head>
@@ -9,51 +8,51 @@
          
          <div class="container col-md-12" >
          	
-                <a class="navbar-brand js-scroll-trigger" href="semi.Project?page=index">∏ﬁ¿Œ∏ﬁ¥∫≈◊Ω∫∆Æ</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
+                <a class="navbar-brand js-scroll-trigger" href="semi.Project?page=index">Î©îÏù∏Î©îÎâ¥ÌÖåÏä§Ìä∏</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                  <ul class="navbar-nav ml-auto">
-                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="#about">∞≠ø¬¿Ø¥‘ »Øøµ«’¥œ¥Ÿ.</a></li>
+                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="#about">Í∞ïÏò®Ïú†Îãò ÌôòÏòÅÌï©ÎãàÎã§.</a></li>
                       
                     </ul>
                     <ul class="navbar-nav ml-auto2">
                        <li class="nav-item">
-	                       <a class="nav-link js-scroll-trigger" href="#">ªÛ∞°</a>
+	                       <a class="nav-link js-scroll-trigger" href="#">ÏÉÅÍ∞Ä</a>
 	                      
 	                       <ul class="invisible">
-		                       	<li>∏≈π∞</li>
-		                       	<li>∏≈π∞µÓ∑œ</li>
+		                       	<li>Îß§Î¨º</li>
+		                       	<li>Îß§Î¨ºÎì±Î°ù</li>
 	                       </ul>
                        </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="#">∫ŒµøªÍ</a>
+	                        <a class="nav-link js-scroll-trigger" href="#">Î∂ÄÎèôÏÇ∞</a>
 	                      
 	                        <ul class="invisible">
-		                       	<li>∏≈π∞<li>
-		                       	<li>∏≈π∞µÓ∑œ</li>
+		                       	<li>Îß§Î¨º<li>
+		                       	<li>Îß§Î¨ºÎì±Î°ù</li>
 	                       </ul>
                         </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="#">∞Ê∏≈</a>
+	                        <a class="nav-link js-scroll-trigger" href="#">Í≤ΩÎß§</a>
 	                        
 	                        <ul class="invisible">
-		                       	<li>∏≈π∞<li>
-		                       	<li>∏≈π∞µÓ∑œ</li>
+		                       	<li>Îß§Î¨º<li>
+		                       	<li>Îß§Î¨ºÎì±Î°ù</li>
 	                       </ul>
                         </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="#">ƒøπ¬¥œ∆º</a>
+	                        <a class="nav-link js-scroll-trigger" href="#">Ïª§ÎÆ§ÎãàÌã∞</a>
 	                      
 	                        <ul class="invisible">
-		                       	<li>∏≈π∞<li>
-		                       	<li>∏≈π∞µÓ∑œ</li>
+		                       	<li>Îß§Î¨º<li>
+		                       	<li>Îß§Î¨ºÎì±Î°ù</li>
 	                       </ul>
                         </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="#">∞Ì∞¥ºæ≈Õ</a>
+	                        <a class="nav-link js-scroll-trigger" href="#">Í≥†Í∞ùÏÑºÌÑ∞</a>
 	                       
 	                        <ul class="invisible" >
-		                       	<li>∏≈π∞<li>
-		                       	<li>∏≈π∞µÓ∑œ</li>
+		                       	<li>Îß§Î¨º<li>
+		                       	<li>Îß§Î¨ºÎì±Î°ù</li>
 	                       </ul>
                         </li>
                          
@@ -61,11 +60,11 @@
                     </ul>
                       <ul class="navbar-nav ml-auto2">
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="mypage">≥ª¡§∫∏</a>
+	                        <a class="nav-link js-scroll-trigger" href="mypage">ÎÇ¥Ï†ïÎ≥¥</a>
 	                        <input type="hidden" value="mypage">
                         </li>
                         <li class="nav-item">
-                       	 	<a class="nav-link js-scroll-trigger" href="#projects">∑Œ±◊æ∆øÙ</a>
+                       	 	<a class="nav-link js-scroll-trigger" href="#projects">Î°úÍ∑∏ÏïÑÏõÉ</a>
                         </li>
                     
                     </ul>
@@ -85,19 +84,19 @@
 		              <div class=" col-md-12 auction  invisible">
 		            	 <ul class="navbar-nav mr-auto float-left" >
 				      <li class="nav-item active">
-				        <a class="nav-link" href="#">π∞∞«∞Àªˆ <span class="sr-only">(current)</span></a>
+				        <a class="nav-link" href="#">Î¨ºÍ±¥Í≤ÄÏÉâ <span class="sr-only">(current)</span></a>
 				      </li>
 				      <li class="nav-item">
-				        <a class="nav-link" href="#">∆«∏≈∞¸∏Æ</a>
+				        <a class="nav-link" href="#">ÌåêÎß§Í¥ÄÎ¶¨</a>
 				      </li>
 				      <li class="nav-item">
-				        <a class="nav-link" href="#">±∏∏≈∞¸∏Æ</a>
+				        <a class="nav-link" href="#">Íµ¨Îß§Í¥ÄÎ¶¨</a>
 				      </li>
 				      <li class="nav-item">
-				        <a class="nav-link" href="#">∫ŒµøªÍµÓ∑œ</a>
+				        <a class="nav-link" href="#">Î∂ÄÎèôÏÇ∞Îì±Î°ù</a>
 				      </li>
 				      <li class="nav-item">
-				        <a class="nav-link" href="#">∞Ê∏≈¡§∫∏</a>
+				        <a class="nav-link" href="#">Í≤ΩÎß§Ï†ïÎ≥¥</a>
 				      </li>
 				    </ul>
 		            </div>

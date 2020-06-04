@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="../include/header_index.jsp"%>
 <%@ include file="../include/header_menu.jsp"%>
 
@@ -7,355 +7,19 @@
 	<div class="container">
 		<ul class="nav nav-tabs">
 			<li class="nav-item"><a class="nav-link active"
-				data-toggle="tab" href="#all">傈眉</a></li>
+				data-toggle="tab" href="#all">鞝勳泊</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
-				href="#qna">龙巩</a></li>
+				href="#commercial">靸侁皜</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
-				href="#story">捞具扁</a></li>
+				href="#estate">攵�霃欖偘</a></li>
+			<li class="nav-item"><a class="nav-link" data-toggle="tab"
+				href="#auction">瓴诫Г</a></li>
 		</ul>
 		<div id="myTabContent" class="tab-content">
-			<div class="tab-pane fade show active" id="all">
-				<br>
-				<p>'备'绰 馆靛矫 急琶窍咯具 窍哥, 弊 窍困 瘤开阑 器窃窍咯 八祸邓聪促.</p>
-				<div class="form-inline form-group">
-					<label for="Select1">瘤开</label> <select
-						class="form-control col-md-1" id="Select1"
-						>
-						<option selected="selected">急琶</option>
-						<option>碍巢备</option>
-						<option>碍悼备</option>
-						<option>碍合备</option>
-						<option>碍辑备</option>
-						<option>包厩备</option>
-						<option>堡柳备</option>
-						<option>备肺备</option>
-						<option>陛玫备</option>
-						<option>畴盔备</option>
-						<option>档豪备</option>
-						<option>悼措巩备</option>
-						<option>悼累备</option>
-						<option>付器备</option>
-						<option>辑措巩备</option>
-						<option>辑檬备</option>
-						<option>己悼备</option>
-						<option>己合备</option>
-						<option>价颇备</option>
-						<option>剧玫备</option>
-						<option>康殿器备</option>
-						<option>侩魂备</option>
-						<option>篮乞备</option>
-						<option>辆肺备</option>
-						<option>吝备</option>
-						<option>吝尔备</option>
-					</select> <label for="Select2"
-						>概拱辆幅</label> <select
-						class="form-control col-md-1" id="Select2">
-						<option selected="selected">傈眉</option>
-						<option>酒颇飘</option>
-						<option>坷乔胶炮</option>
-						<option>盒剧鼻</option>
-						<option>林琶</option>
-						<option>配瘤</option>
-						<option>盔冯</option>
-						<option>惑啊</option>
-						<option>荤公角</option>
-						<option>傍厘</option>
-						<option>犁俺惯</option>
-						<option>扒拱</option>
-					</select>
-					<button type="button" class="btn-primary btn-sm"
-						>八祸</button>
-				</div>
-				<div id="checkorder1">
-					<div class="form-check-inline">
-						<label class="form-check-label"> <input type="radio"
-							class="form-check-input" name="alloptions" id="alloptions1"
-							value="option1" checked="checked" >弥脚鉴
-						</label>
-					</div>
-					<div class="form-check-inline">
-						<label class="form-check-label"> <input type="radio"
-							class="form-check-input" name="alloptions" id="alloptions2"
-							value="option2">炼雀鉴
-						</label>
-					</div>
-					<div class="form-check-inline">
-						<label class="form-check-label"> <input type="radio"
-							class="form-check-input" name="alloptions" id="alloptions3"
-							value="option3">眠玫鉴
-						</label>&nbsp;
-						<button type="button" class="btn-primary btn-sm" id="writeBtn1">臂静扁</button>
-					</div>
-				</div>
-				<br><br>
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col">瘤开</th>
-							<th scope="col">力格</th>
-							<th scope="col">殿废老</th>
-							<th scope="col">炼雀</th>
-							<th scope="col">眠玫</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">碍巢备</th>
-							<td >救崇窍技夸!</td>
-							<td>2020-05-27</td>
-							<td>27</td>
-							<td>5</td>
-						</tr>
-					</tbody>
-				</table>
-				<div id="pagenum1">
-					<ul class="pagination pagination-lg">
-						<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a>
-						</li>
-						<li class="page-item active"><a class="page-link" href="#">1</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item"><a class="page-link" href="#">4</a></li>
-						<li class="page-item"><a class="page-link" href="#">5</a></li>
-						<li class="page-item"><a class="page-link" href="#">6</a></li>
-						<li class="page-item"><a class="page-link" href="#">7</a></li>
-						<li class="page-item"><a class="page-link" href="#">8</a></li>
-						<li class="page-item"><a class="page-link" href="#">9</a></li>
-						<li class="page-item"><a class="page-link" href="#">10</a></li>
-						<li class="page-item"><a class="page-link" href="#">&raquo;</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="tab-pane fade" id="qna">
-				<br>
-				<p>'备'绰 馆靛矫 急琶窍咯具 窍哥, 弊 窍困 瘤开阑 器窃窍咯 八祸邓聪促.</p>
-				<div class="form-inline form-group">
-					<label for="Select1">瘤开</label> <select
-						class="form-control col-md-1" id="Select1"
-						>
-						<option selected="selected">急琶</option>
-						<option>碍巢备</option>
-						<option>碍悼备</option>
-						<option>碍合备</option>
-						<option>碍辑备</option>
-						<option>包厩备</option>
-						<option>堡柳备</option>
-						<option>备肺备</option>
-						<option>陛玫备</option>
-						<option>畴盔备</option>
-						<option>档豪备</option>
-						<option>悼措巩备</option>
-						<option>悼累备</option>
-						<option>付器备</option>
-						<option>辑措巩备</option>
-						<option>辑檬备</option>
-						<option>己悼备</option>
-						<option>己合备</option>
-						<option>价颇备</option>
-						<option>剧玫备</option>
-						<option>康殿器备</option>
-						<option>侩魂备</option>
-						<option>篮乞备</option>
-						<option>辆肺备</option>
-						<option>吝备</option>
-						<option>吝尔备</option>
-					</select> <label for="Select2"
-						>概拱辆幅</label> <select
-						class="form-control col-md-1" id="Select2">
-						<option selected="selected">傈眉</option>
-						<option>酒颇飘</option>
-						<option>坷乔胶炮</option>
-						<option>盒剧鼻</option>
-						<option>林琶</option>
-						<option>配瘤</option>
-						<option>盔冯</option>
-						<option>惑啊</option>
-						<option>荤公角</option>
-						<option>傍厘</option>
-						<option>犁俺惯</option>
-						<option>扒拱</option>
-					</select>
-					<button type="button" class="btn-primary btn-sm"
-						>八祸</button>
-				</div>
-				<div id="checkorder2">
-					<div class="form-check-inline">
-						<label class="form-check-label"> <input type="radio"
-							class="form-check-input" name="queoption" id="queoption1"
-							value="option4" checked="checked">弥脚鉴
-						</label>
-					</div>
-					<div class="form-check-inline">
-						<label class="form-check-label"> <input type="radio"
-							class="form-check-input" name="queoption" id="queoption2"
-							value="option5">炼雀鉴
-						</label>
-					</div>
-					<div class="form-check-inline">
-						<label class="form-check-label"> <input type="radio"
-							class="form-check-input" name="queoption" id="queoption3"
-							value="option6">眠玫鉴
-						</label>&nbsp;
-						<button type="button" class="btn-primary btn-sm" id="writeBtn2">臂静扁</button>
-					</div>
-				</div>
-				<br><br>
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col">瘤开</th>
-							<th scope="col">力格</th>
-							<th scope="col">殿废老</th>
-							<th scope="col">炼雀</th>
-							<th scope="col">眠玫</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">碍巢备</th>
-							<td >救崇窍技夸!</td>
-							<td>2020-05-27</td>
-							<td>27</td>
-							<td>5</td>
-						</tr>
-					</tbody>
-				</table>
-				<div id="pagenum2">
-					<ul class="pagination pagination-lg">
-						<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a>
-						</li>
-						<li class="page-item active"><a class="page-link" href="#">1</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item"><a class="page-link" href="#">4</a></li>
-						<li class="page-item"><a class="page-link" href="#">5</a></li>
-						<li class="page-item"><a class="page-link" href="#">6</a></li>
-						<li class="page-item"><a class="page-link" href="#">7</a></li>
-						<li class="page-item"><a class="page-link" href="#">8</a></li>
-						<li class="page-item"><a class="page-link" href="#">9</a></li>
-						<li class="page-item"><a class="page-link" href="#">10</a></li>
-						<li class="page-item"><a class="page-link" href="#">&raquo;</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="tab-pane fade" id="story">
-				<br>
-				<p>'备'绰 馆靛矫 急琶窍咯具 窍哥, 弊 窍困 瘤开阑 器窃窍咯 八祸邓聪促.</p>
-				<div class="form-inline form-group">
-					<label for="Select1">瘤开</label> <select
-						class="form-control col-md-1" id="Select1"
-						>
-						<option selected="selected">急琶</option>
-						<option>碍巢备</option>
-						<option>碍悼备</option>
-						<option>碍合备</option>
-						<option>碍辑备</option>
-						<option>包厩备</option>
-						<option>堡柳备</option>
-						<option>备肺备</option>
-						<option>陛玫备</option>
-						<option>畴盔备</option>
-						<option>档豪备</option>
-						<option>悼措巩备</option>
-						<option>悼累备</option>
-						<option>付器备</option>
-						<option>辑措巩备</option>
-						<option>辑檬备</option>
-						<option>己悼备</option>
-						<option>己合备</option>
-						<option>价颇备</option>
-						<option>剧玫备</option>
-						<option>康殿器备</option>
-						<option>侩魂备</option>
-						<option>篮乞备</option>
-						<option>辆肺备</option>
-						<option>吝备</option>
-						<option>吝尔备</option>
-					</select> <label for="Select2">概拱辆幅</label> <select
-						class="form-control col-md-1" id="Select2"
-						>
-						<option selected="selected">傈眉</option>
-						<option>酒颇飘</option>
-						<option>坷乔胶炮</option>
-						<option>盒剧鼻</option>
-						<option>林琶</option>
-						<option>配瘤</option>
-						<option>盔冯</option>
-						<option>惑啊</option>
-						<option>荤公角</option>
-						<option>傍厘</option>
-						<option>犁俺惯</option>
-						<option>扒拱</option>
-					</select>
-					<button type="button" class="btn-primary btn-sm"
-						>八祸</button>
-				</div>
-				<div id="checkorder3">
-					<div class="form-check-inline">
-						<label class="form-check-label"> <input type="radio"
-							class="form-check-input" name="storyoption" id="storyoption1"
-							value="option7" checked="checked">弥脚鉴
-						</label>
-					</div>
-					<div class="form-check-inline">
-						<label class="form-check-label"> <input type="radio"
-							class="form-check-input" name="storyoption" id="storyoption2"
-							value="option8">炼雀鉴
-						</label>
-					</div>
-					<div class="form-check-inline">
-						<label class="form-check-label"> <input type="radio"
-							class="form-check-input" name="storyoption" id="storyoption3"
-							value="option9">眠玫鉴
-						</label>&nbsp;
-						<button type="button" class="btn-primary btn-sm" id="writeBtn3">臂静扁</button>
-					</div>
-				</div>
-				<br><br>
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col">瘤开</th>
-							<th scope="col">力格</th>
-							<th scope="col">殿废老</th>
-							<th scope="col">炼雀</th>
-							<th scope="col">眠玫</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">碍巢备</th>
-							<td >救崇窍技夸!</td>
-							<td>2020-05-27</td>
-							<td>27</td>
-							<td>5</td>
-						</tr>
-					</tbody>
-				</table>
-				<div id="pagenum3">
-					<ul class="pagination pagination-lg">
-						<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a>
-						</li>
-						<li class="page-item active"><a class="page-link" href="#">1</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item"><a class="page-link" href="#">4</a></li>
-						<li class="page-item"><a class="page-link" href="#">5</a></li>
-						<li class="page-item"><a class="page-link" href="#">6</a></li>
-						<li class="page-item"><a class="page-link" href="#">7</a></li>
-						<li class="page-item"><a class="page-link" href="#">8</a></li>
-						<li class="page-item"><a class="page-link" href="#">9</a></li>
-						<li class="page-item"><a class="page-link" href="#">10</a></li>
-						<li class="page-item"><a class="page-link" href="#">&raquo;</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+			<%@ include file="../community/include/community_all.jsp" %>
+			<%@ include file="../community/include/community_commercial.jsp" %>
+			<%@ include file="../community/include/community_estate.jsp" %>
+			<%@ include file="../community/include/community_auction.jsp" %>
 		</div>
 	</div>
 </section>
@@ -363,13 +27,16 @@
 <script>
 	$(function() {
 		$('#writeBtn1').click(function() {
-			location = 'semi.Project?page=community&code=7';
+			location = 'wriCom';
 		});
 		$('#writeBtn2').click(function() {
-			location = 'semi.Project?page=community&code=7';
+			location = 'wriCom';
 		});
 		$('#writeBtn3').click(function() {
-			location = 'semi.Project?page=community&code=8';
+			location = 'wriEst';
+		});
+		$('#writeBtn4').click(function() {
+			location = 'wriAuc';
 		});
 	});
 </script>
