@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ include file="../include/header_index.jsp"%>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 <link rel="stylesheet" href="resources/css/auction/main/bootstrap.css">
@@ -11,7 +11,7 @@
 	<div style="width: 1500px;margin: 80px auto; ">
 		
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		  <a class="navbar-brand" href="#">ºÎµ¿»ê°æ¸Å</a>
+		  <a class="navbar-brand" href="#">ë¶€ë™ì‚°ê²½ë§¤</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
@@ -19,19 +19,19 @@
 		  <div class="collapse navbar-collapse" id="navbarColor01">
 		    <ul class="navbar-nav mr-auto">
 		      <li class="nav-item active">
-		        <a class="nav-link" href="#">¹°°Ç°Ë»ö <span class="sr-only">(current)</span></a>
+		        <a class="nav-link" href="#">ë¬¼ê±´ê²€ìƒ‰ <span class="sr-only">(current)</span></a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="#">ÆÇ¸Å°ü¸®</a>
+		        <a class="nav-link" href="#">íŒë§¤ê´€ë¦¬</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="#">±¸¸Å°ü¸®</a>
+		        <a class="nav-link" href="#">êµ¬ë§¤ê´€ë¦¬</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="#">ºÎµ¿»êµî·Ï</a>
+		        <a class="nav-link" href="#">ë¶€ë™ì‚°ë“±ë¡</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="#">°æ¸ÅÁ¤º¸</a>
+		        <a class="nav-link" href="#">ê²½ë§¤ì •ë³´</a>
 		      </li>
 		    </ul>
 		  </div>
@@ -56,36 +56,36 @@
 		<div id="body"style="width: 100%; height: 100%; margin: auto;">
 			<div id="leftcontents" style="position: relative; width: 70%;margin: auto;">
 				<div id="searchtop" name="searchtop" style="width: 100%;height:65px;border: 1px solid gray;padding: 10px;"><div class="form-group">
-					ÁøÇà»çÇ×:<select class="form-control" id="exampleSelect1"
+					ì§„í–‰ì‚¬í•­:<select class="form-control" id="exampleSelect1"
 						style="width: 100px;">
-						<option>ÀüÃ¼</option>
-						<option>½Å°Ç</option>
-						<option>À¯Âû</option>
-						<option>ÁøÇà</option>
-						<option>º¯°æ</option>
-						<option>¿¹Á¤</option>
-						<option>³«Âû</option>
-					</select> ¹°°Ç¿ëµµ:<select class="form-control" id="exampleSelect2"
+						<option>ì „ì²´</option>
+						<option>ì‹ ê±´</option>
+						<option>ìœ ì°°</option>
+						<option>ì§„í–‰</option>
+						<option>ë³€ê²½</option>
+						<option>ì˜ˆì •</option>
+						<option>ë‚™ì°°</option>
+					</select> ë¬¼ê±´ìš©ë„:<select class="form-control" id="exampleSelect2"
 						style="width: 100px;">
-						<option>ÀüÃ¼</option>
-						<option>¾ÆÆÄÆ®</option>
-						<option>ÁÖÅÃ/ºô¶ó</option>
-						<option>»ó¾÷/¾÷¹«</option>
-						<option>°øÀå/Ã¢°í</option>
-						<option>ÅäÁö</option>
-						<option>±âÅ¸</option>
+						<option>ì „ì²´</option>
+						<option>ì•„íŒŒíŠ¸</option>
+						<option>ì£¼íƒ/ë¹Œë¼</option>
+						<option>ìƒì—…/ì—…ë¬´</option>
+						<option>ê³µìž¥/ì°½ê³ </option>
+						<option>í† ì§€</option>
+						<option>ê¸°íƒ€</option>
 					</select>
 					</div>
 				  </div>
 				<div id="datalisttop" style="width: 100%;margin-top: 20px;">
-					<div style="float: left;"><button type="button" class="btn btn-primary" style="width: 200px">°ü½É¹°°Çµî·Ï</button></div>
-					<div style="float: left;"><label id="sumres" style="margin-top: 5px;margin-left: 10px;">(ÃÑ <b>1,006</b>°Ç)</label></div>  
+					<div style="float: left;"><button type="button" class="btn btn-primary" style="width: 200px">ê´€ì‹¬ë¬¼ê±´ë“±ë¡</button></div>
+					<div style="float: left;"><label id="sumres" style="margin-top: 5px;margin-left: 10px;">(ì´ <b>1,006</b>ê±´)</label></div>  
 					<div class="btn-group" role="group" aria-label="Basic example" style="float: right;">
-					  <button type="button" class="btn btn-secondary">»ç°Ç¹øÈ£¼ø</button>
-					  <button type="button" class="btn btn-secondary">°¨Á¤°¡¼ø</button>
-					  <button type="button" class="btn btn-secondary">ÃÖÀú°¡¼ø</button>
-					  <button type="button" class="btn btn-secondary">¸Å°¢±âÀÏ¼ø</button>
-					  <button type="button" class="btn btn-secondary">Á¶È¸¼ö¼ø</button>
+					  <button type="button" class="btn btn-secondary">ì‚¬ê±´ë²ˆí˜¸ìˆœ</button>
+					  <button type="button" class="btn btn-secondary">ê°ì •ê°€ìˆœ</button>
+					  <button type="button" class="btn btn-secondary">ìµœì €ê°€ìˆœ</button>
+					  <button type="button" class="btn btn-secondary">ë§¤ê°ê¸°ì¼ìˆœ</button>
+					  <button type="button" class="btn btn-secondary">ì¡°íšŒìˆ˜ìˆœ</button>
 					</div>
 				</div>   
 				<div id="datalist" style="margin-top: 70px;">
@@ -95,11 +95,11 @@
 								<th scope="col">
 								  <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="sabunchk"/>
-                                      <label class="custom-control-label" for="sabunchk">»ç°Ç¹øÈ£</label>
+                                      <label class="custom-control-label" for="sabunchk">ì‚¬ê±´ë²ˆí˜¸</label>
                                    </div></th>
-								<th scope="col" colspan="2">¹°°Ç¿ëµµ/¼ÒÀçÁö/¸éÀû</th>
-								<th scope="col" colspan="2" style="padding-left: 0px;">°¨Á¤/ÃÖÀú</th>
-								<th scope="col">»óÅÂ/ÀÔÂûÀÏ/Á¶È¸¼ö</th>
+								<th scope="col" colspan="2">ë¬¼ê±´ìš©ë„/ì†Œìž¬ì§€/ë©´ì </th>
+								<th scope="col" colspan="2" style="padding-left: 0px;">ê°ì •/ìµœì €</th>
+								<th scope="col">ìƒíƒœ/ìž…ì°°ì¼/ì¡°íšŒìˆ˜</th>
 							</tr>
 						</thead>
 						<tbody style="border-bottom: 1px solid gray;">
@@ -109,14 +109,14 @@
                                       <label class="custom-control-label" for="sabunch1">2020-0001</label>
                                    </div></th>
 								<td id="coltd1_1" style="width: 130px;"><img src="images/kosmo.jpg" style="width: 120px;height: 120px;float: left;"></td>
-								<td id="coltd1_2" style="width: 500px;"><label id="t1addr1_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><b>[¾ÆÆÄÆ®Çü°øÀå]</b><br/>¼­¿ï Æ¯º°½Ã ±ÝÃµ±¸ °¡»êµ¿ 426-5 ¿ùµå ¸Þ¸£µð¾Ó º¥Ã³¼¾ÅÍ 2Â÷ 410È£</a></label>
-								<br/><label id="t1addr1_2" style="font-size: 11pt;height: 6px;">ÅäÁö 70.28§³/°Ç¹° 226.2§³</label>
-								<br/><label id="t1addr1_3" style="font-size: 11pt;color: red;height: 6px;">À¯Ä¡±Ç</label>
+								<td id="coltd1_2" style="width: 500px;"><label id="t1addr1_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><b>[ì•„íŒŒíŠ¸í˜•ê³µìž¥]</b><br/>ì„œìš¸ íŠ¹ë³„ì‹œ ê¸ˆì²œêµ¬ ê°€ì‚°ë™ 426-5 ì›”ë“œ ë©”ë¥´ë””ì•™ ë²¤ì²˜ì„¼í„° 2ì°¨ 410í˜¸</a></label>
+								<br/><label id="t1addr1_2" style="font-size: 11pt;height: 6px;">í† ì§€ 70.28ãŽ¡/ê±´ë¬¼ 226.2ãŽ¡</label>
+								<br/><label id="t1addr1_3" style="font-size: 11pt;color: red;height: 6px;">ìœ ì¹˜ê¶Œ</label>
 								</td>
-								<td style="padding-left:0px;padding-right: 0px;"><span class="badge badge-primary">°¨Á¤</span><br/><span class="badge badge-info">ÃÖÀú</span></td>
+								<td style="padding-left:0px;padding-right: 0px;"><span class="badge badge-primary">ê°ì •</span><br/><span class="badge badge-info">ìµœì €</span></td>
 								<td style="padding-left:3px;"><b>799,000,000</b><br/><span style="color: blue;"><b>327,270,000</b></span><span style="color: blue;padding-left: 20px;">(41%)</span>
 								</td>
-								<td style="text-align: center;">ÁøÇà<br/>2020.05.26<br/>10687</td>
+								<td style="text-align: center;">ì§„í–‰<br/>2020.05.26<br/>10687</td>
 								
 							</tr>
 							<tr>
@@ -125,14 +125,14 @@
                                       <label class="custom-control-label" for="sabunch2">2020-0002</label>
                                    </div></th>
 								<td id="coltd2_1" style="width: 130px;"><img src="images/ko1.JPG" style="width: 120px;height: 120px;float: left;"></td>
-								<td id="coltd2_2" style="width: 500px;"><label id="t1addr2_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><b>[¾ÆÆÄÆ®Çü°øÀå]</b><br/>¼­¿ï Æ¯º°½Ã ±¸·Î±¸ ±¸·Îµ¿ 197-7¹øÁö ¿¡ÀÌ½ºÅ×Å©³ëÅ¸¿ö2 6Ãþ 602-1È£</a></label>
-								<br/><label id="t1addr2_2" style="font-size: 11pt;height: 6px;">ÅäÁö 35.13§³/°Ç¹° 113.1§³</label>
+								<td id="coltd2_2" style="width: 500px;"><label id="t1addr2_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><b>[ì•„íŒŒíŠ¸í˜•ê³µìž¥]</b><br/>ì„œìš¸ íŠ¹ë³„ì‹œ êµ¬ë¡œêµ¬ êµ¬ë¡œë™ 197-7ë²ˆì§€ ì—ì´ìŠ¤í…Œí¬ë…¸íƒ€ì›Œ2 6ì¸µ 602-1í˜¸</a></label>
+								<br/><label id="t1addr2_2" style="font-size: 11pt;height: 6px;">í† ì§€ 35.13ãŽ¡/ê±´ë¬¼ 113.1ãŽ¡</label>
 								<br/><label id="t1addr2_3" style="font-size: 11pt;color: red;height: 6px;"></label>
 								</td>
-								<td style="padding-left:0px;padding-right: 0px;"><span class="badge badge-primary">°¨Á¤</span><br/><span class="badge badge-info">ÃÖÀú</span></td>
+								<td style="padding-left:0px;padding-right: 0px;"><span class="badge badge-primary">ê°ì •</span><br/><span class="badge badge-info">ìµœì €</span></td>
 								<td style="padding-left:3px;"><b>393,000,000</b><br/><span style="color: blue;"><b>160,973,000</b></span><span style="color: blue;padding-left: 20px;">(41%)</span>
 								</td>
-								<td style="text-align: center;">À¯Âû1È¸<br/>2020.07.17<br/>8846</td>
+								<td style="text-align: center;">ìœ ì°°1íšŒ<br/>2020.07.17<br/>8846</td>
 								
 							</tr>
 							<tr>
@@ -141,14 +141,14 @@
                                       <label class="custom-control-label" for="sabunch3">2020-0003</label>
                                    </div></th>
 								<td id="coltd3_1" style="width: 130px;"><img src="images/bu2.jpg" style="width: 120px;height: 120px;float: left;"></td>
-								<td id="coltd3_2" style="width: 500px;"><label id="t1addr1_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><b>[ÁÖÅÃ/ºô¶ó]</b><br/>¼­¿ï Á¾·Î±¸ Ã»¿îµ¿ 52-19¹øÁö</a></label>
-								<br/><label id="t1addr3_2" style="font-size: 11pt;height: 6px;">ÅäÁö 6110.28§³/°Ç¹° 3280.1§³</label>
+								<td id="coltd3_2" style="width: 500px;"><label id="t1addr1_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><b>[ì£¼íƒ/ë¹Œë¼]</b><br/>ì„œìš¸ ì¢…ë¡œêµ¬ ì²­ìš´ë™ 52-19ë²ˆì§€</a></label>
+								<br/><label id="t1addr3_2" style="font-size: 11pt;height: 6px;">í† ì§€ 6110.28ãŽ¡/ê±´ë¬¼ 3280.1ãŽ¡</label>
 								<br/><label id="t1addr3_3" style="font-size: 11pt;color: red;height: 6px;"></label>
 								</td>
-								<td style="padding-left:0px;padding-right: 0px;"><span class="badge badge-primary">°¨Á¤</span><br/><span class="badge badge-info">ÃÖÀú</span></td>
+								<td style="padding-left:0px;padding-right: 0px;"><span class="badge badge-primary">ê°ì •</span><br/><span class="badge badge-info">ìµœì €</span></td>
 								<td style="padding-left:3px;"><b>60,000,000,000</b><br/><span style="color: blue;"><b>30,000,000,000</b></span><span style="color: blue;padding-left: 20px;">(50%)</span>
 								</td>
-								<td style="text-align: center;">¿¹Á¤<br/>2020.08.21<br/>8604</td>
+								<td style="text-align: center;">ì˜ˆì •<br/>2020.08.21<br/>8604</td>
 							</tr>
 						</tbody>
 					</table>
