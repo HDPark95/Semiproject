@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ include file="../include/header_index.jsp"%>
- <link href="resources/css/community/writing.css" rel="stylesheet">
 <%@ include file="../include/header_menu.jsp"%>
+<link href="resources/css/community/writing.css" rel="stylesheet">
+<script type="text/javascript" src="resources/edit/js/service/HuskyEZCreator.js" charset="UTF-8"></script>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
 		<form action="" method="post">
@@ -97,6 +97,19 @@
 		$('#auc').click(function() {
 			location = 'wriAuc';
 		});
+		var oEditors = [];
+		nhn.husky.EZCreator.createInIFrame({
+		 oAppRef: oEditors,
+		 elPlaceHolder: "ir1",
+		 sSkinURI: "resources/edit/SmartEditor2Skin.html",
+		 fCreator: "createSEditor2"
+		});
+		
+		//
+		$('#runin').click(function() {
+			var val1 = oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD",[]);
+			alert($('#ir1').val());
+		})
 	});
 </script>
 <%@ include file="../include/footer.jsp"%>
