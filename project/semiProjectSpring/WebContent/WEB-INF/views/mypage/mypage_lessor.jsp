@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-
+   
 <%@ include file="../include/header_index.jsp"%>
 <link href="resources/css/myPage/th_bootstrap.css?after"
 	rel="stylesheet" />
