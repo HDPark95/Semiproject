@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   
 
   </head>
     <body id="page-top">
        
           <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav2" >
+
          
          <div class="container col-md-12" >
          	
@@ -13,10 +13,13 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                  <ul class="navbar-nav ml-auto menu-other">
                         <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">강온유님 환영합니다.</a></li>
+
                       
                     </ul>
                   
                     <ul class="navbar-nav ml-auto2">
+
+
                        <li class="nav-item">
 	                       <a class="nav-link js-scroll-trigger" href="#">상가</a>
 	                      
@@ -74,6 +77,7 @@
                         <li class="nav-item">
                        	 	<a class="nav-link js-scroll-trigger" href="#projects">로그아웃</a>
                         </li>
+
                     
                     </ul>
                    
