@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
   <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright ¨Ï   Your Website 2020</div></footer>
+        <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright â“’   Your Website 2020</div></footer>
         <!-- Bootstrap core JS-->
       
      
@@ -15,7 +15,7 @@
          $(function() {
         	 
         	    $(".typer").typed({
-         		    strings: [" CÁ¶ Project", " Test¿ë ¹®±¸", " Á¶Àå : ¹ÚÇöµÎ", " ´ë¹ÚÀÓ"],
+         		    strings: [" Cì¡° Project", " Testìš© ë¬¸êµ¬", " ì¡°ì¥ : ë°•í˜„ë‘", " ëŒ€ë°•ì„"],
          		    typeSpeed: 500,
          		    backDelay: 1500,
          		    showCursor: false
@@ -60,13 +60,13 @@
         	    
         	   
         	   $('.sub-menu').parent("li").hover(function() {
-        	   	// ÀÎ
+        	   	// ì¸
         	   		
         	   		$(this).children('.sub-menu').removeClass("invisible").addClass('visible');
         	   		$('#mainnav2').css("z-index", '0');
         	   		$('#search-nav').css("z-index", '10');
         	   },function(){
-        		   // ¾Æ¿ô
+        		   // ì•„ì›ƒ
         		  $(this).children('.sub-menu').removeClass("visible").addClass('invisible');
         			$('#mainnav2').css("z-index", '1030');
         			$('#search-nav').css("z-index", '1030');
