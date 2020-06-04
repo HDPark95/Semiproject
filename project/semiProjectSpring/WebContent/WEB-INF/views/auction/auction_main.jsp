@@ -1,11 +1,184 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%> 
 <%@ include file="../include/header_index.jsp"%>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 <link rel="stylesheet" href="resources/css/auction/main/bootstrap.css">
 <link rel="stylesheet" href="resources/css/auction/main/banner.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 <%@ include file="../include/header_menu.jsp"%>
+<style>
+/* BANNER */
+#banner {
+	width: 100%;
+	height: 300px;
+	max-height: 300px;
+	min-height: 300px;
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+.banner-wrapper {
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.banner-inner {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 100%;
+	height: 300px;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.banner-button-wrapper {
+	position: relative;
+	width: 1200px;
+	height: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.banner-bullet {
+	bottom: 10px;
+	left: 50%;
+	z-index: 1;
+}
+
+.banner-bullet>span.swiper-pagination-bullet {
+	width: 10px;
+	height: 10px;
+	margin: 0 5px;
+}
+
+.banner-bullet>span.swiper-pagination-bullet-active {
+	background-color: #ea6946;
+}
+
+.r1 {
+	background-color: #f5f6f8;
+	background-image: url('resources/images/auction/kosmo_bic.jpg');
+}
+
+.r2 {
+	background-color: #f5f6f8;
+	background-image: url('resources/images/auction/ko1.JPG');
+}
+
+.r3 {
+	background-color: #f5f6f8;
+	background-image: url('resources/images/auction/bu2.jpg');
+}
+
+.banner-button-prev {
+	left: 0;
+}
+
+.banner-button-next {
+	right: 0;
+}
+
+/* ��� �ؽ�Ʈ */
+.bantxt {
+	position: absolute;
+	top: 50%;
+	left: 63%;
+	width: auto;
+	font-size: 20px;
+	font-weight: 300;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	white-space: nowrap;
+}
+
+.bantxt-bold {
+	font-size: 22px;
+	font-weight: 600;
+}
+
+.bantxt-button {
+	position: relative;
+	display: inline-block;
+	padding: .4em 1em;
+	margin-top: 10px;
+	overflow: hidden;
+	font-size: 16px;
+	cursor: pointer;
+	border: 1px solid rgba(51, 51, 51, .8);
+}
+
+.bantxt-button span {
+	z-index: 2;
+}
+
+.bantxt-button:after {
+	position: absolute;
+	top: -50px;
+	left: -75px;
+	z-index: -1;
+	width: 50px;
+	height: 155px;
+	content: "";
+	-webkit-transition: all .55s cubic-bezier(.19, 1, .22, 1);
+	-moz-transition: all .55s cubic-bezier(.19, 1, .22, 1);
+	-o-transition: all .55s cubic-bezier(.19, 1, .22, 1);
+	transition: all .55s cubic-bezier(.19, 1, .22, 1);
+	-webkit-transform: rotate(35deg);
+	-moz-transform: rotate(35deg);
+	-ms-transform: rotate(35deg);
+	-o-transform: rotate(35deg);
+	transform: rotate(35deg);
+	opacity: .2;
+	background: #fff;
+}
+
+.bantxt-button:hover:after {
+	left: 120%;
+}
+.swiper-button-next
+	{
+	opacity: 0.2;
+}
+.swiper-button-prev
+{
+	opacity: 0.2;
+}
+.swiper-arrow-button {
+	width: 15px;
+	height: 28px;
+	background-size: 15px 28px;
+	margin-top: 0;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	opacity: 0.7;
+	border: none;
+	background: none;
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 2em;
+}
+
+.swiper-arrow-button:hover {
+	opacity: 1;
+}
+.swiper-arrow-button-prev {
+	background-image: url(resources/images/auction/icon/1prev.png);
+}
+
+.swiper-arrow-button-next {
+	background-image: url(resources/images/auction/icon/1next.png);
+}
+</style>
 </head>
 <body>
 	<div style="width: 1500px;margin: 80px auto; ">
@@ -28,7 +201,7 @@
 		        <a class="nav-link" href="#">구매관리</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="#">부동산등록</a>
+		        <a class="nav-link" href="auctionAdd">부동산등록</a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="#">경매정보</a>
@@ -47,8 +220,8 @@
 						style="cursor: pointer;" onclick=""></div>
 				</div>
 				<!-- banner arrow -->
-				<button class="swiper-button-next swiper-arrow-button swiper-arrow-button-next banner-button-next" style="background-image: url('images/icon/1next.png')"></button>
-				<button class="swiper-button-prev swiper-arrow-button swiper-arrow-button-prev banner-button-prev" style="background-image: url('images/icon/1prev.png')"></button>
+				<button class="swiper-button-next swiper-arrow-button swiper-arrow-button-next banner-button-next"></button>
+				<button class="swiper-button-prev swiper-arrow-button swiper-arrow-button-prev banner-button-prev"></button>
 				<!-- banner bullets -->
 				<div class="swiper-pagination banner-bullet"></div>
 			</section>
