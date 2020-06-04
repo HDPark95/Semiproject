@@ -85,15 +85,17 @@ td{
 	<p></p>
 	<div class="col-md-2"></div>
 	<div class="col-md-8 div-table">
+	<form method="post" action="pay1">
 	<table class="aa" border="1px solid black;">
 		<tbody>
 
 			<tr>
 
 				<td>월 요금</td>
-				<td class="basic return" aria-label="베이식" >9,500원</td>
-				<td class="st return" aria-label="스탠다드">12,000원</td>
-				<td class="pr return"aria-label="프리미엄">14,500원</td>
+				<td class="basic return" aria-label="개인" id="sigle">9,500원
+				<input type="hidden" value="" id="f1"></td>
+				<td class="st return" aria-label="기업" id="price">12,000원</td>
+				<td class="pr return"aria-label="경매" id="auc">14,500원</td>
 
 			</tr>
 
@@ -142,7 +144,7 @@ td{
 		
 		<tfoot>
 <tr><td><input type="button" value="뒤로가기" id="ee" onclick="location='semi.Project?page=community&code=5'">
-				<input type="button" value="다음" id="ee" style="background-color: green;" onclick="location='pay1'">
+				<input type="submit" value="다음" id="ee" style="background-color: green;" onclick="location='pay1'">
 		</td></tr>
 
 
@@ -152,6 +154,7 @@ td{
 		</tfoot>
 		
 	</table>
+	</form>
 	
 	</div>
 		<div class="col-md-2"></div>
@@ -176,11 +179,17 @@ td{
 			$('#pr').click(function(){
 				$('.return').css('color','black');
 				$('.pr').css('color','red');
-			});
+			});	
 			
+				$('#single').click(function(){
+					$('#f1')
+				})
+				
+		
 			
 			
 		});
+		
 	
 	</script>
 </html>

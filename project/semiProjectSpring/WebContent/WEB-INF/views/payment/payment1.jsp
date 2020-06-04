@@ -114,9 +114,8 @@ div.final_price {
 				<tbody>
 					<tr>
 						<td colspan="2" bgcolor="#fce4ea" style="padding-left: 14px;"
-							height="30" class="popup"><input type="radio" value="1"
-							name="PayInfoHis" checked="" style="cursor: hand"><b>
-								최근 입금정보와 동일</b> <input type="radio" value="2" name="PayInfoHis"
+							height="30" class="popup">
+							 <input type="radio" value="2" name="PayInfoHis"
 							style="cursor: hand"><b>새 입금정보 입력</b></td>
 					</tr>
 					<tr>
@@ -186,9 +185,6 @@ div.final_price {
 							<td>성명, 주소, 연락처(안심번호 적용 시 연락처는 제외), 개인통관고유부호(선택시), 공동현관
 								출입번호(입력시)</td>
 
-
-
-
 						</tr>
 						<tr>
 							<th>보유기간</th>
@@ -239,6 +235,9 @@ div.final_price {
 			}); 
 
 		});
+		$(document).ready(function(){
+			alert('pay1');
+		})
 		
 	</script>
 
