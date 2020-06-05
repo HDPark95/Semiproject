@@ -39,7 +39,7 @@ public class CommercialPage{
 	
 	@RequestMapping(value="/gu")
 	public String getGu(Model model) {
-		System.out.println("�떆�옉");
+		System.out.println("하이");
 		List<String> list = commercialDao.getGu();
 		System.out.println(list.toString());
 		model.addAttribute("result", list);
