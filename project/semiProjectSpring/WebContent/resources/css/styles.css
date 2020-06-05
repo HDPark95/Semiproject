@@ -9,7 +9,7 @@
  * Copyright 2011-2019 The Bootstrap Authors
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */ 
+ */
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -4242,6 +4242,7 @@ input[type=button].btn-block {
   .navbar-expand-lg .navbar-collapse {
     display: flex !important;
     flex-basis: auto;
+    margin-top: 7rem;
   }
   .navbar-expand-lg .navbar-toggler {
     display: none;
@@ -10186,6 +10187,7 @@ background-color: transparent;
     border-bottom: none;
     background-color: #778899;
     transition: background-color 0.3s ease-in-out;
+    height: 3rem;
   }
  
   #mainNav .navbar-brand {
@@ -10217,8 +10219,8 @@ background-color: transparent;
     color: rgba(255, 255, 255, 0.75);
   }
     #mainNav2 .nav-link:hover {
-    color: #FE9A2E;
-   
+    color: #343a40;
+    background-color: white;
   }
    #mainNav2 .nav-link2:hover {
     color: #343a40;
@@ -10549,47 +10551,3 @@ color:white;
 	
 }
 
-.sub-menu {
-
-	width: 580px;
-
-	background-color: #778899;
-	color:white;
-	z-index: 1030;
-	position: absolute;
-	padding :auto;
-	list-style: none;
-}
-.sub-menu >li a{
-	display: inline;
-	background-color: #778899;
-	color: white;
-	text-decoration: none;
-
-	margin-left: 10px;
-	font-size: 1.2em;
-}
-.sub-menu >li{
-	display: inline;
-}
-.sub-menu >li a:hover{
-		background-color: #778899;
-	color: #FE9A2E;
-	width: 100px;
-	text-align: center; 
-	cursor: pointer;
-	
-}
-.commercialimg{
-	width: 300px;
-	height: 300px;
-}
-
-.mainImage{
-	width:100%;
-	height:60%;
-}
-
-.productmain{
-	height:350px;
-}

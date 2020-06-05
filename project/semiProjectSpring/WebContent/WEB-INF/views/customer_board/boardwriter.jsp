@@ -1,59 +1,59 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="../include/header_index.jsp"%>
 <link rel="stylesheet"
 	href="resources/css/customer_board/boardwriter.css">
 <%@ include file="../include/header_menu.jsp"%>
 
-<body>
-	<form method="get" action="write_action.php">
+<body id="table">
+	
 		<table
-			style="padding-top: 50px; align: center; width: 700px; border: 0; cellpadding: 2;">
+			style="padding-top: 50px; align: center;  border: 0; margin-top:7rem; margin-left: 15rem;">
 			<tr>
 				<td height=20 align=center bgcolor=#ccc><font color=white>
-						¹®ÀÇ³»¿ë</font></td>
+						ë¬¸ì˜ë‚´ìš©</font></td>
 			</tr>
 			<tr>
 				<td bgcolor=white>
 					<table class="table2">
 						<tr>
-							<td>¹®ÀÇ Á¾·ù</td>
+							<td>ë¬¸ì˜ ì¢…ë¥˜</td>
 							<td><select class="form-control" id="">
-									<option>¹è°íÆÄ¿ä</option>
-									<option>Áý¿¡ º¸³»ÁÖ¼¼¿ä</option>
-									<option>¿ù±Þ ¾ðÁ¦³ª¿È?</option>
-									<option>¹Ù´Ù °¡°í ½Í´Ù</option>
+									<option>ë°°ê³ íŒŒìš”</option>
+									<option>ì§‘ì— ë³´ë‚´ì£¼ì„¸ìš”</option>
+									<option>ì›”ê¸‰ ì–¸ì œë‚˜ì˜´?</option>
+									<option>ë°”ë‹¤ ê°€ê³  ì‹¶ë‹¤</option>
 									<option>11111111111111111111111111111111111111</option>
 							</select></td>
 						</tr>
 
 						<tr>
-							<td>ÀÛ¼ºÀÚ</td>
+							<td>ìž‘ì„±ìž</td>
 							<td><input type=text name=name size=20></td>
 						</tr>
 
 						<tr>
-							<td>¹®ÀÇ³»¿ë</td>
+							<td>ë¬¸ì˜ë‚´ìš©</td>
 							<td><input type=text name=title size=60></td>
 						</tr>
 
 						<tr>
-							<td>³»¿ë</td>
+							<td>ë‚´ìš©</td>
 							<td><textarea name=content cols=85 rows=15></textarea></td>
 						</tr>
 
 						<tr>
-							<td>ºñ¹Ð¹øÈ£</td>
+							<td>ë¹„ë°€ë²ˆí˜¸</td>
 							<td><input type=password name=pw size=10 maxlength=10></td>
 						</tr>
 					</table>
 					<center>
-						<input type="submit" value="Á¦ÃâÇÏ±â">
+						<button id="writeBtn" onclick="location='customer'">ì œì¶œí•˜ê¸°</button>
 					</center>
 				</td>
 			</tr>
 		</table>
-	</form>
+	
 </body>
 <%@ include file="../include/footer.jsp"%>
 
