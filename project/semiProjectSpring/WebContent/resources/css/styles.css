@@ -7717,14 +7717,7 @@ button.bg-black:focus {
 .my-5 {
   margin-top: 3rem !important;
 }
-.mt-6,
-.my-6 {
-  margin-top: 6rem !important;
-}
-.mt-7,
-.my-7 {
-  margin-top: 0rem !important;
-}
+
 .mr-5,
 .mx-5 {
   margin-right: 3rem !important;
@@ -7733,10 +7726,6 @@ button.bg-black:focus {
 .mb-5,
 .my-5 {
   margin-bottom: 3rem !important;
-}
-.mb-6,
-.my-6 {
-  margin-bottom: 0rem !important;
 }
 
 .ml-5,
@@ -10546,11 +10535,6 @@ color:white;
 }
 .add-sub-page > table>tbody>tr>td:nth-child(odd){
 	background-color: #E6E6E6;
-	width: 100px;
-}
-.add-sub-page > table>tbody>tr>td:nth-child(even){
-	
-	width: 400px;
 }
 .add-sub-page a:hover{
 		color:white;
@@ -10571,27 +10555,41 @@ color:white;
 
 	background-color: #778899;
 	color:white;
-	z-index: 1090;
+	z-index: 1030;
 	position: absolute;
 	padding :auto;
 	list-style: none;
 }
-.sub-menu >li{
+.sub-menu >li a{
 	display: inline;
 	background-color: #778899;
 	color: white;
-	
+	text-decoration: none;
+
 	margin-left: 10px;
 	font-size: 1.2em;
 }
-
-.sub-menu >li:hover{
+.sub-menu >li{
+	display: inline;
+}
+.sub-menu >li a:hover{
 		background-color: #778899;
 	color: #FE9A2E;
 	width: 100px;
 	text-align: center; 
+	cursor: pointer;
 	
 }
-.add-page{
-	display: inline;
+.commercialimg{
+	width: 300px;
+	height: 300px;
+}
+
+.mainImage{
+	width:100%;
+	height:60%;
+}
+
+.productmain{
+	height:350px;
 }
