@@ -40,34 +40,33 @@
 		<div id="map" class="col-lg-7" style="width: 100%; height: 655px;z-index:0;">
 			<!-- <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400"> -->
 		</div>
-		<script type="text/javascript"
-			src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wejnreaybi"></script>
-		<script type="js/MarkerClustering.js"></script>
-		<!-- <script>
-			var seoul = new naver.maps.LatLngBounds(new naver.maps.LatLng(
-					37.42829747263545, 126.76620435615891),
-					new naver.maps.LatLng(37.7010174173061, 127.18379493229875));
-			var map = new naver.maps.Map(document.getElementById('map'), {
-				minZoom : 10.5,
-				zoom : 10.5,
-				mapTypeId : 'normal',
-				center : new naver.maps.LatLng(37.4098871, 126.989261),
-				maxBounds : seoul,
-				baseTileOpacity : 1,
-				scaleControl : false,
-				logoControl : false,
-				mapDataControl : false,
-				zoomControl : false,
-				mapTypeControl : false,
-				draggable:false,
-				maxZoom : 10.5,
-				disableKineticPan:false,
-				pinchZoom:false,
-				scrollWheel:false,
-			});
+		<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wejnreaybi"></script>
+		<script>
+		var seoul = new naver.maps.LatLngBounds(new naver.maps.LatLng(
+				37.42829747263545, 126.76620435615891),
+				new naver.maps.LatLng(37.7010174173061, 127.18379493229875));
+		var map = new naver.maps.Map(document.getElementById('map'), {
+			minZoom : 10.5,
+			zoom : 10.5,
+			mapTypeId : 'normal',
+			center : new naver.maps.LatLng(37.4098871, 126.989261),
+			maxBounds : seoul,
+			/* baseTileOpacity : 0, */
+			scaleControl : false,
+			logoControl : false,
+			mapDataControl : false,
+			zoomControl : false,
+			mapTypeControl : false,
+			draggable:false,
+			maxZoom : 10.5,
+			disableKineticPan:false,
+			pinchZoom:false,
+			scrollWheel:false,
+		});
+			/* var HOME_PATH = window.HOME_PATH || '.'; */
 			naver.maps.Event.once(map, 'init_stylemap', function() {
 				$.ajax({
-					url : 'js/seoul_municipalities_geo.json',
+					url : 'resources/js/commercial/seoul_municipalities_geo.json',
 					dataType : 'json',
 					success : startDataLayer
 				});
@@ -76,7 +75,7 @@
 			function startDataLayer(geojson) {
 				map.data.addGeoJson(geojson);
 				map.data.setStyle(function(feature) {
-					var color = 'white';
+					var color = 'black';
 					if (feature.getProperty('isColorful')) {
 						color = feature.getProperty('color');
 					}
@@ -84,14 +83,16 @@
 						fillColor : 'white',
 						strokeColor : color,
 						strokeWeight : 2,
-						icon : null,
+						icon : null
 					};
 				});
 				map.data.addListener('click', function(e) {
 					e.feature.setProperty('isColorful', true);
+
 				});
 				map.data.addListener('dblclick', function(e) {
 					var bounds = e.feature.getBounds();
+
 					if (bounds) {
 						map.panToBounds(bounds);
 					}
@@ -99,22 +100,26 @@
 				map.data.addListener('mouseover', function(e) {
 					map.data.overrideStyle(e.feature, {
 						strokeWeight : 8,
-						icon : 'js/seoul_municipalities_geo.json'
+						icon : 'resources/js/commercial/seoul_municipalities_geo.json'
 					});
 				});
+				map.data.addListener('mouseout', function(e) {
+					map.data.revertStyle();
+				});
 			}
-		</script> -->
+			/* 	for (var i = 0; i < ${array.length}; i++) {
+					var marker = new naver.maps.Marker({
+						position: new naver.maps.LatLng(x,y),
+						map : map,
+						title : '항목'
+					})
+				}*/
+		</script>
 		<div class="col-lg-5" id="information">
 			<h1 class="font-weight-light">입지 선정 서비스</h1>
 			<p>창업을 원하시는 입지의 좌표를 선택해주세요. 그 입지 근처의 유동인구, 주변 상권분석, 실거래가 등 다양한
 				정보를 제공해드립니다. 조금 더 자세한 정보를 얻고 싶으시면 상세하게 검색해보세요.</p>
 		</div>
-		<!-- <script>
-		$(function() {
-			$('#combobox1').change(function() {
-							});
-		});
-		</script> -->
 		<!-- /.col-md-4 -->
 	</div>
 	<!-- /.row -->
