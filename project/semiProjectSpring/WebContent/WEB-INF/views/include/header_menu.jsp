@@ -26,8 +26,8 @@
 	                       <ul class="invisible sub-menu">
 		                       	<li>매물</li>
 		                       	<li>매물</li>
-		                       	<li>매물</li>
-		                       	<li>매물등록</li>
+		                       	<li><a href="product">매물</a></li>
+		                       	<li><a href="register">매물등록</a></li>
 	                       </ul>
                        </li>
                         <li class="nav-item">
@@ -84,7 +84,6 @@
                 </div>
                </div>
                <br>
-          
             </nav>
          <!--    <div class="row " style="margin-top: 80px; top: 80px;">
                  <div class="col-md-12 menu-top ">

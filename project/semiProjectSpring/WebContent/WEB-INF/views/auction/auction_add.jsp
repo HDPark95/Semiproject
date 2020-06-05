@@ -1,29 +1,122 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ include file="../include/header_index.jsp"%>
 <link rel="stylesheet" href="resources/css/auction/main/bootstrap.css">
-
-<script type="text/javascript" src="resources/js/auction/HuskyEZCreator.js" charset="EUC-KR"></script>
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script type="text/javascript" src="resources/edit/js/service/HuskyEZCreator.js" charset="UTF-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-<script type="text/javascript" src="resources/js/auction/auction_add.js"></script>
 <%@ include file="../include/header_menu.jsp"%>
-
-<!--<script type="text/javascript" src="/_AXJ/jquery/jquery.min.js"></script>-->
-
 <style>
+#body {
+	width: 80%;
+	height: 100%;
+	margin: auto;
+}
 
+h2 {
+	margin-top: 40px;
+	margin-bottom: 50px;
+}
+
+#category {
+	width: 160px;
+}
+
+table {
+	width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+th {
+	height: 45px;
+	padding: 7px 25px;
+	vertical-align: middle;
+	border-bottom: 1px solid #ddd;
+	background: #f8f8f8;
+	color: #444444;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;
+	width: 200px;
+	padding-top: 15px;
+}
+
+tbody {
+	line-height: 1.42857143;
+	color: #333;
+	border-top: 1px solid black;
+}
+
+td {
+	padding: 7px 25px;
+	vertical-align: middle;
+	border-bottom: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	height: 45px;
+}
+
+.btn-q {
+	padding: 3px 20px;
+	margin: 2.5px 0;
+	font-size: 14px;
+	line-height: 1.5;
+	border-radius: 30px;
+	background: #eeeeee;
+	color: #555555;
+	border: 1px solid #e1e1e1;
+	display: inline-block;
+	font-weight: normal;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+}
+.modal{
+    overflow-x: hidden;
+    overflow-y: auto;
+	opacity: 1;
+	text-align: center;
+    padding: 0!important;
+    position: fixed;
+    z-index: 1050;
+    outline: 0;
+    position:fixed; 
+    top:50%; 
+    left:50%; 
+    transform: translate(-50%,-50%);
+    max-width: 1000px;
+}
+
+#myModal2{
+width: 700px;
+height: 600px;
+}
+#modal-dialog{
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    width: 600px;
+    margin: 30px auto;
+    position: relative;
+}
+.modal a.close-modal {
+    top: 0px;
+    right: 0px;
+}
 </style>
-<script>
-
-</script>
 </head>
 <body>
 	<div style="width: 1500px;margin: 80px auto;">
 		
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-			<a class="navbar-brand" href="#">ºÎµ¿»ê°æ¸Å     </a>
+
+			<a class="navbar-brand" href="#">ë¶€ë™ì‚°ê²½ë§¤</a>
+
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarColor01" aria-controls="navbarColor01"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -32,97 +125,97 @@
 
 			<div class="collapse navbar-collapse" id="navbarColor01">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="#">¹°°Ç°Ë»ö </a></li>
-					<li class="nav-item"><a class="nav-link" href="#">ÆÇ¸Å°ü¸®</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">±¸¸Å°ü¸®</a></li>
-					<li class="nav-item active"><a class="nav-link" href="#">ºÎµ¿»êµî·Ï</a>
+					<li class="nav-item"><a class="nav-link" href="auctionMain">ë¬¼ê±´ê²€ìƒ‰ </a></li>
+					<li class="nav-item"><a class="nav-link" href="#">íŒë§¤ê´€ë¦¬</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">êµ¬ë§¤ê´€ë¦¬</a></li>
+					<li class="nav-item active"><a class="nav-link" href="#">ë¶€ë™ì‚°ë“±ë¡</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">°æ¸ÅÁ¤º¸</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">ê²½ë§¤ì •ë³´</a></li>
 				</ul>
 			</div>
 		</nav>
 		<form method="post" action="" enctype="multipart/form-data">
 			<div id="body" class="form-group">
-				<h2>ºÎµ¿»ê µî·Ï</h2>
+				<h2>ë¶€ë™ì‚° ë“±ë¡</h2>
 				<div id="content">
 					<table>
 						<tbody>
 							<tr>
-								<th><label for="category">¹°°Ç¿ëµµ</label></th>
+								<th><label for="category">ë¬¼ê±´ìš©ë„</label></th>
 								<td><select id="category" class="form-control">
-										<option value="0">--¼±ÅÃ--</option>
-										<option value="1">¾ÆÆÄÆ®</option>
-										<option value="2">ÁÖÅÃ/ºô¶ó</option>
-										<option value="3">»ó¾÷/¾÷¹«</option>
-										<option value="4">°øÀå/Ã¢°í</option>
-										<option value="5">ÅäÁö</option>
-										<option value="6">±âÅ¸</option>
+										<option value="0">--ì„ íƒ--</option>
+										<option value="1">ì•„íŒŒíŠ¸</option>
+										<option value="2">ì£¼íƒ/ë¹Œë¼</option>
+										<option value="3">ìƒì—…/ì—…ë¬´</option>
+										<option value="4">ê³µì¥/ì°½ê³ </option>
+										<option value="5">í† ì§€</option>
+										<option value="6">ê¸°íƒ€</option>
 								</select></td>
 							</tr>
 							<tr>
 								<th><label for="subject"><span
-										style="color: blue; margin-right: 3px;">*</span>¹°°ÇÁ¦¸ñ</label></th>
+										style="color: blue; margin-right: 3px;">*</span>ë¬¼ê±´ì œëª©</label></th>
 								<td><input type="text" id="subject" class="form-control" style="width: 600px;"/></td>
 							</tr>
 							<tr>
-								<th><label for="sPrice">½ÃÀÛ°¡</label></th>
+								<th><label for="sPrice">ì‹œì‘ê°€</label></th>
 								<td><input type="number" id="sPrice" class="form-control" style="width: 300px;"/><a href="#none" class="btn-q" data-toggle="modal"
 									data-target="#myModal2" id="p_modal1"
-									style="text-decoration: none; margin-left: 10px;">500¸¸¿ø ÀÌ»óÀÇ ¹°°Ç</a></td>
+									style="text-decoration: none; margin-left: 10px;">500ë§Œì› ì´ìƒì˜ ë¬¼ê±´</a></td>
 							</tr>
 							<tr>
-								<th><label for="danwe">ÀÔÂû´ÜÀ§</label></th>
+								<th><label for="danwe">ì…ì°°ë‹¨ìœ„</label></th>
 								<td><select id="danwe" class="form-control" style="width: 200px;">
-										<option value="">¼±ÅÃÇÏ¼¼¿ä</option>
-										<option>300¸¸¿ø</option>
-										<option>500¸¸¿ø</option>
-										<option>800¸¸¿ø</option>
-										<option>1000¸¸¿ø</option>
+										<option value="">ì„ íƒí•˜ì„¸ìš”</option>
+										<option>300ë§Œì›</option>
+										<option>500ë§Œì›</option>
+										<option>800ë§Œì›</option>
+										<option>1000ë§Œì›</option>
 								</select></td>
 							</tr>
 							<tr>
-								<th><label for="ipenddate">ÀÔÂû¸¸·áÀÏ</label></th>
+								<th><label for="ipenddate">ì…ì°°ë§Œë£Œì¼</label></th>
 								<td><input type="date" id="ipenddate" class="form-control" style="width: 200px;"/>&nbsp;
 								<input type="time" id="ipendtime" class="form-control" style="width: 200px;"/></td>
 							</tr>
 							<tr>
-								<th><label for="gunmul">°Ç¹°¸éÀû/ÅäÁö¸éÀû</label></th>
+								<th><label for="gunmul">ê±´ë¬¼ë©´ì /í† ì§€ë©´ì </label></th>
 								<td><input type="text" id="gunmul" class="form-control" style="width: 200px;"/>&nbsp;/&nbsp;<input
 									type="text" id="tozi" class="form-control" style="width: 200px;"/></td>
 							</tr>
 							<tr>
-								<th rowspan="2"><label for="zipcode">ÁÖ¼Ò</label></th>
-								<td><input type="text" id="zipcode" class="form-control" readonly="readonly" style="width: 120px;"/>&nbsp;<button type="button" class="btn btn-primary btn-sm" onclick="jusopop()">¿ìÆí¹øÈ£°Ë»ö</button></td>
+								<th rowspan="2"><label for="zipcode">ì£¼ì†Œ</label></th>
+								<td><input type="text" id="zipcode" class="form-control" readonly="readonly" style="width: 120px;"/>&nbsp;<button type="button" class="btn btn-primary btn-sm" onclick="jusopop()">ìš°í¸ë²ˆí˜¸ê²€ìƒ‰</button></td>
 							</tr>
 							<tr>
 								<td><input type="text" id="addr1" class="form-control" readonly="readonly" style="width: 500px;"/>&nbsp;<input type="text" id="addr2" class="form-control" style="width: 400px;"/></td>
 							</tr>
 							<tr>
-								<th><label for="addprice">¹°Ç°¼³¸í</label></th>
+								<th><label for="addprice">ë¬¼í’ˆì„¤ëª…</label></th>
 								<td><textarea name="ir1" id="ir1" rows="20" cols="100">111</textarea></td>
 							</tr>
 							<tr>
-								<th><label for="addprice">ÀÌ¹ÌÁöµî·Ï1</label></th>
+								<th><label for="addprice">ì´ë¯¸ì§€ë“±ë¡1</label></th>
 								<td><input type="file" class="form-control-file" id="img1" aria-describedby="fileHelp1">
-                                    <small id="fileHelp1" class="form-text text-muted">±âº»ÀÌ µÇ´Â ¸ŞÀÎ ÀÌ¹ÌÁö¸¦ µî·Ï ÇØÁÖ¼¼¿ä »çÀÌÁî´Â 620x430ÀÔ´Ï´Ù</small></td>
+                                    <small id="fileHelp1" class="form-text text-muted">ê¸°ë³¸ì´ ë˜ëŠ” ë©”ì¸ ì´ë¯¸ì§€ë¥¼ ë“±ë¡ í•´ì£¼ì„¸ìš” ì‚¬ì´ì¦ˆëŠ” 620x430ì…ë‹ˆë‹¤</small></td>
 							</tr>
 							<tr>
-								<th><label for="addprice">ÀÌ¹ÌÁöµî·Ï2</label></th>
+								<th><label for="addprice">ì´ë¯¸ì§€ë“±ë¡2</label></th>
 								<td><input type="file" class="form-control-file" id="img2" aria-describedby="fileHelp2">
-                                    <small id="fileHelp2" class="form-text text-muted">ºÎ°¡ÀûÀÎ ÀÌ¹ÌÁö ÀÔ´Ï´Ù »çÀÌÁî´Â 320x180ÀÔ´Ï´Ù</small></td>
+                                    <small id="fileHelp2" class="form-text text-muted">ë¶€ê°€ì ì¸ ì´ë¯¸ì§€ ì…ë‹ˆë‹¤ ì‚¬ì´ì¦ˆëŠ” 320x180ì…ë‹ˆë‹¤</small></td>
 							</tr>
 							<tr>
-								<th><label for="addprice">ÀÌ¹ÌÁöµî·Ï3</label></th>
+								<th><label for="addprice">ì´ë¯¸ì§€ë“±ë¡3</label></th>
 								<td><input type="file" class="form-control-file" id="img3" aria-describedby="fileHelp3">
-                                    <small id="fileHelp3" class="form-text text-muted">±âº»ÀÌ µÇ´Â ¸ŞÀÎ ÀÌ¹ÌÁö¸¦ µî·Ï ÇØÁÖ¼¼¿ä »çÀÌÁî´Â 320x180ÀÔ´Ï´Ù</small></td>
+                                    <small id="fileHelp3" class="form-text text-muted">ê¸°ë³¸ì´ ë˜ëŠ” ë©”ì¸ ì´ë¯¸ì§€ë¥¼ ë“±ë¡ í•´ì£¼ì„¸ìš” ì‚¬ì´ì¦ˆëŠ” 320x180ì…ë‹ˆë‹¤</small></td>
 							</tr>
 							<tr>
-								<th><label for="addprice">ÀÌ¹ÌÁöµî·Ï4</label></th>
+								<th><label for="addprice">ì´ë¯¸ì§€ë“±ë¡4</label></th>
 								<td><input type="file" class="form-control-file" id="img4" aria-describedby="fileHelp4">
-                                    <small id="fileHelp4" class="form-text text-muted">±âº»ÀÌ µÇ´Â ¸ŞÀÎ ÀÌ¹ÌÁö¸¦ µî·Ï ÇØÁÖ¼¼¿ä »çÀÌÁî´Â 320x180ÀÔ´Ï´Ù</small></td>
+                                    <small id="fileHelp4" class="form-text text-muted">ê¸°ë³¸ì´ ë˜ëŠ” ë©”ì¸ ì´ë¯¸ì§€ë¥¼ ë“±ë¡ í•´ì£¼ì„¸ìš” ì‚¬ì´ì¦ˆëŠ” 320x180ì…ë‹ˆë‹¤</small></td>
 							</tr>
 							<tr>
-								<th colspan="2"><button type="submit" class="btn btn-primary btn-lg" id="runin">¹°°Ç µî·Ï ÇÏ±â</button></th>
+								<th colspan="2"><button type="submit" class="btn btn-primary btn-lg" id="runin">ë¬¼ê±´ ë“±ë¡ í•˜ê¸°</button></th>
 							</tr>
 						</tbody>
 					</table>
@@ -138,7 +231,7 @@
 			<div class="modal-content">
 				<div class="modal-header modal2">
 					<button type="button" class="close" data-dismiss="modal"></button>
-					<h4 class="modal-title">¿Â¶óÀÎ °Å·¡ ¹°Ç° ºÒ°¡ ¹°Ç°</h4>
+					<h4 class="modal-title">ì˜¨ë¼ì¸ ê±°ë˜ ë¬¼í’ˆ ë¶ˆê°€ ë¬¼í’ˆ</h4>
 				</div>
 				<div class="modal-body">
 					<div class="tableDefault fs13">
@@ -148,28 +241,28 @@
 								<col />
 							</colgroup>
 							<tr>
-								<th>ÁÖ·ù/´ã¹è</th>
-								<td>³»¿ë¹°ÀÌ ÀÖ´Â ¹°Ç°</td>
+								<th>ì£¼ë¥˜/ë‹´ë°°</th>
+								<td>ë‚´ìš©ë¬¼ì´ ìˆëŠ” ë¬¼í’ˆ</td>
 							</tr>
 							<tr>
-								<th>À½¶õ¹°</th>
-								<td>¸ğÀÚÀÌÅ© ¾øÀÌ Áö³ªÄ£ ³ëÃâÀÌ ÀÖ´Â ÀÌ¹ÌÁö</td>
+								<th>ìŒë€ë¬¼</th>
+								<td>ëª¨ìì´í¬ ì—†ì´ ì§€ë‚˜ì¹œ ë…¸ì¶œì´ ìˆëŠ” ì´ë¯¸ì§€</td>
 							</tr>
 							<tr>
-								<th>¸êÁ¾À§±âµ¿¹°</th>
-								<td>»ó¾Æ, ¹ÚÁ¦ µî ¸îÁ¾À§±âÁ¾ÀÇ °¡°øÇ°</td>
+								<th>ë©¸ì¢…ìœ„ê¸°ë™ë¬¼</th>
+								<td>ìƒì•„, ë°•ì œ ë“± ëª‡ì¢…ìœ„ê¸°ì¢…ì˜ ê°€ê³µí’ˆ</td>
 							</tr>
 							<tr>
-								<th>À§ÀÛ, ¸ğÁ¶Ç°</th>
-								<td>»óÇ¥±ÇÀ» Ä§ÇØÇÏ´Â ¹°Ç°</td>
+								<th>ìœ„ì‘, ëª¨ì¡°í’ˆ</th>
+								<td>ìƒí‘œê¶Œì„ ì¹¨í•´í•˜ëŠ” ë¬¼í’ˆ</td>
 							</tr>
 							<tr>
-								<th>±º¿ëÇ° ¹× ´ë¿Üºñ</h>
-								<td>¹İÃâ ¹× À¯Ãâ ±İÁö ´ë»óÀÎ ±º¿ëÇ°°ú ´ë¿Üºñ</td>
+								<th>êµ°ìš©í’ˆ ë° ëŒ€ì™¸ë¹„</h>
+								<td>ë°˜ì¶œ ë° ìœ ì¶œ ê¸ˆì§€ ëŒ€ìƒì¸ êµ°ìš©í’ˆê³¼ ëŒ€ì™¸ë¹„</td>
 							</tr>
 							<tr>
-								<th>±×¿Ü µµ°Ë, È­¾à·ù, µµ³­Ç° µî</h>
-								<td>°Å·¡ ºÎÀûÀıÇÑ ¹°Ç°ÀÏ °æ¿ì °æ¸Å ÁßÁöÃ³¸®µÉ ¼ö ÀÖ½À´Ï´Ù.</td>
+								<th>ê·¸ì™¸ ë„ê²€, í™”ì•½ë¥˜, ë„ë‚œí’ˆ ë“±</h>
+								<td>ê±°ë˜ ë¶€ì ì ˆí•œ ë¬¼í’ˆì¼ ê²½ìš° ê²½ë§¤ ì¤‘ì§€ì²˜ë¦¬ë  ìˆ˜ ìˆìŠµë‹ˆë‹¤.</td>
 							</tr>
 						</table>
 					</div>
@@ -177,6 +270,40 @@
 			</div>
 		</div>
 	</div>
-	<div id="footer" style="clear: both;">footer.jsp here</div>
+<script>
+$(document).ready(function(){
+	$('#p_modal1').click(function(event) {
+	    event.preventDefault();
+	    $('#myModal2').modal({
+	      fadeDuration: 250
+	    });
+	  });
 	
+	//ì—ë””í„° í˜¸ì¶œ
+	var oEditors = [];
+	nhn.husky.EZCreator.createInIFrame({
+	 oAppRef: oEditors,
+	 elPlaceHolder: "ir1",
+	 sSkinURI: "resources/edit/SmartEditor2Skin.html",
+	 fCreator: "createSEditor2"
+	});
+	
+	//
+	$('#runin').click(function() {
+		var val1 = oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD",[]);
+		alert($('#ir1').val());
+	})
+	
+});
+
+function jusopop(){
+	var pop = window.open("jusopopup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes");
+}	
+
+function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
+document.getElementById("zipcode").value = zipNo; 
+document.getElementById("addr1").value = roadFullAddr;
+document.getElementById("addr2").value = addrDetail;
+}
+</script>
 <%@ include file="../include/footer.jsp"%>
