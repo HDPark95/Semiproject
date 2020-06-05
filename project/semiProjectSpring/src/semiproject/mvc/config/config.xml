@@ -5,6 +5,8 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="semiproject.mvc.vo.DataVO" alias="commercial" />
-			<typeAlias type="semiproject.mvc.vo.MyPageVO" alias="mypagevo"/>
+		<typeAlias type="semiproject.mvc.vo.BoardVO" alias="bvo"/>
+		<typeAlias type="semiproject.mvc.vo.BoardPageVO" alias="bpvo"/>
+		<typeAlias type="semiproject.mvc.vo.MyPageVO" alias="mypagevo"/>
 	</typeAliases>
 </configuration>

@@ -62,7 +62,7 @@
 	                       </ul>
                         </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger menu-other" href="#">고객센터</a>
+	                        <a class="nav-link js-scroll-trigger menu-other" href="customer">고객센터</a>
 	                       
 	    
                         </li>
