@@ -10,13 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import semiproject.mvc.dao.CommercialDao;
+import semiproject.mvc.dao.CommercialProductDao;
+import semiproject.mvc.vo.CommercialProductVO;
 import semiproject.mvc.vo.DataVO;
 
 @Controller
 public class CommercialPage{
 	@Autowired
 	private CommercialDao commercialDao;
-	
+	@Autowired
+	private CommercialProductDao commercialProductDao;
 	@RequestMapping(value="/commercialMain")
 	public String goMain() {
 		return "commercial/commercialMain";
@@ -36,7 +39,7 @@ public class CommercialPage{
 	
 	@RequestMapping(value="/gu")
 	public String getGu(Model model) {
-		System.out.println("�떆�옉");
+		System.out.println("하이요");
 		List<String> list = commercialDao.getGu();
 		System.out.println(list.toString());
 		model.addAttribute("result", list);
@@ -86,61 +89,12 @@ public class CommercialPage{
 	public String goJuso() {
 		return "commercial/jusoPopup";
 	}
-//	private PageForward execute1(HttpServletRequest request, HttpServletResponse response) {
-//		List<String> list = CommercialDao.getDao().getGu();
-//		request.setAttribute("result", list);
-//		for (String e : list) {
-//			System.out.println(e);
-//		}
-//		return new PageForward("commercial/server/searchServer", false);
-//	}
-//
-//	private PageForward execute2(HttpServletRequest request, HttpServletResponse response) {
-//		List<String> list = CommercialDao.getDao().getLarge();
-//		request.setAttribute("result", list);
-//		for (String e : list) {
-//			System.out.println(e);
-//		}
-//		return new PageForward("commercial/server/searchServer", false);
-//	}
-//
-//	private PageForward execute3(HttpServletRequest request, HttpServletResponse response) {
-//		String largeName = request.getParameter("largeName");
-//		List<String> list = CommercialDao.getDao().getMedium(largeName);
-//		request.setAttribute("result", list);
-//
-//		return new PageForward("commercial/server/searchServer", false);
-//	}
-//
-//	private PageForward execute4(HttpServletRequest request, HttpServletResponse response) {
-//		DataVO vo = new DataVO();
-//		String largeName = request.getParameter("largeName");
-//		String mediumName = request.getParameter("mediumName");
-//		vo.setLargeName(largeName);
-//		vo.setMediumName(mediumName);
-//		List<DataVO> list = CommercialDao.getDao().getSmall(vo);
-//		request.setAttribute("result", list);
-//
-//		return new PageForward("commercial/server/searchServer", false);
-//	}
-//
-//	private PageForward execute5(HttpServletRequest request, HttpServletResponse response) {
-//		DataVO vo = new DataVO();
-//		String largeName = request.getParameter("largeName");
-//		String mediumName = request.getParameter("mediumName");
-//		vo.setLargeName(largeName);
-//		vo.setMediumName(mediumName);
-//		List<DataVO> list = CommercialDao.getDao().getMark(vo);
-//		request.setAttribute("result", list);
-//		return new PageForward("commercial/server/markMain", false);
-//	}
-	/*
-	 * private void execute99(HttpServletRequest request, HttpServletResponse
-	 * response) { JSONObject inner = new JSONObject();
-	 * CommercialDao.getDao().getGu(); JSONObject outer = new JSONObject();
-	 * FileWriter file = new
-	 * FileWriter("C://ikosmo64/project/workspace/project/WebContent/js/output.json"
-	 * ); file.write(gu.toJSONString()); file.flush(); file.close(); }
-	 */
-
+	@RequestMapping(value="/productdesc")
+	public String getProductDesc(Model model, String location) {
+		System.out.println("넘어왔다." + location);
+		List<CommercialProductVO> list = commercialProductDao.getDesc(location);
+		model.addAttribute("result", list);
+		return "commercial/server/productDesc";
+	}
+	
 }

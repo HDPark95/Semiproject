@@ -20,7 +20,7 @@ h2 {
 	margin-bottom: 50px;
 }
 
-#category {
+#byongdo {
 	width: 160px;
 }
 
@@ -134,15 +134,15 @@ height: 600px;
 				</ul>
 			</div>
 		</nav>
-		<form method="post" action="" enctype="multipart/form-data">
+		<form method="post" action="auctionins" enctype="multipart/form-data">
 			<div id="body" class="form-group">
 				<h2>부동산 등록</h2> 
 				<div id="content">
 					<table>
 						<tbody>
 							<tr>
-								<th><label for="category">물건용도</label></th>
-								<td><select id="category" class="form-control">
+								<th><label for="byongdo">물건용도</label></th>
+								<td><select id="byongdo" name="byongdo" class="form-control">
 										<option value="0">--선택--</option>
 										<option value="1">아파트</option>
 										<option value="2">주택/빌라</option>
@@ -155,71 +155,81 @@ height: 600px;
 							<tr>
 								<th><label for="subject"><span
 										style="color: blue; margin-right: 3px;">*</span>물건제목</label></th>
-								<td><input type="text" id="subject" class="form-control" style="width: 600px;"/></td>
+								<td><input type="text" id="subject" name="subject" class="form-control" style="width: 600px;"/></td>
 							</tr>
 							<tr>
 								<th><label for="sPrice">시작가</label></th>
-								<td><input type="number" id="sPrice" class="form-control" style="width: 300px;"/><a href="#none" class="btn-q" data-toggle="modal"
+								<td><input type="number" id="ideprice" name="ideprice" class="form-control" style="width: 300px;"/><a href="#none" class="btn-q" data-toggle="modal"
 									data-target="#myModal2" id="p_modal1"
 									style="text-decoration: none; margin-left: 10px;">500만원 이상의 물건</a></td>
 							</tr>
 							<tr>
 								<th><label for="danwe">입찰단위</label></th>
-								<td><select id="danwe" class="form-control" style="width: 200px;">
+								<td><select id="ipdanwe" name="ipdanwe" class="form-control" style="width: 200px;">
 										<option value="">선택하세요</option>
-										<option>300만원</option>
-										<option>500만원</option>
-										<option>800만원</option>
-										<option>1000만원</option>
+										<option value="300">300만원</option>
+										<option value="500">500만원</option>
+										<option value="800">800만원</option>
+										<option value="1000">1000만원</option>
 								</select></td>
 							</tr>
 							<tr>
 								<th><label for="ipenddate">입찰만료일</label></th>
-								<td><input type="date" id="ipenddate" class="form-control" style="width: 200px;"/>&nbsp;
-								<input type="time" id="ipendtime" class="form-control" style="width: 200px;"/></td>
+								<td><input type="date" id="ipenddate" name="ipenddate" class="form-control" style="width: 200px;"/>&nbsp;
+								<input type="time" id="ipendtime" name="ipendtime" class="form-control" style="width: 200px;"/></td>
 							</tr>
 							<tr>
-								<th><label for="gunmul">건물면적/토지면적</label></th>
-								<td><input type="text" id="gunmul" class="form-control" style="width: 200px;"/>&nbsp;/&nbsp;<input
-									type="text" id="tozi" class="form-control" style="width: 200px;"/></td>
+								<th><label for="bweight">건물면적/토지면적</label></th>
+								<td><input type="text" id="bweight" name="bweight" class="form-control" style="width: 200px;"/>&nbsp;/&nbsp;<input
+									type="text" id="tweight" name="tweight" class="form-control" style="width: 200px;"/></td>
 							</tr>
 							<tr>
-								<th rowspan="2"><label for="zipcode">주소</label></th>
-								<td><input type="text" id="zipcode" class="form-control" readonly="readonly" style="width: 120px;"/>&nbsp;<button type="button" class="btn btn-primary btn-sm" onclick="jusopop()">우편번호검색</button></td>
+								<th rowspan="2"><label for="bzipcode">주소</label></th>
+								<td><input type="text" id="bzipcode" name="bzipcode" class="form-control" readonly="readonly" style="width: 120px;"/>&nbsp;<button type="button" class="btn btn-primary btn-sm" onclick="jusopop()">우편번호검색</button></td>
 							</tr>
 							<tr>
-								<td><input type="text" id="addr1" class="form-control" readonly="readonly" style="width: 500px;"/>&nbsp;<input type="text" id="addr2" class="form-control" style="width: 400px;"/></td>
+								<td><input type="text" id="baddra" name="baddra" class="form-control" readonly="readonly" style="width: 500px;"/>&nbsp;<input type="text" id="baddrb" name="baddrb" class="form-control" style="width: 400px;"/></td>
+							</tr>
+							<tr>
+								<th><label for="managepee">관리비내용</label></th>
+								<td><textarea name="managepee" id="managepee" rows="10" cols="110"></textarea></td>
+							</tr>
+							<tr>
+								<th><label for="bplan">개발계획</label></th>
+								<td><textarea name="bplan" id="bplan" rows="10" cols="110"></textarea></td>
 							</tr>
 							<tr>
 								<th><label for="addprice">물품설명</label></th>
-								<td><textarea name="ir1" id="ir1" rows="20" cols="100">111</textarea></td>
+								<td><textarea name="ir1" id="ir1" rows="20" cols="110">111</textarea></td>
 							</tr>
 							<tr>
-								<th><label for="addprice">이미지등록1</label></th>
-								<td><input type="file" class="form-control-file" id="img1" aria-describedby="fileHelp1">
+								<th><label for="wimageP">이미지등록1</label></th>
+								<td><input type="file" class="form-control-file" id="wimageP" name="wimageP" aria-describedby="fileHelp1">
                                     <small id="fileHelp1" class="form-text text-muted">기본이 되는 메인 이미지를 등록 해주세요 사이즈는 620x430입니다</small></td>
 							</tr>
 							<tr>
-								<th><label for="addprice">이미지등록2</label></th>
-								<td><input type="file" class="form-control-file" id="img2" aria-describedby="fileHelp2">
+								<th><label for="imageaP">이미지등록2</label></th>
+								<td><input type="file" class="form-control-file" id="imageaP" name="imageaP" aria-describedby="fileHelp2">
                                     <small id="fileHelp2" class="form-text text-muted">부가적인 이미지 입니다 사이즈는 320x180입니다</small></td>
 							</tr>
 							<tr>
-								<th><label for="addprice">이미지등록3</label></th>
-								<td><input type="file" class="form-control-file" id="img3" aria-describedby="fileHelp3">
+								<th><label for="imagebP">이미지등록3</label></th>
+								<td><input type="file" class="form-control-file" id="imagebP" name="imagebP" aria-describedby="fileHelp3">
                                     <small id="fileHelp3" class="form-text text-muted">기본이 되는 메인 이미지를 등록 해주세요 사이즈는 320x180입니다</small></td>
 							</tr>
 							<tr>
-								<th><label for="addprice">이미지등록4</label></th>
-								<td><input type="file" class="form-control-file" id="img4" aria-describedby="fileHelp4">
+								<th><label for="imagecP">이미지등록4</label></th>
+								<td><input type="file" class="form-control-file" id="imagecP" name="imagecP" aria-describedby="fileHelp4">
                                     <small id="fileHelp4" class="form-text text-muted">기본이 되는 메인 이미지를 등록 해주세요 사이즈는 320x180입니다</small></td>
 							</tr>
 							<tr>
-								<th colspan="2"><button type="submit" class="btn btn-primary btn-lg" id="runin">물건 등록 하기</button></th>
+								<th colspan="2"><input type="submit" class="btn btn-primary btn-lg" id="runin" value="물건 등록 하기"></th>
 							</tr>
 						</tbody>
 					</table>
-
+						<input type="hidden" name="bid" id="bid" value="test1"/>
+						<input type="hidden" name="enddate" id="enddate" value="2020-06-08 05:24:14"/>
+						<input type="hidden" name="text" id="text" value="text1111"/>
 				</div>
 			</div>
 		</form>
@@ -291,19 +301,20 @@ $(document).ready(function(){
 	//
 	$('#runin').click(function() {
 		var val1 = oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD",[]);
-		alert($('#ir1').val());
+		//alert($('#ir1').val());
+		//alert($('#wimage').val());
 	})
 	
 });
 
 function jusopop(){
-	var pop = window.open("jusopopup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes");
+	var pop = window.open("resources/jusopopup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes");
 }	
 
 function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
-document.getElementById("zipcode").value = zipNo; 
-document.getElementById("addr1").value = roadFullAddr;
-document.getElementById("addr2").value = addrDetail;
+document.getElementById("bzipcode").value = zipNo; 
+document.getElementById("baddra").value = roadFullAddr;
+document.getElementById("baddrb").value = addrDetail;
 }
 </script>
 <%@ include file="../include/footer.jsp"%>

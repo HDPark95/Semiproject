@@ -83,7 +83,7 @@ a {
     background-image: url(/resources/assets/img/page_bt.png);
     background-repeat: no-repeat;
     border-radius: 100px;
-    text-indent: -1000px;
+/*     text-indent: -1000px; */
     overflow: hidden;
 }
 
@@ -93,6 +93,7 @@ a {
 
 .paging a.first {
     background-position: 10px -40px;
+    
 }
 
 .paging a.prev {
@@ -107,6 +108,7 @@ a {
 
 .paging a.last {
     background-position: -40px -40px;
+    
 }
 
 .paging a.num {

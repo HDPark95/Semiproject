@@ -23,8 +23,8 @@
 	                       <ul class="invisible sub-menu">
 		                       	<li><a>매물</a></li>
 		                       	<li><a>매물</a></li>
-		                       	<li><a>매물</a></li>
-		                       	<li><a>매물등록</a></li>
+		                       	<li><a href="product">매물</a></li>
+		                       	<li><a href="register">매물등록</a></li>
 	                       </ul>
                        </li>
                         <li class="nav-item">
@@ -59,7 +59,9 @@
 	                       </ul>
                         </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger menu-other" href="board">고객센터</a>
+
+	                        <a class="nav-link js-scroll-trigger menu-other" href="customer">고객센터</a>
+
 	                       
 	    
                         </li>

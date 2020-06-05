@@ -70,7 +70,7 @@ body {
 	color: #858796;
 	text-align: left;
 	background-color: #fff;
-	margin-top: 220px;
+	margin-top: 150px;
 }
 
 [tabindex="-1"]:focus {
@@ -599,8 +599,8 @@ pre code {
 	width: 100%;
 	padding-right: .75rem;
 	padding-left: .75rem;
-	height: 32rem;
-    margin-top: 2rem;
+	height: 28rem;
+    margin-top: 1rem;
 }
 
 .col {
@@ -3962,7 +3962,9 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	justify-content: space-between
+	justify-content: space-between;
+	height: 3rem;
+	
 }
 
 .navbar-brand {
@@ -3984,7 +3986,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	flex-direction: column;
 	padding-left: 0;
 	margin-bottom: 0;
-	list-style: none
+	list-style: none;
+	margin-top: 89px;
 }
 
 .navbar-nav .nav-link {
@@ -6728,7 +6731,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover
 	width: 35%;
 	display: block;
 	margin: auto;
-	height: 640px;
+	height: 550px;
 }
 
 .justify-content-between {
@@ -9235,7 +9238,8 @@ a:focus {
 
 .container, .container-fluid {
 	padding-left: 0.5rem;
-	padding-right: 0.5rem
+	padding-right: 0.5rem;
+	margin-bottom: 3rem;	
 }
 
 .scroll-to-top {
