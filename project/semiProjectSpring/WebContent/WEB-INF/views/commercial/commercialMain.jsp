@@ -8,7 +8,7 @@
 <!-- Page Content -->
 <div class="container">
 	<!-- Call to Action Well -->
-	<script src="js/json2.js"></script>
+	<script src="resources/js/commercial/json2.js"></script>
 	<div
 		class="card text-white bg-secondary my-6 py-4 text-center col-lg-12">
 		<div class="card-body">
@@ -169,5 +169,7 @@
 </div>
 <!-- /.container -->
 <%@include file="modal.jsp"%>   
+<script src="resources/js/commercial/script.js"></script>
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script> 
 <%@ include file="../include/footer.jsp"%>
 </html>
