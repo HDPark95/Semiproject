@@ -6,5 +6,6 @@
 	<typeAliases>
 		<typeAlias type="semiproject.mvc.vo.DataVO" alias="commercial" />
 			<typeAlias type="semiproject.mvc.vo.MyPageVO" alias="mypagevo"/>
+				<typeAlias type="semiproject.mvc.vo.PaymentVO" alias="paymentvo"/>
 	</typeAliases>
 </configuration>
