@@ -42,7 +42,7 @@
 		<div class="tab-pane fade th_page_space" style="text-align: center;"
 			id="c">
 			<h2 class="container" style="margin-top: 300px; color: black;">나에게
-				연락온 부동산 목록을 볼수 있습니다.</h2>
+				연락온 부동산 목록을 볼수 있습니다. </h2>
 		</div>
 		<div class="tab-pane fade th_page_space" style="text-align: center;"
 			id="d">

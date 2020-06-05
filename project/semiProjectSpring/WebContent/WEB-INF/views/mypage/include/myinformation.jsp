@@ -21,7 +21,7 @@
 				<h4 class="card-title">${vo.name }님의 로그인 관련 정보 입니다.</h4>
 				<p class="card-text">확인하시려면 버튼을 눌러주세요.</p>
 				<input type="hidden" value="${vo.id }" name="id">
-
+ 
 				<button type="submit" class="btn btn-success">확인하기</button>
 			</div>
 		</form>
