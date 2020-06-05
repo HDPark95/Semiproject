@@ -36,13 +36,13 @@ div.final_price {
 	<h2>결제확인창</h2>
 	<div class="container">
 		<div class="etc_payment">
-			<span style="display:"> 
-				<label class="selected"><input type="radio" name="pay" class="pay1"
-					id="card">신용카드(일반)</label> 
-					<span style="display:"><label><input type="radio" id="bank1" name="pay" class="pay1">무통장입금</label></span>
-			</span> 
+			<span style="display:"> <label class="selected"><input
+					type="radio" name="pay" class="pay1" id="card" checked="checked">신용카드(일반)</label> <span
+				style="display:"><label><input type="radio"
+						id="bank1" name="pay" class="pay1"  >무통장입금</label></span>
+			</span>
 		</div>
-		
+
 		<table border="1px solid black" id="aa">
 			<tbody>
 				<tr>
@@ -64,16 +64,8 @@ div.final_price {
 
 
 
-					<th>그외카드선택</th>
-					<td><select style="width: 140px;"><option value="">선택하세요</option>
-							<option>제주카드</option>
-							<option>신협체크카드</option>
-							<option>광주카드</option>
-							<option>수협카드</option>
-							<option>전북카드</option>
-							<option>우체국카드</option>
-							<option>KDB카드</option>
-							<option>KB[구 현대]증권체크카드</option></select></td>
+					<th>카드번호</th>
+					<td><input type="text" placeholder="카드번호를 입력해주세요."></td>
 
 				</tr>
 
@@ -114,9 +106,8 @@ div.final_price {
 				<tbody>
 					<tr>
 						<td colspan="2" bgcolor="#fce4ea" style="padding-left: 14px;"
-							height="30" class="popup">
-							 <input type="radio" value="2" name="PayInfoHis"
-							style="cursor: hand"><b>새 입금정보 입력</b></td>
+							height="30" class="popup"><input type="radio" value="2"
+							name="PayInfoHis" style="cursor: hand" checked="checked"><b>새 입금정보 입력</b></td>
 					</tr>
 					<tr>
 						<td class="popup" height="35" style="padding-left: 14px;"
@@ -139,10 +130,15 @@ div.final_price {
 						<td bgcolor="#ffffff">㈜코스모 클랏쓰</td>
 					</tr>
 					<tr>
+						<td height="35" style="padding-left: 14px;" width="27%"
+							bgcolor="#fce4ea">계좌번호 입력</td>
+							<td><input type="text" placeholder="계좌번호입력"></td>
+					</tr>
+					<tr>
 						<td class="popup" height="35" style="padding-left: 14px;"
 							width="27%" bgcolor="#fce4ea">입금자 성명</td>
 						<td bgcolor="#ffffff"><input class="form" type="text"
-							maxlength="20" size="20"></td>
+							maxlength="20" size="20" placeholder="성명"></td>
 					</tr>
 				</tbody>
 			</table>
@@ -156,7 +152,7 @@ div.final_price {
 		</h4>
 	</div>
 	<div class="final_price container" id="CalcAmount">
-		8,000<span>원</span>
+		<span>${pay}</span>
 	</div>
 	<div class="my_agrmt_wrap container">
 		<h5>
@@ -211,34 +207,28 @@ div.final_price {
 		<button type="button" class="btn btn-success" id="button1"
 			onclick="location='pay3'">결제하기</button>
 		<button type="button" class="btn btn-danger" id="button1"
-			onclick="location='pay2'">뒤로가기</button>
+			onclick="location='pay4'">뒤로가기</button>
 
 	</div>
 
 	<script>
 		$(document).ready(function() {
-	 	$('#aa').show(); //페이지를 로드할 때 표시할 요소
+			$('#aa').show(); //페이지를 로드할 때 표시할 요소
 			$('#PayOnline').hide(); //페이지를 로드할 때 숨길 요소
 			$('.pay1').change(function() {
 				//alert($(this).attr('id'));
-				if($(this).attr('id')==='bank1'){
-					$('#aa').hide();	
+				if ($(this).attr('id') === 'bank1') {
+					$('#aa').hide();
 					$('#PayOnline').show(); //클릭 시 두 번째 요소 표시
-				}else{
-					$('#aa').show();	
+				} else {
+					$('#aa').show();
 					$('#PayOnline').hide();
-					
-				}
-				
-			
 
-			}); 
+				}
+
+			});
 
 		});
-		$(document).ready(function(){
-			alert('pay1');
-		})
-		
 	</script>
 
 </body>

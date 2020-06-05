@@ -26,7 +26,7 @@
 			href="#c">연락한 매물</a></li>
 		<li class="th_li"><a class="nav-link th_atwi " data-toggle="tab"
 			href="#d">받은 문의요청</a></li>
-
+ 
 	</ul>
 	<div id="myTabContent" class="tab-content">
 		<div class="tab-pane  th_page_space  fade show active "
