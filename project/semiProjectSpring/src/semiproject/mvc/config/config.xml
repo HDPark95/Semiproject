@@ -4,11 +4,16 @@
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+
+    
+		<typeAlias type="semiproject.mvc.vo.BoardPageVO" alias="bpvo"/>
+    	<typeAlias type="semiproject.mvc.vo.BoardVO" alias="bvo"/>
 			<typeAlias type="semiproject.mvc.vo.DataVO" alias="commercial" />
 			<typeAlias type="semiproject.mvc.vo.MyPageVO" alias="mypagevo"/>
 		<typeAlias type="semiproject.mvc.vo.AuctionAddMainVO" alias="amainvo"/>
 		<typeAlias type="semiproject.mvc.vo.AuctionAddDeVO" alias="adevo"/>
 		<typeAlias type="semiproject.mvc.vo.AuctionAddIpVO" alias="aipvo"/>	
 			<typeAlias type="semiproject.mvc.vo.CommercialProductVO" alias="cpvo"/>
+
 	</typeAliases>
 </configuration>
