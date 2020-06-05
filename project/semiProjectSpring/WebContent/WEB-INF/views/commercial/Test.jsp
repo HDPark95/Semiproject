@@ -24,4 +24,4 @@
 	});
 	</script>
 </body>
-<%@ include file="../commercial/footer.jsp"%>
+<%@ include file="../include/footer.jsp"%>

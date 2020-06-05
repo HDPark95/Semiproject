@@ -21,48 +21,48 @@
 
 
                        <li class="nav-item">
-	                       <a class="nav-link js-scroll-trigger" href="commercialMain">상가</a>
+	                       <a class="nav-link js-scroll-trigger" href="#">상가</a>
 	                      
 	                       <ul class="invisible sub-menu">
-		                       	<li><a>매물</a></li>
-		                       	<li><a>매물</a></li>
-		                       	<li><a>매물</a></li>
-		                       	<li><a>매물등록</a></li>
+		                       	<li>매물</li>
+		                       	<li>매물</li>
+		                       	<li><a href="product">매물</a></li>
+		                       	<li><a href="register">매물등록</a></li>
 	                       </ul>
                        </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="estateMain">부동산</a>
+	                        <a class="nav-link js-scroll-trigger" href="#">부동산</a>
 	                      
 	                        <ul class="invisible sub-menu">
-		                       		<li><a href="estateMain">매물</a></li>
-		                       	<li><a href="#">매물</a></li>
-		                       	<li><a href="#">매물</a></li>
-		                       	<li><a href="addestate">매물등록</a></li>
+		                       		<li>매물</li>
+		                       	<li>매물</li>
+		                       	<li>매물</li>
+		                       	<li>매물등록</li>
 	                       </ul>
                         </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="auctionMain">경매</a>
+	                        <a class="nav-link js-scroll-trigger" href="#">경매</a>
 	                        
 	                        <ul class="invisible sub-menu">
-		                       		<li><a>물건검색</a></li>
-		                       	<li><a>판매관리</a></li>
-		                       	<li><a>구매관리</a></li>
-		                       	<li><a>부동산등록</a></li>
-		                       	<li><a>경매정보</a></li>
+		                       		<li>물건검색</li>
+		                       	<li>판매관리</li>
+		                       	<li>구매관리</li>
+		                       	<li>부동산등록</li>
+		                       	<li>경매정보</li>
 	                       </ul>
                         </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="comuMain">커뮤니티</a>
+	                        <a class="nav-link js-scroll-trigger" href="#">커뮤니티</a>
 	                      
 	                        <ul class="invisible sub-menu">
-		                         	<li><a>매물</a></li>
-		                       	<li><a>매물</a></li>
-		                       	<li><a>매물</a></li>
-		                       	<li><a>매물등록</a></li>
+		                       	<li>매물</li>
+		                       	<li>매물</li>
+		                       	<li>매물</li>
+		                       	<li>매물등록</li>
 	                       </ul>
                         </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger menu-other" href="board">고객센터</a>
+	                        <a class="nav-link js-scroll-trigger menu-other" href="#">고객센터</a>
 	                       
 	    
                         </li>
@@ -84,7 +84,6 @@
                 </div>
                </div>
                <br>
-          
             </nav>
          <!--    <div class="row " style="margin-top: 80px; top: 80px;">
                  <div class="col-md-12 menu-top ">

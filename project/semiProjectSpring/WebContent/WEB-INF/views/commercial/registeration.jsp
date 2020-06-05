@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="header_index.jsp"%>
-<section class="contact-section bg-white centered">
-	<div id="container"
-		style="width: 1200px; margin: 0 auto; text-align: center;"
-		class="centered">
+<%@ include file="../include/header_index.jsp"%>
+ <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
+<!--  <link href="resources/css/commercial/style.css?after" rel="stylesheet" /> -->
+<%@ include file="../include/header_menu.jsp"%>
+<section class="bg-white centered w-100% my-6">
+	<div id="container" style="width: 100%; margin: 0 auto; text-align: center; margin-left:200px"
+		class="centered mw-100">
 		<h3>상가/점포 상세정보</h3>
-		<div class="col" id="regist">
-			<form action="" method="post">
-				<div class="col-md-8 mb-4 mb-md-0">
+		<div class="mw-100" id="regist">
+			<form action="" method="post" style="margin-left:200px;">
+				<div class="col-md-8 mb-4 mb-md-0 h-100">
 					<!-- <div class="card-body text-center"> -->
 					<h3 style="text-align: left">물건 정보</h3>
 					<div class="card py-4 h-100"
 						style="width: 100%; border-top: 0.25rem solid #64a19d; border-bottom: none;">
 						<table
-							style="text-align: left; margin: 0 auto; width: 810px; height: 375px;"  class="regist">
+							style="text-align: left; margin: 0 auto; width: 100%; height: 375px;"  class="regist">
 							<tr>
 								<th>
 									<h3 class="text-uppercase m-0">소재지</h3>
@@ -71,13 +73,13 @@
 						<!-- </div> -->
 					</div>
 				</div>
-				<div class="col-md-8 mb-3 mb-md-0">
+				<div class="col-md-8 mb-3 mb-md-0 h-100">
 					<h3 style="text-align: left">상권 정보</h3>
 					<div class="card py-4 h-100"
 						style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
-						<div class="card-body text-center">
+						<div class="card-body text-center h-100">
 							<table
-								style="text-align: left; margin: 0 auto; width: 810px; height: 200px;"class="regist">
+								style="text-align: left; margin: 0 auto; width: 100%; height: 200px;"class="regist">
 								<tr>
 									<th>
 										<h3 class="text-uppercase m-0">특징</h3>
@@ -109,11 +111,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-8 mb-3 mb-md-0">
+				<div class="col-md-8 mb-3 mb-md-0 h-100">
 					<h3 style="text-align: left">가격 정보</h3>
 					<span style="text-align: right; color: red;"> 해당부분이 없으면 0을
 						입력하세요.</span>
-					<div class="card py-12 h-100"
+					<div class="card py-12 h-auto"
 						style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
 						<div class="card-body text-center">
 							<table
@@ -144,9 +146,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-8 mb-3 mb-md-0">
+				<div class="col-md-8 mb-3 mb-md-0 h-100">
 					<h3 style="text-align: left">담당자 정보</h3>
-					<div class="card py-4 h-100"
+					<div class="card py-4 h-auto"
 						style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
 						<div class="card-body text-center">
 							<table
@@ -206,8 +208,8 @@
 					</div>
 				</div>
 				<textarea
-					style="resize: none; width: 800px; height: 500px; margin-right: 800px;"
-					readonly> 세미프로젝트는 정보통신부에서시행하는 정보통신망 이용촉진 등에 관한 법률상의 개인정보 보호제도에 따라 회원들의 개인정보 관리에 만전을 기하고 있으며 회원들이 마인애드의 모든 서비스를 안심하고 이용할수 있도록 하기 위해 항상 최선을 다하고 있습니다. 정부의 관련 법률 및 지침의 변경, 또는 마인애드의 정책 변화에 따라 개인정보보호정책은 임의로 변경될 수 있으니 사용자 보호 정책에 관심을 가지고 수시로 확인해주시기 바랍니다.
+					style="resize: none; width: 1100px; height: 520px; margin-right: 1200px;"
+					readonly class="mt-3"> 세미프로젝트는 정보통신부에서시행하는 정보통신망 이용촉진 등에 관한 법률상의 개인정보 보호제도에 따라 회원들의 개인정보 관리에 만전을 기하고 있으며 회원들이 마인애드의 모든 서비스를 안심하고 이용할수 있도록 하기 위해 항상 최선을 다하고 있습니다. 정부의 관련 법률 및 지침의 변경, 또는 마인애드의 정책 변화에 따라 개인정보보호정책은 임의로 변경될 수 있으니 사용자 보호 정책에 관심을 가지고 수시로 확인해주시기 바랍니다.
 
 			1.회원의 개인정보 수집목적 및 이용
 당사는 이용자 확인, 이용대금 결제, 상품 배송 및 통계 분석을 통한 마케팅자료로써 귀하의 취향에 맞는 최적의 서비스를 제공하기 위한 목적으로 귀하의 개인정보를 수집 이용하고 있습니다. 당사 회원으로 등록하신 모든 고객의 개인정보는 위에서 밝힌 목적 이외에는 절대로 사용될 수 없으나, 회원 개인정보의 사용 목적과 용도가 변경될 경우에 반드시 당사 회원으로 등록하신 모든 고객님께 동의를 구할 것입니다.
@@ -270,4 +272,4 @@
 </section>
 
 <%@ include file="sidemenu2.jsp"%>
-<%@ include file="footer.jsp"%>
+<%@ include file="../include/footer.jsp"%>

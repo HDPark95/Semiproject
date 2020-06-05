@@ -36,29 +36,14 @@ div.final_price {
 	<h2>결제확인창</h2>
 	<div class="container">
 		<div class="etc_payment">
-			<span style="display:"> <span style="display: none"><input
-					type="radio" id="pmCard" name="pay" checked="checked">신용카드</span>
-				<label class="selected"><input type="radio" id="cardType0"
-
-					name="pay" checked="checked">신용카드(일반)</label>
-					
-
-			</span> <span style="display: none" disabled=""> <label><input
-					type="radio" id="pmRealtime" name="pay">실시간계좌이체</label>
-			</span> <span style="display:"> <label><input type="radio"
-					id="bank1" name="pay">무통장입금</label>
-
-			</span> <span style="display: none" disabled=""> <label><input
-					type="radio" id="pmPhone" name="pay">휴대폰결제</label>
-			</span> <span style="display: none" disabled=""> <label><input
-					type="radio" id="pmPayco" name="pay">PAYCO</label>
-			</span> <span style="display: none" disabled=""> <label><input
-					type="radio" id="pmTcash" name="pay">모바일티머니</label>
-			</span>
+			<span style="display:"> 
+				<label class="selected"><input type="radio" name="pay" class="pay1"
+					id="card">신용카드(일반)</label> 
+					<span style="display:"><label><input type="radio" id="bank1" name="pay" class="pay1">무통장입금</label></span>
+			</span> 
 		</div>
-		<table border="1px solid black" class="aa">
-
-
+		
+		<table border="1px solid black" id="aa">
 			<tbody>
 				<tr>
 					<th scope="row">카드선택</th>
@@ -77,8 +62,9 @@ div.final_price {
 
 				<tr>
 
-					<th>그외카드선택</th>
 
+
+					<th>그외카드선택</th>
 					<td><select style="width: 140px;"><option value="">선택하세요</option>
 							<option>제주카드</option>
 							<option>신협체크카드</option>
@@ -128,9 +114,8 @@ div.final_price {
 				<tbody>
 					<tr>
 						<td colspan="2" bgcolor="#fce4ea" style="padding-left: 14px;"
-							height="30" class="popup"><input type="radio" value="1"
-							name="PayInfoHis" checked="" style="cursor: hand"><b>
-								최근 입금정보와 동일</b> <input type="radio" value="2" name="PayInfoHis"
+							height="30" class="popup">
+							 <input type="radio" value="2" name="PayInfoHis"
 							style="cursor: hand"><b>새 입금정보 입력</b></td>
 					</tr>
 					<tr>
@@ -184,11 +169,9 @@ div.final_price {
 				<table border="1px solid black">
 					<p>개인정보 수집 내용</p>
 					<colgroup>
-						<col width="30%">
-						<col width="70%">
+
 					</colgroup>
 					<tbody>
-
 						<tr>
 							<th>제공받는자</th>
 							<td>[예스이십사 주식회사]</td>
@@ -199,7 +182,6 @@ div.final_price {
 						</tr>
 						<tr>
 							<th>항목</th>
-
 							<td>성명, 주소, 연락처(안심번호 적용 시 연락처는 제외), 개인통관고유부호(선택시), 공동현관
 								출입번호(입력시)</td>
 
@@ -227,29 +209,37 @@ div.final_price {
 		<p>주문 상품의 상품명,가격,배송정보에 동의합니다</p>
 		<input type="checkbox">위 내용을 모두 확인하였으며, 이 내용에 모두 동의하시겠습니까?<br>
 		<button type="button" class="btn btn-success" id="button1"
-			onclick="location='semi.Project?page=payment&code=3'">결제하기</button>
+			onclick="location='pay3'">결제하기</button>
 		<button type="button" class="btn btn-danger" id="button1"
-			onclick="location='semi.Project?page=payment&code=2'">뒤로가기</button>
+			onclick="location='pay2'">뒤로가기</button>
 
 	</div>
 
-<script>
-$(document).ready(function() {
-	$('.aa').show(); //페이지를 로드할 때 표시할 요소
-	$('#PayOnline').hide(); //페이지를 로드할 때 숨길 요소
-	$('.aa').click(function(){
-	$ ('.aa').hide(); //클릭 시 첫 번째 요소 숨김
-	$ ('#PayOnline').show(); //클릭 시 두 번째 요소 표시
-	return false;
-	});
-	});
-	
-	
+	<script>
+		$(document).ready(function() {
+	 	$('#aa').show(); //페이지를 로드할 때 표시할 요소
+			$('#PayOnline').hide(); //페이지를 로드할 때 숨길 요소
+			$('.pay1').change(function() {
+				//alert($(this).attr('id'));
+				if($(this).attr('id')==='bank1'){
+					$('#aa').hide();	
+					$('#PayOnline').show(); //클릭 시 두 번째 요소 표시
+				}else{
+					$('#aa').show();	
+					$('#PayOnline').hide();
+					
+				}
+				
+			
 
-	
-</script>
+			}); 
 
-
+		});
+		$(document).ready(function(){
+			alert('pay1');
+		})
+		
+	</script>
 
 </body>
 </html>
