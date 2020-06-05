@@ -1,5 +1,7 @@
 package semiproject.mvc.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -26,5 +28,9 @@ public class BoardDao {
 	public int ansList(BoardVO vo) {
 		
 		return ss.update("board.ans",vo);
+	}
+	
+	public List<BoardVO> selectList(BoardVO vo){
+		return ss.selectList("board.list",vo);
 	}
 }

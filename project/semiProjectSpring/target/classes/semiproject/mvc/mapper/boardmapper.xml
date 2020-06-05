@@ -4,19 +4,29 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="board">
-<insert id="add" parameterType="bvo">
+<insert id="add" parameterType="bvo"> <!-- 게시글 작성 쿼리문 -->
 insert into b_board values(b_num_seq.nextVal,#{b_writer},#{b_subject},#{b_pwd},#{b_type},sysdate
 ,#{b_readcnt},#{b_reg},#{re_step},#{re_level},#{content},#{ans},#{remove})
 </insert>
-<delete id="remove" parameterType="bvo">
+<delete id="remove" parameterType="bvo"> <!-- 게시글 삭제 쿼리문 --> <!-- 딜리트로할지 업데이트로 할지 고민중 -->
 
 </delete>
 
-<update id="ans" parameterType="bvo">
+<update id="ans" parameterType="bvo"> <!-- 답변 등록 쿼리문 -->
 
 </update>
 
+<select id="list" parameterType="bvo"> <!-- 게시글 리스트 쿼리문 -->
 
+</select>
+
+<update id="update" parameterType="bvo"> <!-- 게시글 수정 쿼리문 -->
+
+</update>
+
+<select id="searchlist" parameterType=""> <!-- 게시글 조회 쿼리문 -->
+
+</select>
 
 
 </mapper>
