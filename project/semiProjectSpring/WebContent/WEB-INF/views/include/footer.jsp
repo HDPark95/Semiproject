@@ -70,6 +70,7 @@
 				});
 	});
 </script>
+
 <!-- Hyundoo JS-->
  <script>
 	$(function() {
@@ -145,37 +146,6 @@
 									console.log("Error : " + e);
 								}
 							});
-							var seoul = new naver.maps.LatLngBounds(
-									new naver.maps.LatLng(37.42829747263545,
-											126.76620435615891),
-									new naver.maps.LatLng(37.7010174173061,
-											127.18379493229875));
-							var map = new naver.maps.Map(document
-									.getElementById('map'), {
-								minZoom : 10.5,
-								zoom : 10.5,
-								mapTypeId : 'normal',
-								center : new naver.maps.LatLng(37.4098871,
-										126.989261),
-								maxBounds : seoul,
-								baseTileOpacity : 0,
-								scaleControl : false,
-								logoControl : false,
-								mapDataControl : false,
-								zoomControl : false,
-								mapTypeControl : false
-							});
-
-							/* var HOME_PATH = window.HOME_PATH || '.'; */
-							naver.maps.Event.once(map, 'init_stylemap',
-									function() {
-										$.ajax({
-											url : 'json/' + $(this).val()
-													+ '.json',
-											dataType : 'json',
-											success : startDataLayer
-										});
-									});
 						});
 	});
 </script>
@@ -237,9 +207,8 @@
 	});
 </script>
 <script>
-	$(function() {
-		$('#combobox4')
-				.change(
+	 $(function() {
+		$('#combobox4').change(
 						function() {
 							var largeName = $('#combobox3').val();
 							var mediumName = $('#combobox4').val();
@@ -276,6 +245,7 @@
 		$("#addrDetail").val(addrDetail);
 		$("#zipNo").val(zipNo);
 	}
+	</script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script> 
 <!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
 <script>
@@ -283,11 +253,10 @@
 		$("#postcodify_search_button").postcodifyPopUp();
 	});
 </script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-Third party plugin JS
+
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 </body>
