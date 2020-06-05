@@ -204,7 +204,7 @@
 </script>
 <script>
 	$(function() {
-		var url = 'largename3'
+		var url = 'largename'
 		$.ajax({
 			url : url,
 			success : function(d) {
@@ -243,7 +243,7 @@
 						function() {
 							var largeName = $('#combobox3').val();
 							var mediumName = $('#combobox4').val();
-							var url = 'smallname&largeName='
+							var url = 'smallname?largeName='
 									+ encodeURIComponent(largeName)
 									+ "&mediumName="
 									+ encodeURIComponent(mediumName)
