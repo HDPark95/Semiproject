@@ -4,7 +4,6 @@
 #Select1, #Select2 {
 	margin-left: 10px;
 	margin-right: 10px;
-	width: 370px;
 }
 
 #checkorder1 {
@@ -15,55 +14,18 @@
 #location1 {
 	margin-bottom: 0;
 }
-
 </style>
 <div class="tab-pane fade show active" id="all">
 	<br>
-	<p>'구'는 반드시 선택하여야 하며, 그 하위 지역을 포함하여 검색됩니다.</p>
+	<p>선택하신 '구'와 '행정동'을 기준으로 검색됩니다.</p>
 	<div>
 		<div class="form-inline form-group" id="location1">
-			<label for="Select1">지역</label> <select class="form-control col-md-1"
-				id="Select1">
-				<option selected="selected">선택</option>
-				<option>강남구</option>
-				<option>강동구</option>
-				<option>강북구</option>
-				<option>강서구</option>
-				<option>관악구</option>
-				<option>광진구</option>
-				<option>구로구</option>
-				<option>금천구</option>
-				<option>노원구</option>
-				<option>도봉구</option>
-				<option>동대문구</option>
-				<option>동작구</option>
-				<option>마포구</option>
-				<option>서대문구</option>
-				<option>서초구</option>
-				<option>성동구</option>
-				<option>성북구</option>
-				<option>송파구</option>
-				<option>양천구</option>
-				<option>영등포구</option>
-				<option>용산구</option>
-				<option>은평구</option>
-				<option>종로구</option>
-				<option>중구</option>
-				<option>중랑구</option>
-			</select> <label for="Select2">매물종류</label> <select
-				class="form-control col-md-1" id="Select2">
-				<option selected="selected">전체</option>
-				<option>아파트</option>
-				<option>오피스텔</option>
-				<option>분양권</option>
-				<option>주택</option>
-				<option>토지</option>
-				<option>원룸</option>
-				<option>상가</option>
-				<option>사무실</option>
-				<option>공장</option>
-				<option>재개발</option>
-				<option>건물</option>
+			<label for="Select1">구 선택</label> <select id="Select1"
+				class="form-control col-md-2">
+				<option>전체</option>
+			</select> <label for="Select2">동 선택</label> <select id="Select2"
+				class="form-control col-md-2">
+				<option>전체</option>
 			</select>
 			<button type="button" class="btn-primary btn-sm">검색</button>
 		</div>
@@ -129,3 +91,24 @@
 		</ul>
 	</div>
 </div>
+<script>
+	$(function() {
+		var url = "comugu";
+		$.ajax({
+			url : url,
+			success : function(d) {
+				$("#Select1").html(d);
+			}
+		})
+		$("#Select1").change(function() {
+			var guName = $(this).val();
+			var url = "comudong?guName=" + guName;
+			$.ajax({
+				url : url,
+				success : function(d) {
+					$("#Select2").html(d);
+				}
+			})
+		})
+	})
+</script>

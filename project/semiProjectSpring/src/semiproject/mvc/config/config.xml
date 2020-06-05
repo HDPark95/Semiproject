@@ -5,6 +5,9 @@
 <configuration>
 	<typeAliases>
 
+		<typeAlias type="semiproject.mvc.vo.CommunityVO" alias="comuVO" />
+
+
     
 		<typeAlias type="semiproject.mvc.vo.BoardPageVO" alias="bpvo"/>
     	<typeAlias type="semiproject.mvc.vo.BoardVO" alias="bvo"/>
