@@ -283,9 +283,15 @@
                                       <label class="custom-control-label" for="sabunch1">2020-0001</label>
                                    </div></th>
 								<td id="coltd1_1" style="width: 130px;"><img src="images/kosmo.jpg" style="width: 120px;height: 120px;float: left;"></td>
+<<<<<<< HEAD
+								<td id="coltd1_2" style="width: 500px;"><label id="t1addr1_1"><a href="http://localhost:8080/uiProject/semi.Project?page=ggg" style="color: black;"><b>[¾ÆÆÄÆ®Çü°øÀå]</b><br/>¼­¿ï Æ¯º°½Ã ±ÝÃµ±¸ °¡»êµ¿ 426-5 ¿ùµå ¸Þ¸£µð¾Ó º¥Ã³¼¾ÅÍ 2Â÷ 410È£</a></label>
+								<br/><label id="t1addr1_2" style="font-size: 11pt;height: 6px;">ÅäÁö 70.28§³/°Ç¹° 226.2§³</label>
+								<br/><label id="t1addr1_3" style="font-size: 11pt;color: red;height: 6px;">À¯Ä¡±Ç</label>
+=======
 								<td id="coltd1_2" style="width: 500px;"><label id="t1addr1_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><b>[ì•„íŒŒíŠ¸í˜•ê³µìž¥]</b><br/>ì„œìš¸ íŠ¹ë³„ì‹œ ê¸ˆì²œêµ¬ ê°€ì‚°ë™ 426-5 ì›”ë“œ ë©”ë¥´ë””ì•™ ë²¤ì²˜ì„¼í„° 2ì°¨ 410í˜¸</a></label>
 								<br/><label id="t1addr1_2" style="font-size: 11pt;height: 6px;">í† ì§€ 70.28ãŽ¡/ê±´ë¬¼ 226.2ãŽ¡</label>
 								<br/><label id="t1addr1_3" style="font-size: 11pt;color: red;height: 6px;">ìœ ì¹˜ê¶Œ</label>
+>>>>>>> branch 'master' of https://github.com/qkrgusen456/Semiproject.git
 								</td>
 								<td style="padding-left:0px;padding-right: 0px;"><span class="badge badge-primary">ê°ì •</span><br/><span class="badge badge-info">ìµœì €</span></td>
 								<td style="padding-left:3px;"><b>799,000,000</b><br/><span style="color: blue;"><b>327,270,000</b></span><span style="color: blue;padding-left: 20px;">(41%)</span>

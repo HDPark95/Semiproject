@@ -6,6 +6,7 @@
 	rel="stylesheet">
 <%@ include file="../include/header_menu.jsp"%>
 
+
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
 		<table class="table">
@@ -18,6 +19,7 @@
 			<tr>
 
 
+
 				<td id="welcome2">가입하고 싶으시다면!<br>
 				<br>
 				<button type="button" class="btn btn-warning"
@@ -27,9 +29,16 @@
 				<button type="button" class="btn btn-success"
 						onclick="location = 'index#footerMenu'">Go Main</button></td>
 
+
+				</tr>
+			</table>
+		</div>
+	</section>
+
 			</tr>
 		</table>
 	</div>
 </section>
+
 
 <%@ include file="../include/footer.jsp"%>
