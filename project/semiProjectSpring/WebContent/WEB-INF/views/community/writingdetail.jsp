@@ -40,7 +40,6 @@
 	margin-top: 20px;
 	margin-left: 20px;
 	width: 500px;
-	margin-left:
 }
 
 #toggle {
@@ -65,6 +64,9 @@
 
 #writing, #list, #delete {
 	padding: 0.5rem 0.5rem;
+	margin-top: 5px;
+	background-color: #64A19D;
+	color: #FFFFFF;
 }
 
 #buttons {
@@ -77,19 +79,19 @@
 <script>
 	$(function() {
 		$('#writing').hover(function() {
-			$('#writing').css('background-color', '#E6E6E6');
+			$('#writing').css('background-color', '#548B87');
 		}, function() {
-			$('#writing').css('background-color', 'white');
+			$('#writing').css('background-color', '#64A19D');
 		});
 		$('#list').hover(function() {
-			$('#list').css('background-color', '#E6E6E6');
+			$('#list').css('background-color', '#548B87');
 		}, function() {
-			$('#list').css('background-color', 'white');
+			$('#list').css('background-color', '#64A19D');
 		});
 		$('#delete').hover(function() {
-			$('#delete').css('background-color', '#E6E6E6');
+			$('#delete').css('background-color', '#548B87');
 		}, function() {
-			$('#delete').css('background-color', 'white');
+			$('#delete').css('background-color', '#64A19D');
 		});
 		$('#writing').click(function() {
 			location = 'wriCom';

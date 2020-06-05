@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ include file="../include/header_index.jsp"%>
  <link href="resources/css/community/writing.css" rel="stylesheet">
 <%@ include file="../include/header_menu.jsp"%>
@@ -11,11 +10,11 @@
 		<form action="" method="post">
 			<ul class="nav nav-tabs">
 				<li class="nav-item"><a class="nav-link" data-toggle="tab" 
-					>상가</a></li>
+					href="#commercial" id="com">상가</a></li>
 				<li class="nav-item"><a class="nav-link" data-toggle="tab"
-					>부동산</a></li>
+					href="#estate" id="est">부동산</a></li>
 				<li class="nav-item"><a class="nav-link active" data-toggle="tab"
-					>경매</a></li>	
+					href="#auction" id="auc">경매</a></li>	
 			</ul>
 			<div id="myTabContent" class="tab-content">
 				<div class="tab-pane fade" id="commercial">

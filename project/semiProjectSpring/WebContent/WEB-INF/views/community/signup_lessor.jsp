@@ -14,17 +14,32 @@
 	margin: 0 auto;
 	margin-bottom: 150px;
 }
-#tel1{
+
+#tel1 {
 	padding-left: 16px;
 }
-#tel2{
+
+#tel2 {
 	padding-left: 0px;
 	padding-right: 20px;
 }
-#tel3{
+
+#tel3 {
 	padding-left: 0px;
 	padding-right: 20px;
 	right: 15px;
+}
+
+#inputIdHeader {
+	width: 110px;
+}
+
+#emailLabel{
+	width: 20px;
+	margin-left: 20px;
+}
+#email{
+	width: 110px;
 }
 </style>
 <h1>로고</h1>
@@ -33,12 +48,20 @@
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
 		<form class="form-horizontal" autocomplete="off">
-			<div class="form-group">
-				<label for="inputEmail" class="col-sm-2 control-label">아이디</label>
-				<div class="col-sm-3">
-					<input type="email" class="form-control" id="inputEmail"
-						placeholder="Email">
+			<div class="form-group" id="inputId">
+			
+				<label for="inputIdheader" class="col-sm-2 control-label">아이디</label>
+				<div class="col-md-1" id="inputId">
+					<input type="email" class="form-control" id="inputIdHeader"
+						placeholder="id">
 				</div>
+				
+				<label for="inputemail" class="col-sm-1 control-label" id="emailLabel">@</label>
+				<div class="col-md-1" id="inputEmail">
+					<input type="text" class="form-control" id="email"
+						placeholder="email">
+				</div>
+				
 			</div>
 			<div class="form-group">
 				<label for="inputPassword" class="col-sm-2 control-label">비밀번호</label>
@@ -52,21 +75,22 @@
 					재확인</label>
 				<div class="col-sm-3">
 					<input type="password" class="form-control" id="PasswordCheck"
-					placeholder="비밀번호 재확인">
+						placeholder="비밀번호 재확인">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputName" class="col-sm-2 control-label">이름</label>
 				<div class="col-sm-3">
 					<input type="text" class="form-control" id="inputName"
-					placeholder="가입자 성명">
+						placeholder="가입자 성명">
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="row">
-					<label for="inputName" class="col-sm-2 control-label">생년월일</label>
+					<label for="inputYear" class="col-sm-2 control-label">생년월일</label>
 					<div class="col-xs-1" id="year">
-						<input type="text" class="form-control" placeholder="년(4자)">
+						<input type="text" class="form-control" placeholder="년(4자)"
+							id="inputYear">
 					</div>
 					<div class="col-xs-1" id="month">
 						<select class="form-control" id="monthSelect">
@@ -104,7 +128,7 @@
 				<div class="row">
 					<label for="inputName" class="col-sm-2 control-label">전화번호</label>
 					<div class="col-xs-1" id="tel1">
-					<select class="form-control" id="monthSelect">
+						<select class="form-control" id="monthSelect">
 							<option selected="selected">010</option>
 							<option>011</option>
 							<option>016</option>
