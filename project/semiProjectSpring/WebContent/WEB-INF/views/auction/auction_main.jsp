@@ -193,7 +193,7 @@
 		  <div class="collapse navbar-collapse" id="navbarColor01">
 		    <ul class="navbar-nav mr-auto">
 		      <li class="nav-item active">
-		        <a class="nav-link" href="#">물건검색 <span class="sr-only">(current)</span></a>
+		        <a class="nav-link" href="#">물건검색<span class="sr-only">(current)</span></a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="#">판매관리</a>

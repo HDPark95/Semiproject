@@ -136,7 +136,7 @@ height: 600px;
 		</nav>
 		<form method="post" action="" enctype="multipart/form-data">
 			<div id="body" class="form-group">
-				<h2>부동산 등록</h2>
+				<h2>부동산 등록</h2> 
 				<div id="content">
 					<table>
 						<tbody>
