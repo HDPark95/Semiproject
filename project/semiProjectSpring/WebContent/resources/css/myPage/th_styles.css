@@ -179,6 +179,10 @@ table.type12 td {
  width: 25%;
 }
 
+.th_li_sub {
+ width: 50%;
+}
+
 .th_atwi{
 	
 	text-align: center; 
@@ -391,11 +395,60 @@ float: left; border: 1px solid; margin-right: 10px;
 	height: 36.49px;
 }
 
-.nav-link:hover{
+.th_infor_card{
+	
+	width: 460px; float: left;
+	margin-top: 25px;
+	margin-left:  50px;
+	margin-bottom: 25px;
+}
+
+
+.th_nav-link:hover{
 	
 }
-.nav-link:focus{
-	color: white;
+.th_nav-link:focus{
+	background-color: #778899;
+    border-color: #444 #444 transparent;
+	color: #fff;
+}
+.th_nav-link{
+	display: block ;
+	padding: 0.5rem 1rem;
+	
+
+}
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+   border: 1px solid #ddd;
+}
+
+ #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers td {
+	 padding: 8px;
+}
+
+#customers #management{
+	padding: 4px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #778899;
+  color: white;
 }
 
 
