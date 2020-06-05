@@ -2,7 +2,6 @@
 <%@ include file="../include/header_index.jsp"%>
  <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
 <%@ include file="../include/header_menu.jsp"%>
-
 <section class="contact-section bg-white">  
 	<div class="container">
 		<div id="map" class="col-lg-12" style="width: 100%; height: 820px;">
