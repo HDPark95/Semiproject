@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   
 
   </head>
     <body id="page-top">
          
           <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav2" >
-
          
          <div class="container col-md-12" >
          	
@@ -13,56 +13,55 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                  <ul class="navbar-nav ml-auto menu-other">
                         <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">강온유님 환영합니다.</a></li>
-
                       
                     </ul>
                   
                     <ul class="navbar-nav ml-auto2">
-
-
                        <li class="nav-item">
-	                       <a class="nav-link js-scroll-trigger" href="#">상가</a>
+	                       <a class="nav-link js-scroll-trigger" href="commercialMain">상가</a>
 	                      
 	                       <ul class="invisible sub-menu">
-		                       	<li>매물</li>
-		                       	<li>매물</li>
+		                       	<li><a>매물</a></li>
+		                       	<li><a>매물</a></li>
 		                       	<li><a href="product">매물</a></li>
 		                       	<li><a href="register">매물등록</a></li>
 	                       </ul>
                        </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="#">부동산</a>
+	                        <a class="nav-link js-scroll-trigger" href="estateMain">부동산</a>
 	                      
 	                        <ul class="invisible sub-menu">
-		                       		<li>매물</li>
-		                       	<li>매물</li>
-		                       	<li>매물</li>
-		                       	<li>매물등록</li>
+		                       		<li><a href="estateMain">매물</a></li>
+		                       	<li><a href="#">매물</a></li>
+		                       	<li><a href="#">매물</a></li>
+		                       	<li><a href="addestate">매물등록</a></li>
 	                       </ul>
                         </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="#">경매</a>
+	                        <a class="nav-link js-scroll-trigger" href="auctionMain">경매</a>
 	                        
 	                        <ul class="invisible sub-menu">
-		                       		<li>물건검색</li>
-		                       	<li>판매관리</li>
-		                       	<li>구매관리</li>
-		                       	<li>부동산등록</li>
-		                       	<li>경매정보</li>
+		                       		<li><a>물건검색</a></li>
+		                       	<li><a>판매관리</a></li>
+		                       	<li><a>구매관리</a></li>
+		                       	<li><a>부동산등록</a></li>
+		                       	<li><a>경매정보</a></li>
 	                       </ul>
                         </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="#">커뮤니티</a>
+	                        <a class="nav-link js-scroll-trigger" href="comuMain">커뮤니티</a>
 	                      
 	                        <ul class="invisible sub-menu">
-		                       	<li>매물</li>
-		                       	<li>매물</li>
-		                       	<li>매물</li>
-		                       	<li>매물등록</li>
+		                         	<li><a>매물</a></li>
+		                       	<li><a>매물</a></li>
+		                       	<li><a>매물</a></li>
+		                       	<li><a>매물등록</a></li>
 	                       </ul>
                         </li>
                         <li class="nav-item">
+
 	                        <a class="nav-link js-scroll-trigger menu-other" href="customer">고객센터</a>
+
 	                       
 	    
                         </li>
@@ -77,13 +76,13 @@
                         <li class="nav-item">
                        	 	<a class="nav-link js-scroll-trigger" href="#projects">로그아웃</a>
                         </li>
-
                     
                     </ul>
                    
                 </div>
                </div>
                <br>
+          
             </nav>
          <!--    <div class="row " style="margin-top: 80px; top: 80px;">
                  <div class="col-md-12 menu-top ">

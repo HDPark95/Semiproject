@@ -1,215 +1,223 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="../include/header_index.jsp"%>
- <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
+<link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
 <!--  <link href="resources/css/commercial/style.css?after" rel="stylesheet" /> -->
 <%@ include file="../include/header_menu.jsp"%>
-<section class="bg-white centered w-100% my-6">
-	<div id="container" style="width: 100%; margin: 0 auto; text-align: center; margin-left:200px"
-		class="centered mw-100">
-		<h3>상가/점포 상세정보</h3>
-		<div class="mw-100" id="regist">
-			<form action="" method="post" style="margin-left:200px;">
-				<div class="col-md-8 mb-4 mb-md-0 h-100">
-					<!-- <div class="card-body text-center"> -->
-					<h3 style="text-align: left">물건 정보</h3>
-					<div class="card py-4 h-100"
-						style="width: 100%; border-top: 0.25rem solid #64a19d; border-bottom: none;">
-						<table
-							style="text-align: left; margin: 0 auto; width: 100%; height: 375px;"  class="regist">
-							<tr>
-								<th>
-									<h3 class="text-uppercase m-0">소재지</h3>
-								<td colspan="3"><input type="text" id='zipNo' name="zipNo"
-									style="margin-bottom: 10px" disabled>
-									<button id="postcodify_search_button" onclick="goPopup();">검색</button>
-									<br /> <input type="text" id="roadAddrPart1"
-									name="roadAddrPart1" disabled style="width: 300px"> <input
-									type="text" id="addrDetail" name="addrDetail"></td>
-							</tr>
-							<tr>
-								<th>
-									<h3 class="text-uppercase m-0">물건 구분</h3>
-								<td><select id="law" style="width: 200px; height: 30px"><option>선택</option>
-										<option value="근린상가">근린상가</option>
-										<option value="단지내상가">단지내상가</option>
-										<option value="복합상가">복합상가</option>
-										<option value="일반상가">일반상가</option>
-										<option value="기타상가">기타상가</option>
-								</select></td>
-								<td><h3 class="text-uppercase m-0">매물 종류</h3></td>
-								<td><select id="law" style="width: 180px; height: 30px"><option>선택</option>
-										<option value="매매">매매</option>
-										<option value="전세">전세</option>
-										<option value="월세">월세</option>
-								</select></td>
-							</tr>
-							<tr>
-								<th>
-									<h3 class="text-uppercase m-0">상호상가</h3>
-								<td><input type="text" id="size" name="size"></td>
-								<td><h3 class="text-uppercase m-0">해당 층</h3></td>
-								<td><input type="text" id="size" name="size"></td>
-							</tr>
-							<tr>
-								<th>
-									<h3 class="text-uppercase m-0">면적</h3>
-								<td><input type="text" id="size" name="size"> 평</td>
-								<td><h3 class="text-uppercase m-0">실면적</h3></td>
-								<td><input type="text" id="size" name="size"> 평</td>
-							</tr>
-							<tr>
-								<th>
-									<h3 class="text-uppercase m-0">현업종</h3>
-								<td><input type="text" id="size" name="size"></td>
-								<td><h3 class="text-uppercase m-0">상가입차법</h3></td>
-								<td><select id="law" style="width: 200px; height: 30px"><option>선택</option>
-										<option value="1">대상</option>
-										<option value="0">비대상</option>
-								</select></td>
-							</tr>
-						</table>
-						<!-- <hr class="my-4" /> -->
-						<!-- <div class="small text-black-50">현두 담당</div> -->
-						<!-- </div> -->
-					</div>
-				</div>
-				<div class="col-md-8 mb-3 mb-md-0 h-100">
-					<h3 style="text-align: left">상권 정보</h3>
-					<div class="card py-4 h-100"
-						style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
-						<div class="card-body text-center h-100">
+<section class="contact-section ">
+	<section class="bg-white centered w-100% my-6">
+		<div id="container"
+			style="width: 100%; margin: 0 auto; text-align: center; margin-left: 200px"
+			class="centered mw-100">
+			<h3>상가/점포 상세정보</h3>
+			<div class="mw-100" id="regist">
+				<form action="" method="post" style="margin-left: 200px;">
+					<div class="col-md-8 mb-4 mb-md-0 h-100">
+						<!-- <div class="card-body text-center"> -->
+						<h3 style="text-align: left">물건 정보</h3>
+						<div class="card py-4 h-100"
+							style="width: 100%; border-top: 0.25rem solid #64a19d; border-bottom: none;">
 							<table
-								style="text-align: left; margin: 0 auto; width: 100%; height: 200px;"class="regist">
+								style="text-align: left; margin: 0 auto; width: 100%; height: 375px;"
+								class="regist">
 								<tr>
 									<th>
-										<h3 class="text-uppercase m-0">특징</h3>
-									<td colspan="3"><input type="text" id='feature'
-										name="feature" style="width: 370px; height: 40px;"></td>
+										<h3 class="text-uppercase m-0">소재지</h3>
+									<td colspan="3"><input type="text" id='zipNo' name="zipNo"
+										style="margin-bottom: 10px" disabled>
+										<button id="postcodify_search_button" onclick="goPopup();">검색</button>
+										<br /> <input type="text" id="roadAddrPart1"
+										name="roadAddrPart1" disabled style="width: 300px"> <input
+										type="text" id="addrDetail" name="addrDetail"></td>
 								</tr>
 								<tr>
 									<th>
-										<h3 class="text-uppercase m-0">주변 환경</h3>
-									<td><input type="text" id=""></td>
-									<td><h3 class="text-uppercase m-0">추천 업종</h3></td>
-									<td><select id="law"
-										style="width: 185px; height: 30px; margin-bottom: 10px;"><option>선택</option>
-											<option value="1">현업종과동일</option>
-											<option value="서비스업">서비스업</option>
-											<option value="학원/교육업">학원/교육업</option>
-											<option value="오락업">오락업</option>
-											<option value="음식점업">음식점업</option>
-											<option value="의류업">의류업</option>
-											<option value="자유업">자유업</option>
-											<option value="잡화점">잡화점</option>
-											<option value="전무점">전무점</option>
-											<option value="주류/유흥업">주류/유흥업</option>
-											<option value="병원/의료업">병원/의료업</option>
-											<option value="기타">기타</option>
-									</select> <br /> <input type="text" id=""></td>
+										<h3 class="text-uppercase m-0">물건 구분</h3>
+									<td><select id="law" style="width: 200px; height: 30px"><option>선택</option>
+											<option value="근린상가">근린상가</option>
+											<option value="단지내상가">단지내상가</option>
+											<option value="복합상가">복합상가</option>
+											<option value="일반상가">일반상가</option>
+											<option value="기타상가">기타상가</option>
+									</select></td>
+									<td><h3 class="text-uppercase m-0">매물 종류</h3></td>
+									<td><select id="law" style="width: 180px; height: 30px"><option>선택</option>
+											<option value="매매">매매</option>
+											<option value="전세">전세</option>
+											<option value="월세">월세</option>
+									</select></td>
+								</tr>
+								<tr>
+									<th>
+										<h3 class="text-uppercase m-0">상호상가</h3>
+									<td><input type="text" id="size" name="size"></td>
+									<td><h3 class="text-uppercase m-0">해당 층</h3></td>
+									<td><input type="text" id="size" name="size"></td>
+								</tr>
+								<tr>
+									<th>
+										<h3 class="text-uppercase m-0">면적</h3>
+									<td><input type="text" id="size" name="size"> 평</td>
+									<td><h3 class="text-uppercase m-0">실면적</h3></td>
+									<td><input type="text" id="size" name="size"> 평</td>
+								</tr>
+								<tr>
+									<th>
+										<h3 class="text-uppercase m-0">현업종</h3>
+									<td><input type="text" id="size" name="size"></td>
+									<td><h3 class="text-uppercase m-0">상가입차법</h3></td>
+									<td><select id="law" style="width: 200px; height: 30px"><option>선택</option>
+											<option value="1">대상</option>
+											<option value="0">비대상</option>
+									</select></td>
 								</tr>
 							</table>
+							<!-- <hr class="my-4" /> -->
+							<!-- <div class="small text-black-50">현두 담당</div> -->
+							<!-- </div> -->
 						</div>
 					</div>
-				</div>
-				<div class="col-md-8 mb-3 mb-md-0 h-100">
-					<h3 style="text-align: left">가격 정보</h3>
-					<span style="text-align: right; color: red;"> 해당부분이 없으면 0을
-						입력하세요.</span>
-					<div class="card py-12 h-auto"
-						style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
-						<div class="card-body text-center">
-							<table
-								style="text-align: left; margin: 0 auto; width: 810px; height: 200px;" class="regist">
-								<tr>
-									<th>
-										<h3 class="text-uppercase m-0">매매가</h3>
-									<td><input type="text" id='address' name="address">
-									</td>
-									<td><h3 class="text-uppercase m-0">전세가</h3></td>
-									<td><input type="text" id='address' name="address"></td>
-								</tr>
-								<tr>
-									<th>
-										<h3 class="text-uppercase m-0">보증금</h3>
-									<td><input type="text" id='address' name="address"></td>
-									<td><h3 class="text-uppercase m-0">월세</h3></td>
-									<td><input type="text" id='address' name="address"></td>
-								</tr>
-								<tr>
-									<th>
-										<h3 class="text-uppercase m-0">권리금</h3>
-									<td><input type="text" id='address' name="address"></td>
-									<td><h3 class="text-uppercase m-0">융자</h3></td>
-									<td><input type="text" id='address' name="address"></td>
-								</tr>
-							</table>
+					<div class="col-md-8 mb-3 mb-md-0 h-100">
+						<h3 style="text-align: left">상권 정보</h3>
+						<div class="card py-4 h-100"
+							style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
+							<div class="card-body text-center h-100">
+								<table
+									style="text-align: left; margin: 0 auto; width: 100%; height: 200px;"
+									class="regist">
+									<tr>
+										<th>
+											<h3 class="text-uppercase m-0">특징</h3>
+										<td colspan="3"><input type="text" id='feature'
+											name="feature" style="width: 370px; height: 40px;"></td>
+									</tr>
+									<tr>
+										<th>
+											<h3 class="text-uppercase m-0">주변 환경</h3>
+										<td><input type="text" id=""></td>
+										<td><h3 class="text-uppercase m-0">추천 업종</h3></td>
+										<td><select id="law"
+											style="width: 185px; height: 30px; margin-bottom: 10px;"><option>선택</option>
+												<option value="1">현업종과동일</option>
+												<option value="서비스업">서비스업</option>
+												<option value="학원/교육업">학원/교육업</option>
+												<option value="오락업">오락업</option>
+												<option value="음식점업">음식점업</option>
+												<option value="의류업">의류업</option>
+												<option value="자유업">자유업</option>
+												<option value="잡화점">잡화점</option>
+												<option value="전무점">전무점</option>
+												<option value="주류/유흥업">주류/유흥업</option>
+												<option value="병원/의료업">병원/의료업</option>
+												<option value="기타">기타</option>
+										</select> <br /> <input type="text" id=""></td>
+									</tr>
+								</table>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-8 mb-3 mb-md-0 h-100">
-					<h3 style="text-align: left">담당자 정보</h3>
-					<div class="card py-4 h-auto"
-						style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
-						<div class="card-body text-center">
-							<table
-								style="text-align: left; margin: 0 auto; width: 800px; height: 100px;" class="regist">
-								<tr>
-									<th>
-										<h3 class="text-uppercase m-0">이름</h3>
-									</th>
-									<td><input type="text" id='managerName' name="managerName">
-									</td>
-									<th><h3 class="text-uppercase m-0">휴대전화번호</h3></th>
-									<td><select name="phoneIdx" id="phoneIdx"
-										style="height: 30px">
-											<option>선택</option>
-											<option value="010">010</option>
-											<option value="011">011</option>
-											<option value="016">016</option>
-											<option value="017">017</option>
-											<option value="018">018</option>
-											<option value="019">019</option>
-									</select> - <input type="tel" id='managerPhone' name="managerPhone"
-										style="width: 100px">- <input type="tel"
-										id='managerPhone' name="managerPhone" style="width: 100px">
-									</td>
-								</tr>
-								<tr>
-									<th>
-										<h3 class="text-uppercase m-0">이메일</h3>
-									<td><input type="email" id="email"></td>
-									<th><h3 class="text-uppercase m-0">전화</h3></th>
-									<td><select name="" id="" class="stx" style="height: 30px">
-											<option>선택</option>
-											<option value="02">02</option>
-											<option value="031">031</option>
-											<option value="032">032</option>
-											<option value="033">033</option>
-											<option value="041">041</option>
-											<option value="042">042</option>
-											<option value="043">043</option>
-											<option value="051">051</option>
-											<option value="052">052</option>
-											<option value="053">053</option>
-											<option value="054">054</option>
-											<option value="055">055</option>
-											<option value="061">061</option>
-											<option value="062">062</option>
-											<option value="063">063</option>
-											<option value="064">064</option>
-											<option value="070">070</option>
-											<option value="050">050</option>
-									</select> - <input type="tel" id='managerPhone2' name="managerPhone2"
-										style="width: 100px">- <input type="tel"
-										id='managerPhone2' name="managerPhone2" style="width: 100px"></td>
-								</tr>
-							</table>
+					<div class="col-md-8 mb-3 mb-md-0 h-100">
+						<h3 style="text-align: left">가격 정보</h3>
+						<span style="text-align: right; color: red;"> 해당부분이 없으면 0을
+							입력하세요.</span>
+						<div class="card py-12 h-auto"
+							style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
+							<div class="card-body text-center">
+								<table
+									style="text-align: left; margin: 0 auto; width: 810px; height: 200px;"
+									class="regist">
+									<tr>
+										<th>
+											<h3 class="text-uppercase m-0">매매가</h3>
+										<td><input type="text" id='address' name="address">
+										</td>
+										<td><h3 class="text-uppercase m-0">전세가</h3></td>
+										<td><input type="text" id='address' name="address"></td>
+									</tr>
+									<tr>
+										<th>
+											<h3 class="text-uppercase m-0">보증금</h3>
+										<td><input type="text" id='address' name="address"></td>
+										<td><h3 class="text-uppercase m-0">월세</h3></td>
+										<td><input type="text" id='address' name="address"></td>
+									</tr>
+									<tr>
+										<th>
+											<h3 class="text-uppercase m-0">권리금</h3>
+										<td><input type="text" id='address' name="address"></td>
+										<td><h3 class="text-uppercase m-0">융자</h3></td>
+										<td><input type="text" id='address' name="address"></td>
+									</tr>
+								</table>
+							</div>
 						</div>
 					</div>
-				</div>
-				<textarea
-					style="resize: none; width: 1100px; height: 520px; margin-right: 1200px;"
-					readonly class="mt-3"> 세미프로젝트는 정보통신부에서시행하는 정보통신망 이용촉진 등에 관한 법률상의 개인정보 보호제도에 따라 회원들의 개인정보 관리에 만전을 기하고 있으며 회원들이 마인애드의 모든 서비스를 안심하고 이용할수 있도록 하기 위해 항상 최선을 다하고 있습니다. 정부의 관련 법률 및 지침의 변경, 또는 마인애드의 정책 변화에 따라 개인정보보호정책은 임의로 변경될 수 있으니 사용자 보호 정책에 관심을 가지고 수시로 확인해주시기 바랍니다.
+					<div class="col-md-8 mb-3 mb-md-0 h-100">
+						<h3 style="text-align: left">담당자 정보</h3>
+						<div class="card py-4 h-auto"
+							style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
+							<div class="card-body text-center">
+								<table
+									style="text-align: left; margin: 0 auto; width: 800px; height: 100px;"
+									class="regist">
+									<tr>
+										<th>
+											<h3 class="text-uppercase m-0">이름</h3>
+										</th>
+										<td><input type="text" id='managerName'
+											name="managerName"></td>
+										<th><h3 class="text-uppercase m-0">휴대전화번호</h3></th>
+										<td><select name="phoneIdx" id="phoneIdx"
+											style="height: 30px">
+												<option>선택</option>
+												<option value="010">010</option>
+												<option value="011">011</option>
+												<option value="016">016</option>
+												<option value="017">017</option>
+												<option value="018">018</option>
+												<option value="019">019</option>
+										</select> - <input type="tel" id='managerPhone' name="managerPhone"
+											style="width: 100px">- <input type="tel"
+											id='managerPhone' name="managerPhone" style="width: 100px">
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<h3 class="text-uppercase m-0">이메일</h3>
+										<td><input type="email" id="email"></td>
+										<th><h3 class="text-uppercase m-0">전화</h3></th>
+										<td><select name="" id="" class="stx"
+											style="height: 30px">
+												<option>선택</option>
+												<option value="02">02</option>
+												<option value="031">031</option>
+												<option value="032">032</option>
+												<option value="033">033</option>
+												<option value="041">041</option>
+												<option value="042">042</option>
+												<option value="043">043</option>
+												<option value="051">051</option>
+												<option value="052">052</option>
+												<option value="053">053</option>
+												<option value="054">054</option>
+												<option value="055">055</option>
+												<option value="061">061</option>
+												<option value="062">062</option>
+												<option value="063">063</option>
+												<option value="064">064</option>
+												<option value="070">070</option>
+												<option value="050">050</option>
+										</select> - <input type="tel" id='managerPhone2' name="managerPhone2"
+											style="width: 100px">- <input type="tel"
+											id='managerPhone2' name="managerPhone2" style="width: 100px"></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<textarea
+						style="resize: none; width: 1100px; height: 520px; margin-right: 1200px;"
+						readonly class="mt-3"> 세미프로젝트는 정보통신부에서시행하는 정보통신망 이용촉진 등에 관한 법률상의 개인정보 보호제도에 따라 회원들의 개인정보 관리에 만전을 기하고 있으며 회원들이 마인애드의 모든 서비스를 안심하고 이용할수 있도록 하기 위해 항상 최선을 다하고 있습니다. 정부의 관련 법률 및 지침의 변경, 또는 마인애드의 정책 변화에 따라 개인정보보호정책은 임의로 변경될 수 있으니 사용자 보호 정책에 관심을 가지고 수시로 확인해주시기 바랍니다.
 
 			1.회원의 개인정보 수집목적 및 이용
 당사는 이용자 확인, 이용대금 결제, 상품 배송 및 통계 분석을 통한 마케팅자료로써 귀하의 취향에 맞는 최적의 서비스를 제공하기 위한 목적으로 귀하의 개인정보를 수집 이용하고 있습니다. 당사 회원으로 등록하신 모든 고객의 개인정보는 위에서 밝힌 목적 이외에는 절대로 사용될 수 없으나, 회원 개인정보의 사용 목적과 용도가 변경될 경우에 반드시 당사 회원으로 등록하신 모든 고객님께 동의를 구할 것입니다.
@@ -263,13 +271,15 @@
 이상의 당사의 개인정보 보호정책은 사이트 오픈과 동시에 시행합니다.
 당사는 개인정보 보호 관리책임자를 아래와 같이 지정합니다.
 			</textarea>
-				<br> <span style="position:relative;right:300px"><input type="checkbox" id="agree" style="left:0"> 개인정보 수집 및 이용동의에
-				관한 사항을 읽었으며, 이에 동의합니다. </span>
-			</form>
-			<input type="submit" class="btn" id="submission" value="매물등록" style="position:relative;right:150px">
+					<br> <span style="position: relative; right: 300px"><input
+						type="checkbox" id="agree" style="left: 0"> 개인정보 수집 및
+						이용동의에 관한 사항을 읽었으며, 이에 동의합니다. </span>
+				</form>
+				<input type="submit" class="btn" id="submission" value="매물등록"
+					style="position: relative; right: 150px">
+			</div>
 		</div>
-	</div>
+	</section>
 </section>
-
 <%@ include file="sidemenu2.jsp"%>
 <%@ include file="../include/footer.jsp"%>
