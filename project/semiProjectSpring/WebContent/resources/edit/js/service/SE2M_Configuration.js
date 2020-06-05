@@ -1,4 +1,4 @@
-/*
+UTF-8/*
 Copyright (C) NAVER corp.  
 
 This library is free software; you can redistribute it and/or  
