@@ -311,10 +311,11 @@ function jusopop(){
 	var pop = window.open("resources/jusopopup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes");
 }	
 
-function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
-document.getElementById("bzipcode").value = zipNo; 
-document.getElementById("baddra").value = roadFullAddr;
-document.getElementById("baddrb").value = addrDetail;
+function jusocall(zipNo,roadFullAddr,addrDetail){
+	document.getElementById("bzipcode").value = zipNo;
+	document.getElementById("baddra").value = roadFullAddr;
+	document.getElementById("baddrb").value = addrDetail;
 }
+
 </script>
 <%@ include file="../include/footer.jsp"%>

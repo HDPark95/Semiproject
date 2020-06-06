@@ -5,8 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <% 
-	//request.setCharacterEncoding("UTF-8");  //한글깨지면 주석제거
-	request.setCharacterEncoding("EUC-KR");  //해당시스템의 인코딩타입이 EUC-KR일경우에
+	request.setCharacterEncoding("UTF-8");  //한글깨지면 주석제거
+	//request.setCharacterEncoding("EUC-KR");  //해당시스템의 인코딩타입이 EUC-KR일경우에
 	String inputYn = request.getParameter("inputYn"); 
 	String roadFullAddr = request.getParameter("roadFullAddr"); 
 	String roadAddrPart1 = request.getParameter("roadAddrPart1"); 
@@ -40,7 +40,7 @@
 </head>
 <script language="javascript">
 // opener관련 오류가 발생하는 경우 아래 주석을 해지하고, 사용자의 도메인정보를 입력합니다. ("주소입력화면 소스"도 동일하게 적용시켜야 합니다.)
-//document.domain = "abc.go.kr";
+document.domain = "loclahost:8081/semiProjectSpring";
 
 /*
 		모의 해킹 테스트 시 팝업API를 호출하시면 IP가 차단 될 수 있습니다. 
@@ -60,7 +60,7 @@ function init(){
 		//document.form.action="http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do"; //모바일 웹인 경우, 인터넷망
 		document.form.submit();
 	}else{
-		opener.jusoCallBack("<%=roadFullAddr%>","<%=roadAddrPart1%>","<%=addrDetail%>","<%=roadAddrPart2%>","<%=engAddr%>","<%=jibunAddr%>","<%=zipNo%>", "<%=admCd%>", "<%=rnMgtSn%>", "<%=bdMgtSn%>", "<%=detBdNmList%>", "<%=bdNm%>", "<%=bdKdcd%>", "<%=siNm%>", "<%=sggNm%>", "<%=emdNm%>", "<%=liNm%>", "<%=rn%>", "<%=udrtYn%>", "<%=buldMnnm%>", "<%=buldSlno%>", "<%=mtYn%>", "<%=lnbrMnnm%>", "<%=lnbrSlno%>", "<%=emdNo%>");
+		opener.jusocall("<%=zipNo%>","<%=roadFullAddr%>","<%=addrDetail%>");
 		window.close();
 		}
 }
@@ -71,7 +71,7 @@ function init(){
 		<input type="hidden" id="returnUrl" name="returnUrl" value=""/>
 		<input type="hidden" id="resultType" name="resultType" value=""/>
 		<!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 START--> 
-		<input type="hidden" id="encodingType" name="encodingType" value="EUC-KR"/>
+		<!--<input type="hidden" id="encodingType" name="encodingType" value="UTF-8"/>-->
 		<!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 END-->
 	</form>
 </body>
