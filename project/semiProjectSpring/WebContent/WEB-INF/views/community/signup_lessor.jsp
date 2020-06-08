@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%@ include file="../include/header_index.jsp"%>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link href="resources/css/community/signup_lessor.css" rel="stylesheet">
+<link href="resources/css/community/signup_broker.css" rel="stylesheet">
 <%@ include file="../include/header_menu.jsp"%>
 <style>
 #projects {
@@ -14,17 +15,32 @@
 	margin: 0 auto;
 	margin-bottom: 150px;
 }
-#tel1{
+
+#tel1,#dbirth1 {
 	padding-left: 16px;
 }
-#tel2{
+
+#tel2,#dbirth2 {
 	padding-left: 0px;
 	padding-right: 20px;
 }
-#tel3{
+
+#tel3,#dbirth3 {
 	padding-left: 0px;
 	padding-right: 20px;
 	right: 15px;
+}
+#aidheader {
+	width: 110px;
+}
+
+#emailLabel {
+	width: 20px;
+	margin-left: 20px;
+}
+
+#aidfooter {
+	width: 110px;
 }
 </style>
 <h1>로고</h1>
@@ -32,18 +48,24 @@
 <h4>임대인 회원가입</h4>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
-		<form class="form-horizontal" autocomplete="off">
-			<div class="form-group">
-				<label for="inputEmail" class="col-sm-2 control-label">아이디</label>
-				<div class="col-sm-3">
-					<input type="email" class="form-control" id="inputEmail"
-						placeholder="Email">
+		<form method="post" action="signup_lessor_in" class="form-horizontal" autocomplete="off">
+			<div class="form-group" id="aid">
+				<label for="aidheader" class="col-sm-2 control-label">아이디</label>
+				<div class="col-md-1" id="inputidheader">
+					<input type="text" class="form-control" id="aidheader" name="aidheader"
+						placeholder="id" maxlength="20">
+				</div>
+				<label for="aidfooter" class="col-sm-1 control-label"
+					id="emailLabel">@</label>
+				<div class="col-md-1" id="inputidfooter">
+					<input type="text" class="form-control" id="aidfooter" name="aidfooter"
+						placeholder="email" maxlength="30">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="inputPassword" class="col-sm-2 control-label">비밀번호</label>
+				<label for="apwd" class="col-sm-2 control-label">비밀번호</label>
 				<div class="col-sm-3">
-					<input type="password" class="form-control" id="inputPassword"
+					<input type="password" class="form-control" id="apwd" name="apwd"
 						placeholder="영문+숫자,8자 이상">
 				</div>
 			</div>
@@ -52,48 +74,50 @@
 					재확인</label>
 				<div class="col-sm-3">
 					<input type="password" class="form-control" id="PasswordCheck"
-					placeholder="비밀번호 재확인">
+						placeholder="비밀번호 재확인">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="inputName" class="col-sm-2 control-label">이름</label>
+				<label for="dname" class="col-sm-2 control-label">이름/회사명</label>
 				<div class="col-sm-3">
-					<input type="text" class="form-control" id="inputName"
-					placeholder="가입자 성명">
+					<input type="text" class="form-control" id="dname" name="dname"
+						placeholder="가입자 성명 또는 회사명">
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="row">
 					<label for="inputName" class="col-sm-2 control-label">생년월일</label>
-					<div class="col-xs-1" id="year">
-						<input type="text" class="form-control" placeholder="년(4자)">
+					<div class="col-xs-1" id="dbirth1">
+						<input type="text" class="form-control" placeholder="년(4자)" 
+						id="dyear" name="dyear" maxlength="4">
 					</div>
-					<div class="col-xs-1" id="month">
-						<select class="form-control" id="monthSelect">
+					<div class="col-xs-1" id="dbirth2">
+						<select class="form-control" id="dmonth" name="dmonth">
 							<option selected="selected">월</option>
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-							<option>6</option>
-							<option>7</option>
-							<option>8</option>
-							<option>9</option>
+							<option>01</option>
+							<option>02</option>
+							<option>03</option>
+							<option>04</option>
+							<option>05</option>
+							<option>06</option>
+							<option>07</option>
+							<option>08</option>
+							<option>09</option>
 							<option>10</option>
 							<option>11</option>
 							<option>12</option>
 						</select>
 					</div>
-					<div class="col-xs-1" id="day">
-						<input type="text" class="form-control" placeholder="일">
+					<div class="col-xs-1" id="dbirth3">
+						<input type="text" class="form-control" placeholder="일"
+						id="dday" name="dday" maxlength="2">
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputName" class="col-sm-2 control-label">성별</label>
 				<div class="col-sm-3">
-					<select class="form-control" id="genderSelect">
+					<select class="form-control" id="dgender" name="dgender">
 						<option selected="selected">성별</option>
 						<option>남자</option>
 						<option>여자</option>
@@ -102,9 +126,9 @@
 			</div>
 			<div class="form-group">
 				<div class="row">
-					<label for="inputName" class="col-sm-2 control-label">전화번호</label>
+					<label for="dtelheader" class="col-sm-2 control-label">전화번호</label>
 					<div class="col-xs-1" id="tel1">
-					<select class="form-control" id="monthSelect">
+						<select class="form-control" id="dtelheader" name="dtelheader">
 							<option selected="selected">010</option>
 							<option>011</option>
 							<option>016</option>
@@ -114,10 +138,10 @@
 						</select>
 					</div>
 					<div class="col-xs-1" id="tel2">
-						<input type="text" class="form-control">
+						<input type="text" class="form-control" id="dtelmiddle" name="dtelmiddle" maxlength="4">
 					</div>
 					<div class="col-xs-1" id="tel3">
-						<input type="text" class="form-control">
+						<input type="text" class="form-control" id="dtelfooter" name="dtelfooter" maxlength="4">
 					</div>
 				</div>
 			</div>
@@ -125,10 +149,10 @@
 				<div class="col-sm-offset-2 col-sm-10" id="signup">
 					<button type="button" class="btn btn-secondary btn-lg"
 						onclick="location = 'login'">취소</button>
-					<button type="submit" class="btn btn-success btn-lg"
-						onclick="location = 'subLessor'">확인</button>
+					<button type="submit" class="btn btn-success btn-lg">확인</button>
 				</div>
 			</div>
+			<input type="hidden" id="agubun" name="agubun" value="임대인">
 		</form>
 	</div>
 </section>
