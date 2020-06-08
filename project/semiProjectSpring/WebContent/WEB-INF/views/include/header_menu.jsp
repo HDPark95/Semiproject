@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    
 
   </head>
@@ -12,7 +13,7 @@
                 <a class="navbar-brand js-scroll-trigger menu-other" href="index">메인메뉴테스트</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                  <ul class="navbar-nav ml-auto menu-other">
-                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">${user.aid}님 환영합니다.</a></li>
+                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger"  >${user.aid}님 환영합니다.</a></li>
                                             </ul>                  
                     <ul class="navbar-nav ml-auto2">
                        <li class="nav-item">
@@ -64,7 +65,15 @@
                     </ul>
                       <ul class="navbar-nav ml-auto2 menu-other">
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="mypage">내정보</a>
+                       	<c:choose>
+                       	<c:when test="${user.agubun eq '공인중개사'}">
+                       	<a class="nav-link js-scroll-trigger" href="/mypage_broker">내정보</a>
+                       	</c:when>
+                         <c:otherwise>
+                         <a class="nav-link js-scroll-trigger" href="mypage_lessor?aid=${user.aid }" >내정보</a>
+                         </c:otherwise>
+                       </c:choose>
+	                   
 	                        <input type="hidden" value="mypage">
                         </li>
                         <li class="nav-item">

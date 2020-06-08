@@ -9,7 +9,7 @@
 	
 	<div class="tab-pane  th_page_space  fade show active "
 			style="text-align: center; margin-top: 200px;" id="a">
-<h4 class="subtopma">${vo.name } 님의 회원 정보 입니다.</h4>
+<h4 class="subtopma">${vo.mname } 님의 회원 정보 입니다.</h4>
 
 <div class="container" >
 	<form class="form-horizontal" action="inforDetailUpdate" method="post">
@@ -17,20 +17,20 @@
 			<label for="inputEmail" class="col-sm-2 control-label">아이디</label>
 			<div class="col-sm-3 container">
 				<input type="email" class="form-control" name="id"
-					placeholder="" readonly="readonly" value="${vo.id }">
+					placeholder="" readonly="readonly" value="${vo.sid }">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="inputPassword" class="col-sm-2 control-label">비밀번호</label>
 			<div class="col-sm-3 container">
 				<input type="password" class="form-control" name="pwd"
-					placeholder="Password"  value="${vo.pwd }">
+					placeholder="Password"  value="${vo.spwd }">
 			</div> 
 		</div>
 		<div class="form-group">
 			<label for="inputName" class="col-sm-2 control-label">이메일</label>
 			<div class="col-sm-3 container">
-				<input type="text" class="form-control" name="email"  value="${vo.email }">
+				<input type="text" class="form-control" name="email"  value="${vo.sid }">
 			</div>
 		</div>
 		<div class="form-group">

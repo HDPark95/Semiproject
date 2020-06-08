@@ -13,6 +13,12 @@
 			alias="commercial" />
 		<typeAlias type="semiproject.mvc.vo.MyPageVO"
 			alias="mypagevo" />
+		<typeAlias type="semiproject.mvc.vo.SignupVO"
+			alias="signupvo" />
+		<typeAlias type="semiproject.mvc.vo.Member_DetailVO"
+			alias="member_detailvo" />
+		<typeAlias type="semiproject.mvc.vo.Payment_DetailVO"
+			alias="payment_detailvo" />
 		<typeAlias type="semiproject.mvc.vo.PaymentVO"
 			alias="paymentvo" />
 		<typeAlias type="semiproject.mvc.vo.AuctionAddMainVO"

@@ -52,7 +52,21 @@
 	</div>
 
 </section>
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	$(function() {
+		$('#infor_memberdetail2').click(function() {
+			$.ajax({
+				url : "http://localhost:8080/semiProjectSpring/inforDetail" ,
+				type : "post" ,
+				data : {aid : "${vo.aid }"},
+				success : function(result) {
+					$('#infor_memberdetail1').html(result);
+				}
+			});
+		});
+	});
+</script>
 
 
 <%@ include file="../include/footer.jsp"%>
