@@ -35,22 +35,14 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">welcomback!</h1>
                   </div>
-                  <form class="user">
+                  <form action="loginPost" method="post">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="id를 입력해주세요.">
+                      <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" name="aid" placeholder="id를 입력해주세요.">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="비밀번호를 입력해주세요.">
+                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="apwd" placeholder="비밀번호를 입력해주세요.">
                     </div>
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">아이디를 기억하시겠습니까?</label>
-                      </div>
-                    </div>
-                    <a href="semi.Project?page=index#footerMenu" class="btn btn-primary btn-user btn-block">
-                      Login
-                    </a>
+                    <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">
 <!--                     <hr> -->
 <!--                     <a href="index.html" class="btn btn-google btn-user btn-block"> -->
 <!--                       <i class="fab fa-google fa-fw"></i> Login with Google -->
