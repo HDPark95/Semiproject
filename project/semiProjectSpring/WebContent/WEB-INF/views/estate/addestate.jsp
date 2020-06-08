@@ -23,11 +23,11 @@
 	            					</td>
 	            					<td >
 	            					  	<div class="seleted-div">
-	            						<span class="square build" onclick="changeSelect(0)">원룸 </span> 
-	            						<span class="square build"  onclick="changeSelect(1)">투룸</span> 
-	            						<span class="square build"  onclick="changeSelect(2)"> 쓰리룸</span> 
-	            						<span class="square build"  onclick="changeSelect(3)">오피스텔(도시형)</span> 
-	            						<span class="square build"  onclick="changeSelect(4)">아파트</span>
+	            						<span class="square build false" onclick="changeSelect(0)">원룸 </span> 
+	            						<span class="square build false"  onclick="changeSelect(1)">투룸</span> 
+	            						<span class="square build false"  onclick="changeSelect(2)"> 쓰리룸</span> 
+	            						<span class="square build false"  onclick="changeSelect(3)">오피스텔(도시형)</span> 
+	            						<span class="square build false"  onclick="changeSelect(4)">아파트</span>
 	            						</div> 
 	            					</td>
 	            				</tr>
@@ -37,10 +37,10 @@
 	            					</td>
 	            					<td>
 	            						  	<div class="seleted-div">
-	            						<span class="square sub-build"  onclick="clicksub(0,'sub-build')">단독</span>
-	            						<span class="square sub-build" onclick="clicksub(1,'sub-build')">다가구 </span>
-	            						<span class="square sub-build" onclick="clicksub(2,'sub-build')">빌라/연립/다세대</span>
-	            						<span class="square sub-build" onclick="clicksub(3,'sub-build')">상가주택</span>
+	            						<span class="square sub-build false"  onclick="clicksub(0,'sub-build')">단독</span>
+	            						<span class="square sub-build  false" onclick="clicksub(1,'sub-build')">다가구 </span>
+	            						<span class="square sub-build  false" onclick="clicksub(2,'sub-build')">빌라/연립/다세대</span>
+	            						<span class="square sub-build  false" onclick="clicksub(3,'sub-build')">상가주택</span>
 	            						</div>
 	            					</td>
 	            				</tr>
@@ -81,10 +81,10 @@
 	            					</td>
 	            					<td >
 	            							<div class="seleted-div col-md-12">
-	            							<span class="square charter" onclick="rent(1)">전세</span>
-	            							<span class="square" onclick="rent(2)">월세</span>
-	            								<span class="square" onclick="rent(3)">매매</span>
-	            							<span class="square deal" onclick="deal()">단기가능</span>
+		            							<span class="square charter rent" onclick="rent(1)">전세</span>
+		            							<span class="square rent" onclick="rent(2)">월세</span>
+		            							<span class="square rent" onclick="rent(3)">매매</span>
+		            							<span class="square deal rent" onclick="deal()">단기가능</span>
 	            							</div>
 	            							<div class="col-md-12">
 	            							<div class="rent-input  col-md-12">
@@ -108,7 +108,7 @@
 	            					</td>
 	            					<td >
 	            						<div class="col-md-12 " style="margin-top: 20px;">
-	            							<label class="add-page">공급면적 <input type="text" id="supply" onkeydown="startSuggest(1)" class="add-page">평
+	            							<label class="add-page">공급면적 <input type="text" id="supply"  onkeydown="startSuggest(1)" class="add-page">평
 	            							<input type="text" id="supply-area"class="add-page">㎡</label>
 	            						</div>
 	            						<hr>
@@ -123,7 +123,7 @@
 	            					<div class="col-md-12 ">
 	            					
 	            						<label class="add-page">건물층수</label>
-	            							<select class="add-page">
+	            							<select class="add-page floor">
 	            								<option value="0">건물층수선택</option>
 	            								<c:forEach begin="1" end="20" step="1" var="i">
 	            									<option value="${i}">${i }층</option>
@@ -133,7 +133,7 @@
 	            						<hr>
 	            						<div class="col-md-12 " >
 	            							<label class="add-page">해당층수</label>
-	            							<select class="add-page">
+	            							<select class="add-page my-floor">
 	            								<option value="0">건물층수선택</option>
 	            								<option value="-1">반지층</option>
 	            								<option value="99">옥탑</option>
@@ -150,7 +150,7 @@
 	            					</td>
 	            					<td colspan="3">
 	            					<div class="col-md-12 " >
-	            						<select class="float-left">
+	            						<select class="float-left heating">
 	            							<option selected="selected">난방종류 선택</option>
 	            							<option>중앙난방</option>
 	            							<option>개별난방</option>
@@ -165,9 +165,9 @@
 	            					</td>
 	            					<td colspan="3">
 	            						<div class="seleted-div">
-	            						<span class="square move-in" onclick="clicksub(0,'move-in')">즉시입주</span> 
-	            						<span class="square move-in" onclick="clicksub(1,'move-in')">날짜협의 </span>
-	            						<span class="square move-in" onclick="clicksub(2,'move-in')">날짜선택</span>
+	            						<span class="square move-in  false" onclick="clicksub(0,'move-in')">즉시입주</span> 
+	            						<span class="square move-in  false" onclick="clicksub(1,'move-in')">날짜협의 </span>
+	            						<span class="square move-in  false" onclick="clicksub(2,'move-in')">날짜선택</span>
 	            						</div>
 	            					</td>
 	            				</tr>
@@ -185,17 +185,17 @@
 	            					<td colspan="3" >
 	            					
 	            						<div class="col-md-12 ">
-	            							<input type="text" class="address-search">만원 
+	            							<input type="text" class="input-val adminpay" value="0" class="address-search">만원 
 	            						</div>
 	            						<hr>
 	            						<div class="col-md-12 text-left">
 	            						<label>관리비항목 (다중선택가능) :</label>
-	            							<span class="square administrative" onclick="clicksub(0,'administrative')">인터넷</span>
-	            							<span class="square administrative" onclick="clicksub(1,'administrative')">유선TV</span>
-	            							<span class="square administrative" onclick="clicksub(2,'administrative')">청소비</span>
-	            							<span class="square administrative" onclick="clicksub(3,'administrative')">수도세</span>
-	            							<span class="square administrative" onclick="clicksub(4,'administrative')">도시가스</span>
-	            							<span class="square administrative" onclick="clicksub(5,'administrative')">전기세</span>
+	            							<span class="square administrative false" onclick="clicksub(0,'administrative')">인터넷</span>
+	            							<span class="square administrative false" onclick="clicksub(1,'administrative')">유선TV</span>
+	            							<span class="square administrative false" onclick="clicksub(2,'administrative')">청소비</span>
+	            							<span class="square administrative false" onclick="clicksub(3,'administrative')">수도세</span>
+	            							<span class="square administrative false" onclick="clicksub(4,'administrative')">도시가스</span>
+	            							<span class="square administrative false" onclick="clicksub(5,'administrative')">전기세</span>
 	            						</div>
 	            				
 	            					</td>
@@ -208,7 +208,7 @@
 	            						<div class="seleted-div">
 	            						<span class="square parking" onclick="clickpark(0)">가능</span>
 	            						<span class="square parking" onclick="clickpark(1)">불가능</span>
-	            						<input type="text" id="pamount" disabled="disabled" > 만원
+	            						<input type="text" id="pamount" class="input-val"  disabled="disabled" value="0" > 만원
 	            						</div>
 	            					
 	            					</td>
@@ -217,8 +217,8 @@
 	            					</td>
 	            					<td>
 	            					<div class="seleted-div">
-	            						<span class="square pets false" onclick="clicksubto(0,'pets')">가능</span>
-	            						<span class="square pets false" onclick="clicksubto(1,'pets')">불가능</span>
+		            						<span class="square pets false" onclick="clicksubto(0,'pets')">가능</span>
+		            						<span class="square pets false" onclick="clicksubto(1,'pets')">불가능</span>
 	            						</div>
 	            					</td>
 	            				</tr>
@@ -237,8 +237,8 @@
 	            					</td>
 	            					<td>
 	            						<div class="seleted-div">
-	            						<span class="square balcony false"  onclick="clicksubto(0,'balcony')">있음</span>
-	            						<span class="square balcony false"  onclick="clicksubto(1,'balcony')">없음</span>
+		            						<span class="square balcony false"  onclick="clicksubto(0,'balcony')">있음</span>
+		            						<span class="square balcony false"  onclick="clicksubto(1,'balcony')">없음</span>
 	            						</div>
 	            					</td>
 	            				</tr>
@@ -249,17 +249,17 @@
 	            					</td>
 	            					<td>
 	            						<div class="seleted-div">
-	            						<span class="square built false" onclick="clicksubto(0,'built')">있음</span>
-	            						<span class="square built false"onclick="clicksubto(1,'built')" >없음</span>
+		            						<span class="square built false" onclick="clicksubto(0,'built')">있음</span>
+		            						<span class="square built false"onclick="clicksubto(1,'built')" >없음</span>
 	            						</div>
 	            					</td>
 	            					<td >
 	            						구조
 	            					</td>
 	            					<td>
-	            							<div class="seleted-div">
-	            						<span class="square structure false" onclick="clicksub(0,'structure')">복층</span>
-	            						<span class="square structure false" onclick="clicksub(1,'structure')">1.5룸/주방분리형</span>
+	            						<div class="seleted-div">
+			            						<span class="square structure false" onclick="clicksub(0,'structure')">복층</span>
+			            						<span class="square structure false" onclick="clicksub(1,'structure')">1.5룸/주방분리형</span>
 	            						</div>
 	            					</td>
 	            				</tr>
@@ -269,19 +269,19 @@
 	            					</td>
 	            					<td colspan="3">
 	            						<div class="seleted-div">
-	            					<span class="square option " onclick="clicksub(0,'option')">에어컨</span>
-	            					<span class="square option" onclick="clicksub(1,'option')">세탁기</span>
-	            					<span class="square option" onclick="clicksub(2,'option')">침대</span>
-	            					<span class="square option" onclick="clicksub(3,'option')">책상</span>
-	            					<span class="square option" onclick="clicksub(4,'option')">옷장</span>
-	            					<span class="square option" onclick="clicksub(5,'option')">TV</span>
-	            					<span class="square option" onclick="clicksub(6,'option')">신발장</span>
-	            					<span class="square option" onclick="clicksub(7,'option')">냉장고</span>
-	            					<span class="square option" onclick="clicksub(8,'option')">가스레인지</span>
-	            					<span class="square option" onclick="clicksub(9,'option')">인덕션</span>
-	            					<span class="square option" onclick="clicksub(10,'option')">전자레인지</span>
-	            					<span class="square option" onclick="clicksub(11,'option')">전자 도어락</span>
-	            					<span class="square option" onclick="clicksub(12,'option')">비데</span>
+			            					<span class="square option false" onclick="clicksub(0,'option')">에어컨</span>
+			            					<span class="square option false" onclick="clicksub(1,'option')">세탁기</span>
+			            					<span class="square option false" onclick="clicksub(2,'option')">침대</span>
+			            					<span class="square option false" onclick="clicksub(3,'option')">책상</span>
+			            					<span class="square option false" onclick="clicksub(4,'option')">옷장</span>
+			            					<span class="square option false" onclick="clicksub(5,'option')">TV</span>
+			            					<span class="square option false" onclick="clicksub(6,'option')">신발장</span>
+			            					<span class="square option false" onclick="clicksub(7,'option')">냉장고</span>
+			            					<span class="square option false" onclick="clicksub(8,'option')">가스레인지</span>
+			            					<span class="square option false" onclick="clicksub(9,'option')">인덕션</span>
+			            					<span class="square option false" onclick="clicksub(10,'option')">전자레인지</span>
+			            					<span class="square option false" onclick="clicksub(11,'option')">전자 도어락</span>
+			            					<span class="square option false" onclick="clicksub(12,'option')">비데</span>
 	            						</div>
 	            					</td>
 	            					
@@ -294,7 +294,7 @@
 	            						<div class="seleted-div">
 	            							<span class="square chartered false" onclick="clicksubto(0,'chartered')">가능</span>
 	            							<span class="square chartered false" onclick="clicksubto(1,'chartered')">불가능</span>
-	            							</div>
+	            						</div>
 	            					</td>
 	            					
 	            				</tr>
@@ -310,7 +310,7 @@
 	            						제목
 	            					</td>
 	            					<td style="text-align: left;">
-	            					<input type="text" style="width: 50%;" placeholder="예)신논현역 도보 5분거리,혼자살기 좋은방입니다.">
+	            						<input type="text" style="width: 50%;" placeholder="예)신논현역 도보 5분거리,혼자살기 좋은방입니다.">
 	            					</td>
 	            				</tr>
 	            				<tr>
@@ -380,7 +380,7 @@
 	            				
 	            			</div>
 	            			<div class="col-md-12"  style="text-align: center;">
-	            				<a class="btn" id="filter_apply" href="">매물등록</a>
+	            				<a class="btn" id="filter_apply" onclick="addestate()">매물등록</a>
 	            				<a class="btn" id="filter_close" href="semi.Project?page=estate&code=1">취소</a>
 	            				</div>
 	            		</div>
@@ -389,11 +389,57 @@
 		</div>
 	</div>
 <script >
-	var build;
-	var square;
-
-
-
+	// 부동산 종류
+	var estater=new estate();
+	// 추가정보 
+	var addyinfo=new addinfo(); 
+	var classEach=["build","sub-build",""];
+	function estate(){
+		this.build='';
+		this.subbuild;
+		this.rent;
+		this.supply;
+		this.exclusive;
+		this.floor;
+		this.heating;
+		this.move;
+	
+	}
+	
+	function addinfo(){
+		this.administrative=new administrative();
+		this.pets=false;
+		this.parking=new parking();
+		this.elevator=false;
+		this.balcony=false;
+		this.built=false;
+		this.structure;
+		this.option=new option();
+		this.chartered=false;
+	}
+	function parking(){
+		this.park=false;
+		this.pay='';
+	}
+	function option(){
+		this.option='';
+	}
+	function administrative(){
+		this.pay='';
+		this.administrative='';
+	}
+	
+	
+	
+	
+	
+	function addestate(){
+		
+	}
+	
+	
+	
+	
 
 	var dealn=0;
 	function deal(){
@@ -411,21 +457,18 @@
 		$(('.'+className)).each(function(i) {
 			
 			
-			if(i===num){
-				console.log()
-			
-					if($(this).hasClass('true')){
-					$(this).css('color','black').css('background-color','white');
-			
-					$(this).removeClass("true").addClass("false");	
+			if(i===num&&$(this).hasClass('false')){
 				
-				}else{
-					$(this).css('color','white').css('background-color','#7db4ea');
-				
-					$(this).removeClass("false").addClass("true");		
 					
-				}
+					$(this).css('color','white').css('background-color','#7db4ea');
+					
+					$(this).removeClass("false").addClass("true");		
+			
 				
+			}else if(i===num&&$(this).hasClass('true')){
+				$(this).css('color','black').css('background-color','white');
+				
+				$(this).removeClass("true").addClass("false");	
 			}
 		})
 	}
@@ -486,8 +529,8 @@
 			html="<td >	종류선택</td>"+
 				"<td >"+
 				  	"<div class=\"seleted-div\">"+
-					"<span class=\"square sub-build\" onclick=\"clicksub(0,'sub-build')\" >오피스텔 </span>"+
-					"<span class=\"square sub-build\" onclick=\"clicksub(1,'sub-build')\" >도시형주택</span> "+
+					"<span class=\"square sub-build true\" onclick=\"clicksub(0,'sub-build')\" >오피스텔 </span>"+
+					"<span class=\"square sub-build false\" onclick=\"clicksub(1,'sub-build')\" >도시형주택</span> "+
 					
 					"</div> "+
 				"</td>";
@@ -497,20 +540,25 @@
 			html="<td >	종류선택</td>"+
 			"<td >"+
 			  	"<div class=\"seleted-div\">"+
-			  	"<span class=\"square sub-build\" onclick=\"clicksub(0,'sub-build')\">단독</span>\n"+
-				"<span class=\"square sub-build\" onclick=\"clicksub(1,'sub-build')\" >다가구 </span>\n"+
-				"<span class=\"square sub-build\" onclick=\"clicksub(2,'sub-build')\" >빌라/연립/다세대</span>\n"+
-				"<span class=\"square sub-build\" onclick=\"clicksub(3,'sub-build')\" >상가주택</span>\n"+
+			  	"<span class=\"square sub-build false\" onclick=\"clicksub(0,'sub-build')\">단독</span>\n"+
+				"<span class=\"square sub-build false\" onclick=\"clicksub(1,'sub-build')\" >다가구 </span>\n"+
+				"<span class=\"square sub-build false\" onclick=\"clicksub(2,'sub-build')\" >빌라/연립/다세대</span>\n"+
+				"<span class=\"square sub-build false\" onclick=\"clicksub(3,'sub-build')\" >상가주택</span>\n"+
 				"</div> "+
 			"</td>";
 		}
 		
 		$('#select-target').html(html);
 		$('.build').each(function(i) {
-			if(i===num){
+			if(i===num&&$(this).hasClass('false')){
 				$(this).css('color','white').css('background-color','#7db4ea');
+
+				$(this).removeClass("false").addClass("true");	
+			}else if(i===num&&$(this).hasClass('true')){
+				
 			}else{
 				$(this).css('color','black').css('background-color','white');
+				$(this).removeClass("true").addClass("false");	
 			}
 		})
 		
@@ -537,28 +585,26 @@
 				return;
 				
 			}
-			
-			
-			
+
 		}else if(num===3){
 			if(tnum===0){
-			html="<label class='lnum-"+lnum+"'>"+
-			"<span>매매</span>"+
-			"<input type='text'required placeholder='매매가' >"+
-			"<span>만원</span>"+
-		"</label>";
-		tnum++;
+						html="<label class='lnum-"+lnum+"'>"+
+						"<span>매매</span>"+
+						"<input type='text'required placeholder='매매가' >"+
+						"<span>만원</span>"+
+					"</label>";
+					tnum++;
 			}
 			else{
 				return;
 				
 			}
 		}else if(num===2){
-			html="<label class='lnum-"+lnum+"'>"+
-			"<span>월세</span>"+
-			"<input type='text' required placeholder='보증금' > / <input type='text' required placeholder='월세' >"+
-			"<span>만원</span>"+
-		"</label>";
+				html="<label class='lnum-"+lnum+"'>"+
+				"<span>월세</span>"+
+				"<input type='text' required placeholder='보증금' > / <input type='text' required placeholder='월세' >"+
+				"<span>만원</span>"+
+			"</label>";
 
 		}
 		html+="<label class='close-x lnum-"+lnum+" label-"+lnum+"' onclick='closen("+lnum+")' > x </label><br>";
@@ -635,13 +681,6 @@
 		setTimeout("sendKeyword("+num+");",500);
 	}
 	
-	
-	
-	
-
-	
-
-
 
 	function select(i){ // 리스트 중에서 선택한 단어를 폼필드에 출력및 나머지 초기화
 		f.word.value=jsonObj[i];
