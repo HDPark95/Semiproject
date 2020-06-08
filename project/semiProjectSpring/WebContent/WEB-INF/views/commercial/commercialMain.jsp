@@ -6,7 +6,7 @@
 <link href="resources/css/commercial/style.css?after" rel="stylesheet" />
 <%@ include file="../include/header_menu.jsp"%>
 <%@include file="sidemenu.jsp"%>
-<section class="contact-section ">
+<section class="contact-section ">  
 	<!-- Page Content -->
 	<div class="container">
 		<!-- Call to Action Well -->
