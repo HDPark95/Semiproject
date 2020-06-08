@@ -12,7 +12,7 @@
 
 <section class="contact-section container topma " style="">
 
-
+ 
 	<h2 class="th_mypage_maintext">MY
 		부동산 페이지(기업)</h2>
 

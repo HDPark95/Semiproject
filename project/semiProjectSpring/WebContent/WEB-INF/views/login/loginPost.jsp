@@ -9,7 +9,7 @@
 <body>
 	<script>
 		alert("아이디와 비밀번호를 확인하세요.")
-		self.location = "login/loginform";
+		self.location = "login/loginform"; 
 	</script>
 </body>
 </html>

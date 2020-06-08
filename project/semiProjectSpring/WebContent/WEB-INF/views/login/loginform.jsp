@@ -14,7 +14,7 @@
   <!-- Custom styles for this template-->
   <link href="resources/css/customer_board/sb-admin-2.min.css" rel="stylesheet">
   
-<%@ include file="../include/header_menu.jsp"%>
+<%@ include file="../include/header_menu.jsp"%> 
 
 <body class="bg-gradient-primary">
 

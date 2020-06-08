@@ -4,7 +4,7 @@ public class Member_DetailVO {
 	
 	private int dnum , anum ;
 	private String dname , dbirth , dgender , dtel ;
-	public int getDnum() {
+	public int getDnum() { 
 		return dnum;
 	}
 	public void setDnum(int dnum) {

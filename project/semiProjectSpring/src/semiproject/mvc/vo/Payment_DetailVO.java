@@ -5,7 +5,7 @@ public class Payment_DetailVO {
 	private int pnum , anum ;
 	private String kinds , mentnum , inment ;
 	
-	public int getPnum() {
+	public int getPnum() { 
 		return pnum;
 	}
 	public void setPnum(int pnum) {

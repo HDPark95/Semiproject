@@ -5,7 +5,7 @@ public class SignupVO {
 	private int anum,dnum;
 	private String aidheader,aidfooter,aid,
 	apwd,agubun,dname,ainday , achgday ,
-	dyear,dmonth,dday,dbirth,
+	dyear,dmonth,dday,dbirth, 
 	dgender,
 	dtelheader,dtelmiddle,dtelfooter,dtel;
 	private Member_DetailVO memberinfor ;

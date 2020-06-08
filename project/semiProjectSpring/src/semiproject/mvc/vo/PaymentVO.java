@@ -4,7 +4,7 @@ public class PaymentVO {
 	private int pnum , anum , ppay;
 	private String psdate , pedate , pway , pgubun ;
 	
-	private Payment_DetailVO paydetailvo ;
+	private Payment_DetailVO paydetailvo ; 
 	
 	
 	public Payment_DetailVO getPaydetailvo() {

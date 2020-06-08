@@ -59,7 +59,7 @@
 				<input type="text" class="form-control" name="inment"
 					  value="${vo.payvo.paydetailvo.inment }" >
 			</div>
-		</div>
+		</div> 
 		
 		<div class="form-group">
 			<label for="inputName" class="col-sm-2 control-label">결제 은행</label>

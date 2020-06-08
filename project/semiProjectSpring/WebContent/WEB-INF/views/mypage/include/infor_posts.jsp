@@ -12,7 +12,7 @@
 				<div class="tab-pane  th_page_space  fade show active "
 					style="text-align: center;" id="sub_a">
 					<table id="customers">
-						<tr>
+						<tr> 
 							<th colspan="5" id="management">전체 선택 , 삭제 등 들어갈 자리</th>
 
 						</tr>

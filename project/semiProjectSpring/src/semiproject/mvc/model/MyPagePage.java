@@ -23,7 +23,7 @@ public class MyPagePage {
 			ModelAndView mav = new ModelAndView("mypage/mypage_lessor");
 			
 			SignupVO vo = mypagedao.getloginINFOR(aid);
-			
+			 
 			mav.addObject("vo", vo);
 			
 			return mav;

@@ -16,7 +16,7 @@ public class MyPageDao {
 	public SignupVO getloginINFOR (String aid) {
 		
 		SignupVO vo = ss.selectOne("mypage.lessor_infor", aid);
-		return vo;
+		return vo; 
 	}
 	
 	public SignupVO getPayDetail(String aid) {

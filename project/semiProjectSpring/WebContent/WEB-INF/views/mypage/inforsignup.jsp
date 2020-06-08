@@ -10,7 +10,7 @@
 	<div class="tab-pane  th_page_space  fade show active "
 			style="text-align: center; margin-top: 200px;" id="a">
 <h4 class="subtopma">${vo.mname } 님의 회원 정보 입니다.</h4>
-
+ 
 <div class="container" >
 	<form class="form-horizontal" action="inforDetailUpdate" method="post">
 		<div class="form-group ">

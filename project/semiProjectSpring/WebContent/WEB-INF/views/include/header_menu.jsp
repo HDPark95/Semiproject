@@ -72,7 +72,7 @@
                          <c:otherwise>
                          <a class="nav-link js-scroll-trigger" href="mypage_lessor?aid=${user.aid }" >내정보</a>
                          </c:otherwise>
-                       </c:choose>
+                       </c:choose> 
 	                   
 	                        <input type="hidden" value="mypage">
                         </li>

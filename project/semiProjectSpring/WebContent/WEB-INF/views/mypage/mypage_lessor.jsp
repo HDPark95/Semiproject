@@ -11,7 +11,7 @@
 <%@ include file="../include/header_menu.jsp"%>
 
 
-<section class="contact-section container topma " style="">
+<section class="contact-section container topma " style=""> 
 
 
 	<h2 class="th_mypage_maintext">MY 부동산 페이지(일반)</h2>

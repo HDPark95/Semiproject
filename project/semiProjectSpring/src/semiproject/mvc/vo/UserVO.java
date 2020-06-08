@@ -7,7 +7,7 @@ public class UserVO {
 	private String dbirth;
 	private String aid;
 	private String apwd;
-	private String agubun;
+	private String agubun; 
 	public String getAgubun() {
 		return agubun;
 	}

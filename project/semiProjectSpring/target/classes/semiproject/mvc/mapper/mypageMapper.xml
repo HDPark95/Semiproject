@@ -14,7 +14,7 @@
 		from signup s ,
 		member_detail m where s.aid = #{aid} and s.anum =
 		m.anum
-	</select>
+	</select> 
 	
 	<!-- 보고 싶은 PK 값만넣으면 원하는 정보 열 이 출력 된다. -->
 	<select id="paymentDetail" parameterType="int"
