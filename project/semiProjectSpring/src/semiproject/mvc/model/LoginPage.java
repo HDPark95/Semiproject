@@ -63,7 +63,7 @@ public class LoginPage {
 				response.addCookie(loginCookie);
 			}
 		}
-		mav.setViewName("redirect:index#footerMenu");
+		mav.setViewName("redirect:index");
 		return mav; 
 	}
 }

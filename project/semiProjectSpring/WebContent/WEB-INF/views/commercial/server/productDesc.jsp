@@ -2,6 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<script src="resources/js/commercial/script.js"></script>
 <c:forEach items="${result}" var="e" varStatus="idx" begin="1" end="3">
 <div class="col-md-4 mb-5 productmain">
 					<div class="card h-100">
@@ -14,8 +15,8 @@
 							</div>
 						</div>
 						<div class="card-footer">
-							<button onclick="open_pop()" class="btn btn-primary btn-sm">More Info</button>
+							<button onclick="open_pop()" class="btn btn-primary btn-sm productdescmodal" value="${e.atclno}">More Info</button>
 						</div>							
-					</div>
+				</div>
 </div>
 </c:forEach>
