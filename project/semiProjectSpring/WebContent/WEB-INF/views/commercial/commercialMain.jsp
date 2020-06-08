@@ -144,7 +144,7 @@
 		<!-- /.row -->
 		<!-- Content Row -->
 		<div class="card text-black bg-secondary my-6 py-4 text-center col-lg-12 bg-white">
-			<h3>Best 상가/점포 매물 상세정보</h3>
+			<h3>Best3 상가/점포 매물정보</h3>
 			<div class="row" id="product">
 				<div class="col-md-4 mb-5 productmain">
 					<div class="card h-100">

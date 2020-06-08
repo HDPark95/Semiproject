@@ -25,4 +25,11 @@
 			</list>
 		</property>
 	</bean> -->
+	<bean id="loginInterceptor" class="semiproject.mvc.interceptor.LoginInterceptor">	</bean>
+		<mvc:interceptors>
+			<mvc:interceptor>
+				<mvc:mapping path="loginPost"/>
+				<ref bean="loginInterceptor"></ref>
+			</mvc:interceptor>
+		</mvc:interceptors>
 </beans>

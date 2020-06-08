@@ -12,10 +12,8 @@
                 <a class="navbar-brand js-scroll-trigger menu-other" href="index">메인메뉴테스트</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                  <ul class="navbar-nav ml-auto menu-other">
-                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">강온유님 환영합니다.</a></li>
-                      
-                    </ul>
-                  
+                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">${user.aid}님 환영합니다.</a></li>
+                                            </ul>                  
                     <ul class="navbar-nav ml-auto2">
                        <li class="nav-item">
 	                       <a class="nav-link js-scroll-trigger" href="commercialMain">상가</a>
