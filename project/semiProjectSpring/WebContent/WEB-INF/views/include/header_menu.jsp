@@ -17,7 +17,6 @@
                     <ul class="navbar-nav ml-auto2">
                        <li class="nav-item">
 	                       <a class="nav-link js-scroll-trigger" href="commercialMain">상가</a>
-	                      
 	                       <ul class="invisible sub-menu">
 		                       	<li><a>매물</a></li>
 		                       	<li><a>매물</a></li>
@@ -58,10 +57,7 @@
                         </li>
                         <li class="nav-item">
 
-	                        <a class="nav-link js-scroll-trigger menu-other" href="customer">고객센터</a>
-
-	                       
-	    
+	                        <a class="nav-link js-scroll-trigger menu-other" href="customer">고객센터</a>             
                         </li>
                          
                             
@@ -72,7 +68,7 @@
 	                        <input type="hidden" value="mypage">
                         </li>
                         <li class="nav-item">
-                       	 	<a class="nav-link js-scroll-trigger" href="#projects">로그아웃</a>
+                       	 	<a class="nav-link js-scroll-trigger" href="logout">로그아웃</a>
                         </li>
                     
                     </ul>
