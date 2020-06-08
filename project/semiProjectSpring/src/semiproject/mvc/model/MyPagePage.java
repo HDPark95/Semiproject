@@ -16,7 +16,7 @@ public class MyPagePage {
 	@Autowired
 	private MyPageDao mypagedao;
 	
-	
+	 
 	// 임대인 마이페이지 로 이동
 		@RequestMapping(value = "/mypage_lessor" )
 		public ModelAndView myPagelessor(String aid) {

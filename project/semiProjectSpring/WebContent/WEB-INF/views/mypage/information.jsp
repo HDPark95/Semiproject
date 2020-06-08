@@ -16,7 +16,7 @@
 			<div class="col-sm-3 container">
 				<input type="password" class="form-control" name="pwd"
 					 value="${vo.pwd }">
-			</div>
+			</div> 
 		</div>
 		<div class="form-group">
 			<label for="inputName" class="col-sm-2 control-label">이메일</label>

@@ -1,7 +1,7 @@
 package semiproject.mvc.vo;
 
 public class Member_DetailVO {
-	
+	 
 	private int dnum , anum ;
 	private String dname , dbirth , dgender , dtel ;
 	public int getDnum() { 

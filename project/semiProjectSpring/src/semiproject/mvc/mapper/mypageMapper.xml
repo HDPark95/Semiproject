@@ -13,7 +13,7 @@
 		mname, m.dbirth mbrith , m.dgender mgender, m.dtel mtel
 		from signup s ,
 		member_detail m where s.aid = #{aid} and s.anum =
-		m.anum
+		m.anum 
 	</select> 
 	
 	<!-- 보고 싶은 PK 값만넣으면 원하는 정보 열 이 출력 된다. -->

@@ -15,7 +15,7 @@
 
 
 	<h2 class="th_mypage_maintext">MY 부동산 페이지(일반)</h2>
-
+ 
 
 	<ul class="nav nav-tabs th_ul">
 		<li class="th_li"><a class="nav-link active th_atwi"

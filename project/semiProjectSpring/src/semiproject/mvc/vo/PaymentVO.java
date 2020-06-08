@@ -8,7 +8,7 @@ public class PaymentVO {
 	
 	
 	public Payment_DetailVO getPaydetailvo() {
-		return paydetailvo;
+		return paydetailvo; 
 	}
 	public void setPaydetailvo(Payment_DetailVO paydetailvo) {
 		this.paydetailvo = paydetailvo;

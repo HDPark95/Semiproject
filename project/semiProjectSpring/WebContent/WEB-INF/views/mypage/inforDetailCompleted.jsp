@@ -19,7 +19,7 @@
 				<input type="email" class="form-control" id="outputid"
 					placeholder="" readonly="readonly" value="${vo.id }">
 			</div>
-		</div> 
+		</div>  
 		<div class="form-group">
 			<label for="inputPassword" class="col-sm-2 control-label">비밀번호</label>
 			<div class="col-sm-3 container">

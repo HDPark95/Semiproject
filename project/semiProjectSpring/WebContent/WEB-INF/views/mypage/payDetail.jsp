@@ -18,7 +18,7 @@
 			<div class="col-sm-3 container">
 				<input type="email" class="form-control" name="aid" id="aid"
 					 readonly="readonly" value="${vo.aid }">
-			</div>
+			</div> 
 		</div>
 		<div class="form-group">
 			<label for="inputName" class="col-sm-2 control-label">결제일</label>

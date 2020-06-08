@@ -19,7 +19,7 @@
 				<input type="hidden" class="form-control" name="apwd"
 					placeholder="Password"  value="${vo.apwd }">
 		
-		
+		 
 		<div class="form-group">
 			<label for="inputName" class="col-sm-2 control-label">이름</label>
 			<div class="col-sm-3 container">

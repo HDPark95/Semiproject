@@ -13,7 +13,7 @@
 			</div>
 		</form>
 	</div>
-
+ 
 	<div class="th_card th_infor_card" id="infor_logindata">
 		<form action="inforSignup" method="post" style="">
 			<div class="card-header">로그인 정보</div>

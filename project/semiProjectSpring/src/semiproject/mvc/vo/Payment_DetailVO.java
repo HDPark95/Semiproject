@@ -10,7 +10,7 @@ public class Payment_DetailVO {
 	}
 	public void setPnum(int pnum) {
 		this.pnum = pnum;
-	}
+	} 
 	public int getAnum() {
 		return anum;
 	}

@@ -12,7 +12,7 @@
 		<typeAlias type="semiproject.mvc.vo.DataVO"
 			alias="commercial" /> 
 		<typeAlias type="semiproject.mvc.vo.MyPageVO"
-			alias="mypagevo" />
+			alias="mypagevo" /> 
 		<typeAlias type="semiproject.mvc.vo.SignupVO"
 			alias="signupvo" />
 		<typeAlias type="semiproject.mvc.vo.Member_DetailVO"

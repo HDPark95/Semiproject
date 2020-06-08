@@ -19,7 +19,7 @@
                        <li class="nav-item">
 	                       <a class="nav-link js-scroll-trigger" href="commercialMain">상가</a>
 	                       <ul class="invisible sub-menu">
-		                       	<li><a>매물</a></li>
+		                       	<li><a>매물</a></li> 
 		                       	<li><a>매물</a></li>
 		                       	<li><a href="product">매물</a></li>
 		                       	<li><a href="register">매물등록</a></li>

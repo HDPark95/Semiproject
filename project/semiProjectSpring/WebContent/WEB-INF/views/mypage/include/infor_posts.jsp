@@ -15,7 +15,7 @@
 						<tr> 
 							<th colspan="5" id="management">전체 선택 , 삭제 등 들어갈 자리</th>
 
-						</tr>
+						</tr> 
 						<tr>
 							<th id="">작성일자</th>
 							<th id="">카테고리</th>
