@@ -81,7 +81,7 @@
 	            					</td>
 	            					<td >
 	            							<div class="seleted-div col-md-12">
-	            							<span class="square" onclick="rent(1)">전세</span>
+	            							<span class="square charter" onclick="rent(1)">전세</span>
 	            							<span class="square" onclick="rent(2)">월세</span>
 	            								<span class="square" onclick="rent(3)">매매</span>
 	            							<span class="square deal" onclick="deal()">단기가능</span>
@@ -206,9 +206,9 @@
 	            					</td>
 	            					<td>
 	            						<div class="seleted-div">
-	            						<span class="square">가능</span>
-	            						<span class="square">불가능</span>
-	            						<input type="text"> 만원
+	            						<span class="square parking" onclick="clickpark(0)">가능</span>
+	            						<span class="square parking" onclick="clickpark(1)">불가능</span>
+	            						<input type="text" id="pamount" disabled="disabled" > 만원
 	            						</div>
 	            					
 	            					</td>
@@ -217,8 +217,8 @@
 	            					</td>
 	            					<td>
 	            					<div class="seleted-div">
-	            						<span class="square">가능</span>
-	            						<span class="square">불가능</span>
+	            						<span class="square pets false" onclick="clicksubto(0,'pets')">가능</span>
+	            						<span class="square pets false" onclick="clicksubto(1,'pets')">불가능</span>
 	            						</div>
 	            					</td>
 	            				</tr>
@@ -228,8 +228,8 @@
 	            					</td>
 	            					<td>
 	            							<div class="seleted-div">
-	            						<span class="square">있음</span>
-	            						<span class="square">없음</span>
+	            						<span class="square elevator false" onclick="clicksubto(0,'elevator')">있음</span>
+	            						<span class="square elevator false" onclick="clicksubto(1,'elevator')">없음</span>
 	            						</div>
 	            					</td>
 	            					<td >
@@ -237,8 +237,8 @@
 	            					</td>
 	            					<td>
 	            						<div class="seleted-div">
-	            						<span class="square">있음</span>
-	            						<span class="square">없음</span>
+	            						<span class="square balcony false"  onclick="clicksubto(0,'balcony')">있음</span>
+	            						<span class="square balcony false"  onclick="clicksubto(1,'balcony')">없음</span>
 	            						</div>
 	            					</td>
 	            				</tr>
@@ -249,8 +249,8 @@
 	            					</td>
 	            					<td>
 	            						<div class="seleted-div">
-	            						<span class="square">있음</span>
-	            						<span class="square">없음</span>
+	            						<span class="square built false" onclick="clicksubto(0,'built')">있음</span>
+	            						<span class="square built false"onclick="clicksubto(1,'built')" >없음</span>
 	            						</div>
 	            					</td>
 	            					<td >
@@ -258,8 +258,8 @@
 	            					</td>
 	            					<td>
 	            							<div class="seleted-div">
-	            						<span class="square">복층</span>
-	            						<span class="square">1.5룸/주방분리형</span>
+	            						<span class="square structure false" onclick="clicksub(0,'structure')">복층</span>
+	            						<span class="square structure false" onclick="clicksub(1,'structure')">1.5룸/주방분리형</span>
 	            						</div>
 	            					</td>
 	            				</tr>
@@ -269,19 +269,19 @@
 	            					</td>
 	            					<td colspan="3">
 	            						<div class="seleted-div">
-	            					<span class="square">에어컨</span>
-	            					<span class="square">세탁기</span>
-	            					<span class="square">침대</span>
-	            					<span class="square">책상</span>
-	            					<span class="square">옷장</span>
-	            					<span class="square">TV</span>
-	            					<span class="square">신발장</span>
-	            					<span class="square">냉장고</span>
-	            					<span class="square">가스레인지</span>
-	            					<span class="square">인덕션</span>
-	            					<span class="square">전자레인지</span>
-	            					<span class="square">전자 도어락</span>
-	            					<span class="square">비데</span>
+	            					<span class="square option " onclick="clicksub(0,'option')">에어컨</span>
+	            					<span class="square option" onclick="clicksub(1,'option')">세탁기</span>
+	            					<span class="square option" onclick="clicksub(2,'option')">침대</span>
+	            					<span class="square option" onclick="clicksub(3,'option')">책상</span>
+	            					<span class="square option" onclick="clicksub(4,'option')">옷장</span>
+	            					<span class="square option" onclick="clicksub(5,'option')">TV</span>
+	            					<span class="square option" onclick="clicksub(6,'option')">신발장</span>
+	            					<span class="square option" onclick="clicksub(7,'option')">냉장고</span>
+	            					<span class="square option" onclick="clicksub(8,'option')">가스레인지</span>
+	            					<span class="square option" onclick="clicksub(9,'option')">인덕션</span>
+	            					<span class="square option" onclick="clicksub(10,'option')">전자레인지</span>
+	            					<span class="square option" onclick="clicksub(11,'option')">전자 도어락</span>
+	            					<span class="square option" onclick="clicksub(12,'option')">비데</span>
 	            						</div>
 	            					</td>
 	            					
@@ -292,8 +292,8 @@
 	            					</td>
 	            					<td colspan="3">
 	            						<div class="seleted-div">
-	            							<span class="square">가능</span>
-	            							<span class="square">불가능</span>
+	            							<span class="square chartered false" onclick="clicksubto(0,'chartered')">가능</span>
+	            							<span class="square chartered false" onclick="clicksubto(1,'chartered')">불가능</span>
 	            							</div>
 	            					</td>
 	            					
@@ -318,15 +318,18 @@
 	            						상세 설명
 	            					</td>
 	            					<td>
-	            						<textarea rows="20" cols="150" placeholder="상세설명 작성 주의사항 
+	            						<textarea rows="20" cols="150" maxlength="100" placeholder="
+	            						상세설명 작성 주의사항 
+	            						
 	            							- 방 정보와 관련없는 홍보성 정보는 입력하실수 없습니다
 	            								(홈페이지주소,블로그,SNS,메신저ID,전화번호,이메일등)
 	            							- 중계수수료를 언급한 내용은 입력할 수 없습니다.
 	            								(중계수수료무료, 공짜, 반값 등)
+	            							- 100자 이내로입력해주세요. 
 	            							
 	            							* 주의사항 위반시 허위매물로 간주되어 매물 삭제 및 이용의 제한이 
 	            								있을 수 있습니다.
-	            							* 다방의 매물등록 규정에 위반되는 금칙어는 등록이 불가능합니다.
+	            							*  매물등록 규정에 위반되는 금칙어는 등록이 불가능합니다.
 	            						"></textarea>
 	            					</td>
 	            				</tr>
@@ -386,6 +389,12 @@
 		</div>
 	</div>
 <script >
+	var build;
+	var square;
+
+
+
+
 	var dealn=0;
 	function deal(){
 		if(dealn===0){
@@ -403,17 +412,70 @@
 			
 			
 			if(i===num){
-				
-				if($(this).children("span").text()==='1'){
+				console.log()
+			
+					if($(this).hasClass('true')){
 					$(this).css('color','black').css('background-color','white');
-					$(this).children("span").remove("span");
+			
+					$(this).removeClass("true").addClass("false");	
+				
 				}else{
 					$(this).css('color','white').css('background-color','#7db4ea');
-					$(this).append('<span class="invisible" >1</span>');
+				
+					$(this).removeClass("false").addClass("true");		
+					
 				}
 				
 			}
 		})
+	}
+	
+	
+	function clicksubto(num,className){
+		$(('.'+className)).each(function(i) {
+			
+			
+			if(i===num&&$(this).hasClass('false')){
+				$(this).css('color','white').css('background-color','#7db4ea');
+				$(this).removeClass("false").addClass("true");	
+				
+
+					
+				
+			}else if(i===num&&$(this).hasClass('true')){
+				
+			}else{
+
+				$(this).css('color','black').css('background-color','white');
+				
+				$(this).removeClass("true").addClass("false");	
+			
+			
+				
+				
+				
+			}
+		})
+	}
+	
+	function clickpark(num){
+		$(('.parking')).each(function(i) {
+			if(i===num){
+				$(this).css('color','white').css('background-color','#7db4ea');
+				if(num===0){
+					 $('#pamount').attr("disabled",false);
+				}else{
+					
+					 $('#pamount').attr("disabled",true);
+				}
+			}else{
+				$(this).css('color','black').css('background-color','white');
+				
+			}
+			
+			
+		})
+		
 	}
 	
 	function changeSelect(num){
@@ -456,6 +518,7 @@
 	
 	var lnum=1;
 	var nnum=0;
+	var tnum=0;
 	function rent(num){
 		var html='';
 		var close='';
@@ -464,10 +527,12 @@
 				html=
 					"<label class='lnum-"+lnum+"'>"+
 						"<span>전세</span>"+
-						"<input type='text'  placeholder='전세' >"+
+						"<input type='text' required  placeholder='전세' >"+
 						"<span>만원</span>"+
 					"</label>";
 				nnum++;
+				$('.charter').css("background-color", "gray");
+				
 			}else{
 				return;
 				
@@ -476,16 +541,22 @@
 			
 			
 		}else if(num===3){
+			if(tnum===0){
 			html="<label class='lnum-"+lnum+"'>"+
 			"<span>매매</span>"+
-			"<input type='text' placeholder='매매가' >"+
+			"<input type='text'required placeholder='매매가' >"+
 			"<span>만원</span>"+
 		"</label>";
-	
+		tnum++;
+			}
+			else{
+				return;
+				
+			}
 		}else if(num===2){
 			html="<label class='lnum-"+lnum+"'>"+
 			"<span>월세</span>"+
-			"<input type='text' placeholder='보증금' > / <input type='text' placeholder='월세' >"+
+			"<input type='text' required placeholder='보증금' > / <input type='text' required placeholder='월세' >"+
 			"<span>만원</span>"+
 		"</label>";
 
@@ -500,6 +571,10 @@
 		var name=".lnum-"+num;
 		if(nnum>0){
 			nnum--;
+		$('.charter').css("background-color", "white");
+		}
+		if(tnum>0){
+			tnum--;
 		}
 		$('.label-'+num+' + br').remove();
 		$(name).remove(name);
