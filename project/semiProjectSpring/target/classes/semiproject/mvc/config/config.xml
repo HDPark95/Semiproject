@@ -11,9 +11,10 @@
 		<typeAlias type="semiproject.mvc.vo.BoardVO" alias="bvo" />
 		<typeAlias type="semiproject.mvc.vo.DataVO"
 			alias="commercial" /> 
+			
 		<typeAlias type="semiproject.mvc.vo.MyPageVO"
 			alias="mypagevo" /> 
-		<typeAlias type="semiproject.mvc.vo.SignupVO"
+		<typeAlias type="semiproject.mvc.vo.SignUPVO"
 			alias="signupvo" />
 		<typeAlias type="semiproject.mvc.vo.Member_DetailVO"
 			alias="member_detailvo" />
@@ -21,6 +22,7 @@
 			alias="payment_detailvo" />
 		<typeAlias type="semiproject.mvc.vo.PaymentVO"
 			alias="paymentvo" />
+			
 		<typeAlias type="semiproject.mvc.vo.AuctionAddMainVO"
 			alias="amainvo" />
 		<typeAlias type="semiproject.mvc.vo.AuctionAddDeVO"

@@ -28,11 +28,11 @@
 			href="#d">내 문의 내역</a></li>
 
 	</ul>
-	<div id="myTabContent" class="tab-content">
-		<div class="tab-pane  th_page_space  fade show active "
+	<div id="myTabContent" class="tab-content" style="margin-top: 30px;">
+		<div class="tab-pane  th_page_space  fade show active row "
 			style="text-align: center;" id="myinformation">
 
-			<%@ include file="../mypage/include/myinformation.jsp"%>
+			<%@ include file="../mypage/myinformation.jsp"%>
 
 		</div>
 		<div class="tab-pane fade th_page_space" style="text-align: center;"
@@ -55,13 +55,36 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 	$(function() {
-		$('#infor_memberdetail2').click(function() {
+		
+		$('#memberdetail_btn').click(function() {
 			$.ajax({
-				url : "http://localhost:8080/semiProjectSpring/inforDetail" ,
+				url : "inforDetail" ,
 				type : "post" ,
 				data : {aid : "${vo.aid }"},
 				success : function(result) {
-					$('#infor_memberdetail1').html(result);
+					$('#infor_memberdetail').html(result);
+				}
+			});
+		});
+		$('#logindetail_btn').click(function() {
+			$.ajax({
+				url : "loginDetail" ,
+				type : "post" ,
+				data : {aid : "${vo.aid }"
+						,anum : "${vo.anum }"},
+				success : function(result) {
+					$('#infor_logindata').html(result);
+				}
+			});
+		});
+		$('#paymentdetail_btn').click(function() {
+			$.ajax({
+				url : "Pay_Detail" ,
+				type : "post" ,
+				data : {aid : "${vo.aid }"
+					,anum : "${vo.anum }"},
+				success : function(result) {
+					$('#infor_paymentdatail').html(result);
 				}
 			});
 		});

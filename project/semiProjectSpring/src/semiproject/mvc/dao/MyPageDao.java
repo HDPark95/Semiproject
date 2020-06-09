@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import semiproject.mvc.vo.MyPageVO;
-import semiproject.mvc.vo.SignupVO;
+import semiproject.mvc.vo.SignUPVO;
 
 @Repository
 public class MyPageDao {
@@ -13,19 +13,19 @@ public class MyPageDao {
 	private SqlSessionTemplate ss ;
 	
 	
-	public SignupVO getloginINFOR (String aid) {
+	public SignUPVO getloginINFOR (String aid) {
 		
-		SignupVO vo = ss.selectOne("mypage.lessor_infor", aid);
+		SignUPVO vo = ss.selectOne("mypage.lessor_infor", aid);
 		return vo; 
 	} 
 	
-	public SignupVO getPayDetail(String aid) {
-		SignupVO vo = ss.selectOne("mypage.lessor_paydetail", aid);
+	public SignUPVO getPayDetail(String aid) {
+		SignUPVO vo = ss.selectOne("mypage.lessor_paydetail", aid);
 		return vo;
 	}
 	
-	public SignupVO payTest(String aid , int anum) {
-		SignupVO vo = null; 
+	public SignUPVO payTest(String aid , int anum) {
+		SignUPVO vo = null; 
 		
 		vo = ss.selectOne("mypage.lessor_infor", aid);
 		System.out.println("페이 들어가냐?");
@@ -33,4 +33,11 @@ public class MyPageDao {
 		
 		return vo;
 	}
+	
+	public void memberUPDATE(SignUPVO vo) {
+		
+		int update = ss.update("mypage.infor_memberupdate", vo);
+		System.out.println("mypage 멤버 업데이트 확인!!");
+	}
+	
 }

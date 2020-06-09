@@ -12,7 +12,7 @@
 
 <section class="contact-section container topma " style="">
 
- 
+  
 	<h2 class="th_mypage_maintext">MY
 		부동산 페이지(기업)</h2>
 
@@ -32,8 +32,7 @@
 		<div class="tab-pane  th_page_space  fade show active "
 			style="text-align: center;" id="a">
 			
-				<%@ include file="information.jsp"%>
-				
+								
 		</div>
 		<div class="tab-pane fade th_page_space" style="text-align: center;"
 			id="b">

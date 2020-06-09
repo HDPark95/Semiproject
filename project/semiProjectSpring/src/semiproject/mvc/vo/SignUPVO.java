@@ -1,6 +1,6 @@
 package semiproject.mvc.vo;
 
-public class SignupVO {
+public class SignUPVO {
 	
 	private int anum,dnum;
 	private String aidheader,aidfooter,aid,
@@ -8,6 +8,7 @@ public class SignupVO {
 	dyear,dmonth,dday,dbirth, 
 	dgender,
 	dtelheader,dtelmiddle,dtelfooter,dtel;
+	
 	private Member_DetailVO memberinfor ;
 	private PaymentVO payvo;
 	

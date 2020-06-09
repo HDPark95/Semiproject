@@ -11,7 +11,7 @@
 			style="text-align: center; margin-top: 200px;" id="a">
 <h4 class="subtopma">${vo.memberinfor.dname } 님의 결제 정보 입니다.</h4>
 
-<div class="container" >
+<div class="container" > 
 	<form class="form-horizontal" action="inforDetailUpdate" method="post">
 		<div class="form-group ">
 			<label for="inputEmail" class="col-sm-2 control-label">아이디</label>
