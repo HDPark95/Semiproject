@@ -1,4 +1,3 @@
-
 package semiproject.mvc.model;
 
 import javax.servlet.http.Cookie;
@@ -21,7 +20,7 @@ import semiproject.mvc.vo.LoginDTO;
 import semiproject.mvc.vo.UserVO;
 
 @Controller
-public class LoginPage {
+public class LoginPage {  
 	@Autowired
 	private LoginDao logindao;
 
@@ -33,18 +32,18 @@ public class LoginPage {
 	@RequestMapping(value = "/loginPost")
 	public ModelAndView loginPost(LoginDTO loginDTO, HttpSession httpsession) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("실행");
+//		System.out.println("실행");
 		UserVO vo = logindao.login(loginDTO);
-		System.out.println(vo.getApwd());
-		System.out.println(loginDTO.getApwd());
+//		System.out.println(vo.getApwd());
+//		System.out.println(loginDTO.getApwd());
 		if (vo == null || (loginDTO.getApwd() == vo.getApwd())) {
-			System.out.println((loginDTO.getApwd() == vo.getApwd()));
+//			System.out.println((loginDTO.getApwd() == vo.getApwd()));
 			mav.setViewName("login/loginform");
 			return mav;
 		}
 		mav.addObject("user", vo);
 		httpsession.setAttribute("user", vo);
-		mav.setViewName("redirect:index#footerMenu");
+		mav.setViewName("redirect:index");
 		return mav;
 	}
 
@@ -67,5 +66,4 @@ public class LoginPage {
 		mav.setViewName("redirect:index");
 		return mav; 
 	}
-
 }

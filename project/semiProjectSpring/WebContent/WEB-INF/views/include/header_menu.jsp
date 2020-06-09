@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 
   </head>
     <body id="page-top">
@@ -12,7 +12,20 @@
                 <a class="navbar-brand js-scroll-trigger menu-other" href="index">메인메뉴테스트</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                  <ul class="navbar-nav ml-auto menu-other">
-                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">${user.aid}님 환영합니다.</a></li>
+                        <c:catch>
+                        <c:choose>
+                        <c:when test="${empty user}">                        
+                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage"> </a></li>
+                        </c:when>
+                        
+                        <c:otherwise>                        
+                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">${user.dname}님 환영합니다.</a></li>
+                        </c:otherwise>
+<%--                         <c:otherwise>                         --%>  
+<%--                         <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">${user.dname}님 환영합니다.</a></li> --%>
+<%--                         </c:otherwise> --%>
+                        </c:choose>	
+                        </c:catch>
                                             </ul>                  
                     <ul class="navbar-nav ml-auto2">
                        <li class="nav-item">
@@ -59,31 +72,41 @@
 
 	                        <a class="nav-link js-scroll-trigger menu-other" href="customer">고객센터</a>             
                         </li>
+<!--                         <li class="nav-item"> -->
+
+<!-- 	                        <a class="nav-link js-scroll-trigger menu-other" href="cutomer_board/board">고객센터</a>              -->
+<!--                         </li> -->
                          
                             
                     </ul>
                       <ul class="navbar-nav ml-auto2 menu-other">
                         <li class="nav-item">
-	                        
-	                       	<c:choose>
-		                       	<c:when test="${user.agubun eq '공인중개사'}">
-		                       		<a class="nav-link js-scroll-trigger" href="/mypage_broker">내정보</a>
-		                       	</c:when>
-		                        <c:otherwise>
-		                        	 <a class="nav-link js-scroll-trigger" href="mypage_lessor?aid=${user.aid }" >내정보</a>
-		                        </c:otherwise>
-	                       </c:choose> 
-                       <input type="hidden" value="mypage">
+	                        <a class="nav-link js-scroll-trigger" href="mypage">내정보</a>
+	                        <input type="hidden" value="mypage">
                         </li>
+                        <c:catch>
+                        <c:choose>
+                        <c:when test="${empty user}">
+                        <li class="nav-item">
+                       	 	<a class="nav-link js-scroll-trigger" href="#"></a>
+                        </li>
+                        </c:when>
+                        
+                        <c:otherwise >
                         <li class="nav-item">
                        	 	<a class="nav-link js-scroll-trigger" href="logout">로그아웃</a>
                         </li>
+                        </c:otherwise>
+                        
+                        </c:choose>
+                        </c:catch>
                     
                     </ul>
                    
                 </div>
                </div>
                <br>
+          
             </nav>
          <!--    <div class="row " style="margin-top: 80px; top: 80px;">
                  <div class="col-md-12 menu-top ">

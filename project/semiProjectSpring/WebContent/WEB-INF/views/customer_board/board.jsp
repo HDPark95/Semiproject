@@ -19,28 +19,28 @@
 			<div class="board_list_body">
 				<div class="item">
 					<div class="num">4</div>
-					<div class="tit"><a href="boardDetail">질문</a></div>
+					<div class="tit"><a href="customerboardDetail">질문</a></div>
 					<div class="writer">채명정</div>
 					<div class="date">2020-05-07</div>
 					<div class="view">답변상태</div>
 				</div>
 				<div class="item">
 					<div class="num">3</div>
-					<div class="tit"><a href="boardDetail">질문</a></div>
+					<div class="tit"><a href="customerboardDetail">질문</a></div>
 					<div class="writer">채명정</div>
 					<div class="date">2020-05-07</div>
 					<div class="view">답변상태</div>
 				</div>
 				<div class="item">
 					<div class="num">2</div>
-					<div class="tit"><a href="boardDetail">질문</a></div>
+					<div class="tit"><a href="customerboardDetail">질문</a></div>
 					<div class="writer">채명정</div>
 					<div class="date">2020-05-07</div>
 					<div class="view">답변상태</div>
 				</div>
 				<div class="item">
 					<div class="num">1</div>
-					<div class="tit"><a href="boardDetail">질문</a></div>
+					<div class="tit"><a href="customerboardDetail">질문</a></div>
 					<div class="writer">채명정</div>
 					<div class="date">2020-05-07</div>
 					<div class="view">답변상태</div>
@@ -58,7 +58,7 @@
 			<a href="#" class="bt last"></a>
 		</div>
 		<div class = "write">
-			<button id="writeBtn" onclick="location='boardWriter'">글쓰기</button>
+			<button id="writeBtn" onclick="location='customerboardWriter'">글쓰기</button>
 		</div>
 		
 	</div>

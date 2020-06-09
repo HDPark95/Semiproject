@@ -9,7 +9,7 @@ import semiproject.mvc.vo.LoginDTO;
 import semiproject.mvc.vo.UserVO;
 
 @Repository
-public class LoginDao extends HandlerInterceptorAdapter{
+public class LoginDao extends HandlerInterceptorAdapter{  
 	@Autowired
 	private SqlSessionTemplate ss;
 	

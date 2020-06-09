@@ -20,6 +20,31 @@ public class CommunityPage {
 		return "community/community";
 	}
 
+	@RequestMapping(value = "/broker")
+	public String signUpBroke() {
+		return "community/signup_broker";
+	}
+
+	@RequestMapping(value = "/lessor")
+	public String signLessor() {
+		return "community/signup_lessor";
+	}
+
+	@RequestMapping(value = "/choose")
+	public String signCHoose() {
+		return "community/signupchoose";
+	}
+
+	@RequestMapping(value = "/subBroke")
+	public String subBroke() {
+		return "community/subscriptioncheck_broker";
+	}
+
+	@RequestMapping(value = "/subLessor")
+	public String subLessor() {
+		return "community/subscriptioncheck_lessor";
+	}
+
 	@RequestMapping(value = "/wriCom")
 	public String writeCommercial() {
 		return "community/writing_commercial";
@@ -44,7 +69,7 @@ public class CommunityPage {
 	public String getGu(Model model) {
 		System.out.println("시작");
 		List<String> list = communityDao.getGu();
-//		System.out.println(list.toString());
+		System.out.println(list.toString());
 		model.addAttribute("result",list);
 		return "community/server/searchServer";
 	}

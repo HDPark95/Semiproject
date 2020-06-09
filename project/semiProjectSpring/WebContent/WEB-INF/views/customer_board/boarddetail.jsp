@@ -18,24 +18,24 @@
 				<td bgcolor=white>
 					<table class="table2">
 						<tr>
-							<td>#{b_type}</td>
+							<td>문의유형</td>
 							<td><select class="form-control" id="">
 								
 							</select></td>
 						</tr>
 
 						<tr>
-							<td>#{b_writer}</td>
+							<td>작성자</td>
 							<td><input type=text name=name size=20></td>
 						</tr>
 
 						<tr>
-							<td>#{b_subject}</td>
+							<td>제목</td>
 							<td><input type=text name=title size=60></td>
 						</tr>
 
 						<tr>
-							<td>#{content}</td>
+							<td>내용</td>
 							<td><textarea name=content cols=85 rows=15></textarea></td>
 						</tr>
 <!-- 						<tr> -->

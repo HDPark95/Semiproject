@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import semiproject.mvc.dao.MyPageDao;
-import semiproject.mvc.vo.SignUpVO;
-
+import semiproject.mvc.vo.MyPageVO;
 
 @Controller
 public class MyPagePage {
@@ -16,114 +15,79 @@ public class MyPagePage {
 	@Autowired
 	private MyPageDao mypagedao;
 	
-	 
-	// ï¿½Ó´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìµï¿½
-		@RequestMapping(value = "/mypage_lessor" )
-		public ModelAndView myPagelessor(String aid) {
-			ModelAndView mav = new ModelAndView("mypage/mypage_lessor");
-			
-			SignUpVO vo = mypagedao.getloginINFOR(aid);
-			 
-			mav.addObject("vo", vo);
-			
-			return mav;
-		}
+	// ÀÓ´ëÀÎ ¸¶ÀÌÆäÀÌÁö ·Î ÀÌµ¿
+	@RequestMapping(value = "/mypage_lessor" )
+	public ModelAndView myPagelessor(String id) {
+		ModelAndView mav = new ModelAndView("mypage/mypage_lessor");
 		
-		// ï¿½Ó´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¿ï¿½ ï¿½Ö´ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
-		@RequestMapping(value = "/inforDetail" , method = RequestMethod.POST)
-		public ModelAndView myinforDetaillessor(String aid) {
-			ModelAndView mav = new ModelAndView("mypage/inforDetail");
-			
-			SignUpVO vo = mypagedao.getloginINFOR(aid);
-			
-			mav.addObject("vo", vo);
-			return mav;
-		}
+		MyPageVO vo = mypagedao.getinfor(id);
 		
-		@RequestMapping(value = "/Pay_Detail")
-		public ModelAndView inforPayDetail(String aid , int anum) {
-			ModelAndView mav = new ModelAndView("mypage/payDetail");
-			
-			SignUpVO vo = mypagedao.payTest(aid , anum);
-			
-			mav.addObject("vo", vo);
-			return mav;
-		}
+		mav.addObject("vo", vo);
+		return mav;
+	}
 	
+	// ÀÓ´ëÀÎ ³»Á¤º¸ ÅÇ¿¡ ÀÖ´Â È¸¿øÁ¤º¸ ÆäÀÌÁö·Î ÀÌµ¿
+	@RequestMapping(value = "/inforDetail" , method = RequestMethod.POST)
+	public ModelAndView myinforDetaillessor(String id) {
+		ModelAndView mav = new ModelAndView("mypage/inforDetail");
+		
+		MyPageVO vo = mypagedao.getinfor(id);
+		
+		mav.addObject("vo", vo);
+		return mav;
+	}
 	
-//	// ï¿½Ó´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìµï¿½
-//	@RequestMapping(value = "/mypage_lessor" )
-//	public ModelAndView myPagelessor(String id) {
-//		ModelAndView mav = new ModelAndView("mypage/mypage_lessor");
-//		
-//		MyPageVO vo = mypagedao.getinfor(id);
-//		
-//		mav.addObject("vo", vo);
-//		return mav;
-//	}
-//	
-//	// ï¿½Ó´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¿ï¿½ ï¿½Ö´ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
-//	@RequestMapping(value = "/inforDetail" , method = RequestMethod.POST)
-//	public ModelAndView myinforDetaillessor(String id) {
-//		ModelAndView mav = new ModelAndView("mypage/inforDetail");
-//		
-//		MyPageVO vo = mypagedao.getinfor(id);
-//		
-//		mav.addObject("vo", vo);
-//		return mav;
-//	}
-//	
-//	//ï¿½Ó´ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
-//	@RequestMapping(value = "/inforDetailUpdate" , method = RequestMethod.POST )
-//	public ModelAndView inforDetailUpdate (MyPageVO vo) {
-//		
-//		System.out.println("ï¿½Ù²ï¿½ï¿½ È®ï¿½ï¿½ : " + vo.getPwd());
-//		ModelAndView mav = new ModelAndView("redirect:inforDetailCompleted?id="+vo.getId());
-//		mypagedao.updateInfor(vo);
-//		return mav;
-//	}
-//	
-//	// ï¿½Ó´ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
-//	@RequestMapping(value = "/inforDetailCompleted" , method = RequestMethod.POST )
-//	public ModelAndView inforDetailCompleted (MyPageVO vo) {
-//		
-//		System.out.println("ï¿½Ù²ï¿½ï¿½ È®ï¿½ï¿½ : " + vo.getPwd());
-//		ModelAndView mav = new ModelAndView("inforDetailCompleted");
-//		mypagedao.updateInfor(vo);
-//		return mav;
-//	}
-//	
-//	// ï¿½Ó´ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
-//	@RequestMapping(value = "/inforSignup" , method = RequestMethod.POST)
-//	public ModelAndView myinforSignuplessor(String id) {
-//		ModelAndView mav = new ModelAndView("mypage/inforSignup");
-//		
-//		MyPageVO vo = mypagedao.getinfor(id);
-//		
-//		mav.addObject("vo", vo);
-//		return mav;
-//	}
-//	
-//	@RequestMapping(value = "/inforUpdate" , method = RequestMethod.POST )
-//	public ModelAndView inforup (MyPageVO vo) {
-//		
-//		System.out.println("ï¿½Ù²ï¿½ï¿½ È®ï¿½ï¿½ : " + vo.getPwd());
-//		ModelAndView mav = new ModelAndView("redirect:inforCompleted?id="+vo.getId());
-//		mypagedao.updateInfor(vo);
-//		return mav;
-//	}
-//	
-//	@RequestMapping(value = "/inforCompleted")
-//	public ModelAndView myPagelessorCompleted(String id) {
-//		
-//		ModelAndView mav = new ModelAndView("mypage/inforCompleted");
-//		
-//		MyPageVO vo = mypagedao.getinfor(id);
-//		mav.addObject("vo", vo);
-//		return mav;
-//	}
+	//ÀÓ´ëÀÎ È¸¿øÁ¤º¸ ¼öÁ¤ 
+	@RequestMapping(value = "/inforDetailUpdate" , method = RequestMethod.POST )
+	public ModelAndView inforDetailUpdate (MyPageVO vo) {
+		
+		System.out.println("¹Ù²ï°Å È®ÀÎ : " + vo.getPwd());
+		ModelAndView mav = new ModelAndView("redirect:inforDetailCompleted?id="+vo.getId());
+		mypagedao.updateInfor(vo);
+		return mav;
+	}
 	
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+	// ÀÓ´ëÀÎ È¸¿øÁ¤º¸ ¼öÁ¤ÈÄ º¸¿©Áö´Â ÆäÀÌÁö 
+	@RequestMapping(value = "/inforDetailCompleted" , method = RequestMethod.POST )
+	public ModelAndView inforDetailCompleted (MyPageVO vo) {
+		
+		System.out.println("¹Ù²ï°Å È®ÀÎ : " + vo.getPwd());
+		ModelAndView mav = new ModelAndView("inforDetailCompleted");
+		mypagedao.updateInfor(vo);
+		return mav;
+	}
+	
+	// ÀÓ´ëÀÎ ·Î±×ÀÎ Á¤º¸ ÆäÀÌÁö·Î ÀÌµ¿
+	@RequestMapping(value = "/inforSignup" , method = RequestMethod.POST)
+	public ModelAndView myinforSignuplessor(String id) {
+		ModelAndView mav = new ModelAndView("mypage/inforSignup");
+		
+		MyPageVO vo = mypagedao.getinfor(id);
+		
+		mav.addObject("vo", vo);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/inforUpdate" , method = RequestMethod.POST )
+	public ModelAndView inforup (MyPageVO vo) {
+		
+		System.out.println("¹Ù²ï°Å È®ÀÎ : " + vo.getPwd());
+		ModelAndView mav = new ModelAndView("redirect:inforCompleted?id="+vo.getId());
+		mypagedao.updateInfor(vo);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/inforCompleted")
+	public ModelAndView myPagelessorCompleted(String id) {
+		
+		ModelAndView mav = new ModelAndView("mypage/inforCompleted");
+		
+		MyPageVO vo = mypagedao.getinfor(id);
+		mav.addObject("vo", vo);
+		return mav;
+	}
+	
+	// ±â¾÷ÀÎ ¸¶ÀÌÆäÀÌÁö·Î ÀÌµ¿
 	@RequestMapping(value = "/mypage_broker")
 	public String myPagebroker() {
 		

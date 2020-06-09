@@ -1,16 +1,17 @@
 package semiproject.mvc.vo;
 
-public class LoginDTO {
+public class LoginDTO {  
 	private String aid;
 	private String apwd;
-	private String agubun;  
 	private boolean userCookie;
-	 
-	public String getAgubun() {
-		return agubun;
+	
+	private UserVO userVO;
+	
+	public UserVO getUserVO() {
+		return userVO;
 	}
-	public void setAgubun(String agubun) {
-		this.agubun = agubun;
+	public void setUserVO(UserVO userVO) {
+		this.userVO = userVO;
 	}
 	public String getAid() {
 		return aid;
@@ -30,4 +31,6 @@ public class LoginDTO {
 	public void setUserCookie(boolean userCookie) {
 		this.userCookie = userCookie;
 	}
+
+	
 }

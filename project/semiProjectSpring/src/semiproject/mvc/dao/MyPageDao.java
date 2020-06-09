@@ -5,33 +5,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import semiproject.mvc.vo.MyPageVO;
-import semiproject.mvc.vo.SignUpVO;
-
 
 @Repository
 public class MyPageDao {
 	@Autowired
 	private SqlSessionTemplate ss ;
 	
-	
-	public SignUpVO getloginINFOR (String aid) {
+	public MyPageVO getinfor (String id) {
 		
-		SignUpVO vo = ss.selectOne("mypage.lessor_infor", aid);
-		return vo; 
-	} 
-	
-	public SignUpVO getPayDetail(String aid) {
-		SignUpVO vo = ss.selectOne("mypage.lessor_paydetail", aid);
+		MyPageVO vo = ss.selectOne("mypage.lessor_infor", id);
+		
 		return vo;
 	}
 	
-	public SignUpVO payTest(String aid , int anum) {
-		SignUpVO vo = null; 
+	public void updateInfor (MyPageVO vo) {
 		
-		vo = ss.selectOne("mypage.lessor_infor", aid);
-		System.out.println("���� ����?");
-		vo.setPayvo(ss.selectOne("mypage.paymentDetail", anum));
+		int res = ss.update("mypage.lessor_infor_amend", vo);
+		System.out.println("res : " + res);
 		
-		return vo;
 	}
 }
