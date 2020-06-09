@@ -19,7 +19,10 @@
 		select distinct 상권업종소분류명 from commercial where 상권업종대분류명 = #{largeName} and 상권업종중분류명 = #{mediumName}
 	</select>
 	<select id="map" parameterType="commercial" resultType="commercial">
-		select 위도 lat, 경도 lng from commercial where 시군구명 = #{target} and 상권업종대분류명 = #{largeName} and 상권업종중분류명 = #{mediumName} and 상권업종소분류명 = #{smallName}
+		select 위도 lat, 경도 lng from commercial
+	</select>
+	<select id="map2" parameterType="commercial" resultType="commercial">
+		select 위도 lat, 경도 lng from commercial where 시군구명 = #{guName} and 상권업종대분류명 = #{largeName} and 상권업종중분류명 = #{mediumName}
 	</select>
 	<select id="totalcount" resultType="commercial">
 		select count(*), 시군구명 from commercial group by 시군구명

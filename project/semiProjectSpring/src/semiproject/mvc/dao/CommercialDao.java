@@ -40,9 +40,8 @@ public class CommercialDao {
 		return list;
 	}
 	public List<DataVO> getMark(DataVO vo) {
-		List<DataVO> list = ss.selectList("data.map", vo);
+		List<DataVO> list = ss.selectList("data.map2", vo);
 		System.out.println("ListSize:" + list.size());
-	
 		return list;
 	}
 	public List<DataVO> getInformation(String guname) {
@@ -61,5 +60,4 @@ public class CommercialDao {
 		List<String> list = ss.selectList("data.dong", guName);
 		return list;
 	}
-	
 }

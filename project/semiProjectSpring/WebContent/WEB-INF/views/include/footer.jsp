@@ -30,10 +30,6 @@
 					invisible = 'invisible';
 					visible = 'visible';
 				})
-		$('.card').click(function() {
-			var num = $(this).index();
-			console.log(num)
-		});
 		var invisible = 'invisible';
 		var visible = 'visible';
 		var className = 'invisible';
@@ -42,9 +38,7 @@
 			$('.filter-page').removeClass(invisible);
 			$('.filter-page').addClass(visible);
 			if (className === 'visible') {
-
 				$('.filter-page').slideUp(1000);
-
 			} else {
 
 				$('.filter-page').slideDown(1000);
@@ -70,7 +64,6 @@
 				});
 	});
 </script>
-
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 

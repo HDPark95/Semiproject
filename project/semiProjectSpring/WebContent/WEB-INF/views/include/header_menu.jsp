@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   
-
   </head>
-    <body id="page-top">
-         
-          <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav2" >
-         
+    <body id="page-top">   
+          <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav2" >      
          <div class="container col-md-12" >
          	
                 <a class="navbar-brand js-scroll-trigger menu-other" href="index">메인메뉴테스트</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
@@ -18,7 +14,7 @@
                        <li class="nav-item">
 	                       <a class="nav-link js-scroll-trigger" href="commercialMain">상가</a>
 	                       <ul class="invisible sub-menu">
-		                       	<li><a>매물</a></li>
+		                       	<li><a>실거래가</a></li>
 		                       	<li><a>매물</a></li>
 		                       	<li><a href="product">매물</a></li>
 		                       	<li><a href="register">매물등록</a></li>
@@ -35,8 +31,7 @@
 	                       </ul>
                         </li>
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="auctionMain">경매</a>
-	                        
+	                        <a class="nav-link js-scroll-trigger" href="auctionMain">경매</a>	                    
 	                        <ul class="invisible sub-menu">
 		                       		<li><a>물건검색</a></li>
 		                       	<li><a>판매관리</a></li>
@@ -113,7 +108,6 @@
 		             <div class=" col-md-12 mypage invisible ">
 		            	
 		            </div>
-	 
             </div> -->
        
 	            

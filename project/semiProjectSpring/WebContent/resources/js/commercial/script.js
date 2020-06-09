@@ -1,5 +1,5 @@
 <!-- Hyundoo JS-->
-	$(function() {
+	/*$(function() {
 		var url = 'gu'
 		$.ajax({
 			url : url,
@@ -9,7 +9,7 @@
 			error : function(e) {
 				console.log("Error : " + e);
 			}
-		});
+		});*/
 		/*
 		 * $('#combobox1') .change( function() { //마커 추가하기. var param =
 		 * $(this).val(); var url =
@@ -21,7 +21,7 @@
 		 * naver.maps.LatLng( myObj[e].lat, myObj[e].lng), map : map }); } ; },
 		 * error : function(e) { console.log("Error : " + e); } }); })
 		 */
-	});
+	//});
 	$(function() {
 		$('#combobox1')
 				.change(
@@ -193,7 +193,7 @@
 	$(function() {
 		$("#postcodify_search_button").postcodifyPopUp();
 	});
-	function open_pop() {
+	function open_pop(){
 		$(".productdescmodal").click(function(){
 			var atclno = $(this).val();
 			console.log(atclno);
@@ -202,32 +202,30 @@
 				url : url,
 				success : function(d) {
 					$("#myModal").html(d);
-					
+				},
+				error:function(e){
+					console.log(e);
+				}
+			});
+			url = "recentCnt?atclno="+ atclno;
+			$.ajax({
+				url:url,
+				success : function(data){
+					$("#recentCnt").append(data); 
 				}
 			});
 			$('#myModal').show();
-			
-			var result=[];
-			$('.listvo').each(function(i) {
-				result+=$(this).val();
-				console.log("값"+$(this).val().location)
-			});
-			console.log("list 존재여부"+result);
-			
-			url = "recentCnt";
-			$.ajax({
-				url:url,
-				type:'post',
-				data:{atclno:atclno,result:result},
-				success : function(d){
-				
-					$("#recentCnt").html(d);
-				}
-			})
 		});
 	};
-	//팝업 Close 기능
 	function close_pop(flag) {
 		$('#myModal').hide();
+	};
+	
+	function open_pop2() {
+		$('#myModal2').show();
+	};
+	//팝업 Close 기능
+	function close_pop2(flag) {
+		$('#myModal2').hide();
 	};
 	

@@ -8,6 +8,7 @@ public class DataVO {
 	private String largeName;
 	private String mediumName;
 	private String smallName;
+	private Double lat,lng;
 	
 	public String getCate() {
 		return cate;
@@ -64,5 +65,23 @@ public class DataVO {
 	public void setSmallName(String smallName) {
 		this.smallName = smallName;
 	}
+
+	public Double getLat() {
+		return lat;
+	}
+
+	public void setLat(Double lat) {
+		this.lat = lat;
+	}
+
+	public Double getLng() {
+		return lng;
+	}
+
+	public void setLng(Double lng) {
+		this.lng = lng;
+	}
+	
+	
 
 }

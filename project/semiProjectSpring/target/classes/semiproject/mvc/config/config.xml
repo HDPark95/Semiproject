@@ -21,8 +21,7 @@
 			alias="adevo" />
 		<typeAlias type="semiproject.mvc.vo.AuctionAddIpVO"
 			alias="aipvo" />
-		<typeAlias type="semiproject.mvc.vo.CommercialProductVO"
-			alias="cpvo" />
+		<typeAlias type="semiproject.mvc.vo.CommercialProductVO" alias="cpvo" />
 		<typeAlias type="semiproject.mvc.vo.UserVO" alias="uservo" />
 	</typeAliases>
 </configuration>
