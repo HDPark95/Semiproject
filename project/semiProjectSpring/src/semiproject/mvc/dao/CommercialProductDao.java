@@ -18,5 +18,14 @@ public class CommercialProductDao {
 		System.out.println("호출");
 		List<CommercialProductVO> list = ss.selectList("commercialProduct.desc", location);
 		return list;
-	}	
+	}
+	public CommercialProductVO getProductDetail(String atclno){
+		CommercialProductVO vo = ss.selectOne("commercialProduct.descdetail", atclno);
+		return vo;
+	}
+	public CommercialProductVO getCntProduct(String atclno){
+		CommercialProductVO vo = ss.selectOne("commercialProduct.descdetail", atclno);
+		return vo;
+	}
 }
+

@@ -10,7 +10,7 @@
 	<div class="tab-pane  th_page_space  fade show active "
 			style="text-align: center; margin-top: 200px;" id="a">
 <h4 class="subtopma">정보 수정이 완료 되었습니다.</h4>
-
+ 
 <div class="container" >
 	<form class="form-horizontal">
 		<div class="form-group ">
@@ -19,7 +19,7 @@
 				<input type="email" class="form-control" id="outputid"
 					placeholder="" readonly="readonly" value="${vo.id }">
 			</div>
-		</div> 
+		</div>  
 		<div class="form-group">
 			<label for="inputPassword" class="col-sm-2 control-label">비밀번호</label>
 			<div class="col-sm-3 container">

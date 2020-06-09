@@ -3,7 +3,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../include/header_index.jsp"%>
 <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
-<link href="resources/css/commercial/style.css?after" rel="stylesheet" />
 <%@ include file="../include/header_menu.jsp"%>
 <%@include file="sidemenu.jsp"%>
 <section class="contact-section ">
@@ -11,7 +10,8 @@
 	<div class="container">
 		<!-- Call to Action Well -->
 		<script src="resources/js/commercial/json2.js"></script>
-		<div class="card text-white bg-secondary my-6 py-4 text-center col-lg-12">
+		<div
+			class="card text-white bg-secondary my-6 py-4 text-center col-lg-12">
 			<div class="card-body">
 				<form class="form-inline">
 					<select id="combobox1" class="form-control"
@@ -40,11 +40,11 @@
 		<blockquote class="border">
 			<div class="row align-items-center my-7">
 				<div id="map" class="col-lg-7"
-					style="width: 100%; height: 655px; z-index: 0;margin-left: 10px">
+					style="width: 100%; height: 655px; z-index: 0; margin-left: 10px">
 					<!-- <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400"> -->
 				</div>
 				<script type="text/javascript"
-					src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wejnreaybi"></script>
+					src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=zfozw8jz6o"></script>
 				<script>
 					var seoul = new naver.maps.LatLngBounds(
 							new naver.maps.LatLng(37.42829747263545,
@@ -133,7 +133,7 @@
 							})
 						}*/
 				</script>
-				<div class="col-lg-4" id="information" >
+				<div class="col-lg-4" id="information">
 					<h1 class="font-weight-light">현재 영업중인 상권정보</h1>
 					<p>창업을 원하시는 입지의 좌표를 선택해주세요. 그 입지 근처의 유동인구, 주변 상권분석, 실거래가 등 다양한
 						정보를 제공해드립니다. 조금 더 자세한 정보를 얻고 싶으시면 상세하게 검색해보세요.</p>
@@ -143,65 +143,40 @@
 		</blockquote>
 		<!-- /.row -->
 		<!-- Content Row -->
-		<div class="card text-black bg-secondary my-6 py-4 text-center col-lg-12 bg-white">
-			<h3>Best 상가/점포 매물 상세정보</h3>
-			<div class="row" id="product">
-				<div class="col-md-4 mb-5 productmain">
-					<div class="card h-100">
-						<div class="card-body">
-							<h2 class="card-title">매물 1</h2>
-							<div class="commercialimg">
-								<img src="resources/images/commercial/commercial1.jpg"
-									class="mainImage">
-							</div>
-						</div>
-						<div class="card-footer">
-							<button onclick="open_pop()" class="btn btn-primary btn-sm">More
-								Info</button>
-						</div>
-					</div>
-				</div>
-				<!-- /.col-md-4 -->
-				<div class="col-md-4 mb-5 productmain">
-					<div class="card h-100">
-						<div class="card-body">
-							<h2 class="card-title">매물 2</h2>
-							<div class="commercialimg">
-								<img src="resources/images/commercial/commercial2.jpg"
-									class="mainImage">
-							</div>
-						</div>
-						<div class="card-footer">
-							<button onclick="open_pop()" class="btn btn-primary btn-sm">More
-								Info</button>
-						</div>
-					</div>
-				</div>
-				<!-- /.col-md-4 -->
-				<div class="col-md-4 mb-5 productmain">
-					<div class="card h-100">
-						<div class="card-body">
-							<h2 class="card-title">매물 3</h2>
-							<div class="commercialimg">
-								<img src="resources/images/commercial/commercial3.jpg"
-									class="mainImage">
-							</div>
-						</div>
-						<div class="card-footer">
-							<button onclick="open_pop()" class="btn btn-primary btn-sm">More
-								Info</button>
-						</div>
-					</div>
-				</div>
-				<!-- /.col-md-4 -->
+		<div
+			class="card text-black bg-secondary my-6 py-4 text-center col-lg-12 bg-white">
+			<h3>Best3 상가/점포 매물정보</h3>
+			<div class="row" id="product" style="text-align: center;">
+				<h4>검색 된 결과가 없습니다.</h4>
 			</div>
 			<!-- /.row -->
 		</div>
 	</div>
+	<!-- <script>
+	function open_pop() {
+		$(".productdescmodal").click(function(){
+			var atclno = $(this).val();
+			console.log(atclno);
+			var url = "productModal?atclno=" + atclno;
+			$.ajax({
+				url : url,
+				success : function(d) {
+					$("#myModal").html(d);
+				}
+			});
+			$('#myModal').show();
+		});
+	};
+	//팝업 Close 기능
+	function close_pop(flag) {
+		$('#myModal').hide();
+	};
+	</script> -->
+	<script src="resources/js/commercial/script.js?ver=1"></script>
 </section>
 <!-- /.container -->
 <%@include file="modal.jsp"%>
-<script src="resources/js/commercial/script.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 <%@ include file="../include/footer.jsp"%>
+
 </html>

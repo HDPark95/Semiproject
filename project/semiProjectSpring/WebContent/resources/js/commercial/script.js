@@ -1,5 +1,4 @@
 <!-- Hyundoo JS-->
- 
 	$(function() {
 		var url = 'gu'
 		$.ajax({
@@ -23,14 +22,13 @@
 		 * error : function(e) { console.log("Error : " + e); } }); })
 		 */
 	});
-
 	$(function() {
 		$('#combobox1')
 				.change(
 						function() {
 							var param = $('#combobox1').val()
 							var url = 'dong?guName='
-									+ encodeURIComponent(param)
+									+ encodeURIComponent(param) 
 							$.ajax({
 								url : url,
 								success : function(d) {
@@ -83,7 +81,7 @@
 										});
 									});
 							var location = $(this).val();
-							var url = "productdesc?location="+ location;
+							var url = "productdesc?location="+ encodeURIComponent(location);
 							$.ajax({
 								url: url,
 								success : function(d){
@@ -105,7 +103,7 @@
 							var url = 'information2?guName='
 									+ encodeURIComponent(param)
 									+ '&dongName='
-									+ encodeURIComponent(param2)
+									+ encodeURIComponent(param2) 
 							$.ajax({
 								url : url,
 								success : function(d) {
@@ -192,9 +190,46 @@
 		$("#addrDetail").val(addrDetail);
 		$("#zipNo").val(zipNo);
 	}
-
-
 	$(function() {
 		$("#postcodify_search_button").postcodifyPopUp();
 	});
+	function open_pop() {
+		$(".productdescmodal").click(function(){
+			var atclno = $(this).val();
+			console.log(atclno);
+			var url = "productModal?atclno=" + atclno;
+			$.ajax({
+				url : url,
+				success : function(d) {
+					$("#myModal").html(d);
+					
+				}
+			});
+			$('#myModal').show();
+			
+			var result=[];
+
+			$('.listvo').each(function(i) {
+				result+=$(this).val();
+				console.log("값"+$(this).val().location)
+
+			});
+			console.log("list 존재여부"+result);
+			
+			url = "recentCnt";
+			$.ajax({
+				url:url,
+				type:'post',
+				data:{atclno:atclno,result:result},
+				success : function(d){
+				
+					$("#recentCnt").html(d);
+				}
+			})
+		});
+	};
+	//팝업 Close 기능
+	function close_pop(flag) {
+		$('#myModal').hide();
+	};
 	

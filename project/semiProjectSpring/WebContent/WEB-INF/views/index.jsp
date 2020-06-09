@@ -69,6 +69,6 @@
                 </div>
             </div>
         </section>
- 
+  <script src="resources/js/index.js"></script>
  
  <%@ include file="include/footer.jsp"%>

@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <h3>${result[0].guName} - ${result[0].dongName}</h3>
 <table class="table">
 	<tr>
-		<th>»ó±Ç¾÷Á¾´ëºĞ·ù¸í</th>
-		<th>¼ö</th>
+		<th>ìƒê¶Œì—…ì¢…ëŒ€ë¶„ë¥˜ëª…</th>
+		<th>ìˆ˜</th>
 	</tr>
 	<tr>
 		<c:forEach items="${result}" var="e">
