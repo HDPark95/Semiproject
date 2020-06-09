@@ -56,7 +56,7 @@ public class MyPagePage {
 		@RequestMapping(value = "/loginDetail" , method = RequestMethod.POST)
 		public ModelAndView loginDetail(String aid) {
 			ModelAndView mav = new ModelAndView("mypage/loginDetail");
-			
+			 
 			SignUPVO vo = mypagedao.getloginINFOR(aid);
 			
 			mav.addObject("vo", vo);
@@ -71,7 +71,7 @@ public class MyPagePage {
 			mav.addObject("vo", vo2);
 			System.out.println(vo2.getMemberinfor().getDname());
 			mav.setViewName("mypage/member_detailin");
-			return mav;
+			return mav; 
 		}
 	
 //	// 임대인 마이페이지 로 이동

@@ -5,7 +5,7 @@
 		<form action="inforDetail" method="post" >
 			<div class="card-header">회원정보</div>
 			<div class="th_card-body" id="infor_memberdetail">
-				<%@ include file="member_detailin.jsp"%>
+				<%@ include file="member_detailin.jsp"%> 
 			</div>
 				
 		</form>

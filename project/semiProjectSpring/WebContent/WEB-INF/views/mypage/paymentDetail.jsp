@@ -8,7 +8,7 @@
 
 
 
-<div class="container">
+<div class="container"> 
 	<h4 class="subtopma">${vo.memberinfor.dname }님의 결제 정보 입니다.</h4>
 	<form class="form-horizontal" action="inforDetailUpdate" method="post">
 		<input type="hidden" class="" name="aid" id="aid"

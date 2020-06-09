@@ -42,7 +42,7 @@
 					value="${vo.agubun }"></td>
 			</tr>
 		</table>
-		<div class="container" id="signup"
+		<div class="container" id="signup" 
 			style="">
 
 			<button type="submit" class="btn btn-success btn-lg">수정하기

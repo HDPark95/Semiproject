@@ -54,7 +54,7 @@
 </section>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-	$(function() {
+	$(function() { 
 		
 		$('#memberdetail_btn').click(function() {
 			$.ajax({

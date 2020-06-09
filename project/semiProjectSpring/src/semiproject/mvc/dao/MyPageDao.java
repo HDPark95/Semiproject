@@ -10,10 +10,10 @@ import semiproject.mvc.vo.SignUPVO;
 @Repository
 public class MyPageDao {
 	@Autowired
-	private SqlSessionTemplate ss ;
+	private SqlSessionTemplate ss ; 
 	
 	
-	public SignUPVO getloginINFOR (String aid) {
+	public SignUPVO getloginINFOR (String aid) { 
 		
 		SignUPVO vo = ss.selectOne("mypage.lessor_infor", aid);
 		return vo; 
@@ -37,7 +37,7 @@ public class MyPageDao {
 	public void memberUPDATE(SignUPVO vo) {
 		
 		int update = ss.update("mypage.infor_memberupdate", vo);
-		System.out.println("mypage 멤버 업데이트 확인!!");
+		System.out.println("mypage 멤버 업데이트 확인!!"); 
 	}
 	
 }

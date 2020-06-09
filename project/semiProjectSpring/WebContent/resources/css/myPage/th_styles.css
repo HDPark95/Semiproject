@@ -461,7 +461,7 @@ table.type02 {
     border-left: 1px solid #ccc;
   margin : 20px 10px;
 }
-table.type02 th {
+table.type02 th { 
     width: 150px;
     padding: 10px;
     font-weight: bold;

@@ -5,7 +5,7 @@ public class UserVO {
 	private String dgender;
 	private String dtel;
 	private String dbirth;
-	private int anum;
+	private int anum ;
 	private String aid;
 	private String apwd; 
 	private String agubun; 

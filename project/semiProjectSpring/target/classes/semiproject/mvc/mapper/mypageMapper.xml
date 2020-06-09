@@ -35,7 +35,7 @@
     set
     mname = #{dname} ,
     mtel = #{dtel} 
-	</update>
+	</update> 
 	
 	<!-- 로그인 정보 회원정보 조인 resultMap -->
 	<resultMap type="signupvo" id="member_infor">

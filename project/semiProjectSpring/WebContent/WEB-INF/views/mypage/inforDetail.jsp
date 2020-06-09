@@ -57,7 +57,7 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-	$(function() {
+	$(function() { 
 		var date = new Date();
 		var year = date.getFullYear();
 		var dbirth = '${vo.memberinfor.dbirth }';
