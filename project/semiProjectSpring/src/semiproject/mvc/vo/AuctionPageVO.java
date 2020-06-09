@@ -28,8 +28,8 @@ public class AuctionPageVO {
 		this.searchValue = searchValue;
 	}
 
-	//패이지 블록의 Cnt
-	private int cntPage = 5;
+	//페이지 블록의 Cnt
+	private int cntPage = 10;
 
 	public AuctionPageVO() {
 	}

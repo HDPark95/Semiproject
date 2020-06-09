@@ -262,30 +262,33 @@ padding-left: 15px;
 					  <button type="button" class="btn btn-outline-primary">매각기일순</button>
 					  <button type="button" class="btn btn-outline-primary">조회수순</button>
 					</div>
-					<div style="float: left;"><label id="sumres" style="margin-top: 5px;margin-left: 10px;">(총 <b>1,006</b>건)</label></div> 
+					<div style="float: left;"><label id="sumres" style="margin-top: 5px;margin-left: 10px;">(총 <b>${paging.total}</b>건)</label></div> 
 				</div>   
 				<div id="datalist" style="margin-top: 70px;">
 					<table class="table table-hover" border="1">
 						<thead>
 							<tr>
-								<th scope="col" style="width:10px"></th>
-								<th scope="col" colspan="6"><span id="fsubject">제목이 들어갈자리임여</span></th>
+								<th scope="col"></th>
+								<th scope="col">1</th>
+								<th scope="col">제목/물건용도/주소지/토지면적/건물면적/경매만료일</th>
+								<th scope="col" colspan="2">시작가/현재가</th>
+								<th scope="col">상태/등록일/조회수</th>
 							</tr>
 						</thead>
 						<tbody style="border-bottom: 1px solid gray;font-size: 1rem;">
+							<c:forEach var="list" items="${list}">
 							<tr>
 								<th></th>
 								<th id="colchk1" scope="row" style="width: 130px;"><img src="images/kosmo.jpg" style="width: 120px;height: 120px;float: left;"></th>
-								<td id="coltd1_2" style="width: 630px;"><label id="t1addr1_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><b>[아파트형공장]</b><br/>서울 특별시 금천구 가산동 426-5 월드 메르디앙 벤처센터 2차 410호</a></label>
-								<br/><label id="t1addr1_2" style="font-size: 11pt;height: 6px;">토지면적 70.28㎡/건물면적 226.2㎡</label><br/><label id="t1addr1_3" style="font-size: 11pt;height: 6px;"><b>경매만료기일</b>&nbsp;&nbsp;<span style="color:blue;font-weight: bold;">2020년06월10일 17:25</span></label>
+								<td id="coltd1_2" style="width: 630px;"><label id="t1addr1_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><span id="mainsubject">${list.subject}</span><br/><b>[${list.yongdo}]</b><br/>${list.addr}</a></label>
+								<br/><label id="t1addr1_2" style="font-size: 11pt;height: 6px;">토지면적 ${list.tweight}㎡/건물면적 ${list.bweight}㎡</label><br/><label id="t1addr1_3" style="font-size: 11pt;height: 6px;"><b>경매만료기일</b>&nbsp;&nbsp;<span style="color:blue;font-weight: bold;">${list.enddate}</span></label>
 								</td>
 								<td style="padding-left:0px;padding-right: 0px;"><span class="badge badge-primary" style="font-size: 8pt;">시작가</span><br/><span class="badge badge-info" style="font-size: 8pt;">현재가</span></td>
-								<td style="padding-left:3px;"><b>799,000,000</b><br/><span style="color: blue;"><b>327,270,000</b></span>
+								<td style="padding-left:3px;"><b>${list.ideprice}</b><br/><span style="color: blue;"><b>${list.hprice}</b></span>
 								</td>
-								<td style="color: gray;text-align:center;">상태<br/>등록일<br/>조회수</td>
-								<td style="text-align: center;">진행<br/>2020.05.26<br/>10687</td>
-								
+								<td style="text-align: center;">${list.status}<br/>${list.indate}<br/>${list.hit}</td>
 							</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>
@@ -312,5 +315,8 @@ padding-left: 15px;
 			</div>
 		</div>
 	</div>
-<!-- <script type="text/javascript" src="resources/js/auction/auction_main.js"></script> -->
+<script type="text/javascript" src="resources/js/auction/auction_main.js"></script>
+<script>
+
+</script>
 <%@ include file="../include/footer2.jsp"%>

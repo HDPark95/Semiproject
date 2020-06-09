@@ -7,10 +7,22 @@ where b.anum = a.anum
   and p.anum = a.anum
 */
 public class AuctionViewVO {
-	private int anum,tweight,bweight,hit,ideprice,hprice;
-	private String bid,yongdo,addr,wimage,subject,enddate;
+	private int anum,tweight,bweight,hit;
+	private String bid,yongdo,addr,wimage,subject,enddate,ideprice,hprice,status,indate;
 	public int getAnum() {
 		return anum;
+	}
+	public String getIndate() {
+		return indate;
+	}
+	public void setIndate(String indate) {
+		this.indate = indate;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	public void setAnum(int anum) {
 		this.anum = anum;
@@ -32,18 +44,6 @@ public class AuctionViewVO {
 	}
 	public void setHit(int hit) {
 		this.hit = hit;
-	}
-	public int getIdeprice() {
-		return ideprice;
-	}
-	public void setIdeprice(int ideprice) {
-		this.ideprice = ideprice;
-	}
-	public int getHprice() {
-		return hprice;
-	}
-	public void setHprice(int hprice) {
-		this.hprice = hprice;
 	}
 	public String getBid() {
 		return bid;
@@ -81,4 +81,17 @@ public class AuctionViewVO {
 	public void setEnddate(String enddate) {
 		this.enddate = enddate;
 	}
+	public String getIdeprice() {
+		return ideprice;
+	}
+	public void setIdeprice(String ideprice) {
+		this.ideprice = ideprice;
+	}
+	public String getHprice() {
+		return hprice;
+	}
+	public void setHprice(String hprice) {
+		this.hprice = hprice;
+	}
+	
 }

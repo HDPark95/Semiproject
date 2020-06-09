@@ -175,8 +175,8 @@ height: 600px;
 							</tr>
 							<tr>
 								<th><label for="ipenddate">입찰만료일</label></th>
-								<td><input type="date" id="ipenddate" name="ipenddate" class="form-control" style="width: 200px;"/>&nbsp;
-								<input type="time" id="ipendtime" name="ipendtime" class="form-control" style="width: 200px;"/></td>
+								<td><input type="date" id="edate" name="edate" class="form-control" style="width: 200px;"/>&nbsp;
+								<input type="time" id="etime" name="etime" class="form-control" style="width: 200px;"/></td>
 							</tr>
 							<tr>
 								<th><label for="bweight">건물면적/토지면적</label></th>
@@ -228,8 +228,6 @@ height: 600px;
 						</tbody>
 					</table>
 						<input type="hidden" name="bid" id="bid" value="test1"/>
-						<input type="hidden" name="enddate" id="enddate" value="2020-06-08 05:24:14"/>
-						<input type="hidden" name="text" id="text" value="text1111"/>
 				</div>
 			</div>
 		</form>
