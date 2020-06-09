@@ -61,6 +61,6 @@ public class CustomerPage{
 	public String customerBody() {
 		return "customer_board/boarddetail";
 	}
-
+  
 
 }

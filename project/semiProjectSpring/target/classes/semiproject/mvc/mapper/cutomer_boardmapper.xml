@@ -13,4 +13,4 @@ values(customer_board_seq.nextVal,#{c_writer},#{c_id},#{c_pwd},#{c_type},#{c_sub
 
 <!-- </select> -->
 
-</mapper>
+</mapper>  

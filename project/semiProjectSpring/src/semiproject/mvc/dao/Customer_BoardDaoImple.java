@@ -17,7 +17,7 @@ public class Customer_BoardDaoImple implements Customer_BoardDao{
 	@Override
 	public int addwrite(Customer_BoardVO vo) throws Exception {
 		
-		return ss.insert("board.cbvo", vo);
+		return ss.insert("board.cbvo", vo);  
 	}
 
 	@Override

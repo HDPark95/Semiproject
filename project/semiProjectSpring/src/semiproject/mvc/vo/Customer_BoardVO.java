@@ -5,7 +5,7 @@ import java.util.Date;
 public class Customer_BoardVO {
 	private int c_num;
 	private String c_writer,c_id,c_pwd,c_type,c_subject,c_content;
-	private Date c_regdate;
+	private Date c_regdate;  
 	
 	public int getC_num() {
 		return c_num;

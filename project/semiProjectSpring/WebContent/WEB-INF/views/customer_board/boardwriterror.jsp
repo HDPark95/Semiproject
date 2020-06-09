@@ -8,7 +8,7 @@
 
 <body id="table">
 	
-	에러 !!!!!!!
+	에러 !!!!!!!  
 </body>
 
 <%@ include file="../include/footer.jsp"%>

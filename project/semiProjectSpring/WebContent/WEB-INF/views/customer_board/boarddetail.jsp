@@ -16,7 +16,7 @@
 			</tr>
 			<tr>
 				<td bgcolor=white>
-					<table class="table2">
+					<table class="table2">  
 						<tr>
 							<td>문의유형</td>
 							<td><select class="form-control" id="">
