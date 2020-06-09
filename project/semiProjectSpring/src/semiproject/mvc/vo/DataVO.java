@@ -1,3 +1,4 @@
+
 package semiproject.mvc.vo;
 
 public class DataVO {
@@ -66,3 +67,4 @@ public class DataVO {
 	}
 
 }
+

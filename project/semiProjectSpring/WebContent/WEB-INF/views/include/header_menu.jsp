@@ -64,8 +64,16 @@
                     </ul>
                       <ul class="navbar-nav ml-auto2 menu-other">
                         <li class="nav-item">
-	                        <a class="nav-link js-scroll-trigger" href="mypage">내정보</a>
-	                        <input type="hidden" value="mypage">
+	                        
+	                       	<c:choose>
+		                       	<c:when test="${user.agubun eq '공인중개사'}">
+		                       		<a class="nav-link js-scroll-trigger" href="/mypage_broker">내정보</a>
+		                       	</c:when>
+		                        <c:otherwise>
+		                        	 <a class="nav-link js-scroll-trigger" href="mypage_lessor?aid=${user.aid }" >내정보</a>
+		                        </c:otherwise>
+	                       </c:choose> 
+                       <input type="hidden" value="mypage">
                         </li>
                         <li class="nav-item">
                        	 	<a class="nav-link js-scroll-trigger" href="logout">로그아웃</a>

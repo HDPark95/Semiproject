@@ -81,7 +81,7 @@
 										});
 									});
 							var location = $(this).val();
-							var url = "productdesc?location="+ location;
+							var url = "productdesc?location="+ encodeURIComponent(location);
 							$.ajax({
 								url: url,
 								success : function(d){
@@ -208,9 +208,11 @@
 			$('#myModal').show();
 			
 			var result=[];
+
 			$('.listvo').each(function(i) {
 				result+=$(this).val();
 				console.log("값"+$(this).val().location)
+
 			});
 			console.log("list 존재여부"+result);
 			

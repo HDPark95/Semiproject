@@ -1,21 +1,25 @@
-p{
-margin-top: 10px;
+p {
+	margin-top: 10px;
 }
-.col-sm-2{
-font-size: 30px; color: SeaGreen;
+
+.col-sm-2 {
+	font-size: 30px;
+	color: SeaGreen;
 }
-#title{
-width: 100%;
+
+#title {
+	width: 100%;
 }
-#Select1{
-margin-left: 10px; margin-right: 10px;
+
+#writebutton {
+	text-align: center;
+	margin-top: 10px;
 }
-#writebutton{
-text-align: center; margin-top: 10px;
-}
-.btn{
+
+.btn {
 	padding: 0.75rem 2rem;
 }
-#ir1{
+
+#ir1 {
 	width: 1111px;
 }

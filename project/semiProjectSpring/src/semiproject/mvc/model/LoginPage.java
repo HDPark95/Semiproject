@@ -1,3 +1,4 @@
+
 package semiproject.mvc.model;
 
 import javax.servlet.http.Cookie;
@@ -66,4 +67,5 @@ public class LoginPage {
 		mav.setViewName("redirect:index");
 		return mav; 
 	}
+
 }

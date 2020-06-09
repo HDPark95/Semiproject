@@ -1,4 +1,5 @@
-@charset "EUC-KR";
+
+@charset "UTF-8";
 
 .modal {
 	display: none; /* Hidden by default */
@@ -34,4 +35,5 @@
 	margin-top:15px;
 	margin:auto;
 	text-aling:center;
+
 }

@@ -20,3 +20,4 @@
 	<input type="hidden" value="${e }" class="listvo" name="resultlist"
 		id="resultlist">
 </c:forEach>
+

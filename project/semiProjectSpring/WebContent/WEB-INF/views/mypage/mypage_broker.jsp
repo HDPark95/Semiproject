@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 	
@@ -12,11 +12,11 @@
 
 <section class="contact-section container topma " style="">
 
-
+  
 	<h2 class="th_mypage_maintext">MY
 		부동산 페이지(기업)</h2>
 
-
+ 
 	<ul class="nav nav-tabs th_ul" >
 		<li class="th_li"><a class="nav-link active th_atwi" data-toggle="tab"
 			href="#a">정보수정</a></li>

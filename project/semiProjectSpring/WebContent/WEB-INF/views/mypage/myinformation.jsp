@@ -12,8 +12,8 @@
 				<button type="submit" class="btn btn-success">확인하기</button>
 			</div>
 		</form>
-	</div>
-
+	</div> 
+   
 	<div class="th_card th_infor_card">
 		<form action="inforSignup" method="post" style="">
 			<div class="card-header">로그인 정보</div>
