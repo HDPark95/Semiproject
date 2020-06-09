@@ -15,7 +15,7 @@ public class Customer_BoardDaoImple implements Customer_BoardDao{
 	private SqlSessionTemplate ss;
 	
 	@Override
-	public int addwrite(Customer_BoardVO vo) throws Exception {
+	public int addwrite(Customer_BoardVO vo) throws Exception {  
 		
 		return ss.insert("board.cbvo", vo);  
 	}

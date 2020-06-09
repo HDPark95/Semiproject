@@ -7,7 +7,7 @@ public class Customer_BoardVO {
 	private String c_writer,c_id,c_pwd,c_type,c_subject,c_content;
 	private Date c_regdate;  
 	
-	public int getC_num() {
+	public int getC_num() {  
 		return c_num;
 	}
 	public void setC_num(int c_num) {

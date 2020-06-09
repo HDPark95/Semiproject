@@ -8,7 +8,7 @@
 			alias="comuVO" />
 		<typeAlias type="semiproject.mvc.vo.BoardPageVO"
 			alias="bpvo" />
-		<typeAlias type="semiproject.mvc.vo.Customer_BoardVO" alias="cbvo" />  
+		<typeAlias type="semiproject.mvc.vo.Customer_BoardVO" alias="cbvo" />    
 		<typeAlias type="semiproject.mvc.vo.DataVO"
 			alias="commercial" />
 		<typeAlias type="semiproject.mvc.vo.MyPageVO"

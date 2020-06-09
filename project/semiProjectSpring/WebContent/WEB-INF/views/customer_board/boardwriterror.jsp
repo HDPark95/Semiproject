@@ -6,7 +6,7 @@
 <script type="text/javascript" src="resources/edit/js/service/HuskyEZCreator.js" charset="UTF-8"></script>
 <%@ include file="../include/header_menu.jsp"%>
 
-<body id="table">
+<body id="table">  
 	
 	에러 !!!!!!!  
 </body>

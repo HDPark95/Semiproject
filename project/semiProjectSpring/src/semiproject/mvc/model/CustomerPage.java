@@ -24,7 +24,7 @@ public class CustomerPage{
 	
 	@RequestMapping(value="/customer")
 	public String goBoard() {
-		return "customer_board/board";
+		return "customer_board/board";  
 	}
 	
 //	@RequestMapping(value="/customerboardWriter")

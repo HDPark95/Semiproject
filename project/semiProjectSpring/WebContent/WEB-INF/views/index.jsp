@@ -14,7 +14,7 @@
 					<li>                 
                     <a class="btn btn-primary js-scroll-trigger" href="login">로그인</a>
                     </li>
-                    </c:when>
+                    </c:when>  
                     
                     <c:otherwise>
                     <li>

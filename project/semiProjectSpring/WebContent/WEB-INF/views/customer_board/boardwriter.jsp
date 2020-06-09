@@ -25,7 +25,7 @@
 									<option>월급 언제나옴?</option>
 									<option>바다 가고 싶다</option>
 									<option>11111111111111111111111111111111111111</option>
-							</select></td>  
+							</select></td>    
 						</tr>
 
 						<tr>

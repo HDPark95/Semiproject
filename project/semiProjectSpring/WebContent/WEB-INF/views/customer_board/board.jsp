@@ -12,7 +12,7 @@
 			<div class="board_list_head">
 				<div class="num">번호1</div>
 				<div class="tit">제목</div>
-				<div class="writer">글쓴이</div>  
+				<div class="writer">글쓴이</div>    
 				<div class="date">작성일</div>
 				<div class="view">답변상태</div>
 			</div>

@@ -18,7 +18,7 @@
                         <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage"> </a></li>
                         </c:when>
                         
-                        <c:otherwise>                        
+                        <c:otherwise>                          
                         <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">${user.dname}님 환영합니다.</a></li>  
                         </c:otherwise>
 <%--                         <c:otherwise>                         --%>  

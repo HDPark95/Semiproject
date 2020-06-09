@@ -8,7 +8,7 @@
 		select *
 		from signup s, member_detail d 
 		where aid = #{s.aid} and d.anum = s.anum 
-	</select>  
+	</select>    
 	
 
 </mapper>

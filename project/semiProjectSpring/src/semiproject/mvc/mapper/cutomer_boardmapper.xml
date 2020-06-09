@@ -9,7 +9,7 @@ insert into customer_board(c_num,c_writer,c_id,c_pwd,c_type,c_subject,c_content)
 values(customer_board_seq.nextVal,#{c_writer},#{c_id},#{c_pwd},#{c_type},#{c_subject},#{c_content})
 </insert>
 
-<!-- <select id="detail" parameterType="cbvo"> -->
+<!-- <select id="detail" parameterType="cbvo"> -->  
 
 <!-- </select> -->
 

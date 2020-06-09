@@ -16,7 +16,7 @@
 <script src="resources/js/scripts.js"></script>
 <script src="resources/js/text.js"></script>
 <script>
-	$(function() {
+	$(function() {  
 		$(".typer").typed({
 			strings : [ " C조 Project", " Test용 문구", " 조장 : 박현두", " 대박임" ],
 			typeSpeed : 500,

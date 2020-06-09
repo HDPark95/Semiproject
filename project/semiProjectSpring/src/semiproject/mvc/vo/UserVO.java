@@ -9,7 +9,7 @@ public class UserVO {
 	private String apwd;
 	
 	public String getDname() {
-		return dname;
+		return dname;  
 	}
 	public void setDname(String dname) {
 		this.dname = dname;
