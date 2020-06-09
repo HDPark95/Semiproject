@@ -34,7 +34,7 @@
     from signup s , member_detail m where s.aid = #{aid} and s.anum = m.anum)
     set
     mname = #{dname} ,
-    mtel = #{dtel} 
+    mtel = #{dtel}  
 	</update> 
 	
 	<!-- 로그인 정보 회원정보 조인 resultMap -->

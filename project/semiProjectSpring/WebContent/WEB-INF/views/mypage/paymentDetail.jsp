@@ -15,7 +15,7 @@
 			placeholder="" readonly="readonly" value="${vo.aid }"> <input
 			type="hidden" class="" name="apwd" placeholder="Password"
 			value="${vo.apwd }">
-		<table class="type02">
+		<table class="type02"> 
 			<tr>
 				<th scope="row">결제일</th>
 				<td><input type="text" class="form-control ch_pay" name="psdate" id="target"

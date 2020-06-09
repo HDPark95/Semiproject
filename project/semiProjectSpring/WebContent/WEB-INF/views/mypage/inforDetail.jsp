@@ -14,7 +14,7 @@
 		<input type="hidden" class="form-control" name="aid" id="aid"
 			placeholder="" readonly="readonly" value="${vo.aid }"> <input
 			type="hidden" class="form-control" name="apwd" placeholder="Password"
-			value="${vo.apwd }">
+			value="${vo.apwd }"> 
 		<table class="type02">
 			<tr>
 				<th scope="row">이름</th>

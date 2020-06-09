@@ -13,7 +13,7 @@ import semiproject.mvc.vo.SignUPVO;
 
 @Controller
 public class MyPagePage {
-	
+	 
 	@Autowired
 	private MyPageDao mypagedao;
 	

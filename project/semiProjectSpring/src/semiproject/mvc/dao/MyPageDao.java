@@ -8,7 +8,7 @@ import semiproject.mvc.vo.MyPageVO;
 import semiproject.mvc.vo.SignUPVO;
 
 @Repository
-public class MyPageDao {
+public class MyPageDao { 
 	@Autowired
 	private SqlSessionTemplate ss ; 
 	

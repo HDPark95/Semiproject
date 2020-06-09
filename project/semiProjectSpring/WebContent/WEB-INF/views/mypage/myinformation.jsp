@@ -20,7 +20,7 @@
 				<input type="hidden" value="${user.aid }" name="aid">
 				<button type="button" class="btn btn-success" id="logindetail_btn">확인하기</button>
 			</div>
-		</form>
+		</form> 
 	</div>
 	
 	<div class="row th_card th_infor_card" >
