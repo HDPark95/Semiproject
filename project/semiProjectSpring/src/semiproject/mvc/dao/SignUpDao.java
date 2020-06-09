@@ -32,7 +32,7 @@ public class SignUpDao {
 	}
 	
 	public int aidHeaderCheck(String aid) {
-		System.out.println("DAO 호출 완료!");
+		System.out.println("SignUpDao 호출 완료!");
 		return ss.selectOne("signup.idChk", aid);
 	}
 }
