@@ -178,6 +178,14 @@
 .swiper-arrow-button-next {
 	background-image: url(resources/images/auction/icon/1next.png);
 }
+#fsubject{
+position: relative;
+font-size: 1.3em;
+font-weight: 500;
+word-break: keep-all;
+margin-right: 10px;
+padding-left: 15px;
+}
 </style>
 </head>
 <body>
@@ -227,7 +235,7 @@
 			</section>
 		</div>
 		<div id="body"style="width: 100%; height: 100%; margin: auto;">
-			<div id="leftcontents" style="position: relative; width: 70%;margin: auto;">
+			<div id="leftcontents" style="position: relative; width: 80%;margin: auto;">
 				<div id="searchtop" name="searchtop" style="width: 100%;height:65px;border: 1px solid gray;padding: 10px;"><div class="form-group">
 					진행사항:<select class="form-control" id="exampleSelect1"
 						style="width: 100px;">
@@ -235,8 +243,6 @@
 						<option>신건</option>
 						<option>유찰</option>
 						<option>진행</option>
-						<option>변경</option>
-						<option>예정</option>
 						<option>낙찰</option>
 					</select> 물건용도:<select class="form-control" id="exampleSelect2"
 						style="width: 100px;">
@@ -250,78 +256,35 @@
 					</select>
 					</div>
 				  </div>
-				<div id="datalisttop" style="width: 100%;margin-top: 20px;">
-					<div style="float: left;"><button type="button" class="btn btn-primary" style="width: 200px">관심물건등록</button></div>
-					<div style="float: left;"><label id="sumres" style="margin-top: 5px;margin-left: 10px;">(총 <b>1,006</b>건)</label></div>  
-					<div class="btn-group" role="group" aria-label="Basic example" style="float: right;">
-					  <button type="button" class="btn btn-secondary">사건번호순</button>
-					  <button type="button" class="btn btn-secondary">감정가순</button>
-					  <button type="button" class="btn btn-secondary">최저가순</button>
-					  <button type="button" class="btn btn-secondary">매각기일순</button>
-					  <button type="button" class="btn btn-secondary">조회수순</button>
+				<div id="datalisttop" style="width: 100%;margin-top: 20px;"> 
+					<div class="btn-group" role="group" aria-label="Basic example" style="float: left;">
+					  <button type="button" class="btn btn-outline-primary">최저가순</button>
+					  <button type="button" class="btn btn-outline-primary">매각기일순</button>
+					  <button type="button" class="btn btn-outline-primary">조회수순</button>
 					</div>
+					<div style="float: left;"><label id="sumres" style="margin-top: 5px;margin-left: 10px;">(총 <b>1,006</b>건)</label></div> 
 				</div>   
 				<div id="datalist" style="margin-top: 70px;">
-					<table class="table table-hover">
+					<table class="table table-hover" border="1">
 						<thead>
 							<tr>
-								<th scope="col">
-								  <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="sabunchk"/>
-                                      <label class="custom-control-label" for="sabunchk">사건번호</label>
-                                   </div></th>
-								<th scope="col" colspan="2">물건용도/소재지/면적</th>
-								<th scope="col" colspan="2" style="padding-left: 0px;">감정/최저</th>
-								<th scope="col">상태/입찰일/조회수</th>
+								<th scope="col" style="width:10px"></th>
+								<th scope="col" colspan="6"><span id="fsubject">제목이 들어갈자리임여</span></th>
 							</tr>
 						</thead>
-						<tbody style="border-bottom: 1px solid gray;">
+						<tbody style="border-bottom: 1px solid gray;font-size: 1rem;">
 							<tr>
-								<th id="colchk1" scope="row" style="width: 180px;"><div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="sabunch1"/>
-                                      <label class="custom-control-label" for="sabunch1">2020-0001</label>
-                                   </div></th>
-								<td id="coltd1_1" style="width: 130px;"><img src="images/kosmo.jpg" style="width: 120px;height: 120px;float: left;"></td>
-								<td id="coltd1_2" style="width: 500px;"><label id="t1addr1_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><b>[아파트형공장]</b><br/>서울 특별시 금천구 가산동 426-5 월드 메르디앙 벤처센터 2차 410호</a></label>
-								<br/><label id="t1addr1_2" style="font-size: 11pt;height: 6px;">토지 70.28㎡/건물 226.2㎡</label>
-								<br/><label id="t1addr1_3" style="font-size: 11pt;color: red;height: 6px;">유치권</label>
+								<th></th>
+								<th id="colchk1" scope="row" style="width: 130px;"><img src="images/kosmo.jpg" style="width: 120px;height: 120px;float: left;"></th>
+								<td id="coltd1_2" style="width: 630px;"><label id="t1addr1_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><b>[아파트형공장]</b><br/>서울 특별시 금천구 가산동 426-5 월드 메르디앙 벤처센터 2차 410호</a></label>
+								<br/><label id="t1addr1_2" style="font-size: 11pt;height: 6px;">토지면적 70.28㎡/건물면적 226.2㎡</label><br/><label id="t1addr1_3" style="font-size: 11pt;height: 6px;"><b>경매만료기일</b>&nbsp;&nbsp;<span style="color:blue;font-weight: bold;">2020년06월10일 17:25</span></label>
 								</td>
-								<td style="padding-left:0px;padding-right: 0px;"><span class="badge badge-primary">감정</span><br/><span class="badge badge-info">최저</span></td>
-								<td style="padding-left:3px;"><b>799,000,000</b><br/><span style="color: blue;"><b>327,270,000</b></span><span style="color: blue;padding-left: 20px;">(41%)</span>
+								<td style="padding-left:0px;padding-right: 0px;"><span class="badge badge-primary" style="font-size: 8pt;">시작가</span><br/><span class="badge badge-info" style="font-size: 8pt;">현재가</span></td>
+								<td style="padding-left:3px;"><b>799,000,000</b><br/><span style="color: blue;"><b>327,270,000</b></span>
 								</td>
+								<td style="color: gray;text-align:center;">상태<br/>등록일<br/>조회수</td>
 								<td style="text-align: center;">진행<br/>2020.05.26<br/>10687</td>
 								
-							</tr>
-							<tr>
-								<th id="colchk2" scope="row" style="width: 180px;"><div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="sabunch2"/>
-                                      <label class="custom-control-label" for="sabunch2">2020-0002</label>
-                                   </div></th>
-								<td id="coltd2_1" style="width: 130px;"><img src="images/ko1.JPG" style="width: 120px;height: 120px;float: left;"></td>
-								<td id="coltd2_2" style="width: 500px;"><label id="t1addr2_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><b>[아파트형공장]</b><br/>서울 특별시 구로구 구로동 197-7번지 에이스테크노타워2 6층 602-1호</a></label>
-								<br/><label id="t1addr2_2" style="font-size: 11pt;height: 6px;">토지 35.13㎡/건물 113.1㎡</label>
-								<br/><label id="t1addr2_3" style="font-size: 11pt;color: red;height: 6px;"></label>
-								</td>
-								<td style="padding-left:0px;padding-right: 0px;"><span class="badge badge-primary">감정</span><br/><span class="badge badge-info">최저</span></td>
-								<td style="padding-left:3px;"><b>393,000,000</b><br/><span style="color: blue;"><b>160,973,000</b></span><span style="color: blue;padding-left: 20px;">(41%)</span>
-								</td>
-								<td style="text-align: center;">유찰1회<br/>2020.07.17<br/>8846</td>
-								
-							</tr>
-							<tr>
-								<th id="colchk3" scope="row" style="width: 180px;"><div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="sabunch3"/>
-                                      <label class="custom-control-label" for="sabunch3">2020-0003</label>
-                                   </div></th>
-								<td id="coltd3_1" style="width: 130px;"><img src="images/bu2.jpg" style="width: 120px;height: 120px;float: left;"></td>
-								<td id="coltd3_2" style="width: 500px;"><label id="t1addr1_1"><a href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4" style="color: black;"><b>[주택/빌라]</b><br/>서울 종로구 청운동 52-19번지</a></label>
-								<br/><label id="t1addr3_2" style="font-size: 11pt;height: 6px;">토지 6110.28㎡/건물 3280.1㎡</label>
-								<br/><label id="t1addr3_3" style="font-size: 11pt;color: red;height: 6px;"></label>
-								</td>
-								<td style="padding-left:0px;padding-right: 0px;"><span class="badge badge-primary">감정</span><br/><span class="badge badge-info">최저</span></td>
-								<td style="padding-left:3px;"><b>60,000,000,000</b><br/><span style="color: blue;"><b>30,000,000,000</b></span><span style="color: blue;padding-left: 20px;">(50%)</span>
-								</td>
-								<td style="text-align: center;">예정<br/>2020.08.21<br/>8604</td>
 							</tr>
 						</tbody>
 					</table>
@@ -349,5 +312,5 @@
 			</div>
 		</div>
 	</div>
-		<script type="text/javascript" src="resources/js/auction/auction_main.js"></script>
-<%@ include file="../include/footer.jsp"%>
+<!-- <script type="text/javascript" src="resources/js/auction/auction_main.js"></script> -->
+<%@ include file="../include/footer2.jsp"%>

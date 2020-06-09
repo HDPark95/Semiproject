@@ -20,13 +20,16 @@
 
 		<typeAlias type="semiproject.mvc.vo.PaymentVO"
 			alias="paymentvo" />
-
+		<!--경매 config 시작 -->
 		<typeAlias type="semiproject.mvc.vo.AuctionAddMainVO"
 			alias="amainvo" />
 		<typeAlias type="semiproject.mvc.vo.AuctionAddDeVO"
 			alias="adevo" />
 		<typeAlias type="semiproject.mvc.vo.AuctionAddIpVO"
 			alias="aipvo" />
+		<typeAlias type="semiproject.mvc.vo.AuctionPageVO" alias="aviewpage" />
+		<typeAlias type="semiproject.mvc.vo.AuctionViewVO" alias="aviewmain" />		
+		<!--경매 config 종료  -->
 		<typeAlias type="semiproject.mvc.vo.CommercialProductVO"
 			alias="cpvo" />
 

@@ -318,4 +318,4 @@ function jusocall(zipNo,roadFullAddr,addrDetail){
 }
 
 </script>
-<%@ include file="../include/footer.jsp"%>
+<%@ include file="../include/footer2.jsp"%>
