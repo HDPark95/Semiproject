@@ -6,7 +6,14 @@ public class UserVO {
 	private String dtel;
 	private String dbirth;
 	private String aid;
-	private String apwd;
+	private String apwd; 
+	private String agubun; 
+	public String getAgubun() {
+		return agubun;
+	}
+	public void setAgubun(String agubun) {
+		this.agubun = agubun;
+	}
 	public String getDname() {
 		return dname;
 	}

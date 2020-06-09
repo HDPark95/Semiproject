@@ -11,11 +11,11 @@
 <%@ include file="../include/header_menu.jsp"%>
 
 
-<section class="contact-section container topma " style="">
+<section class="contact-section container topma " style=""> 
 
-
+ 
 	<h2 class="th_mypage_maintext">MY 부동산 페이지(일반)</h2>
-
+ 
 
 	<ul class="nav nav-tabs th_ul">
 		<li class="th_li"><a class="nav-link active th_atwi"
@@ -52,7 +52,21 @@
 	</div>
 
 </section>
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	$(function() {
+		$('#infor_memberdetail2').click(function() {
+			$.ajax({
+				url : "http://localhost:8080/semiProjectSpring/inforDetail" ,
+				type : "post" ,
+				data : {aid : "${vo.aid }"},
+				success : function(result) {
+					$('#infor_memberdetail1').html(result);
+				}
+			});
+		});
+	});
+</script>
 
 
 <%@ include file="../include/footer.jsp"%>

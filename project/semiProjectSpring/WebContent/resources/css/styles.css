@@ -10130,3 +10130,23 @@ body {
 .input-val{
 	text-align: right;
 }
+
+.commercialimg{
+	width: 300px;
+	height: 300px;
+}
+.modalimg{
+	width: 300px;
+	height: 150px;
+}
+.mainImage{
+	width:100%;
+	height:60%;
+}
+.modalImage{
+	width:100%;
+	height:120px;
+}
+.productmain{
+	height:350px;
+}

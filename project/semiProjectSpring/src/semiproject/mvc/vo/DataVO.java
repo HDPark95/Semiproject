@@ -8,7 +8,7 @@ public class DataVO {
 	private String largeName;
 	private String mediumName;
 	private String smallName;
-
+	
 	public String getCate() {
 		return cate;
 	}

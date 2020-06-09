@@ -3,7 +3,15 @@ package semiproject.mvc.vo;
 public class LoginDTO {
 	private String aid;
 	private String apwd;
+	private String agubun;  
 	private boolean userCookie;
+	
+	public String getAgubun() {
+		return agubun;
+	}
+	public void setAgubun(String agubun) {
+		this.agubun = agubun;
+	}
 	public String getAid() {
 		return aid;
 	}
