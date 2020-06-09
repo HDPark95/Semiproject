@@ -152,7 +152,7 @@
 			<!-- /.row -->
 		</div>
 	</div>
-<!-- <script>
+	<!-- <script>
 	function open_pop() {
 		$(".productdescmodal").click(function(){
 			var atclno = $(this).val();
@@ -178,4 +178,5 @@
 <%@include file="modal.jsp"%>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 <%@ include file="../include/footer.jsp"%>
+
 </html>

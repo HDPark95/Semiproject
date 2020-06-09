@@ -1,3 +1,4 @@
+
 package semiproject.mvc.model;
 
 import java.io.FileWriter;
@@ -145,3 +146,4 @@ public class CommercialPage{
 		return mav;
 	}
 }
+

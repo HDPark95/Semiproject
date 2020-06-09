@@ -1,3 +1,4 @@
+
 package semiproject.mvc.vo;
 
 public class CommercialProductVO {
@@ -66,3 +67,4 @@ public class CommercialProductVO {
 		this.atclfetrdesc = atclfetrdesc;
 	}
 }
+

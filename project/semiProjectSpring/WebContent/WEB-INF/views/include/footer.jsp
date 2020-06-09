@@ -6,7 +6,7 @@
 </footer>
 <!-- Bootstrap core JS-->
 
-	   <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <!-- Third party plugin JS-->
@@ -55,9 +55,9 @@
 	});
 </script>
 
-
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script> 
 <!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+
 
 
 <script
