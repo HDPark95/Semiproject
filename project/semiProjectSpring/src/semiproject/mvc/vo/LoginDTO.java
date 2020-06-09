@@ -5,7 +5,7 @@ public class LoginDTO {
 	private String apwd;
 	private String agubun;  
 	private boolean userCookie;
-	
+	 
 	public String getAgubun() {
 		return agubun;
 	}

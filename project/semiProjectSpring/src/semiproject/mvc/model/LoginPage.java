@@ -28,7 +28,7 @@ public class LoginPage {
 	public String login(@ModelAttribute("loginDTO") LoginDTO loginDTO) {
 		return "login/loginform";
 	}
-
+ 
 	@RequestMapping(value = "/loginPost")
 	public ModelAndView loginPost(LoginDTO loginDTO, HttpSession httpsession) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -65,5 +65,5 @@ public class LoginPage {
 		}
 		mav.setViewName("redirect:index");
 		return mav; 
-	}
+	} 
 }

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <script src="resources/js/commercial/script.js"></script>
@@ -7,7 +7,7 @@
 <div class="col-md-4 mb-5 productmain">
 					<div class="card h-100">
 						<div class="card-body">
-							<!-- <h2 class="card-title">[�Ÿ�] �Ϲݻ�</h2> -->
+							<!-- <h2 class="card-title">[매매] 일반상가</h2> -->
 							<h2 class="card-title">${e.atclfetrdesc}...</h2>
 							<div class="commercialimg">
 								<img src="resources/images/commercial/commercial${idx.index}.jpg"
