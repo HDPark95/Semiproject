@@ -31,10 +31,10 @@ public class AuctionPage{
 	@Autowired
 	private AuctionDao auctiondao;
 	
-	@RequestMapping(value="/auctionMain")
-	public String auctionMain() {
-		return "auction/auction_main";
-	}
+//	@RequestMapping(value="/auctionMain")
+//	public String auctionMain() {
+//		return "auction/auction_main";
+//	}
 	
 	@RequestMapping(value="/auctionAdd")
 	public String auctionAdd() {
@@ -55,6 +55,18 @@ public class AuctionPage{
 	
 	@RequestMapping(value="/auctionins",method = RequestMethod.POST)
 	public ModelAndView auctionins(AuctionAddMainVO vo,AuctionAddDeVO avo,AuctionAddIpVO bvo,HttpServletRequest request) {
+		
+		//만료일자
+		StringBuffer sbe = new StringBuffer();
+		sbe.append(bvo.getEdate()).append(" ").append(bvo.getEtime());
+		String enddaytime = sbe.toString();
+		System.out.println("enddate:"+enddaytime);
+		bvo.setEnddate(enddaytime);
+		
+		//텍스트
+		String ptext = bvo.getIr1();
+		bvo.setText(ptext);
+		
 		HttpSession session = request.getSession();
 		//String r_path = session.getServletContext().getRealPath("/");
 		//System.out.println("Path :"+r_path);
@@ -106,7 +118,7 @@ public class AuctionPage{
 		return mav;
 	}
 	
-	@RequestMapping(value = "/auctionview")
+	@RequestMapping(value = "/auctionMain")
 	public String auctionviewlist(AuctionPageVO vo,Model model,@RequestParam(value = "nowPage",required = false,defaultValue = "1") String nowPage, @RequestParam(value = "cntPage",required = false,defaultValue = "10") String cntPerPage) {
 		int total = auctiondao.getTotalCnt();
 		vo = new AuctionPageVO(total,Integer.parseInt(nowPage),Integer.parseInt(cntPerPage));
@@ -115,6 +127,4 @@ public class AuctionPage{
 		return "auction/auction_main";
 
 	}
-	
-	
 }
