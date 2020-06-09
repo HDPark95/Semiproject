@@ -26,7 +26,6 @@
 		<typeAlias type="semiproject.mvc.vo.UserVO" alias="uservo" />
 		<typeAlias type="semiproject.mvc.vo.SignUpVO"
 			alias="signVO"/>	
-
 		<typeAlias type="semiproject.mvc.vo.Member_DetailVO"
 			alias="member_detailvo" />
 		<typeAlias type="semiproject.mvc.vo.Payment_DetailVO"

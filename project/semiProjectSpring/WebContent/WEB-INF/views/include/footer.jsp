@@ -54,16 +54,7 @@
 				});
 	});
 </script>
-
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script> 
 <!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
-
-
-
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 </body>
 </html>
