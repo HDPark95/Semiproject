@@ -44,7 +44,9 @@
 					<!-- <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400"> -->
 				</div>
 				<script type="text/javascript"
-					src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=zfozw8jz6o"></script>
+					src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wejnreaybi"></script>
+				<script type="text/javascript"
+					src="resources/js/commercial/MarkerClustering.js"></script>
 				<script>
 					var seoul = new naver.maps.LatLngBounds(
 							new naver.maps.LatLng(37.42829747263545,
@@ -69,15 +71,75 @@
 								disableKineticPan : false,
 								pinchZoom : false,
 								scrollWheel : false,
-							});
-					/* var HOME_PATH = window.HOME_PATH || '.'; */
-					naver.maps.Event
-							.once(
+							}), markers = [];
+					var htmlMarker1 = {
+							        content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(resources/images/commercial/marker/cluster-marker-1.png);background-size:contain;"></div>',
+							        size: N.Size(40, 40),
+							        anchor: N.Point(20, 20)
+							    },
+							    htmlMarker2 = {
+							        content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(resources/images/commercial/marker/cluster-marker-2.png);background-size:contain;"></div>',
+							        size: N.Size(40, 40),
+							        anchor: N.Point(20, 20)
+							    },
+							    htmlMarker3 = {
+							        content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(resources/images/commercial/marker/cluster-marker-3.png);background-size:contain;"></div>',
+							        size: N.Size(40, 40),
+							        anchor: N.Point(20, 20)
+							    },
+							    htmlMarker4 = {
+							        content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(resources/images/commercial/marker/cluster-marker-4.png);background-size:contain;"></div>',
+							        size: N.Size(40, 40),
+							        anchor: N.Point(20, 20)
+							    },
+							    htmlMarker5 = {
+							        content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(resources/images/commercial/marker/cluster-marker-5.png);background-size:contain;"></div>',
+							        size: N.Size(40, 40),
+							        anchor: N.Point(20, 20)
+							    };
+							   $(function(){ $("#combobox5").change(function(){
+							    	var	param1 = $("#combobox1").val()
+							    	var	param2 = $("#combobox2").val()
+							   		var	param3 = $("#combobox3").val()
+							    	var	param4 = $("#combobox4").val()
+							    	var	param5 = $("#combobox5").val()
+							    	$.ajax(
+							    		{url:"markerDetail?guName="+encodeURIComponent(param1)+"&dongName="+encodeURIComponent(param2)+"&largeName="+encodeURIComponent(param3)+"&mediumName="+
+							    				encodeURIComponent(param4)+"&smallName="+encodeURIComponent(param5),
+										dataType:"json",
+										success: function(d){										
+											for (var i = 0, ii = d.length; i < ii; i++) {
+													var spot = d[i];
+										            latlng = new naver.maps.LatLng(spot.lat, spot.lng);
+										            marker = new naver.maps.Marker({
+										                position: latlng,
+										                draggable: true
+										            });
+										        markers.push(marker);
+										   }
+										}
+									});
+								    var markerClustering = new MarkerClustering({
+								        minClusterSize: 2,
+								        maxZoom: 8,
+								        map: map,
+								        markers: markers,
+								        disableClickZoom: false,
+								        gridSize: 120,
+								        icons: [htmlMarker1, htmlMarker2, htmlMarker3, htmlMarker4, htmlMarker5],
+								        indexGenerator: [10, 100, 200, 500, 1000],
+								        stylingFunction: function(clusterMarker, count) {
+								            $(clusterMarker.getElement()).find('div:first-child').text(count);
+								        }
+								    });
+							    });
+							   });
+					/* 제이슨추가 */
+					naver.maps.Event.once(
 									map,
 									'init_stylemap',
 									function() {
-										$
-												.ajax({
+										$.ajax({
 													url : 'resources/js/commercial/seoul_municipalities_geo.json',
 													dataType : 'json',
 													success : startDataLayer
@@ -98,40 +160,10 @@
 								icon : null
 							};
 						});
-						map.data.addListener('click', function(e) {
-							e.feature.setProperty('isColorful', true);
-
-						});
 						map.data.addListener('dblclick', function(e) {
-							var bounds = e.feature.getBounds();
-
-							if (bounds) {
-								map.panToBounds(bounds);
-							}
-						});
-						map.data
-								.addListener(
-										'mouseover',
-										function(e) {
-											map.data
-													.overrideStyle(
-															e.feature,
-															{
-																strokeWeight : 8,
-																icon : 'resources/js/commercial/seoul_municipalities_geo.json'
-															});
-										});
-						map.data.addListener('mouseout', function(e) {
-							map.data.revertStyle();
+							 
 						});
 					}
-					/* 	for (var i = 0; i < ${array.length}; i++) {
-							var marker = new naver.maps.Marker({
-								position: new naver.maps.LatLng(x,y),
-								map : map,
-								title : '항목'
-							})
-						}*/
 				</script>
 				<div class="col-lg-4" id="information">
 					<h1 class="font-weight-light">현재 영업중인 상권정보</h1>
@@ -152,7 +184,7 @@
 			<!-- /.row -->
 		</div>
 	</div>
-	<!-- <script>
+	<script>
 	function open_pop() {
 		$(".productdescmodal").click(function(){
 			var atclno = $(this).val();
@@ -171,12 +203,25 @@
 	function close_pop(flag) {
 		$('#myModal').hide();
 	};
-	</script> -->
-	<script src="resources/js/commercial/script.js?ver=1"></script>
+	</script>
+	<script>
+	$(function() {
+		var url = 'gu'
+		$.ajax({
+			url : url,
+			success : function(d) {
+				$('#combobox1').html(d);
+			},
+			error : function(e) {
+				console.log("Error : " + e);
+			}
+		});
+	});
+	</script>
+	<script src="resources/js/commercial/script.js"></script>
 </section>
 <!-- /.container -->
 <%@include file="modal.jsp"%>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 <%@ include file="../include/footer.jsp"%>
-
 </html>

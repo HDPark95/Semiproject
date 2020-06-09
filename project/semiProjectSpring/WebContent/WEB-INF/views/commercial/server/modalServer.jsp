@@ -1,34 +1,33 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <div class="modal-content">
-	<h3>ë§¤ë¬¼ ì •ë³´</h3>
+	<h3>¸Å¹° Á¤º¸</h3>
 	<div class="row" id="productdesc">
 		<table class="table">
 			<tr>
-				<td>ë§¤ë¬¼ íŠ¹ì§•</td>
+				<td>¸Å¹° Æ¯Â¡</td>
 				<td colspan="3">${result.atclfetrdesc}</td>
 			</tr>
 			<tr>
-				<td>ê³„ì•½/ì „ìš© ë©´ì </td>
+				<td>°è¾à/Àü¿ë ¸éÀû</td>
 				<td colspan="3">${result.spc1}/${result.spc2}</td>
 			</tr>
 			<tr>
-				<td>ë§¤ë¬¼ì¢…ë¥˜</td>
+				<td>¸Å¹°Á¾·ù</td>
 				<td>${result.tradtpcd}</td>
-				<td>íŠ¹ì§•</td>
+				<td>Æ¯Â¡</td>
 				<td>${result.taglist}</td>
 			</tr>
 			<tr>
-				<td>ê°€ê²©</td>
-				<td>${result.prc}ë§Œì›</td>
-				<td>ë§¤ë¬¼ë²ˆí˜¸</td>
+				<td>°¡°İ</td>
+				<td>${result.prc}¸¸¿ø</td>
+				<td>¸Å¹°¹øÈ£</td>
 				<td>${result.atclno}</td>
 			</tr>
 			<tr>
-				<td rowspan="3">ì¤‘ê°œì¸</td>
+				<td rowspan="3">Áß°³ÀÎ</td>
 				<td rowspan="3" colspan="3">${result.rltrnm}</td>
 			</tr>
 		</table>
@@ -51,7 +50,6 @@
 		style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 2px; padding-top:2px;"
 		onClick="close_pop();">
 		<span class="btn btn-primary btn-sm" style="font-size: 13pt;">
-			ë‹«ê¸° </span>
+			´İ±â </span>
 	</div>
-
 </div>
