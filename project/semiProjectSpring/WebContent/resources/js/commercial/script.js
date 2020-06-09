@@ -1,5 +1,4 @@
 <!-- Hyundoo JS-->
- 
 	$(function() {
 		var url = 'gu'
 		$.ajax({

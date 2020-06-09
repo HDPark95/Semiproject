@@ -152,7 +152,7 @@
 			<!-- /.row -->
 		</div>
 	</div>
-<!-- <script>
+	<!-- <script>
 	function open_pop() {
 		$(".productdescmodal").click(function(){
 			var atclno = $(this).val();
