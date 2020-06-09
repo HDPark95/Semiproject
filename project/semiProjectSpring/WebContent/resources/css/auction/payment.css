@@ -1,0 +1,35 @@
+<style>
+.container {
+	width: 700px;
+	height: 700px;
+	border: 1px solid black;
+	margin: 0 auto;
+}
+
+#payment {
+	 width: 700px; 
+	height: 300px;
+	border-bottom: 1px solid black;
+}
+
+#title {
+	text-align: center;
+}
+#payment1{
+	width: 700px;
+	height: 400px;
+	text-align: center;
+	border-bottom: 1px solid white;
+}
+td {
+	border-bottom: 2px solid gray;
+	border-top: 1px solid white;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	color: gray;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding: 20px;
+}
+
+</style>

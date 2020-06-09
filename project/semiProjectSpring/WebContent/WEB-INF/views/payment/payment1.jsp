@@ -154,6 +154,9 @@ div.final_price {
 	<div class="final_price container" id="CalcAmount">
 		<span>${pay}</span>
 	</div>
+	<div>
+	${cc1},${dd1},${one},${three},${twelve}
+	</div>
 	<div class="my_agrmt_wrap container">
 		<h5>
 			<input type="checkbox" id="idArmt" name="idArmt"> 개인정보 판매자
@@ -207,7 +210,7 @@ div.final_price {
 		<button type="button" class="btn btn-success" id="button1"
 			onclick="location='pay3'">결제하기</button>
 		<button type="button" class="btn btn-danger" id="button1"
-			onclick="location='pay4'">뒤로가기</button>
+			onclick="location='pay4'">취소</button>
 
 	</div>
 

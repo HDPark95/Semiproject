@@ -2,6 +2,8 @@ package semiproject.mvc.model;
 
 
 
+import java.sql.Date;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,11 +14,19 @@ import org.springframework.web.servlet.ModelAndView;
 public class PaymentPage {
 	
 	@RequestMapping(value="pay1")
-	public ModelAndView pay1(String f1) {
+	public ModelAndView pay1(String f1 ,String cc1, String dd1, String one, String three, String twelve) {
 		System.out.println("문자열확인 :"+f1);
+		System.out.println("문자열확인 :"+cc1);
+		System.out.println("문자열확인 :"+dd1);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("payment/payment1");
 		mav.addObject("pay", f1);
+		mav.addObject("cc1", cc1);
+		mav.addObject("dd1", dd1);
+		mav.addObject("one", one);
+		mav.addObject("three", three);
+		mav.addObject("twelve", twelve);
+		
 		return mav;
 
 	}
