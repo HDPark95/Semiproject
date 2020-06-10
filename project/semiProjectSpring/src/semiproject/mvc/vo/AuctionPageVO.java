@@ -29,7 +29,7 @@ public class AuctionPageVO {
 	}
 
 	//페이지 블록의 Cnt
-	private int cntPage = 10;
+	private int cntPage = 5;
 
 	public AuctionPageVO() {
 	}

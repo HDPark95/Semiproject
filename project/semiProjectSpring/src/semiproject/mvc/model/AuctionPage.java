@@ -119,7 +119,7 @@ public class AuctionPage{
 	}
 	
 	@RequestMapping(value = "/auctionMain")
-	public String auctionviewlist(AuctionPageVO vo,Model model,@RequestParam(value = "nowPage",required = false,defaultValue = "1") String nowPage, @RequestParam(value = "cntPage",required = false,defaultValue = "10") String cntPerPage) {
+	public String auctionviewlist(AuctionPageVO vo,Model model,@RequestParam(value = "nowPage",required = false,defaultValue = "1") String nowPage, @RequestParam(value = "cntPage",required = false,defaultValue = "5") String cntPerPage) {
 		int total = auctiondao.getTotalCnt();
 		vo = new AuctionPageVO(total,Integer.parseInt(nowPage),Integer.parseInt(cntPerPage));
 		model.addAttribute("paging",vo);
