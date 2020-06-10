@@ -123,7 +123,7 @@
 	            					<div class="col-md-12 ">
 	            					
 	            						<label class="add-page">건물층수</label>
-	            							<select class="add-page floor">
+	            							<select class="add-page floor" id="floor">
 	            								<option value="0">건물층수선택</option>
 	            								<c:forEach begin="1" end="20" step="1" var="i">
 	            									<option value="${i}">${i }층</option>
@@ -133,7 +133,7 @@
 	            						<hr>
 	            						<div class="col-md-12 " >
 	            							<label class="add-page">해당층수</label>
-	            							<select class="add-page my-floor">
+	            							<select class="add-page my-floor" id="myfloor">
 	            								<option value="0">건물층수선택</option>
 	            								<option value="-1">반지층</option>
 	            								<option value="99">옥탑</option>
@@ -150,7 +150,7 @@
 	            					</td>
 	            					<td colspan="3">
 	            					<div class="col-md-12 " >
-	            						<select class="float-left heating">
+	            						<select class="float-left heating" id="heating">
 	            							<option selected="selected">난방종류 선택</option>
 	            							<option>중앙난방</option>
 	            							<option>개별난방</option>
@@ -206,9 +206,9 @@
 	            					</td>
 	            					<td>
 	            						<div class="seleted-div">
-	            						<span class="square parking" onclick="clickpark(0)">가능</span>
-	            						<span class="square parking" onclick="clickpark(1)">불가능</span>
-	            						<input type="text" id="pamount" class="input-val"  disabled="disabled" value="0" > 만원
+	            						<span class="square parking false" onclick="clickpark(0)">가능</span>
+	            						<span class="square parking false" onclick="clickpark(1)">불가능</span>
+	            						<input type="text" id="pamount" class="input-val"  disabled="disabled" placeholder="0" > 만원
 	            						</div>
 	            					
 	            					</td>
@@ -333,16 +333,7 @@
 	            						"></textarea>
 	            					</td>
 	            				</tr>
-	            				<tr>
-	            					<td >
-	            						비공개메모
-	            					</td>
-	            					<td >
-	            					<textarea rows="10" cols="150" placeholder="
-	            					외부에는 공개되지 않으며, 등록자에게만 보이는 메모입니다.
-	            						"></textarea>
-	            					</td>
-	            				</tr>
+	            				
 	            			</table>
 	            		</div>
 	            		<div class="col-md-12 mt-12  add-sub-page">
@@ -393,34 +384,34 @@
 var estater=new estate();
 		// 추가정보 
 		var addyinfo=new addinfo(); 
-	var classEach=["build","sub-build","rent","move-in","administrative","parking","pets","elevator","balcony","built","option","chartered"];
+	var classEach=["build","sub-build","rent","move-in","administrative","parking","pets","elevator","balcony","built","option","chartered","structure"];
 
 	function estate(){
-		this.build='';
-		this.subbuild='';
-		this.rent=[];
-		this.supply='';
-		this.exclusive='';
-		this.floor='';
-		this.heating='';
-		this.move='';
-	
+		this.build=''; //매물 종류
+		this.subbuild='';//매물 세부종류
+		this.rent=[]; // 거래종류	
+		this.supply=''; //공급면적
+		this.exclusive=''; // 전용면적
+		this.floor=''; //층정보
+		this.heating=''; // 난방여부
+		this.move=''; // 이사협의
+		this.addinfo={};
 	}
 	
 	function addinfo(){
-		this.administrative=new administrative();
-		this.pets=false;
-		this.parking=new parking();
-		this.elevator=false;
-		this.balcony=false;
-		this.built=false;
-		this.structure;
-		this.option=new option();
-		this.chartered=false;
+		this.administrative=new administrative(); // 관리비
+		this.pets=false; // 애완동물
+		this.parking=new parkingv(true, ""); // 주차
+		this.elevator=false; // 엘리베이터
+		this.balcony=false; // 발코니
+		this.built=false; // 빌트인여부
+		this.structure=''; // 구조
+		this.option=new option(); // 옵션
+		this.chartered=false; // 전세자금대출여부
 	}
-	function parking(){
-		this.park='';
-		this.pay='';
+	function parkingv(parkv,payv){
+		this.park=parkv;
+		this.pay=payv;
 	}
 	function option(){
 		this.option='';
@@ -436,10 +427,25 @@ var estater=new estate();
 		this.dan=dans;
 	}
 	
+	function ajaxStart(estater,addyinfo){
+		var data = [];
+		estater.addyinfo=addyinfo;
 	
+		$.ajaxSettings.traditional = true; 
+	 	$.ajax({
+			type : 'POST',
+			url : 'insertestate',
+			data :estater,
+			success:function(data){
+				alert("성공입니다.");
+			},
+			error:function(data){
+				alert("오류입니다.");
+			}
+		}); 
+	}
 	
 	function addestate(){
-		
 		for(var e = 0;e<classEach.length;e++){
 			var name='.'+classEach[e];
 			var num=$(name+'.true').length;
@@ -454,13 +460,16 @@ var estater=new estate();
 					}else{
 						text=$(this).text();
 					}
-				
 					addData(classEach[e],text ,estater,addyinfo);
 				}
 			})
-			
-			
 		}
+		estater.exclusive=$('#exclusive-area').val();
+		estater.supply=$('#supply-area').val();
+		var floor=$('#myfloor').val()+"/"+$('#floor').val();
+		estater.floor=floor;
+		estater.heating=$('#heating').val();
+		ajaxStart(estater,addyinfo);
 	}
 	
 	
@@ -527,12 +536,11 @@ var estater=new estate();
 		
 		}else if(className==="parking"){
 			var bool=false;
-			
 			if(text==='가능'){
 				bool=true;
 			}
-			addyinfo.parking.park=bool;
-			addyinfo.parking.pay=$('#pamount').val();
+			addyinfo.parking=new parkingv(bool, $('#pamount').val());
+			
 		
 		}else if(className==="pets"){
 			var bool=false;
@@ -574,9 +582,10 @@ var estater=new estate();
 			}
 			addyinfo.chartered=bool;
 			
+		}else if(className==="structure"){
+			addyinfo.structure+=text;
 		}
-		
-		
+	
 	}
 	
 
@@ -646,6 +655,7 @@ var estater=new estate();
 		$(('.parking')).each(function(i) {
 			if(i===num){
 				$(this).css('color','white').css('background-color','#7db4ea');
+				$(this).removeClass("false").addClass("true");	
 				if(num===0){
 					 $('#pamount').attr("disabled",false);
 				}else{
@@ -654,7 +664,7 @@ var estater=new estate();
 				}
 			}else{
 				$(this).css('color','black').css('background-color','white');
-				
+				$(this).removeClass("true").addClass("false");	
 			}
 			
 			
@@ -831,7 +841,7 @@ var estater=new estate();
 			
 		}else if(key!==lastKey){ // 검색값이 다를경우 서버로 전송한다.
 			lastKey=key;
-			console.log(num+"번째 param : "+key);
+		
 		
 			
 			key=parseInt(key)*3.305785;

@@ -44,7 +44,7 @@
 					<!-- <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400"> -->
 				</div>
 				<script type="text/javascript"
-					src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wejnreaybi"></script>
+					src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=zfozw8jz6o"></script>
 				<script type="text/javascript"
 					src="resources/js/commercial/MarkerClustering.js"></script>
 				<script>
