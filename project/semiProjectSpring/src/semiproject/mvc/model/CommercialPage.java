@@ -110,7 +110,7 @@ public class CommercialPage{
 	}
 	@RequestMapping(value="/productModal")
 	public ModelAndView getProductDetail(String atclno) {
-		ModelAndView mav = new ModelAndView("commercial/server/modalServer");
+		ModelAndView mav = new ModelAndView("commercial/server/modalServer"); 
 		CommercialProductVO vo = commercialProductDao.getProductDetail(atclno);
 		if(vo.getTradtpcd().equals("A1")) {
 			vo.setTradtpcd("매매");
