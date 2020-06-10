@@ -9,5 +9,7 @@
 		<select id="descdetail" parameterType="String"  resultType="cpvo">
 			select num,prc,location, atclfetrdesc, TRADTPCD, spc1, spc2, tradtpcd,rltrnm,taglist from product where rlettpcd='D02' and atclno = #{atclno} order by prc
 	</select>
-
+	<select id="product" resultType="cpvo">
+		select num, rlettpcd,tradtpcd,atclfetrdesc, taglist, rltrnm, prc, location from product;
+	</select>
 </mapper>

@@ -15,12 +15,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import semiproject.mvc.dao.CommercialDao;
 import semiproject.mvc.dao.CommercialProductDao;
 import semiproject.mvc.vo.CommercialProductVO;
 import semiproject.mvc.vo.DataVO;
+import semiproject.mvc.vo.PageVO;
 
 @Controller
 public class CommercialPage{
@@ -37,14 +39,28 @@ public class CommercialPage{
 		return "commercial/registeration";
 	}
 	@RequestMapping(value="/product")
-	public String goProduct() {
-		return "commercial/product";
-	}
+	public String listSearch(PageVO vo, Model model
+			   , @RequestParam(value="nowPage", required=false , 
+			   defaultValue="1") String nowPage
+			   , @RequestParam(value="cntPerPage", required=false , 
+			   defaultValue="5") String cntPerPage){
+			  int total = commercialProductDao.getTotalCount(vo);
+			  if(vo.getSearchType() == null) {
+			   vo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+			  }else {
+			   System.out.println("searchValue:"+vo.getSearchValue());
+			   vo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage),vo.getSearchType(),vo.getSearchValue());
+			  }
+			  List<CommercialProductVO> list = commercialProductDao.getList(vo);
+			  model.addAttribute("paging", vo);
+			  model.addAttribute("list", list);
+			  return "commercial/product";
+			 }
+	
 	@RequestMapping(value="/popup")
 	public String getPopUp() {
 		return "popup/jusoPopup";
 	}
-	
 	@RequestMapping(value="/gu")
 	public String getGu(Model model) {
 		System.out.println("하이요");
@@ -57,15 +73,12 @@ public class CommercialPage{
 	public String getDong(Model model, String guName) {
 		List<String> list = commercialDao.getDong(guName);
 		model.addAttribute("result", list);
-	
 		return "commercial/server/searchServer";
 	}
-	
 	@RequestMapping(value="/largename")
 	public String getLarge(Model model) {
 		List<String> list = commercialDao.getLarge();
 		model.addAttribute("result", list);
-		
 		return "commercial/server/searchServer";
 	}
 	@RequestMapping(value="/mediumname")
@@ -81,8 +94,6 @@ public class CommercialPage{
 		vo.setMediumName(mediumName);
 		List<DataVO> list = commercialDao.getSmall(vo);
 		model.addAttribute("result", list);
-	
-		
 		return "commercial/server/searchServer";
 	}
 	@RequestMapping(value="/information")
