@@ -1,4 +1,3 @@
-
 package semiproject.mvc.model;
 
 import java.io.FileWriter;
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -51,8 +51,6 @@ public class CommercialPage{
 		List<String> list = commercialDao.getGu();
 		System.out.println(list.toString());
 		model.addAttribute("result", list);
-	
-	
 		return  "commercial/server/searchServer";
 	}
 	@RequestMapping(value="/dong")
@@ -120,30 +118,19 @@ public class CommercialPage{
 		mav.addObject("result", vo);
 		return mav;
 	}
-	@RequestMapping(value="/recentCnt",method = RequestMethod.POST)
-	public ModelAndView getCntProduct(String atclno,CommercialProductVO[] result) {
+	@RequestMapping(value="/recentCnt")
+	public ModelAndView getCntProduct(String atclno) {
 		ModelAndView mav = new ModelAndView("commercial/server/recentCntServer");
-		List<CommercialProductVO> list;
-		if(result==null) {
-			list= new  ArrayList<CommercialProductVO>();
-			System.out.println("result  가  null이다.");
-		}else {
-			list=new  ArrayList<CommercialProductVO>();
-			System.out.println("시험"+result.toString());
-		
-		}
 		CommercialProductVO vo = commercialProductDao.getProductDetail(atclno);
-		
-			list.add(vo);
-
-		System.out.println("list 주소"+list.toString());
-		System.out.println("list 크기"+list.size());
-		/*
-		 * System.out.println(vo.getAtclno()); System.out.println(vo.getAtclfetrdesc());
-		 */
-		mav.addObject("list", list);
-		
+		mav.addObject("result", vo);
+		return mav;
+	}
+	@RequestMapping(value="/markerDetail")
+	public ModelAndView setMarker(DataVO vo) {
+		ModelAndView mav = new ModelAndView("commercial/server/mainMark");
+		List<DataVO> list = commercialDao.getMark(vo);
+		mav.addObject("result", list);
+		mav.addObject("listsize", list.size());
 		return mav;
 	}
 }
-
