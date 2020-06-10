@@ -1,6 +1,5 @@
 package semiproject.mvc.dao;
 
-import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +12,11 @@ public class PaymentDao {
 	@Autowired
 	private SqlSessionTemplate ss ;
 	
-//	public void Payment(PaymentVO vo) {
-//		ss.update('payment' , vo);
-//	}
-//	public void PaymentPage(List<Payment_DetailVO> list) {
-//		ss.update(statement, parameter)
-//	    }
+	public void Payment(PaymentVO vo) {
+		ss.update("payment.paymentup", vo);
+	}
+	public void PaymentPage(Payment_DetailVO vo1) {
+		ss.update("payment.payment_detailup", vo1);
+	    }
 
 }

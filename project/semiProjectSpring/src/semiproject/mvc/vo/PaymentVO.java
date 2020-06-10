@@ -3,7 +3,7 @@
 package semiproject.mvc.vo;
 
 public class PaymentVO {
-	private int pnum , anum , ppay;
+	private int pnum , anum , ppay, monthnum;
 	private String psdate , pedate , pway , pgubun ;
 	
 	private Payment_DetailVO paydetailvo ; 
@@ -57,5 +57,12 @@ public class PaymentVO {
 	public void setPgubun(String pgubun) {
 		this.pgubun = pgubun;
 	}
+	public int getMonthnum() {
+		return monthnum;
+	}
+	public void setMonthnum(int monthnum) {
+		this.monthnum = monthnum;
+	}
+	
 
 }

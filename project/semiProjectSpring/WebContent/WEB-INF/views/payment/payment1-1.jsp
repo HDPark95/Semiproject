@@ -35,14 +35,15 @@
 					<input type="hidden" value="" id="f1" name="f1">	
 					<input type="hidden" value="" id="cc1" name="cc1">	
 					<input type="hidden" value="" id="dd1" name="dd1">	
-					
+					<input type="hidden" value="" id="monthnum" name="monthnum">	
+					<input type="hidden" value="${user.anum }" name="pnum" id="pnum">
 					
 				</tr>
 				<tr>
 					<td>개월수</td>
-					<td class="basic return"><input type="hidden" value="" id="one" name="one">1개월</td>
-					<td class="st return"><input type="hidden" value="" id="three" name="three">3개월</td>
-					<td class="pr return"><input type="hidden" value="" id="twelve" name="twelve">12개월</td>
+					<td class="basic return"><input type="hidden" value="1" id="one">1개월</td>
+					<td class="st return"><input type="hidden" value="3" id="three">3개월</td>
+					<td class="pr return"><input type="hidden" value="12" id="twelve">12개월</td>
 				</tr>
 				<tr>
 					<td>가격</td>
@@ -52,11 +53,11 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="button" value="뒤로" id="ee"
+					<td><input type="button" value="뒤로" id="ff"
 						style="background-color: red;"
-						onclick="location='semi.Project?page=community&code=5'"></td>
-					<td><input type="submit" value="다음" id="ee"
-						style="background-color: green;" onclick="location='pay1'"></td>
+						onclick="location='index#footerMenu69'"></td>
+					<td><input type="button" value="다음" id="ee"
+						style="background-color: green;"></td>
 					<td></td>
 				</tr>
 			</table>
@@ -76,10 +77,11 @@
 				+ month1.getDate();
 		var month2 = new Date();
 		month2 = (month2.getFullYear()+1) + "-" + (month2.getMonth()+1) + "-"
-				+ month2.getDate();
-
+				+ (month2.getDate()-1);
+		
 		$(function() {
 			$('#basic').click(function() {
+
 				$('#cc').val(date);
 				$('#dd').val(month);
 				
@@ -89,6 +91,7 @@
 				$('.basic').css('color', 'red');
 			});
 			$('#st').click(function() {
+				console.log($('#f1').val())
 				$('#cc').val(date);
 				$('#dd').val(month1);
 				alert("3개월을 선택하셨습니다.");
@@ -96,6 +99,7 @@
 				$('.st').css('color', 'red');
 			});
 			$('#pr').click(function() {
+				console.log($('#f1').val())
 				$('#cc').val(date);
 				$('#dd').val(month2);
 				alert("12개월을 선택하셨습니다.");
@@ -103,29 +107,47 @@
 				$('.pr').css('color', 'red');
 			});
 			$('#basic').click(function() {
-				$('#f1').val('29,900원');
+				$('#f1').val(29900);
 				$('#cc1').val(date);
 				$('#dd1').val(month);
-				$('#one').val(one);
-				$('#three').val(three);
-				$('.pr').val($('#twlve').val());
+				$('#monthnum').val($('#one').val());
 				
-			
 			});
 			$('#st').click(function() {
-				$('#f1').val('23,900원');
+				$('#f1').val(23900*3);
 				$('#cc1').val(date);
 				$('#dd1').val(month1);
+				$('#monthnum').val($('#three').val());
 				
 			});
 			$('#pr').click(function() {
-				$('#f1').val('18,900원');
+				$('#f1').val(18900*12);
 				$('#cc1').val(date);
 				$('#dd1').val(month2);
+				$('#monthnum').val($('#twelve').val());
 				
-			});
+			});	
+			
+			$('#ee').click(function(){
+				if($('#cc').val() == ""){
+					alert('선택해주세요.');
+				}else if($('#cc').val() != ""){
+						var url = "pay1?ppay="+$('#f1').val()+"&psdate="+$('#cc1').val()+"&pedate="+$('#dd1').val()+
+						"&monthnum="+$('#monthnum').val()+"&pnum="+$('#pnum').val();
+					console.log(url);
+					$.ajax({
+						url : url,
+						success : function(data){
+						},
+							error : function(data){
+								console.log(data);
+							}
+					});
+				};
+				});
 			
 		});
+		
 	</script>
 </section>
 

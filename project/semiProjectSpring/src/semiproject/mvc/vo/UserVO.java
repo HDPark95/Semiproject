@@ -5,9 +5,16 @@ public class UserVO {
 	private String dgender;
 	private String dtel;
 	private String dbirth;
+	private int anum;
 	private String aid;
 	private String apwd; 
 	private String agubun; 
+	public int getAnum() {
+		return anum;
+	}
+	public void setAnum(int anum) {
+		this.anum = anum;
+	}
 	public String getAgubun() {
 		return agubun;
 	}
