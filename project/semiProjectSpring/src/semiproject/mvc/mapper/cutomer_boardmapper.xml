@@ -5,12 +5,12 @@
 	
 <mapper namespace="board">
 <insert id="add" parameterType="cbvo"> <!-- 게시글 작성 -->
-insert into customer_board(c_num,c_writer,c_id,c_pwd,c_type,c_subject,c_content)
-values(customer_board_seq.nextVal,#{c_writer},#{c_id},#{c_pwd},#{c_type},#{c_subject},#{c_content})
+insert into customer_board(c_num,c_type,c_writer,c_subject,c_content,c_pwd) 
+values(customer_board_seq.nextVal,#{c_type},#{c_writer},#{c_subject},#{c_content},#{c_pwd})
 </insert>
 
-<!-- <select id="detail" parameterType="cbvo"> -->  
-
-<!-- </select> -->
+<select id="list" resultType="cbvo">
+select c_num,c_subject,c_writer,c_regdate,c_anschk from customer_board order by c_num desc
+</select>
 
 </mapper>  

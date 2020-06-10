@@ -23,6 +23,7 @@
 			alias="aipvo" />
 		<typeAlias type="semiproject.mvc.vo.CommercialProductVO"
 			alias="cpvo" />
-		<typeAlias type="semiproject.mvc.vo.UserVO" alias="uservo" />   
+		<typeAlias type="semiproject.mvc.vo.UserVO" alias="uservo" />
+		<typeAlias type="semiproject.mvc.vo.SignUpVO" alias="signvo" />     
 	</typeAliases>
 </configuration>

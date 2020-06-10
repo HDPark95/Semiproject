@@ -30,11 +30,11 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">고객센터</a></li>
                        <c:catch>
                        <c:choose>
-                       <c:when test="${empty user}">  
+                       <c:when test="${empty user}">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login">로그인</a></li>
                         </c:when>
                         <c:otherwise>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout">로그아웃</a></li>  
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout">로그아웃</a></li>
                         </c:otherwise>
                         </c:choose>
                         </c:catch>

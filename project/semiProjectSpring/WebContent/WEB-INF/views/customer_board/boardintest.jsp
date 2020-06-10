@@ -16,7 +16,7 @@
 			</tr>
 			<tr>
 				<td bgcolor=white>
-					<table class="table2">
+					<table class="table2">    
 						<tr>
 							<td>문의유형</td>
 							<td><select class="form-control" id="">
@@ -59,21 +59,21 @@
 			</tr>
 		</table>
 <script>
-$(function(){
-	$('#idChkBtn').click(function(){
-		$.ajax({
-			url: "http://localhost/semiProjectSpring/idChk?id="+$('#remove').val(),
-			success : function(data){
-				if(data===0){
-					$('#target').html("<p style='color:green'>멋진 아이디네요!</p>");
-				}else{
-					$('#target').html("<p style='color:red'>이미 사용중이거나 탈퇴한 아이디입니다.</p>");
-					$('#id').val("");
-				}
-			}		
-		});
-	});
-});
+// $(function(){
+// 	$('#idChkBtn').click(function(){
+// 		$.ajax({
+// 			url: "http://localhost/semiProjectSpring/idChk?id="+$('#remove').val(),
+// 			success : function(data){
+// 				if(data===0){
+// 					$('#target').html("<p style='color:green'>멋진 아이디네요!</p>");
+// 				}else{
+// 					$('#target').html("<p style='color:red'>이미 사용중이거나 탈퇴한 아이디입니다.</p>");
+// 					$('#id').val("");
+// 				}
+// 			}		
+// 		});
+// 	});
+// });
 </script>
 </body>
 <%@ include file="../include/footer.jsp"%>

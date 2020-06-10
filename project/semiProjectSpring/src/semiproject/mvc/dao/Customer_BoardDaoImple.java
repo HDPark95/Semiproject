@@ -15,15 +15,15 @@ public class Customer_BoardDaoImple implements Customer_BoardDao{
 	private SqlSessionTemplate ss;
 	
 	@Override
-	public int addwrite(Customer_BoardVO vo) throws Exception {  
-		
-		return ss.insert("board.cbvo", vo);  
+	public Object addwrite(Customer_BoardVO vo) throws Exception {  
+		System.out.println("dao 호출! ");
+		return ss.insert("board.add", vo);  
 	}
 
 	@Override
 	public List<Customer_BoardVO> getlist() throws Exception {
 		
-		return null;
+		return ss.selectList("board.list");
 	}
 
 }

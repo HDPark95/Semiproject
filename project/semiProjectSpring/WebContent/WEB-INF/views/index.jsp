@@ -18,7 +18,7 @@
                     
                     <c:otherwise>
                     <li>
-                    <a class="btn btn-primary js-scroll-trigger" href="logout">로그아웃</a>
+                    <a class="btn btn-primary js-scroll-trigger" href="index#footerMenu">시작하기</a>
                     </li>
                     </c:otherwise>
                     </c:choose>
