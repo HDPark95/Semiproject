@@ -118,10 +118,17 @@ public class AuctionPage{
 		return mav;
 	}
 	
+	//int statussel,int mulgun,int sortindex,int sortad
+	
 	@RequestMapping(value = "/auctionMain")
-	public String auctionviewlist(AuctionPageVO vo,Model model,@RequestParam(value = "nowPage",required = false,defaultValue = "1") String nowPage, @RequestParam(value = "cntPage",required = false,defaultValue = "5") String cntPerPage) {
+	public String auctionviewlist(AuctionPageVO vo,Model model,@RequestParam(value = "nowPage",required = false,defaultValue = "1") String nowPage, 
+			@RequestParam(value = "cntPage",required = false,defaultValue = "5") String cntPerPage,
+			@RequestParam(value = "statussel",required = false,defaultValue = "0") String statussel,
+			@RequestParam(value = "mulgun",required = false,defaultValue = "0") String mulgun,
+			@RequestParam(value = "sortindex",required = false,defaultValue = "0") String sortindex
+			) {
 		int total = auctiondao.getTotalCnt();
-		vo = new AuctionPageVO(total,Integer.parseInt(nowPage),Integer.parseInt(cntPerPage));
+		vo = new AuctionPageVO(total,Integer.parseInt(nowPage),Integer.parseInt(cntPerPage),Integer.parseInt(statussel),Integer.parseInt(mulgun),Integer.parseInt(sortindex));
 		model.addAttribute("paging",vo);
 		model.addAttribute("list",auctiondao.getAuctionview(vo));
 		return "auction/auction_main";

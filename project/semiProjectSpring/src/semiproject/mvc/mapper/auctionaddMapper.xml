@@ -21,7 +21,35 @@
  from actmain a , actmainde b , ipchal p
 where b.anum = a.anum
   and p.anum = a.anum
+<if test="statussel != 0">
+and p.status = #{statussel}
+</if>  
+<if test="mulgun != 0">
+and a.byongdo = #{mulgun}
+</if>  
+<choose>
+<when test="sortindex==0">  
 order by a.indate desc
+</when>
+<when test="sortindex==1">
+order by p.ideprice asc
+</when>
+<when test="sortindex==2">
+order by p.ideprice desc
+</when>
+<when test="sortindex==3">
+order by p.enddate asc
+</when>
+<when test="sortindex==4">
+order by p.enddate desc
+</when>
+<when test="sortindex==5">
+order by a.hit asc
+</when>
+<when test="sortindex==6">
+order by a.hit desc
+</when>
+</choose>
 		) a
 		) where r_num between #{start} and #{end}
 	</select>

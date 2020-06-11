@@ -241,22 +241,22 @@
 				<div id="searchtop" name="searchtop"
 					style="width: 100%; height: 65px; border: 1px solid gray; padding: 10px;">
 					<div class="form-group">
-						진행사항:<select class="form-control" id="exampleSelect1"
+						진행사항:<select class="form-control" id="statussel"
 							style="width: 100px;">
-							<option>전체</option>
-							<option>신건</option>
-							<option>유찰</option>
-							<option>진행</option>
-							<option>낙찰</option>
-						</select> 물건용도:<select class="form-control" id="exampleSelect2"
+							<option value="0">전체</option>
+							<option value="1">신건</option>
+							<option value="2">유찰</option>
+							<option value="3">진행</option>
+							<option value="4">낙찰</option>
+						</select> 물건용도:<select class="form-control" id="mulgun"
 							style="width: 100px;">
-							<option>전체</option>
-							<option>아파트</option>
-							<option>주택/빌라</option>
-							<option>상업/업무</option>
-							<option>공장/창고</option>
-							<option>토지</option>
-							<option>기타</option>
+							<option value="0">전체</option>
+							<option value="1">아파트</option>
+							<option value="2">주택/빌라</option>
+							<option value="3">상업/업무</option>
+							<option value="4">공장/창고</option>
+							<option value="5">토지</option>
+							<option value="6">기타</option>
 						</select>
 					</div>
 				</div>
@@ -264,11 +264,9 @@
 					<div class="btn-group" role="group" aria-label="Basic example"
 						style="float: left;">
 						<input type="button" id="lowpBtn" name="lowpBtn" class="btn btn-outline-primary" value="최저가순 ▲"/>
-						<input type="hidden" id="lowpBtnh" name="lowpBtnh" value="0"/>
 						<input type="button" id="maeBtn" name="maeBtn" class="btn btn-outline-primary" value="매각기일순 ▲"/>
-						<input type="hidden" id="maeBtnh" name="maeBtnh" value="0"/>
 						<input type="button" id="hitBtn" name="hitBtn" class="btn btn-outline-primary" value="조회수순 ▲"/>
-						<input type="hidden" id="hitBtnh" name="hitBtnh" value="0"/>
+						<input type="hidden" id="sortindex" name="sortindex" value="${paging.sortindex}"/>
 					</div>
 					<div style="float: left;">
 						<label id="sumres" style="margin-top: 5px; margin-left: 10px;">(총
@@ -288,30 +286,7 @@
 							</tr>
 						</thead>
 						<tbody style="border-bottom: 1px solid gray; font-size: 1rem;">
-							<c:forEach var="list" items="${list}">
-								<tr>
-									<th></th>
-									<th id="colchk1" scope="row" style="width: 130px;"><img
-										src="img/${list.wimage}"
-										style="width: 120px; height: 120px; float: left;"></th>
-									<td id="coltd1_2" style="width: 630px;"><label
-										id="t1addr1_1"><a
-											href="http://localhost:8080/uiProject/semi.Project?page=auction&code=4"
-											style="color: black;"><span id="mainsubject">${list.subject}</span><br />
-											<b>[${list.yongdo}]</b><br />${list.addr}</a></label> <br />
-									<label id="t1addr1_2" style="font-size: 11pt; height: 6px;">토지면적
-											${list.tweight}㎡/건물면적 ${list.bweight}㎡</label><br />
-									<label id="t1addr1_3" style="font-size: 11pt; height: 6px;"><b>경매만료기일</b>&nbsp;&nbsp;<span
-											style="color: blue; font-weight: bold;">${list.enddate}</span></label>
-									</td>
-									<td style="padding-left: 0px; padding-right: 0px;"><span
-										class="badge badge-primary" style="font-size: 8pt;">시작가</span><br />
-									<span class="badge badge-info" style="font-size: 8pt;">현재가</span></td>
-									<td style="padding-left: 3px;"><b>${list.ideprice}</b><br />
-									<span style="color: blue;"><b>${list.hprice}</b></span></td>
-									<td style="text-align: center;">${list.status}<br />${list.indate}<br />${list.hit}</td>
-								</tr>
-							</c:forEach>
+						<%@ include file="auction_mainview.jsp"%>
 						</tbody>
 					</table>
 				</div>
@@ -320,7 +295,7 @@
 						<c:choose>
 							<c:when test="${paging.startPage != 1 }">
 								<li class="page-item"><a class="page-link"
-									href="auctionMain?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&laquo;</a></li>
+									href="auctionMain?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&sortindex=${paging.sortindex}&statussel=${paging.statussel}&mulgun=${paging.mulgun}">&laquo;</a></li>
 							</c:when>
 							<c:otherwise>
 								<li class="page-item disabled"><a class="page-link"
@@ -333,13 +308,13 @@
 									<li class="page-item active"><a class="page-link" href="#">${p}</a></li>
 								</c:when>
 								<c:when test="${p != paging.nowPage }">
-									<li class="page-item"><a class="page-link" href="auctionMain?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p}</a></li>
+									<li class="page-item"><a class="page-link" href="auctionMain?nowPage=${p }&cntPerPage=${paging.cntPerPage}&sortindex=${paging.sortindex}&statussel=${paging.statussel}&mulgun=${paging.mulgun}">${p}</a></li>
 								</c:when>
 							</c:choose>
 						</c:forEach>
 						<c:choose>
 							<c:when test="${paging.endPage != paging.lastPage}">
-								<li class="page-item"><a class="page-link" href="auctionMain?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&raquo;</a></li>
+								<li class="page-item"><a class="page-link" href="auctionMain?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&sortindex=${paging.sortindex}&statussel=${paging.statussel}&mulgun=${paging.mulgun}">&raquo;</a></li>
 							</c:when>
 							<c:otherwise>
 								<li class="page-item disabled"><a class="page-link" href="#">&raquo;</a></li>
@@ -375,45 +350,69 @@
 			},
 		});
 		set_bantxt();
+		//값세팅하기
+		//alert($('#sortindex').val());
+		if($('#sortindex').val()==='1'){
+			$('#lowpBtn').val('최저가순 ▲');
+			$('#lowpBtn').attr('class','btn btn-outline-primary active')
+		}else if($('#sortindex').val()==='2'){
+			$('#lowpBtn').val('최저가순 ▼');
+			$('#lowpBtn').attr('class','btn btn-outline-primary active')
+		}else if($('#sortindex').val()==='3'){
+			$('#maeBtn').val('매각기일순 ▲');
+			$('#maeBtn').attr('class','btn btn-outline-primary active')
+		}else if($('#sortindex').val()==='4'){
+			$('#maeBtn').val('매각기일순 ▼');
+			$('#maeBtn').attr('class','btn btn-outline-primary active')
+		}else if($('#sortindex').val()==='5'){
+			$('#hitBtn').val('조회수순 ▲');
+			$('#hitBtn').attr('class','btn btn-outline-primary active')
+		}else if($('#sortindex').val()==='6'){
+			$('#hitBtn').val('조회수순 ▼');
+			$('#hitBtn').attr('class','btn btn-outline-primary active')
+		}
 		
+		$('#statussel').val(${param.statussel});
+		$('#mulgun').val(${param.mulgun});
+		
+		//소팅
 		$('#lowpBtn').click(function(){
-			var lbta = $('#lowpBtnh').val(); 
-			if(lbta==='0'){
-				$('#lowpBtn').val('최저가순 ▼');
-				$('#lowpBtnh').val('1');
-				
-				
-				
-				
-				
+			$('#lowpBtn').attr('class','btn btn-outline-primary active')
+			var lbta = $('#sortindex').val(); 
+			if(lbta==='1'){
+				location.href = "auctionMain?sortindex=2&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val();
 			}else{
-				$('#lowpBtn').val('최저가순 ▲');
-				$('#lowpBtnh').val('0');
+				location.href = "auctionMain?sortindex=1&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val();
 			}
 		});
 		
 		$('#maeBtn').click(function(){
-			var lbtb = $('#maeBtnh').val(); 
-			if(lbtb==='0'){
-				$('#maeBtn').val('매각기일순 ▼');
-				$('#maeBtnh').val('1');
+			$('#maeBtn').attr('class','btn btn-outline-primary active')
+			var lbtb = $('#sortindex').val();
+			if(lbtb==='3'){
+				location.href = "auctionMain?sortindex=4&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val();
 			}else{
-				$('#maeBtn').val('매각기일순 ▲');
-				$('#maeBtnh').val('0');
+				location.href = "auctionMain?sortindex=3&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val();
 			}
 		});
 		
 		$('#hitBtn').click(function(){
-			var lbtc = $('#hitBtnh').val(); 
-			if(lbtc==='0'){
-				$('#hitBtn').val('조회수순 ▼');
-				$('#hitBtnh').val('1');
+			$('#maeBtn').attr('class','btn btn-outline-primary active')
+			var lbtc = $('#sortindex').val(); 
+			if(lbtc==='5'){
+				location.href = "auctionMain?sortindex=6&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val();
 			}else{
-				$('#hitBtn').val('조회수순 ▲');
-				$('#hitBtnh').val('0');
+				location.href = "auctionMain?sortindex=5&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val();
 			}
 		});
+		//진행사항/물건용도
+		$('#statussel').change(function(){
+			location.href ="auctionMain?sortindex="+$('#sortindex').val()+"&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val();
+		});
 		
+		$('#mulgun').change(function(){
+			location.href ="auctionMain?sortindex="+$('#sortindex').val()+"&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val();
+		});
 		
 	});
 	
@@ -442,3 +441,4 @@
 	};
 	</script>
 	<%@ include file="../include/footer2.jsp"%>
+	

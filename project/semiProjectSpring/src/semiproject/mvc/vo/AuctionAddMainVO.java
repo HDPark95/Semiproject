@@ -17,10 +17,14 @@ constraint actmain_anum_pk primary key(anum)
 );
 */
 public class AuctionAddMainVO {
-	private int anum,byongdo,bweight,tweight;
+	private int anum,byongdo;
+	private double bweight,tweight;
 	private String bid,baddra,baddrb,bzipcode;
 	public int getAnum() {
 		return anum;
+	}
+	public void setAnum(int anum) {
+		this.anum = anum;
 	}
 	public int getByongdo() {
 		return byongdo;
@@ -28,16 +32,16 @@ public class AuctionAddMainVO {
 	public void setByongdo(int byongdo) {
 		this.byongdo = byongdo;
 	}
-	public int getBweight() {
+	public double getBweight() {
 		return bweight;
 	}
-	public void setBweight(int bweight) {
+	public void setBweight(double bweight) {
 		this.bweight = bweight;
 	}
-	public int getTweight() {
+	public double getTweight() {
 		return tweight;
 	}
-	public void setTweight(int tweight) {
+	public void setTweight(double tweight) {
 		this.tweight = tweight;
 	}
 	public String getBid() {
@@ -64,5 +68,6 @@ public class AuctionAddMainVO {
 	public void setBzipcode(String bzipcode) {
 		this.bzipcode = bzipcode;
 	}
+	
 	
 }
