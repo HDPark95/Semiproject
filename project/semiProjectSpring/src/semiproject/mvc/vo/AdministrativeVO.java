@@ -16,4 +16,5 @@ public class AdministrativeVO {
 		this.administrat = administrat;
 	}
 	
+	
 }

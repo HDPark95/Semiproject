@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import semiproject.mvc.vo.AuctionAddDeVO;
 import semiproject.mvc.vo.AuctionAddIpVO;
 import semiproject.mvc.vo.AuctionAddMainVO;
+import semiproject.mvc.vo.AuctionDetailVO;
 import semiproject.mvc.vo.AuctionPageVO;
 import semiproject.mvc.vo.AuctionViewVO;
 
@@ -37,6 +38,17 @@ public class AuctionDao {
 	public List<AuctionViewVO> getAuctionview(AuctionPageVO vo){
 		return ss.selectList("auction.mainsel",vo);
 	}
+	
+	public AuctionDetailVO getAuctionDetail(int anum) {
+		return ss.selectOne("auctionDetail.detail", anum);
+	}
+	public void purchase(AuctionDetailVO vo) {
+		ss.update("auctionDetail.bidding", vo);
+	}
+	public void actionHit(int anum) {
+		ss.update("auction.hithit", anum);
+	}
+	
 	
 	
 }

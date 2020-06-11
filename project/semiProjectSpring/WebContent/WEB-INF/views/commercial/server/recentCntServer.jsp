@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-	<button onclick="open_pop()" value="${result.atclno}">
-		<table>
+	<button onclick="open_pop()" class="productdescmodal Cntcount" value="${result.atclno}">
+		<table style="height:50px;">
 			<tr>
 				<td rowspan="2">${result.location}</td>
 				<th colspan="2" rowspan="2"><img

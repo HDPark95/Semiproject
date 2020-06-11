@@ -210,6 +210,7 @@
 		$.ajax({
 			url : url,
 			success : function(d) {
+				console.log(d);
 				$('#combobox1').html(d);
 			},
 			error : function(e) {

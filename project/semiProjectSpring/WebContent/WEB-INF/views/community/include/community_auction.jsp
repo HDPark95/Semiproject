@@ -14,6 +14,25 @@
 #location4 {
 	margin-bottom: 0;
 }
+#inputSearch4{
+	width: 900px;
+	margin-right: 5px;
+}
+#searchselect4{
+	width: 100px;
+	margin: 5px;
+}
+#searchform4{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 1px solid gray;
+	border-radius: 5px 5px 5px 5px;
+	border-style: groove;
+	border-color: #BDBDBD;
+}
+#searchtext4{
+	margin-right: 5px;
+}
 </style>
 <div class="tab-pane fade" id="auction">
 	<br>
@@ -27,7 +46,6 @@
 				class="form-control col-md-2">
 				<option>전체</option>
 			</select>
-			<button type="button" class="btn-primary btn-sm">검색</button>
 		</div>
 	</div>
 	<div id="checkorder3">
@@ -71,6 +89,14 @@
 			</tr>
 		</tbody>
 	</table>
+	<div class="form-check-inline" id="searchform4">
+    <select class="custom-select" id="searchselect4">
+      <option selected="selected">제목</option>
+      <option value="1">내용</option>
+    </select>
+		<input type="text" class="form-control" id="inputSearch4">
+		<button type="button" class="btn-primary btn-sm" id="searchtext4">검색</button>
+	</div>
 	<div id="pagenum3">
 		<ul class="pagination pagination-lg">
 			<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a>

@@ -23,7 +23,7 @@
 					<td colspan="2" id="welcome1">곧 생길 혜택들을 모두 누리실 수 있게 되었습니다!</td>
 				</tr>
 				<tr>
-					<td id="welcome2"><br><br><button type="button" class="btn btn-success" onclick="location ='http://localhost:8080/semiProjectSpring/'">서비스이용하기</button></td>
+					<td id="welcome2"><br><br><button type="button" class="btn btn-success" onclick="location ='index#footerMenu'">서비스이용하기</button></td>
 					<td></td>
 
 </tr>

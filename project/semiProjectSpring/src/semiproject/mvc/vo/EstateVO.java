@@ -3,16 +3,24 @@ package semiproject.mvc.vo;
 import java.util.List;
 
 public class EstateVO {
-	private String build,subbuild,floor,heating,move;
+	private String build,floor,heating,move;
+	private String[] subbuild;
 	private double supply,exclusive;
 	private List<RentVO> rent;
-	private AddInfoVO addinfo;
+	private String description , title;
 	
-	public AddInfoVO getAddinfo() {
-		return addinfo;
+	
+	public String getDescription() {
+		return description;
 	}
-	public void setAddinfo(AddInfoVO addinfo) {
-		this.addinfo = addinfo;
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getBuild() {
 		return build;
@@ -20,10 +28,11 @@ public class EstateVO {
 	public void setBuild(String build) {
 		this.build = build;
 	}
-	public String getSubbuild() {
+	
+	public String[] getSubbuild() {
 		return subbuild;
 	}
-	public void setSubbuild(String subbuild) {
+	public void setSubbuild(String[] subbuild) {
 		this.subbuild = subbuild;
 	}
 	public String getFloor() {
@@ -62,6 +71,8 @@ public class EstateVO {
 	public void setRent(List<RentVO> rent) {
 		this.rent = rent;
 	}
+
+
 	
 	
 	

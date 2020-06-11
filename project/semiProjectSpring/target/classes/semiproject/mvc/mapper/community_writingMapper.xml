@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="commuwriting">
+ 
+ <insert id="Cwriting" parameterType="cboardvo">
+ insert into community_board values(community_writing_seq.nextVal,'상가',
+ #{wloc1},#{wloc2},#{wtitle},#{wcontents},sysdate,sysdate,0,0,0,#{anum})
+ </insert>
+ 
+ <insert id="Ewriting" parameterType="cboardvo">
+ insert into community_board values(community_writing_seq.nextVal,'부동산',
+ #{wloc1},#{wloc2},#{wtitle},#{wcontents},sysdate,sysdate,0,0,0,#{anum})
+ </insert>
+ 
+ <insert id="Awriting" parameterType="cboardvo">
+ insert into community_board values(community_writing_seq.nextVal,'경매',
+ #{wloc1},#{wloc2},#{wtitle},#{wcontents},sysdate,sysdate,0,0,0,#{anum})
+ </insert>
+ 
+ <select id="wridetail" parameterType="int" resultType="cboardvo">
+ select w.wgubun wgubun, w.wloc1 wloc1, w.wloc2 wloc2, w.wtitle wtitle, w.wcontents wcontents, w.wchgdate wchgdate, 
+ w.whit whit, w.wrec wrec, substr(s.aid,1,instr(s.aid,'@')-1) aid from signup s, community_board w where s.anum = w.anum and wnum=#{wnum}
+ </select>
+ 
+ <select id="listall" parameterType="commupvo" resultType="cboardvo">
+select * from (select rownum wnum, a.* from (select wloc1,wloc2,wtitle,wchgdate,whit,wrec from community_board order by wnum asc) a ) where wnum between #{start} and #{end}
+ </select>
+ 
+ <select id="countall" resultType="int">
+ select count(*) cnt from community_board
+ </select>
+ 
+ </mapper>

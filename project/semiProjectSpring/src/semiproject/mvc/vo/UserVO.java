@@ -1,13 +1,21 @@
 package semiproject.mvc.vo;
 
 public class UserVO {
+	private int anum;
 	private String dname;
 	private String dgender;
 	private String dtel;
 	private String dbirth;
 	private String aid;
 	private String apwd; 
-	private String agubun; 
+	private String agubun;
+	
+	public int getAnum() {
+		return anum;
+	}
+	public void setAnum(int anum) {
+		this.anum = anum;
+	}
 	public String getAgubun() {
 		return agubun;
 	}

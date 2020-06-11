@@ -3,7 +3,14 @@ package semiproject.mvc.vo;
 
 public class CommercialProductVO {
 	private int prc, spc1, spc2;
-	private String location, atclfetrdesc, atclno,taglist,rltrnm, tradtpcd;
+	private String location, atclfetrdesc, atclno,taglist,rltrnm, tradtpcd,rlettpcd;
+	
+	public String getRlettpcd() {
+		return rlettpcd;
+	}
+	public void setRlettpcd(String rlettpcd) {
+		this.rlettpcd = rlettpcd;
+	}
 	public String getTradtpcd() {
 		return tradtpcd;
 	}

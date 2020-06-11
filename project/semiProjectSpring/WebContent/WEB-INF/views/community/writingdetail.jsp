@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ include file="../include/header_index.jsp"%>
 <link href="resources/css/community/writing_question.css"
 	rel="stylesheet">
@@ -16,7 +15,7 @@
 	width: 700px;
 }
 
-#writing0001 {
+#writingarea {
 	border: 1px solid;
 	width: 700px;
 	height: 700px;
@@ -62,7 +61,7 @@
 	font-size: 13px;
 }
 
-#writing, #list, #delete {
+#writing, #golist, #delete {
 	padding: 0.5rem 0.5rem;
 	margin-top: 5px;
 	background-color: #64A19D;
@@ -111,39 +110,43 @@
 </script>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
+	<input type="hidden" id="list" name="list" value="${list}">
 		<div id="area">
 			<div id="location">
-				<h2>우리동네 상가 이야기</h2>
+				<h2>우리동네 ${list.wgubun}이야기</h2>
 				<div id="tag">
-					<p id="tag2">#강남구&nbsp;#상가</p>
+					<p id="tag2">${list.wloc1}&nbsp;${list.wloc2}&nbsp;${list.wgubun}</p>
 				</div>
 			</div>
-			<div id="writing0001">
+			<div id="writingarea">
 				<div id="head">
 					<table>
 						<tr>
-							<td><h3 id="title">글의 제목이 들어갈 부분입니다.</h3></td>
+							<td><h3 id="title">${list.wtitle}</h3></td>
 							<td id="rec">추천하기</td>
 						</tr>
 						<tr>
 							<td><div id="toggle">
-									<span>아이디가 들어감</span> <span>올린 날짜가 들어감 </span> <span>조회
-										조회수</span>
-								</div></td>
-							<td id="total">
+									<span>${list.aid}</span> <span>${list.wchgdate}</span> <span>조회
+										${list.whit}</span>
+								</div></td>	
+							<td id="total">	
 								<div>
 									<button type="button" class="btn btn-default" id="totalRec">추천
-										0</button>
+										${list.wrec}</button>
 								</div>
 							</td>
 						</tr>
 					</table>
 				</div>
+				<div id=body>
+				${list.wcontents}
+				</div>
 			</div>
 			<div id="buttons">
 				<button type="button" class="btn btn-default btn-sm" id="writing">글쓰기
 				</button>
-				<button type="button" class="btn btn-default btn-sm" id="list">목록으로
+				<button type="button" class="btn btn-default btn-sm" id="golist">목록으로
 				</button>
 				<button type="button" class="btn btn-default btn-sm" id="delete">삭제하기
 				</button>

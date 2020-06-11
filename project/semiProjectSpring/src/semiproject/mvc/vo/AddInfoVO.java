@@ -1,18 +1,29 @@
 package semiproject.mvc.vo;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
 public class AddInfoVO {
 	private boolean pets,elevtor,balcony,built,chartered;
-	private String structure;
-	private AdministrativeVO administrative;
+	private String[] structure;
+	private List<AdministrativeVO> administrative;
 	private ParkingVO parking;
-	private OptionVO option;
+	private String[] option;
 	
 	
 	
-	public String getStructure() {
+	public List<AdministrativeVO> getAdministrative() {
+		return administrative;
+	}
+	public void setAdministrative(List<AdministrativeVO> administrative) {
+		this.administrative = administrative;
+	}
+	public String[] getStructure() {
 		return structure;
 	}
-	public void setStructure(String structure) {
+	public void setStructure(String[] structure) {
 		this.structure = structure;
 	}
 	public boolean isPets() {
@@ -45,25 +56,20 @@ public class AddInfoVO {
 	public void setChartered(boolean chartered) {
 		this.chartered = chartered;
 	}
-	public AdministrativeVO getAdministrative() {
-		return administrative;
-	}
-	public void setAdministrative(AdministrativeVO administrative) {
-		this.administrative = administrative;
-	}
+
 	public ParkingVO getParking() {
 		return parking;
 	}
 	public void setParking(ParkingVO parking) {
 		this.parking = parking;
 	}
-	public OptionVO getOption() {
+	public String[] getOption() {
 		return option;
 	}
-	public void setOption(OptionVO option) {
+	public void setOption(String[] option) {
 		this.option = option;
 	}
-	
+
 	
 	
 	

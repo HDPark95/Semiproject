@@ -32,8 +32,7 @@
 		<div class="tab-pane  th_page_space  fade show active "
 			style="text-align: center;" id="a">
 			
-				<%@ include file="information.jsp"%>
-				
+								
 		</div>
 		<div class="tab-pane fade th_page_space" style="text-align: center;"
 			id="b">

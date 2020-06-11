@@ -12,6 +12,7 @@
 	<context:component-scan base-package="semiproject.mvc" />
 	<mvc:annotation-driven />
 	<mvc:resources location="/resources/" mapping="/resources/**" />
+	<mvc:resources location="file:///C:/ikosmo64/pics/" mapping="/img/*"/>
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 	<bean id="JsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
 	<!-- <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">

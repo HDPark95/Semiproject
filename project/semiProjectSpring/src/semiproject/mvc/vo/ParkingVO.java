@@ -2,18 +2,18 @@ package semiproject.mvc.vo;
 
 public class ParkingVO {
 	private boolean park;
-	private int pay;
+	private int ppay;
 	public boolean isPark() {
 		return park;
 	}
 	public void setPark(boolean park) {
 		this.park = park;
 	}
-	public int getPay() {
-		return pay;
+	public int getPpay() {
+		return ppay;
 	}
-	public void setPay(int pay) {
-		this.pay = pay;
+	public void setPpay(int ppay) {
+		this.ppay = ppay;
 	}
-	
+
 }

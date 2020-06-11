@@ -18,8 +18,8 @@
                        <li class="nav-item">
 	                       <a class="nav-link js-scroll-trigger" href="commercialMain">상가</a>
 	                       <ul class="invisible sub-menu">
-		                       	<li><a>매물</a></li>
-		                       	<li><a>매물</a></li>
+		                       	<li><a>실거래가</a></li>
+		                       	<li><a>주변부동산</a></li>
 		                       	<li><a href="product">매물</a></li>
 		                       	<li><a href="register">매물등록</a></li>
 	                       </ul>
@@ -41,7 +41,7 @@
 		                       		<li><a>물건검색</a></li>
 		                       	<li><a>판매관리</a></li>
 		                       	<li><a>구매관리</a></li>
-		                       	<li><a>부동산등록</a></li>
+		                       	<li><a href="auctionAdd">부동산등록</a></li>
 		                       	<li><a>경매정보</a></li>
 	                       </ul>
                         </li>
@@ -57,7 +57,7 @@
                         </li>
                         <li class="nav-item">
 
-	                        <a class="nav-link js-scroll-trigger menu-other" href="customer">고객센터</a>             
+	                        <a class="nav-link js-scroll-trigger menu-other" href="list">고객센터</a>             
                         </li>
                          
                             

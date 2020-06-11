@@ -46,7 +46,6 @@ public class SignUpPage {
 		ModelAndView mav = new ModelAndView();
 		signUpDao.addSignUp1(vo);
 		signUpDao.addSignUp2(vo);
-		System.out.println("모델 도착!");
 		mav.setViewName("community/subscriptioncheck_broker");
 		mav.addObject("aidheader", vo.getAidheader());
 		return mav;
@@ -57,10 +56,8 @@ public class SignUpPage {
 		ModelAndView mav = new ModelAndView();
 		signUpDao.addSignUp1(vo);
 		signUpDao.addSignUp2(vo);
-		System.out.println("모델 도착!");
 		mav.setViewName("community/subscriptioncheck_lessor");	
 		return mav;
 	}
-	
 	
 }
