@@ -6,37 +6,48 @@
 	href="resources/css/customer_board/boardwriter.css">
 <%@ include file="../include/header_menu.jsp"%>
 
+<style>
+#tabl1{margin-top: 20px;
+	margin-bottom: 20px;
+	border: 1px solid gray;
+	border-radius: 5px 5px 5px 5px;
+	border-style: groove;
+	border-color: #BDBDBD;}
+</style>
 <body id="table">
 	
+		
 		<table
 			style="padding-top: 50px; align: center;  border: 0; margin-top:7rem; margin-left: 15rem;">
 			<tr>
-				<td height=20 align=center bgcolor=#ccc><font color=white>
-						문의내용</font></td>
+				<td height=20 align=center bgcolor=#ccc><font color=white>  
+						문의내용</font></td> 
 			</tr>
 			<tr>
 				<td bgcolor=white>
+				
+				
 					<table class="table2">
+						
 						<tr>
 							<td>문의유형</td>
-							<td><select class="form-control" id="">
-								
-							</select></td>
+							<td id="tabl1">								
+							${detail.c_type}</td>
 						</tr>
 
 						<tr>
 							<td>작성자</td>
-							<td><input type=text name=name size=20></td>
+							<td id="tabl1">${detail.c_writer}</td>
 						</tr>
 
 						<tr>
 							<td>제목</td>
-							<td><input type=text name=title size=60></td>
+							<td id="tabl1">${detail.c_subject}</td>
 						</tr>
 
 						<tr>
 							<td>내용</td>
-							<td><textarea name=content cols=85 rows=15></textarea></td>
+							<td><textarea name=content cols=85 rows=15>${detail.c_content}</textarea></td>
 						</tr>
 <!-- 						<tr> -->
 <!-- 							<td>비밀번호</td> -->
@@ -45,12 +56,13 @@
 						
 						<tr>
 							<td>답변</td>
-							<td><textarea name=content cols=85 rows=2></textarea></td>
+							<td><textarea name=content cols=85 rows=2>${detail.c_ans}</textarea></td>
 						</tr>
 					
 					</table>
 					
-						<button id="writeBtn" onclick="location='customer'">돌아가기</button>
+					
+						<button id="writeBtn" onclick="redirect='list'">돌아가기</button>
 					
 					
 						<button id="writeBtn" onclick="location='customer'" id="remove">게시글 삭제</button>

@@ -33,7 +33,7 @@ public class LoginPage {
 	public ModelAndView loginPost(LoginDTO loginDTO, HttpSession httpsession) throws Exception {
 		ModelAndView mav = new ModelAndView();
 //		System.out.println("실행");
-		UserVO vo = logindao.login(loginDTO);
+		UserVO vo = logindao.login(loginDTO); 
 //		System.out.println(vo.getApwd());
 //		System.out.println(loginDTO.getApwd());
 		if (vo == null || (loginDTO.getApwd() == vo.getApwd())) {

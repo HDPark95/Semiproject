@@ -1,4 +1,3 @@
-
 package semiproject.mvc.vo;
 
 public class DataVO {
@@ -9,7 +8,7 @@ public class DataVO {
 	private String largeName;
 	private String mediumName;
 	private String smallName;
-	
+
 	public String getCate() {
 		return cate;
 	}
@@ -67,4 +66,3 @@ public class DataVO {
 	}
 
 }
-

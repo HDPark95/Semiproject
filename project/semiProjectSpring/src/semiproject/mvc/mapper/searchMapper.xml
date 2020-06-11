@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
 <mapper namespace="search">
-	<select id="list" resultType="cpvo" parameterType="pvo">
+	<select id="list" resultType="cpvo" >
 		select * from (select rownum r_num, a.* from (select * from product order by num desc) a ) where r_num between #{start} and #{end}
 	</select>
-	<select id="list2" resultType="cpvo" parameterType="pvo">
+	<select id="list2" resultType="cpvo" >
 		select * from (
 		select rownum r_num, a.* from
 		(
@@ -29,7 +31,7 @@
 		) a
 		) where r_num between #{start} and #{end}
 	</select>
-	<select id="totalCount" resultType="int" parameterType="pvo">
+	<select id="totalCount" resultType="int" >
 		select count(*) cnt from product
 		<if test="searchType != null">
 			<where>

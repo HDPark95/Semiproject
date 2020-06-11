@@ -4,12 +4,12 @@
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="semiproject.mvc.vo.CommunityVO"
+		<typeAlias type="semiproject.mvc.vo.CommunityVO" 
 			alias="comuVO" />
 		<typeAlias type="semiproject.mvc.vo.BoardPageVO"
 			alias="bpvo" />
-		<typeAlias type="semiproject.mvc.vo.BoardVO" alias="bvo" />
 		<typeAlias type="semiproject.mvc.vo.Customer_BoardVO" alias="cbvo" />
+		<typeAlias type="semiproject.mvc.vo.Customer_Board1VO" alias="cbvo1" />     
 		<typeAlias type="semiproject.mvc.vo.DataVO"
 			alias="commercial" />
 		<typeAlias type="semiproject.mvc.vo.MyPageVO"
@@ -22,18 +22,9 @@
 			alias="adevo" />
 		<typeAlias type="semiproject.mvc.vo.AuctionAddIpVO"
 			alias="aipvo" />
-		<typeAlias type="semiproject.mvc.vo.AuctionPageVO"
-			alias="aviewpage" />
-		<typeAlias type="semiproject.mvc.vo.AuctionViewVO"
-			alias="aviewmain" />
 		<typeAlias type="semiproject.mvc.vo.CommercialProductVO"
 			alias="cpvo" />
 		<typeAlias type="semiproject.mvc.vo.UserVO" alias="uservo" />
-		<typeAlias type="semiproject.mvc.vo.SignUpVO" alias="signVO" />
-		<typeAlias type="semiproject.mvc.vo.Member_DetailVO"
-			alias="member_detailvo" />
-		<typeAlias type="semiproject.mvc.vo.Payment_DetailVO"
-			alias="payment_detailvo" />
-		<typeAlias type="semiproject.mvc.vo.PageVO" alias="pvo" />
+		<typeAlias type="semiproject.mvc.vo.SignUpVO" alias="signvo" />     
 	</typeAliases>
 </configuration>

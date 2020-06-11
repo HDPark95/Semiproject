@@ -10,7 +10,16 @@ values(customer_board_seq.nextVal,#{c_type},#{c_writer},#{c_subject},#{c_content
 </insert>
 
 <select id="list" resultType="cbvo">
-select c_num,c_subject,c_writer,c_regdate,c_anschk from customer_board order by c_num desc
+select c_num,c_subject,c_writer,c_regdate,c_anschk from customer_board order by c_num desc 
+</select> 
+
+
+<select id="viewDetail" resultType="cbvo" parameterType="int">
+select c_type,c_writer,c_subject,c_content,c_ans from customer_board where c_num = #{c_num}
 </select>
+
+<update id="ans" parameterType="cbvo">
+update customer_board set c_ans = #{c_ans} where c_num=#{c_num};
+</update>
 
 </mapper>  

@@ -12,7 +12,7 @@ import semiproject.mvc.vo.Customer_BoardVO;
 public class Customer_BoardDaoImple implements Customer_BoardDao{
 
 	@Autowired
-	private SqlSessionTemplate ss;
+	private SqlSessionTemplate ss; 
 	
 	@Override
 	public Object addwrite(Customer_BoardVO vo) throws Exception {  
@@ -23,7 +23,23 @@ public class Customer_BoardDaoImple implements Customer_BoardDao{
 	@Override
 	public List<Customer_BoardVO> getlist() throws Exception {
 		
-		return ss.selectList("board.list");
+		return ss.selectList("board.list"); 
 	}
+
+	@Override
+	public Customer_BoardVO getDetail(int c_num) throws Exception {
+		
+		return ss.selectOne("board.viewDetail",c_num);
+	}
+
+	@Override
+	public void updateAns(Customer_BoardVO vo) throws Exception {
+		
+		ss.update("board.ans",vo);
+		
+	}
+
+
+
 
 }

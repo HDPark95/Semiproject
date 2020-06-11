@@ -15,7 +15,7 @@
                 <a class="navbar-brand js-scroll-trigger btn" href="#page-top">필터</a>
                 <a class="navbar-brand js-scroll-trigger btn" href="#page-top">초기화</a>
                
-            </div>
+            </div> 
             </div>
             <div class="col-md-12 mt-12 filter-page invisible fixed-top" id="filter-page">
             	<div class="col-md-12 mt-12 filter-sub-page">

@@ -13,10 +13,10 @@
 			<tr>
 				<td height=20 align=center bgcolor=#ccc><font color=white>
 						문의내용</font></td>
-			</tr>
+			</tr> 
 			<tr>
 				<td bgcolor=white>
-					<table class="table2">
+					<table class="table2">  
 						<tr>
 							<td>문의 종류</td>
 							<td><select class="form-control" id="c_type" name="c_type">

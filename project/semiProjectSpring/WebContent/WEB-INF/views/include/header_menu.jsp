@@ -13,11 +13,11 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                  <ul class="navbar-nav ml-auto menu-other">
                         <c:catch>
-                        <c:choose>
+                        <c:choose> 
                         <c:when test="${empty user}">                        
                         <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage"> </a></li>
                         </c:when>
-                        
+                          
                         <c:otherwise>                          
                         <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">${user.dname}님 환영합니다.</a></li>  
                         </c:otherwise>
@@ -70,7 +70,7 @@
                         </li>
                         <li class="nav-item">
 
-	                        <a class="nav-link js-scroll-trigger menu-other" href="customer">고객센터</a>             
+	                        <a class="nav-link js-scroll-trigger menu-other" href="list">고객센터</a>             
                         </li>
 <!--                         <li class="nav-item"> -->
 

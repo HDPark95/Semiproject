@@ -11,6 +11,6 @@
 	에러 !!!!!!!  
 </body>
 
-<%@ include file="../include/footer.jsp"%>
+<%@ include file="../include/footer.jsp"%>   
 
 

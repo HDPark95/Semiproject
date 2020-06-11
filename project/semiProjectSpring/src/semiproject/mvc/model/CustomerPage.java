@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import semiproject.mvc.dao.Customer_BoardDaoImple;
+import semiproject.mvc.service.Customer_BoardService;
 import semiproject.mvc.vo.BoardPageVO;
 import semiproject.mvc.vo.Customer_BoardVO;
 
@@ -25,12 +26,14 @@ public class CustomerPage{
 	@Autowired
 	private Customer_BoardDaoImple customerdao;
 	
+	@Autowired
+	private Customer_BoardService service;
 	
 	
-	@RequestMapping(value="/customer")
-	public String goBoard() {
-		return "customer_board/board";  
-	}
+//	@RequestMapping(value="/customer") 
+//	public String goBoard() {
+//		return "customer_board/board";  
+//	}
 	
 
 
@@ -45,27 +48,45 @@ public class CustomerPage{
 	//입력받은 값을 처리하기위한 메소드
 	@RequestMapping(value="/boardin" , method = RequestMethod.POST)
 	public ModelAndView writeBoard(Customer_BoardVO vo) throws Exception {
-		ModelAndView mav = new ModelAndView("customer_board/board");
+		ModelAndView mav = new ModelAndView();
 		System.out.println("모델 호출");
 		customerdao.addwrite(vo);
+		mav.setViewName("redirect:list");
 		return mav;
 		
 	}
-	
-
-	// CRUD 중 R 상세페이지 불러오기.
-	@RequestMapping(value="/customerboardDetail")
-	public String customerBody() {
-		return "customer_board/boarddetail";
-	}
-	
+		
+	// CRUD 중 R 상세페이지 불러오기. -> 게시판 목록 불러오기 	
 	@RequestMapping(value="/list", method = RequestMethod.GET)
 	public String customerList(Model model) throws Exception{
+		List<Customer_BoardVO> list = customerdao.getlist();
+		System.out.println("====================>"+list.get(0).getC_num());
+		model.addAttribute("list",list);
 		
-		model.addAttribute("list",customerdao.getlist());
-		
-		return "customer_board/board";
+		return "customer_board/board";  
 	}
   
+	// 게시판 상세보기 
+		@RequestMapping(value="/Detail", method = RequestMethod.GET)
+		public String customerDetail(Model model, HttpServletRequest req) throws Exception {
+			
+			System.out.println("게시판 상세보기 호출");
+			
+			String c_num = req.getParameter("c_num");
+			
+			model.addAttribute("detail", customerdao.getDetail(Integer.parseInt(c_num)));
+			
+			return "customer_board/boarddetail";
+			 
+		}
+		
+		//게시판 업데이트 CRUD 중 U
+		@RequestMapping(value = "ans" , method = RequestMethod.POST)
+		public ModelAndView ansAdd(Customer_BoardVO vo, HttpServletRequest req) {
+			ModelAndView mav = new ModelAndView();
+			
+			
+			return mav;
+		}
 
 }
