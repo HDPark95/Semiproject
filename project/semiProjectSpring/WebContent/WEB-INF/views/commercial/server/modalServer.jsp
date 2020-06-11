@@ -25,7 +25,7 @@
 				<td>${result.prc}만원</td>
 				<td>매물번호</td>
 				<td>${result.atclno}</td>
-			</tr>
+			</tr> 
 			<tr>
 				<td rowspan="3">중개인</td>
 				<td rowspan="3" colspan="3">${result.rltrnm}</td>

@@ -39,3 +39,4 @@ public class Payment_DetailVO {
 	
 
 }
+ 

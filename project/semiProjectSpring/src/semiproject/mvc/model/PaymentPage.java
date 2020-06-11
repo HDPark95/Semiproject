@@ -45,7 +45,7 @@ public class PaymentPage {
 		
 	return "payment/payment1";
 		
-		
+		 
 	}
 	
 	@RequestMapping(value="/pay2")

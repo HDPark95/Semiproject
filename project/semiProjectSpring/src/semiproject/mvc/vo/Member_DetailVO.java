@@ -27,7 +27,7 @@ public class Member_DetailVO {
 	}
 	public void setDbirth(String dbirth) {
 		this.dbirth = dbirth;
-	}
+	} 
 	public String getDgender() {
 		return dgender;
 	}

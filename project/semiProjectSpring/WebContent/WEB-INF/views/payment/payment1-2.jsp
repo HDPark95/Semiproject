@@ -24,7 +24,7 @@
 
 #title {
 	text-align: center;
-}
+} 
 #payment1{
 	width: 700px;
 	height: 400px;

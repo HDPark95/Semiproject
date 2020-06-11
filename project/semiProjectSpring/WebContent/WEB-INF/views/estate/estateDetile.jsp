@@ -31,7 +31,7 @@
 			<img class="th_property_subimg" src="assets/img/home.jpg"
 			alt="Card image">
 			
-			</div>
+			</div> 
 
 		<div class="topma bg-white">
 			<ul class="nav nav-tabs ">

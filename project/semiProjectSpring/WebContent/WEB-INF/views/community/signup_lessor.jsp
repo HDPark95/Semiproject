@@ -31,7 +31,7 @@
 }
 
 #aidheader {
-	width: 110px;
+	width: 110px; 
 }
 
 #emailLabel {

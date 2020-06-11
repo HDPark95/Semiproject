@@ -28,7 +28,7 @@
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="title" maxlength="80">
 					</div>
-				</div>
+				</div> 
 				<div class="tab-pane fade show active" id="all">
 					<br>
 					<div class="form-inline form-group">

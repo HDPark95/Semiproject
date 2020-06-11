@@ -31,7 +31,7 @@
 	<div id="myTabContent" class="tab-content" >
 		<div class="tab-pane  th_page_space  fade show active row "
 			style="text-align: center; margin-top: 30px;" id="myinformation">
-
+ 
 			<%@ include file="../mypage/myinformation.jsp"%>
 
 		</div>

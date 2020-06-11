@@ -27,7 +27,7 @@
 										<div class="col-md-12 col-sm-12">
 											<p>매물종류${i.index }</p>
 											<span> 매물 가격${i.index }</span>
-											<p>매물설명${i.index }</p>
+				 							<p>매물설명${i.index }</p>
 										</div>
 									</a>
 								</div>

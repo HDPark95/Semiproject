@@ -34,7 +34,7 @@ public class CommercialProductVO {
 	}
 	public void setAtclno(String atclno) {
 		this.atclno = atclno;
-	}
+	} 
 	private int num;
 	public int getNum() {
 		return num;

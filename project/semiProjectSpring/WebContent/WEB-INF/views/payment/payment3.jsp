@@ -26,7 +26,7 @@
 					<td id="welcome2"><br><br><button type="button" class="btn btn-success" onclick="location ='index#footerMenu'">서비스이용하기</button></td>
 					<td></td>
 
-</tr>
+</tr> 
 			</table>
 		</div>
 	</section>

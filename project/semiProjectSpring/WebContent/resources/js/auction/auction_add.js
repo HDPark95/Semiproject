@@ -22,7 +22,7 @@ $(document).ready(function(){
 	})
 	
 });
-
+ 
 function jusopop(){
 	var pop = window.open("jusopopup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes");
 }	

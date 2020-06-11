@@ -34,7 +34,7 @@ public class BoardVO {
 	}
 	public void setRe_level(int re_level) {
 		this.re_level = re_level;
-	}
+	} 
 	public int getAns() {
 		return ans;
 	}

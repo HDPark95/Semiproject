@@ -18,7 +18,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 // Sample plugin. Use CTRL+T to toggle the toolbar
 nhn.husky.SE_ToolbarToggler = $Class({
 	name : "SE_ToolbarToggler",
-	bUseToolbar : true,
+	bUseToolbar : true, 
 	
 	$init : function(oAppContainer, bUseToolbar){
 		this._assignHTMLObjects(oAppContainer, bUseToolbar);

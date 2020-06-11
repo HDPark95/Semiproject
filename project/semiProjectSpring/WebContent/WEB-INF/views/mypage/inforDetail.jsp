@@ -26,7 +26,7 @@
 				<td><input type="text" class="form-control" name="dbirth" id="dbirth"
 					readonly="readonly" value="${vo.memberinfor.dbirth }"></td>
 			</tr>
-			<tr>
+			<tr> 
 				<th scope="row">나이</th>
 				<td><input type="text" class="form-control" name="age" id="age"
 					readonly="readonly" value=""></td>

@@ -29,7 +29,7 @@
 			location = 'wriCom';
 		});
 		$('#writeBtn2').click(function() {
-			location = 'wriCom';
+			location = 'wriCom'; 
 		});
 		$('#writeBtn3').click(function() {
 			location = 'wriEst';

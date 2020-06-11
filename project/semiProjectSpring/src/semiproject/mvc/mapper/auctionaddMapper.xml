@@ -29,7 +29,7 @@ and a.byongdo = #{mulgun}
 </if>  
 <choose>
 <when test="sortindex==0">  
-order by a.indate desc
+order by a.indate desc 
 </when>
 <when test="sortindex==1">
 order by p.ideprice asc

@@ -23,7 +23,7 @@
 	float: left;
 	margin-right: 20px;
 }
-
+ 
 .modal {
 	height: unset;
 }

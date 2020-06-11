@@ -30,7 +30,7 @@ public class BoardPageVO {
 
 	public void setSearchValue(String searchValue) {
 		this.searchValue = searchValue;
-	}
+	} 
 
 	public BoardPageVO() {
 	}

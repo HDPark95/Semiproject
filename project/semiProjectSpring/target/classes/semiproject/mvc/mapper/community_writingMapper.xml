@@ -18,7 +18,7 @@
  insert into community_board values(community_writing_seq.nextVal,'경매',
  #{wloc1},#{wloc2},#{wtitle},#{wcontents},sysdate,sysdate,0,0,0,#{anum})
  </insert>
- 
+  
  <select id="wridetail" parameterType="int" resultType="cboardvo">
  select w.wgubun wgubun, w.wloc1 wloc1, w.wloc2 wloc2, w.wtitle wtitle, w.wcontents wcontents, w.wchgdate wchgdate, 
  w.whit whit, w.wrec wrec, substr(s.aid,1,instr(s.aid,'@')-1) aid from signup s, community_board w where s.anum = w.anum and wnum=#{wnum}

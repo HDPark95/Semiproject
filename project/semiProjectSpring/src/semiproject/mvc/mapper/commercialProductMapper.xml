@@ -12,4 +12,4 @@
 	<select id="product" resultType="cpvo">
 		select num, rlettpcd,tradtpcd,atclfetrdesc, taglist, rltrnm, prc, location from product;
 	</select>
-</mapper>
+</mapper> 

@@ -12,3 +12,4 @@ public interface CustomerServiceImple {
 	public void delete(Integer b_num) throws Exception;
 	public void update(BoardVO vo) throws Exception;
 }
+ 

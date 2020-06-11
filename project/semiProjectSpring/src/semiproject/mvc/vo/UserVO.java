@@ -33,7 +33,7 @@ public class UserVO {
 	}
 	public void setDgender(String dgender) {
 		this.dgender = dgender;
-	}
+	} 
 	public String getDtel() {
 		return dtel;
 	}

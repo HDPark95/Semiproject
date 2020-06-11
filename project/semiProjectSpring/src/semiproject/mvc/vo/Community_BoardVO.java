@@ -35,7 +35,7 @@ public class Community_BoardVO {
 	}
 	public void setWgubun(String wgubun) {
 		this.wgubun = wgubun;
-	}
+	} 
 	public String getWloc1() {
 		return wloc1;
 	}

@@ -18,7 +18,7 @@ public class CommercialDao {
 		List<String> list = ss.selectList("data.gu");
 		System.out.println("ListSize:" + list.size());
 		return list;
-	}
+	} 
 
 	public List<String> getLarge() {
 		List<String> list = ss.selectList("data.large");

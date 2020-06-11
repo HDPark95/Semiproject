@@ -37,7 +37,7 @@ public class AuctionPage{
 //		return "auction/auction_main";
 //	}
 	
-	
+	 
 
 			@RequestMapping(value="/auctionDetail")
 			public ModelAndView acutionGGG(int anum) {

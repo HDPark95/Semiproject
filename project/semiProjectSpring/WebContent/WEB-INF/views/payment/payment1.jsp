@@ -27,7 +27,7 @@ div.final_price {
 	width: 200px;
 	text-align: center;
 }
-
+ 
 #cardnumber1,#cardnumber2,#cardnumber3,#cardnumber4{
 	width: 65px;
 }

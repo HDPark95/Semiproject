@@ -31,7 +31,7 @@
 				<td><input type="text" class="form-control ch_pay" name="ppay"
 					readonly="readonly" value="${vo.payvo.ppay }"></td>
 			</tr>
-			<tr>
+			<tr> 
 				<th scope="row">결제 방식 / 상태 </th>
 				<td><input type="text" class="form-control ch_pay" name="pway" id="pway"
 					readonly="readonly" value="${vo.payvo.pway } / ${vo.payvo.pgubun }중">

@@ -31,7 +31,7 @@
 						
 						<tr>
 							<td>문의유형</td>
-							<td id="tabl1">								
+							<td id="tabl1">				 				
 							${detail.c_type}</td>
 						</tr>
 

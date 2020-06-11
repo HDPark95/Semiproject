@@ -36,7 +36,7 @@
 									+ encodeURIComponent(param)
 							$.ajax({
 								url : url,
-								success : function(d) {
+								success : function(d) { 
 									$('#information').html(d);
 								},
 								error : function(e) {

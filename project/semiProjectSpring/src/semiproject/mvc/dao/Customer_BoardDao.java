@@ -14,3 +14,4 @@ public interface Customer_BoardDao {
 	
 	public void updateAns(Customer_BoardVO vo) throws Exception; 
 }
+ 

@@ -31,7 +31,7 @@
 	right: 15px;
 }
 
-#aidheader {
+#aidheader { 
 	width: 110px;
 }
 

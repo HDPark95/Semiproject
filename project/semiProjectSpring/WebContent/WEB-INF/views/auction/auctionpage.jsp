@@ -19,4 +19,4 @@
 	<c:if test="${paging.endPage != paging.lastPage}">
 		<a href="auction_main?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">></a>
 	</c:if>
-</div>
+</div> 

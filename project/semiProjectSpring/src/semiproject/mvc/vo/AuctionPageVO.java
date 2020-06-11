@@ -30,7 +30,7 @@ public class AuctionPageVO {
 	public int getMulgun() {
 		return mulgun;
 	}
-
+ 
 	public void setMulgun(int mulgun) {
 		this.mulgun = mulgun;
 	}

@@ -40,7 +40,7 @@ public class Customer_BoardVO {
 	}
 	public void setC_writer(String c_writer) {
 		this.c_writer = c_writer;
-	}
+	} 
 	public String getC_subject() {
 		return c_subject;
 	}

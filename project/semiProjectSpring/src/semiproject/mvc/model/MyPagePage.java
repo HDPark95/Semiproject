@@ -33,7 +33,7 @@ public class MyPagePage {
 			mav.addObject("vo", vo);
 			
 			return mav;
-		}
+		} 
 		
 		// 占쌈댐옙占쏙옙 占쏙옙占쏙옙占쏙옙 占실울옙 占쌍댐옙 회占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占싱듸옙
 		@RequestMapping(value = "/inforDetail" , method = RequestMethod.POST)

@@ -138,7 +138,7 @@ height: 600px;
 			<div id="body" class="form-group">
 				<h2>부동산 등록</h2> 
 				<div id="content">
-					<table>
+					<table> 
 						<tbody>
 							<tr>
 								<th><label for="byongdo">물건용도</label></th>

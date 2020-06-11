@@ -25,7 +25,7 @@
 			<br>
 			<br>
 			<br>
-			<div>
+			<div> 
 				결제 시작일 :<input type="text" value="" id="cc" readonly="readonly"><br>
 				<br> 결제 종료일 :<input type="text" value="" id="dd"
 					readonly="readonly">

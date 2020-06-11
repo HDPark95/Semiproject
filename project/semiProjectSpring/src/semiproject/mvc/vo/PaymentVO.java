@@ -32,7 +32,7 @@ public class PaymentVO {
 	}
 	public void setAnum(int anum) {
 		this.anum = anum;
-	}
+	} 
 	public int getPpay() {
 		return ppay;
 	}

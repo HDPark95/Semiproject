@@ -13,7 +13,7 @@ import semiproject.mvc.vo.AuctionDetailVO;
 import semiproject.mvc.vo.AuctionPageVO;
 import semiproject.mvc.vo.AuctionViewVO;
 
-@Repository
+@Repository 
 public class AuctionDao {
 	
 	@Autowired

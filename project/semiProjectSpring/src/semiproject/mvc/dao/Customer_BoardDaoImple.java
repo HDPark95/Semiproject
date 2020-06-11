@@ -25,7 +25,7 @@ public class Customer_BoardDaoImple implements Customer_BoardDao{
 		
 		return ss.selectList("board.list"); 
 	}
-
+ 
 	@Override
 	public Customer_BoardVO getDetail(int c_num) throws Exception {
 		

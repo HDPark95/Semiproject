@@ -29,7 +29,7 @@
 					className = 'invisible';
 					invisible = 'invisible';
 					visible = 'visible';
-				})
+				}) 
 		$('.card').click(function() {
 			var num = $(this).index();
 			console.log(num)

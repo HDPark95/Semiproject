@@ -43,7 +43,7 @@ public class EstatePage{
 	@RequestMapping(value="/estateDetail")
 	public String goEsateDetail() {
 		return "estate/estateDetile";
-	}
+	} 
 	@RequestMapping(value = "/insertestate",method = RequestMethod.POST)
 	public ModelAndView insertestate(EstateVO estate,AddInfoVO addinfo,String[] rentv,String[] dan, String[] rpay,String[] pay,String[] administrat) {
 			ModelAndView mav= new ModelAndView("estate/addestate");

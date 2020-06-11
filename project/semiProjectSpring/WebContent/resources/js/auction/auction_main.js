@@ -22,7 +22,7 @@
 			},
 		});
 		set_bantxt();
-	});
+	}); 
 // 	function set_bannerimg(){
 // 		$.each(banimg, function(i, v) {
 // 			$('.' + i).attr("src",v);

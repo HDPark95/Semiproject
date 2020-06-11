@@ -34,7 +34,7 @@ public class CustomerPage{
 //	public String goBoard() {
 //		return "customer_board/board";  
 //	}
-	
+	 
 
 
 	

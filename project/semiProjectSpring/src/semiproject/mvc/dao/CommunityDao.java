@@ -20,7 +20,7 @@ public class CommunityDao {
 		List<String> list = ss.selectList("commudata.commugu");
 		return list;
 	}
-
+ 
 	public List<String> getDong(String guName) {
 		List<String> list = ss.selectList("commudata.dong", guName);
 		return list;

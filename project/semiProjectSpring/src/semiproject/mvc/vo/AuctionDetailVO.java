@@ -18,7 +18,7 @@ public class AuctionDetailVO {
 	}
 	public String getBplan() {
 		return bplan;
-	}
+	} 
 	public void setBplan(String bplan) {
 		this.bplan = bplan;
 	}

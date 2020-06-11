@@ -12,4 +12,4 @@
 		self.location = "/";
 	</script>
 </body>
-</html>
+</html> 

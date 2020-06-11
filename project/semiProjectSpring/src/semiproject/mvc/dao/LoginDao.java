@@ -19,3 +19,4 @@ public class LoginDao extends HandlerInterceptorAdapter{
 		return ss.selectOne("login.login", aid);
 	}
 }
+ 

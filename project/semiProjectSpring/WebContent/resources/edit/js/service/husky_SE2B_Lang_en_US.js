@@ -20,7 +20,7 @@ if(typeof window.nhn=='undefined'){window.nhn = {};}
  * @fileOverview This file contains a message mapping(Korean), which is used to map the message code to the actual message
  * @name husky_SE2B_Lang_en_US.js
  * @ unescape
- */
+ */ 
 var oMessageMap_en_US = {
 	'SE_EditingAreaManager.onExit' : 'Contents have been changed.',
 	'SE_Color.invalidColorCode' : 'Enter the correct color code. \n\n ex) #000000, #FF0000, #FFFFFF, #ffffff, ffffff',

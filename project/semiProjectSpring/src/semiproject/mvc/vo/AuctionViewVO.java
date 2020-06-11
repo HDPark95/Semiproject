@@ -30,7 +30,7 @@ public class AuctionViewVO {
 	}
 	public double getBweight() {
 		return bweight;
-	}
+	} 
 	public void setBweight(double bweight) {
 		this.bweight = bweight;
 	}

@@ -23,7 +23,7 @@
 				id="cc" readonly="readonly"><br><br> 결제 종료일 :<input type="text" value=""
 				id="dd" readonly="readonly">
 				</div>
-		</div>
+		</div> 
 			
 		<form method="post" action="pay1">
 			<table id="payment1">

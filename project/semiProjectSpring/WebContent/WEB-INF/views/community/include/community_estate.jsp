@@ -30,7 +30,7 @@
 	border-style: groove;
 	border-color: #BDBDBD;
 }
-#searchtext3{
+#searchtext3{ 
 	margin-right: 5px;
 }
 </style>

@@ -30,7 +30,7 @@ public class CommunityPage {
 	@RequestMapping(value = "/wriCom")
 	public String writeCommercial() {
 		return "community/writing_commercial";
-	}
+	} 
 
 	@RequestMapping(value = "/wriEst")
 	public String writeEstate() {

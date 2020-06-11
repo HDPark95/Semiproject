@@ -30,7 +30,7 @@
 				$('.filter-page').slideUp(1000);
 
 			} else {
-
+ 
 				$('.filter-page').slideDown(1000);
 			}
 			className = visible;

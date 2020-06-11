@@ -24,7 +24,7 @@
 #searchselect1 {
 	width: 100px;
 	margin: 5px;
-}
+} 
 
 #searchform1 {
 	margin-top: 20px;

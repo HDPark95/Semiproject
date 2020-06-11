@@ -32,7 +32,7 @@
 						style="margin-right: 30px; width: 200px">
 						<option>업종소분류</option>
 					</select>
-				</form>
+				</form> 
 				<!-- <p class="text-white m-0">지도 위치 선택 버튼 들어올 자리</p> -->
 			</div>
 		</div>

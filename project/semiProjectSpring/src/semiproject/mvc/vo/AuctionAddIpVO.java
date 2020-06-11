@@ -15,7 +15,7 @@ chgdate date,
 constraint ipchal_ipnum_pk primary key(ipnum)
 );
   
- 
+  
 */
 public class AuctionAddIpVO {
 	private int ipnum,anum,ipdanwe,ideprice;

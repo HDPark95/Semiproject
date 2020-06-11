@@ -23,7 +23,7 @@ public class CommercialProductDao {
 	public CommercialProductVO getProductDetail(String atclno){
 		CommercialProductVO vo = ss.selectOne("commercialProduct.descdetail", atclno);
 		return vo;
-	}
+	} 
 	public CommercialProductVO getCntProduct(String atclno){
 		CommercialProductVO vo = ss.selectOne("commercialProduct.descdetail", atclno);
 		return vo;

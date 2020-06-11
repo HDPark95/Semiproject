@@ -21,4 +21,4 @@
 			style="color: blue;"><b>${list.hprice}</b></span></td>
 		<td style="text-align: center;">${list.status}<br />${list.indate}<br />${list.hit}</td>
 	</tr>
-</c:forEach>
+</c:forEach> 

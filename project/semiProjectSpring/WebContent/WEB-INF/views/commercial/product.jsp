@@ -39,7 +39,7 @@
 					<th>매물종류</th>
 					<th>거래종류</th>
 					<th>가격(만원)</th>
-					<th>매물정보</th>
+					<th>매물정보</th> 
 					<th>tagList</th>
 					<th>부동산이름</th>
 					<th>행정동명</th>

@@ -37,7 +37,7 @@ public class EstateVO {
 	}
 	public String getFloor() {
 		return floor;
-	}
+	} 
 	public void setFloor(String floor) {
 		this.floor = floor;
 	}

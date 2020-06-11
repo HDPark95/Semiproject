@@ -21,3 +21,4 @@ public class Customer_BoardService implements Customer_BoardServiceInter{
 	}
 
 }
+ 

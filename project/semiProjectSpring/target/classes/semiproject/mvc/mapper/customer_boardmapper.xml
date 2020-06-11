@@ -20,6 +20,6 @@ select c_type,c_writer,c_subject,c_content,c_ans from customer_board where c_num
 
 <update id="ans" parameterType="cbvo">
 update customer_board set c_ans = #{c_ans} where c_num=#{c_num};
-</update>
+</update> 
 
 </mapper>  

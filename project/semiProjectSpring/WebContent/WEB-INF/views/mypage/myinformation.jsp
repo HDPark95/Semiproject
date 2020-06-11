@@ -28,7 +28,7 @@
 			</div>
 		</form>
 	</div>
-
+ 
 	<div class="row th_card th_infor_card">
 		<form action="paymentDetail" method="post" style="">
 			<div class="card-header">구독 결제 정보</div>

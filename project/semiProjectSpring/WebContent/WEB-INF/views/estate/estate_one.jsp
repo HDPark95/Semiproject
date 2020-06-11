@@ -32,8 +32,8 @@
 					<div class="col-sm-2 th_img_boxlist">
 						<div >
 							<img src="resources/assets/img/home2.jpg" class="img-thumbnail selc">
-						</div>
-					</div>
+						</div> 
+					</div>  
 					<div class="col-sm-2 th_img_boxlist">
 						<div>
 							<img src="resources/assets/img/home3.jpg" class="img-thumbnail selc">

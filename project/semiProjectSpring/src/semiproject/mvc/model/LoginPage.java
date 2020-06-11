@@ -43,8 +43,9 @@ public class LoginPage {
 			return mav;
 		}
 		mav.addObject("user", vo);
+		System.out.println(vo.getDname());
 		httpsession.setAttribute("user", vo);
-		mav.setViewName("redirect:index#footerMenu");
+		mav.setViewName("redirect:index#footerMenu"); 
 		return mav;
 	}
 

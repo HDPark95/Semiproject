@@ -16,7 +16,7 @@ License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA  
 */
 if(typeof window.nhn=='undefined'){window.nhn = {};}
-if (!nhn.husky){nhn.husky = {};}
+if (!nhn.husky){nhn.husky = {};} 
 /**
  * @fileOverview This file contains Husky framework core
  * @name HuskyCore.js

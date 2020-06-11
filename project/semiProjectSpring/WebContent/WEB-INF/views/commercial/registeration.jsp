@@ -31,7 +31,7 @@
 										type="text" id="addrDetail" name="addrDetail"></td>
 								</tr>
 								<tr>
-									<th>
+									<th> 
 										<h3 class="text-uppercase m-0">물건 구분</h3>
 									<td><select id="law" style="width: 200px; height: 30px"><option>선택</option>
 											<option value="근린상가">근린상가</option>

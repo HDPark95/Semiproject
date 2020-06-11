@@ -300,7 +300,7 @@
 							<c:otherwise>
 								<li class="page-item disabled"><a class="page-link"
 									href="#">&laquo;</a></li>
-							</c:otherwise>
+							</c:otherwise> 
 						</c:choose>
 						<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
 							<c:choose>

@@ -20,3 +20,4 @@
 				Info</button></td>
 	</tr>
 </table>
+ 

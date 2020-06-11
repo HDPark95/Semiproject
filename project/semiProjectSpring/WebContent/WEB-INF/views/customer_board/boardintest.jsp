@@ -32,7 +32,7 @@
 						<tr>
 							<td>제목</td>
 							<td><input type=text name=title size=60></td>
-						</tr>
+						</tr> 
 
 						<tr>
 							<td>내용</td>

@@ -33,7 +33,7 @@
 	height: 105px;
 	border-bottom: 1px solid;
 }
-
+ 
 #title {
 	text-align: left;
 	margin-top: 20px;

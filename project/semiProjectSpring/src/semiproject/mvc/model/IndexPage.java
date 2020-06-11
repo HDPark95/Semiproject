@@ -12,3 +12,4 @@ public class IndexPage{
 		return "index";
 	}
 }
+ 

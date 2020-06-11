@@ -33,7 +33,7 @@ public class SignUpVO {
 	}
 	public PaymentVO getPayvo() {
 		return payvo;
-	}
+	} 
 	public void setPayvo(PaymentVO payvo) {
 		this.payvo = payvo;
 	}

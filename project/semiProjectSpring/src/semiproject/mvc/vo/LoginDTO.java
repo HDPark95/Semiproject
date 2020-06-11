@@ -23,7 +23,7 @@ public class LoginDTO {
 	}
 	public void setApwd(String apwd) {
 		this.apwd = apwd;
-	}
+	} 
 	public boolean isUserCookie() {
 		return userCookie;
 	}

@@ -29,7 +29,7 @@
 	border-radius: 5px 5px 5px 5px;
 	border-style: groove;
 	border-color: #BDBDBD;
-}
+} 
 #searchtext2{
 	margin-right: 5px;
 }

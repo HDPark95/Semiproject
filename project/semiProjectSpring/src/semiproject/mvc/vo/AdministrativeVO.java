@@ -15,6 +15,6 @@ public class AdministrativeVO {
 	public void setAdministrat(String administrat) {
 		this.administrat = administrat;
 	}
-	
+	 
 	
 }

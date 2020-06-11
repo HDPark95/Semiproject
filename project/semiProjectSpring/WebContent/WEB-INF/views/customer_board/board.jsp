@@ -31,7 +31,7 @@
 			</c:forEach>			
 		
 		</div>
-		<div class = "paging">
+		<div class = "paging"> 
 			<a href="#" class="bt first"></a>
 			<a href="#" class="bt prev"></a>
 			<a href="#" class="num ">1</a>

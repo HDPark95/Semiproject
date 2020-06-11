@@ -34,7 +34,7 @@ public class CommercialPage{
 	@RequestMapping(value="/commercialMain")
 	public String goMain() {
 		return "commercial/commercialMain";
-	}
+	} 
 	@RequestMapping(value="/register")
 	public String goRegist() {
 		return "commercial/registeration";

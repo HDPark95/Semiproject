@@ -31,7 +31,7 @@
 	            						<span class="square build false"  onclick="changeSelect(4)">아파트</span>
 	            						</div> 
 	            					</td>
-	            				</tr>
+	            				</tr> 
 	            				<tr id="select-target">
 	            					<td >
 	            						건물유형

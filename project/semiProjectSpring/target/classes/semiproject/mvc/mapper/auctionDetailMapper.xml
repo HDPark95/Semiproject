@@ -19,7 +19,7 @@
 	<insert id="bidding" parameterType="actdetail">
 		insert into ipchalper values(IPCHALPER_SEQ.nextVal, #{anum}, 'test1', #{hprice}, sysdate, sysdate, null); 
 	</insert>
-</mapper>
+</mapper> 
 
 
 

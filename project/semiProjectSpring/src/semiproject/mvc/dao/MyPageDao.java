@@ -27,10 +27,10 @@ public class MyPageDao {
 	}
 	
 	public SignUpVO payTest(String aid , int anum) {
-		SignUpVO vo = null; 
+		SignUpVO vo = null;  
 		
 		vo = ss.selectOne("mypage.lessor_infor", aid);
-		System.out.println("ÆäÀÌ µé¾î°¡³Ä?");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½?");
 		vo.setPayvo(ss.selectOne("mypage.paymentDetail", anum));
 		
 		return vo;
@@ -39,13 +39,13 @@ public class MyPageDao {
 	public void memberUPDATE(SignUpVO vo) {
 		
 		int update = ss.update("mypage.infor_memberupdate", vo);
-		System.out.println("mypage ¸â¹ö ¾÷µ¥ÀÌÆ® È®ÀÎ!!"); 
+		System.out.println("mypage ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È®ï¿½ï¿½!!"); 
 	}
 	
 	public void loginUPDATE(SignUpVO vo) {
 		
 		int update = ss.update("mypage.infor_loginupdate", vo);
-		System.out.println("login ¸â¹ö ¾÷µ¥ÀÌÆ® È®ÀÎ!!"); 
+		System.out.println("login ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È®ï¿½ï¿½!!"); 
 	}
 	
 	public List<Community_BoardVO> inforPosts(int anum){

@@ -29,7 +29,7 @@
 			</c:choose>
 		</c:forEach>
 		<!-- 다음 페이지 -->
-		<c:choose>
+		<c:choose> 
 			<c:when test="${paging.endPage != paging.lastPage}">
 			<li class="page-item">
 			<a class="page-link" href="comuMain?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&raquo;</a>

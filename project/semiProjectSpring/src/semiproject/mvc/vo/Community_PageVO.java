@@ -34,7 +34,7 @@ public class Community_PageVO {
 		memberStartEndPage(nowPage, cntPage);
 		memberStartEnd(nowPage, cntPerPage);
 	}
-
+ 
 	private void memberLastPage(int total, int cntPerPage) {
 		lastPage = (int) Math.ceil((double) total / (double) cntPerPage);
 	}

@@ -25,7 +25,7 @@ public class PageVO {
  }
  public void setSearchType(String searchType) {
   this.searchType = searchType;
- }
+ } 
  public String getSearchValue() {
   return searchValue;
  }

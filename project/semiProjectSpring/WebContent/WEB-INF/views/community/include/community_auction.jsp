@@ -25,7 +25,7 @@
 #searchform4{
 	margin-top: 20px;
 	margin-bottom: 20px;
-	border: 1px solid gray;
+	border: 1px solid gray; 
 	border-radius: 5px 5px 5px 5px;
 	border-style: groove;
 	border-color: #BDBDBD;

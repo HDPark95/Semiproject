@@ -14,8 +14,8 @@ hit number,
 indate date default sysdate,
 chgdate date,
 constraint actmain_anum_pk primary key(anum)
-);
-*/
+); 
+*/  
 public class AuctionAddMainVO {
 	private int anum,byongdo;
 	private double bweight,tweight;

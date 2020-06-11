@@ -24,7 +24,7 @@
 					id="apwd" value="${vo.apwd }">
 				<input type="button" id="cbtn" class="" value="비번확인"></td>
 			</tr>
-			<tr>
+			<tr> 
 				<th scope="row">가입날짜</th>
 				<td><input type="text" class="form-control" name="ainday"
 					id="age" readonly="readonly" value="${vo.ainday }"></td>

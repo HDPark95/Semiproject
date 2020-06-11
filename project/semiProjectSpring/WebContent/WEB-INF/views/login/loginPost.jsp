@@ -12,4 +12,4 @@
 		self.location = "login/loginform";
 	</script>
 </body>
-</html>
+</html> 

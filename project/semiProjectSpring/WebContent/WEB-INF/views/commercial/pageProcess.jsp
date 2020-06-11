@@ -21,4 +21,4 @@
 		<li class="page-item"><a class="page-link" href="product?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">></a><li class="page-item">
 	</c:if>
 	</ul>
-</div>
+</div> 

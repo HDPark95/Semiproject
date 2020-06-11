@@ -26,7 +26,7 @@
 				<input type="text" class="form-control" name="psdate"
 					 value="${vo.payvo.psdate }" >
 			</div>
-		</div>
+		</div> 
 		<div class="form-group">
 			<label for="inputName" class="col-sm-2 control-label">종료일</label>
 			<div class="col-sm-3 container">

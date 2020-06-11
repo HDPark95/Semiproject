@@ -8,3 +8,4 @@ public interface Customer_BoardServiceInter {
 
 	public Customer_BoardVO getDetail(HttpServletRequest req) throws  Exception;
 }
+ 

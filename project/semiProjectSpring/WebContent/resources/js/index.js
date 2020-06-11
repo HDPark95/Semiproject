@@ -17,4 +17,4 @@ $(function(){
 		console.log(num)
 	});
 	
-});
+}); 

@@ -12,7 +12,7 @@ public class AddInfoVO {
 	private ParkingVO parking;
 	private String[] option;
 	
-	
+	 
 	
 	public List<AdministrativeVO> getAdministrative() {
 		return administrative;

@@ -27,7 +27,7 @@
 	<select id="gucount" resultType="commercial">
 		select count(*), 시군구명, 상권업종대분류명 from commercial group by 시군구명, 상권업종대분류명
 	</select>
-	<select id="information" parameterType="String" resultType="commercial">
+	<select id="information" parameterType="String" resultType="commercial"> 
 		select count(*) as num, 시군구명 as guName, 상권업종대분류명 as largeName from commercial where 시군구명 = #{guName} group by 시군구명, 상권업종대분류명
 	</select>
 	<select id="information2" parameterType="commercial" resultType="commercial">
