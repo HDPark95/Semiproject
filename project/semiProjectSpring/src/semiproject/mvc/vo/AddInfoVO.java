@@ -6,14 +6,98 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 public class AddInfoVO {
-	private boolean pets,elevtor,balcony,built,chartered;
-	private String[] structure;
+	// 0 = false
+	// 1 = true
+	private int pidnum,pdnum,aspay;
+	private String pets,elevator,balcony,built,chartered,description,heating,pmove;
+	private String[] structure,move;
+	private String pstructure;
 	private List<AdministrativeVO> administrative;
-	private ParkingVO parking;
+
 	private String[] option;
+	private List<Option_SelVO> poption;
 	
-	 
+	private String park;
+	private int ppay;
 	
+	
+	public String getHeating() {
+		return heating;
+	}
+	public void setHeating(String heating) {
+		this.heating = heating;
+	}
+	
+	public String[] getMove() {
+		return move;
+	}
+	public void setMove(String[] move) {
+		this.move = move;
+	}
+	
+	
+	
+	public String getPmove() {
+		return pmove;
+	}
+	public void setPmove(String pmove) {
+		this.pmove = pmove;
+	}
+	public String getPstructure() {
+		return pstructure;
+	}
+
+
+	public void setPstructure(String pstructure) {
+		this.pstructure = pstructure;
+	}
+
+
+	
+	public String getPark() {
+		return park;
+	}
+	public void setPark(String park) {
+		this.park = park;
+	}
+	public int getPpay() {
+		return ppay;
+	}
+	public void setPpay(int ppay) {
+		this.ppay = ppay;
+	}
+	
+	
+	public int getAspay() {
+		return aspay;
+	}
+	public void setAspay(int aspay) {
+		this.aspay = aspay;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public int getPidnum() {
+		return pidnum;
+	}
+	public void setPidnum(int pidnum) {
+		this.pidnum = pidnum;
+	}
+	public int getPdnum() {
+		return pdnum;
+	}
+	public void setPdnum(int pdnum) {
+		this.pdnum = pdnum;
+	}
+	public List<Option_SelVO> getPoption() {
+		return poption;
+	}
+	public void setPoption(List<Option_SelVO> poption) {
+		this.poption = poption;
+	}
 	public List<AdministrativeVO> getAdministrative() {
 		return administrative;
 	}
@@ -26,43 +110,38 @@ public class AddInfoVO {
 	public void setStructure(String[] structure) {
 		this.structure = structure;
 	}
-	public boolean isPets() {
+	
+	public String getPets() {
 		return pets;
 	}
-	public void setPets(boolean pets) {
+	public void setPets(String pets) {
 		this.pets = pets;
 	}
-	public boolean isElevtor() {
-		return elevtor;
+	public String getElevator() {
+		return elevator;
 	}
-	public void setElevtor(boolean elevtor) {
-		this.elevtor = elevtor;
+	public void setElevator(String elevator) {
+		this.elevator = elevator;
 	}
-	public boolean isBalcony() {
+	public String getBalcony() {
 		return balcony;
 	}
-	public void setBalcony(boolean balcony) {
+	public void setBalcony(String balcony) {
 		this.balcony = balcony;
 	}
-	public boolean isBuilt() {
+	public String getBuilt() {
 		return built;
 	}
-	public void setBuilt(boolean built) {
+	public void setBuilt(String built) {
 		this.built = built;
 	}
-	public boolean isChartered() {
+	public String getChartered() {
 		return chartered;
 	}
-	public void setChartered(boolean chartered) {
+	public void setChartered(String chartered) {
 		this.chartered = chartered;
 	}
 
-	public ParkingVO getParking() {
-		return parking;
-	}
-	public void setParking(ParkingVO parking) {
-		this.parking = parking;
-	}
 	public String[] getOption() {
 		return option;
 	}

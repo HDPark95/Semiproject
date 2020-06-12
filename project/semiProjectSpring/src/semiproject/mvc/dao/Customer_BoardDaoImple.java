@@ -17,7 +17,7 @@ public class Customer_BoardDaoImple implements Customer_BoardDao{
 	@Override
 	public Object addwrite(Customer_BoardVO vo) throws Exception {  
 		System.out.println("dao 호출! ");
-		return ss.insert("board.add", vo);  
+		return ss.insert("board.insert", vo);  
 	}
 
 	@Override
@@ -25,11 +25,13 @@ public class Customer_BoardDaoImple implements Customer_BoardDao{
 		
 		return ss.selectList("board.list"); 
 	}
- 
+
 	@Override
 	public Customer_BoardVO getDetail(int c_num) throws Exception {
 		
+		System.out.println("디테일 dao" + c_num);
 		return ss.selectOne("board.viewDetail",c_num);
+		 
 	}
 
 	@Override
@@ -38,6 +40,18 @@ public class Customer_BoardDaoImple implements Customer_BoardDao{
 		ss.update("board.ans",vo);
 		
 	}
+
+	@Override
+	public int delete(int c_num) throws Exception {
+		System.out.println("dao" + c_num);
+		
+		return ss.delete("board.delete",c_num); 
+		
+		
+		
+	}
+
+	
 
 
 

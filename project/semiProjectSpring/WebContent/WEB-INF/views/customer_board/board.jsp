@@ -19,19 +19,19 @@
 				<div class="view">답변상태</div>
 			</div>
 			
-			<c:forEach items="${list}" var="list">
 			<div class="board_list_body">
+			<c:forEach items="${list}" var="list">
 				<div class="item">
 					<div class="num">${list.c_num}</div>
 					<div class="tit"><a  href="Detail?c_num=${list.c_num}">${list.c_subject}</a></div>
 					<div class="writer">${list.c_writer}</div>
 					<div class="date">${list.c_regdate}</div>
-					<div class="view">${list.c_anschk}</div>
+					<div class="view chkview" >${list.c_anschk}</div>
 				</div>
 			</c:forEach>			
 		
 		</div>
-		<div class = "paging"> 
+		<div class = "paging">
 			<a href="#" class="bt first"></a>
 			<a href="#" class="bt prev"></a>
 			<a href="#" class="num ">1</a>
@@ -49,7 +49,18 @@
 	</div>
 </form>
 </section>
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	$(function() {
+		$(".chkview").each(function(){
+			if($(this).text() === '1' ){
+				$(this).text("답변완료");	
+			}else {
+				$(this).text("답변대기");
+			}	
+		})
+	});
+</script>
 
 <%@ include file="../include/footer.jsp"%>
 

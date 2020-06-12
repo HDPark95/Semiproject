@@ -216,9 +216,9 @@
     		if($("button.Cntcount").length>=3){
     			$("button.Cntcount").last().remove();
     		}
-    		var atclno = $(this).val();
-    		console.log(atclno);
-    		var url = "productModal?atclno=" + atclno;
+    		var pdnum = $(this).val();
+    		console.log(pdnum);
+    		var url = "productModal?pdnum=" + pdnum;
     		$.ajax({
 			url : url,
 			success : function(d) {
@@ -229,8 +229,8 @@
 			}
     		})
 			$("#myModal").show();
-    		var atclno = $(this).attr('value');
-    		url = "recentCnt?atclno="+ atclno;
+    		var pdnum = $(this).attr('value');
+    		url = "recentCnt?pdnum="+ pdnum;
     		$.ajax({
     			url:url,
     			success : function(data){
@@ -249,4 +249,3 @@
 	function close_pop2(flag) {
 		$('#myModal2').hide();
 	};
-	

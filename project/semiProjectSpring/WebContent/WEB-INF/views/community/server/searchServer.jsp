@@ -4,4 +4,4 @@
 <%@ page trimDirectiveWhitespaces="true"%>
 <c:forEach items="${result}" var="val">
 		<option>${val}</option>
-</c:forEach> 
+</c:forEach>

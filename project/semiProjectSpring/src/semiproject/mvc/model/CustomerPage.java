@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import semiproject.mvc.dao.Customer_BoardDaoImple;
 import semiproject.mvc.service.Customer_BoardService;
-import semiproject.mvc.vo.BoardPageVO;
+
 import semiproject.mvc.vo.Customer_BoardVO;
 
 
@@ -34,7 +34,7 @@ public class CustomerPage{
 //	public String goBoard() {
 //		return "customer_board/board";  
 //	}
-	 
+	
 
 
 	
@@ -80,13 +80,28 @@ public class CustomerPage{
 			 
 		}
 		
-		//게시판 업데이트 CRUD 중 U
-		@RequestMapping(value = "ans" , method = RequestMethod.POST)
-		public ModelAndView ansAdd(Customer_BoardVO vo, HttpServletRequest req) {
+		//게시판 업데이트 CRUD 중 U -> 답변등록 진행중
+		@RequestMapping(value = "ans")
+		public ModelAndView ansAdd(Model model , HttpServletRequest req,Customer_BoardVO vo) throws Exception{
 			ModelAndView mav = new ModelAndView();
-			
+			System.out.println("답변등록 페이지 호출");
+			mav.setViewName("customer_board/boardAnsTest");
+			//mav.addObject("ans", customerdao.updateAns(vo));
 			
 			return mav;
 		}
+		
+		
+		// 게시판 삭제 CRUD 중 D
+		
+		@RequestMapping(value = "del" )
+		public String delCustomer_Board(int c_num) throws Exception {
+			System.out.println("삭제처리 동작?");
+			
+			customerdao.delete(c_num);
+			
+			return "redirect:list";
+		}
+		
 
 }

@@ -27,7 +27,16 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">깃헙테스트</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">고객센터</a></li>
+                         <c:catch>
+                       <c:choose>
+                       <c:when test="${empty user}">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login">고객센터</a></li>
+                        </c:when>
+                        <c:otherwise>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="list">고객센터</a></li>
+                        </c:otherwise>
+                        </c:choose>
+                        </c:catch>
                          <c:catch>
                        <c:choose>
                        <c:when test="${empty user}">

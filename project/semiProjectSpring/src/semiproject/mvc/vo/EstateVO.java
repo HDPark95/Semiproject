@@ -3,19 +3,41 @@ package semiproject.mvc.vo;
 import java.util.List;
 
 public class EstateVO {
-	private String build,floor,heating,move;
+	// A01 = 아파트
+	// A02 = 오피스텔
+	// C01 = 원룸
+	// C02 = 투룸
+	// C03 = 쓰리룸
+	private int pdnum,anum;
+	private String build,floor;
 	private String[] subbuild;
-	private double supply,exclusive;
-	private List<RentVO> rent;
-	private String description , title;
+	private List<SubBuildVO> subvo;
+	private double supply,exclusive; //공급 / 전용면적
+	private List<RentVO> rent; // 매매,전세,월세
+	private String  title; //  제목
 	
 	
-	public String getDescription() {
-		return description;
+	
+	
+	public int getPdnum() {
+		return pdnum;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setPdnum(int pdnum) {
+		this.pdnum = pdnum;
 	}
+	public int getAnum() {
+		return anum;
+	}
+	public void setAnum(int anum) {
+		this.anum = anum;
+	}
+	public List<SubBuildVO> getSubvo() {
+		return subvo;
+	}
+	public void setSubvo(List<SubBuildVO> subvo) {
+		this.subvo = subvo;
+	}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -41,18 +63,7 @@ public class EstateVO {
 	public void setFloor(String floor) {
 		this.floor = floor;
 	}
-	public String getHeating() {
-		return heating;
-	}
-	public void setHeating(String heating) {
-		this.heating = heating;
-	}
-	public String getMove() {
-		return move;
-	}
-	public void setMove(String move) {
-		this.move = move;
-	}
+
 	public double getSupply() {
 		return supply;
 	}

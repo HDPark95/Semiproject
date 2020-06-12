@@ -35,7 +35,7 @@ public class Community_BoardVO {
 	}
 	public void setWgubun(String wgubun) {
 		this.wgubun = wgubun;
-	} 
+	}
 	public String getWloc1() {
 		return wloc1;
 	}
@@ -78,20 +78,6 @@ public class Community_BoardVO {
 	public void setAnum(int anum) {
 		this.anum = anum;
 	}
-	
-//	wnum number, -- 고유 번호
-//	wgubun varchar2(50), -- 상가, 부동산 ,경매
-//	wloc1 varchar2(50), -- 서울 내 XX구
-//	wloc2 varchar2(50), -- XX구 내 XX동
-//	wtitle varchar2(200), -- 제목
-//	wcontents clob, -- 내용
-//	windate date, -- 작성 날짜
-//	wchgdate date, -- 최근 수정 날짜
-//	whit number, -- 조회 수
-//	wrec number, -- 추천 수
-//	wdel number,  -- 0 = 작성된 글, 1 = 삭제된 글
-//	anum number,  -- signup과의 연동을 위한 외래키
-	
 	
 }
 

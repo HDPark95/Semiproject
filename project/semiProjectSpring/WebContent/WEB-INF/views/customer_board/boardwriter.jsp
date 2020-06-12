@@ -33,7 +33,7 @@
 							<td><input type=text name="c_writer" size=20></td>
 						</tr>
 
-						<tr> 
+						<tr>
 							<td>문의내용</td>
 							<td><input type=text name="c_subject" size=60></td>
 						</tr>

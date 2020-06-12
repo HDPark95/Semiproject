@@ -8,39 +8,40 @@
 
 
 
-<div class="container"> 
-	<h4 class="subtopma">${vo.memberinfor.dname }님의 결제 정보 입니다.</h4>
+<div class="container">
+	<h4 class="subtopma">${vo.memberinfor.dname }님의결제 정보 입니다.</h4>
 	<form class="form-horizontal" action="inforDetailUpdate" method="post">
-		<input type="hidden" class="" name="aid" id="aid"
-			placeholder="" readonly="readonly" value="${vo.aid }"> <input
-			type="hidden" class="" name="apwd" placeholder="Password"
-			value="${vo.apwd }">
-		<table class="type02"> 
+		<input type="hidden" class="" name="aid" id="aid" placeholder=""
+			readonly="readonly" value="${vo.aid }"> <input type="hidden"
+			class="" name="apwd" placeholder="Password" value="${vo.apwd }">
+		<table class="type02">
 			<tr>
 				<th scope="row">결제일</th>
-				<td><input type="text" class="form-control ch_pay" name="psdate" id="target"
-					readonly="readonly" value="${vo.payvo.psdate }"></td>
+				<td><input type="text" class="form-control ch_pay"
+					name="psdate" id="target" readonly="readonly"
+					value="${vo.payvo.psdate }"></td>
 			</tr>
 			<tr>
 				<th scope="row">종료일</th>
-				<td><input type="text" class="form-control ch_pay" name="pedate"
-					readonly="readonly" value="${vo.payvo.pedate }"></td>
+				<td><input type="text" class="form-control ch_pay"
+					name="pedate" readonly="readonly" value="${vo.payvo.pedate }"></td>
 			</tr>
 			<tr>
 				<th scope="row">결제금액</th>
 				<td><input type="text" class="form-control ch_pay" name="ppay"
 					readonly="readonly" value="${vo.payvo.ppay }"></td>
 			</tr>
-			<tr> 
-				<th scope="row">결제 방식 / 상태 </th>
-				<td><input type="text" class="form-control ch_pay" name="pway" id="pway"
-					readonly="readonly" value="${vo.payvo.pway } / ${vo.payvo.pgubun }중">
-					</td>
+			<tr>
+				<th scope="row">결제 방식 / 상태</th>
+				<td><input type="text" class="form-control ch_pay" name="pway"
+					id="pway" readonly="readonly"
+					value="${vo.payvo.pway } / ${vo.payvo.pgubun }중"></td>
 			</tr>
 			<tr>
 				<th scope="row">구독 개월수</th>
-				<td><input type="text" class="form-control ch_pay" name="inment"
-					readonly="readonly" value="${vo.payvo.paydetailvo.inment }"></td>
+				<td><input type="text" class="form-control ch_pay"
+					name="inment" readonly="readonly"
+					value="${vo.payvo.paydetailvo.inment }"></td>
 			</tr>
 			<tr>
 				<th scope="row">결제 은행</th>
@@ -48,16 +49,17 @@
 					readonly="readonly" value="${vo.payvo.paydetailvo.kinds }"></td>
 			</tr>
 			<tr>
-				<th scope="row">카드번호</th>
-				<td><input type="text" class="form-control ch_pay" name="mentnum"
-					readonly="readonly" value="${vo.payvo.paydetailvo.mentnum }"></td>
+				<th scope="row" id="chk_pway">카드번호</th>
+				<td><input type="text" class="form-control ch_pay"
+					name="mentnum" readonly="readonly"
+					value="${vo.payvo.paydetailvo.mentnum }"></td>
 			</tr>
 		</table>
-		<div class="container" id="signup"
-			style="">
+		<div class="container" id="signup" style="">
 
-			<input type="button" class="btn btn-success btn-lg" id="pay_cbtn" value="문의하세요">
-			
+			<input type="button" class="btn btn-success btn-lg" id="pay_cbtn"
+				value="문의하세요">
+
 			<button type="submit" class="btn btn-success btn-lg"
 				formmethod="post" formaction="mypage_lessor" formtarget="#aid">뒤로가기
 			</button>
@@ -69,13 +71,34 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 	$(function() {
-		var pgubun = '${vo.payvo.pgubun}' ;
+		var pgubun = '${vo.payvo.pgubun}';
+		var pway = '${vo.payvo.pway }' ;
+		var aanum = '${vo.anum}';
+		aanum = Number(aanum);
 		console.log(pgubun);
-		if(pgubun == '구독' ){
-		$('#pay_cbtn').val("연장하기");
-		}else if(pgubun == '미구독' ){
+		if (pgubun == '구독') {
+			$('#pay_cbtn').val("연장하기");
+		} else if (pgubun == '미구독') {
+			$('.ch_pay').val("미구독 중입니다.")
 			$('#pay_cbtn').val("구독하기");
 		}
+		if (pway == '신용카드') {
+			$('#chk_pway').text("카드 번호");
+		} else if (pway == '무통장') {
+			$('#chk_pway').text("계좌 번호");
+		}
+		
+		$('#pay_cbtn').click(function() {
+			if($('#pay_cbtn').val() =='구독하기'){
+				
+						location.href="pay4"
+				
+			}else if($('#pay_cbtn').val() == '연장하기'){
+				alert("연장하기 만들라");
+			}
+		});
+		
+		
 	});
 </script>
 

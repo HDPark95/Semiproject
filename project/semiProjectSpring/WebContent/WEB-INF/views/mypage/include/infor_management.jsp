@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 			
 					<table id="customers">
 						<tr> 
@@ -9,40 +9,18 @@
 						</tr> 
 						<tr>
 							<th id="">번호</th>
-							<th id="">종류</th>
+							<th id="">담당 부동산</th>
 							<th id="">매물정보</th>
 							<th id="">지역</th>
 						</tr>
+						<c:forEach items="${plist }" var="pro" >
 						<tr>
-							<td>1</td>
-							<td>아파트</td>
-							<td>매물정보 데이터</td>
-							<td>서울 가산</td>
+							<td>${pro.pdnum }</td>
+							<td>${pro.rltrnm }</td>
+							<td>${pro.atclfetrdesc }</td>
+							<td>${pro.plocation }</td>
 						</tr> 
-						<tr>
-							<td>2</td>
-							<td>오피스텔</td>
-							<td>매물정보 데이터</td>
-							<td>서울 가산</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>원룸</td>
-							<td>매물정보 데이터</td>
-							<td>서울 가산</td>
-						</tr>
-						<tr>
-							<td>4</td>
-							<td>투룸</td>
-							<td>매물정보 데이터</td>
-							<td>서울 가산</td>
-						</tr>
-						<tr>
-							<td>5</td>
-							<td>쓰리룸</td>
-							<td>매물정보 데이터</td>
-							<td>서울 가산</td>
-						</tr>
+						</c:forEach>
 
 					</table>
 

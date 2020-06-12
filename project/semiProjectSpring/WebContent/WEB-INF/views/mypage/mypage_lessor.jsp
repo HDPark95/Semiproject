@@ -14,7 +14,7 @@
 <section class="contact-section container topma " style=""> 
 
 
-	<h2 class="th_mypage_maintext">MY 부동산 페이지(일반)</h2>
+	<h2 class="th_mypage_maintext">MY 부동산 페이지(임대인)</h2>
   
 
 	<ul class="nav nav-tabs th_ul">
@@ -24,8 +24,8 @@
 			href="#myposts">쓴 게시글 관리</a></li>
 		<li class="th_li"><a class="nav-link th_atwi " data-toggle="tab"
 			href="#c">연락한 부동산</a></li>
-		<li class="th_li"><a class="nav-link th_atwi " data-toggle="tab"
-			href="#d">내 매물관리</a></li>
+		<li class="th_li"><a class="nav-link th_atwi " data-toggle="tab" id="selectmyproduct"
+			href="#myproduct">내 매물관리</a></li>
 
 	</ul>
 	<div id="myTabContent" class="tab-content" >
@@ -41,7 +41,7 @@
 
 			<ul class="nav nav-tabs">
 				<li class="th_li_sub"><a class="th_nav-link active th_atwi"
-					data-toggle="tab" href="#mypage_posts">커뮤니디</a></li>
+					data-toggle="tab" href="#mypage_posts">커뮤니티</a></li>
 				<li class="th_li_sub"><a class="th_nav-link th_atwi "
 					data-toggle="tab" href="#sub_b">고객센터 문의</a></li>
 			</ul>
@@ -53,11 +53,7 @@
 
 				</div>
 
-				<div class="tab-pane  th_page_space  fade show active "
-					style="text-align: center;" id="sub_b">
-					아무 것도 없다.
-					
-					</div>
+				
 
 			</div>
 		</div>
@@ -67,7 +63,7 @@
 				연락온 부동산 목록을 볼수 있습니다. </h2>
 		</div>
 		<div class="tab-pane fade th_page_space" style="text-align: center;"
-			id="d">
+			id="myproduct">
 			<%@ include file="../mypage/include/infor_management.jsp"%>
 		</div>
 	</div>
@@ -117,6 +113,17 @@
 				data : {anum : "${vo.anum }"},
 				success : function(result) {
 					$('#mypage_posts').html(result);
+				}
+			});
+		});
+		
+		$('#selectmyproduct').click(function() {
+			$.ajax({
+				url : "infor_product" ,
+				type : "post" ,
+				data : {anum : "${vo.anum }"},
+				success : function(result) {
+					$('#myproduct').html(result);
 				}
 			});
 		});

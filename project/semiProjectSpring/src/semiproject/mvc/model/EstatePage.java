@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.tomcat.util.json.JSONParser;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,10 +19,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import semiproject.mvc.dao.EstateDAO;
+import semiproject.mvc.service.EstateService;
 import semiproject.mvc.vo.AddInfoVO;
 import semiproject.mvc.vo.AdministrativeVO;
 import semiproject.mvc.vo.EstateVO;
@@ -28,7 +33,11 @@ import semiproject.mvc.vo.RentVO;
 
 @Controller
 public class EstatePage{
+	@Autowired
+	private EstateDAO estateDAO;
 	
+	@Autowired
+	private EstateService estateService;
 	
 	@RequestMapping(value="/estateMain")
 	public String goEstate() {
@@ -45,12 +54,12 @@ public class EstatePage{
 		return "estate/estateDetile";
 	} 
 	@RequestMapping(value = "/insertestate",method = RequestMethod.POST)
-	public ModelAndView insertestate(EstateVO estate,AddInfoVO addinfo,String[] rentv,String[] dan, String[] rpay,String[] pay,String[] administrat) {
-			ModelAndView mav= new ModelAndView("estate/addestate");
+	public ModelAndView insertestate(EstateVO estate,AddInfoVO addinfo,String[] rentv,String[] dan, String[] rpay,String[] pay,String[] administrat,String[] option) {
+			ModelAndView mav= new ModelAndView("estate/estate");
 		
 			
 			System.out.println(estate.getBuild());
-			System.out.println(estate.getDescription());
+	
 			List<RentVO> list = new ArrayList<RentVO>();
 			for(int i=0;i<rentv.length;i++) {
 				RentVO vo = new RentVO();
@@ -62,6 +71,8 @@ public class EstatePage{
 				System.out.println(vo.getRpay());
 				System.out.println(vo.getDan());
 			}
+			
+			estate.setRent(list);
 			List<AdministrativeVO> alist= new ArrayList<AdministrativeVO>();
 		for(int i=0;i<administrat.length;i++) {
 			AdministrativeVO vo = new AdministrativeVO();
@@ -71,11 +82,20 @@ public class EstatePage{
 			System.out.println(vo.getAdministrat());
 			System.out.println(vo.getPay());
 		}
+			System.out.println(addinfo.getBalcony());
+			addinfo.setAdministrative(alist);
+			addinfo.setOption(option);
 			
+			estateService.addEstate(estate, addinfo);
+			
+			mav.addObject("msg","등록이 완료되었습니다.");
+		return mav;
+	}
+	@RequestMapping(value = "/estatelist")
+	public ModelAndView estatelist() {
+		ModelAndView mav = new ModelAndView("estate/server/estatelist");
 			
 		
 		return mav;
 	}
-	
-	
 }

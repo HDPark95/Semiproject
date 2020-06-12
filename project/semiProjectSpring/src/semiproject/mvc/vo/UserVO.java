@@ -9,7 +9,13 @@ public class UserVO {
 	private String aid;
 	private String apwd; 
 	private String agubun;
-	
+	private String pgubun;
+	public String getPgubun() {
+		return pgubun;
+	}
+	public void setPgubun(String pgubun) {
+		this.pgubun = pgubun;
+	}
 	public int getAnum() {
 		return anum;
 	}

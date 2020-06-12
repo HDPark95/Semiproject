@@ -26,7 +26,7 @@
 					<p>내가 사는, 알고 있는 지역에 관한 경매 정보를 알려주세요.</p>
 				</div>
 			</div>
-			<div class="form-group"> 
+			<div class="form-group">
 				<div class="form-inline form-group">
 					<label for="title" class="col-sm-2 control-label">제목</label>
 					<div class="col-sm-10">

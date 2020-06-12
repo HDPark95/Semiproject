@@ -31,7 +31,7 @@
 	right: 15px;
 }
 
-#aidheader { 
+#aidheader {
 	width: 110px;
 }
 
@@ -70,7 +70,6 @@
 	left: 190px;
 	margin-top: 0px;
 }
-
 </style>
 <h1>로고</h1>
 <br>

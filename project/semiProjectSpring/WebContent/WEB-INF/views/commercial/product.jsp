@@ -29,7 +29,7 @@
 				<option>전체</option>
 			</select>
 		</div>
-		<table class="table table-hover">
+		<table class="table table-hover" style="width:1300px">
 			<thead>
 				<tr>
 					<th colspan="8">매물정보</th>
@@ -48,14 +48,14 @@
 			<tbody>
 				<c:forEach var="listv" items="${list}">
 					<tr>
-						<th>${listv.num}</th>
+						<th>${listv.pdnum}</th>
 						<td>${listv.rlettpcd}</td>
 						<td>${listv.tradtpcd}</td>
 						<td>${listv.prc}</td>
 						<td>${listv.atclfetrdesc}</td>
 						<td>${listv.taglist}</td>
 						<td>${listv.rltrnm}</td>
-						<td>${listv.location }</td>
+						<td>${listv.plocation }</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -66,16 +66,15 @@
 				</tr>
 				<tr>
 					<th colspan="8">
-
 						<form method="post" action="product">
 							<input type="hidden" name="nowPage" value="${param.nowPage }">
-							<input type="hidden" name="page" value="${param.page}"> <select
+							<input type="hidden" name="page" value="${param.page}"> <select id="searchType"
 								name="searchType">
 								<option value="1">거래종류</option>
 								<option value="2">행정동명</option>
 								<option value="3">내용</option>
-							</select>&nbsp; <input name="searchValue"> <input type="submit"
-								class="btn-primary btn-sm" value="검색">
+							</select>&nbsp; <input type="text" id="searchValue" name="searchValue"> <input type="submit"
+								class="btn-primary btn-sm" id="search" value="검색">
 						</form>
 					<th>
 				<tr>
@@ -92,12 +91,16 @@
 				$("#Select1").html(d);
 			}
 		})
-		var url = "";
-		$.ajax({
-			url : url,
-			success : function(d) {
-				$("#")
-			}
+		$("#Select1").change(function(){
+			var guName = $(this).val();
+			var url = "searchGuname?guName="+guName;
+			$.ajax({
+				url : url
+			})
+		})
+		$("#search").click(function(){
+			console.log($("#searchValue").val())
+			console.log($("#searchType").val())
 		})
 	});
 </script>

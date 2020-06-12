@@ -27,9 +27,8 @@ public class SignUpDao {
 		ss.insert("signup.addmember3");
 		ss.insert("signup.addmember4");
 	}
-	 
+	
 	public int aidHeaderCheck(String aid) {
 		return ss.selectOne("signup.idChk", aid);
 	}
-	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>		
 <%@ include file="../include/header_index.jsp"%>
 <link href="resources/css/community/writing_question.css"
 	rel="stylesheet">
@@ -33,7 +34,7 @@
 	height: 105px;
 	border-bottom: 1px solid;
 }
- 
+
 #title {
 	text-align: left;
 	margin-top: 20px;
@@ -46,13 +47,14 @@
 	margin-left: 20px;
 	font-size: 15px;
 	width: 500px;
+	color: #787878;
 }
 
-#totalRec {
+#rec_update {
 	width: 100px;
-	color: red;
+	color: blue;
 	font-size: 15px;
-	padding: 0.5px 0.5px;
+	padding: 4.5px 0.5px;
 }
 
 #rec {
@@ -61,7 +63,7 @@
 	font-size: 13px;
 }
 
-#writing, #golist, #delete {
+#updatedetail, #golist, #delete {
 	padding: 0.5rem 0.5rem;
 	margin-top: 5px;
 	background-color: #64A19D;
@@ -77,36 +79,36 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 	$(function() {
-		$('#writing').hover(function() {
-			$('#writing').css('background-color', '#548B87');
+		$('#updatedetail').hover(function() {
+			$('#updatedetail').css('background-color', '#548B87');
 		}, function() {
-			$('#writing').css('background-color', '#64A19D');
+			$('#updatedetail').css('background-color', '#64A19D');
 		});
-		$('#list').hover(function() {
-			$('#list').css('background-color', '#548B87');
+		$('#golist').hover(function() {
+			$('#golist').css('background-color', '#548B87');
 		}, function() {
-			$('#list').css('background-color', '#64A19D');
+			$('#golist').css('background-color', '#64A19D');
 		});
 		$('#delete').hover(function() {
 			$('#delete').css('background-color', '#548B87');
 		}, function() {
 			$('#delete').css('background-color', '#64A19D');
 		});
-		$('#writing').click(function() {
-			location = 'wriCom';
-		});
-		$('#list').click(function() {
+		$('#golist').click(function() {
 			location = 'comuMain';
 		});
 		$('#delete').click(function() {
 
 		});
-		$('#totalRec').hover(function() {
-			$('#totalRec').css('border', '1px solid red');
+		$('#rec_update').hover(function() {
+			$('#rec_update').css('border', '1px solid blue');
 		},function(){
-			$('#totalRec').css('border', '1px solid white');
+			$('#rec_update').css('border', '1px solid white');
 		});
 	});
+	function upWrec(){
+		location = "updateWrec?&wnum="+${list.wnum};
+	}
 </script>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
@@ -127,14 +129,18 @@
 						</tr>
 						<tr>
 							<td><div id="toggle">
-									<span>${list.aid}</span> <span>${list.wchgdate}</span> <span>조회
-										${list.whit}</span>
+									<span>${list.aid}</span> 
+									<span>${list.wchgdate}</span> 
+									<span>조회 ${list.whit}</span>
 								</div></td>	
-							<td id="total">	
+							<td id="total">
+								<form action="updateWrec" method="get">	
 								<div>
-									<button type="button" class="btn btn-default" id="totalRec">추천
-										${list.wrec}</button>
+									<button type="button" class="btn btn-default" onclick="upWrec()" id="rec_update">
+										<i class="fas fa-thumbs-up"></i>&nbsp; <span id="wrec">${list.wrec}</span>
+									</button>
 								</div>
+								</form>
 							</td>
 						</tr>
 					</table>
@@ -144,7 +150,8 @@
 				</div>
 			</div>
 			<div id="buttons">
-				<button type="button" class="btn btn-default btn-sm" id="writing">글쓰기
+				<button type="button" class="btn btn-default btn-sm" id="updatedetail"
+				onclick="location.href='updatedetailform?wnum=${list.wnum}'">수정하기
 				</button>
 				<button type="button" class="btn btn-default btn-sm" id="golist">목록으로
 				</button>

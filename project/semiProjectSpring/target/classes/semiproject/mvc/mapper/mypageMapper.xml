@@ -48,6 +48,11 @@
 	select * from community_board where anum = #{anum}
 	</select>
 	
+	<select id="mypage_product_infor" parameterType="int" resultType="cpvo">
+	select * from PRODUCT PRO , PRODUCT_SALE_INFO PSLE , PRODUCT_LOCATION PLO 
+	where PRO.anum = #{anum} and PRO.PDNUM = PSLE.PRNUM and PRO.PDNUM = PLO.PDNUM
+	</select>
+	
 	<!-- 로그인 정보 회원정보 조인 resultMap -->
 	<resultMap type="signVO" id="member_infor">
 		<id property="anum" column="snum" />

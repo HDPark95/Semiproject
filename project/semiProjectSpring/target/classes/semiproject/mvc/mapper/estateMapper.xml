@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="estate">
+ 
+ 	<insert id="addproduct" parameterType="evo">
+ 		insert into product values(product_seq.nextVal,#{anum},#{build},#{floor},#{supply},#{exclusive},#{title},null,null)
+ 	</insert>
+ 	<insert id="addproductsale" parameterType="rentvo">
+ 		insert into product_sale_info values(product_sale_info_seq.nextVal,#{pdnum},#{rentv},#{rpay},#{dan})
+ 	</insert>
+ 	<insert id="addproductinfo" parameterType="aivo">
+ 		insert into product_info values(product_info_seq.nextVal,#{pdnum},#{aspay},#{pets},#{park},#{ppay},#{elevator},#{balcony},#{built},#{pstructure}, #{chartered},#{pmove},#{heating},#{description}  )
+ 	</insert>
+ 	<insert id="addadmin" parameterType="adminvo">
+ 		insert into administrative values(administrative_seq.nextVal,#{pidnum},#{administrat})
+ 	</insert>
+ 	<insert id="addoptionsel" parameterType="osvo" >
+ 		insert into option_sel values(option_sel_seq.nextVal,#{pidnum},#{onum})
+ 	</insert>
+ 
+ 
+ 	<select id="productnum" parameterType="evo" resultType="int">
+ 		select pdnum from product where anum=#{anum} and ATCLFETRDESC=#{title} 
+ 	</select>
+ 	<select id="productinfonum" parameterType="int" resultType="int">
+ 		select pidnum from product_info where pdnum=#{pdnum}
+ 	</select>
+ 	<select id="option" parameterType="String" resultType="int">
+ 		select onum from poption where poption like '%'||#{option}||'%'
+ 	</select>
+ 	
+ 
+ </mapper>

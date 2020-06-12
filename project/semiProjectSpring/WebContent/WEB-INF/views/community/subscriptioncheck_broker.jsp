@@ -38,7 +38,7 @@
 			</tr>
 		</table>
 	</div>
-</section> 
+</section>
 
 
 <%@ include file="../include/footer.jsp"%>

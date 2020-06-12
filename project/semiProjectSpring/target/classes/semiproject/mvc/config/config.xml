@@ -6,9 +6,8 @@
 	<typeAliases> 
 		<typeAlias type="semiproject.mvc.vo.CommunityVO"
 			alias="comuVO" />
-		<typeAlias type="semiproject.mvc.vo.BoardPageVO"
-			alias="bpvo" />
-		<typeAlias type="semiproject.mvc.vo.BoardVO" alias="bvo" />
+	
+		
 		<typeAlias type="semiproject.mvc.vo.DataVO"
 			alias="commercial" />
 		<typeAlias type="semiproject.mvc.vo.MyPageVO"
@@ -44,6 +43,17 @@
 			alias="commupvo"/>
 				<typeAlias type="semiproject.mvc.vo.Customer_BoardVO" alias="cbvo" />
 		<typeAlias type="semiproject.mvc.vo.Customer_Board1VO" alias="cbvo1" />	
+		
+		
+		
+		<!-- 부동산 -->
+		<typeAlias type="semiproject.mvc.vo.EstateVO" alias="evo"/>
+		<typeAlias type="semiproject.mvc.vo.AddInfoVO" alias="aivo"/>
+		<typeAlias type="semiproject.mvc.vo.RentVO" alias="rentvo"/>
+		<typeAlias type="semiproject.mvc.vo.SubBuildVO" alias="sbvo"/>
+		<typeAlias type="semiproject.mvc.vo.AdministrativeVO" alias="adminvo"/>
+		<typeAlias type="semiproject.mvc.vo.Option_SelVO" alias="osvo"/>
+		<typeAlias type="semiproject.mvc.vo.OptionVO" alias="ovo"/>
 	</typeAliases>
 
 </configuration>

@@ -34,9 +34,9 @@
 		                       	<li><a>실거래가</a></li>
 		                       	<li><a>주변부동산</a></li>
 		                       	<li><a href="product">매물</a></li>
-		                       	<li><a href="register">매물등록</a></li>
-	                       </ul>
-                       </li>
+		                       <li><a href="javascript:void(0);" onclick="register_func();">매물등록</a></li>
+						</ul></li>
+	                      
                         <li class="nav-item">
 	                        <a class="nav-link js-scroll-trigger" href="estateMain">부동산</a>
 	                      
@@ -69,8 +69,16 @@
 	                       </ul>
                         </li>
                         <li class="nav-item">
-
-	                        <a class="nav-link js-scroll-trigger menu-other" href="list">고객센터</a>             
+  <c:catch>
+                       <c:choose>
+                       <c:when test="${empty user}">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login">고객센터</a></li>
+                        </c:when>
+                        <c:otherwise>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="list">고객센터</a></li>
+                        </c:otherwise>
+                        </c:choose>
+                        </c:catch>          
                         </li>
                          
                             
@@ -136,5 +144,15 @@
 		            </div>
 	 
             </div> -->
-       
+  <script>
+	    function register_func(){
+			var aid = "${user.aid}";
+			console.log(aid);
+			if(aid ===null || aid === ""){
+				alert("로그인하십시오.");
+			}else{
+				location = "register";
+			}
+	}
+	</script>     
 	            

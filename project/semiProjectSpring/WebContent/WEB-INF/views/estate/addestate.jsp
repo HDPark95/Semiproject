@@ -209,7 +209,7 @@
 	            						<div class="seleted-div">
 	            						<span class="square parking false" onclick="clickpark(0)">가능</span>
 	            						<span class="square parking false" onclick="clickpark(1)">불가능</span>
-	            						<input type="text" id="pamount" class="input-val"  disabled="disabled" placeholder="0" > 만원
+	            						<input type="text" id="pamount" class="input-val"  disabled="disabled" placeholder="0"  value="0"> 만원
 	            						</div>
 	            					
 	            					</td>
@@ -281,7 +281,7 @@
 			            					<span class="square option false" onclick="clicksub(8,'option')">가스레인지</span>
 			            					<span class="square option false" onclick="clicksub(9,'option')">인덕션</span>
 			            					<span class="square option false" onclick="clicksub(10,'option')">전자레인지</span>
-			            					<span class="square option false" onclick="clicksub(11,'option')">전자 도어락</span>
+			            					<span class="square option false" onclick="clicksub(11,'option')">전자도어락</span>
 			            					<span class="square option false" onclick="clicksub(12,'option')">비데</span>
 	            						</div>
 	            					</td>
@@ -366,13 +366,15 @@
 	            			<div class="col-md-12">
 	            				<div class="col-md-2" style="width: 100px;"></div>
 	            				<div class="col-md-10" style="text-align: center;">
-	            					<input type="checkbox" >
+	            					<input type="checkbox" id="check" >
 	            									매물 관리 규정을 확인하였으며 입력한 정보는 실제 매물과 다름이 없습니다.
 	            				</div>
 	            				
 	            			</div>
 	            			<div class="col-md-12" id="result"  style="text-align: center;">
-	            				<form  id="estater"></form>
+	            				<form  id="estater">
+	            					<input type='hidden' value='${user.anum}' name='anum'>
+	            				</form>
 	            				
 	            				<a class="btn" id="filter_apply" onclick="submit()">매물등록</a>
 	            				<a class="btn" id="filter_close" href="semi.Project?page=estate&code=1">취소</a>
@@ -383,69 +385,38 @@
 		</div>
 	</div>
 <script >
-	// 부동산 종류
-var estater=new estate();
-		// 추가정보 
-		var addyinfo=new addinfo(); 
+
+
+		
 	var classEach=["build","sub-build","rent","move-in","administrative","parking","pets","elevator","balcony","built","option","chartered","structure"];
 
-	function estate(){
-		this.build=''; //매물 종류
-		this.subbuild='';//매물 세부종류
-		this.rent=[]; // 거래종류	
-		this.supply=''; //공급면적
-		this.exclusive=''; // 전용면적
-		this.floor=''; //층정보
-		this.heating=''; // 난방여부
-		this.move=''; // 이사협의
-		this.addinfo={};
-	}
-	
-	function addinfo(){
-		this.administrative=new administrative(); // 관리비
-		this.pets=false; // 애완동물
-		this.parking=new parkingv(true, ""); // 주차
-		this.elevator=false; // 엘리베이터
-		this.balcony=false; // 발코니
-		this.built=false; // 빌트인여부
-		this.structure=''; // 구조
-		this.option=new option(); // 옵션
-		this.chartered=false; // 전세자금대출여부
-	}
-	function parkingv(parkv,payv){
-		this.park=parkv;
-		this.pay=payv;
-	}
-	function option(){
-		this.option='';
-	}
-	function administrative(){
-		this.pay='';
-		this.administrat='';
-	}
-	
-	function rentv(text,pay,dans){
-		this.rent=text;
-		this.rpay=pay;
-		this.dan=dans;
-	}
+
 	var newForm=$("#estater");
 	
 	function submit(){
-		addestate();
 		
-		newForm.attr('method','post');
-		newForm.attr("action", "/semiProjectSpring/insertestate");
+			
 		
+		if($('#check').val()!==''){
+			addestate();
+			
+			newForm.attr('method','post');
+			newForm.attr("action", "/semiProjectSpring/insertestate");
+			
+			
+				console.log(newForm.toString());		
 		
-		
+				if(confirm("등록하시겠습니까?")){
+					
+					newForm.submit();			
+				}else{
+					location='addestate';
+				}
+		}else{
+			alert("CheckBox를 체크해주세요.");
+			$('#check').focusin();
+		}
 	
-			if(confirm("등록하시겠습니까?")){
-		
-			newForm.submit();			
-			}else{
-				location='addestate';
-			}
 	
 	}
 	
@@ -459,7 +430,7 @@ var estater=new estate();
 			$(name).each(function(i) {
 				if($(this).hasClass("true")){
 				var text =$(this).text();
-				console.log(text)
+				
 				addData(classEach[e],text);
 				}
 			})
@@ -480,10 +451,11 @@ var estater=new estate();
 	
 	
 		input+="<textarea hidden='hidden'rows='20' cols='150' maxlength='100'  name='description'>"+$('#description').val()+"</textarea>";
+	 	
 		newForm.append(input);
+			
 		
-		
-		console.log($('#estater'));
+	
 	
 		
 	}
@@ -528,7 +500,7 @@ var estater=new estate();
 					values=$(this).val()+'/'+thisv[i].value;
 					 input+="<input type='hidden' value='"+dans+"' name='dan'>"; 
 					/* newForm.append($('<input/>',{type:'hidden',name:'dan',value:dans})); */
-					 input+="<input type='hidden' value='"+text+"' name='rentv'>"; 
+					 input+="<input type='hidden' value='B2' name='rentv'>"; 
 					/* newForm.append($('<input/>',{type:'hidden',name:'rentv',value:text})); */
 					 input+="<input type='hidden' value='"+values+"' name='rpay'>"; 
 					/* newForm.append($('<input/>',{type:'hidden',name:'rpay',value:values})); */
@@ -541,7 +513,7 @@ var estater=new estate();
 			/* 	newForm.append($('<input/>',{type:'hidden',name:'rentv',value:text}));
 				newForm.append($('<input/>',{type:'hidden',name:'dan',value:dans}));
 				newForm.append($('<input/>',{type:'hidden',name:'rpay',value:values})); */
-			 input+="<input type='hidden' value='"+text+"' name='rentv'>"; 
+			 input+="<input type='hidden' value='B1' name='rentv'>"; 
 			 	input+="<input type='hidden' value='"+dans+"' name='dan'>"; 
 				input+="<input type='hidden' value='"+values+"' name='rpay'>"; 
 			
@@ -550,7 +522,7 @@ var estater=new estate();
 			/* 	newForm.append($('<input/>',{type:'hidden',name:'rentv',value:text}));
 				newForm.append($('<input/>',{type:'hidden',name:'dan',value:dans}));
 				newForm.append($('<input/>',{type:'hidden',name:'rpay',value:values})); */
-				input+="<input type='hidden' value='"+text+"' name='rentv'>";
+				input+="<input type='hidden' value='A1' name='rentv'>";
 				input+="<input type='hidden' value='"+dans+"' name='dan'>";
 				input+="<input type='hidden' value='"+values+"' name='rpay'>"; 
 			}
@@ -562,10 +534,11 @@ var estater=new estate();
 			values=text;
 			/* newForm.append($('<input/>',{type:'hidden',name:'move',value:values})); */
 			input+="<input type='hidden' value='"+values+"' name='move'>"; 
+			console.log(input);
 		}else if(className==="administrative"){
 			
 			values=$('#adminpay').val();;
-			alert(values);
+	
 		/* 	newForm.append($('<input/>',{type:'hidden',name:'pay',value:values})); */
 			input+="<input type='hidden' value='"+values+"' name='pay'>";
 			
@@ -573,9 +546,9 @@ var estater=new estate();
 			/* newForm.append($('<input/>',{type:'hidden',name:'administrat',value:values})); */
 			input+="<input type='hidden' value='"+values+"' name='administrat'>";
 		}else if(className==="parking"){
-			var bool=false;
+			var bool='0';
 			if(text==='가능'){
-				bool=true;
+				bool='1';
 			}
 			
 		/* 	
@@ -585,21 +558,21 @@ var estater=new estate();
 		 	input+="<input type='hidden' value='"+bool+"' name='park'>";
 			input+="<input type='hidden' value='"+$('#pamount').val()+"' name='ppay'>";
 		}else if(className==="pets"){
-			var bool=false;
-			
+			var bool='0';
 			if(text==='가능'){
-				bool=true;
+				bool='1';
 			}
+			
 			
 		
 			name='pets';
-			newForm.append($('<input/>',{type:'hidden',name:'pets',value:bool}));
+		/* 	newForm.append($('<input/>',{type:'hidden',name:'pets',value:bool})); */
 			 input+="<input type='hidden' value='"+bool+"' name='pets'>"; 
 		}else if(className==="elevator"){
-			var bool=false;
+			var bool='0';
 			
 			if(text==='있음'){
-				bool=true;
+				bool='1';
 			}
 	
 			
@@ -607,31 +580,37 @@ var estater=new estate();
 			newForm.append($('<input/>',{type:'hidden',name:'elevator',value:bool})); */
 			 input+="<input type='hidden' value='"+bool+"' name='elevator'>"; 
 		}else if(className==="balcony"){
-			var bool=false;
+			var bool='0';
+			
 			if(text==='있음'){
-				bool=true;
+				bool='1';
 			}
+	
 		
 
 			
 			/* newForm.append($('<input/>',{type:'hidden',name:'balcony',value:bool})); */
 			input+="<input type='hidden' value='"+bool+"' name='balcony'>"; 
+			
 		}else if(className==="built"){
-			var bool=false;
+			var bool='0';
+			
 			if(text==='있음'){
-				bool=true;
+				bool='1';
 			}
 			
 		/* 	newForm.append($('<input/>',{type:'hidden',name:'built',value:bool})); */
 		input+="<input type='hidden' value='"+bool+"' name='built'>"; 
+		
 		}else if(className==="option"){
 			
 			/* newForm.append($('<input/>',{type:'hidden',name:'option',value:text})); */
 	 	input+="<input type='hidden' value='"+text+"' name='option'>"; 
+	 	
 		}else if(className==="chartered"){
-			var bool=false;
+			var bool='0';
 			if(text==='가능'){
-				bool=true;
+				bool='1';
 			}
 		/* 	newForm.append($('<input/>',{type:'hidden',name:'chartered',value:bool})); */
 			

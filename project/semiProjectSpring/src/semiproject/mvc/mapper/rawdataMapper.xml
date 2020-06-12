@@ -4,10 +4,10 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data">	
 	<select id="gu" resultType="String">
-		select distinct 시군구명 from writing_tag order by 1 asc
+		 select distinct sname from writing_tag order by 1 asc
 	</select>
 	<select id="dong" parameterType="String" resultType="String">
-		select distinct 행정동명 from writing_tag where 시군구명 = #{guName} order by 1 asc
+		select distinct hname from writing_tag where sname = #{guName} order by 1 asc
 	</select>
 	<select id="large" resultType="String">
 		select distinct 상권업종대분류명 from commercial

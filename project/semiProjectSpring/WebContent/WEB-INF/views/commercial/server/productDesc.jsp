@@ -14,7 +14,7 @@
 				</div>
 			</div>
 			<div class="card-footer">
-				<button onclick="open_pop()" class="btn btn-primary btn-sm productdescmodal" value="${e.atclno}">More Info</button>
+				<button onclick="open_pop()" class="btn btn-primary btn-sm productdescmodal" value="${e.pdnum}">More Info</button>
 			</div>
 		</div>
 	</div>

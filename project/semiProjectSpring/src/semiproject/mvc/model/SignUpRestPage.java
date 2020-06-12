@@ -13,7 +13,6 @@ public class SignUpRestPage {
 	@Autowired
 	private SignUpDao signUpDao;
 	
-
 	@RequestMapping(value = "/idChk")
 	@ResponseBody
 	public int idChk(String aidheader) {
@@ -21,4 +20,3 @@ public class SignUpRestPage {
 		return cnt;
 	}
 }
- 

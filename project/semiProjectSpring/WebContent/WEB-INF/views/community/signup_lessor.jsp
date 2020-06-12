@@ -31,7 +31,7 @@
 }
 
 #aidheader {
-	width: 110px; 
+	width: 110px;
 }
 
 #emailLabel {
@@ -69,7 +69,6 @@
 	left: 190px;
 	margin-top: 0px;
 }
-
 </style>
 <h1>로고</h1>
 <br>

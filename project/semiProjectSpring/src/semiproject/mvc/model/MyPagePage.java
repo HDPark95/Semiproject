@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import semiproject.mvc.dao.MyPageDao;
+import semiproject.mvc.vo.CommercialProductVO;
 import semiproject.mvc.vo.Community_BoardVO;
 import semiproject.mvc.vo.SignUpVO;
 
@@ -21,7 +22,7 @@ public class MyPagePage {
 	private MyPageDao mypagedao;
 	
 	 
-	// 占쌈댐옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙 占싱듸옙
+	// �뜝�뙂�뙋�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�떛�벝�삕
 		@RequestMapping(value = "/mypage_lessor" )
 		public ModelAndView myPagelessor(String aid) {
 			ModelAndView mav = new ModelAndView("mypage/mypage_lessor");
@@ -35,7 +36,7 @@ public class MyPagePage {
 			return mav;
 		} 
 		
-		// 占쌈댐옙占쏙옙 占쏙옙占쏙옙占쏙옙 占실울옙 占쌍댐옙 회占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占싱듸옙
+		// �뜝�뙂�뙋�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�떎�슱�삕 �뜝�뙇�뙋�삕 �쉶�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�떛�벝�삕
 		@RequestMapping(value = "/inforDetail" , method = RequestMethod.POST)
 		public ModelAndView myinforDetaillessor(String aid) {
 			ModelAndView mav = new ModelAndView("mypage/inforDetail");
@@ -48,7 +49,7 @@ public class MyPagePage {
 			return mav;
 		}
 		
-		//결제 세부 페이지 
+		//寃곗젣 �꽭遺� �럹�씠吏� 
 		@RequestMapping(value = "/Pay_Detail")
 		public ModelAndView inforPayDetail(String aid , int anum) {
 			ModelAndView mav = new ModelAndView("mypage/paymentDetail");
@@ -61,7 +62,7 @@ public class MyPagePage {
 			return mav;
 		}
 		
-		//loginDetail 페이지 
+		//loginDetail �럹�씠吏� 
 		@RequestMapping(value = "/loginDetail" , method = RequestMethod.POST)
 		public ModelAndView loginDetail(String aid) {
 			ModelAndView mav = new ModelAndView("mypage/loginDetail");
@@ -72,7 +73,7 @@ public class MyPagePage {
 			return mav;
 		}
 		
-		//update 회원정보 업데이트 버튼 누를시 작동되는 모델
+		//update �쉶�썝�젙蹂� �뾽�뜲�씠�듃 踰꾪듉 �늻瑜쇱떆 �옉�룞�릺�뒗 紐⑤뜽
 		@RequestMapping(value = "/inforDetailUpdate" , method = RequestMethod.POST)
 		public ModelAndView memberUPDATE(SignUpVO vo, String aid) {
 			ModelAndView mav = new ModelAndView();
@@ -85,7 +86,7 @@ public class MyPagePage {
 			return mav;
 		}
 		
-		//update 회원정보 업데이트 버튼 누를시 작동되는 모델
+		//update �쉶�썝�젙蹂� �뾽�뜲�씠�듃 踰꾪듉 �늻瑜쇱떆 �옉�룞�릺�뒗 紐⑤뜽
 				@RequestMapping(value = "/mypageloginUpdate" , method = RequestMethod.POST)
 				public ModelAndView loginUPDATE(SignUpVO vo, String aid) {
 					ModelAndView mav = new ModelAndView();
@@ -98,7 +99,7 @@ public class MyPagePage {
 					return mav;
 				}
 				
-		// 내 게시글 조회 하기 페이지로 가는 모델
+		// �궡 寃뚯떆湲� 議고쉶 �븯湲� �럹�씠吏�濡� 媛��뒗 紐⑤뜽
 		@RequestMapping(value = "infor_posts" , method = RequestMethod.POST)
 		public ModelAndView myPosts (int anum) {
 			ModelAndView mav = new ModelAndView("mypage/infor_posts");
@@ -109,8 +110,36 @@ public class MyPagePage {
 			
 			return mav;
 		}
+		
+		//내 매물 관리 탭에 표시될 내용 
+		
+		@RequestMapping(value = "/infor_product")
+		public ModelAndView myproduct(int anum) {
+			ModelAndView mav = new ModelAndView("mypage/include/infor_management");
+			
+			List<CommercialProductVO> plist = mypagedao.productINFOR(anum);
+			
+			mav.addObject("plist", plist);
+			
+			return mav;
+			
+		}
+		// 공인중개사 일때 마이페이지 
+		@RequestMapping(value = "/mypage_broker")
+		public ModelAndView myPageBroker(String aid) {
+			ModelAndView mav = new ModelAndView("mypage/mypage_broker");
+			
+
+			SignUpVO vo = mypagedao.getloginINFOR(aid);
+
+			 
+			mav.addObject("vo", vo);
+			
+			return mav;
+		} 
+		
 	
-//	// 占쌈댐옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙 占싱듸옙
+//	// �뜝�뙂�뙋�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�떛�벝�삕
 //	@RequestMapping(value = "/mypage_lessor" )
 //	public ModelAndView myPagelessor(String id) {
 //		ModelAndView mav = new ModelAndView("mypage/mypage_lessor");
@@ -121,7 +150,7 @@ public class MyPagePage {
 //		return mav;
 //	}
 //	
-//	// 占쌈댐옙占쏙옙 占쏙옙占쏙옙占쏙옙 占실울옙 占쌍댐옙 회占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占싱듸옙
+//	// �뜝�뙂�뙋�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�떎�슱�삕 �뜝�뙇�뙋�삕 �쉶�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�떛�벝�삕
 //	@RequestMapping(value = "/inforDetail" , method = RequestMethod.POST)
 //	public ModelAndView myinforDetaillessor(String id) {
 //		ModelAndView mav = new ModelAndView("mypage/inforDetail");
@@ -132,27 +161,27 @@ public class MyPagePage {
 //		return mav;
 //	}
 //	
-//	//占쌈댐옙占쏙옙 회占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 
+//	//�뜝�뙂�뙋�삕�뜝�룞�삕 �쉶�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 
 //	@RequestMapping(value = "/inforDetailUpdate" , method = RequestMethod.POST )
 //	public ModelAndView inforDetailUpdate (MyPageVO vo) {
 //		
-//		System.out.println("占쌕뀐옙占� 확占쏙옙 : " + vo.getPwd());
+//		System.out.println("�뜝�뙐�먯삕�뜝占� �솗�뜝�룞�삕 : " + vo.getPwd());
 //		ModelAndView mav = new ModelAndView("redirect:inforDetailCompleted?id="+vo.getId());
 //		mypagedao.updateInfor(vo);
 //		return mav;
 //	}
 //	
-//	// 占쌈댐옙占쏙옙 회占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 
+//	// �뜝�뙂�뙋�삕�뜝�룞�삕 �쉶�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 
 //	@RequestMapping(value = "/inforDetailCompleted" , method = RequestMethod.POST )
 //	public ModelAndView inforDetailCompleted (MyPageVO vo) {
 //		
-//		System.out.println("占쌕뀐옙占� 확占쏙옙 : " + vo.getPwd());
+//		System.out.println("�뜝�뙐�먯삕�뜝占� �솗�뜝�룞�삕 : " + vo.getPwd());
 //		ModelAndView mav = new ModelAndView("inforDetailCompleted");
 //		mypagedao.updateInfor(vo);
 //		return mav;
 //	}
 //	
-//	// 占쌈댐옙占쏙옙 占싸깍옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占싱듸옙
+//	// �뜝�뙂�뙋�삕�뜝�룞�삕 �뜝�떥源띿삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�떛�벝�삕
 //	@RequestMapping(value = "/inforSignup" , method = RequestMethod.POST)
 //	public ModelAndView myinforSignuplessor(String id) {
 //		ModelAndView mav = new ModelAndView("mypage/inforSignup");
@@ -166,7 +195,7 @@ public class MyPagePage {
 //	@RequestMapping(value = "/inforUpdate" , method = RequestMethod.POST )
 //	public ModelAndView inforup (MyPageVO vo) {
 //		
-//		System.out.println("占쌕뀐옙占� 확占쏙옙 : " + vo.getPwd());
+//		System.out.println("�뜝�뙐�먯삕�뜝占� �솗�뜝�룞�삕 : " + vo.getPwd());
 //		ModelAndView mav = new ModelAndView("redirect:inforCompleted?id="+vo.getId());
 //		mypagedao.updateInfor(vo);
 //		return mav;
@@ -182,10 +211,6 @@ public class MyPagePage {
 //		return mav;
 //	}
 	
-	// 占쏙옙占쏙옙占� 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占싱듸옙
-	@RequestMapping(value = "/mypage_broker")
-	public String myPagebroker() {
-		
-		return "mypage/mypage_broker";
-	}
+	// �뜝�룞�삕�뜝�룞�삕�뜝占� �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�떛�벝�삕
+	
 }

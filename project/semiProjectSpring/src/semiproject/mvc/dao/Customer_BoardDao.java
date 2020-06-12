@@ -13,5 +13,6 @@ public interface Customer_BoardDao {
 	public Customer_BoardVO getDetail(int c_num) throws Exception;
 	
 	public void updateAns(Customer_BoardVO vo) throws Exception; 
+	
+	public int delete(int c_num) throws Exception;
 }
- 

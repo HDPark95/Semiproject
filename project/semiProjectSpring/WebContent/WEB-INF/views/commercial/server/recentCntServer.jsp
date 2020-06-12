@@ -2,10 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-	<button onclick="open_pop()" class="productdescmodal Cntcount" value="${result.atclno}">
+	<button onclick="open_pop()" class="productdescmodal Cntcount" value="${result.pdnum}">
 		<table style="height:50px;">
 			<tr>
-				<td rowspan="2">${result.location}</td>
+				<td rowspan="2">${result.plocation}</td>
 				<th colspan="2" rowspan="2"><img
 					src="resources/images/commercial/gangdong1.jpg"
 					style="width: 100%; height: 100%"></th>
@@ -17,4 +17,3 @@
 			</tr>
 		</table>
 	</button>
- 

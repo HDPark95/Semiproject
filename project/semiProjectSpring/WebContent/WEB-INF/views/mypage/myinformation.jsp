@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="th_page_space">
-	<div class="row th_card th_infor_card " style="float: left;">
+	<div class="th_card th_infor_card " style="float:left">
 		<form action="inforDetail" method="post">
 			<div class="card-header">회원정보</div>
 			<div class="th_card-body" id="infor_memberdetail">
@@ -13,11 +13,9 @@
 
 				</div>
 			</div>
-
 		</form>
 	</div>
-
-	<div class=" row th_card th_infor_card">
+	<div class="th_card th_infor_card">
 		<form action="loginDetail" method="post">
 			<div class="card-header">로그인 정보</div>
 			<div class="th_card-body" id="infor_logindata">
@@ -28,10 +26,22 @@
 			</div>
 		</form>
 	</div>
- 
-	<div class="row th_card th_infor_card">
+	<div class="th_card th_infor_card">
 		<form action="paymentDetail" method="post" style="">
 			<div class="card-header">구독 결제 정보</div>
+			<div class="th_card-body" id="infor_paymentdatail">
+				<h4 class="card-title">${vo.memberinfor.dname }님의구독 결제 관련 정보
+					입니다.</h4>
+				<p class="card-text">확인하시려면 버튼을 눌러주세요.</p>
+				<input type="hidden" value="${vo.aid }" name="aid"> <input
+					type="hidden" value="${vo.anum }" name="anum">
+				<button type="button" class="btn btn-success" id="paymentdetail_btn">확인하기</button>
+			</div>
+		</form>
+	</div>
+	<div class="th_card th_infor_card">
+		<form action="paymentDetail" method="post">
+			<div class="card-header">회원 탈퇴</div>
 			<div class="th_card-body" id="infor_paymentdatail">
 				<h4 class="card-title">${vo.memberinfor.dname }님의구독 결제 관련 정보
 					입니다.</h4>

@@ -1,3 +1,4 @@
+<%@page import="semiproject.mvc.vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header_index.jsp"%>
@@ -31,7 +32,7 @@
 										type="text" id="addrDetail" name="addrDetail"></td>
 								</tr>
 								<tr>
-									<th> 
+									<th>
 										<h3 class="text-uppercase m-0">물건 구분</h3>
 									<td><select id="law" style="width: 200px; height: 30px"><option>선택</option>
 											<option value="근린상가">근린상가</option>
@@ -280,6 +281,15 @@
 			</div>
 		</div>
 	</section>
+<%
+UserVO vo = (UserVO) session.getAttribute("user");
+if(vo.getPgubun().equals("구독"))  {
+%>
+<%@ include file="sidemenu3.jsp"%>
+<%  }else{%>
+<%@ include file="sidemenu2.jsp"%> 
+<%
+}
+%>
 </section>
-<%@ include file="sidemenu2.jsp"%>
 <%@ include file="../include/footer.jsp"%>

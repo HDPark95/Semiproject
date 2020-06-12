@@ -1,7 +1,7 @@
 package semiproject.mvc.vo;
 
 public class Community_PageVO {
-	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
+	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end, sortindex;
 	
 	private int cntPage = 10;
 	
@@ -26,15 +26,16 @@ public class Community_PageVO {
 	public Community_PageVO() {
 	}
 
-	public Community_PageVO(int total, int nowPage, int cntPerPage) {
+	public Community_PageVO(int total, int nowPage, int cntPerPage,int sortindex) {
 		this.nowPage = nowPage;
 		this.cntPerPage = cntPerPage;
 		this.total = total;
+		this.sortindex = sortindex;
 		memberLastPage(total, cntPerPage);
 		memberStartEndPage(nowPage, cntPage);
 		memberStartEnd(nowPage, cntPerPage);
 	}
- 
+
 	private void memberLastPage(int total, int cntPerPage) {
 		lastPage = (int) Math.ceil((double) total / (double) cntPerPage);
 	}
@@ -127,10 +128,19 @@ public class Community_PageVO {
 		this.cntPage = cntPage;
 	}
 
+	public int getSortindex() {
+		return sortindex;
+	}
+
+	public void setSortindex(int sortindex) {
+		this.sortindex = sortindex;
+	}
+
 	@Override
 	public String toString() {
 		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
 				+ ", cntPerPage=" + cntPerPage + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
 				+ ", cntPage=" + cntPage + "]";
 	}
+	
 }

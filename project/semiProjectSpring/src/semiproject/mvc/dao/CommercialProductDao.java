@@ -14,21 +14,21 @@ import semiproject.mvc.vo.PageVO;
 public class CommercialProductDao {
 	@Autowired
 	private SqlSessionTemplate ss;
-
 	public List<CommercialProductVO> getDesc(String location){
 		System.out.println("호출");
 		List<CommercialProductVO> list = ss.selectList("commercialProduct.desc", location);
 		return list;
 	}
-	public CommercialProductVO getProductDetail(String atclno){
-		CommercialProductVO vo = ss.selectOne("commercialProduct.descdetail", atclno);
+	public CommercialProductVO getProductDetail(String pdnum){
+		System.out.println("pdnumDetail : " + pdnum);
+		CommercialProductVO vo = ss.selectOne("commercialProduct.descdetail", pdnum);
 		return vo;
 	} 
-	public CommercialProductVO getCntProduct(String atclno){
-		CommercialProductVO vo = ss.selectOne("commercialProduct.descdetail", atclno);
+	public CommercialProductVO getCntProduct(String pdnum) {
+		System.out.println("pdnumCnt : " + pdnum);
+		CommercialProductVO vo = ss.selectOne("commercialProduct.descdetail", pdnum);
 		return vo;
 	}
-	
 	 public List<CommercialProductVO> getList(PageVO svo){ //nowPage등으로 연산이 된  start,end
 		  System.out.println("stype"+svo.getSearchType());
 		  System.out.println("svalue"+svo.getSearchValue());

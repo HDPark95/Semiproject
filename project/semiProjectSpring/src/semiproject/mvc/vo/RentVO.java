@@ -1,9 +1,26 @@
 package semiproject.mvc.vo;
 
 public class RentVO {
+	// A1 = 매매
+	// B1 = 전세
+	// B2 = 월세
+	private int prnum,pdnum;
 	private String rentv,dan;
 	private String rpay;
 	
+	
+	public int getPrnum() {
+		return prnum;
+	}
+	public void setPrnum(int prnum) {
+		this.prnum = prnum;
+	}
+	public int getPdnum() {
+		return pdnum;
+	}
+	public void setPdnum(int pdnum) {
+		this.pdnum = pdnum;
+	}
 	public String getRentv() {
 		return rentv;
 	}

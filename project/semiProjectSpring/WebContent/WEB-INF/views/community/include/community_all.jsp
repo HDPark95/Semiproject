@@ -24,7 +24,7 @@
 #searchselect1 {
 	width: 100px;
 	margin: 5px;
-} 
+}
 
 #searchform1 {
 	margin-top: 20px;
@@ -40,10 +40,11 @@
 }
 
 #pagenum1{
-	text-align: center;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
 }
 </style>
-
 <div class="tab-pane fade show active" id="all">
 
 	<br>
@@ -60,22 +61,15 @@
 		</div>
 		<div id="checkorder1">
 			<div class="form-check-inline">
-				<label class="form-check-label"> <input type="radio"
-					class="form-check-input" name="alloptions" id="alloptions1"
-					value="option1">최신순
-				</label>
+				<input type="button" id="wnumBtn" name="wnumBtn" class="btn-outline-info btn-sm" value="최신순▼">
 			</div>
 			<div class="form-check-inline">
-				<label class="form-check-label"> <input type="radio"
-					class="form-check-input" name="alloptions" id="alloptions2"
-					value="option2">조회순
-				</label>
+				<input type="button" id="whitBtn" name="whitBtn" class="btn-outline-secondary btn-sm" value="조회순■">
 			</div>
 			<div class="form-check-inline">
-				<label class="form-check-label"> <input type="radio"
-					class="form-check-input" name="alloptions" id="alloptions3"
-					value="option3">추천순
-				</label>&nbsp;
+				<input type="button" id="wrecBtn" name="wrecBtn" class="btn-outline-secondary btn-sm" value="추천순■">
+				&nbsp;&nbsp;&nbsp;
+			<input type="hidden" id="sortindex" name="sortindex" value="${paging.sortindex}">	
 				<button type="button" class="btn-primary btn-sm" id="writeBtn1">글쓰기</button>
 			</div>
 		</div>
@@ -93,7 +87,7 @@
 		<tbody>
 			<c:forEach var="alist" items="${listall}">
 				<tr>
-					<th scope="row">${alist.wloc1}&nbsp;${alist.wloc2}</th>
+					<th scope="row">${alist.wloc1}&nbsp;${alist.wloc2}&nbsp;[${alist.wgubun}]</th>
 					<td><a href="writingdetail?wnum=${alist.wnum}">${alist.wtitle}</a></td>
 					<td>${alist.wchgdate}</td>
 					<td>${alist.whit}</td>
@@ -102,7 +96,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<form method="post" action="searchlistall">
 	<div class="form-check-inline" id="searchform1">
 		<select class="custom-select" id="searchselect1" name="searchType">
 			<option value="1">전체</option>
@@ -111,7 +104,6 @@
 		</select> <input type="text" class="form-control" id="inputSearch1" name="searchValue">
 		<button type="submit" class="btn-primary btn-sm" id="searchtext1" value="Search">검색</button>
 	</div>
-	</form>
 	<!-- 페이지 프로세스 include 처리 -->
 	<%@include file="pageprocess_all.jsp"%>
 </div>
@@ -134,5 +126,62 @@
 				}
 			})
 		})
+		
+		// 매개변수가 변함에 따라 버튼을 바꾸는 함수
+		if($('#sortindex').val()==='2'){
+			$("#wnumBtn").val('최신순▲');
+			$("#wnumBtn").attr('class','btn-outline-danger btn-sm');
+		}else if($('#sortindex').val()==='1'){
+			$("#wnumBtn").val('최신순▼');
+		}else if($('#sortindex').val()==='4'){
+			$("#whitBtn").val('조회순▲');
+			$("#whitBtn").attr('class','btn-outline-danger btn-sm');
+		}else if($('#sortindex').val()==='3'){
+			$("#whitBtn").val('조회순▼');
+			$("#whitBtn").attr('class','btn-outline-info btn-sm');
+		}else if($('#sortindex').val()==='6'){
+			$("#wrecBtn").val('추천순▲');
+			$("#wrecBtn").attr('class','btn-outline-danger btn-sm');
+		}else{
+			$("#wrecBtn").val('추천순▼');
+			$("#wrecBtn").attr('class','btn-outline-info btn-sm');
+		}
+		
+		
+		// 매개변수가 변함에 따라 주소를 바꾸는 함수
+		$("#wnumBtn").click(function(){
+			var sortindex = $("#sortindex").val();
+			if(sortindex == '2'){
+				location.href="comuMain?sortindex=1";
+			}else{
+				location.href="comuMain?sortindex=2";
+			}
+		});
+		
+		$("#whitBtn").click(function(){
+			var sortindex = $("#sortindex").val();
+			if(sortindex == '4'){
+				location.href="comuMain?sortindex=3";
+			}else{
+				location.href="comuMain?sortindex=4";
+			}
+			
+		});
+		
+		$("#wrecBtn").click(function(){
+			var sortindex = $("#sortindex").val();
+			if(sortindex == '6'){
+				location.href="comuMain?sortindex=5";
+			}else{
+				location.href="comuMain?sortindex=6";
+			}
+		});
+		
+		
 	});
+	
+	
+	
+
+	
 </script>

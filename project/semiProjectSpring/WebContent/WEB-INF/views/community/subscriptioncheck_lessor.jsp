@@ -20,7 +20,7 @@
 				<td id="welcome2">가입하고 싶으시다면!<br>
 				<br>
 				<button type="button" class="btn btn-warning"
-						onclick="location ='pay4'">Subscribe</button></td>
+						onclick="location ='pay2'">Subscribe</button></td>
 				<td id="welcome3">아니오! 괜찮습니다!<br>
 				<br>
 				<button type="button" class="btn btn-success"
@@ -31,4 +31,3 @@
 </section>
 
 <%@ include file="../include/footer.jsp"%>
- 

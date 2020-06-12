@@ -35,7 +35,7 @@ public class SignUpPage {
 	public String subBroker() {
 		return "community/subscriptioncheck_broker";
 	}
- 
+
 	@RequestMapping(value = "/subLessor")
 	public String subLessor() {
 		return "community/subscriptioncheck_lessor";
@@ -59,5 +59,4 @@ public class SignUpPage {
 		mav.setViewName("community/subscriptioncheck_lessor");	
 		return mav;
 	}
-	
 }

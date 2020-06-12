@@ -15,7 +15,7 @@
 			placeholder="" readonly="readonly" value="${vo.aid }"> <input
 			type="hidden" class="form-control" name="apwd" placeholder="Password"
 			value="${vo.apwd }"> 
-		<table class="type02">
+		<table class="type02"  style="height:330px">
 			<tr>
 				<th scope="row">이름</th>
 				<td><input type="text" class="form-control" name="dname" id="dname"

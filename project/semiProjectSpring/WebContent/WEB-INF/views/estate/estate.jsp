@@ -15,14 +15,14 @@
 				</div>
 				<div class="col-md-4 col-sm-4 float-left">
 					<p>리스트</p>
-					<ul>
+					<ul id="listtarget">
 						<c:forEach begin="1" end="10" step="1" varStatus="i">
 							<li class="list-inline">
 								<div class="col-md-6 col-sm-6 float-left">
 									<a href="#">
 										<div class="col-md-12 col-sm-12">
-											<img src="">
-											<p>이미지!</p>
+											<img src="resources/images/estate/apt.jpg"  style="width: 100%; height: 100px;">
+											
 										</div>
 										<div class="col-md-12 col-sm-12">
 											<p>매물종류${i.index }</p>
@@ -38,6 +38,24 @@
 
 			</div>
 		</div>
+		<input type="hidden" value="${msg}" id="msg">
+		<script>
+			var msg=$("#msg").val();
+			$(function(){
+				if(msg!==''){
+					alert(msg);
+				}
+				
+				
+				
+				$.ajax({
+					url:'estatelist',
+					success:function(data){
+						$('#listtarget').html(data);
+					}
+				});
+			});
+		</script>
 	</div>
 </section>
 <%@ include file="../include/footer.jsp"%>

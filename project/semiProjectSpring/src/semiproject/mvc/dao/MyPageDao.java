@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import semiproject.mvc.vo.CommercialProductVO;
 import semiproject.mvc.vo.Community_BoardVO;
 import semiproject.mvc.vo.SignUpVO;
 
@@ -30,7 +31,7 @@ public class MyPageDao {
 		SignUpVO vo = null;  
 		
 		vo = ss.selectOne("mypage.lessor_infor", aid);
-		System.out.println("���� ����?");
+		
 		vo.setPayvo(ss.selectOne("mypage.paymentDetail", anum));
 		
 		return vo;
@@ -39,18 +40,25 @@ public class MyPageDao {
 	public void memberUPDATE(SignUpVO vo) {
 		
 		int update = ss.update("mypage.infor_memberupdate", vo);
-		System.out.println("mypage ��� ������Ʈ Ȯ��!!"); 
+		
 	}
 	
 	public void loginUPDATE(SignUpVO vo) {
 		
 		int update = ss.update("mypage.infor_loginupdate", vo);
-		System.out.println("login ��� ������Ʈ Ȯ��!!"); 
+		
 	}
 	
 	public List<Community_BoardVO> inforPosts(int anum){
 		
 		List<Community_BoardVO> list = ss.selectList("mypage.infor_postslist", anum);
+		
+		return list;
+	}
+	
+	public List<CommercialProductVO> productINFOR(int anum){
+		
+		List<CommercialProductVO> list = ss.selectList("mypage.mypage_product_infor", anum);
 		
 		return list;
 	}
