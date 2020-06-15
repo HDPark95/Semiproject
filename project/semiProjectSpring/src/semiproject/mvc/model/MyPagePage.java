@@ -2,6 +2,8 @@ package semiproject.mvc.model;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.support.DaoSupport;
 import org.springframework.stereotype.Controller;
@@ -10,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import semiproject.mvc.dao.MyPageDao;
+import semiproject.mvc.service.MypageService;
 import semiproject.mvc.vo.CommercialProductVO;
 import semiproject.mvc.vo.Community_BoardVO;
+import semiproject.mvc.vo.PaymentVO;
+import semiproject.mvc.vo.Payment_DetailVO;
 import semiproject.mvc.vo.SignUpVO;
 
 
@@ -21,6 +26,8 @@ public class MyPagePage {
 	@Autowired
 	private MyPageDao mypagedao;
 	
+	@Autowired
+	private MypageService myservice;
 	 
 	// �뜝�뙂�뙋�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�떛�벝�삕
 		@RequestMapping(value = "/mypage_lessor" )
@@ -53,11 +60,7 @@ public class MyPagePage {
 		@RequestMapping(value = "/Pay_Detail")
 		public ModelAndView inforPayDetail(String aid , int anum) {
 			ModelAndView mav = new ModelAndView("mypage/paymentDetail");
-			
-
 			SignUpVO vo = mypagedao.payTest(aid , anum);
-
-			
 			mav.addObject("vo", vo);
 			return mav;
 		}
@@ -66,9 +69,7 @@ public class MyPagePage {
 		@RequestMapping(value = "/loginDetail" , method = RequestMethod.POST)
 		public ModelAndView loginDetail(String aid) {
 			ModelAndView mav = new ModelAndView("mypage/loginDetail");
-			
 			SignUpVO vo = mypagedao.getloginINFOR(aid);
-			
 			mav.addObject("vo", vo);
 			return mav;
 		}
@@ -116,10 +117,12 @@ public class MyPagePage {
 		@RequestMapping(value = "/infor_product")
 		public ModelAndView myproduct(int anum) {
 			ModelAndView mav = new ModelAndView("mypage/include/infor_management");
-			
+			int cnt ;
 			List<CommercialProductVO> plist = mypagedao.productINFOR(anum);
 			
 			mav.addObject("plist", plist);
+			
+			
 			
 			return mav;
 			
@@ -138,6 +141,57 @@ public class MyPagePage {
 			return mav;
 		} 
 		
+		@RequestMapping(value = "/premiumProlong")
+		public ModelAndView premiumProlong(int anum) {
+			ModelAndView mav = new ModelAndView("payment/payment1-4");
+			PaymentVO vo = mypagedao.premiumProlong(anum);
+			mav.addObject("vo", vo);
+			return mav;
+		}
+		
+		// 연장하기를 거쳐 결제페이지로 가는 
+		@RequestMapping(value = "/premiumProlongpay" , method = RequestMethod.POST)
+		public ModelAndView premiumProlongpay(PaymentVO beforevo  , int anum) {
+			ModelAndView mav = new ModelAndView("payment/payment2");
+			PaymentVO vo = mypagedao.premiumProlong(anum);
+			SignUpVO vo3 = mypagedao.getloginINFORNUM(anum);
+			mav.addObject("bvo", beforevo);
+			mav.addObject("vo", vo);
+			mav.addObject("sign", vo3);
+			
+			return mav;
+		}
+		
+		@RequestMapping(value = "/myProlongup")
+		public ModelAndView paymentupdate_my (PaymentVO vo , Payment_DetailVO dvo ) {
+
+			myservice.service_premiumProlong( vo , dvo );
+			
+			ModelAndView mav = new ModelAndView("payment/Complete_payment");
+			
+			return mav;
+		}
+		
+		@RequestMapping(value = "member_secession" , method = RequestMethod.POST)
+		public ModelAndView secessionMember (String aid) {
+			
+			ModelAndView mav = new ModelAndView("mypage/secession_member");
+			
+			SignUpVO vo = mypagedao.getloginINFOR(aid);
+			
+			mav.addObject("vo" , vo);
+			
+			return mav;
+			
+		}
+		
+		// logout
+		@RequestMapping(value = "deletemember" , method = RequestMethod.POST)
+		public ModelAndView deletemember (String aid) {
+			ModelAndView mav = new ModelAndView("logout");
+			myservice.member_secession(aid);
+			return mav;
+		}
 	
 //	// �뜝�뙂�뙋�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�떛�벝�삕
 //	@RequestMapping(value = "/mypage_lessor" )

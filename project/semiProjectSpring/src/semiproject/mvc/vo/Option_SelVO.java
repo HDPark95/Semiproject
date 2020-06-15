@@ -1,7 +1,7 @@
 package semiproject.mvc.vo;
 
 public class Option_SelVO {
-	private int osnum,pidnum,onum;
+	private int osnum,pidnum;
 	private String option;
 	
 	public String getOption() {
@@ -28,12 +28,5 @@ public class Option_SelVO {
 		this.pidnum = pidnum;
 	}
 
-	public int getOnum() {
-		return onum;
-	}
 
-	public void setOnum(int onum) {
-		this.onum = onum;
-	}
-	
 }

@@ -10,15 +10,24 @@
 		sinday , s.achgday schgday, s.agubun sgubun,
 		m.anum mnum, m.dname
 		mname, m.dbirth mbrith , m.dgender mgender, m.dtel mtel
-		from signup s ,
-		member_detail m where s.aid = #{aid} and s.anum =
+		from signup s , member_detail m 
+		where s.aid = #{aid} and s.anum =
 		m.anum 
+	</select> 
+	
+	<select id="lessor_infornum" parameterType="int" resultMap="member_infor">
+		select s.anum snum , s.aid sid , s.apwd spwd , s.ainday
+		sinday , s.achgday schgday, s.agubun sgubun,
+		m.anum mnum, m.dname
+		mname, m.dbirth mbrith , m.dgender mgender, m.dtel mtel
+		from signup s , member_detail m 
+		where s.anum = #{anum} and s.anum = m.anum 
 	</select> 
 	
 	<!-- 보고 싶은 PK 값만넣으면 원하는 정보 열 이 출력 된다. -->
 	<select id="paymentDetail" parameterType="int" resultMap="payment"> 
 		select p.pnum pnum , p.psdate psdate , p.pedate pedate ,
-		p.ppay , p.pway ,
+		p.ppay , p.pway , p.monthnum ,
 		p.pgubun ,
 		pd.pnum pdnum , pd.inment pdinment ,
 		pd.kinds pdkinds , pd.mentnum pdmentnum
@@ -53,6 +62,44 @@
 	where PRO.anum = #{anum} and PRO.PDNUM = PSLE.PRNUM and PRO.PDNUM = PLO.PDNUM
 	</select>
 	
+	<select id="premiumProlong" parameterType="int" resultMap="payment">
+	  select * from payment p , payment_detail pd where p.anum = #{anum} and p.anum = pd.pnum 
+	</select>
+	
+	<update id="paymentup" parameterType="paymentVO">
+		update payment set 
+		psdate = #{psdate},
+		 pedate = #{pedate},
+		  ppay =+ #{ppay},
+		  monthnum=+ #{monthnum},
+		pway= #{pway},
+		 pgubun= #{pgubun} 
+		 where pnum= #{pnum}
+
+		
+	</update>
+	
+	<update id="payment_detailup" parameterType="payment_DetailVO">
+	update payment_detail 
+	set kinds = #{kinds},
+		mentnum = #{mentnum},  
+		inment =+ #{inment} 
+		where pnum= #{pnum}
+	</update>
+	
+	<update id="member_secession" parameterType="signVO">
+	update signup 
+	set adivision = 1 
+	where aid =#{aid} 
+	and apwd = #{apwd}
+	
+	</update>
+	
+	<select id="mypage_customer" parameterType="int" resultType="cbvo1">
+	select * from customer_board1 where anum = #{anum}
+	</select>
+	
+	
 	<!-- 로그인 정보 회원정보 조인 resultMap -->
 	<resultMap type="signVO" id="member_infor">
 		<id property="anum" column="snum" />
@@ -79,6 +126,7 @@
 		<result property="ppay" column="ppay" />
 		<result property="pway" column="pway" />
 		<result property="pgubun" column="pgubun" />
+		<result property="monthnum" column="monthnum" />
 		<association property="paydetailvo" column="pnum"
 			javaType="payment_detailvo">
 			<id property="pnum" column="pnum" />

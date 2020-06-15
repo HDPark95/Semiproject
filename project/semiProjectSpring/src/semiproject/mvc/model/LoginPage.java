@@ -33,20 +33,19 @@ public class LoginPage {
 	@RequestMapping(value = "/loginPost")
 	public ModelAndView loginPost(LoginDTO loginDTO, HttpSession httpsession) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("ì‹¤í–‰");
-		UserVO vo = logindao.login(loginDTO);
-		System.out.println(vo.getApwd());
-		System.out.println(loginDTO.getApwd());
-		if (vo == null || (loginDTO.getApwd() == vo.getApwd())) {
-			System.out.println((loginDTO.getApwd() == vo.getApwd()));
+		System.out.println("¼º°ø");
+		int cnt = logindao.login(loginDTO);
+		if(cnt == 0) {
 			mav.setViewName("login/loginform");
 			return mav;
-		}
+		}else {
+		UserVO vo = logindao.logininfo(loginDTO);
 		mav.addObject("user", vo);
 		System.out.println(vo.getDname());
 		httpsession.setAttribute("user", vo);
 		mav.setViewName("redirect:index#footerMenu"); 
 		return mav;
+		}
 	}
 
 	@RequestMapping(value = "/logout")

@@ -43,11 +43,11 @@
 			alias="commupvo"/>
 				<typeAlias type="semiproject.mvc.vo.Customer_BoardVO" alias="cbvo" />
 		<typeAlias type="semiproject.mvc.vo.Customer_Board1VO" alias="cbvo1" />	
-		
-		
-		
+		<typeAlias type="semiproject.mvc.vo.LoginDTO" alias="logindto" />
+			<typeAlias type="semiproject.mvc.vo.RealPriceVO" alias="realvo" />	
 		<!-- 부동산 -->
 		<typeAlias type="semiproject.mvc.vo.EstateVO" alias="evo"/>
+		<typeAlias type="semiproject.mvc.vo.EstatePageVO" alias="epvo"/>
 		<typeAlias type="semiproject.mvc.vo.AddInfoVO" alias="aivo"/>
 		<typeAlias type="semiproject.mvc.vo.RentVO" alias="rentvo"/>
 		<typeAlias type="semiproject.mvc.vo.SubBuildVO" alias="sbvo"/>

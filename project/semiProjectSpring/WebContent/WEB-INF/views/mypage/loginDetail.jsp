@@ -2,14 +2,9 @@
 	pageEncoding="UTF-8"%>
 
 
-<link href="resources/css/myPage/th_bootstrap.css?after"
-	rel="stylesheet" />
-<link href="resources/css/myPage/th_styles.css?after" rel="stylesheet" />
 
-
-
-<div class="container" id="">
-	<h4 class="subtopma">${user.aid }님의 로그인 정보 입니다.</h4>
+<div class="container" style="height: 556.63px;">
+	<h4 class="subtopma">${user.aid }님의로그인 정보 입니다.</h4>
 	<form class="form-horizontal" action="mypageloginUpdate" method="post">
 
 		<table class="type02">
@@ -21,18 +16,18 @@
 			<tr>
 				<th scope="row">비밀번호</th>
 				<td><input type="password" class="form-control" name="apwd"
-					id="apwd" value="${vo.apwd }">
-				<input type="button" id="cbtn" class="" value="비번확인"></td>
+					id="apwd" value="${vo.apwd }"> <input type="button"
+					id="cbtn" class="" value="비번확인"></td>
 			</tr>
-			<tr> 
+			<tr>
 				<th scope="row">가입날짜</th>
 				<td><input type="text" class="form-control" name="ainday"
-					id="age" readonly="readonly" value="${vo.ainday }"></td>
+					id="ainday" readonly="readonly" value="${vo.ainday }"></td>
 			</tr>
 			<tr>
 				<th scope="row">수정날짜</th>
 				<td><input type="text" class="form-control" name="achgday"
-					readonly="readonly" value="${vo.achgday }"></td>
+					id="achgday" readonly="readonly" value="${vo.achgday }"></td>
 			</tr>
 			<tr>
 				<th scope="row">아이디 구분</th>
@@ -55,6 +50,19 @@
 <script>
 	$(function() {
 		var cnum = 0;
+
+		var $ainday = $('#ainday').val(); // String
+		var $achgday = $('#achgday').val(); // String
+
+		var ainday_theorem = $ainday.substr(0, 4) + " 년 "
+				+ $ainday.substr(5, 2) + " 월 " + $ainday.substr(8, 2) + " 일 "
+				+ $ainday.substr(10, 2) + " 시 ";
+		var achgday_theorem = $achgday.substr(0, 4) + " 년 "
+				+ $achgday.substr(5, 2) + " 월 " + $achgday.substr(8, 2) + " 일 "
+				+ $achgday.substr(10, 2) + " 시 ";
+		
+		$('#ainday').val(ainday_theorem);
+		$('#achgday').val(achgday_theorem);
 
 		$('#cbtn').click(function() {
 

@@ -79,10 +79,11 @@ div.final_price {
 
 
 					<th>카드번호</th>
-					<td scope="row"><input type="number" min="1000" max="9999" id="cardnumber1" name="mentnum" required="required">-
-					<input type="number" min="1000" max="9999" id="cardnumber2" name="mentnum" required="required">-
-					<input type="number" min="1000" max="9999" id="cardnumber3" name="mentnum" required="required">-
-					<input type="number" min="1000" max="9999" id="cardnumber4" name="mentnum" required="required"></td>
+					<td scope="row"><input type="text" min="1000" max="9999" maxlength="4"  id="cardnumber1"  required="required">-
+					<input type="text" min="1000" max="9999" id="cardnumber2" maxlength="4" required="required">-
+					<input type="text" min="1000" max="9999" id="cardnumber3" maxlength="4" required="required">-
+					<input type="text" min="1000" max="9999" id="cardnumber4" maxlength="4"  required="required">
+					<input type="hidden" name="mentnum" id="mentnum" value=""></td>
 
 				</tr>
 
@@ -130,16 +131,16 @@ div.final_price {
 						<td class="popup" height="35" style="padding-left: 14px;"
 							width="27%" bgcolor="#fce4ea">입금하실 은행</td>
 						<td bgcolor="#ffffff"><select
-							style="width: 140px; padding: 5px 0; font-size: 14px;"><option
-									value="1">국민은행</option>
-								<option value="2">기업은행</option>
-								<option value="3">농협은행</option>
-								<option value="12">시티은행</option>
-								<option value="15">신한은행</option>
-								<option value="13">우리은행</option>
-								<option value="14">우체국은행</option>
-								<option value="8">제일은행</option>
-								<option value="11">하나은행</option></select></td>
+							style="width: 140px; padding: 5px 0; font-size: 14px;">
+								<option>국민은행</option>
+								<option >기업은행</option>
+								<option >농협은행</option>
+								<option >시티은행</option>
+								<option>신한은행</option>
+								<option >우리은행</option>
+								<option >우체국은행</option>
+								<option >제일은행</option>
+								<option >하나은행</option></select></td>
 					</tr>
 					<tr>
 						<td height="35" style="padding-left: 14px;" width="27%"
@@ -232,7 +233,20 @@ div.final_price {
 	</div>
 </form>
 	<script>
-		$(document).ready(function() {
+		$(function() {
+			
+			$('#button1').click(function() {
+				var cardnumber1 = $('#cardnumber1').val();
+				var cardnumber2 = $('#cardnumber2').val();
+				var cardnumber3 = $('#cardnumber3').val();
+				var cardnumber4 = $('#cardnumber4').val();
+				
+				$('#mentnum').val(cardnumber1 + "-" + cardnumber2 + "-" + cardnumber3 + "-" + cardnumber4);
+			});
+			
+			
+			
+			
 			$('#aa').show(); //페이지를 로드할 때 표시할 요소
 			$('#PayOnline').hide(); //페이지를 로드할 때 숨길 요소
 			$('.pay1').change(function() {
@@ -246,7 +260,7 @@ div.final_price {
 				}
 
 			});
-
+			
 		});
 	</script>
 

@@ -2,9 +2,15 @@
 package semiproject.mvc.vo;
 
 public class CommercialProductVO {
-	private int prc, spc1, spc2;
-	private String plocation, atclfetrdesc, atclno,taglist,rltrnm, tradtpcd, rlettpcd, pdnum;
+	private int prc, spc1, spc2 ;
+	private String plocation, atclfetrdesc, atclno,taglist,rltrnm, tradtpcd,rlettpcd , pdnum;
 	
+	public String getPdnum() {
+		return pdnum;
+	}
+	public void setPdnum(String pdnum) {
+		this.pdnum = pdnum;
+	}
 	public String getRlettpcd() {
 		return rlettpcd;
 	}
@@ -16,18 +22,6 @@ public class CommercialProductVO {
 	}
 	public void setTradtpcd(String tradtpcd) {
 		this.tradtpcd = tradtpcd;
-	}
-	public String getPdnum() {
-		return pdnum;
-	}
-	public void setPdnum(String pdnum) {
-		this.pdnum = pdnum;
-	}
-	public String getPlocation() {
-		return plocation;
-	}
-	public void setPlocation(String plocation) {
-		this.plocation = plocation;
 	}
 	public String getRltrnm() {
 		return rltrnm;
@@ -47,7 +41,13 @@ public class CommercialProductVO {
 	public void setAtclno(String atclno) {
 		this.atclno = atclno;
 	} 
-	
+	private int num;
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public int getSpc1() {
 		return spc1;
 	}
@@ -66,6 +66,13 @@ public class CommercialProductVO {
 	}
 	public void setPrc(int prc) {
 		this.prc = prc;
+	}
+	
+	public String getPlocation() {
+		return plocation;
+	}
+	public void setPlocation(String plocation) {
+		this.plocation = plocation;
 	}
 	public String getAtclfetrdesc() {
 		return atclfetrdesc;

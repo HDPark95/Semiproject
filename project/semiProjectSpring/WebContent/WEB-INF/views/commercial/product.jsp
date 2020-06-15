@@ -17,35 +17,28 @@
 #location1 {
 	margin-bottom: 0;
 }
+tr th {
+width:150px;}
 </style>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
 		<div class="form-inline form-group" id="location1">
-			<label for="Select1">구 선택</label> <select id="Select1"
-				class="form-control col-md-2">
-				<option>전체</option>
-			</select> <label for="Select2">거래종류 선택</label> <select id="Select2"
-				class="form-control col-md-2">
-				<option>전체</option>
-			</select>
+			<h1>매물 정보</h1>
 		</div>
-		<table class="table table-hover" style="width:1300px">
+		<table class="table table-hover" id="dataList" style="width: 1300px;">
 			<thead>
-				<tr>
-					<th colspan="8">매물정보</th>
-				</tr>
 				<tr>
 					<th>번호</th>
 					<th>매물종류</th>
 					<th>거래종류</th>
-					<th>가격(만원)</th>
-					<th>매물정보</th> 
+					<th>가격   (만원)</th>
+					<th>매물정보</th>
 					<th>tagList</th>
 					<th>부동산이름</th>
 					<th>행정동명</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="productBody">
 				<c:forEach var="listv" items="${list}">
 					<tr>
 						<th>${listv.pdnum}</th>
@@ -67,14 +60,12 @@
 				<tr>
 					<th colspan="8">
 						<form method="post" action="product">
-							<input type="hidden" name="nowPage" value="${param.nowPage }">
-							<input type="hidden" name="page" value="${param.page}"> <select id="searchType"
-								name="searchType">
-								<option value="1">거래종류</option>
+							<%-- <input type="hidden" name="nowPage" value="${paging.nowPage}">
+							<input type="hidden" name="page" value="${paging.page}"> --%> <select id="searchType" name="searchType">
+								<option value="1">내용</option>
 								<option value="2">행정동명</option>
-								<option value="3">내용</option>
-							</select>&nbsp; <input type="text" id="searchValue" name="searchValue"> <input type="submit"
-								class="btn-primary btn-sm" id="search" value="검색">
+							</select>&nbsp; <input type="text" id="searchValue" name="searchValue">
+							<input type="submit" class="btn-primary btn-sm" id="search" value="검색">
 						</form>
 					<th>
 				<tr>
@@ -82,26 +73,5 @@
 		</table>
 	</div>
 </section>
-<script>
-	$(function() {
-		var url = "comugu";
-		$.ajax({
-			url : url,
-			success : function(d) {
-				$("#Select1").html(d);
-			}
-		})
-		$("#Select1").change(function(){
-			var guName = $(this).val();
-			var url = "searchGuname?guName="+guName;
-			$.ajax({
-				url : url
-			})
-		})
-		$("#search").click(function(){
-			console.log($("#searchValue").val())
-			console.log($("#searchType").val())
-		})
-	});
-</script>
+
 <%@ include file="../include/footer.jsp"%>

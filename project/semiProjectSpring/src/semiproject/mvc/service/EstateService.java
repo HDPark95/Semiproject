@@ -57,9 +57,9 @@ public class EstateService {
 		
 		for(String e: avo.getOption()) {
 			System.out.println(e);
-			int onum=estateDAO.poptionNum(e);
+			
 			Option_SelVO option = new Option_SelVO();
-			option.setOnum(onum);
+			option.setOption(e);
 			option.setPidnum(pidnum);
 			estateDAO.addoptionsel(option);
 		}

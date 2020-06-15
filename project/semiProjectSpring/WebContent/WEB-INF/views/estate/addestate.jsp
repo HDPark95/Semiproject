@@ -25,8 +25,8 @@
 	            					<td >
 	            					  	<div class="seleted-div">
 	            						<span class="square build false" onclick="changeSelect(0)">원룸 </span> 
-	            						<span class="square build false"  onclick="changeSelect(1)">투룸</span> 
-	            						<span class="square build false"  onclick="changeSelect(2)"> 쓰리룸</span> 
+	            						<span class="square build false"  onclick="changeSelect(1)">주택</span> 
+	            						<span class="square build false"  onclick="changeSelect(2)"> 상가</span> 
 	            						<span class="square build false"  onclick="changeSelect(3)">오피스텔(도시형)</span> 
 	            						<span class="square build false"  onclick="changeSelect(4)">아파트</span>
 	            						</div> 
@@ -435,18 +435,18 @@
 				}
 			})
 		}
-/* 		newForm.append($('<input/>',{type:'hidden',name:'excludive',value:$('#exclusive-area').val()})); */
+
  		input+="<input type='hidden' value='"+$('#exclusive-area').val()+"' name='exclusive'>"; 
-	/* newForm.append($('<input/>',{type:'hidden',name:'supply',value:$('#supply-area').val()})); */
+	
 	 	input+="<input type='hidden' value='"+$('#supply-area').val()+"' name='supply'>"; 
 		var floor=$('#myfloor').val()+"/"+$('#floor').val();
 	
 		
-	/* 	newForm.append($('<input/>',{type:'hidden',name:'floor',value:floor})); */
+
 		 input+="<input type='hidden' value='"+floor+"' name='floor'>"; 
-		/* newForm.append($('<input/>',{type:'hidden',name:'heating',value:$('#heating').val()})); */
+	
 	 	input+="<input type='hidden' value='"+$('#heating').val()+"' name='heating'>"; 
-	/* newForm.append($('<input/>',{type:'hidden',name:'title',value:$('#title').val()})); */
+
 	 	input+="<input type='hidden' value='"+$('#title').val()+"' name='title'>"; 
 	
 	
@@ -467,14 +467,25 @@
 		var input='';
 		
 		if(className==="build"){
-			values=text;
-			/* newForm.append($('<input>',{type:'hidden',name:'build',value:values})); */
+			if(text==='원룸'){
+				values='C01';
+			}else if(text==='주택'){
+				values='C03';
+			}else if(text==='상가'){
+				values='D02';
+			}else if(text==='오피스텔(도시형)'){
+				values='A02';
+			}else if(text==='아파트'){
+				values='A01';
+			}
+		
+		
 			 input+="<input type='hidden' value='"+values+"' name='build'>"; 
 		}else if(className==="sub-build"){
 			values=text;
 			
 		input+="<input type='hidden' value='"+values+"' name='subbuild'>"; 
-			/* newForm.append($('<input>',{type:'hidden',name:'subbuild',value:values})); */
+			
 		}else if(className==="rent"){
 		
 			var dans=false;
@@ -499,29 +510,24 @@
 					
 					values=$(this).val()+'/'+thisv[i].value;
 					 input+="<input type='hidden' value='"+dans+"' name='dan'>"; 
-					/* newForm.append($('<input/>',{type:'hidden',name:'dan',value:dans})); */
+					
 					 input+="<input type='hidden' value='B2' name='rentv'>"; 
-					/* newForm.append($('<input/>',{type:'hidden',name:'rentv',value:text})); */
+					
 					 input+="<input type='hidden' value='"+values+"' name='rpay'>"; 
-					/* newForm.append($('<input/>',{type:'hidden',name:'rpay',value:values})); */
-					num+=i;
+				
+					
 				});
 			
 			} if(text==='전세'){
 				values=$('#charter').val();
 			
-			/* 	newForm.append($('<input/>',{type:'hidden',name:'rentv',value:text}));
-				newForm.append($('<input/>',{type:'hidden',name:'dan',value:dans}));
-				newForm.append($('<input/>',{type:'hidden',name:'rpay',value:values})); */
 			 input+="<input type='hidden' value='B1' name='rentv'>"; 
 			 	input+="<input type='hidden' value='"+dans+"' name='dan'>"; 
 				input+="<input type='hidden' value='"+values+"' name='rpay'>"; 
 			
 			} if(text==='매매'){
 				values=$('#trading').val();
-			/* 	newForm.append($('<input/>',{type:'hidden',name:'rentv',value:text}));
-				newForm.append($('<input/>',{type:'hidden',name:'dan',value:dans}));
-				newForm.append($('<input/>',{type:'hidden',name:'rpay',value:values})); */
+			
 				input+="<input type='hidden' value='A1' name='rentv'>";
 				input+="<input type='hidden' value='"+dans+"' name='dan'>";
 				input+="<input type='hidden' value='"+values+"' name='rpay'>"; 
@@ -532,18 +538,18 @@
 			
 		}else if(className==="move-in"){
 			values=text;
-			/* newForm.append($('<input/>',{type:'hidden',name:'move',value:values})); */
+			
 			input+="<input type='hidden' value='"+values+"' name='move'>"; 
 			console.log(input);
 		}else if(className==="administrative"){
 			
 			values=$('#adminpay').val();;
 	
-		/* 	newForm.append($('<input/>',{type:'hidden',name:'pay',value:values})); */
+	
 			input+="<input type='hidden' value='"+values+"' name='pay'>";
 			
 			values=text;
-			/* newForm.append($('<input/>',{type:'hidden',name:'administrat',value:values})); */
+			
 			input+="<input type='hidden' value='"+values+"' name='administrat'>";
 		}else if(className==="parking"){
 			var bool='0';
@@ -551,10 +557,7 @@
 				bool='1';
 			}
 			
-		/* 	
-			newForm.append($('<input/>',{type:'hidden',name:'park',value:bool}));
-
-			newForm.append($('<input/>',{type:'hidden',name:'ppay',value:$('#pamount').val()})); */
+		
 		 	input+="<input type='hidden' value='"+bool+"' name='park'>";
 			input+="<input type='hidden' value='"+$('#pamount').val()+"' name='ppay'>";
 		}else if(className==="pets"){
@@ -566,7 +569,7 @@
 			
 		
 			name='pets';
-		/* 	newForm.append($('<input/>',{type:'hidden',name:'pets',value:bool})); */
+		
 			 input+="<input type='hidden' value='"+bool+"' name='pets'>"; 
 		}else if(className==="elevator"){
 			var bool='0';
@@ -576,8 +579,7 @@
 			}
 	
 			
-			/* 
-			newForm.append($('<input/>',{type:'hidden',name:'elevator',value:bool})); */
+		
 			 input+="<input type='hidden' value='"+bool+"' name='elevator'>"; 
 		}else if(className==="balcony"){
 			var bool='0';
@@ -589,7 +591,7 @@
 		
 
 			
-			/* newForm.append($('<input/>',{type:'hidden',name:'balcony',value:bool})); */
+		
 			input+="<input type='hidden' value='"+bool+"' name='balcony'>"; 
 			
 		}else if(className==="built"){
@@ -599,12 +601,12 @@
 				bool='1';
 			}
 			
-		/* 	newForm.append($('<input/>',{type:'hidden',name:'built',value:bool})); */
+	
 		input+="<input type='hidden' value='"+bool+"' name='built'>"; 
 		
 		}else if(className==="option"){
 			
-			/* newForm.append($('<input/>',{type:'hidden',name:'option',value:text})); */
+			
 	 	input+="<input type='hidden' value='"+text+"' name='option'>"; 
 	 	
 		}else if(className==="chartered"){
@@ -612,14 +614,13 @@
 			if(text==='가능'){
 				bool='1';
 			}
-		/* 	newForm.append($('<input/>',{type:'hidden',name:'chartered',value:bool})); */
+	
 			
 		input+="<input type='hidden' value='"+bool+"' name='chartered'>"; 
 			
 		}else if(className==="structure"){
 			
-			
-		/* 	newForm.append($('<input/>',{type:'hidden',name:'structure',value:text})); */
+	
 		 input+="<input type='hidden' value='"+text+"' name='structure'>"; 
 		}
 		
@@ -724,7 +725,9 @@
 					
 					"</div> "+
 				"</td>";
-		}else if(num==4){
+		}else if(num===4){
+			html="";
+		}else if(num===2){
 			html="";
 		}else{
 			html="<td >	종류선택</td>"+

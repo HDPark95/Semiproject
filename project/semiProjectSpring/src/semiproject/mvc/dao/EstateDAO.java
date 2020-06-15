@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import semiproject.mvc.vo.AddInfoVO;
 import semiproject.mvc.vo.AdministrativeVO;
+import semiproject.mvc.vo.EstatePageVO;
 import semiproject.mvc.vo.EstateVO;
 import semiproject.mvc.vo.Option_SelVO;
 import semiproject.mvc.vo.RentVO;
@@ -38,18 +39,18 @@ public class EstateDAO {
 	public void addadmin(AdministrativeVO vo) {
 		ss.insert("estate.addadmin",vo);
 	}
-	public int poptionNum(String option) {
-		return ss.selectOne("estate.option", option);
-	}
+
 	public void addoptionsel(Option_SelVO vo) {
 		ss.insert("estate.addoptionsel",vo);
 	}
 	
-	
-	
-	/*
-	 * public List<EstateVO> getlist(){ return ss.selectList("estate.mainlist");
-	 * 
-	 * }
-	 */
+	public List<EstateVO> mlist(EstatePageVO pvo){
+		return ss.selectList("estate.estatemlist",pvo);
+	}
+	public int listCount() {
+		return ss.selectOne("estate.pcount");
+	}
+	public EstateVO estateDetail(int num) {
+		return ss.selectOne("estate.Detail",num);
+	}
 }

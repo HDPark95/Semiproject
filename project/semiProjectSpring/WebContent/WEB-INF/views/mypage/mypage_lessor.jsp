@@ -105,6 +105,9 @@
 				}
 			});
 		});
+		$('#member_secession_btn').click(function() {
+			
+		});
 		
 		$('#selectmyposts').click(function() {
 			$.ajax({
@@ -127,6 +130,18 @@
 				}
 			});
 		});
+		
+		$('#member_secession_btn').click(function() {
+			$.ajax({
+				url : "member_secession" ,
+				type : "post" ,
+				data : {aid : "${vo.aid }"},
+				success : function(result) {
+					$('#member_secession').html(result);
+				}
+			});
+		});
+		
 	});
 </script>
 

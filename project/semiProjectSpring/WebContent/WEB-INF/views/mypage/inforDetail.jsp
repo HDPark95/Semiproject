@@ -1,21 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
-<link href="resources/css/myPage/th_bootstrap.css?after"
-	rel="stylesheet" />
-<link href="resources/css/myPage/th_styles.css?after" rel="stylesheet" />
-
-
-
-<div class="container membertarget" id="">
-	<h4 class="subtopma">${vo.memberinfor.dname }님의 회원 정보 입니다.</h4>
+<div class="container membertarget" style="height: 556.63px;">
+	<h4 class="subtopma" style="margin-bottom: 40px;">${vo.memberinfor.dname }님의 회원 정보 입니다.</h4>
 	<form class="form-horizontal" action="inforDetailUpdate" method="post">
 		<input type="hidden" class="form-control" name="aid" id="aid"
 			placeholder="" readonly="readonly" value="${vo.aid }"> <input
 			type="hidden" class="form-control" name="apwd" placeholder="Password"
 			value="${vo.apwd }"> 
-		<table class="type02"  style="height:330px">
+		<table class="type02"  style="height:330px; ">
 			<tr>
 				<th scope="row">이름</th>
 				<td><input type="text" class="form-control" name="dname" id="dname"
@@ -59,17 +52,17 @@
 <script>
 	$(function() { 
 		var date = new Date();
-		var year = date.getFullYear();
-		var dbirth = '${vo.memberinfor.dbirth }';
-		var myyear = dbirth.substr(0, 4);
+		var year = date.getFullYear(); 				// Number
+		var dbirth = '${vo.memberinfor.dbirth }';	//String
+		var myyear = dbirth.substr(0, 4);			//Number
 		var age = year - myyear;
 		myyear = Number(myyear);
 		$('#age').val(age);
 
-		console.log(typeof(year));
-		console.log(typeof(dbirth));
-		console.log(typeof(myyear));
+		var dbirth_theorem = dbirth.substr(0, 4) + " 년 "
+		+ dbirth.substr(5, 2) + " 월 " + dbirth.substr(8, 2) + " 일 ";
 		
+		$("#dbirth").val(dbirth_theorem);
 		
 			
 

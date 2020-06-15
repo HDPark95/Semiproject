@@ -12,6 +12,7 @@ import org.json.simple.JSONValue;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
@@ -28,6 +29,7 @@ import semiproject.mvc.dao.EstateDAO;
 import semiproject.mvc.service.EstateService;
 import semiproject.mvc.vo.AddInfoVO;
 import semiproject.mvc.vo.AdministrativeVO;
+import semiproject.mvc.vo.EstatePageVO;
 import semiproject.mvc.vo.EstateVO;
 import semiproject.mvc.vo.RentVO;
 
@@ -50,7 +52,15 @@ public class EstatePage{
 		return "estate/addestate";
 	}
 	@RequestMapping(value="/estateDetail")
-	public String goEsateDetail() {
+	public String goEsateDetail(int num,Model m) {
+		EstateVO vo=estateDAO.estateDetail(num);
+		System.out.println(vo.getBuild());
+		for(RentVO e: vo.getRent()) {
+			System.out.println(e.getRentv());
+			System.out.println(e.getRpay());	
+		}
+		
+		m.addAttribute("vo",vo);
 		return "estate/estateDetile";
 	} 
 	@RequestMapping(value = "/insertestate",method = RequestMethod.POST)
@@ -91,10 +101,15 @@ public class EstatePage{
 			mav.addObject("msg","등록이 완료되었습니다.");
 		return mav;
 	}
+
 	@RequestMapping(value = "/estatelist")
-	public ModelAndView estatelist() {
+	public ModelAndView estatelist(EstatePageVO pvo,@RequestParam(value = "nowPage", required = false, defaultValue = "1") String nowPage,
+			@RequestParam(value = "cntPerPage", required = false, defaultValue = "10") String cntPerPage) {
 		ModelAndView mav = new ModelAndView("estate/server/estatelist");
-			
+		pvo = new EstatePageVO(estateDAO.listCount(), Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+	
+		mav.addObject("list",	estateDAO.mlist(pvo));
+		mav.addObject("paging",pvo);
 		
 		return mav;
 	}
