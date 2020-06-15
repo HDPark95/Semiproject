@@ -3,21 +3,49 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page trimDirectiveWhitespaces="true"%>
 
-<c:forEach begin="1" end="10" step="1" varStatus="i">
-							<li class="list-inline">
-								<div class="col-md-6 col-sm-6 float-left">
-									<a href="#">
-										<div class="col-md-12 col-sm-12">
-											<img src="resources/images/estate/apt.jpg"  style="width: 100%; height: 100px;">
-											
-											<p>이미지!</p>
-										</div>
-										<div class="col-md-12 col-sm-12">
-											<p>매물종류${i.index }</p>
-											<span> 매물 가격${i.index }</span>
-				 							<p>매물설명${i.index }</p>
-										</div>
-									</a>
-								</div>
-							</li>
-</c:forEach>
+	<div class="col-md-12">
+		<div>
+						<ul id="listtarget">
+							<c:forEach items="${list }" var="e" varStatus="i">
+								<li class="list-inline" style="text-overflow: ellipsis;">
+									<div class="col-md-6 col-sm-6 float-left" >
+										<a href="estateDetail?num=${e.pdnum}">
+											<div class="col-md-12 col-sm-12">
+												<img src="resources/images/estate/apt.jpg"  style="width: 100%; height: 100px;">
+												
+											</div>
+											<div class="col-md-12 col-sm-12" style="height: 160px; text-overflow: ellipsis;">
+											<c:choose>
+												<c:when test="${e.build=='A01' }"><p>아파트</p></c:when>
+												<c:when test="${e.build=='A02' }"><p>오피스텔</p></c:when>
+												<c:when test="${e.build=='C01' }"><p>원룸</p></c:when>
+												<c:when test="${e.build=='B01' }"><p>분양권</p></c:when>
+												<c:when test="${e.build=='C03' }"><p>주택</p></c:when>
+												<c:when test="${e.build=='D03' }"><p>건물</p></c:when>
+												<c:otherwise><p>${e.build}</p></c:otherwise>
+											</c:choose>
+												
+													<c:forEach items="${e.rent}" var="r">
+														<span>
+														
+														
+														 <c:choose>
+														 	<c:when test="${r.rentv =='A1'}">매매</c:when>
+														 	<c:when test="${r.rentv=='B1' }">전세</c:when>
+														 	<c:when test="${r.rentv=='B2' }">월세</c:when>
+														 </c:choose>
+														 
+														 :${r.rpay }</span><br>
+													</c:forEach>
+					 							<p>${e.title}</p>
+											</div>
+										</a>
+									</div>
+								</li>
+							</c:forEach>
+						</ul>
+						</div>
+						<div style="margin-top: 10px;">
+						<%@ include file="estatepage.jsp" %>
+						</div>
+			</div>

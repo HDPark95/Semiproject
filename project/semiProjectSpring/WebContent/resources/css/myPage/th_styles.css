@@ -226,7 +226,7 @@ table.type12 td {
 
 .th_page_space {
 	width: auto;
-	height: auto;
+	height: 800px;
 }
 
 .th_img_boxlist {
@@ -426,6 +426,10 @@ table.type12 td {
 	margin-left: 30px;
 	margin-right: 15px;
 	margin-bottom: 25px;
+}
+.th_infor_card_sub{
+	width: 100%;
+	height: 10%;
 }
 
 .th_nav-link:hover {

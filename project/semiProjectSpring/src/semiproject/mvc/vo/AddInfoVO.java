@@ -13,10 +13,10 @@ public class AddInfoVO {
 	private String[] structure,move;
 	private String pstructure;
 	private List<AdministrativeVO> administrative;
-
-	private String[] option;
 	private List<Option_SelVO> poption;
 	
+	private String[] option;
+
 	private String park;
 	private int ppay;
 	

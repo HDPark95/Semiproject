@@ -9,16 +9,29 @@ public class EstateVO {
 	// C02 = 투룸
 	// C03 = 쓰리룸
 	private int pdnum,anum;
-	private String build,floor;
+	private String build,floor,plocation;
 	private String[] subbuild;
 	private List<SubBuildVO> subvo;
 	private double supply,exclusive; //공급 / 전용면적
 	private List<RentVO> rent; // 매매,전세,월세
 	private String  title; //  제목
+	private AddInfoVO addinfo;
 	
 	
 	
-	
+	public AddInfoVO getAddinfo() {
+		return addinfo;
+	}
+	public void setAddinfo(AddInfoVO addinfo) {
+		this.addinfo = addinfo;
+	}
+	public String getPlocation() {
+		return plocation;
+	}
+	public void setPlocation(String plocation) {
+		this.plocation = plocation;
+	}
+
 	public int getPdnum() {
 		return pdnum;
 	}

@@ -31,10 +31,11 @@ public class PaymentPage {
 	@RequestMapping(value="/pay1")
 	public ModelAndView pay1(PaymentVO vo , int anum) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("금액-pay1: " + vo.getPpay());
-		System.out.println("날짜"+ vo.getPsdate());
-		System.out.println("날짜종료"+ vo.getPedate());
-		System.out.println("날짜개월"+ vo.getMonthnum());	
+		System.out.println("湲덉븸-pay1: " + vo.getPpay());
+		System.out.println("�궇吏�"+ vo.getPsdate());
+		System.out.println("�궇吏쒖쥌猷�"+ vo.getPedate());
+		System.out.println("�궇吏쒓컻�썡"+ vo.getMonthnum());
+		
 		mav.addObject("vo", vo);
 		mav.addObject("pvo", paymentdao.paymentname(anum));
 		mav.setViewName("payment/payment1");
@@ -68,6 +69,8 @@ public class PaymentPage {
 	public String pay5() {
 		return "payment/payment1-2";	
 	}
+	
+	
 	@RequestMapping(value = "/paymentUpdate", method = RequestMethod.POST)
 	public ModelAndView paymentUpdate(PaymentVO vo, Payment_DetailVO vo1, HttpServletRequest request ) {
 		ModelAndView mav = new ModelAndView();

@@ -3,7 +3,7 @@
 package semiproject.mvc.vo;
 
 public class PaymentVO {
-	private int pnum , anum , ppay,monthnum;
+	private int pnum , anum , ppay, monthnum;
 	private String psdate , pedate , pway , pgubun ;
 	
 	private Payment_DetailVO paydetailvo ; 

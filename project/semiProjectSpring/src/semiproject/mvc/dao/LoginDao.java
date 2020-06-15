@@ -13,10 +13,13 @@ public class LoginDao extends HandlerInterceptorAdapter{
 	@Autowired
 	private SqlSessionTemplate ss;
 	
-	public UserVO login(LoginDTO loginDTO) throws Exception{
-		System.out.println("ÏïÑÏù¥Îîî : " + loginDTO.getAid());
-		String aid= loginDTO.getAid();
-		return ss.selectOne("login.login", aid);
+	public int login(LoginDTO loginDTO) throws Exception{
+		System.out.println("æ∆¿Ãµ : " + loginDTO.getAid());
+		return ss.selectOne("login.login", loginDTO);
+	}
+	public UserVO logininfo(LoginDTO loginDTO) throws Exception{
+		System.out.println("º∫∞¯");
+		return ss.selectOne("login.info", loginDTO);
 	}
 }
  

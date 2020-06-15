@@ -4,7 +4,7 @@
 <div id="pagenum1" style="display: block; text-align: center;">
 	<ul class="pagination pagination-lg">
 	<c:if test="${paging.startPage != 1 }">
-		<li class="page-item"> <a class="page-link active" href="product?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}"><</a></li>
+		<li class="page-item"> <a class="page-link active" href="product?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&searchType=${paging.searchType}&searchValue=${paging.searchValue}"><</a></li>
 	</c:if>
 	<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
 		var="p">
@@ -13,12 +13,12 @@
 				<li class="page-item"><b class="page-link">${p }</b></li>
 			</c:when>
 			<c:when test="${p != paging.nowPage }">
-				<li class="page-item"> <a class="page-link" href="product?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p}</a></li>
+				<li class="page-item"> <a class="page-link" href="product?nowPage=${p }&cntPerPage=${paging.cntPerPage}&searchType=${paging.searchType}&searchValue=${paging.searchValue}">${p}</a></li>
 			</c:when>
 		</c:choose>
 	</c:forEach>
 	<c:if test="${paging.endPage != paging.lastPage}">
-		<li class="page-item"><a class="page-link" href="product?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">></a><li class="page-item">
+		<li class="page-item"><a class="page-link" href="product?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&searchType=${paging.searchType}&searchValue=${paging.searchValue}">></a><li class="page-item">
 	</c:if>
 	</ul>
 </div> 

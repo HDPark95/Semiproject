@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import semiproject.mvc.vo.CommercialProductVO;
 import semiproject.mvc.vo.DataVO;
 import semiproject.mvc.vo.PageVO;
+import semiproject.mvc.vo.RealPriceVO;
 @Repository
 public class CommercialProductDao {
 	@Autowired
@@ -32,11 +33,18 @@ public class CommercialProductDao {
 	 public List<CommercialProductVO> getList(PageVO svo){ //nowPage등으로 연산이 된  start,end
 		  System.out.println("stype"+svo.getSearchType());
 		  System.out.println("svalue"+svo.getSearchValue());
-		  return ss.selectList("search.list", svo);
+		  return ss.selectList("search.list2", svo);
 		} 
-	 
+	 public List<RealPriceVO> getList2(PageVO svo){ //nowPage등으로 연산이 된  start,end
+		  System.out.println("stype"+svo.getSearchType());
+		  System.out.println("svalue"+svo.getSearchValue());
+		  return ss.selectList("search.list3", svo);
+		} 
 	 public int getTotalCount(PageVO svo) {//전체 데이터를 기준으로 페이지를 나눌것이기 때문에..
 		  return ss.selectOne("search.totalCount", svo);
+		 }
+	 public int getTotalCount2(PageVO svo) {//전체 데이터를 기준으로 페이지를 나눌것이기 때문에..
+		  return ss.selectOne("search.totalCount2", svo);
 		 }
 }
 

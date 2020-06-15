@@ -32,15 +32,6 @@
 										type="text" id="addrDetail" name="addrDetail"></td>
 								</tr>
 								<tr>
-									<th>
-										<h3 class="text-uppercase m-0">물건 구분</h3>
-									<td><select id="law" style="width: 200px; height: 30px"><option>선택</option>
-											<option value="근린상가">근린상가</option>
-											<option value="단지내상가">단지내상가</option>
-											<option value="복합상가">복합상가</option>
-											<option value="일반상가">일반상가</option>
-											<option value="기타상가">기타상가</option>
-									</select></td>
 									<td><h3 class="text-uppercase m-0">매물 종류</h3></td>
 									<td><select id="law" style="width: 180px; height: 30px"><option>선택</option>
 											<option value="매매">매매</option>
@@ -49,8 +40,7 @@
 									</select></td>
 								</tr>
 								<tr>
-									<th>
-										<h3 class="text-uppercase m-0">상호상가</h3>
+									<td><h3 class="text-uppercase m-0">전체 층</h3></td>
 									<td><input type="text" id="size" name="size"></td>
 									<td><h3 class="text-uppercase m-0">해당 층</h3></td>
 									<td><input type="text" id="size" name="size"></td>
@@ -61,16 +51,6 @@
 									<td><input type="text" id="size" name="size"> 평</td>
 									<td><h3 class="text-uppercase m-0">실면적</h3></td>
 									<td><input type="text" id="size" name="size"> 평</td>
-								</tr>
-								<tr>
-									<th>
-										<h3 class="text-uppercase m-0">현업종</h3>
-									<td><input type="text" id="size" name="size"></td>
-									<td><h3 class="text-uppercase m-0">상가입차법</h3></td>
-									<td><select id="law" style="width: 200px; height: 30px"><option>선택</option>
-											<option value="1">대상</option>
-											<option value="0">비대상</option>
-									</select></td>
 								</tr>
 							</table>
 							<!-- <hr class="my-4" /> -->
@@ -92,35 +72,12 @@
 										<td colspan="3"><input type="text" id='feature'
 											name="feature" style="width: 370px; height: 40px;"></td>
 									</tr>
-									<tr>
-										<th>
-											<h3 class="text-uppercase m-0">주변 환경</h3>
-										<td><input type="text" id=""></td>
-										<td><h3 class="text-uppercase m-0">추천 업종</h3></td>
-										<td><select id="law"
-											style="width: 185px; height: 30px; margin-bottom: 10px;"><option>선택</option>
-												<option value="1">현업종과동일</option>
-												<option value="서비스업">서비스업</option>
-												<option value="학원/교육업">학원/교육업</option>
-												<option value="오락업">오락업</option>
-												<option value="음식점업">음식점업</option>
-												<option value="의류업">의류업</option>
-												<option value="자유업">자유업</option>
-												<option value="잡화점">잡화점</option>
-												<option value="전무점">전무점</option>
-												<option value="주류/유흥업">주류/유흥업</option>
-												<option value="병원/의료업">병원/의료업</option>
-												<option value="기타">기타</option>
-										</select> <br /> <input type="text" id=""></td>
-									</tr>
 								</table>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-8 mb-3 mb-md-0 h-100">
 						<h3 style="text-align: left">가격 정보</h3>
-						<span style="text-align: right; color: red;"> 해당부분이 없으면 0을
-							입력하세요.</span>
 						<div class="card py-12 h-auto"
 							style="border-top: 0.25rem solid #64a19d; border-bottom: none;">
 							<div class="card-body text-center">
@@ -281,7 +238,7 @@
 			</div>
 		</div>
 	</section>
-<%
+	<%
 UserVO vo = (UserVO) session.getAttribute("user");
 if(vo.getPgubun().equals("구독"))  {
 %>

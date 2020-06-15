@@ -20,15 +20,15 @@
 			<h6 class="th_card-subtitle th_text-muted ">풀옵션 , 관리비 : 5만원</h6>
 		</div>
 		<div>
-		<img class="th_property_img" src="assets/img/home.jpg"
+		<img class="th_property_img" src="resources/assets/img/home.jpg"
 			alt="Card image" >
-			<img class="th_property_subimg" src="assets/img/home2.jpg"
+			<img class="th_property_subimg" src="resources/assets/img/home2.jpg"
 			alt="Card image">
-			<img class="th_property_subimg" src="assets/img/home3.jpg"
+			<img class="th_property_subimg" src="resources/assets/img/home3.jpg"
 			alt="Card image" >
-			<img class="th_property_subimg" src="assets/img/home4.jpg"
+			<img class="th_property_subimg" src="resources/assets/img/home4.jpg"
 			alt="Card image" >
-			<img class="th_property_subimg" src="assets/img/home.jpg"
+			<img class="th_property_subimg" src="resources/assets/img/home.jpg"
 			alt="Card image">
 			
 			</div> 

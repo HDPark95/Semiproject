@@ -17,7 +17,7 @@
 						<tr>
 							<td>${cblist.wchgdate }</td>
 							<td>${cblist.wgubun }</td>
-							<td>${cblist.wtitle }</td>
+							<td><a href="writingdetail?wnum=${cblist.wnum}">${cblist.wtitle }</a></td>
 							<td>${cblist.wrec }</td>
 							<td>${cblist.whit }</td>
 						</tr>
