@@ -9,11 +9,10 @@ import org.springframework.stereotype.Repository;
 import semiproject.mvc.vo.AuctionAddDeVO;
 import semiproject.mvc.vo.AuctionAddIpVO;
 import semiproject.mvc.vo.AuctionAddMainVO;
-import semiproject.mvc.vo.AuctionDetailVO;
 import semiproject.mvc.vo.AuctionPageVO;
 import semiproject.mvc.vo.AuctionViewVO;
 
-@Repository 
+@Repository
 public class AuctionDao {
 	
 	@Autowired
@@ -31,24 +30,17 @@ public class AuctionDao {
 		ss.insert("auction.addip",vo);
 	}
 	
-	public int getTotalCnt() {
-		return ss.selectOne("auction.totalcount");
+	public int getTotalCnt(AuctionPageVO vo) {
+		return ss.selectOne("auction.totalcount",vo);
 	}
 	
 	public List<AuctionViewVO> getAuctionview(AuctionPageVO vo){
+		//System.out.println("dao:"+vo.getSearchType()+":"+vo.getSearchValue());
 		return ss.selectList("auction.mainsel",vo);
 	}
 	
-	public AuctionDetailVO getAuctionDetail(int anum) {
-		return ss.selectOne("auctionDetail.detail", anum);
+	public List<AuctionViewVO> getAuctionbanner(){
+		return ss.selectList("auction.banner");
 	}
-	public void purchase(AuctionDetailVO vo) {
-		ss.update("auctionDetail.bidding", vo);
-	}
-	public void actionHit(int anum) {
-		ss.update("auction.hithit", anum);
-	}
-	
-	
 	
 }

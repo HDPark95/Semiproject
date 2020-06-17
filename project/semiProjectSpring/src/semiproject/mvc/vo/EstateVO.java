@@ -8,17 +8,52 @@ public class EstateVO {
 	// C01 = 원룸
 	// C02 = 투룸
 	// C03 = 쓰리룸
-	private int pdnum,anum;
-	private String build,floor,plocation;
+	private int pdnum,anum,r_num;
+	private String build,floor,plocation,detaillocation;
 	private String[] subbuild;
 	private List<SubBuildVO> subvo;
 	private double supply,exclusive; //공급 / 전용면적
 	private List<RentVO> rent; // 매매,전세,월세
 	private String  title; //  제목
 	private AddInfoVO addinfo;
+	private String rltrnm;
+	private String[] imgName; 
+	private List<Product_ImgVO> img;
 	
 	
 	
+	
+	
+	public String getDetaillocation() {
+		return detaillocation;
+	}
+	public void setDetaillocation(String detaillocation) {
+		this.detaillocation = detaillocation;
+	}
+	public int getR_num() {
+		return r_num;
+	}
+	public void setR_num(int r_num) {
+		this.r_num = r_num;
+	}
+	public List<Product_ImgVO> getImg() {
+		return img;
+	}
+	public void setImg(List<Product_ImgVO> img) {
+		this.img = img;
+	}
+	public String[] getImgName() {
+		return imgName;
+	}
+	public void setImgName(String[] imgName) {
+		this.imgName = imgName;
+	}
+	public String getRltrnm() {
+		return rltrnm;
+	}
+	public void setRltrnm(String rltrnm) {
+		this.rltrnm = rltrnm;
+	}
 	public AddInfoVO getAddinfo() {
 		return addinfo;
 	}

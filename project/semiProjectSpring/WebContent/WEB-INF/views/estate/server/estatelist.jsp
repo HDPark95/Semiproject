@@ -11,7 +11,7 @@
 									<div class="col-md-6 col-sm-6 float-left" >
 										<a href="estateDetail?num=${e.pdnum}">
 											<div class="col-md-12 col-sm-12">
-												<img src="resources/images/estate/apt.jpg"  style="width: 100%; height: 100px;">
+												<img src="img/${e.img[0].img }"  style="width: 100%; height: 120px;">
 												
 											</div>
 											<div class="col-md-12 col-sm-12" style="height: 160px; text-overflow: ellipsis;">
@@ -35,7 +35,7 @@
 														 	<c:when test="${r.rentv=='B2' }">월세</c:when>
 														 </c:choose>
 														 
-														 :${r.rpay }</span><br>
+														 :${r.rpay }</span>만원<br>
 													</c:forEach>
 					 							<p>${e.title}</p>
 											</div>

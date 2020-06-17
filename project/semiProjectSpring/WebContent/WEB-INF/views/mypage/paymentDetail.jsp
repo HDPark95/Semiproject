@@ -66,9 +66,7 @@
 			<input type="button" class="btn btn-success btn-lg" id="pay_cbtn"
 				value="문의하세요" >
 
-			<button type="submit" class="btn btn-success btn-lg"
-				formmethod="post" formaction="mypage_lessor" formtarget="#aid">뒤로가기
-			</button>
+			<button type="button" class="btn btn-success btn-lg" id="mypage_pay_refresh">뒤로가기</button>
 		</div>
 	</form>
 </div>
@@ -120,6 +118,9 @@
 			}
 		});
 		
+		$('#mypage_pay_refresh').click(function() {
+			location.reload();
+		});
 		
 	});
 </script>

@@ -11,14 +11,14 @@ public class PageVO {
     // start, end  - 페이지 분할 값
  private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
  private int cntPage = 5;
- private String searchType,searchValue, cateType, searchValue2;
+ private String searchType,searchValue, searchType2, searchValue2;
  
  
- public String getCateType() {
-	return cateType;
+ public String getSearchType2() {
+	return searchType2;
 }
-public void setCateType(String cateType) {
-	this.cateType = cateType;
+public void setSearchType2(String searchType2) {
+	this.searchType2 = searchType2;
 }
 public String getSearchValue2() {
 	return searchValue2;
@@ -64,25 +64,25 @@ public int getCntPage() {
   memberStartEndPage(nowPage, cntPage);
   memberStartEnd(nowPage, cntPerPage);
  }
- public PageVO(int total, int nowPage, int cntPerPage,String searchType,String searchValue, String cateType, String searchValue2) {
+ public PageVO(int total, int nowPage, int cntPerPage,String searchType,String searchValue, String searchType2, String searchValue2) {
 	  this.searchType=searchType;
 	  this.searchValue=searchValue;
 	  this.nowPage=nowPage;
 	  this.cntPerPage=cntPerPage;
 	  this.total=total;
-	  this.cateType = cateType;
+	  this.searchType2 = searchType2;
 	  this.searchValue2 = searchValue2;
 	  memberLastPage(total, cntPerPage);
 	  memberStartEndPage(nowPage, cntPage);
 	  memberStartEnd(nowPage, cntPerPage);
  }
 
- public PageVO(int nowPage, int total, int cntPerPage, String cateType, String searchValue2, int a) {
+ public PageVO(int nowPage, int total, int cntPerPage, String searchType2, String searchValue2, int a) {
 	super();
 	this.nowPage = nowPage;
 	this.total = total;
 	this.cntPerPage = cntPerPage;
-	this.cateType = cateType;
+	this.searchType2 = searchType2;
 	this.searchValue2 = searchValue2;
 }
 // 제일 마지막 페이지 계산

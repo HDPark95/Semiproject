@@ -94,7 +94,7 @@ td {
 
 #myModal2{
 width: 700px;
-height: 600px;
+height: 260px;
 }
 #modal-dialog{
     display: inline-block;
@@ -134,11 +134,11 @@ height: 600px;
 				</ul>
 			</div>
 		</nav>
-		<form method="post" action="auctionins" enctype="multipart/form-data">
+		<form id="subtarget" method="post" action="auctionins" enctype="multipart/form-data">
 			<div id="body" class="form-group">
 				<h2>부동산 등록</h2> 
 				<div id="content">
-					<table> 
+					<table>
 						<tbody>
 							<tr>
 								<th><label for="byongdo">물건용도</label></th>
@@ -161,7 +161,7 @@ height: 600px;
 								<th><label for="sPrice">시작가</label></th>
 								<td><input type="number" id="ideprice" name="ideprice" class="form-control" style="width: 300px;"/><a href="#none" class="btn-q" data-toggle="modal"
 									data-target="#myModal2" id="p_modal1"
-									style="text-decoration: none; margin-left: 10px;">500만원 이상의 물건</a></td>
+									style="text-decoration: none; margin-left: 10px;">5000만원 이상의 물품 관련 안내</a></td>
 							</tr>
 							<tr>
 								<th><label for="danwe">입찰단위</label></th>
@@ -223,11 +223,11 @@ height: 600px;
                                     <small id="fileHelp4" class="form-text text-muted">기본이 되는 메인 이미지를 등록 해주세요 사이즈는 320x180입니다</small></td>
 							</tr>
 							<tr>
-								<th colspan="2"><input type="submit" class="btn btn-primary btn-lg" id="runin" value="물건 등록 하기"></th>
+								<th colspan="2"><input type="button" class="btn btn-primary btn-lg" id="runin" value="물건 등록 하기"></th>
 							</tr>
 						</tbody>
 					</table>
-						<input type="hidden" name="bid" id="bid" value="test1"/>
+						<input type="hidden" name="bid" id="bid" value="${sbid}"/>
 				</div>
 			</div>
 		</form>
@@ -239,38 +239,20 @@ height: 600px;
 			<div class="modal-content">
 				<div class="modal-header modal2">
 					<button type="button" class="close" data-dismiss="modal"></button>
-					<h4 class="modal-title">온라인 거래 물품 불가 물품</h4>
+					<h4 class="modal-title">5000만원 이상의 물품 관련 안내</h4>
 				</div>
 				<div class="modal-body">
 					<div class="tableDefault fs13">
 						<table>
 							<colgroup>
 								<col />
-								<col />
 							</colgroup>
 							<tr>
-								<th>주류/담배</th>
-								<td>내용물이 있는 물품</td>
-							</tr>
-							<tr>
-								<th>음란물</th>
-								<td>모자이크 없이 지나친 노출이 있는 이미지</td>
-							</tr>
-							<tr>
-								<th>멸종위기동물</th>
-								<td>상아, 박제 등 몇종위기종의 가공품</td>
-							</tr>
-							<tr>
-								<th>위작, 모조품</th>
-								<td>상표권을 침해하는 물품</td>
-							</tr>
-							<tr>
-								<th>군용품 및 대외비</h>
-								<td>반출 및 유출 금지 대상인 군용품과 대외비</td>
-							</tr>
-							<tr>
-								<th>그외 도검, 화약류, 도난품 등</h>
-								<td>거래 부적절한 물품일 경우 경매 중지처리될 수 있습니다.</td>
+								<td>시작가가 5000만원 이상일 경우 별도의 컴토가 진행되며, 검토 결과에 따라 시작가<br/>
+									의 1%에 해당하는 등록 수수료가 발생 될수 있습니다.<br/>
+									물품 검토 및 수수료 납부 확인이 진행되는 동안 경매가 임시적으로 중지/보류 될 수<br/>
+									있습니다.  
+								</td>
 							</tr>
 						</table>
 					</div>
@@ -280,6 +262,7 @@ height: 600px;
 	</div>
 <script>
 $(document).ready(function(){
+	
 	$('#p_modal1').click(function(event) {
 	    event.preventDefault();
 	    $('#myModal2').modal({
@@ -296,11 +279,18 @@ $(document).ready(function(){
 	 fCreator: "createSEditor2"
 	});
 	
-	//
+	//입력값체크 
 	$('#runin').click(function() {
 		var val1 = oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD",[]);
-		//alert($('#ir1').val());
-		//alert($('#wimage').val());
+		if($('#bid').val()===null||$('#bid').val()===''){
+			alert("로그인을 해주세요");
+			return false;
+		}else{
+			$('#subtarget').submit();
+		}
+		
+		//$('#subtarget').submit();
+		
 	})
 	
 });

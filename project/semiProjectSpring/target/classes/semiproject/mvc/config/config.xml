@@ -41,8 +41,13 @@
 			alias="cboardvo" />
 		<typeAlias type="semiproject.mvc.vo.Community_PageVO"
 			alias="commupvo"/>
-				<typeAlias type="semiproject.mvc.vo.Customer_BoardVO" alias="cbvo" />
-		<typeAlias type="semiproject.mvc.vo.Customer_Board1VO" alias="cbvo1" />	
+			<typeAlias type="semiproject.mvc.vo.AuctionSaleVO" alias="sale"/>
+<typeAlias type="semiproject.mvc.vo.IpchalperVO" alias="ipchal"/>
+
+	<typeAlias type="semiproject.mvc.vo.Customer_BoardVO" alias="cbvo" />
+		<typeAlias type="semiproject.mvc.vo.Customer_Board1VO" alias="cbvo1" />
+		<typeAlias type="semiproject.mvc.vo.Customer_Board_PageVO" alias="c_pagevo" />
+		    
 		<typeAlias type="semiproject.mvc.vo.LoginDTO" alias="logindto" />
 			<typeAlias type="semiproject.mvc.vo.RealPriceVO" alias="realvo" />	
 		<!-- 부동산 -->
@@ -54,6 +59,7 @@
 		<typeAlias type="semiproject.mvc.vo.AdministrativeVO" alias="adminvo"/>
 		<typeAlias type="semiproject.mvc.vo.Option_SelVO" alias="osvo"/>
 		<typeAlias type="semiproject.mvc.vo.OptionVO" alias="ovo"/>
+		<typeAlias type="semiproject.mvc.vo.Product_ImgVO" alias="pimgvo"/>
 	</typeAliases>
 
 </configuration>

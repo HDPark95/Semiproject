@@ -7,7 +7,8 @@
 <%@ include file="../include/header_menu.jsp"%>
 
 <body id="table">
-		<form action="boardin" method="post">
+		<form action="boardin1" method="post">
+		<input type="hidden" name="anum" value="${user.anum}">
 		<table
 			style="padding-top: 50px; align: center;  border: 0; margin-top:7rem; margin-left: 15rem;">
 			<tr>
@@ -19,7 +20,7 @@
 					<table class="table2">  
 						<tr>
 							<td>문의 종류</td>
-							<td><select class="form-control" id="c_type" name="c_type">
+							<td><select class="form-control" id="c_type" name="c_type" required="required">
 									<option>문의유형1</option>
 									<option>문의유형2</option>
 									<option>문의유형3</option>
@@ -30,27 +31,26 @@
 
 						<tr>
 							<td>작성자</td>
-							<td><input type=text name="c_writer" size=20></td>
+							<td><input type=text name="c_writer" size=20 required="required"></td>
 						</tr>
 
 						<tr>
-							<td>문의내용</td>
-							<td><input type=text name="c_subject" size=60></td>
+							<td>제목</td>
+							<td><input type=text name="c_subject" size=60 required="required"></td>
 						</tr>
 
 						<tr>
 							<td>내용</td>
-							<td><textarea name="c_content" cols=85 rows=15 id="ir1"></textarea></td>
+							<td><textarea name="c_content" cols=85 rows=15 id="ir1" required="required"></textarea></td>
 						</tr>
 
 						<tr>
 							<td>비밀번호</td>
-							<td><input type=password name="c_pwd" size=10 maxlength=10></td>
+							<td><input type=password name="c_pwd" size=10 maxlength=10 required="required"></td>
 						</tr>
 					</table>
 					<center>
 						<input type="submit" value="제출하기">
-<!-- 						<button id="writeBtn" type="submit">제출하기</button> -->
 					</center>
 				</td>
 			</tr>
@@ -58,7 +58,7 @@
 		</form>
 
 
-<!-- <!-- <script type="text/javascript">  --> -->
+<!-- <script type="text/javascript">  -->
 <!-- //  	var oEditors = []; -->
 <!-- //  	nhn.husky.EZCreator.createInIFrame({ -->
 <!-- //  	 oAppRef: oEditors, -->
@@ -73,7 +73,7 @@
 <!-- //  		//alert($('#ir1').val()); -->
 <!-- //  		//alert($('#wimage').val()); -->
 <!-- //  	}) -->
-<!-- <!-- 	</script>  --> -->
+<!-- 	</script>  -->
 </body>
 
 <%@ include file="../include/footer.jsp"%>

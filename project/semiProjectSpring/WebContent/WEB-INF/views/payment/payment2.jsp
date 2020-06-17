@@ -173,7 +173,7 @@ div.final_price {
 		</h4>
 	</div>
 	<div class="final_price container" id="CalcAmount">
-		<span id="pay"></span>
+		<span id="pay">${bvo.ppay }원</span>
 	</div>
 	<div>
 	

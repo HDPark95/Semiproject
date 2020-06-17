@@ -11,10 +11,10 @@
 <%@ include file="../include/header_menu.jsp"%>
 
 
-<section class="contact-section container topma " style=""> 
+<section class="contact-section container topma mypagesection" style=""> 
 
 
-	<h2 class="th_mypage_maintext">MY 부동산 페이지(임대인)</h2>
+	<h2 class="th_mypage_maintext">MY 부동산 페이지(${vo.agubun })</h2>
   
 
 	<ul class="nav nav-tabs th_ul">
@@ -22,8 +22,6 @@
 			data-toggle="tab" href="#myinformation">정보수정</a></li>
 		<li class="th_li"><a class="nav-link th_atwi " data-toggle="tab" id="selectmyposts"
 			href="#myposts">쓴 게시글 관리</a></li>
-		<li class="th_li"><a class="nav-link th_atwi " data-toggle="tab"
-			href="#c">연락한 부동산</a></li>
 		<li class="th_li"><a class="nav-link th_atwi " data-toggle="tab" id="selectmyproduct"
 			href="#myproduct">내 매물관리</a></li>
 
@@ -40,10 +38,10 @@
 			
 
 			<ul class="nav nav-tabs">
-				<li class="th_li_sub"><a class="th_nav-link active th_atwi"
+				<li class="th_li_sub"><a class="th_nav-link active th_atwi" id="myposts_1"
 					data-toggle="tab" href="#mypage_posts">커뮤니티</a></li>
-				<li class="th_li_sub"><a class="th_nav-link th_atwi "
-					data-toggle="tab" href="#sub_b">고객센터 문의</a></li>
+				<li class="th_li_sub"><a class="th_nav-link th_atwi "	id="mycustomer_1"
+					data-toggle="tab" href="#mypage_posts">고객센터 문의</a></li>
 			</ul>
 
 			<div id="myTabContent" class="tab-content">
@@ -58,11 +56,6 @@
 			</div>
 		</div>
 		<div class="tab-pane fade th_page_space" style="text-align: center;"
-			id="c">
-			<h2 class="container" style="margin-top: 300px; color: black;">나에게
-				연락온 부동산 목록을 볼수 있습니다. </h2>
-		</div>
-		<div class="tab-pane fade th_page_space" style="text-align: center;"
 			id="myproduct">
 			<%@ include file="../mypage/include/infor_management.jsp"%>
 		</div>
@@ -74,6 +67,7 @@
 	$(function() { 
 		
 		$('#memberdetail_btn').click(function() {
+			$('.mypagesection').css("height", "1500px");
 			$.ajax({
 				url : "inforDetail" ,
 				type : "post" ,
@@ -95,6 +89,7 @@
 			});
 		});
 		$('#paymentdetail_btn').click(function() {
+			$('.mypagesection').css("height", "1900px");
 			$.ajax({
 				url : "Pay_Detail" ,
 				type : "post" ,
@@ -120,6 +115,29 @@
 			});
 		});
 		
+		$('#myposts_1').click(function() {
+			$.ajax({
+				url : "infor_posts" ,
+				type : "post" ,
+				data : {anum : "${vo.anum }"},
+				success : function(result) {
+					$('#mypage_posts').html(result);
+				}
+			});
+		});
+		
+		$('#mycustomer_1').click(function() {
+			$.ajax({
+				url : "infor_customer" ,
+				type : "post" ,
+				data : {anum : "${vo.anum }"},
+				success : function(result) {
+					$('#mypage_posts').html(result);
+				}
+			});
+		});
+		
+		
 		$('#selectmyproduct').click(function() {
 			$.ajax({
 				url : "infor_product" ,
@@ -132,6 +150,7 @@
 		});
 		
 		$('#member_secession_btn').click(function() {
+			$('.mypagesection').css("height", "1900px");
 			$.ajax({
 				url : "member_secession" ,
 				type : "post" ,

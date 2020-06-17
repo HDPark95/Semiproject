@@ -30,7 +30,7 @@ public class AuctionPageVO {
 	public int getMulgun() {
 		return mulgun;
 	}
- 
+
 	public void setMulgun(int mulgun) {
 		this.mulgun = mulgun;
 	}
@@ -65,13 +65,15 @@ public class AuctionPageVO {
 	public AuctionPageVO() {
 	}
 
-	public AuctionPageVO(int total, int nowPage, int cntPerPage, int statussel,int mulgun,int sortindex) {
+	public AuctionPageVO(int total, int nowPage, int cntPerPage, int statussel,int mulgun,int sortindex,String searchType,String searchValue) {
 		this.nowPage = nowPage;
 		this.cntPerPage = cntPerPage;
 		this.total = total;
 		this.statussel = statussel;
 		this.mulgun = mulgun;
 		this.sortindex = sortindex;
+		this.searchType = searchType;
+		this.searchValue = searchValue;
 		memberLastPage(total, cntPerPage);
 		memberStartEndPage(nowPage, cntPage);
 		memberStartEnd(nowPage, cntPerPage);

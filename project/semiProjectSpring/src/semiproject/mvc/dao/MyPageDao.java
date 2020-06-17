@@ -84,7 +84,7 @@ public class MyPageDao {
 		return list;
 	}
 	
-	public void member_secession(String aid) {
+	public void member_secession(SignUpVO aid) {
 		int res = ss.update("mypage.member_secession" ,aid);
 		
 	}

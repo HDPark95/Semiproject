@@ -30,7 +30,7 @@
 				<div class="form-inline form-group">
 					<label for="title" class="col-sm-2 control-label">제목</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="title" name="wtitle" maxlength="80">
+						<input type="text" class="form-control" id="title" name="wtitle" maxlength="50">
 					</div>
 				</div>
 				<div class="tab-pane fade show active" id="all">

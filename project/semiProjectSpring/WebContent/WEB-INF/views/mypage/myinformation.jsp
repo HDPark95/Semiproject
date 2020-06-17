@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="th_page_space ">
-	<div style="margin-bottom: 50px;">
-	<div class="th_card th_infor_card " style="float: left; ">
+	
+	
+	<div class="th_card th_infor_card " style="float: left;">
 		<form action="inforDetail" method="post">
 			<div class="card-header">회원정보</div>
 			<div class="th_card-body" id="infor_memberdetail">
@@ -16,7 +17,8 @@
 			</div>
 		</form>
 	</div>
-	<div class="th_card th_infor_card">
+	
+	<div class="th_card th_infor_card" style="float: left;">
 		<form action="loginDetail" method="post" >
 			<div class="card-header">로그인 정보</div>
 			<div class="th_card-body" id="infor_logindata">
@@ -27,7 +29,8 @@
 			</div>
 		</form>
 	</div>
-	</div>
+	
+	
 	
 	<div class="th_card th_infor_card" style="float: left;">
 		<form action="paymentDetail" method="post" >
@@ -42,7 +45,7 @@
 			</div>
 		</form>
 	</div>
-	<div class="th_card th_infor_card">
+	<div class="th_card th_infor_card" style="float: left;">
 		<form action="memberdelete" method="post">
 			<div class="card-header" style="color: red;">회원 탈퇴</div>
 			<div class="th_card-body" id="member_secession">

@@ -6,7 +6,8 @@
 			<c:choose>
 				<c:when test="${paging.startPage != 1 }">
 					<li class="page-item"><a class="page-link"
-						href="comuMain?sortindex=${paging.sortindex}&nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&laquo;</a></li>
+						href="comuMain?sortindex=${paging.sortindex}&nowPage=${paging.startPage - 1 }
+						&cntPerPage=${paging.cntPerPage}&searchType=${searchType}&searchValue=${searchValue}">&laquo;</a></li>
 				</c:when>
 				<c:when test="${paging.startPage == 1 }">
 					<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
@@ -22,7 +23,8 @@
 					<c:when test="${p != paging.nowPage }">
 						<!-- 다른 페이지 링크 -->
 						<li class="page-item"><a class="page-link"
-							href="comuMain?sortindex=${paging.sortindex}&nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+							href="comuMain?sortindex=${paging.sortindex}&nowPage=${p }
+							&cntPerPage=${paging.cntPerPage}&searchType=${searchType}&searchValue=${searchValue}">${p }</a>
 						</li>
 					</c:when>
 				</c:choose>
@@ -31,7 +33,8 @@
 			<c:choose>
 				<c:when test="${paging.endPage != paging.lastPage}">
 					<li class="page-item"><a class="page-link"
-						href="comuMain?sortindex=${paging.sortindex}&nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&raquo;</a>
+						href="comuMain?sortindex=${paging.sortindex}&nowPage=${paging.endPage+1 }
+						&cntPerPage=${paging.cntPerPage}&searchType=${searchType}&searchValue=${searchValue}">&raquo;</a>
 					</li>
 				</c:when>
 				<c:when test="${paging.endPage == paging.lastPage}">

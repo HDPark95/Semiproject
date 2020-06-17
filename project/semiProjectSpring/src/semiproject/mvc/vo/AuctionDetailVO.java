@@ -2,7 +2,7 @@ package semiproject.mvc.vo;
 
 public class AuctionDetailVO {
 	private Double bweight, tweight;
-	private int anum, hit, ipdanwe;
+	private int anum, hit, ipdanwe, ipnum;
 	private String bid, yongdo, addr, wimage, ideprice, subject, enddate, hprice, status, indate, imagea, imageb, imagec, managepee,bplan, text;
 	public String getText() {
 		return text;
@@ -12,6 +12,12 @@ public class AuctionDetailVO {
 	}
 	public String getManagepee() {
 		return managepee;
+	}
+	public int getIpnum() {
+		return ipnum;
+	}
+	public void setIpnum(int ipnum) {
+		this.ipnum = ipnum;
 	}
 	public void setManagepee(String managepee) {
 		this.managepee = managepee;

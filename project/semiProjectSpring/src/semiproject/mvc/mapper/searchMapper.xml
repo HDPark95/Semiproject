@@ -69,6 +69,33 @@
 			</where>
 		</if> 
 	</select>
+	<select id="commentlist" resultType="cpvo" parameterType="pvo">
+		select * from (
+		select rownum r_num, a.* from
+		(
+		select p.pdnum pdnum,p.atclfetrdesc atclfetrdesc,img.img img,pl.plocation plocation  from product p, product_info pi, product_sale_info ps,product_img img,product_location pl
+		 where p.pdnum= pi.pdnum and pi.pdnum = ps.pdnum and  pi.pidnum=img.pidnum and ps.pdnum=pl.pdnum
+		<if test="searchType != null">
+			
+				<choose>
+					<when test="searchType == 1">
+						and p.rlettpcd like '%'|| #{searchValue} ||'%'
+					</when>
+				</choose>
+			
+		</if>
+		<if test="searchType2 != null">
+			
+			<choose>
+					<when test="searchType2 == 1">
+						and ps.tradtpcd like '%'|| #{searchValue2} ||'%'
+					</when>
+				</choose>
+			
+		</if>
+		order by prc asc) a
+		) where r_num between 1 and 3 
+	</select>
 </mapper>
 
 

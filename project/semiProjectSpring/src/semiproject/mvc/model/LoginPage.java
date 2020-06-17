@@ -31,15 +31,18 @@ public class LoginPage {
 	}
 
 	@RequestMapping(value = "/loginPost")
-	public ModelAndView loginPost(LoginDTO loginDTO, HttpSession httpsession) throws Exception {
+	public ModelAndView loginPost(LoginDTO loginDTO, HttpSession httpsession,String tab) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("º∫∞¯");
+		System.out.println("ÔøΩÔøΩÔøΩÔøΩ");
 		int cnt = logindao.login(loginDTO);
 		if(cnt == 0) {
-			mav.setViewName("login/loginform");
 			return mav;
 		}else {
-		UserVO vo = logindao.logininfo(loginDTO);
+		UserVO vo = logindao.logininfo(loginDTO.getAid());
+		//Î°úÍ∑∏Ï†ÄÏû•Ìï¥ÏïºÎê®
+		if(tab.equals("location")) {			
+			logindao.loginsert(vo.getAnum());
+		}
 		mav.addObject("user", vo);
 		System.out.println(vo.getDname());
 		httpsession.setAttribute("user", vo);
@@ -55,6 +58,7 @@ public class LoginPage {
 		Object object = httpsession.getAttribute("user");
 		if (object != null) {
 			UserVO vo = (UserVO) object;
+			logindao.logout(vo.getAnum());
 			httpsession.removeAttribute("login");
 			httpsession.invalidate();
 			Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");

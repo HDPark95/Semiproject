@@ -15,45 +15,71 @@ public class CommunityDao {
 
 	@Autowired
 	private SqlSessionTemplate ss;
-
+	
+	// 서울시 XX구를 받아오는 DAO
 	public List<String> getGu() {
 		List<String> list = ss.selectList("commudata.commugu");
 		return list;
 	}
-
+	
+	// XX구의 YY동을 받아오는 DAO
 	public List<String> getDong(String guName) {
 		List<String> list = ss.selectList("commudata.dong", guName);
 		return list;
 	}
 	
+	// 상가 부문에서의 글 작성을 하는 DAO
 	public void cWriting(Community_BoardVO vo) {
 		ss.insert("commuwriting.Cwriting", vo);
 	}
 	
+	// 부동산 부문에서의 글 작성을 하는 DAO
+	public void eWriting(Community_BoardVO vo) {
+		ss.insert("commuwriting.Ewriting", vo);
+	}
+	
+	// 경매 부문에서의 글 작성을 하는 DAO
+	public void aWriting(Community_BoardVO vo) {
+		ss.insert("commuwriting.Awriting", vo);
+	}
+	
+	// 작성한 글을 보여주는데 사용되는 DAO
 	public Community_BoardVO WriDetail(int wnum){
 		return ss.selectOne("commuwriting.wridetail", wnum);
 	}
 	
+	// 전체 글의 정보를 커뮤니티 메인에 띄우는데 사용되는 DAO
 	public List<Community_BoardVO> allList(Community_PageVO pvo){
 		return ss.selectList("commuwriting.listall",pvo);
 	}
 	
-	public int getCountAll() {
-		return ss.selectOne("commuwriting.countall");
+	// 전체 글의 개수를 계산하는데 사용되는 DAO
+	public int getCountAll(Community_PageVO pvo) {
+		return ss.selectOne("commuwriting.countall",pvo);
 	}
 	
+	// 특정 글의 조회수를 계산하는데 사용되는 DAO
 	public void updateWhit(int wnum) {
 		ss.update("commuwriting.updatewhit", wnum);
 	}
 	
+	// 특정 글의 현재 추천 수를 계산하는데 사용되는 DAO
+	public Community_BoardVO getWrec(int wnum) {
+		return ss.selectOne("commuwriting.getWrec", wnum);
+	}
+	
+	// 특정 글의 추천 버튼 클릭에 따른 결과를 받는데 사용되는 DAO 
 	public int updateWrec(int wnum) {
 		return ss.update("commuwriting.updatewrec", wnum);
 	}
 	
-	public int updateDetail(Community_BoardVO vo) {
-		return ss.update("commuwriting.updatedetail", vo);
+	// 특정 글을 수정하는데 사용되는 DAO
+	public void updateDetail(Community_BoardVO vo) {
+		ss.update("commuwriting.updatedetail", vo);
 	}
-	public Community_BoardVO getWrec(int wnum) {
-		return ss.selectOne("commuwriting.getWrec", wnum);
+	
+	// 특정 글을 삭제하는데 사용되는 DAO
+	public void deleteDetail(int wnum) {
+		ss.update("commuwriting.deletedetail", wnum);
 	}
 }
