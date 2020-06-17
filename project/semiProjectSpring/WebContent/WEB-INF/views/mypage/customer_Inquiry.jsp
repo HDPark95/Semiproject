@@ -1,27 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-  			 <table id="customers">
-						<tr> 
-							<th colspan="5" id="management">전체 선택 , 삭제 등 들어갈 자리</th>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<table id="customers">
+	<tr>
+		<th colspan="5" id="management">전체 선택 , 삭제 등 들어갈 자리</th>
 
-						</tr> 
-						<tr>
-							<th id="">작성일자</th>
-							<th id="">카테고리</th>
-							<th id="">글 제목</th>
-							<th id="">추천수</th>
-							<th id="">조회수</th>
-						</tr>
-						<c:forEach items="${list }" var="cblist" >
-						<tr>
-							<td>${cblist.wchgdate }</td>
-							<td>${cblist.wgubun }</td>
-							<td>${cblist.wtitle }</td>
-							<td>${cblist.wrec }</td>
-							<td>${cblist.whit }</td>
-						</tr>
-						
-						</c:forEach>
-						
-					</table> 
+	</tr>
+	<tr>
+		<th id="">글번호</th>
+		<th id="">제목</th>
+		<th id="">작성자</th>
+		<th id="">작성일자</th>
+		<th id="">답변상태</th>
+	</tr>
+	<c:forEach items="${list }" var="cutslist">
+		<tr>
+			<td>${cutslist.c_num }</td>
+			<td>${cutslist.c_subject }</td>
+			<td>${cutslist.c_writer }</td>
+			<td>${cutslist.c_regdate }</td>
+			<td class="chkview">${cutslist.c_anschk }</td>
+		</tr>
+
+	</c:forEach>
+
+</table>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	$(function() {
+		$(".chkview").each(function() {
+			if ($(this).text() === '1') {
+				$(this).text("답변완료");
+			} else {
+				$(this).text("답변대기");
+			}
+		})
+	});
+</script>

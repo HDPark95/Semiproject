@@ -40,8 +40,7 @@
 			style="">
 
 			<button type="submit" class="btn btn-success btn-lg" id="inforDetailUpdate_btn">수정하기</button>
-			<button type="submit" class="btn btn-success btn-lg"
-				formmethod="post" formaction="mypage_lessor" formtarget="#aid">뒤로가기
+			<button type="button" class="btn btn-success btn-lg" id="inforrefresh_btn">뒤로가기
 			</button>
 		</div>
 	</form>
@@ -51,20 +50,22 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 	$(function() { 
-		var date = new Date();
-		var year = date.getFullYear(); 				// Number
-		var dbirth = '${vo.memberinfor.dbirth }';	//String
-		var myyear = dbirth.substr(0, 4);			//Number
-		var age = year - myyear;
-		myyear = Number(myyear);
+		var date = new Date();						// 현재 시간 
+		var year = date.getFullYear(); 				// Number // 현재 연도 yyyy
+		var dbirth = '${vo.memberinfor.dbirth }';	//String	// db에 있는 나의 생년월일
+		var myyear = dbirth.substr(0, 4);			//Number	// 내 생년월일에 연도 만 잘라내기
+		var age = year - myyear;					// 나이 = 현재 년도 - 태어난연도
+		myyear = Number(myyear);					// 태어난년도 number 로 변환
 		$('#age').val(age);
 
 		var dbirth_theorem = dbirth.substr(0, 4) + " 년 "
-		+ dbirth.substr(5, 2) + " 월 " + dbirth.substr(8, 2) + " 일 ";
+		+ dbirth.substr(5, 2) + " 월 " + dbirth.substr(8, 2) + " 일 ";  // yyyy 년 mm 월 dd 일 
 		
 		$("#dbirth").val(dbirth_theorem);
 		
-			
+			$('#inforrefresh_btn').click(function() {
+				location.reload();
+			});
 
 	});
 </script>

@@ -15,6 +15,10 @@
 	height: 500px;
 }
  
+.mypagesection{
+	height: 1200px;
+} 
+ 
 #p_list {
 	
 }
@@ -176,7 +180,7 @@ table.type12 td {
 }
 
 .th_li {
-	width: 25%;
+	width: 33%;
 }
 
 .th_li_sub {

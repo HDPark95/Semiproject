@@ -12,14 +12,21 @@ import semiproject.mvc.vo.UserVO;
 public class LoginDao extends HandlerInterceptorAdapter{
 	@Autowired
 	private SqlSessionTemplate ss;
-	
+
 	public int login(LoginDTO loginDTO) throws Exception{
-		System.out.println("¾ÆÀÌµð : " + loginDTO.getAid());
+		System.out.println("ï¿½ï¿½ï¿½Ìµï¿½ : " + loginDTO.getAid());
 		return ss.selectOne("login.login", loginDTO);
 	}
-	public UserVO logininfo(LoginDTO loginDTO) throws Exception{
-		System.out.println("¼º°ø");
-		return ss.selectOne("login.info", loginDTO);
+	public UserVO logininfo(String aid) throws Exception{
+		System.out.println("ï¿½ï¿½ï¿½ï¿½");
+		return ss.selectOne("login.info", aid);
+	}
+	
+	public void loginsert(int anum) {
+		ss.insert("login.loginsert", anum);
+	}
+	
+	public void logout(int anum) {
+		ss.update("login.logout", anum);
 	}
 }
- 

@@ -1,7 +1,155 @@
+<%@page import="semiproject.mvc.vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<link href="resources/css/commercial/modal.css"  rel="stylesheet" />
 <%@ include file="../include/header_index.jsp"%>
+<style>
+#rightSide{
+
+position: absolute;
+
+top: 547px;
+
+left: 50%;
+margin: 0 0 0 510px;
+	} 
+#rightSide #right_zzim {
+
+position: fixed;
+top: 126px;
+left: 50%;
+margin-left: 600px;
+border:1px solid #B0B5BD;
+width:320px;
+height:750px;
+
+}
+
+
+
+#rightSide #right_zzim  div {text-align:center;}
+
+#rightSide   div.recTit{line-height:1.5em;padding:5px;color:white;background-color:#505A69;}
+#right_zzim{background-color: white;}
+#right_zzim #recentCnt {color:black;}
+
+#recentCnt{background: white;}
+#rightSide #right_zzim ul {min-height:100%;}
+
+#rightSide #right_zzim  {text-align:center;padding:5px;} 
+
+#rightSide #right_zzim  img {border:1px solid #ccc}
+
+#right_zzim .detail {
+
+display: none;
+
+position: absolute;
+
+top: 3px;
+
+right: 20px;
+
+xheight: 40px;
+
+xpadding: 15px 11px 0;
+
+xbackground: #404a59;
+
+color: #fff;
+
+xtext-align: left;
+
+white-space: nowrap;
+
+.regist th, tr {
+	font-size: 15pt;
+}
+
+}
+
+
+
+#right_zzim li:hover .detail {display:block}
+
+#right_zzim li .btn_delete {
+
+position: absolute;
+
+top: 3px;
+
+right: -1px;
+
+width: 11px;
+
+height: 11px;
+
+background: url(/img/sp.png) no-repeat -193px -111px;
+
+text-indent: -9000px;
+
+}
+
+#right_zzim  #currentPage {color:#505A69;font-weight:bold}
+
+#right_zzim  #totalPageCount {color:#CBC8D2;font-weight:bold}
+
+.noData {color:#ccc;text-align:center;margin-top:223px;}
+
+
+
+}
+
+#paging {display:;position:relative;line-height:1em;}
+
+#paging .btn_prev {
+
+position: absolute;
+
+top: 526px;
+
+left: 4px;
+
+width: 13px;
+
+height: 11px;
+
+background: url(/images/ico_arrow.png)  no-repeat ;
+
+text-indent: -9000px;
+
+border:1px solid #CCC;
+
+display:inline-block;
+
+}
+
+
+
+#paging .btn_next {
+
+position: absolute;
+
+top: 526px;
+
+right: 4px;
+
+width: 13px;
+
+height: 11px;
+
+background: url(/images/ico_arrow.png) -11px 0px;
+
+text-indent: -9000px;
+
+border:1px solid #CCC;
+
+display:inline-block;
+
+}
+
+</style>
+
 <%@ include file="../include/header_menu.jsp"%>
 <section class="contact-section " >
 
@@ -10,9 +158,9 @@
 		<div class="col-md-12 mt-4 add-page" >
 			<h1>방 내놓기</h1>
 			<hr>
-			<div class="col-md-1"></div>
+			
 				
-				<div class="col-md-9 add-page" style="margin: auto;">
+				<div class="col-md-9 add-page" style="margin-left: 100px;">
 						<div class="col-md-12 mt-12 add-sub-page ">
 	            			<table >
 	            				<tr>
@@ -24,9 +172,9 @@
 	            					</td>
 	            					<td >
 	            					  	<div class="seleted-div">
-	            						<span class="square build false" onclick="changeSelect(0)">원룸 </span> 
+	            						<span class="square build false" onclick="changeSelect(0)">원룸</span> 
 	            						<span class="square build false"  onclick="changeSelect(1)">주택</span> 
-	            						<span class="square build false"  onclick="changeSelect(2)"> 상가</span> 
+	            						<span class="square build false"  onclick="changeSelect(2)">상가</span> 
 	            						<span class="square build false"  onclick="changeSelect(3)">오피스텔(도시형)</span> 
 	            						<span class="square build false"  onclick="changeSelect(4)">아파트</span>
 	            						</div> 
@@ -59,14 +207,14 @@
 	            					<td >
 	            						
 		            					<div class="search-div">
-		            						<input type="text" class="address-search" placeholder="강남구 역삼동" ><span class="btn address-btn" style="width: 150px;">주소검색</span><br>
-	            						주소 API사용
+		            						<input type="text" class="address-search"id="roadAddrPart1" name="mainaddr" placeholder="강남구 역삼동" ><span id="postcodify_search_button" onclick="goPopup();" class="btn address-btn" style="width: 150px;">주소검색</span><br>
+		            						<input type="text" class="address-search"id="addrDetail" name="subaddr" placeholder="강남구 역삼동" >
+		            						<input type="text" id='zipNo' name="zipNo" name="zipNo" style="margin-bottom: 10px" disabled>
+	            						
 		            					</div>
 	            				
 	            					</td>
-	            					<td >
-	            				<div class="col-md-12" style="width:300px; ">지도API</div>
-	            					</td>
+	            				
 	            				</tr>
 	            				
 	            			</table>
@@ -168,7 +316,7 @@
 	            						<div class="seleted-div">
 	            						<span class="square move-in  false" onclick="clicksub(0,'move-in')">즉시입주</span> 
 	            						<span class="square move-in  false" onclick="clicksub(1,'move-in')">날짜협의 </span>
-	            						<span class="square move-in  false" onclick="clicksub(2,'move-in')">날짜선택</span>
+	            					<!-- 	<span class="square move-in  false" onclick="clicksub(2,'move-in')">날짜선택</span> -->
 	            						</div>
 	            					</td>
 	            				</tr>
@@ -319,7 +467,7 @@
 	            						상세 설명
 	            					</td>
 	            					<td>
-	            						<textarea   rows="20" cols="150" id="description" maxlength="100" placeholder="
+	            						<textarea   rows="20" cols="150" id="description" placeholder="
 	            						상세설명 작성 주의사항 
 	            						
 	            							- 방 정보와 관련없는 홍보성 정보는 입력하실수 없습니다
@@ -346,7 +494,7 @@
 	            					<td >
 	            						사진
 	            					</td>
-	            					<td >
+	            					<td id="imgList">
 	            						<img src="">
 	            					</td>
 	            				</tr>
@@ -355,8 +503,9 @@
 	            						파일 업로드
 	            					</td>
 	            					<td>
-	            						<form id="file" method="post" action="imgupload" enctype="multipart/form-data">
-	            							<input  type="file" value=""><input type="submit" class="btn img-btn" value="이미지업로드">
+	            						<form id="file" method="post" action="" enctype="multipart/form-data">
+	            							<input  type="file" name="mfile" value=""><input type="button" onclick="fileUpload()" class="btn img-btn" value="이미지업로드">
+	            							<input type='hidden' value='${user.anum}' name='anum'>
 	            						</form>
 	            					</td>
 	            				</tr>
@@ -381,12 +530,46 @@
 	            				</div>
 	            		</div>
 	          	 </div>
-	          	 <div class="col-md-1"></div>
+	          	 <div class="col-md-3">
+  	 <%
+UserVO vo = (UserVO) session.getAttribute("user");
+if(vo.getPgubun().equals("구독"))  {
+%>
+<%@ include file="../commercial/sidemenu3.jsp"%>
+<%  }else{%>
+<%@ include file="../commercial/sidemenu2.jsp"%> 
+<%
+}
+%>
+	          	 </div>
 		</div>
 	</div>
 <script >
-
-
+function goPopup() {
+	// 주소검색을 수행할 팝업 페이지를 호출합니다.
+	// 호출된 페이지(jusopopup.jsp)에서 실제
+	// 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+	var pop = window.open("juso", "pop",
+			"width=570,height=420, scrollbars=yes, resizable=yes");
+	// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제
+	// 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게
+	// 됩니다.
+	// var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes,
+	// resizable=yes");
+}
+function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
+		roadAddrPart2, engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,
+		detBdNmList, bdNm, bdKdcd, siNm, sggNm, emdNm, liNm, rn, udrtYn,
+		buldMnnm, buldSlno, mtYn, lnbrMnnm, lnbrSlno, emdNo) {
+	// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+	// document.form.roadFullAddr.value = roadFullAddr;
+	$('#roadAddrPart1').val(roadAddrPart1);
+	$("#addrDetail").val(addrDetail);
+	$("#zipNo").val(zipNo);
+}
+$(function() {
+	$("#postcodify_search_button").postcodifyPopUp();
+});
 		
 	var classEach=["build","sub-build","rent","move-in","administrative","parking","pets","elevator","balcony","built","option","chartered","structure"];
 
@@ -448,8 +631,9 @@
 	 	input+="<input type='hidden' value='"+$('#heating').val()+"' name='heating'>"; 
 
 	 	input+="<input type='hidden' value='"+$('#title').val()+"' name='title'>"; 
-	
-	
+		input+="<input type='hidden' value='"+$('#roadAddrPart1').val()+"' name='mainaddr'>";
+		input+="<input type='hidden' value='"+$('#addrDetail').val()+"' name='subaddr'>";
+		input+="<input type='hidden' value='"+$('#zipNo').val()+"' name='zipNo'>";
 		input+="<textarea hidden='hidden'rows='20' cols='150' maxlength='100'  name='description'>"+$('#description').val()+"</textarea>";
 	 	
 		newForm.append(input);
@@ -642,8 +826,30 @@
 		}
 		
 	}
-
+	var remeber='';
+	function commentlist(text,num){
+		if(num==1){
+			remeber=text;
+		}
+		
+		$.ajax({
+			url:'commentlist',
+			type:'post',
+			data:{remeber:remeber,text:text},
+			success:function(data){
+				
+				
+				$('#recentCnt3').html(data);
+			}
+			
+		});
+		
+	}
+	
+	
+	
 	function clicksub(num,className){
+		var serchv='';
 		$(('.'+className)).each(function(i) {
 			
 			
@@ -654,13 +860,15 @@
 					
 					$(this).removeClass("false").addClass("true");		
 			
-				
+				serchv=$(this).text();
 			}else if(i===num&&$(this).hasClass('true')){
 				$(this).css('color','black').css('background-color','white');
 				
 				$(this).removeClass("true").addClass("false");	
 			}
 		})
+		
+		
 	}
 	
 	
@@ -742,18 +950,27 @@
 		}
 		
 		$('#select-target').html(html);
+		var searchValue='';
 		$('.build').each(function(i) {
 			if(i===num&&$(this).hasClass('false')){
 				$(this).css('color','white').css('background-color','#7db4ea');
 
 				$(this).removeClass("false").addClass("true");	
+				searchValue = $(this).text();
 			}else if(i===num&&$(this).hasClass('true')){
 				
 			}else{
 				$(this).css('color','black').css('background-color','white');
 				$(this).removeClass("true").addClass("false");	
 			}
-		})
+		});
+		$('.rent-input').html('');
+		lnum=0;
+		tnum=0;
+		nnum=0;
+		mnum=0;
+		$('.charter').css("background-color", "white");
+		commentlist(searchValue,1);
 		
 	}
 	
@@ -781,7 +998,7 @@
 					"</label>";
 				nnum++;
 				$('.charter').css("background-color", "gray");
-				
+				text='전세';
 			}else{
 				return;
 				
@@ -796,6 +1013,7 @@
 						"<span>만원</span>"+
 					"</label>";
 					tnum++;
+					text='매매';
 			}
 			else{
 				return;
@@ -809,10 +1027,15 @@
 				"<span>만원</span>"+
 			"</label>";
 			mnum++;
+			text='월세';
 		}
 		html+="<label class='close-x lnum-"+lnum+" label-"+lnum+"' onclick='closen("+lnum+")' > x </label><br>";
 		$('.rent-input').append(html);
 		lnum++;
+		
+		
+			commentlist(text,2);
+		
 
 	}
 	
@@ -905,10 +1128,59 @@
 		check=false;
 		loopKey=false;
 	}
+	
+	
+	var filenum=1;
+	function fileUpload(){
+		
+	if(filenum<4){
+		 var formData = new FormData($('#file')[0]);
+
+		    $.ajax({
+		        url:'imgupload',
+		        type: 'POST',
+		        data: formData,
+		        async: false,
+		        success: function (data) {
+		        	newForm.append("<input type='hidden' value='"+data+"' name='imgName'>");
+		        	$("#imgList").append("<img src='img/"+data+"' style='width:150px; height:150px;'>");
+		        	filenum++;
+		        },
+		        cache: false,
+		        contentType: false,
+		        processData: false
+		    });
+	}else{
+		alert("파일은 3개까지만 등록 가능합니다.");
+	}
+		   
+
+		   
+		
+	}
+	function close_pop(flag) {
+		$('#myModal').hide();
+	};
+	
+	function open_pop(num) {
+		$(".productdescmodal").click(function(){
+			var atclno = num;
+		
+			var url = "productModal?pdnum=" + atclno;
+			$.ajax({
+				url : url,
+				success : function(d) {
+					$("#myModal").html(d);
+				}
+			});
+			$('#myModal').show();
+		});
+	};
+
 </script>
 </div>
 </section>
-
+<%@include file="../commercial/modal.jsp"%>
 <%@ include file="../include/footer.jsp"%>
 
 

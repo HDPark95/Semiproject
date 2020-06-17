@@ -38,7 +38,7 @@ public class Customer_Board1VO {
 	}
 	public void setC_type(String c_type) {
 		this.c_type = c_type;
-	} 
+	}
 	public String getC_writer() {
 		return c_writer;
 	}

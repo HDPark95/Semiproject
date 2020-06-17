@@ -20,10 +20,10 @@ public class CommercialProductDao {
 		List<CommercialProductVO> list = ss.selectList("commercialProduct.desc", location);
 		return list;
 	}
-	public CommercialProductVO getProductDetail(String pdnum){
+	public List<CommercialProductVO> getProductDetail(String pdnum){
 		System.out.println("pdnumDetail : " + pdnum);
-		CommercialProductVO vo = ss.selectOne("commercialProduct.descdetail", pdnum);
-		return vo;
+
+		return ss.selectList("commercialProduct.descdetail", pdnum);
 	} 
 	public CommercialProductVO getCntProduct(String pdnum) {
 		System.out.println("pdnumCnt : " + pdnum);
@@ -46,5 +46,34 @@ public class CommercialProductDao {
 	 public int getTotalCount2(PageVO svo) {//전체 데이터를 기준으로 페이지를 나눌것이기 때문에..
 		  return ss.selectOne("search.totalCount2", svo);
 		 }
+	 public void updateCommercial(CommercialProductVO vo) {
+		 ss.update("commercialProduct.update1", vo);
+	 }
+	 public void updateCommercial2(CommercialProductVO vo) {
+		 ss.update("commercialProduct.update2", vo);
+	 }
+	 public void updateCommercial3(CommercialProductVO vo) {
+		 ss.update("commercialProduct.update3", vo);
+	 }
+	
+	 public void deleteCommercialpd(String pdnum) {
+		 ss.delete("commercialProduct.delete1", pdnum);
+	 }
+	 public void deleteCommercialpl(String pdnum) {
+		 ss.delete("commercialProduct.delete2", pdnum);
+	 }
+	 public void deleteCommercialps(String pdnum) {
+		 ss.delete("commercialProduct.delete3", pdnum);
+	 }
+	 public void deleteCommercialpi(String pdnum) {
+		 ss.delete("commercialProduct.delete4", pdnum);
+	 }
+	 
+	 public void deleteOption(String pdnum) {
+		 ss.delete("commercialProduct.delete5", pdnum);
+	 }
+	 public void deleteAdmin(String pdnum) {
+		 ss.delete("commercialProduct.delete6", pdnum);
+	 }
 }
 

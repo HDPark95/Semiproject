@@ -4,11 +4,11 @@
 <mapper namespace="auctionDetail">
 	<select id="detail" parameterType="int"  resultType="actdetail">
 		select
-		a.anum,a.bid,fn_yongdo_name(a.byongdo) as yongdo,a.baddra as
+		a.anum, p.ipnum,a.bid,fn_yongdo_name(a.byongdo) as yongdo,a.baddra as
 		addr,a.bweight,a.tweight,a.hit
 		,b.wimage,TO_CHAR(p.ideprice,'FM999,999,999,999') as
 		ideprice,p.subject,p.enddate as enddate,
-		TO_CHAR(nvl(fn_higt_ipchalper(p.ipnum),0),'FM999,999,999,999') as
+		TO_CHAR(DECODE(nvl(fn_higt_ipchalper(p.ipnum),0),0,nvl(p.ideprice,0),nvl(fn_higt_ipchalper(p.ipnum),0)),'FM999,999,999,999') as
 		hprice
 		, fn_basedata_name(3,1,p.status) as
 		status,TO_CHAR(a.indate,'YYYY.MM.DD') as indate , p.ipdanwe, b.imagea, b.imageb, b.imagec, b.managepee, b.bplan, p.text
@@ -16,8 +16,8 @@
 		where b.anum = a.anum
 		and p.anum = a.anum and a.anum = #{anum}
 	</select>
-	<insert id="bidding" parameterType="actdetail">
-		insert into ipchalper values(IPCHALPER_SEQ.nextVal, #{anum}, 'test1', #{hprice}, sysdate, sysdate, null); 
+	<insert id="bidding" parameterType="ipchal">
+		  insert into ipchalper values(IPCHALPER_SEQ.nextVal ,#{ipnum}, #{bid}, #{ipprice}, sysdate, sysdate, null)
 	</insert>
 </mapper> 
 

@@ -2,14 +2,49 @@
 package semiproject.mvc.vo;
 
 public class CommercialProductVO {
-	private int prc, spc1, spc2 ;
-	private String plocation, atclfetrdesc, atclno,taglist,rltrnm, tradtpcd,rlettpcd , pdnum;
+	private int  spc1, spc2 ;
+	private String prc,plocation, atclfetrdesc, atclno,taglist,rltrnm, tradtpcd,rlettpcd , pdnum, pdescription,pmove;
+	private String img;
+	private String sale;
+	private String option;
 	
+	
+	
+	public String getPmove() {
+		return pmove;
+	}
+	public void setPmove(String pmove) {
+		this.pmove = pmove;
+	}
+	public String getOption() {
+		return option;
+	}
+	public void setOption(String option) {
+		this.option = option;
+	}
+	public String getSale() {
+		return sale;
+	}
+	public void setSale(String sale) {
+		this.sale = sale;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	public String getPdnum() {
 		return pdnum;
 	}
 	public void setPdnum(String pdnum) {
 		this.pdnum = pdnum;
+	}
+	public String getPdescription() {
+		return pdescription;
+	}
+	public void setPdescription(String pdescription) {
+		this.pdescription = pdescription;
 	}
 	public String getRlettpcd() {
 		return rlettpcd;
@@ -61,13 +96,14 @@ public class CommercialProductVO {
 		this.spc2 = spc2;
 	}
 	
-	public int getPrc() {
+	
+	
+	public String getPrc() {
 		return prc;
 	}
-	public void setPrc(int prc) {
+	public void setPrc(String prc) {
 		this.prc = prc;
 	}
-	
 	public String getPlocation() {
 		return plocation;
 	}

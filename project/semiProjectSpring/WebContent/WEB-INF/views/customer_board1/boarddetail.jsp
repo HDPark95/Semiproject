@@ -18,6 +18,8 @@
 
 <body id="table">
 
+		
+		
 		<table
 			style="padding-top: 50px; align: center;  border: 0; margin-top:7rem; margin-left: 15rem;">
 			<tr>
@@ -34,37 +36,32 @@
 						<tr>
 							<td>문의유형</td>
 							<td id="tabl1">								
-							${detail.c_type}</td>
+							${detail1.c_type}</td>
 						</tr>
 
 						<tr>
 							<td>작성자</td>
-							<td id="tabl1">${detail.c_writer}</td>
+							<td id="tabl1">${detail1.c_writer}</td>
 						</tr>
 
 						<tr>
 							<td>제목</td>
-							<td id="tabl1">${detail.c_subject}</td>
+							<td id="tabl1">${detail1.c_subject}</td>
 						</tr>
 
 						<tr>
-							<td>답변내용</td>
-							<td><textarea name=content cols=85 rows=15></textarea></td>
+							<td>내용</td>
+							<td><textarea name=content cols=85 rows=15>${detail1.c_content}</textarea></td>
 						</tr>
-<!-- 						<tr> -->
-<!-- 							<td>비밀번호</td> -->
-<!-- 							<td><input type=password name=pw size=10 maxlength=10></td> -->
-<!-- 						</tr> -->
-						
-<!-- 						<tr> -->
-						
-					
+
 					</table>
 					
 					
-						<button id="writeBtn" onclick="location='list'">돌아가기</button>
-						
-					<button id="writeBtn" onclick="location='ansinsert'">답변등록</button>
+						<button id="writeBtn" onclick="location='list1'">돌아가기</button>
+									
+						<button id="writeBtn" onclick="location='del1?c_num=${detail1.c_num}'" id="remove">게시글 삭제</button>
+					<button id="writeBtn" onclick="location='ans1?c_num=${detail1.c_num}'" >답변등록</button>
+
 				</td>
 			</tr>
 		</table>
@@ -72,7 +69,7 @@
 
 </body>
 
-<%-- <%@ include file="../customer_board/comment.jsp"%> --%>
+
 <%@ include file="../include/footer.jsp"%>
 
 

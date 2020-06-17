@@ -17,9 +17,8 @@
 
 
 <body id="table">
+<form action="ansinsert1" method="post">
 
-		
-		
 		<table
 			style="padding-top: 50px; align: center;  border: 0; margin-top:7rem; margin-left: 15rem;">
 			<tr>
@@ -35,50 +34,40 @@
 						
 						<tr>
 							<td>문의유형</td>
-							<td id="tabl1">								
-							${detail.c_type}</td>
+							<td id="tabl1" name="c_type">								
+							${detail1.c_type}</td>
 						</tr>
 
 						<tr>
 							<td>작성자</td>
-							<td id="tabl1">${detail.c_writer}</td>
+							<td id="tabl1" name="c_writer" >${detail1.c_writer}</td>
 						</tr>
 
 						<tr>
 							<td>제목</td>
-							<td id="tabl1">${detail.c_subject}</td>
+							<td id="tabl1" name="c_subject">${detail1.c_subject}</td>
 						</tr>
 
 						<tr>
-							<td>내용</td>
-							<td><textarea name=content cols=85 rows=15>${detail.c_content}</textarea></td>
+							<td>답변내용</td>
+							<td><textarea cols=85 rows=15 name="c_ans" value="${detail1.c_ans}"></textarea></td>
 						</tr>
-<!-- <!-- 						<tr> --> -->
-<!-- <!-- 							<td>비밀번호</td> --> -->
-<!-- <!-- 							<td><input type=password name=pw size=10 maxlength=10></td> --> -->
-<!-- <!-- 						</tr> --> -->
+
 						
-<!-- <!-- 						<tr> --> -->
-<!-- 							<td>답변</td> -->
-<%-- 							<td><textarea name=content cols=85 rows=2>${detail.c_ans}</textarea></td> --%>
-<!-- 						</tr> -->
 					
 					</table>
-					
-					
-						<button id="writeBtn" onclick="location='list'">돌아가기</button>
-									
-						<button id="writeBtn" onclick="location='del?c_num=${detail.c_num}'" id="remove">게시글 삭제</button>
-					
-					<button id="writeBtn" onclick="location='ans'">답변등록</button>
+						
+					<input type="submit" value="답변등록">
+					<input type="hidden" name="c_num" value="${detail1.c_num}">
 				</td>
 			</tr>
 		</table>
+		</form>
 
 
 </body>
 
-<%-- <%@ include file="../customer_board/comment.jsp"%> --%>
+
 <%@ include file="../include/footer.jsp"%>
 
 

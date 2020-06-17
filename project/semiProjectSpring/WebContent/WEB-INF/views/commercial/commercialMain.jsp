@@ -4,6 +4,7 @@
 <%@ include file="../include/header_index.jsp"%>
 <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
 <%@ include file="../include/header_menu.jsp"%>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 <%@include file="sidemenu.jsp"%>
 <section class="contact-section ">
 	<!-- Page Content -->

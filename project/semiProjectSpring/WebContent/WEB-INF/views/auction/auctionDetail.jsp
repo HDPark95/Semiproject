@@ -3,6 +3,7 @@
 
 <%@ include file="../include/header_index.jsp"%>
 
+<%@ include file="../include/header_menu.jsp"%>
 <link rel="stylesheet" href="resources/css/auction/hyunstyle.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,7 +12,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-<%@ include file="../include/header_menu.jsp"%>
+
 
 <style>
 .modal a.close-modal {
@@ -26,6 +27,12 @@
  
 .modal {
 	height: unset;
+}
+@media (min-width: 768px)
+.navbar-collapse.collapse {
+    height: auto!important;
+    padding-bottom: 0;
+    overflow: visible!important;
 }
 </style>
 <div id="new" class="collapse navbar-collapse"
@@ -96,7 +103,7 @@
 				</tr>
 				<tr>
 					<th><div class="C">남은기간</div></th>
-					<td><div class="C timer" ></div></td>
+					<td><div class="C timer"></div></td>
 				</tr>
 				<tr>
 					<th class="border0">
@@ -114,7 +121,8 @@
 			</tr>
 			<tr>
 				<td colspan="2"><a href="#ex1" rel="modal:open"
-					class="btn btn-primary btn-lg">입찰하기</a></td>
+					class="btn btn-primary btn-lg" id="sal">입찰하기</a></td>
+					
 			</tr>
 		</table>
 	</div>
@@ -137,6 +145,8 @@
 		</textarea>
 	</div>
 	<div id="ex1" class="modal">
+
+	
 		<div class="modal-body">
 			<table class="table-data" id="sellCreditTable" style="width: 100%;">
 				<thead>
@@ -148,6 +158,7 @@
 					<tr>
 						<th colspan="2">판매자</th>
 						<td colspan="2" id="1">${result.bid}</td>
+						
 					</tr>
 					<tr>
 						<th colspan="2">남은기간</th>
@@ -163,18 +174,19 @@
 					</tr>
 					<tr>
 						<th colspan="2">입찰금액</th>
-						<td colspan="2" id="5"><input type="text" name="ipprice"></td>
+						<td colspan="2" id="5"><input type="text" name="ipprice" id="ipprice" value="${vo.ipprice}"></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		<div class="modal-footer text-center">
-			<a href="#." class="btn btn-success btn-lg" data-dismiss="modal"
-				onclick="location='purchase'">신중하게입찰하기</a> <a class="btn btn-danger btn-lg"
+			<button onclick="test();" class="btn btn-success btn-lg" data-dismiss="modal" id="click"
+				> 신중하게입찰하기</button> <a class="btn btn-danger btn-lg"
 				data-dismiss="modal" rel="modal:close">취소</a>
 		</div>
 	</div>
 </div>
+<input type="hidden" id="valtest" value="${result.hprice}">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -182,6 +194,27 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script>
+
+function test(){
+	var ipprice = $("#ipprice").val();
+		ipprice = Number(ipprice);
+	var ipnum = "${result.ipnum}";
+	var bid = "${result.bid}";
+	var anum = "${result.anum}";
+	var url = "?ipprice=" + ipprice + "&ipnum="+ipnum +"&bid="+bid
+	location = 'purchase'+url
+	
+	console.log(ipprice);
+	console.log(typeof(${result.hprice}));
+	
+	var numvv = parseInt($('#valtest').val().replace(",",""),10)
+	if(numvv > $("#ipprice").val()){	
+		alert('입찰금액이 현재가 보다 낮습니다. 다시 입력해주세요.')
+			location.reload();
+	}else{
+		alert('입찰되었습니다! 축하드립니다!')
+	}
+};
 	$(document).ready(function() {
 		var $node = $('div').children();
 		$('.im').click(function() {
@@ -191,6 +224,18 @@
 	function close_pop(flag) {
 		$('#ex1').hide();
 	};
+	$('#sal').click(function(event){	
+		if($('.timer').html() == "EXPIRED"){
+			event.stopPropagation();
+			alert("물건 경매가 마감되었습니다.")
+			$('#sal').attr('class', "btn btn-primary btn-lg disabled");
+			
+		}else{
+			alert("경매가 진행중인 물건입니다.")
+			
+		}
+
+	});
 	/* var i= 0;
 	var menu =$('#bul > ul > li').length;
 	var inter = setInterval(function() {
@@ -203,6 +248,11 @@
 	$('#target img').attr('src',$(this).attr('src'));
 	}); */
 	$(function() {
+		var ipprice = $("#ipprice").val();
+		ipprice = Number(ipprice);
+		console.log(typeof(ipprice));
+		console.log(typeof(${result.hprice}));
+		
 		var countDownDate = new Date("${result.enddate}").getTime();
 		// Get today's date and time
 		var now = new Date().getTime();
@@ -239,6 +289,7 @@
 			if (distance < 0) {
 				clearInterval(x);
 				$(".timer").html("EXPIRED");
+			
 			}
 		}, 30000);
 	})

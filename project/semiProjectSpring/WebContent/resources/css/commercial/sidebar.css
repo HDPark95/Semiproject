@@ -19,17 +19,15 @@ position: fixed;
 top: 126px;
 left: 50%;
 margin-left: 600px;
-border:1px solid #B0B5BD;
+/* border:1px solid #B0B5BD; */
 width:320px;
 height:700px;
 
 }
 
-
-
 #rightSide #right_zzim  div {text-align:center;}
 
-#rightSide   div.recTit{line-height:1.5em;padding:5px;color:white;background-color:#505A69;}
+#rightSide   div.recTit{line-height:1.5em;padding:5px;color:white;background-color:#4287f5;}
 #right_zzim{background-color: white;}
 #right_zzim #recentCnt {color:black;}
 

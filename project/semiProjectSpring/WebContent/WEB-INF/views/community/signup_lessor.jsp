@@ -70,14 +70,14 @@
 	margin-top: 0px;
 }
 </style>
-<h1>로고</h1>
+<h1>CMJ</h1>
 <br>
 <h4>임대인 회원가입</h4>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
-		<form method="post" action="signup_broker_in" class="form-horizontal"
+		<form method="post" action="signup_lessor_in" class="form-horizontal"
 			autocomplete="off">
-			<div class="form-group" id="aid">
+			<div class="form-group">
 				<label for="aidheader" class="col-sm-2 control-label">아이디</label>
 				<div class="col-md-1" id="inputidheader">
 					<input type="text" class="form-control" id="aidheader"
@@ -89,13 +89,14 @@
 					<input type="text" class="form-control" id="aidfooter"
 						name="aidfooter" placeholder="email" maxlength="30" required="required">
 				</div>
+				<input type="hidden" id="aid" name="aid" value="${userid}">
 			</div>
 			<div id="idtarget"></div>
 			<div class="form-group">
 				<label for="apwd" class="col-sm-2 control-label">비밀번호</label>
 				<div class="col-sm-3">
 					<input type="password" class="form-control" id="apwd" name="apwd"
-						placeholder="영문+숫자,8자 이상" required="required">
+						placeholder="영문+숫자,6자 이상" required="required">
 					<div id="pwdtarget"></div>
 				</div>
 			</div>
@@ -227,8 +228,8 @@ $(function() {
 		console.log(pwd);
 		if(pwd.length===0){
 			$('#pwdtarget').html("<p style='color:red'>비밀번호를 입력하여 주십시오.</p>");
-		}else if(pwd.length>=1&&pwd.length<=7){
-			$('#pwdtarget').html("<p style='color:red'>8자 이상의 영문 및 숫자를 사용하여 주십시오.</p>");
+		}else if(pwd.length>=1&&pwd.length<=5){
+			$('#pwdtarget').html("<p style='color:red'>6자 이상의 영문 및 숫자를 사용하여 주십시오.</p>");
 		}else{
 			$('#pwdtarget').html("");
 		}

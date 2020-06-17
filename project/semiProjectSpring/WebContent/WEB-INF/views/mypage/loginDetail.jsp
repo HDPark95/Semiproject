@@ -38,9 +38,7 @@
 		<div class="container" id="signup" style="">
 
 			<button type="submit" class="btn btn-success btn-lg">수정하기</button>
-			<button type="submit" class="btn btn-success btn-lg"
-				formmethod="post" formaction="mypage_lessor" formtarget="#aid">뒤로가기
-			</button>
+			<button type="button" class="btn btn-success btn-lg" id="mypage_loginfor_refresh">뒤로가기</button>
 		</div>
 	</form>
 </div>
@@ -77,7 +75,10 @@
 			}
 
 		});
-
+		
+	$('#mypage_loginfor_refresh').click(function() {
+		location.reload();
+	});
 	});
 </script>
 

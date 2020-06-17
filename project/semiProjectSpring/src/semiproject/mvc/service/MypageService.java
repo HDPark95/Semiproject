@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import semiproject.mvc.dao.MyPageDao;
 import semiproject.mvc.vo.PaymentVO;
 import semiproject.mvc.vo.Payment_DetailVO;
+import semiproject.mvc.vo.SignUpVO;
 
 @Service
 @Transactional
@@ -22,7 +23,7 @@ public class MypageService {
 		
 	}
 	
-	public void member_secession(String aid) {
+	public void member_secession(SignUpVO aid) {
 		mypagedao.member_secession(aid);
 	}
 	

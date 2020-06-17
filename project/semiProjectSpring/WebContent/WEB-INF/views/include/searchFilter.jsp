@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-md-6 mt-6 search">
 			
-					<input type="text" placeholder="강남구 역삼동" ><span class="btn">검색</span>
+					<input type="text" id="keyword"  ><span class="btn">검색</span>
 			
 				
 			</div>

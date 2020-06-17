@@ -17,7 +17,7 @@ import semiproject.mvc.vo.Community_PageVO;
 
 @Controller
 public class CommunityPage {
-
+	
 	@Autowired
 	private CommunityDao communityDao;
 
@@ -36,13 +36,12 @@ public class CommunityPage {
 		return "community/writing_auction";
 	}
 	
-	// 미완성
 	@RequestMapping(value = "/updateWrec")
 	public String updateWrec(Model model, int wnum) {
 		communityDao.updateWrec(wnum);
 		Community_BoardVO list = communityDao.getWrec(wnum);
 		model.addAttribute("list", list);
-		return "redirect:writingdetail?wnum="+wnum;
+		return "redirect:writing_detail?wnum="+wnum;
 	}
 	
 	@RequestMapping(value = "/comugu")
@@ -59,39 +58,59 @@ public class CommunityPage {
 		return "community/server/searchServer";
 	}
 	
-	@RequestMapping(value = "/writing_commercial_in",method = RequestMethod.POST)
-	public ModelAndView writingCommercial(Community_BoardVO vo) {
-		ModelAndView mav = new ModelAndView("community/community");
-		communityDao.cWriting(vo);
-		return mav;
-	}
-	
 	@RequestMapping(value = "/comuMain")
 	public String writingAllList(Community_PageVO pvo, Model model,
 			@RequestParam(value = "nowPage", required = false, defaultValue = "1") String nowPage,
 			@RequestParam(value = "cntPerPage", required = false, defaultValue = "10") String cntPerPage,
-			@RequestParam(value = "sortindex", required = false, defaultValue = "1") String sortindex) {
-		int total = communityDao.getCountAll();
+			@RequestParam(value = "sortindex", required = false, defaultValue = "1") String sortindex,
+			@RequestParam(required = false) String searchType,
+			@RequestParam(required = false) String searchValue) {
+		int total = communityDao.getCountAll(pvo);
 		pvo = new Community_PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), Integer.parseInt(sortindex));
+		pvo.setSearchType(searchType);
+		pvo.setSearchValue(searchValue);
 		model.addAttribute("paging", pvo);
 		model.addAttribute("listall", communityDao.allList(pvo));
+		model.addAttribute("total", total);
 		return "community/community";
 	}
 	
+	@RequestMapping(value = "/writing_commercial_in",method = RequestMethod.POST)
+	public ModelAndView writingCommercial(Community_BoardVO vo) {
+		ModelAndView mav = new ModelAndView("redirect:comuMain");
+		communityDao.cWriting(vo);
+		return mav;
+		
+	}
+	
+	@RequestMapping(value = "/writing_estate_in",method = RequestMethod.POST)
+	public ModelAndView writingEstate(Community_BoardVO vo) {
+		ModelAndView mav = new ModelAndView("redirect:comuMain");
+		communityDao.eWriting(vo);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/writing_auction_in",method = RequestMethod.POST)
+	public ModelAndView writingAuction(Community_BoardVO vo) {
+		ModelAndView mav = new ModelAndView("redirect:comuMain");
+		communityDao.aWriting(vo);
+		return mav;
+	}
+	
 	// 상세보기로 들어가는 컨트롤러
-	@RequestMapping(value = "/writingdetail")
+	@RequestMapping(value = "/writing_detail")
 	public ModelAndView writeDetail(int wnum) {
-		ModelAndView mav = new ModelAndView("community/writingdetail");
+		ModelAndView mav = new ModelAndView("community/writing_detail");
 		communityDao.updateWhit(wnum);
 		Community_BoardVO list = communityDao.WriDetail(wnum);
 		mav.addObject("list", list);
 		return mav;
 	}
 	
-	// update_commercial로 들어가는 컨트롤러
+	// writing_update로 들어가는 컨트롤러
 	@RequestMapping(value = "/updatedetailform")
 	public ModelAndView updateDetailForm(int wnum) {
-		ModelAndView mav = new ModelAndView("community/update_commercial");
+		ModelAndView mav = new ModelAndView("community/writing_update");
 		Community_BoardVO list = communityDao.WriDetail(wnum);
 		mav.addObject("list", list);
 		return mav;
@@ -99,9 +118,17 @@ public class CommunityPage {
 	
 	// 수정 버튼을 눌러 수정하는 컨트롤러
 	@RequestMapping(value = "/updetail")
-	public ModelAndView updateDetail(Community_BoardVO vo) {	
+	public ModelAndView updateDetail(Community_BoardVO vo) {
 		communityDao.updateDetail(vo);
-		ModelAndView mav = new ModelAndView("redirect:writingdetail?wnum="+vo.getWnum());
+		ModelAndView mav = new ModelAndView("redirect:writing_detail?wnum="+vo.getWnum());
 		return mav;
 	}
+	
+	// 글을 '삭제 상태'로 만드는 컨트롤러
+	@RequestMapping(value = "/dedetail", method = RequestMethod.GET)
+	public String deleteDetail(int wnum) {
+		communityDao.deleteDetail(wnum);
+		return "redirect:comuMain";
+	}
+
 }
