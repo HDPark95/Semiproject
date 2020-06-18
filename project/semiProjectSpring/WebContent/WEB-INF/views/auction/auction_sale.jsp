@@ -195,17 +195,31 @@
 </head>
 <body>
 	<div style="width: 1500px; margin: 80px auto;">
-
 		
-
-		<!-- banner bullets -->
-		<div class="swiper-pagination banner-bullet"></div>
-		</section>
+		<div>
+			<section id="banner" class="swiper-container main-banner-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide banner-wrapper r1" style="cursor: pointer;" onclick="">
+					</div>
+					<div class="swiper-slide banner-wrapper r2" style="cursor: pointer;" onclick="">
+					</div>
+					<div class="swiper-slide banner-wrapper r3" style="cursor: pointer;" onclick="">
+					</div>
+				</div>
+				<!-- banner arrow -->
+				<button
+					class="swiper-button-next swiper-arrow-button swiper-arrow-button-next banner-button-next"></button>
+				<button
+					class="swiper-button-prev swiper-arrow-button swiper-arrow-button-prev banner-button-prev"></button>
+				<!-- banner bullets -->
+				<div class="swiper-pagination banner-bullet"></div>
+			</section>
+		</div>
 	</div>
 	<div id="body" style="width: 100%; height: 100%; margin: auto;">
 		<div id="leftcontents"
 			style="position: relative; width: 80%; margin: auto;">
-			<div id="datalisttop" style="width: 100%; margin-top: 20px; margin-bottom: 350px;">
+			<div id="datalisttop" style="width: 100%; margin-top: 20px;">
 				<div class="btn-group" role="group" aria-label="Basic example"
 					style="float: left;">	
 					<br>

@@ -58,10 +58,10 @@
 			<ul class="nav nav-tabs ">
 				<li class="nav-item"><a class="nav-link active"
 					data-toggle="tab" href="#home">매물 정보 </a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab"
-					href="#profile">상세 설명</a></li>
-				<li class="nav-item"><a class="nav-link " data-toggle="tab"
-					href="#">그 외 만들고 싶은 탭 추가 하기</a></li>
+				<!-- <li class="nav-item"><a class="nav-link" data-toggle="tab"
+					href="#profile">상세 설명</a></li> -->
+			<!-- 	<li class="nav-item"><a class="nav-link " data-toggle="tab"
+					href="#">그 외 만들고 싶은 탭 추가 하기</a></li> -->
 
 			</ul>
 

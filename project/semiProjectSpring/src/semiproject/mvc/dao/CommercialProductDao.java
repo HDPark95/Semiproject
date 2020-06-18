@@ -16,28 +16,26 @@ public class CommercialProductDao {
 	@Autowired
 	private SqlSessionTemplate ss;
 	public List<CommercialProductVO> getDesc(String location){
-		System.out.println("호출");
+		
 		List<CommercialProductVO> list = ss.selectList("commercialProduct.desc", location);
 		return list;
 	}
 	public List<CommercialProductVO> getProductDetail(String pdnum){
-		System.out.println("pdnumDetail : " + pdnum);
+		
 
 		return ss.selectList("commercialProduct.descdetail", pdnum);
 	} 
 	public CommercialProductVO getCntProduct(String pdnum) {
-		System.out.println("pdnumCnt : " + pdnum);
+		
 		CommercialProductVO vo = ss.selectOne("commercialProduct.descdetail", pdnum);
 		return vo;
 	}
 	 public List<CommercialProductVO> getList(PageVO svo){ //nowPage등으로 연산이 된  start,end
-		  System.out.println("stype"+svo.getSearchType());
-		  System.out.println("svalue"+svo.getSearchValue());
+		 
 		  return ss.selectList("search.list2", svo);
 		} 
 	 public List<RealPriceVO> getList2(PageVO svo){ //nowPage등으로 연산이 된  start,end
-		  System.out.println("stype"+svo.getSearchType());
-		  System.out.println("svalue"+svo.getSearchValue());
+		 
 		  return ss.selectList("search.list3", svo);
 		} 
 	 public int getTotalCount(PageVO svo) {//전체 데이터를 기준으로 페이지를 나눌것이기 때문에..

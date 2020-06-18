@@ -15,6 +15,58 @@
 <%@ include file="../include/header_menu.jsp"%>
 
 <style>
+#banner {
+	width: 100%;
+	height: 300px;
+	max-height: 300px;
+	min-height: 300px;
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+.banner-wrapper {
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.banner-inner {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 100%;
+	height: 300px;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.banner-button-wrapper {
+	position: relative;
+	width: 1200px;
+	height: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.banner-bullet {
+	bottom: 10px;
+	left: 50%;
+	z-index: 1;
+}
+
+.banner-bullet>span.swiper-pagination-bullet {
+	width: 10px;
+	height: 10px;
+	margin: 0 5px;
+}
+
+.banner-bullet>span.swiper-pagination-bullet-active {
+	background-color: #ea6946;
+}
 .modal a.close-modal {
 	top: 0px;
 	right: 0px;

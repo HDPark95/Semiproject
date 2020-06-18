@@ -1,6 +1,6 @@
 $(function(){
 	$(".typer").typed({
-		strings : [ " C조 Project", " Test용 문구", " 조장 : 박현두", " 대박임" ],
+		strings : [ " C조", "Semi Project", " CMJ ", " " ],
 		typeSpeed : 500,
 		backDelay : 1500,
 		showCursor : false

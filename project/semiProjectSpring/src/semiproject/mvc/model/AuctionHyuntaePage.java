@@ -45,8 +45,7 @@ public class AuctionHyuntaePage {
 		auctionhyuntaedao.auctionHit(anum);
 		AuctionDetailVO vo = auctionhyuntaedao.getAuctionDetail(anum);
 		//
-		System.out.println("ipnum :"+vo.getIpnum());
-		System.out.println(vo.getHprice().replace(",", ""));
+		
 		mav.addObject("result", vo);
 		mav.addObject("list", anum);
 		return mav;
@@ -57,7 +56,7 @@ public class AuctionHyuntaePage {
 		UserVO vo = (UserVO) httpsession.getAttribute("user");
 		String aid = vo.getAid();
 		mav.addObject("aid", aid);
-		System.out.println(vo.getAid());
+		
 		return mav;
 	}
 
@@ -72,8 +71,7 @@ public class AuctionHyuntaePage {
 	@RequestMapping(value = "/purchase")
 	public ModelAndView detailIpchal(IpchalperVO vo) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("hi"+vo.getBid());
-		System.out.println("ipnum : "+vo.getIpnum());
+		
 		auctionhyuntaedao.purchase(vo);
 		mav.setViewName("auction/purchase");
 		return mav;
@@ -92,8 +90,7 @@ public class AuctionHyuntaePage {
 	public ModelAndView manegementList(int ipnum) {
 		ModelAndView mav = new ModelAndView("auction/auctionSaleManagement");
 		List<IpchalperVO> list = auctionhyuntaedao.getList(ipnum);
-		System.out.println("사이즈"+list.size());
-		System.out.println("번호:");
+		
 		mav.addObject("list", list);
 		return mav;
 	}
@@ -103,7 +100,7 @@ public class AuctionHyuntaePage {
 		ModelAndView mav = new ModelAndView();
 		System.out.println(aid);
 		List<AuctionSaleVO> list = auctionhyuntaedao.getAuctionsale(aid);
-		System.out.println("리스트:" + list);
+		
 		mav.addObject("list", list);
 		mav.setViewName("auction/auction_sale");
 		return mav;
@@ -116,7 +113,7 @@ public class AuctionHyuntaePage {
 		for(AuctionSaleVO e : list) {
 			map.put(e.getIpdate(), e.getIpprice());
 			}
-		System.out.println(list.size());
+		
 		String result=null;
 		ObjectMapper mapper = new ObjectMapper();
 		try {

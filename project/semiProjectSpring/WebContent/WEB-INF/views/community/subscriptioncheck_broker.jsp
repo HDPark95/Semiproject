@@ -11,7 +11,7 @@
 	<div class="container">
 		<table class="table">
 			<tr class="success">
-				<th colspan="2"><a>기업명</a><br>회원가입을 축하드립니다!</th>
+				<th colspan="2"><a>CMJ</a><br>회원가입을 축하드립니다!</th>
 			</tr>
 			<tr>
 				<td colspan="2" id="welcome1">구독권을 가입하시면 보다 많은 혜택을 누리실 수 있습니다!</td>

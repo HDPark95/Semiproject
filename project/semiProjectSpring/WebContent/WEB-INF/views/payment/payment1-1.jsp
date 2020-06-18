@@ -143,7 +143,7 @@
 					location = "pay1";
 				} else {
 					alert('선택해주세요.');
-					location = "pay4";
+					
 				}
 			});
 	

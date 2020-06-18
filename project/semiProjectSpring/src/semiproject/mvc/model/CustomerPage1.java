@@ -52,7 +52,7 @@ public class CustomerPage1{
 	@RequestMapping(value="/boardin1" , method = RequestMethod.POST)
 	public ModelAndView writeBoard(Customer_Board1VO vo) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("모델 호출");
+		
 		customerdao1.addwrite(vo);
 		mav.setViewName("redirect:list1");
 		return mav;
@@ -87,7 +87,7 @@ public class CustomerPage1{
 		@RequestMapping(value="/Detail1", method = RequestMethod.GET)
 		public String customerDetail(Model model, HttpServletRequest req) throws Exception {
 			
-			System.out.println("게시판 상세보기 호출");
+			
 			
 			String c_num = req.getParameter("c_num");
 			
@@ -101,7 +101,7 @@ public class CustomerPage1{
 		@RequestMapping(value = "ans1")
 		public ModelAndView ansPage(HttpServletRequest req) throws Exception{
 			ModelAndView mav = new ModelAndView();
-			System.out.println("답변등록 페이지 호출");
+			
 			String c_num = req.getParameter("c_num");
 			mav.addObject("detail1", customerdao1.getDetail(Integer.parseInt(c_num)));
 			mav.setViewName("customer_board1/boardAnsTest");
@@ -112,10 +112,9 @@ public class CustomerPage1{
 	@RequestMapping(value = "ansinsert1", method = RequestMethod.POST)
 	public ModelAndView ansInsert(Customer_Board1VO vo) throws Exception{
 		ModelAndView mav = new ModelAndView();
-		System.out.println("답변등록 호출");
+	
 		customerdao1.updateAns(vo);
-		System.out.println("답변내용체크 : "+vo.getC_ans());
-		System.out.println("글번호 체크 : " + vo.getC_num());
+	
 		
 		mav.setViewName("redirect:list1");
 		return mav;
@@ -126,7 +125,7 @@ public class CustomerPage1{
 		
 		@RequestMapping(value = "del1" )
 		public String delCustomer_Board(int c_num) throws Exception {
-			System.out.println("삭제처리 동작?");
+			
 			
 			customerdao1.delete(c_num);
 			

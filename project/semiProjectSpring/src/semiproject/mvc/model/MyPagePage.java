@@ -132,7 +132,7 @@ public class MyPagePage {
 	public ModelAndView paymentupdate_my(PaymentVO vo, Payment_DetailVO dvo) {
 
 		myservice.service_premiumProlong(vo, dvo);
-		System.out.println("번호 확인 : " + vo.getPnum());
+		
 		SignUpVO svo = mypagedao.getloginINFORNUM(vo.getPnum());
 		ModelAndView mav = new ModelAndView("payment/Complete_payment");
 	

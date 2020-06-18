@@ -33,7 +33,7 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">환영합니다!</h1>
+                    <h1 class="h4 text-gray-900 mb-4">로그인</h1>
                   </div>
                   <form action="loginPost" method="post">
                     <div class="form-group">

@@ -18,7 +18,7 @@ public class Customer_BoardDaoImple1 implements Customer_BoardDao1{
 	
 	@Override
 	public Object addwrite(Customer_Board1VO vo) throws Exception {  
-		System.out.println("dao 호출! ");
+	
 		return ss.insert("board1.insert", vo);  
 	}
 
@@ -30,8 +30,7 @@ public class Customer_BoardDaoImple1 implements Customer_BoardDao1{
 
 	@Override
 	public Customer_Board1VO getDetail(int c_num) throws Exception {
-		
-		System.out.println("디테일 dao" + c_num);
+	
 		return ss.selectOne("board1.viewDetail",c_num);
 		 
 	}
@@ -45,7 +44,7 @@ public class Customer_BoardDaoImple1 implements Customer_BoardDao1{
 
 	@Override
 	public int delete(int c_num) throws Exception {
-		System.out.println("dao" + c_num);
+		
 		
 		return ss.delete("board1.delete",c_num); 
 		
