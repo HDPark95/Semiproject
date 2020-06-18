@@ -3,6 +3,7 @@
 
 <%@ include file="../include/header_index.jsp"%>
 <link  href="/resources/css/estate/paging.css"/>
+<link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
 <style>
 .paging{
 	color: #64a19d;
@@ -208,83 +209,22 @@
 				<!--  body -->
 				<div class="col-md-8 col-sm-8 float-left">
 					<div class="map_wrap">
-					<div id="map" class="col-md-12 col-sm-12" style=" margin-top:50px; position: relative; overflow: hidden;"></div>
-					<div  id="menu_wrap">
-						<ul id="placesList"></ul>
-						<div id="pagination"></div>
-					</div>
+					<div id="map" class="col-md-12 col-sm-12" style=" width: 100%;height: 1440px; position: relative; overflow: hidden;"></div>
+					
 					
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4 float-left" id="listtarget">
-					<div class="col-md-12">
-						<ul >
-							<c:forEach begin="1" end="10" step="1" varStatus="i">
-								<li class="list-inline">
-									<div class="col-md-6 col-sm-6 float-left">
-										<a href="#">
-											<div class="col-md-12 col-sm-12">
-												<img src="resources/images/estate/apt.jpg"  style="width: 100%; height: 100px;">
-												
-											</div>
-											<div class="col-md-12 col-sm-12">
-												<p>매물종류${i.index }</p>
-												<span> 매물 가격${i.index }</span>
-					 							<p>매물설명${i.index }</p>
-											</div>
-										</a>
-									</div>
-								</li>
-							</c:forEach>
-						</ul>
-					</div>
+					
 				</div>
 
 			</div>
 		</div>
 		<input type="hidden" value="${msg}" id="msg">
-		<script>
-			var msg=$("#msg").val();
-			$(function(){
-				if(msg!==''){
-					alert(msg);
-				}
-				
-				
-				
-				$.ajax({
-					url:'estatelist',
-					
-					success:function(data){
-						$('#listtarget').html(data);
-					}
-				});
-				
-				
-				
-				
-			});
-			function paging(text){
-				var url='';
-				if(text==='이후'){
-					url='estatelist?nowPage='+$('#endPage').val()+'&cntPerPage='+$('#cntPerPage').val();
-				}else if(text==='이전'){
-					url='estatelist?nowPage='+$('#startPage').val()+'&cntPerPage='+$('#cntPerPage').val();
-				}else{
-					url='estatelist?nowPage='+text+'&cntPerPage='+$('#cntPerPage').val();
-				}
-				
-				
-				$.ajax({
-					url:url,
-					success: function(data){
-						$('#listtarget').html(data);
-					}
-				});
-			}
-			
-		</script>
-			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5d751c35293b0473bc14f09aa6b0ca97&libraries=services,clusterer,drawing"></script>
+		
+		
+	</div>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5d751c35293b0473bc14f09aa6b0ca97&libraries=services,clusterer,drawing" ></script>
 		<script>
 			// 마커를 담을 배열입니다
 			var markers = [];
@@ -292,7 +232,7 @@
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			mapOption = {
 				center : new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-				level : 3
+				level : 5
 			// 지도의 확대 레벨
 			};
 
@@ -351,7 +291,7 @@
 			// 검색 결과 목록과 마커를 표출하는 함수입니다
 			function displayPlaces(places) {
 
-				var listEl = document.getElementById('listtarget'), menuEl = document
+				var listEl = document.getElementById('placesList'), menuEl = document
 						.getElementById('menu_wrap'), fragment = document
 						.createDocumentFragment(), bounds = new kakao.maps.LatLngBounds(), listStr = '';
 
@@ -509,6 +449,47 @@
 				}
 			}
 		</script>
-	</div>
 </section>
+
+<script>
+			var msg=$("#msg").val();
+			$(function(){
+				if(msg!==''){
+					alert(msg);
+				}
+				
+				
+				
+				$.ajax({
+					url:'estatelist',
+					
+					success:function(data){
+						$('#listtarget').html(data);
+					}
+				});
+				
+				
+				
+				
+			});
+			function paging(text){
+				var url='';
+				if(text==='이후'){
+					url='estatelist?nowPage='+$('#endPage').val()+'&cntPerPage='+$('#cntPerPage').val();
+				}else if(text==='이전'){
+					url='estatelist?nowPage='+$('#startPage').val()+'&cntPerPage='+$('#cntPerPage').val();
+				}else{
+					url='estatelist?nowPage='+text+'&cntPerPage='+$('#cntPerPage').val();
+				}
+				
+				
+				$.ajax({
+					url:url,
+					success: function(data){
+						$('#listtarget').html(data);
+					}
+				});
+			}
+			
+		</script>
 <%@ include file="../include/footer.jsp"%>

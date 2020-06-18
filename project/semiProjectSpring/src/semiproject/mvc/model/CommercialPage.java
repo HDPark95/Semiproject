@@ -56,11 +56,11 @@ public class CommercialPage {
 			@RequestParam(value = "nowPage", required = false, defaultValue = "1") String nowPage,
 			@RequestParam(value = "cntPerPage", required = false, defaultValue = "5") String cntPerPage) {
 		int total = commercialProductDao.getTotalCount(vo);
-		System.out.println("토탈토탈토탈 : " + total);
+		
 		if (vo.getSearchType() == null) {
 			vo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		} else {                                                                
-			System.out.println("searchValue:" + vo.getSearchValue());
+		
 			vo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), vo.getSearchType(),
 					vo.getSearchValue());
 		} 
@@ -77,7 +77,7 @@ public class CommercialPage {
 				e.setRlettpcd("상가");
 			}
 		}
-		System.out.println("listSize : " + list.size());
+		
 		model.addAttribute("paging", vo);
 		model.addAttribute("list", list);
 		return "commercial/product";
@@ -107,10 +107,9 @@ public class CommercialPage {
 
 	@RequestMapping(value = "/gu")
 	public String getGu(Model model, String cate) {
-		System.out.println("하이요");
+		
 		List<String> list = commercialDao.getGu();
-		System.out.println(list.toString());
-		System.out.println("cate: " + cate);
+		
 		model.addAttribute("result", list);
 		model.addAttribute("cate", cate);
 		return "commercial/server/searchServer";
@@ -127,7 +126,7 @@ public class CommercialPage {
 	@RequestMapping(value = "/largename")
 	public String getLarge(Model model, String cate) {
 		List<String> list = commercialDao.getLarge();
-		System.out.println("cate: " + cate);
+		
 		model.addAttribute("result", list);
 		model.addAttribute("cate", cate);
 		return "commercial/server/searchServer";
@@ -156,7 +155,7 @@ public class CommercialPage {
 	@RequestMapping(value = "/information")
 	public String getInformation(Model model, String guName) {
 		List<DataVO> list = commercialDao.getInformation(guName);
-		System.out.println("guName: " + guName);
+	
 		model.addAttribute("result", list);
 		return "commercial/server/information";
 	}
@@ -176,7 +175,7 @@ public class CommercialPage {
 	@RequestMapping(value = "/productdesc")
 	public String getProductDesc(Model model, String location) {
 
-		System.out.println("넘어왔다." + location);
+		
 		List<CommercialProductVO> list = commercialProductDao.getDesc(location);
 		model.addAttribute("result", list);
 		return "commercial/server/productDesc";
@@ -220,7 +219,7 @@ public class CommercialPage {
 		ModelAndView mav = new ModelAndView("commercial/updateForm");
 		List<CommercialProductVO> vo = commercialProductDao.getProductDetail(pdnum);
 		
-		System.out.println("정보"+vo.get(0).getPdescription());
+		
 		mav.addObject("result", vo.get(0));
 		return mav;
 	}
@@ -228,7 +227,7 @@ public class CommercialPage {
 	@RequestMapping(value="updateCommercial",method = RequestMethod.POST)
 	public ModelAndView updateCommercial(CommercialProductVO vo, String aid,String[] option,String[] move,String sale,String junsae,String deposit,String monthly) {
 		ModelAndView mav = new ModelAndView("redirect:mypage_lessor?aid="+aid);
-		System.out.println(vo.getTradtpcd());
+		
 		StringBuffer sb= new StringBuffer();
 		if(move!=null) {
 			for(int i=0;i<move.length;i++) {
@@ -257,8 +256,7 @@ public class CommercialPage {
 	@RequestMapping(value="deleteCommercial")
 	public ModelAndView deleteCommercial(String pdnum, String aid) {
 		ModelAndView mav = new ModelAndView("redirect:mypage_lessor?aid="+aid);
-		System.out.println("번호"+pdnum);
-		System.out.println("아이디"+aid);
+		
 		commercialService.deleteCommercial(pdnum);
 		return mav;
 	}

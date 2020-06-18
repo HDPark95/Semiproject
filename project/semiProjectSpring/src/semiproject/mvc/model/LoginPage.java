@@ -33,7 +33,7 @@ public class LoginPage {
 	@RequestMapping(value = "/loginPost")
 	public ModelAndView loginPost(LoginDTO loginDTO, HttpSession httpsession,String tab) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("����");
+		
 		int cnt = logindao.login(loginDTO);
 		if(cnt == 0) {
 			return mav;
@@ -44,7 +44,7 @@ public class LoginPage {
 			logindao.loginsert(vo.getAnum());
 		}
 		mav.addObject("user", vo);
-		System.out.println(vo.getDname());
+		
 		httpsession.setAttribute("user", vo);
 		mav.setViewName("redirect:index#footerMenu"); 
 		return mav;

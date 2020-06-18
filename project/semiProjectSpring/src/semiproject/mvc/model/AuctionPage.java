@@ -65,7 +65,7 @@ public class AuctionPage{
 		StringBuffer sbe = new StringBuffer();
 		sbe.append(bvo.getEdate()).append(" ").append(bvo.getEtime());
 		String enddaytime = sbe.toString();
-		System.out.println("enddate:"+enddaytime);
+	
 		bvo.setEnddate(enddaytime);
 		
 		//텍스트
@@ -124,7 +124,7 @@ public class AuctionPage{
 		avo.setImageb(oriFn2_t);
 		avo.setImagec(oriFn3_t);
 		
-		System.out.println("FullPath :"+path1);
+	
 		File f = new File(path1.toString());
 		File f1 = new File(path2.toString());
 		File f2 = new File(path3.toString());

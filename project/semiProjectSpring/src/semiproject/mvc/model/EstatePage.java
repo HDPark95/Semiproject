@@ -64,7 +64,7 @@ public class EstatePage{
 		EstateVO vo=estateDAO.estateDetail(num);
 	
 		m.addAttribute("vo",vo);
-		return "estate/estateDetile";
+		return "estate/estateDetaile";
 	} 
 	@RequestMapping(value = "/insertestate",method = RequestMethod.POST)
 	public ModelAndView insertestate(EstateVO estate,AddInfoVO addinfo,String[] rentv,String[] dan, String[] rpay,String[] pay,String[] administrat,String[] option,String[] imgName,String mainaddr,String subaddr,String zipNo,String[] structure) {
@@ -79,7 +79,7 @@ public class EstatePage{
 				}
 				num++;
 			}
-			System.out.println(estate.getBuild());
+			
 			estate.setImgName(imgName);
 			if(rentv!=null&&rpay!=null) {
 				List<RentVO> list = new ArrayList<RentVO>();
@@ -165,8 +165,7 @@ public class EstatePage{
 	
 	@RequestMapping(value = "/commentlist",method =  RequestMethod.POST)
 	public String commentlist(String remeber,String text,Model m) {
-		System.out.println("값 1:"+remeber);
-		System.out.println("값 2:"+text);
+		
 		if(remeber.equals("원룸")) {
 			remeber="C01";
 		}
@@ -197,7 +196,7 @@ public class EstatePage{
 			vo.setSearchValue2(text);
 		}
 		List<CommercialProductVO> list=estateDAO.commentList(vo);
-		System.out.println(list.size());
+		
 		for(CommercialProductVO e:list) {
 			System.out.println("타이틀 :"+e.getAtclfetrdesc());
 			System.out.println("이미지 :"+e.getImg());
