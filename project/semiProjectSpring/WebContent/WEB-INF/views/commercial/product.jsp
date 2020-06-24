@@ -45,7 +45,7 @@ width:150px;}
 						<td>${listv.rlettpcd}</td>
 						<td>${listv.tradtpcd}</td>
 						<td>${listv.prc}</td>
-						<td>${listv.atclfetrdesc}</td>
+						<td><a href="estateDetail?num=${listv.pdnum}">${listv.atclfetrdesc}</a></td>
 						<td>${listv.taglist}</td>
 						<td>${listv.rltrnm}</td>
 						<td>${listv.plocation }</td>

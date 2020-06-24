@@ -67,53 +67,53 @@ public class EstatePage{
 		return "estate/estateDetaile";
 	} 
 	@RequestMapping(value = "/insertestate",method = RequestMethod.POST)
-	public ModelAndView insertestate(EstateVO estate,AddInfoVO addinfo,String[] rentv,String[] dan, String[] rpay,String[] pay,String[] administrat,String[] option,String[] imgName,String mainaddr,String subaddr,String zipNo,String[] structure) {
+	public ModelAndView insertestate(EstateVO estate,AddInfoVO addinfo,String[] rentv, String[] rpay,String[] pay,String[] administrat,String[] option,String[] imgName,String mainaddr,String subaddr,String zipNo,String[] structure) {
 			ModelAndView mav= new ModelAndView("estate/estate");
-		
+			long time1=System.currentTimeMillis();
+			System.out.println("등록시작");
 			estate.setDetaillocation(mainaddr+subaddr);
-			StringTokenizer st=new StringTokenizer(mainaddr," ");
-			int num=0;
-			while(st.hasMoreTokens()) {
-				if(num==1) {
-					estate.setPlocation(st.nextToken());
-				}
-				num++;
-			}
 			
-			estate.setImgName(imgName);
-			if(rentv!=null&&rpay!=null) {
-				List<RentVO> list = new ArrayList<RentVO>();
-				for(int i=0;i<rentv.length;i++) {
-					RentVO vo = new RentVO();
-					vo.setRentv(rentv[i]);
-					vo.setDan(dan[i]);
-					vo.setRpay(rpay[i]);
-					list.add(vo);
-					
-				}
-				
-				estate.setRent(list);
-			}
-	
-			if(administrat!=null&&pay!=null) {
-				List<AdministrativeVO> alist= new ArrayList<AdministrativeVO>();
-				for(int i=0;i<administrat.length;i++) {
-					AdministrativeVO vo = new AdministrativeVO();
-					vo.setAdministrat(administrat[i]);
-					vo.setPay(Integer.parseInt(pay[i]));
-					alist.add(vo);
-					
-				}
-				addinfo.setAdministrative(alist);
-			}
-		
-		
+			
+//			StringTokenizer st=new StringTokenizer(mainaddr," ");
+//			int num=0;
+//			while(st.hasMoreTokens()) {
+//				if(num==1) {
+//					estate.setPlocation(st.nextToken());
+//				}
+//				num++;
+//			}
+			estate.setPlocation(mainaddr.split(" ")[1]);
+			estate.setRentv(rentv);
+			estate.setRpay(rpay);
+			
+			
+			addinfo.setAdministrat(administrat);
+			addinfo.setPay(pay);
+
+			addinfo.setImgName(imgName);
 			addinfo.setStructure(structure);
 			addinfo.setOption(option);
 			
+			
+//			if(rentv!=null&&rpay!=null) {
+//				List<RentVO> list = new ArrayList<RentVO>();
+//				for(int i=0;i<rentv.length;i++) {
+//					RentVO vo = new RentVO();
+//					vo.setRentv(rentv[i]);
+//					
+//					vo.setRpay(rpay[i]);
+//					list.add(vo);
+//					
+//				}
+//				
+//				estate.setRent(list);
+//			}
+			System.out.println("서비스 시작");
 			estateService.addEstate(estate, addinfo);
 			
 			mav.addObject("msg","등록이 완료되었습니다.");
+			long time2=System.currentTimeMillis();
+			System.out.println("등록메서드 시간 :"+(time1-time2));
 		return mav;
 	}
 

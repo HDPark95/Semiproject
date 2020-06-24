@@ -25,84 +25,33 @@ public class EstateService {
 	
 	public void addEstate(EstateVO vo,AddInfoVO avo) {
 	//product 생성
-		
+		long time1 = System.currentTimeMillis();
 		estateDAO.addProduct(vo);
 		
 		
-		vo.setPdnum(estateDAO.productnum(vo));
-		
-		avo.setPdnum(vo.getPdnum());
-		avo.setAspay(avo.getAdministrative().get(0).getPay());
+		//vo.setPdnum(estateDAO.productnum(vo));
+		if(vo.getRentv()!=null) {
+			estateDAO.addProductSale(vo);				
+		}
 		estateDAO.addProductLocation(vo);
-		StringBuilder sb= new StringBuilder();
-		if(avo.getStructure()!=null) {
-			for(int i = 0; i<avo.getStructure().length;i++) {
-				sb.append(avo.getStructure()[i]);
-				if((avo.getStructure().length-1)>i) {				
-					sb.append("/");
-				}
-			}
-			
-		}else {
-			sb.append("");
-		}
-		avo.setPstructure(sb.toString());
-		sb=new StringBuilder();
-		if(avo.getMove()!=null) {
-			
-			for(int i = 0; i<avo.getMove().length;i++) {
-				sb.append(avo.getMove()[i]);
-				if((avo.getMove().length-1)>i) {				
-					sb.append("/");
-				}
-			}
-			
-		}else {
-			sb.append("");
-		}
-		avo.setPmove(sb.toString());
-	if(vo.getRent()!=null) {
-		// productSale 생성
-				for(RentVO e:vo.getRent()) {
-					e.setPdnum(vo.getPdnum());
-					estateDAO.addProductSale(e);
-				}
-	}
-		
-		
+	
 		estateDAO.addproductinfo(avo);
-		int pidnum = estateDAO.productinfonum(avo);
-		avo.setPidnum(pidnum);
-		if(vo.getImgName()!=null) {
-			for(String name:vo.getImgName()) {
-				Product_ImgVO img= new Product_ImgVO();
-				img.setImg(name);
-				img.setPidnum(pidnum);
-				estateDAO.addImg(img);
-				
-			}
-		}
-		if(avo.getAdministrative()!=null) {
-			for(AdministrativeVO e : avo.getAdministrative()) {
-				e.setPidnum(pidnum);
-				
-				estateDAO.addadmin(e);
-			}
-		}
 		
+//		int pidnum = estateDAO.productinfonum(avo);
+//		avo.setPidnum(pidnum);
+		if(avo.getAdministrat()!=null) {			
+			estateDAO.addadmin(avo);
+		}
 		if(avo.getOption()!=null) {
-			for(String e: avo.getOption()) {
-				
-				
-				Option_SelVO option = new Option_SelVO();
-				option.setOption(e);
-				option.setPidnum(pidnum);
-				estateDAO.addoptionsel(option);
-			}
+			estateDAO.addoptionsel(avo);			
+		}
+		if(avo.getImgName()!=null) {
+			estateDAO.addImg(avo);
 		}
 	
 		
-		
+		long time2 = System.currentTimeMillis();
+		System.out.println("서비스 메서드 시간 "+(time1-time2));
 	}
 	
 	

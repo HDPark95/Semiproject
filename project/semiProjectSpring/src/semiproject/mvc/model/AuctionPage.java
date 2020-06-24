@@ -45,7 +45,7 @@ public class AuctionPage{
 	public String auctionAdd(Model model,HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		UserVO sbid =(UserVO)session.getAttribute("user");
-		model.addAttribute("sbid",sbid.getAid());
+		model.addAttribute("sbid",sbid.getAid().equals(null)?"":sbid.getAid());
 		return "auction/auction_add";
 	}
 	@RequestMapping(value="/auctionDiv")
@@ -176,7 +176,7 @@ public class AuctionPage{
 		//세션 테스트
 		//session.setAttribute("user","tests");
 		UserVO sbid =(UserVO) session.getAttribute("user");
-		model.addAttribute("sbid",sbid.getAid());
+		model.addAttribute("sbid",sbid.getAid().equals(null)?"":sbid.getAid());
 		return "auction/auction_main";
 
 	}	

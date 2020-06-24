@@ -66,7 +66,7 @@
 					<td><input type="button" value="뒤로" id="ff"
 						style="background-color: red;"
 						onclick="location='index#footerMenu69'"></td>
-					<td><input type="submit" value="다음" id="ee"
+					<td><input type="button" value="다음" id="ee"
 						style="background-color: green;" ></td>
 					<td></td>
 				</tr>
@@ -89,25 +89,30 @@
 		month2 = (month2.getFullYear() + 1) + "-" + (month2.getMonth() + 1)
 				+ "-" + (month2.getDate() - 1);
 		
-		var psdate = "${vo.pedate}";
-		var psdate_d = psdate.substr(0,10);
 		
-		var prolong = "${vo.pedate}";
-		
-		var re_prolong1 = prolong.substr(0,4) + "-"+ (Number(prolong.substr(5,2))+1 )+ "-" + prolong.substr(8,2) ; 
-		var re_prolong3 = prolong.substr(0,4) + "-"+ (Number(prolong.substr(5,2))+3 )+ "-" + prolong.substr(8,2) ; 
-		var re_prolong12 = (Number(prolong.substr(0,4))+1)+"-"+prolong.substr(5,2)+"-"+prolong.substr(8,2); 
-		console.log(prolong);
-		console.log(typeof(prolong));
 		
 
 		$(function() {
+			
+			var psdate = "${vo.pedate}";
+			var psdate_d = psdate.substr(0,10);
+			
+			var prolong = "${vo.pedate}";
+			
+			var re_prolong1 = prolong.substr(0,4) + "-"+ (Number(prolong.substr(5,2))+1 )+ "-" + prolong.substr(8,2) ; 
+			var re_prolong3 = prolong.substr(0,4) + "-"+ (Number(prolong.substr(5,2))+3 )+ "-" + prolong.substr(8,2) ; 
+			var re_prolong12 = (Number(prolong.substr(0,4))+1)+"-"+prolong.substr(5,2)+"-"+prolong.substr(8,2); 
+			
+			
+			console.log((Number(re_prolong3.substr(5,2)) ));
+			console.log(typeof((Number(prolong.substr(5,2))+3 )));
+			
 			$('#cc').val(psdate_d);
 			
 			$('#basic').click(function() {
 
 				
-				$('#dd').val(re_prolong1);
+				
 
 				alert("1개월을 선택하셨습니다.");
 
@@ -115,20 +120,43 @@
 				$('.basic').css('color', 'red');
 				$('#ppay').val(29900);
 				$('#psdate').val(psdate_d);
-				$('#pedate').val(re_prolong1);
+				if(Number(re_prolong1.substr(5,2)) > 12 ){
+				var month =	Number(re_prolong1.substr(5,2) - 12) ;
+				rere_prolong1 = (Number(prolong.substr(0,4))+1) + "-"+ month + "-" + prolong.substr(8,2) ; 
+					$('#pedate').val(rere_prolong1);
+					$('#dd').val(rere_prolong1);
+					console.log(rere_prolong1);
+				}else{
+					$('#pedate').val(re_prolong1);
+					$('#dd').val(re_prolong1);
+					console.log(re_prolong1);
+				}
+				
+				
 				$('#monthnum').val($('#one').val());
 
 			});
 			$('#st').click(function() {
 				console.log($('#f1').val())
 			
-				$('#dd').val(re_prolong3);
+				
 				alert("3개월을 선택하셨습니다.");
 				$('.return').css('color', 'black');
 				$('.st').css('color', 'red');
 				$('#ppay').val(23900 * 3);
 				$('#psdate').val(psdate_d);
-				$('#pedate').val(re_prolong3);
+				if(Number(re_prolong3.substr(5,2)) > 12 ){
+				var month =	Number(re_prolong3.substr(5,2) - 12) ;
+				rere_prolong3 = (Number(prolong.substr(0,4))+1) + "-"+ month + "-" + prolong.substr(8,2) ; 
+					$('#pedate').val(rere_prolong3);
+					$('#dd').val(rere_prolong3);
+					console.log(rere_prolong3);
+				}else{
+					$('#pedate').val(re_prolong3);
+					$('#dd').val(re_prolong3);
+					console.log(re_prolong3);
+				}
+				
 				$('#monthnum').val($('#three').val());
 			});
 			$('#pr').click(function() {
@@ -148,7 +176,9 @@
 			$('#ee').click(function() {
 				if ($('#dd').val() == "") {
 					alert('선택해주세요.');
-				} 
+				} else{
+					$("#premiumProlongpay").submit();
+				}
 					
 					
 				
@@ -158,6 +188,7 @@
 
 		});
 	</script>
+
 </section>
 
 
