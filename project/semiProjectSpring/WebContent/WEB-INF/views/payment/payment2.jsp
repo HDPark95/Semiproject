@@ -93,7 +93,7 @@ div.final_price {
 				<tr>
 					<th><label>할부방식</label></th>
 					<td><select name="inment">
-							<option>일시불</option>
+							<option value="0">일시불</option>
 							<option value="1">1개월</option>
 							<option value="2">2개월</option>
 							<option value="3">3개월</option>

@@ -264,7 +264,7 @@
 			<table>
 				<tr>
 					<td>
-						<input type="button" value="뒤로가기">
+						<input type="button"  value="뒤로가기">
 						
 						
 					</td>
@@ -295,7 +295,6 @@
 					 exclusive=$('#exclusive').val();
 				}
 				
-			
 			}
 			if(text===$(this).val()){
 				$(this).attr("type", "hidden");
@@ -308,6 +307,6 @@
 	}
 	
 </script>
-<%@ include file="../estate/side.jsp"%>
+
 
 <%@ include file="../include/footer.jsp"%>

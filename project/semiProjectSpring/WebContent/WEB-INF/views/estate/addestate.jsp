@@ -578,7 +578,7 @@ $(function() {
 	
 	function submit(){
 		
-			
+		var startTime = new Date().getTime();
 		
 		if($('#check').val()!==''){
 			addestate();
@@ -599,7 +599,8 @@ $(function() {
 			alert("CheckBox를 체크해주세요.");
 			$('#check').focusin();
 		}
-	
+		var endTime = new Date().getTime();
+		alert(endTime - startTime);
 	
 	}
 	
@@ -693,7 +694,7 @@ $(function() {
 					
 					
 					values=$(this).val()+'/'+thisv[i].value;
-					 input+="<input type='hidden' value='"+dans+"' name='dan'>"; 
+					// input+="<input type='hidden' value='"+dans+"' name='dan'>"; 
 					
 					 input+="<input type='hidden' value='B2' name='rentv'>"; 
 					
@@ -706,15 +707,15 @@ $(function() {
 				values=$('#charter').val();
 			
 			 input+="<input type='hidden' value='B1' name='rentv'>"; 
-			 	input+="<input type='hidden' value='"+dans+"' name='dan'>"; 
+			 //	input+="<input type='hidden' value='"+dans+"' name='dan'>"; 
 				input+="<input type='hidden' value='"+values+"' name='rpay'>"; 
 			
 			} if(text==='매매'){
-				values=$('#trading').val();
-			
+				values=$('#tradingv').val();
+				alert(text);
 				input+="<input type='hidden' value='A1' name='rentv'>";
-				input+="<input type='hidden' value='"+dans+"' name='dan'>";
-				input+="<input type='hidden' value='"+values+"' name='rpay'>"; 
+			//	input+="<input type='hidden' value='"+dans+"' name='dan'>";
+				 input+="<input type='hidden' value='"+values+"' name='rpay'>"; 
 			}
 		
 			
@@ -1009,7 +1010,7 @@ $(function() {
 			
 						html="<label class='lnum-"+lnum+"'>"+
 						"<span>매매</span>"+
-						"<input type='text' class='rpay'id='trading'  required placeholder='매매가' >"+
+						"<input type='text' class='rpay'id='tradingv'  required placeholder='매매가' >"+
 						"<span>만원</span>"+
 					"</label>";
 					tnum++;

@@ -28,10 +28,10 @@ public class EstateDAO {
 	public int productnum(EstateVO vo) {
 		return ss.selectOne("estate.productnum", vo);
 	}
-	public void addImg(Product_ImgVO vo) {
+	public void addImg(AddInfoVO vo) {
 		ss.insert("estate.addImg",vo);
 	}
-	public void addProductSale(RentVO vo) {
+	public void addProductSale(EstateVO vo) {
 		ss.insert("estate.addproductsale", vo);
 	}
 	public void addProductLocation(EstateVO vo) {
@@ -44,11 +44,11 @@ public class EstateDAO {
 		return ss.selectOne("estate.productinfonum", vo);
 	}
 	
-	public void addadmin(AdministrativeVO vo) {
+	public void addadmin(AddInfoVO vo) {
 		ss.insert("estate.addadmin",vo);
 	}
 
-	public void addoptionsel(Option_SelVO vo) {
+	public void addoptionsel(AddInfoVO vo) {
 		ss.insert("estate.addoptionsel",vo);
 	}
 	

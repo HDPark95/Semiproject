@@ -8,9 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class AddInfoVO {
 	// 0 = false
 	// 1 = true
-	private int pidnum,pdnum,aspay;
+	private int pidnum,pdnum,aspay,idx;
 	private String pets,elevator,balcony,built,chartered,description,heating,pmove;
-	private String[] structure,move;
+	private String[] structure,move, pay,administrat,imgName;
 	private String pstructure;
 	private List<AdministrativeVO> administrative;
 	private List<Option_SelVO> poption;
@@ -21,6 +21,31 @@ public class AddInfoVO {
 	private int ppay;
 	
 	
+	
+	public int getIdx() {
+		return idx;
+	}
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
+	public String[] getImgName() {
+		return imgName;
+	}
+	public void setImgName(String[] imgName) {
+		this.imgName = imgName;
+	}
+	public String[] getPay() {
+		return pay;
+	}
+	public void setPay(String[] pay) {
+		this.pay = pay;
+	}
+	public String[] getAdministrat() {
+		return administrat;
+	}
+	public void setAdministrat(String[] administrat) {
+		this.administrat = administrat;
+	}
 	public String getHeating() {
 		return heating;
 	}

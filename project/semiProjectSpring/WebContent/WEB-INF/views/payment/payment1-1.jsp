@@ -32,7 +32,7 @@
 			</div>
 		</div>
 
-		<form method="post" action="pay1">
+		<form method="post" action="pay1" id="premiumProlongpay">
 			<table id="payment1">
 				<tr>
 					<td></td>
@@ -66,7 +66,7 @@
 					<td><input type="button" value="뒤로" id="ff"
 						style="background-color: red;"
 						onclick="location='index#footerMenu69'"></td>
-					<td><input type="submit" value="다음" id="ee"
+					<td><input type="button" value="다음" id="ee"
 						style="background-color: green;"></td>
 					<td></td>
 				</tr>
@@ -138,15 +138,17 @@
 
 			});
 
+
 			$('#ee').click(function() {
-				if ($('#cc').val() != "") {
-					location = "pay1";
-				} else {
+				if ($('#cc').val() == "") {
 					alert('선택해주세요.');
-					
+				} else{
+					$("#premiumProlongpay").submit();
 				}
+					
+					
+				
 			});
-	
 			
 
 		});

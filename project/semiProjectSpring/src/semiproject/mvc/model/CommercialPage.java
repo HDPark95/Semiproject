@@ -184,6 +184,7 @@ public class CommercialPage {
 	@RequestMapping(value = "/productModal")
 	public ModelAndView getProductDetail(String pdnum) {
 		ModelAndView mav = new ModelAndView("commercial/server/modalServer");
+		System.out.println(pdnum);
 		CommercialProductVO vo = commercialProductDao.getProductDetail(pdnum).get(0);
 		if (vo.getTradtpcd().equals("A1")) {
 			vo.setTradtpcd("매매");
@@ -253,7 +254,7 @@ public class CommercialPage {
 		return mav;
 	}
 	
-	@RequestMapping(value="deleteCommercial")
+	@RequestMapping(value="/deleteCommercial")
 	public ModelAndView deleteCommercial(String pdnum, String aid) {
 		ModelAndView mav = new ModelAndView("redirect:mypage_lessor?aid="+aid);
 		

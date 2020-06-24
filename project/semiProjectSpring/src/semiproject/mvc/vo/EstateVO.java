@@ -8,7 +8,7 @@ public class EstateVO {
 	// C01 = 원룸
 	// C02 = 투룸
 	// C03 = 쓰리룸
-	private int pdnum,anum,r_num;
+	private int pdnum,anum,r_num,idx;
 	private String build,floor,plocation,detaillocation;
 	private String[] subbuild;
 	private List<SubBuildVO> subvo;
@@ -17,13 +17,37 @@ public class EstateVO {
 	private String  title; //  제목
 	private AddInfoVO addinfo;
 	private String rltrnm;
-	private String[] imgName; 
+	private String[] imgName,rentv,dan,rpay; 
 	private List<Product_ImgVO> img;
 	
 	
 	
 	
 	
+	public int getIdx() {
+		return idx;
+	}
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
+	public String[] getRentv() {
+		return rentv;
+	}
+	public void setRentv(String[] rentv) {
+		this.rentv = rentv;
+	}
+	public String[] getDan() {
+		return dan;
+	}
+	public void setDan(String[] dan) {
+		this.dan = dan;
+	}
+	public String[] getRpay() {
+		return rpay;
+	}
+	public void setRpay(String[] rpay) {
+		this.rpay = rpay;
+	}
 	public String getDetaillocation() {
 		return detaillocation;
 	}

@@ -99,7 +99,7 @@
 			
 			if (pway == '신용카드' || pway == '체크카드') {
 				$('#chk_pway').text("카드 번호");
-			} else if (pway == '무통장') {
+			} else if (pway == '무통장입금') {
 				$('#chk_pway').text("계좌 번호");
 			}
 			

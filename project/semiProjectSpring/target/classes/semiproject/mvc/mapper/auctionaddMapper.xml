@@ -13,14 +13,15 @@
 	</insert>
 	
 	<select id="mainsel" resultType="aviewmain" parameterType="aviewpage">
-	select * from (
-		select rownum r_num, a.* from (
-		select a.anum,a.bid,fn_yongdo_name(a.byongdo) as yongdo,a.baddra as addr,a.bweight,a.tweight,a.hit
-                ,b.wimage,TO_CHAR(p.ideprice,'FM999,999,999,999') as ideprice,p.subject,TO_CHAR(p.enddate,'YYYY"년"MM"월"DD"일" HH24"시"MI"분"') as enddate,TO_CHAR( DECODE(nvl(fn_higt_ipchalper(p.ipnum),0),0,nvl(p.ideprice,0),nvl(fn_higt_ipchalper(p.ipnum),0)),'FM999,999,999,999') as hprice
-                , fn_basedata_name(3,1,p.status) as status,TO_CHAR(a.indate,'YYYY.MM.DD') as indate  
- from actmain a , actmainde b , ipchal p
-where b.anum = a.anum
-  and p.anum = a.anum
+		select * from (
+			select rownum r_num, a.* from (
+			select a.anum,a.bid,fn_yongdo_name(a.byongdo) as yongdo,a.baddra as addr,a.bweight,a.tweight,a.hit
+	                ,b.wimage,TO_CHAR(p.ideprice,'FM999,999,999,999') as ideprice,p.subject,TO_CHAR(p.enddate,'YYYY"년"MM"월"DD"일" HH24"시"MI"분"') as enddate,
+	                TO_CHAR( DECODE(nvl(fn_higt_ipchalper(p.ipnum),0),0,nvl(p.ideprice,0),nvl(fn_higt_ipchalper(p.ipnum),0)),'FM999,999,999,999') as hprice
+	                , fn_basedata_name(3,1,p.status) as status,TO_CHAR(a.indate,'YYYY.MM.DD') as indate  
+			 from actmain a , actmainde b , ipchal p
+			where b.anum = a.anum
+			  and p.anum = a.anum
 <if test="searchValue != null">
 	<choose>
 		<when test='searchType=="0"'>  

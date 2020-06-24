@@ -7,20 +7,107 @@
  	<insert id="addproduct" parameterType="evo">
  		insert into product values(product_seq.nextVal,#{anum},#{build},#{floor},#{supply},#{exclusive},#{title},null,null)
  	</insert>
- 	<insert id="addproductsale" parameterType="rentvo">
- 		insert into product_sale_info values(product_sale_info_seq.nextVal,#{pdnum},#{rentv},#{rpay})
+ 	
+ 	
+ 	
+ 	<!-- 반복 -->
+ 	<insert id="addproductsale" parameterType="evo">
+ 		<selectKey keyProperty="idx" resultType="int" order="BEFORE">
+ 			select product_seq.currVal FROM DUAL
+ 		</selectKey>
+ 	 	insert into product_sale_info(prnum,pdnum,TRADTPCD,prc)
+ 		select product_sale_info_seq.nextVal,A.* from (
+	 	<foreach collection="rentv" item="e" separator="UNION ALL"
+	 		open="" close="" index="i">
+	 	<!--  into product_sale_info values(product_sale_info_seq.nextVal,#{idx},'${e}','${rpay[i]}')  -->
+	 	select #{idx} as pdnum,'${e}' as TRADTPCD,'${rpay[i]}' as prc from dual 
+	 	</foreach>
+	) A
  	</insert>
+ 	
+ 	
+ 	
+ 	
+ 	
  	<insert id="addproductinfo" parameterType="aivo">
- 		insert into product_info values(product_info_seq.nextVal,#{pdnum},#{aspay},#{pets},#{park},#{ppay},#{elevator},#{balcony},#{built},#{pstructure}, #{chartered},#{pmove},#{heating},#{description}  )
+ 		<selectKey keyProperty="idx" resultType="int" order="BEFORE">
+ 			select product_seq.currVal FROM DUAL
+ 		</selectKey>
+ 	
+ 		insert into product_info values(product_info_seq.nextVal,#{idx},#{aspay},#{pets},#{park},#{ppay},#{elevator},#{balcony},#{built},
+ 		<choose>
+ 			<when test="structure != null">
+ 				
+ 				<foreach collection="structure" item="e"  separator=" " open="'" close="'" >
+ 					${e}
+ 				</foreach>
+ 			
+ 			</when>
+ 			
+ 			<otherwise>
+ 				''
+ 			</otherwise>
+ 		</choose>
+ 		
+ 		
+ 		, #{chartered},
+ 		<choose>
+ 			<when test="move != null">
+ 			
+ 				<foreach collection="move" item="e"  separator="/" open="'" close="'" >
+ 					${e}
+ 				</foreach>
+ 		
+ 			</when>
+ 			
+ 			<otherwise>
+ 				''
+ 			</otherwise>
+ 		</choose>
+ 		,
+ 		
+ 		#{heating},#{description}  )
  	</insert>
- 	<insert id="addadmin" parameterType="adminvo">
- 		insert into administrative values(administrative_seq.nextVal,#{pidnum},#{administrat})
+ 	<!-- 반복 -->
+ 	<insert id="addadmin" parameterType="aivo">
+ 		<selectKey keyProperty="idx" resultType="int" order="BEFORE">
+ 			select product_info_seq.currVal FROM DUAL
+ 		</selectKey>
+ 		insert into administrative(adnum,pidnum,item) 
+ 		select administrative_seq.nextVal as adnum ,A.* from (
+ 		<foreach collection="administrat" item="e" separator="UNION ALL" open="" close="">
+ 			<!--  into administrative values(administrative_seq.nextVal,#{idx},'${e}') -->
+ 			select #{idx} as pidnum,'${e}' as item from dual
+ 		</foreach>
+ 	) A
  	</insert>
- 	<insert id="addoptionsel" parameterType="osvo" >
- 		insert into option_sel values(option_sel_seq.nextVal,#{pidnum},#{option})
+ 	<!-- 반복 -->
+ 	<insert id="addoptionsel" parameterType="aivo" >
+ 		<selectKey keyProperty="idx" resultType="int" order="BEFORE">
+ 			select product_info_seq.currVal FROM DUAL
+ 		</selectKey>
+ 		
+ 		insert into option_sel(osnum,pidnum,poption) 
+ 		select option_sel_seq.nextVal as osnum ,A.* from (
+ 		<foreach collection="option" item="e" separator="UNION ALL" open="" close="" >
+ 		<!-- into option_sel values(option_sel_seq.nextVal,#{idx},'${e}') -->
+ 			select #{idx} as pidnum,'${e}' as popion from dual
+ 		</foreach>
+ 		 	) A
  	</insert>
- 	<insert id="addImg" parameterType="pimgvo">
- 		insert into product_img values(product_img_seq.nextVal,#{pidnum},#{img})
+ 	<!-- 반복 -->
+ 	<insert id="addImg" parameterType="aivo">
+ 		<selectKey keyProperty="idx" resultType="int" order="BEFORE">
+ 			select product_info_seq.currVal FROM DUAL
+ 		</selectKey>
+ 		
+ 		insert into product_img(IMGNUM,pidnum,IMG) 
+ 		select product_img_seq.nextVal as IMGNUM ,A.* from (
+ 		<foreach collection="imgName" item="e" separator="UNION ALL" >
+ 			<!--  into product_img values(product_img_seq.nextVal,#{idx},'${e}') -->
+ 				select #{idx} as pidnum,'${e}' as IMG from dual
+ 		</foreach>
+ 		) A
  	</insert>
  	<insert id="addlocation" parameterType="evo">
  		insert into product_location values(product_location_seq.nextVal,#{pdnum},0,0,#{plocation},#{detaillocation})
