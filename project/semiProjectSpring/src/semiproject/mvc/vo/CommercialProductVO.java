@@ -2,6 +2,7 @@
 package semiproject.mvc.vo;
 
 public class CommercialProductVO {
+<<<<<<< HEAD
 	private int prc, spc1, spc2;  
 	private String location, atclfetrdesc, atclno,taglist,rlettpcd, tradtpcd,rltrnm;
 	
@@ -10,6 +11,57 @@ public class CommercialProductVO {
 	}
 	public void setRltrnm(String rltrnm) {
 		this.rltrnm = rltrnm;
+=======
+	private int  spc1, spc2 ;
+	private String prc,plocation, atclfetrdesc, atclno,taglist,rltrnm, tradtpcd,rlettpcd , pdnum, pdescription,pmove;
+	private String img;
+	private String sale;
+	private String option;
+	
+	
+	
+	public String getPmove() {
+		return pmove;
+	}
+	public void setPmove(String pmove) {
+		this.pmove = pmove;
+	}
+	public String getOption() {
+		return option;
+	}
+	public void setOption(String option) {
+		this.option = option;
+	}
+	public String getSale() {
+		return sale;
+	}
+	public void setSale(String sale) {
+		this.sale = sale;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+	public String getPdnum() {
+		return pdnum;
+	}
+	public void setPdnum(String pdnum) {
+		this.pdnum = pdnum;
+	}
+	public String getPdescription() {
+		return pdescription;
+	}
+	public void setPdescription(String pdescription) {
+		this.pdescription = pdescription;
+	}
+	public String getRlettpcd() {
+		return rlettpcd;
+	}
+	public void setRlettpcd(String rlettpcd) {
+		this.rlettpcd = rlettpcd;
+>>>>>>> refs/heads/master
 	}
 	public String getTradtpcd() {
 		return tradtpcd;
@@ -35,7 +87,7 @@ public class CommercialProductVO {
 	}
 	public void setAtclno(String atclno) {
 		this.atclno = atclno;
-	}
+	} 
 	private int num;
 	public int getNum() {
 		return num;
@@ -56,17 +108,19 @@ public class CommercialProductVO {
 		this.spc2 = spc2;
 	}
 	
-	public int getPrc() {
+	
+	
+	public String getPrc() {
 		return prc;
 	}
-	public void setPrc(int prc) {
+	public void setPrc(String prc) {
 		this.prc = prc;
 	}
-	public String getLocation() {
-		return location;
+	public String getPlocation() {
+		return plocation;
 	}
-	public void setLocation(String location) {
-		this.location = location;
+	public void setPlocation(String plocation) {
+		this.plocation = plocation;
 	}
 	public String getAtclfetrdesc() {
 		return atclfetrdesc;

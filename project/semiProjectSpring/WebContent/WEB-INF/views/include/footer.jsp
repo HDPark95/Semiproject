@@ -46,7 +46,7 @@
 				$('.filter-page').slideUp(1000);
 
 			} else {
-
+ 
 				$('.filter-page').slideDown(1000);
 			}
 			className = visible;
@@ -68,6 +68,10 @@
 					$('#mainnav2').css("z-index", '1030');
 					$('#search-nav').css("z-index", '1030');
 				});
+		
+		
+		
+		
 	});
 </script>
 

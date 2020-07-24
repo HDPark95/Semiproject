@@ -36,7 +36,7 @@
 				<tr>
 					<td rowspan="3">중개인</td>
 					<td rowspan="3" colspan="3"></td>
-				</tr>
+				</tr> 
 			</table>
 			<div class="button" style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 10px; padding-top: 10px;" onClick="close_pop();">
 				<span class="pop_bt button" style="font-size: 13pt;"> 닫기 </span>

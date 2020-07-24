@@ -1,7 +1,155 @@
+<%@page import="semiproject.mvc.vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<link href="resources/css/commercial/modal.css"  rel="stylesheet" />
 <%@ include file="../include/header_index.jsp"%>
+<style>
+#rightSide{
+
+position: absolute;
+
+top: 547px;
+
+left: 50%;
+margin: 0 0 0 510px;
+	} 
+#rightSide #right_zzim {
+
+position: fixed;
+top: 126px;
+left: 50%;
+margin-left: 600px;
+border:1px solid #B0B5BD;
+width:320px;
+height:750px;
+
+}
+
+
+
+#rightSide #right_zzim  div {text-align:center;}
+
+#rightSide   div.recTit{line-height:1.5em;padding:5px;color:white;background-color:#505A69;}
+#right_zzim{background-color: white;}
+#right_zzim #recentCnt {color:black;}
+
+#recentCnt{background: white;}
+#rightSide #right_zzim ul {min-height:100%;}
+
+#rightSide #right_zzim  {text-align:center;padding:5px;} 
+
+#rightSide #right_zzim  img {border:1px solid #ccc}
+
+#right_zzim .detail {
+
+display: none;
+
+position: absolute;
+
+top: 3px;
+
+right: 20px;
+
+xheight: 40px;
+
+xpadding: 15px 11px 0;
+
+xbackground: #404a59;
+
+color: #fff;
+
+xtext-align: left;
+
+white-space: nowrap;
+
+.regist th, tr {
+	font-size: 15pt;
+}
+
+}
+
+
+
+#right_zzim li:hover .detail {display:block}
+
+#right_zzim li .btn_delete {
+
+position: absolute;
+
+top: 3px;
+
+right: -1px;
+
+width: 11px;
+
+height: 11px;
+
+background: url(/img/sp.png) no-repeat -193px -111px;
+
+text-indent: -9000px;
+
+}
+
+#right_zzim  #currentPage {color:#505A69;font-weight:bold}
+
+#right_zzim  #totalPageCount {color:#CBC8D2;font-weight:bold}
+
+.noData {color:#ccc;text-align:center;margin-top:223px;}
+
+
+
+}
+
+#paging {display:;position:relative;line-height:1em;}
+
+#paging .btn_prev {
+
+position: absolute;
+
+top: 526px;
+
+left: 4px;
+
+width: 13px;
+
+height: 11px;
+
+background: url(/images/ico_arrow.png)  no-repeat ;
+
+text-indent: -9000px;
+
+border:1px solid #CCC;
+
+display:inline-block;
+
+}
+
+
+
+#paging .btn_next {
+
+position: absolute;
+
+top: 526px;
+
+right: 4px;
+
+width: 13px;
+
+height: 11px;
+
+background: url(/images/ico_arrow.png) -11px 0px;
+
+text-indent: -9000px;
+
+border:1px solid #CCC;
+
+display:inline-block;
+
+}
+
+</style>
+
 <%@ include file="../include/header_menu.jsp"%>
 <section class="contact-section " >
 
@@ -10,8 +158,9 @@
 		<div class="col-md-12 mt-4 add-page" >
 			<h1>방 내놓기</h1>
 			<hr>
-			<div class="col-md-1"></div>
-				<div class="col-md-9 add-page" style="margin: auto;">
+			
+				
+				<div class="col-md-9 add-page" style="margin-left: 100px;">
 						<div class="col-md-12 mt-12 add-sub-page ">
 	            			<table >
 	            				<tr>
@@ -23,14 +172,14 @@
 	            					</td>
 	            					<td >
 	            					  	<div class="seleted-div">
-	            						<span class="square build false" onclick="changeSelect(0)">원룸 </span> 
-	            						<span class="square build false"  onclick="changeSelect(1)">투룸</span> 
-	            						<span class="square build false"  onclick="changeSelect(2)"> 쓰리룸</span> 
+	            						<span class="square build false" onclick="changeSelect(0)">원룸</span> 
+	            						<span class="square build false"  onclick="changeSelect(1)">주택</span> 
+	            						<span class="square build false"  onclick="changeSelect(2)">상가</span> 
 	            						<span class="square build false"  onclick="changeSelect(3)">오피스텔(도시형)</span> 
 	            						<span class="square build false"  onclick="changeSelect(4)">아파트</span>
 	            						</div> 
 	            					</td>
-	            				</tr>
+	            				</tr> 
 	            				<tr id="select-target">
 	            					<td >
 	            						건물유형
@@ -58,14 +207,14 @@
 	            					<td >
 	            						
 		            					<div class="search-div">
-		            						<input type="text" class="address-search" placeholder="강남구 역삼동" ><span class="btn address-btn" style="width: 150px;">주소검색</span><br>
-	            						주소 API사용
+		            						<input type="text" class="address-search"id="roadAddrPart1" name="mainaddr" placeholder="강남구 역삼동" ><span id="postcodify_search_button" onclick="goPopup();" class="btn address-btn" style="width: 150px;">주소검색</span><br>
+		            						<input type="text" class="address-search"id="addrDetail" name="subaddr" placeholder="강남구 역삼동" >
+		            						<input type="text" id='zipNo' name="zipNo" name="zipNo" style="margin-bottom: 10px" disabled>
+	            						
 		            					</div>
 	            				
 	            					</td>
-	            					<td >
-	            				<div class="col-md-12" style="width:300px; ">지도API</div>
-	            					</td>
+	            				
 	            				</tr>
 	            				
 	            			</table>
@@ -167,7 +316,7 @@
 	            						<div class="seleted-div">
 	            						<span class="square move-in  false" onclick="clicksub(0,'move-in')">즉시입주</span> 
 	            						<span class="square move-in  false" onclick="clicksub(1,'move-in')">날짜협의 </span>
-	            						<span class="square move-in  false" onclick="clicksub(2,'move-in')">날짜선택</span>
+	            					<!-- 	<span class="square move-in  false" onclick="clicksub(2,'move-in')">날짜선택</span> -->
 	            						</div>
 	            					</td>
 	            				</tr>
@@ -208,7 +357,7 @@
 	            						<div class="seleted-div">
 	            						<span class="square parking false" onclick="clickpark(0)">가능</span>
 	            						<span class="square parking false" onclick="clickpark(1)">불가능</span>
-	            						<input type="text" id="pamount" class="input-val"  disabled="disabled" placeholder="0" > 만원
+	            						<input type="text" id="pamount" class="input-val"  disabled="disabled" placeholder="0"  value="0"> 만원
 	            						</div>
 	            					
 	            					</td>
@@ -280,7 +429,7 @@
 			            					<span class="square option false" onclick="clicksub(8,'option')">가스레인지</span>
 			            					<span class="square option false" onclick="clicksub(9,'option')">인덕션</span>
 			            					<span class="square option false" onclick="clicksub(10,'option')">전자레인지</span>
-			            					<span class="square option false" onclick="clicksub(11,'option')">전자 도어락</span>
+			            					<span class="square option false" onclick="clicksub(11,'option')">전자도어락</span>
 			            					<span class="square option false" onclick="clicksub(12,'option')">비데</span>
 	            						</div>
 	            					</td>
@@ -310,7 +459,7 @@
 	            						제목
 	            					</td>
 	            					<td style="text-align: left;">
-	            						<input type="text" style="width: 50%;" placeholder="예)신논현역 도보 5분거리,혼자살기 좋은방입니다.">
+	            						<input type="text" style="width: 50%;" id="title" placeholder="예)신논현역 도보 5분거리,혼자살기 좋은방입니다.">
 	            					</td>
 	            				</tr>
 	            				<tr>
@@ -318,7 +467,7 @@
 	            						상세 설명
 	            					</td>
 	            					<td>
-	            						<textarea rows="20" cols="150" maxlength="100" placeholder="
+	            						<textarea   rows="20" cols="150" id="description" placeholder="
 	            						상세설명 작성 주의사항 
 	            						
 	            							- 방 정보와 관련없는 홍보성 정보는 입력하실수 없습니다
@@ -345,7 +494,7 @@
 	            					<td >
 	            						사진
 	            					</td>
-	            					<td >
+	            					<td id="imgList">
 	            						<img src="">
 	            					</td>
 	            				</tr>
@@ -354,8 +503,9 @@
 	            						파일 업로드
 	            					</td>
 	            					<td>
-	            						<form method="post" action="imgupload" enctype="multipart/form-data">
-	            							<input  type="file" value=""><input type="submit" class="btn img-btn" value="이미지업로드">
+	            						<form id="file" method="post" action="" enctype="multipart/form-data">
+	            							<input  type="file" name="mfile" value=""><input type="button" onclick="fileUpload()" class="btn img-btn" value="이미지업로드">
+	            							<input type='hidden' value='${user.anum}' name='anum'>
 	            						</form>
 	            					</td>
 	            				</tr>
@@ -365,87 +515,97 @@
 	            			<div class="col-md-12">
 	            				<div class="col-md-2" style="width: 100px;"></div>
 	            				<div class="col-md-10" style="text-align: center;">
-	            					<input type="checkbox" >
+	            					<input type="checkbox" id="check" >
 	            									매물 관리 규정을 확인하였으며 입력한 정보는 실제 매물과 다름이 없습니다.
 	            				</div>
 	            				
 	            			</div>
-	            			<div class="col-md-12"  style="text-align: center;">
-	            				<a class="btn" id="filter_apply" onclick="addestate()">매물등록</a>
+	            			<div class="col-md-12" id="result"  style="text-align: center;">
+	            				<form  id="estater">
+	            					<input type='hidden' value='${user.anum}' name='anum'>
+	            				</form>
+	            				
+	            				<a class="btn" id="filter_apply" onclick="submit()">매물등록</a>
 	            				<a class="btn" id="filter_close" href="semi.Project?page=estate&code=1">취소</a>
 	            				</div>
 	            		</div>
 	          	 </div>
-	          	 <div class="col-md-1"></div>
+	          	 <div class="col-md-3">
+  	 <%
+UserVO vo = (UserVO) session.getAttribute("user");
+if(vo.getPgubun().equals("구독"))  {
+%>
+<%@ include file="../commercial/sidemenu3.jsp"%>
+<%  }else{%>
+<%@ include file="../commercial/sidemenu2.jsp"%> 
+<%
+}
+%>
+	          	 </div>
 		</div>
 	</div>
 <script >
-	// 부동산 종류
-var estater=new estate();
-		// 추가정보 
-		var addyinfo=new addinfo(); 
+function goPopup() {
+	// 주소검색을 수행할 팝업 페이지를 호출합니다.
+	// 호출된 페이지(jusopopup.jsp)에서 실제
+	// 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+	var pop = window.open("juso", "pop",
+			"width=570,height=420, scrollbars=yes, resizable=yes");
+	// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제
+	// 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게
+	// 됩니다.
+	// var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes,
+	// resizable=yes");
+}
+function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
+		roadAddrPart2, engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,
+		detBdNmList, bdNm, bdKdcd, siNm, sggNm, emdNm, liNm, rn, udrtYn,
+		buldMnnm, buldSlno, mtYn, lnbrMnnm, lnbrSlno, emdNo) {
+	// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+	// document.form.roadFullAddr.value = roadFullAddr;
+	$('#roadAddrPart1').val(roadAddrPart1);
+	$("#addrDetail").val(addrDetail);
+	$("#zipNo").val(zipNo);
+}
+$(function() {
+	$("#postcodify_search_button").postcodifyPopUp();
+});
+		
 	var classEach=["build","sub-build","rent","move-in","administrative","parking","pets","elevator","balcony","built","option","chartered","structure"];
 
-	function estate(){
-		this.build=''; //매물 종류
-		this.subbuild='';//매물 세부종류
-		this.rent=[]; // 거래종류	
-		this.supply=''; //공급면적
-		this.exclusive=''; // 전용면적
-		this.floor=''; //층정보
-		this.heating=''; // 난방여부
-		this.move=''; // 이사협의
-		this.addinfo={};
-	}
+
+	var newForm=$("#estater");
 	
-	function addinfo(){
-		this.administrative=new administrative(); // 관리비
-		this.pets=false; // 애완동물
-		this.parking=new parkingv(true, ""); // 주차
-		this.elevator=false; // 엘리베이터
-		this.balcony=false; // 발코니
-		this.built=false; // 빌트인여부
-		this.structure=''; // 구조
-		this.option=new option(); // 옵션
-		this.chartered=false; // 전세자금대출여부
-	}
-	function parkingv(parkv,payv){
-		this.park=parkv;
-		this.pay=payv;
-	}
-	function option(){
-		this.option='';
-	}
-	function administrative(){
-		this.pay='';
-		this.administrat='';
-	}
+	function submit(){
+		
+		var startTime = new Date().getTime();
+		
+		if($('#check').val()!==''){
+			addestate();
+			
+			newForm.attr('method','post');
+			newForm.attr("action", "/semiProjectSpring/insertestate");
+			
+			
+				console.log(newForm.toString());		
+		
+				if(confirm("등록하시겠습니까?")){
+					
+					newForm.submit();			
+				}else{
+					location='addestate';
+				}
+		}else{
+			alert("CheckBox를 체크해주세요.");
+			$('#check').focusin();
+		}
+		var endTime = new Date().getTime();
+		alert(endTime - startTime);
 	
-	function rentv(text,pay,dans){
-		this.rent=text;
-		this.rpay=pay;
-		this.dan=dans;
-	}
-	
-	function ajaxStart(estater,addyinfo){
-		var data = [];
-		estater.addyinfo=addyinfo;
-	
-		$.ajaxSettings.traditional = true; 
-	 	$.ajax({
-			type : 'POST',
-			url : 'insertestate',
-			data :estater,
-			success:function(data){
-				alert("성공입니다.");
-			},
-			error:function(data){
-				alert("오류입니다.");
-			}
-		}); 
 	}
 	
 	function addestate(){
+	var input='';
 		for(var e = 0;e<classEach.length;e++){
 			var name='.'+classEach[e];
 			var num=$(name+'.true').length;
@@ -453,37 +613,68 @@ var estater=new estate();
 			var inum=1;
 			$(name).each(function(i) {
 				if($(this).hasClass("true")){
-					var text='';
-					if(num>inum){
-						text=$(this).text()+',';
-						inum++;
-					}else{
-						text=$(this).text();
-					}
-					addData(classEach[e],text ,estater,addyinfo);
+				var text =$(this).text();
+				
+				addData(classEach[e],text);
 				}
 			})
 		}
-		estater.exclusive=$('#exclusive-area').val();
-		estater.supply=$('#supply-area').val();
+
+ 		input+="<input type='hidden' value='"+$('#exclusive-area').val()+"' name='exclusive'>"; 
+	
+	 	input+="<input type='hidden' value='"+$('#supply-area').val()+"' name='supply'>"; 
 		var floor=$('#myfloor').val()+"/"+$('#floor').val();
-		estater.floor=floor;
-		estater.heating=$('#heating').val();
-		ajaxStart(estater,addyinfo);
+	
+		
+
+		 input+="<input type='hidden' value='"+floor+"' name='floor'>"; 
+	
+	 	input+="<input type='hidden' value='"+$('#heating').val()+"' name='heating'>"; 
+
+	 	input+="<input type='hidden' value='"+$('#title').val()+"' name='title'>"; 
+		input+="<input type='hidden' value='"+$('#roadAddrPart1').val()+"' name='mainaddr'>";
+		input+="<input type='hidden' value='"+$('#addrDetail').val()+"' name='subaddr'>";
+		input+="<input type='hidden' value='"+$('#zipNo').val()+"' name='zipNo'>";
+		input+="<textarea hidden='hidden'rows='20' cols='150' maxlength='100'  name='description'>"+$('#description').val()+"</textarea>";
+	 	
+		newForm.append(input);
+			
+		
+	
+	
+		
 	}
 	
 	
-	function addData(className,text,estater,addyinfo){
+	function addData(className,text){
+	
+		var values='';
+		var input='';
 		
 		if(className==="build"){
-			estater.build=text;
+			if(text==='원룸'){
+				values='C01';
+			}else if(text==='주택'){
+				values='C03';
+			}else if(text==='상가'){
+				values='D02';
+			}else if(text==='오피스텔(도시형)'){
+				values='A02';
+			}else if(text==='아파트'){
+				values='A01';
+			}
 		
+		
+			 input+="<input type='hidden' value='"+values+"' name='build'>"; 
 		}else if(className==="sub-build"){
-			estater.subbuild+=text;
-		
+			values=text;
+			
+		input+="<input type='hidden' value='"+values+"' name='subbuild'>"; 
+			
 		}else if(className==="rent"){
-			var num=0;
+		
 			var dans=false;
+		
 			if(text==='단기가능'){
 				dans=true;
 			}
@@ -500,92 +691,126 @@ var estater=new estate();
 					
 					var thisv =$('.monthly');
 					
-					console.log($(this).val())
-					console.log()
-					
-					rpay=thisv.val()+'/'+thisv[i].value;
 					
 					
+					values=$(this).val()+'/'+thisv[i].value;
+					// input+="<input type='hidden' value='"+dans+"' name='dan'>"; 
 					
-					estater.rent.push(new rentv(text,rpay,dans));
-					num+=i;
+					 input+="<input type='hidden' value='B2' name='rentv'>"; 
+					
+					 input+="<input type='hidden' value='"+values+"' name='rpay'>"; 
+				
+					
 				});
 			
 			} if(text==='전세'){
-		
-				estater.rent.push(new rentv(text,$('#charter').val(),dans));
-				num++;
+				values=$('#charter').val();
+			
+			 input+="<input type='hidden' value='B1' name='rentv'>"; 
+			 //	input+="<input type='hidden' value='"+dans+"' name='dan'>"; 
+				input+="<input type='hidden' value='"+values+"' name='rpay'>"; 
+			
 			} if(text==='매매'){
-			
-					estater.rent.push(new rentv(text,$('#trading').val(),dans));
-				num++;
+				values=$('#tradingv').val();
+				alert(text);
+				input+="<input type='hidden' value='A1' name='rentv'>";
+			//	input+="<input type='hidden' value='"+dans+"' name='dan'>";
+				 input+="<input type='hidden' value='"+values+"' name='rpay'>"; 
 			}
-			
-			for(var i =0; i<estater.rent.length;i++){
-				console.log(estater.rent[i]);
-			}
+		
 			
 			
 			
 		}else if(className==="move-in"){
-			estater.move+=text;
-			console.log(estater.move);
+			values=text;
+			
+			input+="<input type='hidden' value='"+values+"' name='move'>"; 
+			console.log(input);
 		}else if(className==="administrative"){
-			addyinfo.administrative.pay=$('#adminpay').val();
-			addyinfo.administrative.administrat+=text;
-		
+			
+			values=$('#adminpay').val();;
+	
+	
+			input+="<input type='hidden' value='"+values+"' name='pay'>";
+			
+			values=text;
+			
+			input+="<input type='hidden' value='"+values+"' name='administrat'>";
 		}else if(className==="parking"){
-			var bool=false;
+			var bool='0';
 			if(text==='가능'){
-				bool=true;
+				bool='1';
 			}
-			addyinfo.parking=new parkingv(bool, $('#pamount').val());
 			
 		
+		 	input+="<input type='hidden' value='"+bool+"' name='park'>";
+			input+="<input type='hidden' value='"+$('#pamount').val()+"' name='ppay'>";
 		}else if(className==="pets"){
-			var bool=false;
-			console.log("펫 :"+text)
+			var bool='0';
 			if(text==='가능'){
-				bool=true;
+				bool='1';
 			}
-			addyinfo.pets=bool;
 			
-		}else if(className==="elevator"){
-			var bool=false;
-			console.log("엘리베이터 :"+text)
-			if(text==='있음'){
-				bool=true;
-			}
-			addyinfo.elevator=bool;
 			
-		}else if(className==="balcony"){
-			var bool=false;
-			if(text==='있음'){
-				bool=true;
-			}
-			addyinfo.balcony=bool;
 		
-		}else if(className==="built"){
-			var bool=false;
+			name='pets';
+		
+			 input+="<input type='hidden' value='"+bool+"' name='pets'>"; 
+		}else if(className==="elevator"){
+			var bool='0';
+			
 			if(text==='있음'){
-				bool=true;
+				bool='1';
 			}
-			addyinfo.built=bool;
+	
 			
+		
+			 input+="<input type='hidden' value='"+bool+"' name='elevator'>"; 
+		}else if(className==="balcony"){
+			var bool='0';
+			
+			if(text==='있음'){
+				bool='1';
+			}
+	
+		
+
+			
+		
+			input+="<input type='hidden' value='"+bool+"' name='balcony'>"; 
+			
+		}else if(className==="built"){
+			var bool='0';
+			
+			if(text==='있음'){
+				bool='1';
+			}
+			
+	
+		input+="<input type='hidden' value='"+bool+"' name='built'>"; 
+		
 		}else if(className==="option"){
-			addyinfo.option.option+=text;
 			
+			
+	 	input+="<input type='hidden' value='"+text+"' name='option'>"; 
+	 	
 		}else if(className==="chartered"){
-			var bool=false;
+			var bool='0';
 			if(text==='가능'){
-				bool=true;
+				bool='1';
 			}
-			addyinfo.chartered=bool;
+	
+			
+		input+="<input type='hidden' value='"+bool+"' name='chartered'>"; 
 			
 		}else if(className==="structure"){
-			addyinfo.structure+=text;
-		}
+			
 	
+		 input+="<input type='hidden' value='"+text+"' name='structure'>"; 
+		}
+		
+		
+		newForm.append(input);
 	}
 	
 
@@ -602,8 +827,30 @@ var estater=new estate();
 		}
 		
 	}
-
+	var remeber='';
+	function commentlist(text,num){
+		if(num==1){
+			remeber=text;
+		}
+		
+		$.ajax({
+			url:'commentlist',
+			type:'post',
+			data:{remeber:remeber,text:text},
+			success:function(data){
+				
+				
+				$('#recentCnt3').html(data);
+			}
+			
+		});
+		
+	}
+	
+	
+	
 	function clicksub(num,className){
+		var serchv='';
 		$(('.'+className)).each(function(i) {
 			
 			
@@ -614,13 +861,15 @@ var estater=new estate();
 					
 					$(this).removeClass("false").addClass("true");		
 			
-				
+				serchv=$(this).text();
 			}else if(i===num&&$(this).hasClass('true')){
 				$(this).css('color','black').css('background-color','white');
 				
 				$(this).removeClass("true").addClass("false");	
 			}
 		})
+		
+		
 	}
 	
 	
@@ -685,7 +934,9 @@ var estater=new estate();
 					
 					"</div> "+
 				"</td>";
-		}else if(num==4){
+		}else if(num===4){
+			html="";
+		}else if(num===2){
 			html="";
 		}else{
 			html="<td >	종류선택</td>"+
@@ -700,18 +951,27 @@ var estater=new estate();
 		}
 		
 		$('#select-target').html(html);
+		var searchValue='';
 		$('.build').each(function(i) {
 			if(i===num&&$(this).hasClass('false')){
 				$(this).css('color','white').css('background-color','#7db4ea');
 
 				$(this).removeClass("false").addClass("true");	
+				searchValue = $(this).text();
 			}else if(i===num&&$(this).hasClass('true')){
 				
 			}else{
 				$(this).css('color','black').css('background-color','white');
 				$(this).removeClass("true").addClass("false");	
 			}
-		})
+		});
+		$('.rent-input').html('');
+		lnum=0;
+		tnum=0;
+		nnum=0;
+		mnum=0;
+		$('.charter').css("background-color", "white");
+		commentlist(searchValue,1);
 		
 	}
 	
@@ -739,7 +999,7 @@ var estater=new estate();
 					"</label>";
 				nnum++;
 				$('.charter').css("background-color", "gray");
-				
+				text='전세';
 			}else{
 				return;
 				
@@ -750,10 +1010,11 @@ var estater=new estate();
 			
 						html="<label class='lnum-"+lnum+"'>"+
 						"<span>매매</span>"+
-						"<input type='text' class='rpay'id='trading'  required placeholder='매매가' >"+
+						"<input type='text' class='rpay'id='tradingv'  required placeholder='매매가' >"+
 						"<span>만원</span>"+
 					"</label>";
 					tnum++;
+					text='매매';
 			}
 			else{
 				return;
@@ -767,10 +1028,15 @@ var estater=new estate();
 				"<span>만원</span>"+
 			"</label>";
 			mnum++;
+			text='월세';
 		}
 		html+="<label class='close-x lnum-"+lnum+" label-"+lnum+"' onclick='closen("+lnum+")' > x </label><br>";
 		$('.rent-input').append(html);
 		lnum++;
+		
+		
+			commentlist(text,2);
+		
 
 	}
 	
@@ -863,10 +1129,59 @@ var estater=new estate();
 		check=false;
 		loopKey=false;
 	}
+	
+	
+	var filenum=1;
+	function fileUpload(){
+		
+	if(filenum<4){
+		 var formData = new FormData($('#file')[0]);
+
+		    $.ajax({
+		        url:'imgupload',
+		        type: 'POST',
+		        data: formData,
+		        async: false,
+		        success: function (data) {
+		        	newForm.append("<input type='hidden' value='"+data+"' name='imgName'>");
+		        	$("#imgList").append("<img src='img/"+data+"' style='width:150px; height:150px;'>");
+		        	filenum++;
+		        },
+		        cache: false,
+		        contentType: false,
+		        processData: false
+		    });
+	}else{
+		alert("파일은 3개까지만 등록 가능합니다.");
+	}
+		   
+
+		   
+		
+	}
+	function close_pop(flag) {
+		$('#myModal').hide();
+	};
+	
+	function open_pop(num) {
+		$(".productdescmodal").click(function(){
+			var atclno = num;
+		
+			var url = "productModal?pdnum=" + atclno;
+			$.ajax({
+				url : url,
+				success : function(d) {
+					$("#myModal").html(d);
+				}
+			});
+			$('#myModal').show();
+		});
+	};
+
 </script>
 </div>
 </section>
-
+<%@include file="../commercial/modal.jsp"%>
 <%@ include file="../include/footer.jsp"%>
 
 

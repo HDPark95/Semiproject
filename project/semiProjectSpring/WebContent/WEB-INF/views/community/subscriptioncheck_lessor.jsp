@@ -11,7 +11,7 @@
 	<div class="container">
 		<table class="table">
 			<tr class="success">
-				<th colspan="2"><a>기업명</a><br>회원가입을 축하드립니다!</th>
+				<th colspan="2"><a>CMJ</a><br>회원가입을 축하드립니다!</th>
 			</tr>
 			<tr>
 				<td colspan="2" id="welcome1">구독권을 가입하시면 보다 많은 혜택을 누리실 수 있습니다!</td>
@@ -20,7 +20,7 @@
 				<td id="welcome2">가입하고 싶으시다면!<br>
 				<br>
 				<button type="button" class="btn btn-warning"
-						onclick="location ='pay4'">Subscribe</button></td>
+						onclick="location ='pay2'">Subscribe</button></td>
 				<td id="welcome3">아니오! 괜찮습니다!<br>
 				<br>
 				<button type="button" class="btn btn-success"

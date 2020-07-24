@@ -9,4 +9,4 @@
 		</div>
 		<button onclick="location='pay4'" class="btn btn-primary btn-sm productdescmodal" style="margin-top:250px;">구독하러가기</button>
 	</div>
-</div>
+</div> 

@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+=======
+   <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+>>>>>>> refs/heads/master
 
   </head>
     <body id="page-top">
@@ -13,6 +17,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                  <ul class="navbar-nav ml-auto menu-other">
                         <c:catch>
+<<<<<<< HEAD
                         <c:choose>
                         <c:when test="${empty user}">                        
                         <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage"> </a></li>
@@ -27,50 +32,85 @@
                         </c:choose>	
                         </c:catch>
                                             </ul>                  
+=======
+                        <c:choose> 
+                        <c:when test="${empty user}">                        
+                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage"> </a></li>
+                        </c:when>
+                          
+                        <c:otherwise>                          
+                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="#">${user.dname}님 환영합니다.</a></li>  
+                        </c:otherwise>
+<%--                         <c:otherwise>                         --%>  
+<%--                         <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">${user.dname}님 환영합니다.</a></li> --%>
+<%--                         </c:otherwise> --%>
+                        </c:choose>	
+                        </c:catch>
+                                            </ul>  
+                                                            
+>>>>>>> refs/heads/master
                     <ul class="navbar-nav ml-auto2">
+                     <c:catch>
+                        <c:choose> 
+                        <c:when test="${empty user}">                        
+                       		<li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage"> </a></li>
+                        </c:when>
+                          
+                        <c:otherwise>                          
+                      		<li class="nav-item"><a class="nav-link js-scroll-trigger" href="addestate">매물등록</a></li>
+                        </c:otherwise>
+<%--                         <c:otherwise>                         --%>  
+<%--                         <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">${user.dname}님 환영합니다.</a></li> --%>
+<%--                         </c:otherwise> --%>
+                        </c:choose>	
+                        </c:catch>
+                    	
+                    	
+                    	
                        <li class="nav-item">
 	                       <a class="nav-link js-scroll-trigger" href="commercialMain">상가</a>
 	                       <ul class="invisible sub-menu">
-		                       	<li><a>매물</a></li>
-		                       	<li><a>매물</a></li>
+		                     <li><a href="realprice">실거래가</a></li>
+		                       	<li><a href="nearEstate">주변부동산</a></li>
 		                       	<li><a href="product">매물</a></li>
-		                       	<li><a href="register">매물등록</a></li>
-	                       </ul>
-                       </li>
+		                       	<li><a href="newsPage">뉴스</a></li>
+						</ul></li>
+	                      
                         <li class="nav-item">
 	                        <a class="nav-link js-scroll-trigger" href="estateMain">부동산</a>
 	                      
 	                        <ul class="invisible sub-menu">
-		                       		<li><a href="estateMain">매물</a></li>
-		                       	<li><a href="#">매물</a></li>
-		                       	<li><a href="#">매물</a></li>
-		                       	<li><a href="addestate">매물등록</a></li>
+		                       	<li><a href="estateMain">매물</a></li>
+		                      	<li><a href="realprice">실거래가</a></li>
+		                       	<li><a href="nearEstate">주변부동산</a></li>
+		                       
 	                       </ul>
                         </li>
                         <li class="nav-item">
 	                        <a class="nav-link js-scroll-trigger" href="auctionMain">경매</a>
 	                        
 	                        <ul class="invisible sub-menu">
-		                       		<li><a>물건검색</a></li>
-		                       	<li><a>판매관리</a></li>
-		                       	<li><a>구매관리</a></li>
-		                       	<li><a>부동산등록</a></li>
-		                       	<li><a>경매정보</a></li>
+		                       		<li><a href="auctionMain">물건검색</a></li>
+		                       	<li><a href="auction_sales?aid=${user.aid }">판매관리</a></li>
+		                       
+		                       	<li><a href="auctionAdd">부동산등록</a></li>
+		                       
 	                       </ul>
                         </li>
                         <li class="nav-item">
 	                        <a class="nav-link js-scroll-trigger" href="comuMain">커뮤니티</a>
-	                      
-	                        <ul class="invisible sub-menu">
-		                         	<li><a>매물</a></li>
-		                       	<li><a>매물</a></li>
-		                       	<li><a>매물</a></li>
-		                       	<li><a>매물등록</a></li>
-	                       </ul>
                         </li>
                         <li class="nav-item">
-
-	                        <a class="nav-link js-scroll-trigger menu-other" href="customer">고객센터</a>             
+  <c:catch>
+                       <c:choose>
+                       <c:when test="${empty user}">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login">고객센터</a></li>
+                        </c:when>
+                        <c:otherwise>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="list1">고객센터</a></li>
+                        </c:otherwise>
+                        </c:choose>
+                        </c:catch>          
                         </li>
 <!--                         <li class="nav-item"> -->
 
@@ -81,9 +121,26 @@
                     </ul>
                       <ul class="navbar-nav ml-auto2 menu-other">
                         <li class="nav-item">
+<<<<<<< HEAD
 	                        <a class="nav-link js-scroll-trigger" href="mypage">내정보</a>
 	                        <input type="hidden" value="mypage">
+=======
+	                        
+	                       	<c:choose>
+		                       	<c:when test="${user.agubun eq '공인중개사'}">
+		                       		<a class="nav-link js-scroll-trigger" href="mypage_lessor?aid=${user.aid }">내정보</a>
+		                       	</c:when>
+		                       	<c:when test="${user.agubun eq '임대인'}">
+		                       		<a class="nav-link js-scroll-trigger" href="mypage_lessor?aid=${user.aid }">내정보</a>
+		                       	</c:when>
+		                        <c:otherwise>
+		                        	 <a class="nav-link js-scroll-trigger" href="login" >내정보</a>
+		                        </c:otherwise>
+	                       </c:choose>
+                       <input type="hidden" value="mypage">
+>>>>>>> refs/heads/master
                         </li>
+<<<<<<< HEAD
                         <c:catch>
                         <c:choose>
                         <c:when test="${empty user}">
@@ -101,6 +158,18 @@
                         </c:choose>
                         </c:catch>
                     
+=======
+                       <c:catch>
+                       <c:choose>
+                       <c:when test="${empty user}">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login">로그인</a></li>
+                        </c:when>
+                        <c:otherwise>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout">로그아웃</a></li>
+                        </c:otherwise>
+                        </c:choose>
+                        </c:catch>
+>>>>>>> refs/heads/master
                     </ul>
                    
                 </div>
@@ -146,5 +215,15 @@
 		            </div>
 	 
             </div> -->
-       
+  <script>
+	    function register_func(){
+			var aid = "${user.aid}";
+			console.log(aid);
+			if(aid ===null || aid === ""){
+				alert("로그인하십시오.");
+			}else{
+				location = "register";
+			}
+	}
+	</script>     
 	            

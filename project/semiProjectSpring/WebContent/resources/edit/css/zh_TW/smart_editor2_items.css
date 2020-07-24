@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* NHN Web Standardization Team (http://html.nhndesign.com/) HHJ 090226 */
-/* TEXT_TOOLBAR : FONTNAME */
+/* TEXT_TOOLBAR : FONTNAME */ 
 #smart_editor2 .se2_l_font_fam .hover,#smart_editor2 .se2_l_font_fam .active{background:#ebebeb}
 #smart_editor2 .se2_l_font_fam button span{display:block;visibility:visible;overflow:visible;position:relative;top:auto;left:auto;width:auto;height:auto;margin:0 0 0 4px;padding:0;font-size:12px;line-height:normal;color:#333}
 #smart_editor2 .se2_l_font_fam button span span{display:inline;visibility:visible;overflow:visible;width:auto;height:auto;margin:0 0 0 4px;font-family:Verdana;font-size:12px;line-height:14px;color:#888}

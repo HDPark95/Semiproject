@@ -69,16 +69,25 @@
 	left: 190px;
 	margin-top: 0px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/heads/master
 </style>
-<h1>로고</h1>
+<h1>CMJ</h1>
 <br>
 <h4>임대인 회원가입</h4>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
+<<<<<<< HEAD
 		<form method="post" action="signup_broker_in" class="form-horizontal"
 			autocomplete="off">
 			<div class="form-group" id="aid">
+=======
+		<form method="post" action="signup_lessor_in" class="form-horizontal"
+			autocomplete="off">
+			<div class="form-group">
+>>>>>>> refs/heads/master
 				<label for="aidheader" class="col-sm-2 control-label">아이디</label>
 				<div class="col-md-1" id="inputidheader">
 					<input type="text" class="form-control" id="aidheader"
@@ -90,13 +99,18 @@
 					<input type="text" class="form-control" id="aidfooter"
 						name="aidfooter" placeholder="email" maxlength="30" required="required">
 				</div>
+				<input type="hidden" id="aid" name="aid" value="${userid}">
 			</div>
 			<div id="idtarget"></div>
 			<div class="form-group">
 				<label for="apwd" class="col-sm-2 control-label">비밀번호</label>
 				<div class="col-sm-3">
 					<input type="password" class="form-control" id="apwd" name="apwd"
+<<<<<<< HEAD
 						placeholder="영문+숫자,8자 이상" required="required">
+=======
+						placeholder="영문+숫자,6자 이상" required="required">
+>>>>>>> refs/heads/master
 					<div id="pwdtarget"></div>
 				</div>
 			</div>
@@ -228,6 +242,7 @@ $(function() {
 		console.log(pwd);
 		if(pwd.length===0){
 			$('#pwdtarget').html("<p style='color:red'>비밀번호를 입력하여 주십시오.</p>");
+<<<<<<< HEAD
 		}else if(pwd.length>=1&&pwd.length<=7){
 			$('#pwdtarget').html("<p style='color:red'>8자 이상의 영문 및 숫자를 사용하여 주십시오.</p>");
 		}else{
@@ -292,3 +307,69 @@ $(function() {
 })
 </script>
 <%@ include file="../include/footer.jsp"%>
+=======
+		}else if(pwd.length>=1&&pwd.length<=5){
+			$('#pwdtarget').html("<p style='color:red'>6자 이상의 영문 및 숫자를 사용하여 주십시오.</p>");
+		}else{
+			$('#pwdtarget').html("");
+		}
+	});
+	
+	// 비밀번호 확인 체크
+	$('#PasswordCheck').keyup(function(){
+		var pwd1=$("#apwd").val();
+		var pwd2=$("#PasswordCheck").val();
+		if(pwd1.length>=1 || pwd2.length>=1){ 
+			if(pwd1 == pwd2){ 
+			$("#chktarget").html("<p style='color:green'>비밀번호가 일치합니다.</p>");	
+			}else{ 
+			$("#chktarget").html("<p style='color:red'>비밀번호가 일치하지 않습니다.</p>"); 
+			}
+		}
+	});	
+	
+	// 연도 설정
+	$('#dyear').keyup(function(){
+		var year=$("#dyear").val();
+		var currentyear = new Date().getFullYear();
+		if(year>currentyear){
+			$("#yeartarget").html("<p style='color:red'>미래에서 오셨군요!</p>");
+		}else if(year>currentyear-18){
+			$("#yeartarget").html("<p style='color:red'>만 18세 미만은 가입하실 수 없습니다!</p>");
+		}else{
+			$("#yeartarget").html("");
+		}
+	});
+	
+	// 일 수 설정
+	$('#dday').keyup(function(){
+		var day = $(this).val();
+		var month = $('#dmonth option:selected').val();
+		if(month===0){
+		$("#yeartarget").html("<p style='color:red'>월을 입력해 주세요.</p>");
+		}else{
+			if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){
+				if(day<1||day>31){
+					$("#yeartarget").html("<p style='color:red'>생년월일을 다시 확인해주세요.</p>");	
+				}else{
+					$("#yeartarget").html("");
+				}
+			}else if(month==2){
+				if(day<1||day>29){
+					$("#yeartarget").html("<p style='color:red'>생년월일을 다시 확인해주세요.</p>");
+				}else{
+					$("#yeartarget").html("");
+				}
+			}else{
+				if(day<1||day>30){
+					$("#yeartarget").html("<p style='color:red'>생년월일을 다시 확인해주세요.</p>");
+				}else{
+					$("#yeartarget").html("");
+				}
+			}
+		}
+	});
+})
+</script>
+<%@ include file="../include/footer.jsp"%>
+>>>>>>> refs/heads/master

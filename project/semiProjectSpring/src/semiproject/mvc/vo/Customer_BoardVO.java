@@ -12,6 +12,7 @@ public class Customer_BoardVO {
 //	c_regdate date default sysdate,
 //	c_anschk number(1),
 //	c_ans varchar2(2000)
+<<<<<<< HEAD
 	
 	private int c_num , c_anschk;
 	private String c_type,c_writer,c_subject,c_content,c_pwd,c_ans;
@@ -41,6 +42,37 @@ public class Customer_BoardVO {
 	public void setC_writer(String c_writer) {
 		this.c_writer = c_writer;
 	}
+=======
+	 
+	private int c_num , c_anschk;
+	private String c_type,c_writer,c_subject,c_content,c_pwd,c_ans;
+	private String c_regdate;
+	
+	public int getC_num() {  
+		return c_num;
+	}
+	public void setC_num(int c_num) {
+		this.c_num = c_num;
+	}
+	public int getC_anschk() {
+		return c_anschk;
+	}
+	public void setC_anschk(int c_anschk) {
+		this.c_anschk = c_anschk;
+	}
+	public String getC_type() {
+		return c_type;
+	}
+	public void setC_type(String c_type) {
+		this.c_type = c_type;
+	}
+	public String getC_writer() {
+		return c_writer;
+	}
+	public void setC_writer(String c_writer) {
+		this.c_writer = c_writer;
+	} 
+>>>>>>> refs/heads/master
 	public String getC_subject() {
 		return c_subject;
 	}

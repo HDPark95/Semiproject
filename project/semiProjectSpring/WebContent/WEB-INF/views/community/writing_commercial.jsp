@@ -6,7 +6,7 @@
 <script type="text/javascript" src="resources/edit/js/service/HuskyEZCreator.js" charset="UTF-8"></script>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
-		<form action="" method="post">
+		<form action="writing_commercial_in" method="post">
 			<ul class="nav nav-tabs">
 				<li class="nav-item"><a class="nav-link active" data-toggle="tab" 
 					href="#commercial" id="com">상가</a></li>
@@ -30,24 +30,25 @@
 				<div class="form-inline form-group">
 					<label for="title" class="col-sm-2 control-label">제목</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="title" maxlength="80">
+						<input type="text" class="form-control" id="title" name="wtitle" maxlength="50">
 					</div>
 				</div>
 				<div class="tab-pane fade show active" id="all">
 					<br>
 					<div class="form-inline form-group">
 						<label for="Select1">구/동 선택</label> <select
-							class="form-control col-md-2" id="Select1">
+							class="form-control col-md-2" id="Select1" name="wloc1">
 							<option>선택</option>
-						</select> <select class="form-control col-md-2" id="Select2">
+						</select> <select class="form-control col-md-2" id="Select2" name="wloc2">
 							<option>선택</option>
 						</select>
 					</div>
 				</div>
-				<textarea id="ir1" class="form-control" rows="20" cols="100" contenteditable="true">
+				<textarea id="ir1" name="wcontents" class="form-control" rows="20" cols="100" contenteditable="true">
 				</textarea>
+				<input type="hidden" id="anum" name="anum" value="${user.anum}">
 				<div id="writebutton">
-					<button type="button" class="btn btn-success">확인</button>
+					<button id="runin" type="submit" class="btn btn-success">확인</button>
 					<button type="button" class="btn btn-secondary" onclick="location='comuMain'">취소</button>
 				</div>
 			</div>
@@ -68,6 +69,7 @@
 		$('#auc').click(function() {
 			location = 'wriAuc';
 		});
+		
 		var oEditors = [];
 		nhn.husky.EZCreator.createInIFrame({
 		 oAppRef: oEditors,
@@ -75,10 +77,10 @@
 		 sSkinURI: "resources/edit/SmartEditor2Skin.html",
 		 fCreator: "createSEditor2"
 		});
+		
 		$('#runin').click(function() {
 			var val1 = oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD",[]);
-			alert($('#ir1').val());
-		})
+		});
 		
 		var url = "comugu";
 		$.ajax({

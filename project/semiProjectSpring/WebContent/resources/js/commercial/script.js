@@ -1,15 +1,9 @@
 <!-- Hyundoo JS-->
-	/*$(function() {
-		var url = 'gu'
-		$.ajax({
-			url : url,
-			success : function(d) {
-				$('#combobox1').html(d);
-			},
-			error : function(e) {
-				console.log("Error : " + e);
-			}
-		});*/
+	/*
+	 * $(function() { var url = 'gu' $.ajax({ url : url, success : function(d) {
+	 * $('#combobox1').html(d); }, error : function(e) { console.log("Error : " +
+	 * e); } });
+	 */
 		/*
 		 * $('#combobox1') .change( function() { //마커 추가하기. var param =
 		 * $(this).val(); var url =
@@ -21,7 +15,7 @@
 		 * naver.maps.LatLng( myObj[e].lat, myObj[e].lng), map : map }); } ; },
 		 * error : function(e) { console.log("Error : " + e); } }); })
 		 */
-	//});
+	// });
 	$(function() {
 		$('#combobox1')
 				.change(
@@ -42,7 +36,7 @@
 									+ encodeURIComponent(param)
 							$.ajax({
 								url : url,
-								success : function(d) {
+								success : function(d) { 
 									$('#information').html(d);
 								},
 								error : function(e) {
@@ -81,7 +75,8 @@
 										});
 									});
 							var location = $(this).val();
-							var url = "productdesc?location="+ location;
+							console.log(location);
+							var url = "productdesc?location="+encodeURIComponent(location);
 							$.ajax({
 								url: url,
 								success : function(d){
@@ -92,6 +87,12 @@
 								}
 							})
 						});
+		
+
+		
+		open_pop();
+		
+		
 						});
 		
 	$(function() {
@@ -193,30 +194,50 @@
 	$(function() {
 		$("#postcodify_search_button").postcodifyPopUp();
 	});
-	function open_pop(){
+/*	function open_pop(){
+		console.log('바뀜2??')
 		$(".productdescmodal").click(function(){
-			var atclno = $(this).val();
-			console.log(atclno);
-			var url = "productModal?atclno=" + atclno;
-			$.ajax({
-				url : url,
-				success : function(d) {
-					$("#myModal").html(d);
-				},
-				error:function(e){
-					console.log(e);
-				}
-			});
-			url = "recentCnt?atclno="+ atclno;
-			$.ajax({
-				url:url,
-				success : function(data){
-					$("#recentCnt").append(data); 
-				}
-			});
-			$('#myModal').show();
-		});
-	};
+		var atclno = $(this).val();
+		console.log(atclno);
+		var url = "productModal?atclno=" + atclno;
+		$.ajax({
+			url : url,
+			success : function(d) {
+				$("#myModal").html(d);
+			},
+			error:function(e){
+				console.log(e);
+			}
+		})
+		$("#myModal").show();
+	});
+	}*/
+    $( document ).on('click', '.productdescmodal',function() {
+    		if($("button.Cntcount").length>=3){
+    			$("button.Cntcount").last().remove();
+    		}
+    		var pdnum = $(this).val();
+    		console.log(pdnum);
+    		var url = "productModal?pdnum=" + pdnum;
+    		$.ajax({
+			url : url,
+			success : function(d) {
+				$("#myModal").html(d);
+			},
+			error:function(e){
+				console.log(e);
+			}
+    		})
+			$("#myModal").show();
+    		var pdnum = $(this).attr('value');
+    		url = "recentCnt?pdnum="+ pdnum;
+    		$.ajax({
+    			url:url,
+    			success : function(data){
+    				$("#recentCnt").prepend(data); 
+    			}
+    		});
+    	});
 	function close_pop(flag) {
 		$('#myModal').hide();
 	};
@@ -224,8 +245,7 @@
 	function open_pop2() {
 		$('#myModal2').show();
 	};
-	//팝업 Close 기능
+	// 팝업 Close 기능
 	function close_pop2(flag) {
 		$('#myModal2').hide();
 	};
-	

@@ -14,7 +14,7 @@ naver.maps.Event.once(map, 'init_stylemap', function () {
         var keyword = i +'';
         if (keyword.length === 1) {
             keyword = '0'+ keyword;
-        }
+        } 
         $.ajax({
             url: urlPrefix + keyword + urlSuffix,
             success: function(idx) {

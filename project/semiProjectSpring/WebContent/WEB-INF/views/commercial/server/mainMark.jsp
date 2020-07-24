@@ -8,3 +8,4 @@
 <c:if test="${listsize-1>idx.index}">,</c:if>
 </c:forEach>
 ]
+ 

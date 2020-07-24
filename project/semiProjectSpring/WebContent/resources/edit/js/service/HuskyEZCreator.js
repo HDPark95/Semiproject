@@ -21,7 +21,7 @@ if (!nhn.husky) nhn.husky = {};
 /**
  * @fileOverview This file contains application creation helper function, which would load up an HTML(Skin) file and then execute a specified create function.
  * @name HuskyEZCreator.js
- */
+ */ 
 nhn.husky.EZCreator = new (function(){
 	this.nBlockerCount = 0;
 

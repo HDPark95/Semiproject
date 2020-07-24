@@ -16,7 +16,7 @@ indate date default sysdate,
 chgdate date,
 constraint actmainde_adnum_pk primary key(adnum) 
 );  
-*/
+*/ 
 public class AuctionAddDeVO {
 	
 	private int adnum,anum;

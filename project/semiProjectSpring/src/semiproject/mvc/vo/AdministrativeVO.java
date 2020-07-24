@@ -1,8 +1,22 @@
 package semiproject.mvc.vo;
 
 public class AdministrativeVO {
-	private int pay;
+	private int pay,adnum,pidnum;
 	private String administrat;
+	
+	
+	public int getAdnum() {
+		return adnum;
+	}
+	public void setAdnum(int adnum) {
+		this.adnum = adnum;
+	}
+	public int getPidnum() {
+		return pidnum;
+	}
+	public void setPidnum(int pidnum) {
+		this.pidnum = pidnum;
+	}
 	public int getPay() {
 		return pay;
 	}
@@ -15,5 +29,7 @@ public class AdministrativeVO {
 	public void setAdministrat(String administrat) {
 		this.administrat = administrat;
 	}
+
+	 
 	
 }

@@ -17,7 +17,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 /*
  * Smart Editor 2 Configuration : This setting must be changed by service
- */
+ */ 
 window.nhn = window.nhn || {};
 nhn.husky = nhn.husky || {};
 nhn.husky.SE2M_Configuration = nhn.husky.SE2M_Configuration || {};

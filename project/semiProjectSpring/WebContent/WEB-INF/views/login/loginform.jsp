@@ -19,7 +19,7 @@
 <body class="bg-gradient-primary">
 
   <div class="container">
-
+ 
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
@@ -33,7 +33,11 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
+<<<<<<< HEAD
                     <h1 class="h4 text-gray-900 mb-4">welcomback!</h1>  
+=======
+                    <h1 class="h4 text-gray-900 mb-4">로그인</h1>
+>>>>>>> refs/heads/master
                   </div>
                   <form action="loginPost" method="post">
                     <div class="form-group">
@@ -42,7 +46,7 @@
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="apwd" placeholder="비밀번호를 입력해주세요.">
                     </div>
-                    <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">
+                    <input type="button" class="btn btn-primary btn-user btn-block" onclick="idchk()" value="Login" >
 <!--                     <hr> -->
 <!--                     <a href="index.html" class="btn btn-google btn-user btn-block"> -->
 <!--                       <i class="fab fa-google fa-fw"></i> Login with Google -->
@@ -58,12 +62,19 @@
                   <div class="text-center">
                     <a class="small" href="choose">아직 계정이 없으시군요?</a>
                   </div>
+                  <div class="text-center">
+                    <a class="small" id="login_chk" style="color: red;"></a>
+                  </div>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>
-
+				<form  id="user">
+	            		<input type='hidden' value='${user.aid}' name='aid'>
+	            		<input type='hidden' value='${user.apwd}' name='apwd'>
+	           	</form>
       </div>
 
     </div>
@@ -79,7 +90,35 @@
 
   <!-- Custom scripts for all pages-->
   <script src="resources/js/login/sb-admin-2.min.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	var newForm=$("#user");
+	function idchk(){
+			$.ajax({
+			url : "loginPost" ,
+			type : "post" ,
+			data : {aid : $('#exampleInputEmail').val() ,
+				 	apwd : $('#exampleInputPassword').val(),
+					tab : 'ajax'	 	
+			},
+			success : function(result) {
+				location = "loginPost?aid="+$('#exampleInputEmail').val()+"&apwd="+$('#exampleInputPassword').val()+"&tab=location"
+			} ,
+			error : function(result){
+				$('#login_chk').text("아이디와 비밀번호가 틀렸습니다.");
+			}
+			});
+	}
+	
+	function submit(){
+		newForm.attr('method','post');
+		newForm.attr("action", "/semiProjectSpring/loginPost");
+		newForm.submit();		
+		
+	}
+	</script>
 </body>
+<div style="margin-bottom: 150px;">
 
+</div>
 <%@ include file="../include/footer.jsp"%>

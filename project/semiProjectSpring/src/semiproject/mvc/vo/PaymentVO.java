@@ -1,14 +1,44 @@
 package semiproject.mvc.vo;
 
 public class PaymentVO {
+<<<<<<< HEAD
 	private int pnum,ppay;
 	private String anum,psdate,pedate;
+=======
+	private int pnum , anum , ppay, monthnum;
+	private String psdate , pedate , pway , pgubun ;
+	
+	private Payment_DetailVO paydetailvo ; 
+	
+	
+	public int getMonthnum() {
+		return monthnum;
+	}
+	public void setMonthnum(int monthnum) {
+		this.monthnum = monthnum;
+	}
+	public Payment_DetailVO getPaydetailvo() {
+		return paydetailvo; 
+	}
+	public void setPaydetailvo(Payment_DetailVO paydetailvo) {
+		this.paydetailvo = paydetailvo;
+	}
+>>>>>>> refs/heads/master
 	public int getPnum() {
 		return pnum;
 	}
 	public void setPnum(int pnum) {
 		this.pnum = pnum;
 	}
+<<<<<<< HEAD
+=======
+	public int getAnum() {
+		return anum;
+	}
+	public void setAnum(int anum) {
+		this.anum = anum;
+	} 
+>>>>>>> refs/heads/master
 	public int getPpay() {
 		return ppay;
 	}

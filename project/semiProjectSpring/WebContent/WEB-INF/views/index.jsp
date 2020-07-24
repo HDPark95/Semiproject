@@ -1,19 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ include file="include/header_main.jsp"%>
+<<<<<<< HEAD
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+=======
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+>>>>>>> refs/heads/master
   <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
                 <div class="mx-auto text-center">
+<<<<<<< HEAD
                     <h1 class="mx-auto my-0 text-uppercase" id="title"><img style="width: 100px; height: 100px;" src="resources/assets/img/copyright.jpg"><span class="logotext typer">Grayscale</span></h1>
                     <h3 class="text-white-50 mx-auto mt-2 mb-5">ProjectName 은 한발 앞서가는 분석으로 <br>최적의 매물과 가치를 만들어 드립니다. 1212</h3>
 					<ul>
 					<c:catch>
+=======
+                    <h1 class="mx-auto my-0 text-uppercase" id="title"><img style="width: 100px; height: 100px;" src="resources/assets/img/logo.png"><span class="logotext typer">Grayscale</span></h1>
+                    <h3 class="text-white-50 mx-auto mt-2 mb-5">CMJ은 한발 앞서가는 분석으로 <br>최적의 매물과 가치를 만들어 드립니다.</h3>
+                
+					 <ul>
+>>>>>>> refs/heads/master
 					<c:choose>									 
 					<c:when test="${empty user}">
 					<li>                 
                     <a class="btn btn-primary js-scroll-trigger" href="login">로그인</a>
                     </li>
+<<<<<<< HEAD
                     </c:when>  
                     
                     <c:otherwise>
@@ -24,8 +36,21 @@
                     </c:choose>
                     </c:catch>                    
                    </ul>
+=======
+                    </c:when>   
+                    
+                    <c:otherwise>
+                    <li>
+                    <a class="btn btn-primary js-scroll-trigger" href="index#footerMenu">시작하기</a>  
+                    </li>
+                    </c:otherwise>
+                    </c:choose>
+                                     
+                   </ul>
+                   
+>>>>>>> refs/heads/master
                 </div>
-            </div>
+            </div> 
         </header>
         <!-- About-->
         <!-- Projects-->   
@@ -36,17 +61,39 @@
                 <div class="row">
                     <div class="col-md-4 mb-3 mb-md-0">
                         <div class="card py-4 h-100">
-                        	<a href="commercialMain">
+                        	
                             <div class="card-body text-center">
                                 <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                                <a href="commercialMain">
                                 <h3 class="text-uppercase m-0">상가</h3>
                                 <hr class="my-4" />
-                                <div class="small text-black-50">현두 담당</div>
+                                <div class="small text-black-50"></div>
+                             	</a>
+                             	<br>
+                             	<br>
+                                <a href="realprice">
+                                <h3 class="text-uppercase m-0">실거래가</h3>
+                                <hr class="my-4" />
+                                </a>
+                                <br>
+                             	<br>
+                                <a href="nearEstate">
+                                <div class="small text-black-50"></div>
+                                <h3 class="text-uppercase m-0">근처 부동산 검색</h3>
+                                <hr class="my-4" />
+                                </a>
+                                <br>
+                             	<br>
+                                <a href="product">
+                                <div class="small text-black-50"></div>
+                                <h3 class="text-uppercase m-0">매물 검색</h3>
+                                <hr class="my-4" />
+                                </a>
                                 <div>
                                 	<!--  설명 글적는곳 -->
                                 </div>
                             </div>
-                             </a>
+                             
                         </div>
                     </div>
                     <div class="col-md-4 mb-3 mb-md-0">
@@ -56,7 +103,22 @@
                                 <i class="fas fa-map-marked-alt text-primary mb-2"></i>
                                 <h3 class="text-uppercase m-0">부동산</h3>
                                 <hr class="my-4" />
-                                <div class="small text-black-50"><a href="#!">온유담당</a></div>
+                                <br>
+                             	<br>
+                                <a href="realprice">
+                                <h3 class="text-uppercase m-0">실거래가</h3>
+                                <hr class="my-4" />
+                                </a>
+                                <br>
+                             	<br>
+                                <a href="nearEstate">
+                                <div class="small text-black-50"></div>
+                                <h3 class="text-uppercase m-0">근처 부동산 검색</h3>
+                                <hr class="my-4" />
+                                </a>
+                                                             	
+                                <br>
+                             	<br>	
                                 <div>
                                 	<!--  설명 글적는곳 -->
                                 </div>
@@ -66,17 +128,30 @@
                     </div>
                     <div class="col-md-4 mb-3 mb-md-0">
                         <div class="card py-4 h-100">
-                        	<a href="auctionMain">
-                            <div class="card-body text-center">
+                             <div class="card-body text-center">
                                 <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h3 class="text-uppercase m-0">경매</h3>
+                                <a href="commercialMain">
+                                <h3 class="text-uppercase m-0"><a href="auctionMain">경매</a> </h3>
                                 <hr class="my-4" />
-                                <div class="small text-black-50">태준형님</div>
+                                <div class="small text-black-50"></div>
+                             	</a>
+                             	<br>
+                				<br>
+                                <a href="realprice">
+                                <h3 class="text-uppercase m-0"><a href="auction_sales?aid=${user.aid }"> 판매관리</a></h3>
+                                <hr class="my-4" />
+                                </a>
+                                <br> 
+                                <br>  	           	
+                                <a href="product">
+                                <div class="small text-black-50"></div>
+                                <h3 class="text-uppercase m-0">부동산관리</h3>
+                                <hr class="my-4" />
+                                </a>
                                 <div>
                                 	<!--  설명 글적는곳 -->
                                 </div>
                             </div>
-                         </a>
                         </div>
                     </div>
                 </div>

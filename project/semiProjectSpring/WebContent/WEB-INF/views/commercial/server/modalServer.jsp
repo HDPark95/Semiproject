@@ -25,10 +25,14 @@
 				<td>${result.prc}만원</td>
 				<td>매물번호</td>
 				<td>${result.atclno}</td>
-			</tr>
+			</tr> 
 			<tr>
 				<td rowspan="3">중개인</td>
 				<td rowspan="3" colspan="3">${result.rltrnm}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
 			</tr>
 		</table>
 		<div class="row centered" id="product" style="margin:0 auto;">
@@ -48,8 +52,15 @@
 	</div>
 	<div class="button"
 		style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 2px; padding-top:2px;"
+		onClick="location='estateDetail?num=${result.pdnum}'">
+		<span class="btn btn-primary btn-sm" style="font-size: 13pt;">
+		자세히보기 </span>
+	</div>
+	<div class="button"
+		style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 2px; padding-top:2px;"
 		onClick="close_pop();">
 		<span class="btn btn-primary btn-sm" style="font-size: 13pt;">
 			닫기 </span>
 	</div>
+	
 </div>

@@ -23,7 +23,7 @@
 
 
 
-! function($) {
+! function($) { 
 
     "use strict";
 

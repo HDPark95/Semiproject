@@ -12,4 +12,8 @@
 		self.location = "login/loginform";  
 	</script>
 </body>
+<<<<<<< HEAD
 </html>  
+=======
+</html> 
+>>>>>>> refs/heads/master

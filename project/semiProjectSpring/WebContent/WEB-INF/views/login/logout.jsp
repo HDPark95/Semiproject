@@ -12,4 +12,8 @@
 		self.location = "/";
 	</script>
 </body>
+<<<<<<< HEAD
 </html>  
+=======
+</html> 
+>>>>>>> refs/heads/master

@@ -6,11 +6,25 @@ public class SignUpVO {
 	private String aidheader,aidfooter,aid,
 	apwd,agubun,dname,
 	dyear,dmonth,dday,dbirth,
-	dgender,
+	dgender,ainday,achgday,
 	dtelheader,dtelmiddle,dtelfooter,dtel;
 	private Member_DetailVO memberinfor ;
 	private PaymentVO payvo;
 	
+	
+	
+	public String getAchgday() {
+		return achgday;
+	}
+	public void setAchgday(String achgday) {
+		this.achgday = achgday;
+	}
+	public String getAinday() {
+		return ainday;
+	}
+	public void setAinday(String ainday) {
+		this.ainday = ainday;
+	}
 	public Member_DetailVO getMemberinfor() {
 		return memberinfor;
 	}
@@ -19,7 +33,7 @@ public class SignUpVO {
 	}
 	public PaymentVO getPayvo() {
 		return payvo;
-	}
+	} 
 	public void setPayvo(PaymentVO payvo) {
 		this.payvo = payvo;
 	}

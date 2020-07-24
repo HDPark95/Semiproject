@@ -14,7 +14,7 @@ input[type="button"], button {border:none; cursor:pointer;}
 .Blind, .Annotation{visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:0}
 em {font-style:normal;}
 #REATopGNBBG {position:relative; display:block; clear:both; width:100%; height:160px; background:url(/static/service/images/sy_bg_top_gnb_image01.gif) center 0 no-repeat;}
-
+ 
 #REA {position:relative;width:978px;margin:auto;margin-top:-12px;padding:0;background-color:#FFF;z-index:0; text-align:left;}
 #REATopNavi {position:relative; display:block; clear:both; z-index:99; width:978px; height:77px; background:url(/images/bg_ReaTopNavi_01.gif) no-repeat;}
 #REATopNavi .TopSearch {position:relative; display:block; clear:both; height:40px; }

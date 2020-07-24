@@ -7,43 +7,32 @@ where b.anum = a.anum
   and p.anum = a.anum
 */
 public class AuctionViewVO {
-	private int anum,tweight,bweight,hit;
+	private int anum,hit;
+	private double tweight,bweight;
 	private String bid,yongdo,addr,wimage,subject,enddate,ideprice,hprice,status,indate;
 	public int getAnum() {
 		return anum;
 	}
-	public String getIndate() {
-		return indate;
-	}
-	public void setIndate(String indate) {
-		this.indate = indate;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
 	public void setAnum(int anum) {
 		this.anum = anum;
-	}
-	public int getTweight() {
-		return tweight;
-	}
-	public void setTweight(int tweight) {
-		this.tweight = tweight;
-	}
-	public int getBweight() {
-		return bweight;
-	}
-	public void setBweight(int bweight) {
-		this.bweight = bweight;
 	}
 	public int getHit() {
 		return hit;
 	}
 	public void setHit(int hit) {
 		this.hit = hit;
+	}
+	public double getTweight() {
+		return tweight;
+	}
+	public void setTweight(double tweight) {
+		this.tweight = tweight;
+	}
+	public double getBweight() {
+		return bweight;
+	} 
+	public void setBweight(double bweight) {
+		this.bweight = bweight;
 	}
 	public String getBid() {
 		return bid;
@@ -92,6 +81,18 @@ public class AuctionViewVO {
 	}
 	public void setHprice(String hprice) {
 		this.hprice = hprice;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getIndate() {
+		return indate;
+	}
+	public void setIndate(String indate) {
+		this.indate = indate;
 	}
 	
 }

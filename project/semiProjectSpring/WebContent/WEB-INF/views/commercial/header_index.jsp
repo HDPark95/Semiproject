@@ -32,7 +32,7 @@
 				aria-controls="navbarResponsive" aria-expanded="false"
 				aria-label="Toggle navigation">
 				Menu<i class="fas fa-bars"></i>
-			</button>
+			</button> 
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item2"><a class="nav-link2 js-scroll-trigger"

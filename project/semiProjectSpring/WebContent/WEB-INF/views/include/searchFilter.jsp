@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-md-6 mt-6 search">
 			
-					<input type="text" placeholder="강남구 역삼동" ><span class="btn">검색</span>
+					<input type="text" id="keyword"  ><span class="btn">검색</span>
 			
 				
 			</div>
@@ -15,7 +15,7 @@
                 <a class="navbar-brand js-scroll-trigger btn" href="#page-top">필터</a>
                 <a class="navbar-brand js-scroll-trigger btn" href="#page-top">초기화</a>
                
-            </div>
+            </div> 
             </div>
             <div class="col-md-12 mt-12 filter-page invisible fixed-top" id="filter-page">
             	<div class="col-md-12 mt-12 filter-sub-page">

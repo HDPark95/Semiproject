@@ -9,7 +9,7 @@
  * Copyright 2011-2019 The Bootstrap Authors
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+ */ 
 :root { -
 	-blue: #007bff; -
 	-indigo: #6610f2; -
@@ -10032,8 +10032,9 @@ body {
 
 
 .sub-menu {
-	width: 580px;
+	width: 200px;
 	background-color: #778899;
+	
 	color: white;
 	z-index: 1030;
 	position: absolute;
@@ -10050,9 +10051,7 @@ body {
 	font-size: 1.2em;
 }
 
-.sub-menu>li {
-	display: inline;
-}
+
 
 .sub-menu>li a:hover {
 	background-color: #778899;

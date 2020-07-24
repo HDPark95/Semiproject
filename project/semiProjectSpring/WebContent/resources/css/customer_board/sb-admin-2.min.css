@@ -7,7 +7,7 @@
  * Copyright 2011-2019 The Bootstrap Authors
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+ */ 
 :root { -
 	-blue: #4e73df; -
 	-indigo: #6610f2; -
@@ -653,7 +653,8 @@ pre code {
 	display: flex;
 	flex-wrap: wrap;
 	margin-right: -.75rem;
-	margin-left: -.75rem
+	margin-left: -.75rem;
+	padding-top: 2rem;
 }
 
 .no-gutters {

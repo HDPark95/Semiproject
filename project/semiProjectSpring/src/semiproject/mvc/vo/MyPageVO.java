@@ -71,3 +71,4 @@ public class MyPageVO {
 		this.tel = tel;
 	}
 }
+ 

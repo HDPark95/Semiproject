@@ -1,69 +1,179 @@
 package semiproject.mvc.vo;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
 public class AddInfoVO {
-	private boolean pets,elevtor,balcony,built,chartered;
-	private String structure;
-	private AdministrativeVO administrative;
-	private ParkingVO parking;
-	private OptionVO option;
+	// 0 = false
+	// 1 = true
+	private int pidnum,pdnum,aspay,idx;
+	private String pets,elevator,balcony,built,chartered,description,heating,pmove;
+	private String[] structure,move, pay,administrat,imgName;
+	private String pstructure;
+	private List<AdministrativeVO> administrative;
+	private List<Option_SelVO> poption;
+	
+	private String[] option;
+
+	private String park;
+	private int ppay;
 	
 	
 	
-	public String getStructure() {
-		return structure;
+	public int getIdx() {
+		return idx;
 	}
-	public void setStructure(String structure) {
-		this.structure = structure;
+	public void setIdx(int idx) {
+		this.idx = idx;
 	}
-	public boolean isPets() {
-		return pets;
+	public String[] getImgName() {
+		return imgName;
 	}
-	public void setPets(boolean pets) {
-		this.pets = pets;
+	public void setImgName(String[] imgName) {
+		this.imgName = imgName;
 	}
-	public boolean isElevtor() {
-		return elevtor;
+	public String[] getPay() {
+		return pay;
 	}
-	public void setElevtor(boolean elevtor) {
-		this.elevtor = elevtor;
+	public void setPay(String[] pay) {
+		this.pay = pay;
 	}
-	public boolean isBalcony() {
-		return balcony;
+	public String[] getAdministrat() {
+		return administrat;
 	}
-	public void setBalcony(boolean balcony) {
-		this.balcony = balcony;
+	public void setAdministrat(String[] administrat) {
+		this.administrat = administrat;
 	}
-	public boolean isBuilt() {
-		return built;
+	public String getHeating() {
+		return heating;
 	}
-	public void setBuilt(boolean built) {
-		this.built = built;
+	public void setHeating(String heating) {
+		this.heating = heating;
 	}
-	public boolean isChartered() {
-		return chartered;
+	
+	public String[] getMove() {
+		return move;
 	}
-	public void setChartered(boolean chartered) {
-		this.chartered = chartered;
+	public void setMove(String[] move) {
+		this.move = move;
 	}
-	public AdministrativeVO getAdministrative() {
+	
+	
+	
+	public String getPmove() {
+		return pmove;
+	}
+	public void setPmove(String pmove) {
+		this.pmove = pmove;
+	}
+	public String getPstructure() {
+		return pstructure;
+	}
+
+
+	public void setPstructure(String pstructure) {
+		this.pstructure = pstructure;
+	}
+
+
+	
+	public String getPark() {
+		return park;
+	}
+	public void setPark(String park) {
+		this.park = park;
+	}
+	public int getPpay() {
+		return ppay;
+	}
+	public void setPpay(int ppay) {
+		this.ppay = ppay;
+	}
+	
+	
+	public int getAspay() {
+		return aspay;
+	}
+	public void setAspay(int aspay) {
+		this.aspay = aspay;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public int getPidnum() {
+		return pidnum;
+	}
+	public void setPidnum(int pidnum) {
+		this.pidnum = pidnum;
+	}
+	public int getPdnum() {
+		return pdnum;
+	}
+	public void setPdnum(int pdnum) {
+		this.pdnum = pdnum;
+	}
+	public List<Option_SelVO> getPoption() {
+		return poption;
+	}
+	public void setPoption(List<Option_SelVO> poption) {
+		this.poption = poption;
+	}
+	public List<AdministrativeVO> getAdministrative() {
 		return administrative;
 	}
-	public void setAdministrative(AdministrativeVO administrative) {
+	public void setAdministrative(List<AdministrativeVO> administrative) {
 		this.administrative = administrative;
 	}
-	public ParkingVO getParking() {
-		return parking;
+	public String[] getStructure() {
+		return structure;
 	}
-	public void setParking(ParkingVO parking) {
-		this.parking = parking;
-	}
-	public OptionVO getOption() {
-		return option;
-	}
-	public void setOption(OptionVO option) {
-		this.option = option;
+	public void setStructure(String[] structure) {
+		this.structure = structure;
 	}
 	
+	public String getPets() {
+		return pets;
+	}
+	public void setPets(String pets) {
+		this.pets = pets;
+	}
+	public String getElevator() {
+		return elevator;
+	}
+	public void setElevator(String elevator) {
+		this.elevator = elevator;
+	}
+	public String getBalcony() {
+		return balcony;
+	}
+	public void setBalcony(String balcony) {
+		this.balcony = balcony;
+	}
+	public String getBuilt() {
+		return built;
+	}
+	public void setBuilt(String built) {
+		this.built = built;
+	}
+	public String getChartered() {
+		return chartered;
+	}
+	public void setChartered(String chartered) {
+		this.chartered = chartered;
+	}
+
+	public String[] getOption() {
+		return option;
+	}
+	public void setOption(String[] option) {
+		this.option = option;
+	}
+
 	
 	
 	
