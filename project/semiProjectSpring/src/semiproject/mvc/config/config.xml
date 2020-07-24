@@ -4,17 +4,10 @@
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases> 
-		<typeAlias type="semiproject.mvc.vo.CommunityVO"
-			alias="comuVO" />
-	
-		
-		<typeAlias type="semiproject.mvc.vo.DataVO"
-			alias="commercial" />
 		<typeAlias type="semiproject.mvc.vo.MyPageVO"
 			alias="mypagevo" />
 		<typeAlias type="semiproject.mvc.vo.PaymentVO"
 			alias="paymentvo" />
-			
 			
 		<typeAlias type="semiproject.mvc.vo.AuctionAddMainVO"
 			alias="amainvo" />
@@ -60,6 +53,10 @@
 		<typeAlias type="semiproject.mvc.vo.Option_SelVO" alias="osvo"/>
 		<typeAlias type="semiproject.mvc.vo.OptionVO" alias="ovo"/>
 		<typeAlias type="semiproject.mvc.vo.Product_ImgVO" alias="pimgvo"/>
+		<!--  차트  -->
+		<typeAlias type="semiproject.mvc.vo.ChartVO" alias="chartvo"/>
+		<typeAlias type="semiproject.mvc.vo.DataVO" alias="commercial"/>
+		<typeAlias type="semiproject.mvc.vo.OuterDataVO" alias="outervo"/>
 	</typeAliases>
-
+		
 </configuration>

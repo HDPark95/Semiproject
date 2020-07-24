@@ -32,5 +32,20 @@
 	</select>
 	<select id="information2" parameterType="commercial" resultType="commercial">
 		select count(*) as num, 상권업종대분류명 as largeName, 시군구명  as guName, 행정동명 as dongName from commercial where 시군구명 = #{guName} and 행정동명 = #{dongName} group by 상권업종대분류명, 시군구명, 행정동명 
+	</select>
+	<select id="timePopChart" parameterType="String" resultType="chartvo">
+		select gungu, hour, avg(pop) as pop from floatpop where gungu = #{guname} group by gungu, hour order by hour
 	</select> 
+	<select id="timePopChartByGender" parameterType="String" resultType="chartvo">
+		select gungu, hour, gender, avg(pop) as pop from floatpop where gungu = #{guname} group by gungu, hour, gender order by hour
+	</select>
+	<select id="openBusi" parameterType="outervo" resultType="outervo">
+		select businum, emplynum, meanemply, busiopenratio from openbusi where gu=#{guname} <choose> <when test="dongname != null"> and dong = #{dongname} </when> <when test="dongname == null"> and dong = '계'</when> </choose>
+	</select>
+	<select id="closeBusi" parameterType="String" resultType="outervo">
+		select sigungu,quater, meanoper, closeoper, totalopermean, totalclosemean from closebus where sigungu=#{guname} and quater = 4
+	</select>
+	<select id="closeChart" parameterType="String" resultType="outervo">
+		select * from closebus where sigungu = #{guname} order by quater
+	</select>
 </mapper>

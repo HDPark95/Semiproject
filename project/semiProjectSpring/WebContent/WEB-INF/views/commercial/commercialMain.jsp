@@ -3,8 +3,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../include/header_index.jsp"%>
 <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
 <%@ include file="../include/header_menu.jsp"%>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 <%@include file="sidemenu.jsp"%>
 <section class="contact-section ">
 	<!-- Page Content -->
@@ -33,7 +36,7 @@
 						style="margin-right: 30px; width: 200px">
 						<option>업종소분류</option>
 					</select>
-				</form> 
+				</form>
 				<!-- <p class="text-white m-0">지도 위치 선택 버튼 들어올 자리</p> -->
 			</div>
 		</div>
@@ -44,9 +47,9 @@
 					style="width: 100%; height: 655px; z-index: 0; margin-left: 10px">
 					<!-- <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400"> -->
 				</div>
-			
-					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5d751c35293b0473bc14f09aa6b0ca97&libraries=services,clusterer,drawing"></script>
-		<script>
+				<script type="text/javascript"
+					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5d751c35293b0473bc14f09aa6b0ca97&libraries=services,clusterer,drawing"></script>
+				<script>
 			// 마커를 담을 배열입니다
 			var markers = [];
 		
@@ -256,7 +259,7 @@
 			}
 		</script>
 				<div class="col-lg-4" id="information">
-					<h1 class="font-weight-light">현재 영업중인 상권정보</h1>
+					<h2>현재 영업중인 상권정보</h2>
 					<p>창업을 원하시는 입지의 좌표를 선택해주세요. 그 입지 근처의 유동인구, 주변 상권분석, 실거래가 등 다양한
 						정보를 제공해드립니다. 조금 더 자세한 정보를 얻고 싶으시면 상세하게 검색해보세요.</p>
 				</div>
@@ -273,8 +276,12 @@
 			</div>
 			<!-- /.row -->
 		</div>
+		<div id='loadingmessage' style='display: none'>
+			<img style="margin: 0 auto; display: block;"
+				src='resources/images/ajax-loader.gif' />
+		</div>
 	</div>
-<script>
+	<script>
 	function open_pop() {
 		$(".productdescmodal").click(function(){
 			var atclno = $(this).val();
@@ -292,6 +299,7 @@
 	//팝업 Close 기능
 	function close_pop(flag) {
 		$('#myModal').hide();
+		$("#myModal").html("")
 	};
 	$(function() {
 		var cate = $('#combobox1').attr('id');
@@ -470,24 +478,6 @@
 	$(function() {
 		$("#postcodify_search_button").postcodifyPopUp();
 	});
-/*	function open_pop(){
-		console.log('바뀜2??')
-		$(".productdescmodal").click(function(){
-		var atclno = $(this).val();
-		console.log(atclno);
-		var url = "productModal?atclno=" + atclno;
-		$.ajax({
-			url : url,
-			success : function(d) {
-				$("#myModal").html(d);
-			},
-			error:function(e){
-				console.log(e);
-			}
-		})
-		$("#myModal").show();
-	});
-	}*/
     $( document ).on('click', '.productdescmodal',function() {
     		if($("button.Cntcount").length>=3){
     			$("button.Cntcount").last().remove();
@@ -517,23 +507,203 @@
 	function close_pop(flag) {
 		$('#myModal').hide();
 	};
-	
 	function open_pop2() {
-		$('#myModal2').show();
-	};
+			var key = 0;
+			var quater = 0;
+			var meanOper = 0;
+			var meanClose = 0;
+			var seoulMeanOper = 0;
+			var seoulMeanClose = 0;
+			var openBusiBarChart = 0;
+			var timePopChart = 0;
+			var timePopChartSplitGender=0;
+			var openBusiBarChart=0;
+			getOpenBusiData();
+			draw_timePop();
+			draw_OpenBusiBarChart();
+			$('#myModal2').show();
+		};
 	// 팝업 Close 기능
 	function close_pop2(flag) {
 		$('#myModal2').hide();
 	};
+	function draw_timePop(){
+		var guName = $("#combobox1").val();
+		var url = "getTimePopChart?guName=" + encodeURIComponent(guName);
+		$('#timePopChart').html(loadingMessage);
+		$.ajax({
+			url : url,
+			dataType:"json",
+			success : function(d) {
+				key = d["key"]
+				console.log(key)
+				$("#keyValue").attr("value", key)
+				var value = d["value"]
+				timePopChart = c3.generate({
+					bindto: "#timePopChart",
+					data : {
+						columns : [value]
+					},
+					axis: {
+				        x: {
+				            type: 'category',
+				            categories:key
+				        }
+				    }
+				});
+				$("#location").text(guName);
+				$("#timePopButton").attr("onclick", "split_gender()")
+				$("#timePopButton > span").text("성별 그래프")
+			}
+		});
+	}
+	function split_gender(){
+		var guName = $("#combobox1").val(); 
+		var url = "getTimePopChartByGender?guName=" + encodeURIComponent(guName);
+		$('#timePopChart').html(loadingMessage);
+		$.ajax({
+			url:url,
+			type:"get",
+			dataType:"json",
+			success : function(d){
+			 	var valueFemale = d["여성"]
+				var valueMale = d["남성"]
+			 	timePopChartSplitGender = c3.generate({
+					bindto: "#timePopChart",
+					data : {
+						columns : [valueFemale,valueMale],
+						/* types:{
+							남자: "area-spline",
+							여자: "area-spline"
+						} */
+					},
+					axis: {
+				        x: {
+				            type: 'category',
+				            categories:key
+				        }
+				    }
+				});
+				$("#location").text(guName);
+				$("#timePopButton").attr("onclick", "draw_timePop()")
+				$("#timePopButton > span").text("통합 그래프")
+			},
+			error:function(e){
+				console.log(e);
+			}
+		})
+	}
+	function getOpenBusiData(){
+		var guName = $("#combobox1").val();
+		var dongName = $("#combobox2").val();
+		if (dongName === "동 선택"){
+			var url = "outerDataBusi?guname=" + encodeURIComponent(guName);	
+		}else{
+			var url = "outerDataBusi?guname=" + encodeURIComponent(guName)+"&dongname="+encodeURIComponent(dongName);
+		}
+		$.ajax({
+			url:url,
+			success : function(d){
+					$("#myModal2").html(d);
+				},
+			error:function(e){
+				console.log(e);
+			}
+		})
+	}
+	function draw_OpenBusiBarChart(){
+		var guName = $("#combobox1").val();
+		var url = "getOuterDataforChart?guName=" + encodeURIComponent(guName);
+		$('#quaterOpenChart').html(loadingMessage);
+		$.ajax({
+			url : url,
+			dataType:"json",
+			success : function(d) {
+				quater = d["key"]
+				meanOper = d["MeanOper"]
+				meanClose = d["MeanClose"]
+				seoulMeanOper = d["SeoulMeanOper"]
+				seoulMeanClose = d["SeoulMeanClose"]
+				console.log(quater)
+				console.log(meanOper)
+				console.log(meanClose)
+				openBusiBarChart = c3.generate({
+					bindto: "#quaterOpenChart",
+					data : {
+						columns : [meanOper],
+						type: 'bar'
+					},
+					axis: {
+				        x: {
+				            type: 'category',
+				            categories:quater
+				        }
+				    }
+				});
+				$('#loadingmessage').hide();
+			}
+		});
+	}
+	function addMeanOper(){
+		openBusiBarChart.load({
+			columns:[meanOper]
+		})
+		$("#add_button1").attr("onclick", "deleteMeanOper()")
+	}
+	function addmeanClose(){
+		openBusiBarChart.load({
+			columns:[meanClose]
+		})
+		$("#add_button2").attr("onclick", "deletemeanClose()")
+		}
+	function addseoulMeanOper(){
+		openBusiBarChart.load({
+			columns:[seoulMeanOper]
+		})
+		$("#add_button3").attr("onclick", "deleteseoulMeanOper()")
+	}function addseoulMeanClose(){
+		openBusiBarChart.load({
+			columns:[seoulMeanClose]
+		})
+		$("#add_button4").attr("onclick", "deleteseoulMeanOper()")
+	}
+	function deleteMeanOper(){
+		openBusiBarChart.unload({
+			ids:'평균 운영 개월'
+		})
+		$("#add_button1").attr("onclick", "addMeanOper()")
+	}
+	function deletemeanClose(){
+		openBusiBarChart.unload({
+			ids:'평균 폐업 개월'
+		})
+		$("#add_button2").attr("onclick", "addmeanClose()")
+		}
+	function deleteseoulMeanOper(){
+		openBusiBarChart.unload({
+			ids:'서울 평균 운영 개월'
+		})
+		$("#add_button3").attr("onclick", "addseoulMeanOper()")
+	}function deleteseoulMeanClose(){
+		openBusiBarChart.unload({
+			ids:'서울 평균 폐업 개월'
+		})
+		$("#add_button4").attr("onclick", "addseoulMeanClose()")
+	}
+	$('#loadingmessage').hide();
+	var loadingMessage = $("#loadingmessage").html();
 	/*구별 검색 기능*/
 /*	
 	$(function(){
 		$("")
 	})*/
 </script>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
 </section>
-<!-- /.container -->
 <%@include file="modal.jsp"%>
+<%@include file="modal2.jsp"%>
 <!-- <script src="resources/js/commercial/script.js"></script> -->
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 <%@ include file="../include/footer.jsp"%>

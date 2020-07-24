@@ -58,6 +58,7 @@ public class SignUpPage {
 		loginDTO.setAid(vo.getAid());
 		loginDTO.setApwd(vo.getApwd());
 		loginDTO.setAgubun(vo.getAgubun());
+		loginDTO.setAnum(vo.getAnum());
 		UserVO vo2 = logindao.logininfo(loginDTO.getAid());
 		String userid = vo.getAid();
 		mav.addObject("userid", userid);
@@ -75,6 +76,7 @@ public class SignUpPage {
 		loginDTO.setAid(vo.getAid());
 		loginDTO.setApwd(vo.getApwd());
 		loginDTO.setAgubun(vo.getAgubun());
+		loginDTO.setAnum(vo.getAnum());
 		UserVO vo2 = logindao.logininfo(loginDTO.getAid());
 		String userid = vo.getAid();
 		mav.addObject("userid", userid);

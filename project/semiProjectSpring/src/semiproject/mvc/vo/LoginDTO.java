@@ -2,10 +2,18 @@ package semiproject.mvc.vo;
 
 public class LoginDTO {
 	private String aid;
+	private int anum;
 	private String apwd;
 	private String agubun;  
 	private boolean userCookie;
+	
 	 
+	public int getAnum() {
+		return anum;
+	}
+	public void setAnum(int anum) {
+		this.anum = anum;
+	}
 	public String getAgubun() {
 		return agubun;
 	}

@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import semiproject.mvc.dao.PaymentDao;
 import semiproject.mvc.service.PaymentService;
+import semiproject.mvc.vo.Member_DetailVO;
 import semiproject.mvc.vo.PaymentVO;
 import semiproject.mvc.vo.Payment_DetailVO;
 
@@ -31,11 +32,10 @@ public class PaymentPage {
 	@RequestMapping(value="/pay1")
 	public ModelAndView pay1(PaymentVO vo , int anum) {
 		ModelAndView mav = new ModelAndView();
-		
-		
 		mav.addObject("vo", vo);
-		mav.addObject("pvo", paymentdao.paymentname(anum));
-		mav.setViewName("payment/payment1");
+		Member_DetailVO vo2 = paymentdao.paymentname(anum); 
+		mav.addObject("pvo", vo2);
+		mav.setViewName("payment/payment1-1");
 		return mav;
 	}
 	@RequestMapping(value = "/pay12")
