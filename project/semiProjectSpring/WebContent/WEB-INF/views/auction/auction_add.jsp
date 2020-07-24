@@ -9,6 +9,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <%@ include file="../include/header_menu.jsp"%>
 <style>
+body {
+  margin: 0;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #FCFCFC;
+}
 #body {
 	width: 80%;
 	height: 100%;
@@ -112,30 +122,9 @@ height: 260px;
 </head>
 <body>
 	<div style="width: 1500px;margin: 80px auto;">
-		
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-
-			<a class="navbar-brand" href="#">부동산경매</a>
-
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarColor01" aria-controls="navbarColor01"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarColor01">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="auctionMain">물건검색 </a></li>
-					<li class="nav-item"><a class="nav-link" href="#">판매관리</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">구매관리</a></li>
-					<li class="nav-item active"><a class="nav-link" href="#">부동산등록</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">경매정보</a></li>
-				</ul>
-			</div>
-		</nav>
 		<form id="subtarget" method="post" action="auctionins" enctype="multipart/form-data">
 			<div id="body" class="form-group">
+				<div style="height: 20px"></div>
 				<h2>부동산 등록</h2> 
 				<div id="content">
 					<table>

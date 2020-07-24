@@ -9,6 +9,16 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script> 		
 <%@ include file="../include/header_menu.jsp"%>
 <style>
+body {
+  margin: 0;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #FCFCFC;
+}
 /* BANNER */
 #banner {
 	width: 100%;
@@ -441,14 +451,6 @@
 		$.each(bantxt, function(i, v) {
 			$('.' + i).append(v);
 		});
-	}
-	function loginChk(){
-		var aid = $("#aid").val();
-		if (aid===null || aid === ""){
-			alert("로그인하세요.")
-		}else{
-			location = "auction_sales?aid="+aid;
-		}
 	}
 	
 	</script>

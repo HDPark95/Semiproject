@@ -45,8 +45,15 @@ public class AuctionPage{
 	public String auctionAdd(Model model,HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		UserVO sbid =(UserVO)session.getAttribute("user");
-		model.addAttribute("sbid",sbid.getAid().equals(null)?"":sbid.getAid());
-		return "auction/auction_add";
+		
+		if(sbid == null) {
+			model.addAttribute("msg","로그인이 필요한 페이지 입니다.");
+			model.addAttribute("url","login");
+			return "auction/auctionMsg";
+		}else {
+			model.addAttribute("sbid",sbid.getAid());
+			return "auction/auction_add";
+		}
 	}
 	@RequestMapping(value="/auctionDiv")
 	public String auctionDiv() {
@@ -65,7 +72,7 @@ public class AuctionPage{
 		StringBuffer sbe = new StringBuffer();
 		sbe.append(bvo.getEdate()).append(" ").append(bvo.getEtime());
 		String enddaytime = sbe.toString();
-	
+		System.out.println("enddate:"+enddaytime);
 		bvo.setEnddate(enddaytime);
 		
 		//텍스트
@@ -124,7 +131,7 @@ public class AuctionPage{
 		avo.setImageb(oriFn2_t);
 		avo.setImagec(oriFn3_t);
 		
-	
+		System.out.println("FullPath :"+path1);
 		File f = new File(path1.toString());
 		File f1 = new File(path2.toString());
 		File f2 = new File(path3.toString());
@@ -156,7 +163,6 @@ public class AuctionPage{
 	}
 	
 	//int statussel,int mulgun,int sortindex,int sortad
-	
 	@RequestMapping(value = "/auctionMain")
 	public String auctionviewlist(AuctionPageVO vo,Model model,HttpServletRequest request,@RequestParam(value = "nowPage",required = false,defaultValue = "1") String nowPage, 
 			@RequestParam(value = "cntPage",required = false,defaultValue = "5") String cntPerPage,
@@ -175,8 +181,12 @@ public class AuctionPage{
 		HttpSession session = request.getSession();
 		//세션 테스트
 		//session.setAttribute("user","tests");
-		UserVO sbid =(UserVO) session.getAttribute("user");
-		model.addAttribute("sbid",sbid.getAid().equals(null)?"":sbid.getAid());
+		UserVO sbid = (UserVO) session.getAttribute("user");
+		if(sbid == null) {
+			model.addAttribute("sbid","");
+		}else {
+			model.addAttribute("sbid",sbid.getAid());
+		}
 		return "auction/auction_main";
 
 	}	
