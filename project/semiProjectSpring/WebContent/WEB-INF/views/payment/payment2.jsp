@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ include file="..\include\header_index.jsp"%>
+<%@ include file="..\include\header_menu.jsp"%>
+<link href="resources/css/auction/payment.css?after" rel="stylesheet" />
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -30,6 +33,9 @@ div.final_price {
  
 #cardnumber1,#cardnumber2,#cardnumber3,#cardnumber4{
 	width: 65px;
+}
+.container{
+	margin-top: 20px;
 }
 </style>
 </head>
@@ -181,12 +187,12 @@ div.final_price {
 	
 	<div class="my_agrmt_wrap container">
 		<h5>
-			<input type="checkbox" id="idArmt" name="idArmt"> 개인정보 판매자
-			제공에 동의합니다.
+			<input type="checkbox" id="check"> 개인정보 판매자
+			제공에 동의합니다.(필수)
 		</h5>
 		<div>
 			<div class="id_agrmt">
-				<p>고객님께서는 아래 내용에 대하여 동의를 거부하실 수 있으며, 거부시 상품 배송, CS가 제한됩니다.</p>
+				<p>고객님께서는 아래 내용에 대하여 동의를 거부하실 수 있으며, CS가 제한됩니다.</p>
 				<table border="1px solid black">
 					<p><strong>개인정보 수집 내용</strong></p>
 					<colgroup>
@@ -219,15 +225,15 @@ div.final_price {
 	</div>
 	<div class="container">
 		<h5>
-			<input type="checkbox"> 개인정보 수집 및 이용에 동의합니다.(필수)
+			<input type="checkbox" id="check"> 개인정보 수집 및 이용에 동의합니다.(필수)
 		</h5>
 		<p>고객님께서는 아래 내용에 대하여 동의를 거부하실 수 있으며, 거부 시 상품배송, 구매 및 결제, 일부 포인트
 			적립이 제한됩니다.</p>
 
 		<h5>		
-			<input type="checkbox">주문 상품정보에 동의합니다.(필수)
+			<input type="checkbox" id="check">주문 상품정보에 동의합니다.(필수)
 		</h5>
-		<p>주문 상품의 상품명,가격,배송정보에 동의합니다.</p>
+		<p>주문 상품의 상품명,가격을 동의합니다.</p>
 		<input type="checkbox">위 내용을 모두 확인하였으며, 이 내용에 모두 동의하시겠습니까?(필수)<br>
 		<button type="submit" class="btn btn-success" id="button1">결제하기</button>
 		<button type="button" class="btn btn-danger" id="button1"
@@ -246,7 +252,6 @@ div.final_price {
 	var card4 = cardnumber.substr(15,4);
 	
 		$(function() {
-			
 			$('#psdate').val(psdate_1);
 			
 			$('#cardnumber1').val(card1);
@@ -263,10 +268,6 @@ div.final_price {
 				$('#mentnum').val(cardnumber1 + "-" + cardnumber2 + "-" + cardnumber3 + "-" + cardnumber4);
 			});
 			
-			
-			
-			
-			
 			$('#aa').show(); //페이지를 로드할 때 표시할 요소
 			$('#PayOnline').hide(); //페이지를 로드할 때 숨길 요소
 			$('.pay1').change(function() {
@@ -278,11 +279,19 @@ div.final_price {
 					$('#aa').show();
 					$('#PayOnline').hide();
 				}
+				
+			
+
+
+
+					
+			
 
 			});
-			
+				
 		});
 	</script>
 
 </body>
 </html>
+<%@ include file="../include/footer.jsp"%>

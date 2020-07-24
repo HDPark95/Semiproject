@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import semiproject.mvc.dao.PaymentDao;
 import semiproject.mvc.service.PaymentService;
+import semiproject.mvc.vo.Member_DetailVO;
 import semiproject.mvc.vo.PaymentVO;
 import semiproject.mvc.vo.Payment_DetailVO;
 
@@ -30,12 +31,10 @@ public class PaymentPage {
 	
 	@RequestMapping(value="/pay1")
 	public ModelAndView pay1(PaymentVO vo , int anum) {
-		ModelAndView mav = new ModelAndView();
-		
-		
+		ModelAndView mav = new ModelAndView();	
 		mav.addObject("vo", vo);
 		mav.addObject("pvo", paymentdao.paymentname(anum));
-		mav.setViewName("payment/payment1");
+		mav.setViewName("payment/payment1-1");
 		return mav;
 	}
 	@RequestMapping(value = "/pay12")
@@ -49,10 +48,6 @@ public class PaymentPage {
 	@RequestMapping(value="/pay2")
 	public String pay2() {
 		return "payment/payment2";
-	}
-	@RequestMapping(value="/pay3")
-	public String pay3() {
-		return "payment/payment3";
 	}
 	@RequestMapping(value="/bank")
 	public String bank() {
@@ -68,13 +63,25 @@ public class PaymentPage {
 	}
 	
 	
+	
 	@RequestMapping(value = "/paymentUpdate", method = RequestMethod.POST)
-	public ModelAndView paymentUpdate(PaymentVO vo, Payment_DetailVO vo1, HttpServletRequest request ) {
+	public ModelAndView paymentUpdate(PaymentVO vo, Payment_DetailVO vo1) {
 		ModelAndView mav = new ModelAndView();
 		paymentService.addPayment(vo,vo1);
 		mav.setViewName("payment/payment3");
-		request.removeAttribute("vo");
 		return mav;
+	}
+	@RequestMapping(value = "/paymentDetail", method = RequestMethod.POST)
+	public ModelAndView paymentDetail(PaymentVO vo) {
+		System.out.println(vo.getPway());
+		ModelAndView mav = new ModelAndView();
+		//paymentService.addPayment(vo, vo1);
+		mav.setViewName("payment/payment1");
+		mav.addObject("vo", vo);
+		
+		
+		return mav;
+		
 	}
 
 }

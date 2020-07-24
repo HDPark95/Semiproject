@@ -16,7 +16,7 @@
 			</tr>
 		</c:forEach>
 	<tr>
-		<td colspan="2"><button onclick="open_pop2()" class="btn btn-primary btn-sm" style="width:100%">More
+		<td colspan="2"><button onclick="open_pop2()" class="btn btn-primary btn-sm infobutton" style="width:100%">More
 				Info</button></td>
 	</tr>
 </table>

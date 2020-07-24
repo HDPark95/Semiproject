@@ -17,7 +17,7 @@
 		<div class="container">
 			<table class="table">
 				<tr class="success">
-					<th colspan="2"><a>기업명</a><br>구독권가입을 축하드립니다!</th>
+					<th colspan="2"><a>${user.dname}님</a><br>구독권가입을 축하드립니다!</th>
 				</tr>
 				<tr>
 					<td colspan="2" id="welcome1">곧 생길 혜택들을 모두 누리실 수 있게 되었습니다!</td>

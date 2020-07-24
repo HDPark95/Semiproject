@@ -51,7 +51,7 @@
 	color: #787878;
 }
 
-#rec_update {
+#rec_update,#new_Login {
 	width: 100px;
 	color: blue;
 	font-size: 15px;
@@ -125,6 +125,7 @@
 		});
 			
 	});
+	
 	function deleteClick(){
 		var result = confirm('정말 삭제하시겠습니까?');
 		if(result) {
@@ -136,8 +137,56 @@
 		}
 	}
 	
+	function loginCheck(){
+		alert('추천은 로그인 후 가능합니다.');
+		var result = confirm('로그인 하시겠습니까?');
+		if(result) {
+			$.ajax({
+				success:location="login"
+			});
+		}
+	}
+	
+	// 쿠키 생성 함수
+	function setCookie(cName, cValue, cDay){
+		var expire = new Date();
+		expire.setDate(expire.getDate() + cDay);
+		cookies = cName + '=' + escape(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 함.
+		if(typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
+		document.cookie = cookies;
+	}
+	
+	// 쿠키 가져오기 함수
+	function getCookie(cName) {
+		cName = cName + '=';
+		var cookieData = document.cookie;
+		var start = cookieData.indexOf(cName);
+		var cValue = '';
+		if(start != -1){
+			start += cName.length;
+			var end = cookieData.indexOf(';', start);
+		if(end == -1)end = cookieData.length;
+			cValue = cookieData.substring(start, end);
+		}
+		return unescape(cValue);
+	}
+	
 	function upWrec(){
-		location = "updateWrec?&wnum="+${list.wnum};
+		// 로그인한 사람의 id와 글의 고유번호를 Mapping하여 만료시간을 하루(1)로 잡아 저장하는 작업
+		var cName = "${user.aid}"
+		var cValue = ${list.wnum};
+		var cDay = 1;
+		var checkEvent = getCookie(cName);
+		
+		if(checkEvent == cValue) {
+		// 쿠키값에 cName에 해당하는 글 번호가 저장되었을 경우,
+			alert('이미 추천하신 글입니다!');
+		} else {
+		//쿠키값이 없을 경우,
+			alert('추천이 완료되었습니다!');
+			setCookie(cName, cValue, cDay);
+			location = "updateWrec?&wnum="+${list.wnum};
+		}
 	}
 	
 </script>
@@ -158,13 +207,22 @@
 					<table>
 						<tr>
 							<td><h3 id="title">${list.wtitle}</h3></td>
+							<c:if test="${ user.aid == null }">
 							<td id="rec" rowspan="2">추천하기
-								<form action="updateWrec" method="post">	
-									<button type="button" class="btn btn-default" onclick="upWrec()" id="rec_update">
+								<button type="button" class="btn btn-default" onclick="loginCheck()" id="new_Login">
 										<i class="fas fa-thumbs-up"></i>&nbsp; <span id="wrec">${list.wrec}</span>
-									</button>
-								</form>
-							</td>	
+								</button>
+							</td>
+							</c:if>
+							<c:if test="${ user.aid != null }">
+							<td id="rec" rowspan="2">추천하기
+								<form  action="updateWrec" method="post">
+								<button type="button" class="btn btn-default"  onclick="upWrec()" id="rec_update">
+										<i class="fas fa-thumbs-up"></i>&nbsp; <span id="wrec">${list.wrec}</span>
+								</button>
+							</form>
+							</td>
+							</c:if>
 						</tr>
 						<tr>
 							<td><div id="toggle">

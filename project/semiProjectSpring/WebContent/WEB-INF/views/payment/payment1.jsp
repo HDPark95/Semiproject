@@ -1,18 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<%@ include file="..\include\header_index.jsp"%>
+<%@ include file="..\include\header_menu.jsp"%>
+<link href="resources/css/auction/payment.css?after" rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
 <style>
-
-
 div.final_price {
 	height: 69px;
 	border-top: 1px solid #cbcfdb;
@@ -31,9 +26,12 @@ div.final_price {
 #cardnumber1,#cardnumber2,#cardnumber3,#cardnumber4{
 	width: 65px;
 }
+.container{
+	margin-top: 20px;
+}
 </style>
 </head>
-<body>
+
 	<h2>결제확인창</h2>
 	<form action="paymentUpdate" method="post">
 	<div class="container">
@@ -91,7 +89,7 @@ div.final_price {
 				<tr>
 					<th><label>할부방식</label></th>
 					<td><select name="inment">
-							<option>일시불</option>
+							<option value="0">일시불</option>
 							<option value="1">1개월</option>
 							<option value="2">2개월</option>
 							<option value="3">3개월</option>
@@ -145,7 +143,7 @@ div.final_price {
 					<tr>
 						<td height="35" style="padding-left: 14px;" width="27%"
 							bgcolor="#fce4ea">예금주 확인</td>
-						<td bgcolor="#ffffff">㈜코스모 클랏쓰</td>
+						<td bgcolor="#ffffff">㈜코스모 클라쓰</td>
 					</tr>
 					<tr>
 						<td height="35" style="padding-left: 14px;" width="27%"
@@ -178,12 +176,12 @@ div.final_price {
 	
 	<div class="my_agrmt_wrap container">
 		<h5>
-			<input type="checkbox" id="idArmt" name="idArmt"> 개인정보 판매자
-			제공에 동의합니다.
+			<input type="checkbox" id="check" name="check" > 개인정보 판매자
+			제공에 동의합니다.(필수)
 		</h5>
 		<div>
 			<div class="id_agrmt">
-				<p>고객님께서는 아래 내용에 대하여 동의를 거부하실 수 있으며, 거부시 상품 배송, CS가 제한됩니다.</p>
+				<p>고객님께서는 아래 내용에 대하여 동의를 거부하실 수 있으며, CS가 제한됩니다.</p>
 				<table border="1px solid black">
 					<p><strong>개인정보 수집 내용</strong></p>
 					<colgroup>
@@ -216,16 +214,16 @@ div.final_price {
 	</div>
 	<div class="container">
 		<h5>
-			<input type="checkbox"> 개인정보 수집 및 이용에 동의합니다.(필수)
+			<input type="checkbox" id="check" name="check" > 개인정보 수집 및 이용에 동의합니다.(필수)
 		</h5>
 		<p>고객님께서는 아래 내용에 대하여 동의를 거부하실 수 있으며, 거부 시 상품배송, 구매 및 결제, 일부 포인트
 			적립이 제한됩니다.</p>
 
 		<h5>
-			<input type="checkbox">주문 상품정보에 동의합니다.(필수)
+			<input type="checkbox" id="check" name="check" >주문 상품정보에 동의합니다.(필수)
 		</h5>
 		<p>주문 상품의 상품명,가격,배송정보에 동의합니다.</p>
-		<input type="checkbox">위 내용을 모두 확인하였으며, 이 내용에 모두 동의하시겠습니까?(필수)<br>
+		<input type="checkbox" id="check" name="check" >위 내용을 모두 확인하였으며, 이 내용에 모두 동의하시겠습니까?(필수)<br>
 		<button type="submit" class="btn btn-success" id="button1">결제하기</button>
 		<button type="button" class="btn btn-danger" id="button1"
 			onclick="location='pay4'">취소</button>
@@ -233,6 +231,12 @@ div.final_price {
 	</div>
 </form>
 	<script>
+
+	
+	
+	
+	
+	
 		$(function() {
 			
 			$('#button1').click(function() {
@@ -243,10 +247,7 @@ div.final_price {
 				
 				$('#mentnum').val(cardnumber1 + "-" + cardnumber2 + "-" + cardnumber3 + "-" + cardnumber4);
 			});
-			
-			
-			
-			
+					
 			$('#aa').show(); //페이지를 로드할 때 표시할 요소
 			$('#PayOnline').hide(); //페이지를 로드할 때 숨길 요소
 			$('.pay1').change(function() {
@@ -260,9 +261,16 @@ div.final_price {
 				}
 
 			});
+			$('#button1').click(function () {
+			       if (!$('#check').is(':checked')) {
+			           alert('필수 항목에 동의해주세요.');
+			           return false;
+			       }
+			});
 			
 		});
 	</script>
 
-</body>
-</html>
+
+
+<%@ include file="../include/footer.jsp"%>

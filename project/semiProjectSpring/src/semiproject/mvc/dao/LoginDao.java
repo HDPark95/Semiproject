@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import semiproject.mvc.vo.LoginDTO;
+import semiproject.mvc.vo.Member_DetailVO;
 import semiproject.mvc.vo.UserVO;
 
 @Repository
@@ -28,5 +29,10 @@ public class LoginDao extends HandlerInterceptorAdapter{
 	
 	public void logout(int anum) {
 		ss.update("login.logout", anum);
+	}
+	public Member_DetailVO paymentname(int anum) {
+		Member_DetailVO vo = ss.selectOne("payment.paymentid", anum);
+		return vo;
+		
 	}
 }

@@ -15,6 +15,7 @@
 <!-- Core theme JS-->
 <script src="resources/js/scripts.js"></script>
 <script src="resources/js/text.js"></script>
+<script src="resources/js/ion.rangeSlider.min.js"></script>
 <script>
 	$(function() {
 		

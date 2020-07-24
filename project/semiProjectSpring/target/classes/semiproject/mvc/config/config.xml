@@ -45,8 +45,8 @@
 <typeAlias type="semiproject.mvc.vo.IpchalperVO" alias="ipchal"/>
 
 	<typeAlias type="semiproject.mvc.vo.Customer_BoardVO" alias="cbvo" />
-		<typeAlias type="semiproject.mvc.vo.Customer_Board1VO" alias="cbvo1" />
-		<typeAlias type="semiproject.mvc.vo.Customer_Board_PageVO" alias="c_pagevo" />
+		
+		
 		    
 		<typeAlias type="semiproject.mvc.vo.LoginDTO" alias="logindto" />
 			<typeAlias type="semiproject.mvc.vo.RealPriceVO" alias="realvo" />	
@@ -60,6 +60,10 @@
 		<typeAlias type="semiproject.mvc.vo.Option_SelVO" alias="osvo"/>
 		<typeAlias type="semiproject.mvc.vo.OptionVO" alias="ovo"/>
 		<typeAlias type="semiproject.mvc.vo.Product_ImgVO" alias="pimgvo"/>
+		<!-- 차트 -->
+		<typeAlias type="semiproject.mvc.vo.ChartVO" alias="chartvo"/>
+		<typeAlias type="semiproject.mvc.vo.DataVO" alias="commercial"/>
+		<typeAlias type="semiproject.mvc.vo.OuterDataVO" alias="outervo"/>
 	</typeAliases>
 
 </configuration>

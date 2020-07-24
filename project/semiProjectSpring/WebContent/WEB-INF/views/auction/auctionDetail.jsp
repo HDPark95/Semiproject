@@ -51,22 +51,22 @@
 				<tr>
 					<td rowspan="11">
 						<div id="target" class="bul">
-							<img src="img/${result.wimage}" id="main1"
+							<img src="img/${result.wimage}"onError="this.style.visibility='hidden'" id="main1"
 								style="width: 550px; margin: 0 auto;">
 						</div>
 						<table id="bul" style="width: 550px; height: 110px">
 							<tr>
-								<td style="width: 25%; float: left;"><img
-									src="img/${result.wimage}" class="im"
+							<td style="width: 25%; float: left;"><img
+									src="img/${result.wimage}" class="im"onError="this.style.visibility='hidden'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								<td style="width: 25%; float: left;"><img
-									src="img/${result.imagea}" class="im"
+									src="img/${result.imagea}" class="im" onError="this.style.visibility='hidden'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								<td style="width: 25%; float: left;"><img
-									src="img/${result.imageb}" class="im"
+									src="img/${result.imageb}" class="im"onError="this.style.visibility='hidden'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								<td style="width: 25%; float: left;"><img
-									src="img/${result.imagec}" class="im"
+									src="img/${result.imagec}" class="im"onError="this.style.visibility='hidden'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								</tr>
 						</table>
@@ -174,7 +174,7 @@
 					</tr>
 					<tr>
 						<th colspan="2">입찰금액</th>
-						<td colspan="2" id="5"><input type="text" name="ipprice" id="ipprice" value="${vo.ipprice}"></td>
+						<td colspan="2" id="5"><input type="text" name="ipprice" id="ipprice" ></td>
 					</tr>
 				</tbody>
 			</table>
@@ -186,7 +186,7 @@
 		</div>
 	</div>
 </div>
-<input type="hidden" id="valtest" value="${result.hprice}">
+<input type="hidden" id="valtest" value="${result.htprice}">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -207,7 +207,8 @@ function test(){
 	console.log(ipprice);
 	console.log(typeof(${result.hprice}));
 	
-	var numvv = parseInt($('#valtest').val().replace(",",""),10)
+	var numvv = $('#valtest').val();
+	alert("numvv:"+numvv+"ipprice:"+ipprice);
 	if(numvv > $("#ipprice").val()){	
 		alert('입찰금액이 현재가 보다 낮습니다. 다시 입력해주세요.')
 			location.reload();
@@ -217,8 +218,9 @@ function test(){
 };
 	$(document).ready(function() {
 		var $node = $('div').children();
-		$('.im').click(function() {
+		$('.im').click(function() {	
 			$('#target img').attr('src', $(this).attr('src'));
+			
 		});
 	});
 	function close_pop(flag) {
@@ -234,8 +236,9 @@ function test(){
 			alert("경매가 진행중인 물건입니다.")
 			
 		}
-
 	});
+	
+
 	/* var i= 0;
 	var menu =$('#bul > ul > li').length;
 	var inter = setInterval(function() {

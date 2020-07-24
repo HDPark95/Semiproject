@@ -13,7 +13,7 @@ insert into payment values (payment_seq.nextVal,signup_seq.currVal,null,null,nul
 <insert id="addmember4"> 
 insert into payment_detail values (payment_detail_seq.nextVal,payment_seq.currVal,null,null,null) </insert>
 
-<select id="idChk" resultType="int" parameterType="String"> select count(*) from signup where substr(aid,1,instr(aid,'@')-1) = #{aidheader} </select>
+<select id="idChk" resultType="int" parameterType="String"> select count(*) from signup where aid = #{aid}</select>
 </mapper>
  
  

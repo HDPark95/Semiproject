@@ -17,28 +17,29 @@
 				<td colspan="2" id="welcome1">구독권을 가입하시면 보다 많은 혜택을 누리실 수 있습니다!</td>
 			</tr>
 			<tr>
-
+				<input type="hidden" value="${pvo.anum }" name="anum" id="anum">
 
 
 				<td id="welcome2">가입하고 싶으시다면!<br>
 				<br>
-				<button type="button" class="btn btn-warning"
-						onclick="location ='pay2'">Subscribe</button></td>
+				<button type="submit" class="btn btn-warning">Subscribe</button></td>
 				<td id="welcome3">아니오! 괜찮습니다!<br>
 				<br>
 				<button type="button" class="btn btn-success"
 						onclick="location = 'index#footerMenu'">Go Main</button></td>
-
-
 				</tr>
 			</table>
 		</div>
+		<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+		$('#welcome2').click(function() {
+			location.href="pay1?anum="+${user.anum};
+		
+		});
+		
+		
+		
+		</script>
 	</section>
-
-			</tr>
-		</table>
-	</div>
-</section>
-
-
 <%@ include file="../include/footer.jsp"%>

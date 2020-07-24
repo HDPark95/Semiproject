@@ -4,6 +4,7 @@
 <%@ include file="../include/header_index.jsp"%>
 <link  href="/resources/css/estate/paging.css"/>
 <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
+<link rel="stylesheet" href="resources/css/estate/ion.rangeSlider.min.css"/>
 <style>
 .paging{
 	color: #64a19d;

@@ -194,28 +194,48 @@
 <script>
 btn = document.getElementById('submit');
 $(function() {
-	// 아이디 한글 입력 방지 처리
 	$('#aidheader').keyup(function(e){
 		if (!(e.keyCode >=37 && e.keyCode<=40)) {
 			var v = $(this).val();
 			$(this).val(v.replace(/[^a-z0-9]/gi,''));
 		}
-		
+	});
+	
+	$('#aidheader,#aidfooter').keyup(function(e){
 	// 아이디 양식 체크	
-		var userid = $('#aidheader').val();
+		var userid = $('#aidheader').val()+"@"+$('#aidfooter').val();
+		var idheader = $('#aidheader').val();
+		var idfooter = $('#aidfooter').val();
 		console.log(userid);
 			$.ajax({
-				url:'idChk?aidheader='+encodeURIComponent(userid),
-				success: function(data){		
-					if(data===1){
-						$('#idtarget').html("<p style='color:red'>이미 사용중이거나 탈퇴한 아이디입니다.</p>");
-						btn = document.getElementById('submit')
-					}else if(userid.length===0){
-						$('#idtarget').html("<p style='color:red'>아이디를 입력하여 주십시오.</p>");
-					}else if(userid.length>=1&&userid.length<=4){
-						$('#idtarget').html("<p style='color:red'>아이디는 최소 5자 이상 입력하셔야 합니다.</p>");
+				url:'idChk?aid='+encodeURIComponent(userid),
+				success: function(data){
+					// 기존에 있는 아이디가 아닐 때,
+					if(data===0){
+						// 메일링을 제외한 아이디가 비어 있을 때,
+						if(idheader.length===0){
+							$('#idtarget').html("<p style='color:red'>아이디를 입력하여 주십시오.</p>");
+						}else{
+						// 메일링을 제외한 아이디가 비어 있지 않고 5자 이상을 넘지 않을 때,	
+							if(idheader.length>=1&&idheader.length<=4){
+								$('#idtarget').html("<p style='color:red'>아이디는 최소 5자 이상 입력하셔야 합니다.</p>");	
+							}else{
+								// 메일링 부분이 비어 있을 때,
+								if(idfooter.length===0){
+									$('#idtarget').html("<p style='color:red'>메일 주소를 입력하여 주십시오.</p>");
+								}else{
+								// 메일링 부분이 비어 있지 않을 때,
+									if(idfooter.length<=7){
+										$('#idtarget').html("<p style='color:red'>메일 주소를 입력하여 주십시오.</p>");
+									}else{
+										$('#idtarget').html("<p style='color:green'>멋진 아이디네요!</p>");
+									}
+								}
+							}
+						}
+					// 기존에 있는 아이디일 때,	
 					}else{
-						$('#idtarget').html("<p style='color:green'>멋진 아이디네요!</p>");
+						$('#idtarget').html("<p style='color:red'>이미 사용중이거나 탈퇴한 아이디입니다.</p>");
 					}
 				}
 		});
@@ -256,6 +276,8 @@ $(function() {
 			$("#yeartarget").html("<p style='color:red'>미래에서 오셨군요!</p>");
 		}else if(year>currentyear-18){
 			$("#yeartarget").html("<p style='color:red'>만 18세 미만은 가입하실 수 없습니다!</p>");
+		}else if(year<1920){
+			$("#yeartarget").html("<p style='color:red'>과거에서 오셨군요!</p>");
 		}else{
 			$("#yeartarget").html("");
 		}
@@ -289,6 +311,15 @@ $(function() {
 			}
 		}
 	});
+	
+	// 숫자 입력 처리
+	$("#dyear,#dday,#dtelmiddle,#dtelfooter").keyup(function (event) {
+        regexp = /[^0-9]/gi;
+        v = $(this).val();
+        if (regexp.test(v)) {
+            $(this).val(v.replace(regexp, ''));
+        }
+    });
 })
 </script>
 <%@ include file="../include/footer.jsp"%>

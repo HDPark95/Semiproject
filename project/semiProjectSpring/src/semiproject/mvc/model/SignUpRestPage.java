@@ -15,8 +15,8 @@ public class SignUpRestPage {
 	
 	@RequestMapping(value = "/idChk")
 	@ResponseBody
-	public int idChk(String aidheader) {
-		int cnt = signUpDao.aidHeaderCheck(aidheader);
+	public int idChk(String aid) {
+		int cnt = signUpDao.aidCheck(aid);
 		return cnt;
 	}
 }

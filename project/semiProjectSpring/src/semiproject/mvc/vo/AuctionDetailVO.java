@@ -2,13 +2,20 @@ package semiproject.mvc.vo;
 
 public class AuctionDetailVO {
 	private Double bweight, tweight;
-	private int anum, hit, ipdanwe, ipnum;
+	private int anum, hit, ipdanwe, ipnum,htprice;
 	private String bid, yongdo, addr, wimage, ideprice, subject, enddate, hprice, status, indate, imagea, imageb, imagec, managepee,bplan, text;
 	public String getText() {
 		return text;
 	}
 	public void setText(String text) {
 		this.text = text;
+	}
+	
+	public int getHtprice() {
+		return htprice;
+	}
+	public void setHtprice(int htprice) {
+		this.htprice = htprice;
 	}
 	public String getManagepee() {
 		return managepee;

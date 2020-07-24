@@ -86,7 +86,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login">고객센터</a></li>
                         </c:when>
                         <c:otherwise>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="list1">고객센터</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="listall">고객센터</a></li>
                         </c:otherwise>
                         </c:choose>
                         </c:catch>          

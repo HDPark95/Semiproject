@@ -95,7 +95,7 @@
 	
 	</update>
 	
-	<select id="mypage_customer" parameterType="int" resultType="cbvo1">
+	<select id="mypage_customer" parameterType="int" resultType="cbvo">
 	select * from customer_board1 where anum = #{anum}
 	</select>
 	

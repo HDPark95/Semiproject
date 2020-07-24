@@ -53,7 +53,7 @@
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="#">비밀번호를 잊으셨나요?</a>
+                    <a class="small" href="findID">비밀번호를 잊으셨나요?</a>
                   </div>
                   <div class="text-center">
                     <a class="small" href="choose">아직 계정이 없으시군요?</a>

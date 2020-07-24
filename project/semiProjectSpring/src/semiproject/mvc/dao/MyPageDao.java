@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import semiproject.mvc.vo.CommercialProductVO;
 import semiproject.mvc.vo.Community_BoardVO;
-import semiproject.mvc.vo.Customer_Board1VO;
+
+import semiproject.mvc.vo.Customer_BoardVO;
 import semiproject.mvc.vo.PaymentVO;
 import semiproject.mvc.vo.Payment_DetailVO;
 import semiproject.mvc.vo.SignUpVO;
@@ -89,8 +90,8 @@ public class MyPageDao {
 		
 	}
 	
-	public List<Customer_Board1VO> customer_select(int anum){
-		List<Customer_Board1VO> list = ss.selectList("mypage.mypage_customer", anum);
+	public List<Customer_BoardVO> customer_select(int anum){
+		List<Customer_BoardVO> list = ss.selectList("mypage.mypage_customer", anum);
 		
 		return list;
 	}

@@ -2,8 +2,8 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="auctionsale">
-	<select id="sales" parameterType="String" resultType="sale">
-		select
+	<select id="sales" parameterType="string" resultType="sale">
+			select
 		a.anum,p.ipnum, a.bid,fn_yongdo_name(a.byongdo) as yongdo,a.baddra as
 		addr,a.bweight,a.tweight,a.hit
 		,b.wimage,TO_CHAR(p.ideprice,'FM999,999,999,999') as

@@ -1,6 +1,8 @@
 package semiproject.mvc.dao;
 
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import semiproject.mvc.vo.Member_DetailVO;
 import semiproject.mvc.vo.PaymentVO;
 import semiproject.mvc.vo.Payment_DetailVO;
+import semiproject.mvc.vo.SignUpVO;
 @Repository
 public class PaymentDao {
 	@Autowired
@@ -24,6 +27,9 @@ public class PaymentDao {
 		return vo;
 		
 	}
-
+	public Member_DetailVO getdname(String dname){
+		Member_DetailVO vo1 = ss.selectOne("payment.paymentget", dname);
+		return vo1;
+	}
 }
   

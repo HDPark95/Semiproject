@@ -10,7 +10,7 @@ import semiproject.mvc.dao.MyPageDao;
 import semiproject.mvc.service.MypageService;
 import semiproject.mvc.vo.CommercialProductVO;
 import semiproject.mvc.vo.Community_BoardVO;
-import semiproject.mvc.vo.Customer_Board1VO;
+import semiproject.mvc.vo.Customer_BoardVO;
 import semiproject.mvc.vo.PaymentVO;
 import semiproject.mvc.vo.Payment_DetailVO;
 import semiproject.mvc.vo.SignUpVO;
@@ -162,7 +162,7 @@ public class MyPagePage {
 	@RequestMapping(value = "infor_customer", method = RequestMethod.POST)
 	public ModelAndView viewCustomer(int anum) {
 		ModelAndView mav = new ModelAndView("mypage/customer_Inquiry");
-		List<Customer_Board1VO> list = mypagedao.customer_select(anum);
+		List<Customer_BoardVO> list = mypagedao.customer_select(anum);
 		mav.addObject("list", list);
 		return mav;
 	}

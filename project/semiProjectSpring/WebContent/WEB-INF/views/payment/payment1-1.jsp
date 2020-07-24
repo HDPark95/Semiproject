@@ -18,13 +18,16 @@
 		<h4>맘에 들지 않으신다면, 구독권을 변경하거나 취소 하실 수 있습니다.</h4>
 	</div>
 	<div class="container">
-		<div id="payment">
+	<form method="post" action="paymentDetail" id="premiumProlongpay">
+		<div id="payment">	
 			구독을 하면 얻게되는 혜택 공인중개사<br>
 			<br>
 			<br>
 			<br>
 			<br>
 			<br>
+			
+			
 			<div> 
 				결제 시작일 :<input type="text" value="" id="cc" readonly="readonly"><br>
 				<br> 결제 종료일 :<input type="text" value="" id="dd"
@@ -32,7 +35,7 @@
 			</div>
 		</div>
 
-		<form method="post" action="pay1" id="premiumProlongpay">
+	
 			<table id="payment1">
 				<tr>
 					<td></td>
@@ -57,16 +60,16 @@
 				</tr>
 				<tr>
 					<td>가격</td>
-					<td class="basic return">29,900</td>
-					<td class="st return">23,900</td>
-					<td class="pr return">18,900</td>
+					<td class="basic return">29,900 </td>
+					<td class="st return">23,900月</td>
+					<td class="pr return">18,900月</td>
 				</tr>
 				<tr>
 					<td></td>
 					<td><input type="button" value="뒤로" id="ff"
 						style="background-color: red;"
 						onclick="location='index#footerMenu69'"></td>
-					<td><input type="button" value="다음" id="ee"
+					<td><input type="submit" value="다음" id="ee"
 						style="background-color: green;"></td>
 					<td></td>
 				</tr>
@@ -138,9 +141,8 @@
 
 			});
 
-
 			$('#ee').click(function() {
-				if ($('#cc').val() == "") {
+				if ($('#ee').val() == "") {
 					alert('선택해주세요.');
 				} else{
 					$("#premiumProlongpay").submit();
@@ -149,6 +151,7 @@
 					
 				
 			});
+		
 			
 
 		});
