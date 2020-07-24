@@ -43,7 +43,7 @@
 					<input type="hidden" value="" id="psdate" name="psdate">
 					<input type="hidden" value="" id="pedate" name="pedate">
 					<input type="hidden" value="" id="monthnum" name="monthnum">
-					<input type="hidden" value="${user.anum }" name="anum" id="anum">
+					<input type="hidden" value="${pvo.anum }" name="anum" id="anum">
 
 				</tr>
 				<tr>

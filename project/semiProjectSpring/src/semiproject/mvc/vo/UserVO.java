@@ -1,12 +1,20 @@
 package semiproject.mvc.vo;
 
+<<<<<<< HEAD
+public class UserVO {  
+=======
 public class UserVO {
 	private int anum;
+>>>>>>> refs/heads/master
 	private String dname;
 	private String dgender;
 	private String dtel;
 	private String dbirth;
 	private String aid;
+<<<<<<< HEAD
+	private String apwd;
+	
+=======
 	private String apwd; 
 	private String agubun;
 	private String pgubun;
@@ -28,8 +36,9 @@ public class UserVO {
 	public void setAgubun(String agubun) {
 		this.agubun = agubun;
 	}
+>>>>>>> refs/heads/master
 	public String getDname() {
-		return dname;
+		return dname;  
 	}
 	public void setDname(String dname) {
 		this.dname = dname;

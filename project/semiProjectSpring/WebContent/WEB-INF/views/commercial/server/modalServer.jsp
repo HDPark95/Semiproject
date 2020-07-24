@@ -30,6 +30,10 @@
 				<td rowspan="3">¡ﬂ∞≥¿Œ</td>
 				<td rowspan="3" colspan="3">${result.rltrnm}</td>
 			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
 		</table>
 		<div class="row centered" id="product" style="margin:0 auto;">
 			<div class="modalimg">

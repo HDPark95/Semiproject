@@ -6,16 +6,28 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+<<<<<<< HEAD
+import semiproject.mvc.vo.MyPageVO;
+=======
 import semiproject.mvc.vo.CommercialProductVO;
 import semiproject.mvc.vo.Community_BoardVO;
 import semiproject.mvc.vo.Customer_Board1VO;
 import semiproject.mvc.vo.PaymentVO;
 import semiproject.mvc.vo.Payment_DetailVO;
 import semiproject.mvc.vo.SignUpVO;
+>>>>>>> refs/heads/master
 
 @Repository
 public class MyPageDao {
 	@Autowired
+<<<<<<< HEAD
+	private SqlSessionTemplate ss ;
+	
+	public MyPageVO getinfor (String id) {
+		
+		MyPageVO vo = ss.selectOne("mypage.lessor_infor", id);
+		
+=======
 	private SqlSessionTemplate ss;
 
 	public SignUpVO getloginINFOR(String aid) {
@@ -32,8 +44,17 @@ public class MyPageDao {
 
 	public SignUpVO getPayDetail(String aid) {
 		SignUpVO vo = ss.selectOne("mypage.lessor_paydetail", aid);
+>>>>>>> refs/heads/master
 		return vo;
 	}
+<<<<<<< HEAD
+	
+	public void updateInfor (MyPageVO vo) {
+		
+		int res = ss.update("mypage.lessor_infor_amend", vo);
+		System.out.println("res : " + res);
+		
+=======
 
 	public SignUpVO payTest(String aid, int anum) {
 		SignUpVO vo = null;
@@ -43,6 +64,7 @@ public class MyPageDao {
 		vo.setPayvo(ss.selectOne("mypage.paymentDetail", anum));
 
 		return vo;
+>>>>>>> refs/heads/master
 	}
 
 	public PaymentVO premiumProlong(int anum) {

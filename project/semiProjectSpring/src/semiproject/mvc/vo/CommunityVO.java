@@ -30,5 +30,9 @@ public class CommunityVO {
 		this.dongName = dongName;
 	}
 
+<<<<<<< HEAD
+}
+=======
 }
  
+>>>>>>> refs/heads/master
