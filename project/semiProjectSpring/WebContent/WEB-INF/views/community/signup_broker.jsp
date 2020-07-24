@@ -185,7 +185,11 @@
 				<div class="col-sm-offset-2 col-sm-10" id="signup">
 					<button type="button" class="btn btn-secondary btn-lg"
 						onclick="location = 'login'">취소</button>
+<<<<<<< HEAD
+					<button type="submit" class="btn btn-success btn-lg" id="submit">확인</button>
+=======
 					<button type="submit" class="btn btn-success btn-lg" onclick="login()" id="submit">확인</button>
+>>>>>>> refs/heads/master
 				</div>
 			</div>
 			<input type="hidden" id="agubun" name="agubun" value="공인중개사">

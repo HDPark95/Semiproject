@@ -3,6 +3,16 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="login">
+<<<<<<< HEAD
+
+<select id="login" parameterType="String" resultType="uservo">
+		select *
+		from signup s, member_detail d 
+		where aid = #{s.aid} and d.anum = s.anum 
+	</select>    
+	
+
+=======
 	<select id="login" parameterType="logindto" resultType="int">
 	 	select count(*) from signup s, member_detail d 
 	 	where s.aid = #{aid} and d.anum = s.anum and s.apwd = #{apwd} and adivision = 0
@@ -16,4 +26,5 @@
 	 <update id="logout" parameterType="int">
 	 	update log_table set logoutdate=sysdate where  lognum=(select max(lognum) from log_table where anum=#{anum})
 	 </update>
+>>>>>>> refs/heads/master
 </mapper>

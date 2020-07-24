@@ -5,6 +5,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import semiproject.mvc.vo.LoginDTO;
 import semiproject.mvc.vo.Member_DetailVO;
 import semiproject.mvc.vo.PaymentVO;
 import semiproject.mvc.vo.Payment_DetailVO;
@@ -22,8 +23,6 @@ public class PaymentDao {
 	public Member_DetailVO paymentname(int anum) {
 		Member_DetailVO vo = ss.selectOne("payment.paymentid", anum);
 		return vo;
-		
 	}
-
 }
   

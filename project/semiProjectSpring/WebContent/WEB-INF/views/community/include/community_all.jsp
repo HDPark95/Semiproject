@@ -10,6 +10,26 @@
 #location1 {
 	margin-bottom: 0;
 }
+<<<<<<< HEAD
+#inputSearch1{
+	width: 900px;
+	margin-right: 5px;
+}
+#searchselect1{
+	width: 100px;
+	margin: 5px;
+}
+#searchform1{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 1px solid gray;
+	border-radius: 5px 5px 5px 5px;
+	border-style: groove;
+	border-color: #BDBDBD;
+}
+#searchtext1{
+	margin-right: 5px;
+=======
 
 #searchValue {
 	width: 900px;
@@ -41,12 +61,25 @@
 }
 #total{
 	color: blue;
+>>>>>>> refs/heads/master
 }
 </style>
 <div class="tab-pane fade show active" id="all">
 	<br>
 	<div>
+<<<<<<< HEAD
+		<div class="form-inline form-group" id="location1">
+			<label for="Select1">구 선택</label> <select id="Select1"
+				class="form-control col-md-2">
+				<option>전체</option>
+			</select> <label for="Select2">동 선택</label> <select id="Select2"
+				class="form-control col-md-2">
+				<option>전체</option>
+			</select>
+		</div>
+=======
 	<p>총 <a id="total">${total}</a>건의 글이 검색되어 있습니다.</p>
+>>>>>>> refs/heads/master
 		<div id="checkorder1">
 			<div class="form-check-inline">
 				<input type="button" id="wnumBtn" name="wnumBtn" class="btn-outline-info btn-sm" value="최신순▼">
@@ -85,6 +118,34 @@
 			</c:forEach>
 		</tbody>
 	</table>
+<<<<<<< HEAD
+	<div class="form-check-inline" id="searchform1">
+    <select class="custom-select" id="searchselect1">
+      <option selected="selected">제목</option>
+      <option value="1">내용</option>
+    </select>
+		<input type="text" class="form-control" id="inputSearch1">
+		<button type="button" class="btn-primary btn-sm" id="searchtext1">검색</button>
+	</div>
+	<div id="pagenum1">
+		<ul class="pagination pagination-lg">
+			<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a>
+			</li>
+			<li class="page-item active"><a class="page-link" href="#">1</a>
+			</li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">4</a></li>
+			<li class="page-item"><a class="page-link" href="#">5</a></li>
+			<li class="page-item"><a class="page-link" href="#">6</a></li>
+			<li class="page-item"><a class="page-link" href="#">7</a></li>
+			<li class="page-item"><a class="page-link" href="#">8</a></li>
+			<li class="page-item"><a class="page-link" href="#">9</a></li>
+			<li class="page-item"><a class="page-link" href="#">10</a></li>
+			<li class="page-item"><a class="page-link" href="#">&raquo;</a>
+			</li>
+		</ul>
+=======
 	
 	<div class="form-check-inline" id="searchform1">
 		<select class="custom-select" id="searchType" name="searchType">
@@ -94,6 +155,7 @@
 			<option value="comudong">동</option>
 		</select> <input type="text" class="form-control" id="searchValue" name="searchValue">
 		<button type="submit" class="btn-primary btn-sm" id="btnSearch" value="Search">검색</button>
+>>>>>>> refs/heads/master
 	</div>
 	<!-- 페이지 프로세스 include 처리 -->
 	<%@include file="pageprocess_all.jsp"%>

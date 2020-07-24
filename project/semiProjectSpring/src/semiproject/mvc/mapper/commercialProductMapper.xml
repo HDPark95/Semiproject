@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="commercialProduct">	
+	<select id="desc" parameterType="String"  resultType="cpvo">
+		select num,atclno, prc,location,substr(ATCLFETRDESC,1,8) as atclfetrdesc,TRADTPCD,spc1,spc2 from product where rlettpcd='D02' and location = #{location} order by prc
+	</select>
+		<select id="descdetail" parameterType="String"  resultType="cpvo">
+			select num,prc,location, atclfetrdesc, TRADTPCD, spc1, spc2, tradtpcd,rltrnm,taglist from product where rlettpcd='D02' and atclno = #{atclno} order by prc
+	</select>
+	<select id="product" resultType="cpvo">
+		select num, rlettpcd,tradtpcd,atclfetrdesc, taglist, rltrnm, prc, location from product;
+	</select>
+</mapper>
+=======
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper 
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
@@ -44,6 +61,6 @@
 	</update>
 	<update id="update3" parameterType="cpvo">
 		update option_sel set poption = #{option}  where pidnum  in(select pidnum from product_info where pdnum=#{pdnum})
-		
 	</update>
 </mapper> 
+>>>>>>> refs/heads/master

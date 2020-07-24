@@ -4,6 +4,11 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mypage">
 
+<<<<<<< HEAD
+<select id="lessor_infor" parameterType="String" resultType="mypagevo">
+	select id , pwd , email ,name , birth , gender , tel from testtable where id= #{id}
+</select>
+=======
 	<!-- 아이디 문자열 값으로 회원정보를 불러오는 쿼리 -->
 	<select id="lessor_infor" parameterType="String" resultMap="member_infor">
 		select s.anum snum , s.aid sid , s.apwd spwd , s.ainday
@@ -135,7 +140,15 @@
 			<result property="mentnum" column="pdmentnum" />
 		</association>
 	</resultMap>
+>>>>>>> refs/heads/master
 
-
+<update id="lessor_infor_amend" parameterType="mypagevo">
+update testtable set
+	pwd = #{pwd},
+	name = #{name} ,
+	email = #{email},
+	tel = #{tel}
+	where id = #{id}
+</update>
 	
 </mapper>

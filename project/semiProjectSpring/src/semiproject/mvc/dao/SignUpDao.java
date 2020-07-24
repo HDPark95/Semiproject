@@ -29,6 +29,10 @@ public class SignUpDao {
 	}
 	
 	public int aidHeaderCheck(String aid) {
+<<<<<<< HEAD
+		System.out.println("SignUpDao 호출 완료!");
+=======
+>>>>>>> refs/heads/master
 		return ss.selectOne("signup.idChk", aid);
 	}
 }

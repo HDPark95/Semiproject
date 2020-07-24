@@ -3,18 +3,23 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<typeAliases> 
+<<<<<<< HEAD
+	<typeAliases>
 		<typeAlias type="semiproject.mvc.vo.CommunityVO"
 			alias="comuVO" />
-	
-		
+		<typeAlias type="semiproject.mvc.vo.BoardPageVO"
+			alias="bpvo" />
+		<typeAlias type="semiproject.mvc.vo.BoardVO" alias="bvo" />
+		<typeAlias type="semiproject.mvc.vo.Customer_BoardVO" alias="cbvo" />
 		<typeAlias type="semiproject.mvc.vo.DataVO"
 			alias="commercial" />
+=======
+	<typeAliases> 
+>>>>>>> refs/heads/master
 		<typeAlias type="semiproject.mvc.vo.MyPageVO"
 			alias="mypagevo" />
 		<typeAlias type="semiproject.mvc.vo.PaymentVO"
 			alias="paymentvo" />
-			
 			
 		<typeAlias type="semiproject.mvc.vo.AuctionAddMainVO"
 			alias="amainvo" />
@@ -22,19 +27,28 @@
 			alias="adevo" />
 		<typeAlias type="semiproject.mvc.vo.AuctionAddIpVO"
 			alias="aipvo" />
-		<typeAlias type="semiproject.mvc.vo.AuctionPageVO" alias="aviewpage" />
-		<typeAlias type="semiproject.mvc.vo.AuctionViewVO" alias="aviewmain" />		
-		<!--경매 config 종료  -->
+		<typeAlias type="semiproject.mvc.vo.AuctionPageVO"
+			alias="aviewpage" />
+		<typeAlias type="semiproject.mvc.vo.AuctionViewVO"
+			alias="aviewmain" />
 		<typeAlias type="semiproject.mvc.vo.CommercialProductVO"
 			alias="cpvo" />
 		<typeAlias type="semiproject.mvc.vo.UserVO" alias="uservo" />
+<<<<<<< HEAD
+		<typeAlias type="semiproject.mvc.vo.SignUpVO" alias="signVO" />
+=======
 		<typeAlias type="semiproject.mvc.vo.SignUpVO"
 			alias="signVO"/>	
 		<typeAlias type="semiproject.mvc.vo.AuctionDetailVO" alias="actdetail"/>
+>>>>>>> refs/heads/master
 		<typeAlias type="semiproject.mvc.vo.Member_DetailVO"
 			alias="member_detailvo" />
 		<typeAlias type="semiproject.mvc.vo.Payment_DetailVO"
 			alias="payment_detailvo" />
+<<<<<<< HEAD
+		<typeAlias type="semiproject.mvc.vo.PageVO" alias="pvo" />
+	</typeAliases>
+=======
 				<typeAlias type="semiproject.mvc.vo.PageVO"
 			alias="pvo" />
 			<typeAlias type="semiproject.mvc.vo.Community_BoardVO"
@@ -60,6 +74,11 @@
 		<typeAlias type="semiproject.mvc.vo.Option_SelVO" alias="osvo"/>
 		<typeAlias type="semiproject.mvc.vo.OptionVO" alias="ovo"/>
 		<typeAlias type="semiproject.mvc.vo.Product_ImgVO" alias="pimgvo"/>
+		<!--  차트  -->
+		<typeAlias type="semiproject.mvc.vo.ChartVO" alias="chartvo"/>
+		<typeAlias type="semiproject.mvc.vo.DataVO" alias="commercial"/>
+		<typeAlias type="semiproject.mvc.vo.OuterDataVO" alias="outervo"/>
 	</typeAliases>
-
+		
+>>>>>>> refs/heads/master
 </configuration>

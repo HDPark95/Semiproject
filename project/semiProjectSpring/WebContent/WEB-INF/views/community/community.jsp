@@ -3,11 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../include/header_index.jsp"%>
 <%@ include file="../include/header_menu.jsp"%>
+<<<<<<< HEAD
+=======
 <style>
 h2{
 text-align: center;
 }
 </style>
+>>>>>>> refs/heads/master
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
 		<h2>CMJ 커뮤니티 : 관심있는 분야에 관해서 이야기를 나눠요!</h2>

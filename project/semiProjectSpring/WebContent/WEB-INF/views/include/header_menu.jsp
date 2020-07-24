@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+=======
    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+>>>>>>> refs/heads/master
 
   </head>
     <body id="page-top">
@@ -13,6 +17,22 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                  <ul class="navbar-nav ml-auto menu-other">
                         <c:catch>
+<<<<<<< HEAD
+                        <c:choose>
+                        <c:when test="${empty user}">                        
+                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage"> </a></li>
+                        </c:when>
+                        
+                        <c:otherwise>                          
+                        <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">${user.dname}님 환영합니다.</a></li>  
+                        </c:otherwise>
+<%--                         <c:otherwise>                         --%>  
+<%--                         <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage">${user.dname}님 환영합니다.</a></li> --%>
+<%--                         </c:otherwise> --%>
+                        </c:choose>	
+                        </c:catch>
+                                            </ul>                  
+=======
                         <c:choose> 
                         <c:when test="${empty user}">                        
                         <li class="nav-item2"><a class="nav-link2 js-scroll-trigger" href="mypage"> </a></li>
@@ -28,6 +48,7 @@
                         </c:catch>
                                             </ul>  
                                                             
+>>>>>>> refs/heads/master
                     <ul class="navbar-nav ml-auto2">
                      <c:catch>
                         <c:choose> 
@@ -52,7 +73,7 @@
 		                     <li><a href="realprice">실거래가</a></li>
 		                       	<li><a href="nearEstate">주변부동산</a></li>
 		                       	<li><a href="product">매물</a></li>
-		                      
+		                       	<li><a href="newsPage">뉴스</a></li>
 						</ul></li>
 	                      
                         <li class="nav-item">
@@ -91,11 +112,19 @@
                         </c:choose>
                         </c:catch>          
                         </li>
+<!--                         <li class="nav-item"> -->
+
+<!-- 	                        <a class="nav-link js-scroll-trigger menu-other" href="cutomer_board/board">고객센터</a>              -->
+<!--                         </li> -->
                          
                             
                     </ul>
                       <ul class="navbar-nav ml-auto2 menu-other">
                         <li class="nav-item">
+<<<<<<< HEAD
+	                        <a class="nav-link js-scroll-trigger" href="mypage">내정보</a>
+	                        <input type="hidden" value="mypage">
+=======
 	                        
 	                       	<c:choose>
 		                       	<c:when test="${user.agubun eq '공인중개사'}">
@@ -109,7 +138,27 @@
 		                        </c:otherwise>
 	                       </c:choose>
                        <input type="hidden" value="mypage">
+>>>>>>> refs/heads/master
                         </li>
+<<<<<<< HEAD
+                        <c:catch>
+                        <c:choose>
+                        <c:when test="${empty user}">
+                        <li class="nav-item">
+                       	 	<a class="nav-link js-scroll-trigger" href="#"></a>
+                        </li>
+                        </c:when>
+                        
+                        <c:otherwise >
+                        <li class="nav-item">
+                       	 	<a class="nav-link js-scroll-trigger" href="logout">로그아웃</a>
+                        </li>
+                        </c:otherwise>
+                        
+                        </c:choose>
+                        </c:catch>
+                    
+=======
                        <c:catch>
                        <c:choose>
                        <c:when test="${empty user}">
@@ -120,11 +169,13 @@
                         </c:otherwise>
                         </c:choose>
                         </c:catch>
+>>>>>>> refs/heads/master
                     </ul>
                    
                 </div>
                </div>
                <br>
+          
             </nav>
          <!--    <div class="row " style="margin-top: 80px; top: 80px;">
                  <div class="col-md-12 menu-top ">

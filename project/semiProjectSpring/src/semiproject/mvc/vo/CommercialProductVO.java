@@ -2,6 +2,16 @@
 package semiproject.mvc.vo;
 
 public class CommercialProductVO {
+<<<<<<< HEAD
+	private int prc, spc1, spc2;  
+	private String location, atclfetrdesc, atclno,taglist,rlettpcd, tradtpcd,rltrnm;
+	
+	public String getRltrnm() {
+		return rltrnm;
+	}
+	public void setRltrnm(String rltrnm) {
+		this.rltrnm = rltrnm;
+=======
 	private int  spc1, spc2 ;
 	private String prc,plocation, atclfetrdesc, atclno,taglist,rltrnm, tradtpcd,rlettpcd , pdnum, pdescription,pmove;
 	private String img;
@@ -51,6 +61,7 @@ public class CommercialProductVO {
 	}
 	public void setRlettpcd(String rlettpcd) {
 		this.rlettpcd = rlettpcd;
+>>>>>>> refs/heads/master
 	}
 	public String getTradtpcd() {
 		return tradtpcd;
@@ -58,11 +69,12 @@ public class CommercialProductVO {
 	public void setTradtpcd(String tradtpcd) {
 		this.tradtpcd = tradtpcd;
 	}
-	public String getRltrnm() {
-		return rltrnm;
+
+	public String getRlettpcd() {
+		return rlettpcd;
 	}
-	public void setRltrnm(String rltrnm) {
-		this.rltrnm = rltrnm;
+	public void setRlettpcd(String rlettpcd) {
+		this.rlettpcd = rlettpcd;
 	}
 	public String getTaglist() {
 		return taglist;

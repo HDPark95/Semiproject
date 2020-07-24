@@ -20,7 +20,7 @@
             <div class="col-md-12 mt-12 filter-page invisible fixed-top" id="filter-page">
             	<div class="col-md-12 mt-12 filter-sub-page">
             		
-	            		<div class="col-md-12 mt-12 filter-sub-page-div">
+	            		<div class="col-md-12 mt-12 filter-sub-page-div">  
 	            			<h2 id="page-up">방종류 <label>중복선택이 가능합니다</label></h2> 
 	            			<input type="checkbox" ><label>원룸 </label>
 	            			<input type="checkbox" ><label>투ㆍ쓰리룸</label>
