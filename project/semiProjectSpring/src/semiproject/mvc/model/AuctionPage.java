@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +41,14 @@ public class AuctionPage{
 //	public String auctionMain() {
 //		return "auction/auction_main";
 //	}
+	
+	@Scheduled(fixedRate = 180000)
+	public void updatestatus() {
+		SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date rm = new Date();
+		System.out.println("예약작업:"+fm.format(rm));
+		auctiondao.updatestatus();
+	}
 	
 	@RequestMapping(value="/auctionAdd")
 	public String auctionAdd(Model model,HttpServletRequest request) {
@@ -111,50 +120,90 @@ public class AuctionPage{
 		String oriFn2 = avo.getImagebP().getOriginalFilename();
 		String oriFn3 = avo.getImagecP().getOriginalFilename();
 		
-		String oriFn_t = "W"+now+wrmath+vo.getBid()+oriFn.substring(oriFn.lastIndexOf("."),oriFn.length());
-		String oriFn1_t = "I1"+now+armath+vo.getBid()+oriFn.substring(oriFn.lastIndexOf("."),oriFn.length());
-		String oriFn2_t = "I2"+now+brmath+vo.getBid()+oriFn.substring(oriFn.lastIndexOf("."),oriFn.length());
-		String oriFn3_t = "I3"+now+crmath+vo.getBid()+oriFn.substring(oriFn.lastIndexOf("."),oriFn.length());
+		System.out.println("oriFn:" + oriFn);
+		System.out.println("oriFn1:" + oriFn1);
+		System.out.println("oriFn2:" + oriFn2);
+		System.out.println("oriFn3:" + oriFn3);
 		
-		path1.append(mpath).append(oriFn);
-		path2.append(mpath).append(oriFn1);
-		path3.append(mpath).append(oriFn2);
-		path4.append(mpath).append(oriFn3);
+		String oriFn_t ="";
+		String oriFn1_t ="";
+		String oriFn2_t ="";
+		String oriFn3_t ="";
 		
-		path1_t.append(mpath).append(oriFn_t);
-		path2_t.append(mpath).append(oriFn1_t);
-		path3_t.append(mpath).append(oriFn2_t);
-		path4_t.append(mpath).append(oriFn3_t);
+		if(oriFn == null || oriFn.trim() == "") {
+			oriFn_t = "noimg.jpg";
+			avo.setWimage(oriFn_t);
+		}else {
+			oriFn_t = "W"+now+wrmath+vo.getBid()+oriFn.substring(oriFn.lastIndexOf("."),oriFn.length());
+			path1.append(mpath).append(oriFn);
+			path1_t.append(mpath).append(oriFn_t);
+			avo.setWimage(oriFn_t);
+			File f = new File(path1.toString());
+			File f_t = new File(path1_t.toString());
+			f.renameTo(f_t);
+			try {
+				avo.getWimageP().transferTo(f_t);
+			} catch (IllegalStateException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
-		avo.setWimage(oriFn_t);
-		avo.setImagea(oriFn1_t);
-		avo.setImageb(oriFn2_t);
-		avo.setImagec(oriFn3_t);
+		if(oriFn1 == null || oriFn1.trim() == "") {
+			oriFn1_t = "noimg.jpg";
+			avo.setImagea(oriFn1_t);
+		}else {
+		    oriFn1_t = "I1"+now+armath+vo.getBid()+oriFn.substring(oriFn.lastIndexOf("."),oriFn.length());
+		    path2.append(mpath).append(oriFn1);
+		    path2_t.append(mpath).append(oriFn1_t);
+		    avo.setImagea(oriFn1_t);
+		    File f1 = new File(path2.toString());
+		    File f1_t = new File(path2_t.toString());
+		    f1.renameTo(f1_t);
+		    try {
+				avo.getImageaP().transferTo(f1_t);
+			} catch (IllegalStateException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
-		System.out.println("FullPath :"+path1);
-		File f = new File(path1.toString());
-		File f1 = new File(path2.toString());
-		File f2 = new File(path3.toString());
-		File f3 = new File(path4.toString());
+		if(oriFn2 == null || oriFn2.trim() == "") {
+			oriFn2_t = "noimg.jpg";
+			avo.setImageb(oriFn2_t);
+		}else {
+			oriFn2_t = "I2"+now+brmath+vo.getBid()+oriFn.substring(oriFn.lastIndexOf("."),oriFn.length());
+			path3.append(mpath).append(oriFn2);
+			path3_t.append(mpath).append(oriFn2_t);
+			avo.setImageb(oriFn2_t);
+			File f2 = new File(path3.toString());
+			File f2_t = new File(path3_t.toString());
+			f2.renameTo(f2_t);
+			try {
+				avo.getImagebP().transferTo(f2_t);
+			} catch (IllegalStateException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
-		File f_t = new File(path1_t.toString());
-		File f1_t = new File(path2_t.toString());
-		File f2_t = new File(path3_t.toString());
-		File f3_t = new File(path4_t.toString());
-		
-		f.renameTo(f_t);
-		f1.renameTo(f1_t);
-		f2.renameTo(f2_t);
-		f3.renameTo(f3_t);
-		
-		try {
-			avo.getWimageP().transferTo(f_t);
-			avo.getImageaP().transferTo(f1_t);
-			avo.getImagebP().transferTo(f2_t);
-			avo.getImagecP().transferTo(f3_t);
-		} catch (IllegalStateException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(oriFn3 == null || oriFn3.trim() == "") {
+			oriFn3_t = "noimg.jpg";
+			avo.setImagec(oriFn3_t);
+		}else {
+			oriFn3_t = "I3"+now+crmath+vo.getBid()+oriFn.substring(oriFn.lastIndexOf("."),oriFn.length());
+			path4.append(mpath).append(oriFn3);
+			path4_t.append(mpath).append(oriFn3_t);
+			avo.setImagec(oriFn3_t);
+			File f3 = new File(path4.toString());
+			File f3_t = new File(path4_t.toString());
+			f3.renameTo(f3_t);
+			try {
+				avo.getImagecP().transferTo(f3_t);
+			} catch (IllegalStateException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		auctionservice.addAuction(vo, avo, bvo);

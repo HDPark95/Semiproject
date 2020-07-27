@@ -10,6 +10,7 @@ import semiproject.mvc.vo.AddInfoVO;
 import semiproject.mvc.vo.AdministrativeVO;
 import semiproject.mvc.vo.CommercialProductVO;
 import semiproject.mvc.vo.EstatePageVO;
+import semiproject.mvc.vo.EstateSearchVO;
 import semiproject.mvc.vo.EstateVO;
 import semiproject.mvc.vo.Option_SelVO;
 import semiproject.mvc.vo.PageVO;
@@ -53,8 +54,8 @@ public class EstateDAO {
 	}
 	
 
-	public int listCount() {
-		return ss.selectOne("estate.pcount");
+	public int listCount(EstateSearchVO esvo) {
+		return ss.selectOne("estate.pcount",esvo);
 	}
 	public EstateVO estateDetail(int num) {
 		return ss.selectOne("estate.Detail",num);

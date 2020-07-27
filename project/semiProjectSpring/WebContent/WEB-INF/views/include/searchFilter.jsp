@@ -18,22 +18,22 @@
             </div> 
             </div>
             <div class="col-md-12 mt-12 filter-page invisible fixed-top" id="filter-page">
-            <form action="" method="post" name="search_form" id="search_form"  style="height: 100%; overflow: scroll;">
+            <form action="" method="post" name="search_form" id="search_form"   style="height: 100%; overflow: scroll;">
             	<div class="col-md-12 mt-12 filter-sub-page" >
 		            
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
 	            			<h3 id="page-up" style="margin-top: 30px;">방종류 <label style="font-size: 11px;">중복선택이 가능합니다<span style="padding-left: 10px;">(상가/사무실,아파트 제외)</span></label></h3> 
-	            			<input type="checkbox"value="원룸" name="build" class="room" onclick="search_build('room')"><label class="room_check" style="margin-left: 10px;">원룸 </label>
-	            			<input type="checkbox"value="투ㆍ쓰리룸" name="build" class="room" onclick="search_build('room')"><label class="room_check" style="margin-left: 10px;">투ㆍ쓰리룸</label>
-	            			<input type="checkbox"value="오피스텔" name="build" class="room" onclick="search_build('room')"><label class="room_check" style="margin-left: 10px;">오피스텔</label>
-	            			<input type="checkbox"value="아파트" name="build" class="apt" onclick="search_build('apt')"><label class="room_check" style="padding-top: 40px;margin-left: 10px;">아파트</label>
-	            			<input type="checkbox"value="상가/사무실 " name="build" class="store" onclick="search_build('store')"><label class="room_check " style="margin-left: 10px;">상가/사무실 </label>
+	            			<input type="checkbox"value="0" name="build" class="room checked" onclick="search_build('room')"><label class="room_check" style="margin-left: 10px;">원룸 </label>
+	            			<input type="checkbox"value="1" name="build" class="room checked" onclick="search_build('room')"><label class="room_check" style="margin-left: 10px;">투ㆍ쓰리룸</label>
+	            			<input type="checkbox"value="2" name="build" class="room checked" onclick="search_build('room')"><label class="room_check" style="margin-left: 10px;">오피스텔</label>
+	            			<input type="checkbox"value="3" name="build" class="apt " onclick="search_build('apt')"><label class="room_check" style="padding-top: 40px;margin-left: 10px;">아파트</label>
+	            			<input type="checkbox"value="4 " name="build" class="store" onclick="search_build('store')"><label class="room_check " style="margin-left: 10px;">상가/사무실 </label>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
 	            			<h3 style="margin-top: 30px;">매물 종류 <label style="font-size: 11px;">중복선택이 가능합니다</label></h3><br>
-	            			<input type="checkbox" class="rentv" value="월세">	<label>월세</label>
-	            			<input type="checkbox" class="rentv" value="전세">	<label>전세 </label>
-	            			<input type="checkbox" class="rentv" value="매매">	<label>매매</label>
+	            			<input type="checkbox" class="rentv checked" value="0">	<label>월세</label>
+	            			<input type="checkbox" class="rentv checked" value="1">	<label>전세 </label>
+	            			<input type="checkbox" class="rentv checked" value="2">	<label>매매</label>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div" style="height: 500px;">
 	            			<div class="col-md-12">
@@ -41,17 +41,25 @@
 									<label>보증금/전세가</label>
 										<span id="deposits" class="invisible slider"></span>
 								</div>
-								<div class="col-md-6" style="display:inline-block;">
-									<label>값</label>
+								<div class="col-md-6" style="display:inline; ">
+									<label style="margin-left: 50px; margin-top: 80px;">
+										<span id="deposits_val1"></span> / <span id="deposits_val2"></span>
+									<input type="hidden" name="deposits_from" id="deposits_from" readonly="readonly" >
+									<input type="hidden" name="deposits_to" readonly="readonly" id="deposits_to"></label>
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div id="slider2" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top: 70px;display:inline-block;">
 									<label>월세</label>
 										<span id="monthmoenys" class="invisible slider"></span>
-		
+									
 								</div>
-								<div class="col-md-6" style="display:inline-block;"><label>값</label></div>
+								<div class="col-md-6" style="display:inline; margin-top: 30px"><label>
+
+									<span id="monthmoenys_val1"></span> / <span id="monthmoenys_val2"></span>
+									<input type="hidden" name="monthmoenys_from" id="monthmoenys_from" readonly="readonly" >
+									<input type="hidden" name="monthmoenys_to" readonly="readonly" id="monthmoenys_to">
+									</label></div>
 							</div>
 							<div class="col-md-6">
 								<div id="slider3" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top: 70px;display:inline-block;">
@@ -59,7 +67,12 @@
 										<span id="trades" class="invisible slider"></span>
 		
 								</div>
-								<div class="col-md-6" style="display:inline-block;"><label>값</label></div>
+								<div class="col-md-6" style="display:inline;"><label>
+								
+								<span id="trades_val1"></span> / <span id="trades_val2"></span>
+									<input type="hidden" name="trades_from" id="trades_from" readonly="readonly" >
+									<input type="hidden" name="trades_to" readonly="readonly" id="trades_to">
+								</label></div>
 							</div>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
@@ -70,7 +83,12 @@
 										<span id="roomArea" class="invisible slider"></span>
 		
 								</div>
-								<div class="col-md-6" style="display:inline-block;"><label>값</label></div>
+								<div class="col-md-6" style="display:inline;"><label>
+								
+								<span id="roomArea_val1"></span> / <span id="roomArea_val2"></span>
+									<input type="hidden" name="roomArea_from" id="roomArea_from" readonly="readonly" >
+									<input type="hidden" name="roomArea_to" readonly="readonly" id="roomArea_to">
+								</label></div>
 							</div>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
@@ -81,33 +99,43 @@
 										<span id="roomCare" class="invisible slider"></span>
 		
 								</div>
-								<div class="col-md-6" style="display:inline-block;"><label>값</label></div>
+								<div class="col-md-6" style="display:inline;"><label>
+									<span id="roomCare_val1"></span> / <span id="roomCare_val2"></span>
+									<input type="hidden" name="roomCare_from" id="roomCare_from" readonly="readonly" >
+									<input type="hidden" name="roomCare_to" readonly="readonly" id="roomCare_to">
+								</label></div>
 							</div>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
 	            			<h3 style="margin-top: 30px;">층수 <label style="font-size: 11px;">중복선택이 가능합니다</label></h3><br>
-	            			<input type="checkbox" name="floor">	<label>전체</label>
-	            			<input type="checkbox" name="floor">	<label>1층</label>
-	            			<input type="checkbox" name="floor">	<label>2층</label>
-	            			<input type="checkbox" name="floor">	<label>3층</label>
-	            			<input type="checkbox" name="floor">	<label>4층</label>
-	            			<input type="checkbox" name="floor">	<label>5층</label>
-	            			<input type="checkbox" name="floor">	<label>6층</label>
-	            			<input type="checkbox" name="floor">	<label>7층이상</label>
-	            			<input type="checkbox" name="floor">	<label>반지층</label>
-	            			<input type="checkbox" name="floor">	<label>옥탑</label>
+	            			<input type="checkbox" name="floor " value="0">	<label>전체</label>
+	            			<input type="checkbox" name="floor "value="1" class="checked">	<label>1층</label>
+	            			<input type="checkbox" name="floor "value="2" class="checked">	<label>2층</label>
+	            			<input type="checkbox" name="floor "value="3" class="checked">	<label>3층</label>
+	            			<input type="checkbox" name="floor "value="4" class="checked">	<label>4층</label>
+	            			<input type="checkbox" name="floor "value="5" class="checked">	<label>5층</label>
+	            			<input type="checkbox" name="floor "value="6" class="checked">	<label>6층</label>
+	            			<input type="checkbox" name="floor "value="7" class="checked">	<label>7층이상</label>
+	            			<input type="checkbox" name="floor" value="8">	<label>반지층</label>
+	            			<input type="checkbox" name="floor" value="9">	<label>옥탑</label>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
 	            			<h3 style="margin-top: 30px;">방구조<label style="font-size: 11px;">중복선택이 가능합니다</label></h3><br>
 	            			
-	            			<input type="checkbox" name="">	<label>주방분리형(1.5룸)</label>
-	            			<input type="checkbox" >	<label>복층</label>
-	            			<input type="checkbox" >	<label>투름</label>
-	            			<input type="checkbox" >	<label>쓰리룸</label>
-	            		</div>	            		
-	            		<div class="col-md-12 mt-12 filter-sub-page-div last">
+	            			<input type="checkbox" name="room"value="0" class="checked">	<label>주방분리형(1.5룸)</label>
+	            			<input type="checkbox" name="room"value="1" class="checked">	<label>복층</label>
+	            			<input type="checkbox" name="room"value="2" class="checked">	<label>투름</label>
+	            			<input type="checkbox" name="room"value="3" class="checked">	<label>쓰리룸</label>
 	            			
-	            				<a class="btn" id="filter_apply" onclick="submit()">적용하기</a>
+							<input type="hidden" name="cntPerPage" id="cntPerPage_val" value="10">
+							<input type="hidden" name="nowPage" id="nowPage"value="1"> 
+							<input type="hidden" name="keyword" id="keyword_val">
+	            			<input type="hidden" id="esvo" value="${esvo}">
+	            			<input type="hidden" id="paging_val" name="paging" value="">
+	            		</div>	            		
+	            		<div class="col-md-12 mt-12 filter-sub-page-div filter-div last">
+	            			
+	            				<a class="btn" id="filter_apply" onclick="submit()" href="#page-up">적용하기</a>
 	            				<a class="btn" id="filter_close" href="#page-up">닫기</a>
 	            		</div>
             	
@@ -121,6 +149,10 @@
 	
 <script>
 	$(function(){
+		$(".checked").prop("checked",true)
+		
+		
+		
 		 var custom_values = ['0만원','500만원','1000만원','1500만원','2000만원','2500만원','3000만원','3500만원','4000만원','4500만원',
 			 '5000만원','5500만원','6000만원','6500만원','7000만원','7500만원','8000만원','8500만원','9000만원','9500만원','1억',
 			 '1억500만원','1억1000만원','1억1500만원','1억2000만원','1억2500만원','1억3000만원','1억3500만원','1억4000만원','1억4500만원',
@@ -151,7 +183,21 @@
 		        to: my_to,
 		        step: 500,
 		        values: custom_values,
-		        
+		        onChange: function (data) {
+		        	 
+			            
+			            $("#deposits_val1").text(data.from_value);
+			        	$("#deposits_val2").text(data.to_value);
+			        	$("#deposits_from").val(data.from_value)
+			        	$("#deposits_to").val(data.to_value);
+		            
+		        },
+		        onStart: function(data){
+		        	$("#deposits_val1").text(data.from_value);
+		        	$("#deposits_val2").text(data.to_value);
+		        	$("#deposits_from").val(data.from_value)
+		        	$("#deposits_to").val(data.to_value);
+		        }
 		        
 		        
 		       
@@ -169,7 +215,22 @@
 		        to: 300,
 		        values:month, 
 		        step: 5,
-		        grid:true
+		        grid:true,
+		        onChange: function (data) {
+		        	 console.log(data.from);
+			            
+			            $("#monthmoenys_val1").text(data.from_value);
+			        	$("#monthmoenys_val2").text(data.to_value);
+			        	$("#monthmoenys_from").val(data.from_value)
+			        	$("#monthmoenys_to").val(data.to_value);
+		            
+		        },
+		        onStart: function(data){
+		        	$("#monthmoenys_val1").text(data.from_value);
+		        	$("#monthmoenys_val2").text(data.to_value);
+		        	$("#monthmoenys_from").val(data.from_value)
+		        	$("#monthmoenys_to").val(data.to_value);
+		        }
 		        
 		       
 		    });
@@ -198,7 +259,21 @@
 		        from: 0,
 		        to: 300,
 		        values:trade, 
-		        step: 5
+		        step: 5,
+		        onChange: function (data) {
+		        	
+			           
+			            $("#trades_val1").text(data.from_value);
+			        	$("#trades_val2").text(data.to_value);
+			        	$("#trades_from").val(data.from_value)
+			        	$("#trades_to").val(data.to_value);
+		            
+		        },onStart: function(data){
+		        	$("#trades_val1").text(data.from_value);
+		        	$("#trades_val2").text(data.to_value);
+		        	$("#trades_from").val(data.from_value)
+		        	$("#trades_to").val(data.to_value);
+		        }
 		        
 		       
 		    });
@@ -217,7 +292,20 @@
 		        from: 0,
 		        to: 300,
 		        values:roomArea, 
-		        step: 5
+		        step: 5,
+		        onChange: function (data) {
+		        	 
+			            $("#roomArea_val1").text(data.from_value);
+			        	$("#roomArea_val2").text(data.to_value);
+			        	$("#roomArea_from").val(data.from_value)
+			        	$("#roomArea_to").val(data.to_value);
+
+		        },onStart: function(data){
+		        	$("#roomArea_val1").text(data.from_value);
+		        	$("#roomArea_val2").text(data.to_value);
+		        	$("#roomArea_from").val(data.from_value)
+		        	$("#roomArea_to").val(data.to_value);
+		        }
 		        
 		       
 		    });
@@ -237,10 +325,31 @@
 		        from: 0,
 		        to: 300,
 		        values:roomCare, 
-		        step: 5
+		        step: 5,
+		        onChange: function (data) {
+		            console.log(data.from);
+		            console.log(data.to);
+		            console.log(data);
+		            console.log(data.from_value);
+		            console.log(data.to_value);
+		           
+		            $("#roomCare_val1").text(data.from_value);
+		        	$("#roomCare_val2").text(data.to_value);
+		        	$("#roomCare_from").val(data.from_value)
+		        	$("#roomCare_to").val(data.to_value);
+		            
+		        },onStart: function(data){
+		        	$("#roomCare_val1").text(data.from_value);
+		        	$("#roomCare_val2").text(data.to_value);
+		        	$("#roomCare_from").val(data.from_value)
+		        	$("#roomCare_to").val(data.to_value);
+		        }
 		        
 		       
 		    });
+		    
+		    
+		    
 	});
 	
 	function search_build(text){
@@ -257,17 +366,35 @@
 	}
 	// 검색필터 적용시키는 function
 	function submit(){
-		$('#search_form').attr("action","")
+		
+		$("#keyword_val").val($("#keyword").val());
+		search_Ajax($('#search_form'),'filter')
+		
 		
 	}
 	//검색버튼클릭시 실행되는 function
 	function search_estate(){
-		
+		search_Ajax($('#search_form'),'button')
 	}
 	
 	// ajaxfunction
-	function search_Ajax(data){
-		
+	function search_Ajax(data,text){
+		var formData='';
+		if(text==='filter'){
+			formData= data.serialize();
+		}else if(text==='button'){
+			$("#keyword_val").val($("#keyword").val());
+			formData= data.serialize();
+		}
+		$.ajax({
+			cache: false,
+			url:'estatelist',
+	        type: 'POST',
+	        data: formData,
+	        success: function(data){
+	        	$('#listtarget').html(data);
+				$("#cntPerPage_val").val($('#cntPerPage').val());
+	        }
+		});
 	}
-	
 </script>

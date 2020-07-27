@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>		
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../include/header_index.jsp"%>
 <%@ include file="../include/header_menu.jsp"%>
 <style>
@@ -51,7 +51,7 @@
 	color: #787878;
 }
 
-#rec_update,#new_Login {
+#rec_update, #new_Login {
 	width: 100px;
 	color: blue;
 	font-size: 15px;
@@ -64,7 +64,7 @@
 	font-size: 13px;
 }
 
-#updatedetail{
+#updatedetail {
 	padding: 0.5rem 0.5rem;
 	margin-top: 5px;
 	background-color: #FF8000;
@@ -73,7 +73,7 @@
 	margin-left: 5px;
 }
 
-#golist{
+#golist {
 	padding: 0.5rem 0.5rem;
 	margin-top: 5px;
 	background-color: #0174DF;
@@ -81,20 +81,89 @@
 	float: left;
 }
 
-#deletedetail{
+#deletedetail {
 	padding: 0.5rem 0.5rem;
 	margin-top: 5px;
 	background-color: #FE2E2E;
 	color: #FFFFFF;
 	float: right;
 }
+
 #buttons {
 	width: 698px;
 	margin: 0 auto;
 }
-#textbody{
+
+#textbody {
 	padding: 15px 15px 15px 15px;
 	text-align: left;
+}
+
+#connectarea {
+	text-align: left;
+	padding: 15px 15px 15px 15px;
+}
+
+.replyarea {
+	background-color: #F2F3F4;
+}
+
+#replyarea ul {
+	list-style: none;
+	margin: 0px 15px 15px 15px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+#replyarea ul li {
+	border-bottom: 1px solid #ededed;
+}
+
+#replyarea dl {
+	text-align: left;
+}
+
+#replyarea ul li dt {
+	display: inline;
+	margin-right: 12px;
+	font-size: 12px;
+	text-align: left;
+}
+
+#replyarea ul li dl .date {
+	display: inline;
+	font-size: 11px;
+}
+
+#replyarea ul li dl .comment {
+	margin-top: 7px;
+	font-size: 12px;
+}
+
+textarea {
+	width: 560px;
+	height: 50px;
+	margin: 0px 15px 15px 15px;
+}
+
+#reinsert {
+	padding: 0.5rem 0.5rem;
+	float: right;
+	width: 80px;
+	height: 52px;
+	margin: 0px 0px 22px 0px;
+	border: 1px solid gray;
+}
+
+.replyupdate{
+	font-size: 11px;
+	text-align: right;
+	display: inline;
+	border: none;
+}
+
+.commentUpdate{
+	display: none;
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -189,17 +258,36 @@
 		}
 	}
 	
+	function connect(){
+		if($('.replyarea').css('display') == 'none'){
+            $('.replyarea').show();
+        }else{
+            $('.replyarea').hide();
+        }
+	}
+	
+	function showUpdate(renum){
+		if($('#commentUpdate'+renum).css('display') == 'none'){
+			$('#comment'+renum).hide();
+			$('#commentUpdate'+renum).show();
+		}else{
+			$('#comment'+renum).show();
+			$('#commentUpdate'+renum).hide();
+		}
+	}
 </script>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
-	<input type="hidden" id="list" name="list" value="${list}">
+		<input type="hidden" id="list" name="list" value="${list}">
 		<div id="area">
 			<div id="location">
 				<h4>우리동네 ${list.wgubun}이야기</h4>
 				<div id="tag">
-					<p id="tag2"><i class="fas fa-vihara"></i>&nbsp;${list.wloc1}
-					<i class="fas fa-home"></i>&nbsp;${list.wloc2}
-					<i class="fas fa-comments-dollar"></i>&nbsp;${list.wgubun}</p>
+					<p id="tag2">
+						<i class="fas fa-vihara"></i>&nbsp;${list.wloc1} <i
+							class="fas fa-home"></i>&nbsp;${list.wloc2} <i
+							class="fas fa-comments-dollar"></i>&nbsp;${list.wgubun}
+					</p>
 				</div>
 			</div>
 			<div id="writingarea">
@@ -208,20 +296,22 @@
 						<tr>
 							<td><h3 id="title">${list.wtitle}</h3></td>
 							<c:if test="${ user.aid == null }">
-							<td id="rec" rowspan="2">추천하기
-								<button type="button" class="btn btn-default" onclick="loginCheck()" id="new_Login">
+								<td id="rec" rowspan="2">추천하기
+									<button type="button" class="btn btn-default"
+										onclick="loginCheck()" id="new_Login">
 										<i class="fas fa-thumbs-up"></i>&nbsp; <span id="wrec">${list.wrec}</span>
-								</button>
-							</td>
+									</button>
+								</td>
 							</c:if>
 							<c:if test="${ user.aid != null }">
-							<td id="rec" rowspan="2">추천하기
-								<form  action="updateWrec" method="post">
-								<button type="button" class="btn btn-default"  onclick="upWrec()" id="rec_update">
-										<i class="fas fa-thumbs-up"></i>&nbsp; <span id="wrec">${list.wrec}</span>
-								</button>
-							</form>
-							</td>
+								<td id="rec" rowspan="2">추천하기
+									<form action="updateWrec" method="post">
+										<button type="button" class="btn btn-default"
+											onclick="upWrec()" id="rec_update">
+											<i class="fas fa-thumbs-up"></i>&nbsp; <span id="wrec">${list.wrec}</span>
+										</button>
+									</form>
+								</td>
 							</c:if>
 						</tr>
 						<tr>
@@ -229,26 +319,74 @@
 									<span><i class="fas fa-portrait"></i>&nbsp;${list.aid}****</span>&nbsp;||
 									<span><i class="fas fa-calendar-day"></i>&nbsp;${list.wchgdate}</span>&nbsp;||
 									<span><i class="fas fa-mouse"></i>&nbsp;${list.whit}</span>
-							</div></td>	
+								</div></td>
 						</tr>
 					</table>
 				</div>
-				<div id="textbody">
-				${list.wcontents}
+				<div id="textbody">${list.wcontents}</div>
+				<div id="connectarea">
+					<a id="connect" onclick="connect()">댓글 ${replytotal}개</a>
+				</div>
+				<div class="replyarea">
+					<div id="replyarea">
+						<ul>
+							<c:forEach var="reply" items="${replyList}">
+								<li>
+									<dl>
+										<dt>${reply.pr_writer}****</dt>
+										<dd class="date">${reply.rindate}</dd>
+										<c:if test="${user.aid==reply.r_writer}">
+											<button type="button" class="replyupdate" onclick="showUpdate(${reply.renum})">
+												<i class="fas fa-pen"></i>&nbsp;수정
+											</button>
+										</c:if>
+										<dd id="commentUpdate${reply.renum}" class="commentUpdate">
+										<textarea rows="20" cols="80" name="r_text"></textarea>
+										<a id="#">확인</a>
+										<a id="#">취소</a>
+										</dd>
+										<dd id="comment${reply.renum}" class="comment">${reply.r_text}</dd>
+									</dl>
+								</li>
+							</c:forEach>
+						</ul>
+					</div>
+					<div id="pagingarea">
+						<%@include file="include/pageprocess_reply.jsp"%>
+					</div>
+					<div id="writebox_area">
+						<form action="replyin" method="post">
+							<input type="hidden" name="wnum" value="${list.wnum}"> <input
+								type="hidden" name="r_writer" value="${user.aid}">
+							<table>
+								<tbody>
+									<tr>
+										<td><textarea rows="20" cols="80" name="r_text"></textarea></td>
+										<td><button type="submit" class="btn btn-default"
+												id="reinsert">
+												<i class="fas fa-pencil-alt"></i>&nbsp;입력
+											</button></td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+					</div>
 				</div>
 			</div>
 			<div id="buttons">
 				<button type="button" class="btn btn-default btn-sm" id="golist">
-				<i class="fas fa-bars"></i>&nbsp;목록
+					<i class="fas fa-bars"></i>&nbsp;목록
 				</button>
-				<button type="button" class="btn btn-default btn-sm" id="updatedetail"
-				onclick="location.href='updatedetailform?wnum=${list.wnum}'">
-				<i class="fas fa-feather-alt"></i>&nbsp;수정
+				<button type="button" class="btn btn-default btn-sm"
+					id="updatedetail"
+					onclick="location.href='updatedetailform?wnum=${list.wnum}'">
+					<i class="fas fa-feather-alt"></i>&nbsp;수정
 				</button>
 				<form name="delete" action="dedetail">
-				<button type="button" class="btn btn-default btn-sm" id="deletedetail" onclick="deleteClick()">
-				<i class="fas fa-times"></i>&nbsp;삭제
-				</button>
+					<button type="button" class="btn btn-default btn-sm"
+						id="deletedetail" onclick="deleteClick()">
+						<i class="fas fa-times"></i>&nbsp;삭제
+					</button>
 				</form>
 			</div>
 		</div>

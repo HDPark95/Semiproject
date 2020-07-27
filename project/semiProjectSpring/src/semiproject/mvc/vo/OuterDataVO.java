@@ -2,12 +2,47 @@ package semiproject.mvc.vo;
 
 public class OuterDataVO {
 	private String guname, dongname, businum, emplynum, meanemply, busiopenratio, quater, meanoper, closeoper,
-			totalopermean, totalclosemean;
+			totalopermean, totalclosemean, title, link, datetime, source, searchlocation, content;
 
 	public String getGuname() {
 		return guname;
 	}
-
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
+	}
+	public String getDatetime() {
+		return datetime;
+	}
+	public void setDatetime(String datetime) {
+		this.datetime = datetime;
+	}
+	public String getSource() {
+		return source;
+	}
+	public void setSource(String source) {
+		this.source = source;
+	}
+	public String getSearchlocation() {
+		return searchlocation;
+	}
+	public void setSearchlocation(String searchlocation) {
+		this.searchlocation = searchlocation;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public void setGuname(String guname) {
 		this.guname = guname;
 	}

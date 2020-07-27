@@ -5,7 +5,7 @@
 <!-- Load c3.css -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<div class="modal-content2" style="z-index: 999;">
+<div class="modal-content2">
 	<h3>
 		지역 정보 <span id="location"></span>
 	</h3>
@@ -40,8 +40,8 @@
 			</tr>
 		</table>
 	</div>
-	<h1>유동인구</h1>
 	<div>
+		<h1>유동인구</h1>
 		<div class="row">
 			<div class="col-6" id="product" style="margin: 0 auto;">
 				<div id="timePopChart"></div>
@@ -56,10 +56,10 @@
 				<div id="quaterOpenChart"></div>
 				<table class="col-12">
 					<tr>
-						<td><div class="button" id="add_button1" style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 2px; padding-top: 2px;" onClick="deleteMeanOper();"><span class="btn btn-primary btn-sm" style="font-size: 13pt;">평균운영개월</span></div></td>
-						<td><div class="button" id="add_button2" style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 2px; padding-top: 2px;" onClick="addmeanClose();"><span class="btn btn-primary btn-sm" style="font-size: 13pt;">평균폐업개월</span></div></td>
-						<td><div class="button" id="add_button3" style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 2px; padding-top: 2px;" onClick="addseoulMeanOper();"><span class="btn btn-primary btn-sm" style="font-size: 13pt;">서울평균운영개월</span></div></td>
-						<td><div class="button" id="add_button4" style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 2px; padding-top: 2px;" onClick="addseoulMeanClose();"><span class="btn btn-primary btn-sm" style="font-size: 13pt;">서울평균폐업개월</span></div></td>
+						<td><div class="button" id="add_button1" style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 2px; padding-top: 2px;" onClick="deleteMeanOper();"><span class="btn btn-primary btn-sm" style="font-size: 13pt;">평균운영</span></div></td>
+						<td><div class="button" id="add_button2" style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 2px; padding-top: 2px;" onClick="addmeanClose();"><span class="btn btn-primary btn-sm" style="font-size: 13pt;">평균폐업</span></div></td>
+						<td><div class="button" id="add_button3" style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 2px; padding-top: 2px;" onClick="addseoulMeanOper();"><span class="btn btn-primary btn-sm" style="font-size: 13pt;">서울평균운영</span></div></td>
+						<td><div class="button" id="add_button4" style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 2px; padding-top: 2px;" onClick="addseoulMeanClose();"><span class="btn btn-primary btn-sm" style="font-size: 13pt;">서울평균폐업</span></div></td>
 					</tr>
 				</table>
 			</div>
@@ -70,12 +70,6 @@
 				<div id="quaterOpenChart3"></div>
 			</div>
 		</div>
-	</div>
-	<div class="button"
-		style="cursor: pointer; background-color: white; text-align: center; padding-bottom: 2px; padding-top: 2px;"
-		onClick="close_pop2();">
-		<span class="btn btn-primary btn-sm" style="font-size: 13pt;">
-			닫기 </span>
 	</div>
 </div>
 

@@ -210,7 +210,7 @@
 				<!--  body -->
 				<div class="col-md-8 col-sm-8 float-left">
 					<div class="map_wrap">
-					<div id="map" class="col-md-12 col-sm-12" style=" width: 100%;height: 1440px; position: relative; overflow: hidden;"></div>
+					<div id="map" class="col-md-12 col-sm-12" style=" width: 100%;height: 1240px; position: relative; overflow: hidden;"></div>
 					
 					
 					</div>
@@ -458,14 +458,20 @@
 				if(msg!==''){
 					alert(msg);
 				}
-				
+				var formData=new $("#search_form").serialize();
 				
 				
 				$.ajax({
 					url:'estatelist',
+					type:'post',
+					data:formData,
 					
 					success:function(data){
 						$('#listtarget').html(data);
+						
+						$("#cntPerPage_val").val($('#cntPerPage').val())
+					},error:function(data){
+						console.log(data)
 					}
 				});
 				
@@ -477,17 +483,30 @@
 				var url='';
 				if(text==='이후'){
 					url='estatelist?nowPage='+$('#endPage').val()+'&cntPerPage='+$('#cntPerPage').val();
+					$("#cntPerPage_val").val($('#cntPerPage').val());
+					$("#nowPage").val($("#endPage").val());
 				}else if(text==='이전'){
 					url='estatelist?nowPage='+$('#startPage').val()+'&cntPerPage='+$('#cntPerPage').val();
+					$("#nowPage").val($("#startPage"),val());
+					$("#cntPerPage_val").val($('#cntPerPage').val());
 				}else{
 					url='estatelist?nowPage='+text+'&cntPerPage='+$('#cntPerPage').val();
+					$("#nowPage").val(text);
+					$("#cntPerPage_val").val($('#cntPerPage').val());
 				}
-				
-				
+				var esvo=$("#esvo").val();
+				if(esvo !=null && esvo!==''){
+					url=url+'&esvo='+esvo;
+				}
+				var formData= $("#search_form").serialize();
 				$.ajax({
-					url:url,
+					url:'estatelist',
+					type:'post',
+					data: formData,
 					success: function(data){
 						$('#listtarget').html(data);
+						$("#cntPerPage_val").val($('#cntPerPage').val())
+						$("#paging_val").val($("#paing").val())
 					}
 				});
 			}

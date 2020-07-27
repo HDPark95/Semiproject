@@ -14,7 +14,7 @@
 												<img src="img/${e.img[0].img }"  style="width: 100%; height: 120px;">
 												
 											</div>
-											<div class="col-md-12 col-sm-12" style="height: 160px; text-overflow: ellipsis;">
+											<div class="col-md-12 col-sm-12" style="height: 120px; text-overflow: ellipsis;">
 											<c:choose>
 												<c:when test="${e.build=='A01' }"><p>아파트</p></c:when>
 												<c:when test="${e.build=='A02' }"><p>오피스텔</p></c:when>
@@ -25,18 +25,18 @@
 												<c:otherwise><p>${e.build}</p></c:otherwise>
 											</c:choose>
 												
-													<c:forEach items="${e.rent}" var="r">
+													
 														<span>
 														
 														
 														 <c:choose>
-														 	<c:when test="${r.rentv =='A1'}">매매</c:when>
-														 	<c:when test="${r.rentv=='B1' }">전세</c:when>
-														 	<c:when test="${r.rentv=='B2' }">월세</c:when>
+														 	<c:when test="${e.rent[0].rentv =='A1'}">매매</c:when>
+														 	<c:when test="${e.rent[0].rentv=='B1' }">전세</c:when>
+														 	<c:when test="${e.rent[0].rentv=='B2' }">월세</c:when>
 														 </c:choose>
 														 
-														 :${r.rpay }</span>만원<br>
-													</c:forEach>
+														 :${e.rent[0].rpay }</span>만원<br>
+													
 					 							<p>${e.title}</p>
 											</div>
 										</a>

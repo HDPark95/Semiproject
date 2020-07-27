@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import semiproject.mvc.vo.Community_BoardVO;
 import semiproject.mvc.vo.Community_PageVO;
+import semiproject.mvc.vo.Community_ReplyVO;
+import semiproject.mvc.vo.Community_Reply_PageVO;
 
 @Repository
 public class CommunityDao {
@@ -81,5 +83,30 @@ public class CommunityDao {
 	// 특정 글을 삭제하는데 사용되는 DAO
 	public void deleteDetail(int wnum) {
 		ss.update("commuwriting.deletedetail", wnum);
+	}
+	
+	// 댓글을 새로 작성하는데 사용되는 DAO
+	public void insertReply(Community_ReplyVO vo) {
+		ss.insert("commureply.insert", vo);
+	}
+	
+	// 특정 글의 댓글 목록을 불러오는데 사용되는 DAO
+	public List<Community_Reply_PageVO> replyList(Community_Reply_PageVO pvo){
+		return ss.selectList("commureply.list", pvo);
+	}
+	
+	// 특정 글의 댓글 개수를 불러오는데 사용되는 DAO
+	public int countReply(int wnum) {
+		return ss.selectOne("commureply.count", wnum);
+	}
+	
+	// 특정 댓글을 수정하는 작업을 수행하는 DAO
+	public void updateReply(Community_ReplyVO vo) {
+		ss.update("commureply.update", vo);
+	}
+	
+	// 특정 댓글을 삭제하는 작업을 수행하는 DAO
+	public void deleteReply(Community_ReplyVO vo) {
+		ss.delete("commureply.delete",vo);
 	}
 }

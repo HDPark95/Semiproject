@@ -21,5 +21,5 @@ pageEncoding="UTF-8"%>
 <input type="hidden" id="startPage" value="${paging.startPage - 1}">
 <input type="hidden" id="endPage" value="${paging.endPage +1}">
 <input type="hidden" id="cntPerPage" value="${paging.cntPerPage}">
-
+<input type="hidden" id="paging" value="${paging}"> 
 </div>

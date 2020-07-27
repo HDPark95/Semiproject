@@ -52,7 +52,7 @@
 		                     <li><a href="realprice">실거래가</a></li>
 		                       	<li><a href="nearEstate">주변부동산</a></li>
 		                       	<li><a href="product">매물</a></li>
-		                      
+		                       	<li><a href="newsList">뉴스</a></li>
 						</ul></li>
 	                      
                         <li class="nav-item">

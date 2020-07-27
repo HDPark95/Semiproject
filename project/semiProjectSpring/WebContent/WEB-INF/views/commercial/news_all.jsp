@@ -51,46 +51,34 @@
 			<div class="form-check-inline">
 				<input type="button" id="wnumBtn" name="wnumBtn" class="btn-outline-info btn-sm" value="최신순▼">
 			</div>
-			<div class="form-check-inline">
-				<input type="button" id="whitBtn" name="whitBtn" class="btn-outline-secondary btn-sm" value="조회순■">
-			</div>
-			<div class="form-check-inline">
-				<input type="button" id="wrecBtn" name="wrecBtn" class="btn-outline-secondary btn-sm" value="추천순■">
-				&nbsp;&nbsp;&nbsp;
 			<input type="hidden" id="sortindex" name="sortindex" value="${paging.sortindex}">
-			</div>
 		</div>
 	</div>
-	<input type="hidden" value="${alist.wdel}">
 	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th scope="col">지역</th>
 				<th scope="col">제목</th>
 				<th scope="col">등록일</th>
-				<th scope="col">조회</th>
-				<th scope="col">추천</th>
+				<th scope="col">신문사</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="alist" items="${listall}">
+			<c:forEach var="nlist" items="${newsList}">
 				<tr>
-					<th scope="row">${alist.wloc1}&nbsp;${alist.wloc2}&nbsp;[${alist.wgubun}]</th>
-					<td><a href="writing_detail?wnum=${alist.wnum}">${alist.wtitle}</a></td>
-					<td>${alist.wchgdate}</td>
-					<td>${alist.whit}</td>
-					<td>${alist.wrec}</td>
+					<td>${nlist.searchlocation}</td>
+					<td><a href="${nlist.link}">${nlist.title}</a></td>
+					<td>${nlist.datetime}</td>
+					<td>${nlist.source}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	
 	<div class="form-check-inline" id="searchform1">
 		<select class="custom-select" id="searchType" name="searchType">
 			<option value="title">제목</option>
 			<option value="contents">내용</option>
 			<option value="comugu">구</option>
-			<option value="comudong">동</option>
 		</select> <input type="text" class="form-control" id="searchValue" name="searchValue">
 		<button type="submit" class="btn-primary btn-sm" id="btnSearch" value="Search">검색</button>
 	</div>
@@ -105,37 +93,22 @@
 			$("#wnumBtn").attr('class','btn-outline-danger btn-sm');
 		}else if($('#sortindex').val()==='1'){
 			$("#wnumBtn").val('최신순▼');
-		}else if($('#sortindex').val()==='4'){
-			$("#whitBtn").val('조회순▲');
-			$("#whitBtn").attr('class','btn-outline-danger btn-sm');
-		}else if($('#sortindex').val()==='3'){
-			$("#whitBtn").val('조회순▼');
-			$("#whitBtn").attr('class','btn-outline-info btn-sm');
-		}else if($('#sortindex').val()==='6'){
-			$("#wrecBtn").val('추천순▲');
-			$("#wrecBtn").attr('class','btn-outline-danger btn-sm');
-		}else{
-			$("#wrecBtn").val('추천순▼');
-			$("#wrecBtn").attr('class','btn-outline-info btn-sm');
 		}
-		
-		
 		// 매개변수가 변함에 따라 주소를 바꾸는 함수
 		$("#wnumBtn").click(function(){
 			var sortindex = $("#sortindex").val();
 			if(sortindex == '2'){
-				location.href="comuMain?sortindex=1";
+				location.href="newsList?sortindex=1";
 			}else{
-				location.href="comuMain?sortindex=2";
+				location.href="newsList?sortindex=2";
 			}
-		});
-		
+		});	
 		$("#whitBtn").click(function(){
 			var sortindex = $("#sortindex").val();
 			if(sortindex == '4'){
-				location.href="comuMain?sortindex=3";
+				location.href="newsList?sortindex=3";
 			}else{
-				location.href="comuMain?sortindex=4";
+				location.href="newsList?sortindex=4";
 			}
 			
 		});
@@ -143,14 +116,14 @@
 		$("#wrecBtn").click(function(){
 			var sortindex = $("#sortindex").val();
 			if(sortindex == '6'){
-				location.href="comuMain?sortindex=5";
+				location.href="newsList?sortindex=5";
 			}else{
-				location.href="comuMain?sortindex=6";
+				location.href="newsList?sortindex=6";
 			}
 		});
 		
 		 $(document).on('click', '#btnSearch', function(e){
-			var url = "comuMain";
+			var url = "newsList";
 			url = url + "?searchType=" + $('#searchType').val();
 			url = url + "&searchValue=" + $('#searchValue').val();
 			location.href = url;

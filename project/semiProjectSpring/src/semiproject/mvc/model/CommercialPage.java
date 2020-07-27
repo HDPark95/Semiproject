@@ -33,8 +33,10 @@ import semiproject.mvc.vo.AddInfoVO;
 import semiproject.mvc.vo.AdministrativeVO;
 import semiproject.mvc.vo.ChartVO;
 import semiproject.mvc.vo.CommercialProductVO;
+import semiproject.mvc.vo.Community_PageVO;
 import semiproject.mvc.vo.DataVO;
 import semiproject.mvc.vo.EstateVO;
+import semiproject.mvc.vo.KeywordVO;
 import semiproject.mvc.vo.OuterDataVO;
 import semiproject.mvc.vo.PageVO;
 import semiproject.mvc.vo.RealPriceVO;
@@ -322,10 +324,7 @@ public class CommercialPage {
 		System.out.println(object);
 		return object;
 	}
-	@RequestMapping(value="/newsPage")
-	public String goNewsPage() {
-		return "commercial/newsPage";
-	}
+	//평균 운영 폐업 개월 차트 데이터
 	@ResponseBody
 	@RequestMapping(value="/getOuterDataforChart", produces = "application/json; charset=utf8")
 	public JSONObject getOuterDataforChart(Model model, String guName) {
@@ -362,7 +361,7 @@ public class CommercialPage {
 		System.out.println(object);
 		return object;
 	}
-	
+	//
 	@RequestMapping(value="/outerDataBusi")
 	public ModelAndView getOpenBusiData(OuterDataVO vo) {
 		ModelAndView mav = new ModelAndView("commercial/server/modalServer2");
@@ -373,5 +372,31 @@ public class CommercialPage {
 		System.out.println(openbusi.getBusiopenratio());
 		System.out.println(closebusi.getTotalclosemean());
 		return mav;
-	}	
+	}
+	@RequestMapping(value="/keyword")
+	public ModelAndView getKeywordList() {
+		ModelAndView mav = new ModelAndView("commercial/sidemenu");
+		List<KeywordVO> list = commercialDao.getKeyword();
+		mav.addObject("keywordlist", list);		
+		for(KeywordVO e: list) {
+			System.out.println(e.getKeyword());
+		}
+		return mav;
+	}
+	@RequestMapping(value = "/newsList")
+	public String newsAllList(Community_PageVO pvo, Model model,
+			@RequestParam(value = "nowPage", required = false, defaultValue = "1") String nowPage,
+			@RequestParam(value = "cntPerPage", required = false, defaultValue = "10") String cntPerPage,
+			@RequestParam(value = "sortindex", required = false, defaultValue = "1") String sortindex,
+			@RequestParam(required = false) String searchType,
+			@RequestParam(required = false) String searchValue) {
+		int total = commercialDao.getTotalCount(pvo);
+		pvo = new Community_PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), Integer.parseInt(sortindex));
+		pvo.setSearchType(searchType);
+		pvo.setSearchValue(searchValue);
+		model.addAttribute("paging", pvo);
+		model.addAttribute("newsList", commercialDao.getAllNews(pvo));
+		model.addAttribute("total", total);
+		return "commercial/newsPage";
+	}
 }

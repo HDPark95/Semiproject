@@ -5,7 +5,7 @@
 		<th></th>
 		<th id="colchk1" scope="row" style="width: 130px;"><img
 			src="img/${list.wimage}"
-			style="width: 120px; height: 120px; float: left;"></th>
+			style="width: 120px; height: 120px; float: left;" onerror="this.src='img/noimg.jpg'"></th>
 		<td id="coltd1_2" style="width: 630px;"><label id="t1addr1_1"><a
 				href="auctionDetail?anum=${list.anum}"
 				style="color: black;"><span id="mainsubject">${list.subject}</span><br />

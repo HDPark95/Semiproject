@@ -28,7 +28,7 @@ public class AuctionDao {
 	
 	public void addAuctionIp(AuctionAddIpVO vo) {
 		ss.insert("auction.addip",vo);
-	} 
+	}
 	
 	public int getTotalCnt(AuctionPageVO vo) {
 		return ss.selectOne("auction.totalcount",vo);
@@ -41,6 +41,10 @@ public class AuctionDao {
 	
 	public List<AuctionViewVO> getAuctionbanner(){
 		return ss.selectList("auction.banner");
+	}
+	
+	public void updatestatus() {
+		ss.update("auction.upstaus");
 	}
 	
 }

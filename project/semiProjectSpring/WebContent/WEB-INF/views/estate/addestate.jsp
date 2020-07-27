@@ -174,13 +174,13 @@ display:inline-block;
 	            					  	<div class="seleted-div">
 	            						<span class="square build false" onclick="changeSelect(0)">원룸</span> 
 	            						<span class="square build false"  onclick="changeSelect(1)">주택</span> 
-	            						<span class="square build false"  onclick="changeSelect(2)">상가</span> 
+	            						<span class="square build false"  onclick="changeSelect(2)">상가/사무실</span> 
 	            						<span class="square build false"  onclick="changeSelect(3)">오피스텔(도시형)</span> 
 	            						<span class="square build false"  onclick="changeSelect(4)">아파트</span>
 	            						</div> 
 	            					</td>
 	            				</tr> 
-	            				<tr id="select-target">
+	            				<!-- <tr id="select-target">
 	            					<td >
 	            						건물유형
 	            					</td>
@@ -192,7 +192,7 @@ display:inline-block;
 	            						<span class="square sub-build  false" onclick="clicksub(3,'sub-build')">상가주택</span>
 	            						</div>
 	            					</td>
-	            				</tr>
+	            				</tr> -->
 	            			</table>
 	            		</div>
 	            		<div class="col-md-12 mt-12  add-sub-page">
@@ -206,18 +206,31 @@ display:inline-block;
 	            					</td>
 	            					<td >
 	            						
-		            					<div class="search-div">
-		            						<input type="text" class="address-search"id="roadAddrPart1" name="mainaddr" placeholder="강남구 역삼동" ><span id="postcodify_search_button" onclick="goPopup();" class="btn address-btn" style="width: 150px;">주소검색</span><br>
+		            					
+		            					<div class="map_wrap" style=" width: 400px; height: 300px; ">
+											<div id="map"  style="width: 400px; height: 300px;" ></div>
+					
+					
+										</div>
+		            					
+	            							
+	            							<div class="search-div"  >
+		            						<input type="text" class="address-search"id="roadAddrPart1" oninput="searchPlaces()" onchange="searchPlaces()" name="mainaddr" placeholder="강남구 역삼동" ><span id="postcodify_search_button" onclick="goPopup();" class="btn address-btn" style="width: 150px;">주소검색</span><br>
 		            						<input type="text" class="address-search"id="addrDetail" name="subaddr" placeholder="강남구 역삼동" >
 		            						<input type="text" id='zipNo' name="zipNo" name="zipNo" style="margin-bottom: 10px" disabled>
 	            						
 		            					</div>
-	            				
+	            							
+	            						
+		            					
+	            						
+				
 	            					</td>
-	            				
+	            					
 	            				</tr>
 	            				
 	            			</table>
+	            		
 	            		</div>
 	            		<div class="col-md-12 mt-12 add-sub-page">
 	            			<table >
@@ -357,7 +370,7 @@ display:inline-block;
 	            						<div class="seleted-div">
 	            						<span class="square parking false" onclick="clickpark(0)">가능</span>
 	            						<span class="square parking false" onclick="clickpark(1)">불가능</span>
-	            						<input type="text" id="pamount" class="input-val"  disabled="disabled" placeholder="0"  value="0"> 만원
+	            						<input type="text" id="pamount" class="input-val"  disabled="disabled" placeholder="0"  value="0"> 원
 	            						</div>
 	            					
 	            					</td>
@@ -413,7 +426,7 @@ display:inline-block;
 	            					</td>
 	            				</tr>
 	            				<tr>
-	            					<td >
+	            					<td rowspan="2">
 	            						옵션 항목
 	            					</td>
 	            					<td colspan="3">
@@ -424,6 +437,15 @@ display:inline-block;
 			            					<span class="square option false" onclick="clicksub(3,'option')">책상</span>
 			            					<span class="square option false" onclick="clicksub(4,'option')">옷장</span>
 			            					<span class="square option false" onclick="clicksub(5,'option')">TV</span>
+			            					
+	            						</div>
+	            					</td>
+	            					
+	            				</tr>
+	            				<tr>
+	            					
+	            					<td colspan="3" style="background-color: white;">
+	            						<div class="seleted-div">
 			            					<span class="square option false" onclick="clicksub(6,'option')">신발장</span>
 			            					<span class="square option false" onclick="clicksub(7,'option')">냉장고</span>
 			            					<span class="square option false" onclick="clicksub(8,'option')">가스레인지</span>
@@ -563,13 +585,14 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 		buldMnnm, buldSlno, mtYn, lnbrMnnm, lnbrSlno, emdNo) {
 	// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
 	// document.form.roadFullAddr.value = roadFullAddr;
+
+
 	$('#roadAddrPart1').val(roadAddrPart1);
-	$("#addrDetail").val(addrDetail);
+	$("#addrDetail").val(roadAddrPart2+addrDetail);
 	$("#zipNo").val(zipNo);
+
 }
-$(function() {
-	$("#postcodify_search_button").postcodifyPopUp();
-});
+
 		
 	var classEach=["build","sub-build","rent","move-in","administrative","parking","pets","elevator","balcony","built","option","chartered","structure"];
 
@@ -950,7 +973,7 @@ $(function() {
 			"</td>";
 		}
 		
-		$('#select-target').html(html);
+		/* $('#select-target').html(html); */
 		var searchValue='';
 		$('.build').each(function(i) {
 			if(i===num&&$(this).hasClass('false')){
@@ -1092,7 +1115,13 @@ $(function() {
 	}
 
 	function sendKeyword(num){
-		
+		var supply=$('#supply').val();
+		var exclusive = $('#exclusive').val();
+		if(exclusive > supply || exclusive === supply){
+			alert("전용면적은 공급면적보다 크거나 같을 수 없습니다.");
+			$('#exclusive').val("");
+			$("#exclusive-area").val("");
+		}
 		
 		if(loopKey===false){return}
 		var key;
@@ -1178,7 +1207,260 @@ $(function() {
 		});
 	};
 
+	
+	$(function(){
+		$("#floor").change(function() {
+			var floor=$(this).val();
+			console.log(floor);
+			html="<option value='0'>건물층수선택</option>";
+			for(i = 1 ; i<=floor;i++){
+				html+="<option value="+i+">"+i+"층</option>";
+			}
+			html+="<option value=\"-1\">반지층</option><option value=\"99\">옥탑</option>";
+			
+			$("#myfloor").html(html);
+		})
+		var ps = new kakao.maps.services.Places(); 
+		$("#roadAddrPart1").change(function() {
+			searchPlaces();
+		})
+	});
 </script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5d751c35293b0473bc14f09aa6b0ca97&libraries=services,clusterer,drawing" ></script>
+		<script>
+			// 마커를 담을 배열입니다
+			var markers = [];
+		
+			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+			mapOption = {
+				center : new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+				level : 5
+			// 지도의 확대 레벨
+			};
+
+			// 지도를 생성합니다    
+			var map = new kakao.maps.Map(mapContainer, mapOption);
+
+			// 장소 검색 객체를 생성합니다
+			var ps = new kakao.maps.services.Places();
+
+			// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
+			var infowindow = new kakao.maps.InfoWindow({
+				zIndex : 1
+			});
+
+			// 키워드로 장소를 검색합니다
+			//searchPlaces();
+
+			// 키워드 검색을 요청하는 함수입니다
+			function searchPlaces() {
+
+				//var keyword = document.getElementById('roadAddrPart1').value;
+				var keyword = $("#roadAddrPart1").val();
+				if (!keyword.replace(/^\s+|\s+$/g, '')) {
+					alert('키워드를 입력해주세요!');
+					return false;
+				}
+
+				// 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
+				ps.keywordSearch(keyword, placesSearchCB);
+			}
+
+			// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+			function placesSearchCB(data, status, pagination) {
+				if (status === kakao.maps.services.Status.OK) {
+					// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+					// LatLngBounds 객체에 좌표를 추가합니다
+					var bounds = new kakao.maps.LatLngBounds();
+					for (var i = 0; i < data.length; i++) {
+						bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+					}
+					// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+					map.setBounds(bounds);
+					// 정상적으로 검색이 완료됐으면
+					// 검색 목록과 마커를 표출합니다
+					displayPlaces(data);
+
+					// 페이지 번호를 표출합니다
+					displayPagination(pagination);
+
+				} else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+
+					alert('검색 결과가 존재하지 않습니다.');
+					return;
+
+				} else if (status === kakao.maps.services.Status.ERROR) {
+
+					alert('검색 결과 중 오류가 발생했습니다.');
+					return;
+
+				}
+				
+			}
+
+			// 검색 결과 목록과 마커를 표출하는 함수입니다
+			function displayPlaces(places) {
+
+				var listEl = document.getElementById('placesList'), menuEl = document
+						.getElementById('menu_wrap'), fragment = document
+						.createDocumentFragment(), bounds = new kakao.maps.LatLngBounds(), listStr = '';
+
+				// 검색 결과 목록에 추가된 항목들을 제거합니다
+				removeAllChildNods(listEl);
+
+				// 지도에 표시되고 있는 마커를 제거합니다
+				removeMarker();
+
+				for (var i = 0; i < places.length; i++) {
+
+					// 마커를 생성하고 지도에 표시합니다
+					var placePosition = new kakao.maps.LatLng(places[i].y,
+							places[i].x), marker = addMarker(placePosition, i), itemEl = getListItem(
+							i, places[i]); // 검색 결과 항목 Element를 생성합니다
+
+					// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+					// LatLngBounds 객체에 좌표를 추가합니다
+					bounds.extend(placePosition);
+
+					// 마커와 검색결과 항목에 mouseover 했을때
+					// 해당 장소에 인포윈도우에 장소명을 표시합니다
+					// mouseout 했을 때는 인포윈도우를 닫습니다
+					(function(marker, title) {
+						kakao.maps.event.addListener(marker, 'mouseover',
+								function() {
+									displayInfowindow(marker, title);
+								});
+
+						kakao.maps.event.addListener(marker, 'mouseout',
+								function() {
+									infowindow.close();
+								});
+
+						itemEl.onmouseover = function() {
+							displayInfowindow(marker, title);
+						};
+
+						itemEl.onmouseout = function() {
+							infowindow.close();
+						};
+					})(marker, places[i].place_name);
+
+					fragment.appendChild(itemEl);
+				}
+
+				// 검색결과 항목들을 검색결과 목록 Elemnet에 추가합니다
+				listEl.appendChild(fragment);
+				menuEl.scrollTop = 0;
+
+				// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+				map.setBounds(bounds);
+			}
+
+			// 검색결과 항목을 Element로 반환하는 함수입니다
+			function getListItem(index, places) {
+
+				var el = document.createElement('li'), itemStr = '<span class="markerbg marker_'
+						+ (index + 1)
+						+ '"></span>'
+						+ '<div class="info">'
+						+ '   <h5>' + places.place_name + '</h5>';
+
+				if (places.road_address_name) {
+					itemStr += '    <span>' + places.road_address_name
+							+ '</span>' + '   <span class="jibun gray">'
+							+ places.address_name + '</span>';
+				} else {
+					itemStr += '    <span>' + places.address_name + '</span>';
+				}
+
+				itemStr += '  <span class="tel">' + places.phone + '</span>'
+						+ '</div>';
+
+				el.innerHTML = itemStr;
+				el.className = 'item';
+
+				return el;
+			}
+
+			// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
+			function addMarker(position, idx, title) {
+				var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+				imageSize = new kakao.maps.Size(36, 37), // 마커 이미지의 크기
+				imgOptions = {
+					spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
+					spriteOrigin : new kakao.maps.Point(0, (idx * 46) + 10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+					offset : new kakao.maps.Point(13, 37)
+				// 마커 좌표에 일치시킬 이미지 내에서의 좌표
+				}, markerImage = new kakao.maps.MarkerImage(imageSrc,
+						imageSize, imgOptions), marker = new kakao.maps.Marker(
+						{
+							position : position, // 마커의 위치
+							image : markerImage
+						});
+
+				marker.setMap(map); // 지도 위에 마커를 표출합니다
+				markers.push(marker); // 배열에 생성된 마커를 추가합니다
+
+				return marker;
+			}
+
+			// 지도 위에 표시되고 있는 마커를 모두 제거합니다
+			function removeMarker() {
+				for (var i = 0; i < markers.length; i++) {
+					markers[i].setMap(null);
+				}
+				markers = [];
+			}
+
+			// 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
+			function displayPagination(pagination) {
+				var paginationEl = document.getElementById('pagination'), fragment = document
+						.createDocumentFragment(), i;
+
+				// 기존에 추가된 페이지번호를 삭제합니다
+				while (paginationEl.hasChildNodes()) {
+					paginationEl.removeChild(paginationEl.lastChild);
+				}
+
+				for (i = 1; i <= pagination.last; i++) {
+					var el = document.createElement('a');
+					el.href = "#";
+					el.innerHTML = i;
+
+					if (i === pagination.current) {
+						el.className = 'on';
+					} else {
+						el.onclick = (function(i) {
+							return function() {
+								pagination.gotoPage(i);
+							}
+						})(i);
+					}
+
+					fragment.appendChild(el);
+				}
+				paginationEl.appendChild(fragment);
+			}
+
+			// 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
+			// 인포윈도우에 장소명을 표시합니다
+			function displayInfowindow(marker, title) {
+				var content = '<div style="padding:5px;z-index:1;">' + title
+						+ '</div>';
+
+				infowindow.setContent(content);
+				infowindow.open(map, marker);
+			}
+
+			// 검색결과 목록의 자식 Element를 제거하는 함수입니다
+			function removeAllChildNods(el) {
+				if(el!==null){
+				while (el.hasChildNodes()) {
+					el.removeChild(el.lastChild);
+				}
+				}
+			}
+		</script>
 </div>
 </section>
 <%@include file="../commercial/modal.jsp"%>

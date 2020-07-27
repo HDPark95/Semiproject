@@ -123,8 +123,49 @@
  		select aid from signup where anum=#{num}
  	
  	</select>
- <select id="pcount" resultType="int">
-  select count(*) cnt from product
+ <!-- <select id="pcount" parameterType="esvo" resultType="int">
+  select count(*) cnt from product p,product_info pi,product_location pl,product_sale_info ps where p.pdnum = pi.pdnum and p.pdnum=ps.pdnum
+  <choose>
+  	<when test="esvo != null">
+		<if test="build != null">
+			
+			<foreach collection="build" item="i" open="and" separator="or" >
+				 p.RLETTPCD='${i}'
+			</foreach>
+		</if>
+		 <if test="rentv != null">
+		 	<foreach collection="rentv" item="i" open="and" separator="or">
+		 		ps.TRADTPCD='${i}'
+		 	</foreach>
+		 </if> 		
+		 <if test="floor != null">
+		 	<foreach collection="floor" item="i" open="and" separator="or" >
+		 		p.FLRINFO='${i}'
+		 	</foreach>
+		 </if>
+		 <if test="room != null">
+		 	<foreach collection="room" item="i" open="and" separator="or">
+						 		
+		 	</foreach>
+		 </if>
+		 <if test=" deposits_from != null and deposits_to !=null">
+		 	or ps.prc between #{deposits_from} and #{deposits_to}
+		 </if>
+		 <if test=" monthmoenys_from != null and monthmoenys_to !=null">
+		 	or ps.prc between #{monthmoenys_from} and #{monthmoenys_to}
+		 </if>
+		 <if test=" roomArea_from != null and roomArea_to !=null">
+		 	or p.spc2 between #{roomArea_from} and #{roomArea_to}
+		 </if>
+		 <if test=" roomCare_from != null and roomCare_to !=null">
+		 	or pi.aspay between #{roomCare_from} and #{roomCare_to}
+		 </if>
+  	</when>
+  </choose>
+ </select> -->
+ <select id="pcount"  resultType="int">
+  select count(*) cnt from product 
+ 
  </select>
  	<!-- 메인페이지 리스트  -->
  	<!-- <select id="estatemlist" resultMap="mlist" parameterType="epvo">

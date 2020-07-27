@@ -18,7 +18,8 @@
 <script src="resources/js/ion.rangeSlider.min.js"></script>
 <script>
 	$(function() {
-		
+		$(".irs-from").addClass('invisible');
+		$(".irs-to").addClass('invisible');
 		var invisible = 'invisible';
 		var visible = 'visible';
 		var className = 'invisible';
@@ -26,6 +27,10 @@
 
 			$('.filter-page').removeClass(invisible);
 			$('.filter-page').addClass(visible);
+			$(".irs-from").removeClass(invisible);
+			$(".irs-to").removeClass(invisible);
+			$(".irs-from").addClass(visible);
+			$(".irs-to").addClass(visible);
 			if (className === 'visible') {
 
 				$('.filter-page').slideUp(1000);

@@ -290,6 +290,8 @@
 				if(text==='평'){
 					 supply=$('#supply').val()/3.305785;
 					 exclusive=$('#exclusive').val()/3.305785;
+					 supply=Math.floor(supply);
+					 exclusive=Math.floor(exclusive);
 				}else{
 					 supply=$('#supply').val();
 					 exclusive=$('#exclusive').val();

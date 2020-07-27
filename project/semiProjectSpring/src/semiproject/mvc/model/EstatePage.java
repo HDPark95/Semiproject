@@ -37,6 +37,7 @@ import semiproject.mvc.vo.AddInfoVO;
 import semiproject.mvc.vo.AdministrativeVO;
 import semiproject.mvc.vo.CommercialProductVO;
 import semiproject.mvc.vo.EstatePageVO;
+import semiproject.mvc.vo.EstateSearchVO;
 import semiproject.mvc.vo.EstateVO;
 import semiproject.mvc.vo.PageVO;
 import semiproject.mvc.vo.RentVO;
@@ -117,12 +118,19 @@ public class EstatePage{
 		return mav;
 	}
 
-	@RequestMapping(value = "/estatelist")
+	@RequestMapping(value = "/estatelist",method = RequestMethod.POST)
 	public ModelAndView estatelist(EstatePageVO pvo,@RequestParam(value = "nowPage", required = false, defaultValue = "1") String nowPage,
-			@RequestParam(value = "cntPerPage", required = false, defaultValue = "10") String cntPerPage) {
+			@RequestParam(value = "cntPerPage", required = false, defaultValue = "10") String cntPerPage,EstateSearchVO esvo) {
 		ModelAndView mav = new ModelAndView("estate/server/estatelist");
-		pvo = new EstatePageVO(estateDAO.listCount(), Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		pvo = new EstatePageVO(estateDAO.listCount(esvo), Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		
+		if(esvo!=null && !esvo.equals("")) {
+			pvo.setEsvo(esvo);
+		}
+		System.out.println("실행?");
+		System.out.println(esvo.toString());
 			List<EstateVO> list= estateService.estatelist(pvo);
+		System.out.println(list.toString());
 		mav.addObject("list",	list);
 		mav.addObject("paging",pvo);
 		

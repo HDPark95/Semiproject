@@ -101,7 +101,6 @@ select wnum,wgubun,wloc1,wloc2,wtitle,wchgdate,whit,wrec from community_board wh
       </if>
 	</trim>
  </select>
- 
 <select id="getWrec" parameterType="int" resultType="cboardvo">
  select * from community_board where wnum=#{wnum}
 </select>

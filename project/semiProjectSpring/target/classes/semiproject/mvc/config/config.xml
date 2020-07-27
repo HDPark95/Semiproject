@@ -15,7 +15,7 @@
 		<typeAlias type="semiproject.mvc.vo.PaymentVO"
 			alias="paymentvo" />
 			
-			
+			<!-- 경매시작 -->
 		<typeAlias type="semiproject.mvc.vo.AuctionAddMainVO"
 			alias="amainvo" />
 		<typeAlias type="semiproject.mvc.vo.AuctionAddDeVO"
@@ -23,7 +23,10 @@
 		<typeAlias type="semiproject.mvc.vo.AuctionAddIpVO"
 			alias="aipvo" />
 		<typeAlias type="semiproject.mvc.vo.AuctionPageVO" alias="aviewpage" />
-		<typeAlias type="semiproject.mvc.vo.AuctionViewVO" alias="aviewmain" />		
+		<typeAlias type="semiproject.mvc.vo.AuctionViewVO" alias="aviewmain" />
+		<typeAlias type="semiproject.mvc.vo.AuctionMyipViewVO" alias="amyview" />
+		<typeAlias type="semiproject.mvc.vo.AuctionmypageipVO" alias="aiplist" />
+		<typeAlias type="semiproject.mvc.vo.AuctionMyJsonVO" alias="alct" />	
 		<!--경매 config 종료  -->
 		<typeAlias type="semiproject.mvc.vo.CommercialProductVO"
 			alias="cpvo" />
@@ -37,10 +40,16 @@
 			alias="payment_detailvo" />
 				<typeAlias type="semiproject.mvc.vo.PageVO"
 			alias="pvo" />
+			<!-- 커뮤니티 -->
 			<typeAlias type="semiproject.mvc.vo.Community_BoardVO"
 			alias="cboardvo" />
 		<typeAlias type="semiproject.mvc.vo.Community_PageVO"
 			alias="commupvo"/>
+			<typeAlias type="semiproject.mvc.vo.Community_ReplyVO"
+			alias="replyvo"/>
+<typeAlias type="semiproject.mvc.vo.Community_Reply_PageVO"
+			alias="replypagevo"/>
+			<!--  커뮤니티종료 -->
 			<typeAlias type="semiproject.mvc.vo.AuctionSaleVO" alias="sale"/>
 <typeAlias type="semiproject.mvc.vo.IpchalperVO" alias="ipchal"/>
 
@@ -53,6 +62,7 @@
 		<!-- 부동산 -->
 		<typeAlias type="semiproject.mvc.vo.EstateVO" alias="evo"/>
 		<typeAlias type="semiproject.mvc.vo.EstatePageVO" alias="epvo"/>
+		<typeAlias type="semiproject.mvc.vo.EstateSearchVO" alias="esvo"/>
 		<typeAlias type="semiproject.mvc.vo.AddInfoVO" alias="aivo"/>
 		<typeAlias type="semiproject.mvc.vo.RentVO" alias="rentvo"/>
 		<typeAlias type="semiproject.mvc.vo.SubBuildVO" alias="sbvo"/>
@@ -64,6 +74,7 @@
 		<typeAlias type="semiproject.mvc.vo.ChartVO" alias="chartvo"/>
 		<typeAlias type="semiproject.mvc.vo.DataVO" alias="commercial"/>
 		<typeAlias type="semiproject.mvc.vo.OuterDataVO" alias="outervo"/>
+		<typeAlias type="semiproject.mvc.vo.KeywordVO" alias="keyvo"/>
 	</typeAliases>
 
 </configuration>
