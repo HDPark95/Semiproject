@@ -215,7 +215,7 @@ display:inline-block;
 		            					
 	            							
 	            							<div class="search-div"  >
-		            						<input type="text" class="address-search"id="roadAddrPart1" oninput="searchPlaces()" onchange="searchPlaces()" name="mainaddr" placeholder="강남구 역삼동" ><span id="postcodify_search_button" onclick="goPopup();" class="btn address-btn" style="width: 150px;">주소검색</span><br>
+		            						<input type="text" class="address-search"id="roadAddrPart1"  onchange="mapSearchAddress()" name="mainaddr" placeholder="강남구 역삼동" ><span id="postcodify_search_button" onclick="goPopup();" class="btn address-btn" style="width: 150px;">주소검색</span><br>
 		            						<input type="text" class="address-search"id="addrDetail" name="subaddr" placeholder="강남구 역삼동" >
 		            						<input type="text" id='zipNo' name="zipNo" name="zipNo" style="margin-bottom: 10px" disabled>
 	            						
@@ -590,7 +590,7 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 	$('#roadAddrPart1').val(roadAddrPart1);
 	$("#addrDetail").val(roadAddrPart2+addrDetail);
 	$("#zipNo").val(zipNo);
-
+	mapSearchAddress();
 }
 
 		
@@ -1248,11 +1248,39 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 			var infowindow = new kakao.maps.InfoWindow({
 				zIndex : 1
 			});
-
+			var geocoder = new kakao.maps.services.Geocoder();
 			// 키워드로 장소를 검색합니다
 			//searchPlaces();
+			function mapSearchAddress(){
+				
+				
+				var keyword = $("#roadAddrPart1").val();
+				geocoder.addressSearch(keyword, function(result, status) {
 
+				    // 정상적으로 검색이 완료됐으면 
+				     if (status === kakao.maps.services.Status.OK) {
+
+				        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+				        // 결과값으로 받은 위치를 마커로 표시합니다
+				        var marker = new kakao.maps.Marker({
+				            map: map,
+				            position: coords
+				        });
+
+				        // 인포윈도우로 장소에 대한 설명을 표시합니다
+				        /* var infowindow = new kakao.maps.InfoWindow({
+				            ontent: '<div style="width:150px;text-align:center;padding:6px 0;"></div>'
+				        });
+				        infowindow.open(map, marker); */
+
+				        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+				        map.setCenter(coords);
+				    } 
+				}); 
+			}
 			// 키워드 검색을 요청하는 함수입니다
+			
 			function searchPlaces() {
 
 				//var keyword = document.getElementById('roadAddrPart1').value;
@@ -1265,7 +1293,20 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 				// 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
 				ps.keywordSearch(keyword, placesSearchCB);
 			}
-
+			function placesSearchCB2(data, status, pagination) {
+				if (status === kakao.maps.services.Status.OK) {
+					// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+					// LatLngBounds 객체에 좌표를 추가합니다
+					var bounds = new kakao.maps.LatLngBounds();
+					for (var i = 0; i < data.length; i++) {
+						displayMarker(data[i]);
+						bounds.extend(new kakao.maps.LatLng(data[i].y,
+								data[i].x));
+					}
+					// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+					map.setBounds(bounds);
+				}
+			}
 			// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
 			function placesSearchCB(data, status, pagination) {
 				if (status === kakao.maps.services.Status.OK) {

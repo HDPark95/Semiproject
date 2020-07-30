@@ -1,8 +1,8 @@
 package semiproject.mvc.vo;
 
 public class AuctionSaleVO {
-	private int anum , bweight , tweight , hit , hprice, ipprice;
-	private String bid , yongdo , addr , wimage , subject , enddate , status , indate, ideprice, ipdate, ipnum;
+	private int anum , bweight , tweight , hit , ipprice;
+	private String bid , yongdo , addr , wimage , subject , enddate , status , indate, ideprice, ipdate, ipnum, hprice;
 
 	public int getIpprice() {
 		return ipprice;
@@ -52,10 +52,11 @@ public class AuctionSaleVO {
 	public void setIdeprice(String ideprice) {
 		this.ideprice = ideprice;
 	}
-	public int getHprice() {
+	
+	public String getHprice() {
 		return hprice;
 	}
-	public void setHprice(int hprice) {
+	public void setHprice(String hprice) {
 		this.hprice = hprice;
 	}
 	public String getBid() {

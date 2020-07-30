@@ -37,8 +37,8 @@ public class AuctionHyuntaeDao {
 	public List<AuctionSaleVO> getchartdata(int anum){
 		return ss.selectList("auctionsale.chart", anum);
 	}
-	public List<IpchalperVO> getList(int ipnum){
-		return ss.selectList("auctionsale.managementList",ipnum);
+	public List<IpchalperVO> getList(){
+		return ss.selectList("auctionsale.managementList");
 	}
 	
 	

@@ -187,7 +187,7 @@ div.final_price {
 	
 	<div class="my_agrmt_wrap container">
 		<h5>
-			<input type="checkbox" id="check"> 개인정보 판매자
+			<input type="checkbox" id="check" name="chk"> 개인정보 판매자
 			제공에 동의합니다.(필수)
 		</h5>
 		<div>
@@ -225,16 +225,16 @@ div.final_price {
 	</div>
 	<div class="container">
 		<h5>
-			<input type="checkbox" id="check"> 개인정보 수집 및 이용에 동의합니다.(필수)
+			<input type="checkbox" id="check" name="chk"> 개인정보 수집 및 이용에 동의합니다.(필수)
 		</h5>
 		<p>고객님께서는 아래 내용에 대하여 동의를 거부하실 수 있으며, 거부 시 상품배송, 구매 및 결제, 일부 포인트
 			적립이 제한됩니다.</p>
 
 		<h5>		
-			<input type="checkbox" id="check">주문 상품정보에 동의합니다.(필수)
+			<input type="checkbox" id="check" name="chk">주문 상품정보에 동의합니다.(필수)
 		</h5>
 		<p>주문 상품의 상품명,가격을 동의합니다.</p>
-		<input type="checkbox">위 내용을 모두 확인하였으며, 이 내용에 모두 동의하시겠습니까?(필수)<br>
+		<input type="checkbox" id="checkall">위 내용을 모두 확인하였으며, 이 내용에 모두 동의하시겠습니까?(필수)<br>
 		<button type="submit" class="btn btn-success" id="button1">결제하기</button>
 		<button type="button" class="btn btn-danger" id="button1"
 			onclick="location='index'">메인으로</button>
@@ -280,13 +280,29 @@ div.final_price {
 					$('#PayOnline').hide();
 				}
 				
-			
-
-
-
-					
-			
-
+			});
+			$(document).ready(function(){
+			    //최상단 체크박스 클릭
+			    $("#checkall").click(function(){
+			        //클릭되었으면
+			        if($("#checkall").prop("checked")){
+			            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 true로 정의
+			            $("input[name=chk]").prop("checked",true);
+			            //클릭이 안되있으면
+			            alert("모두 동의하시겠습니까?")
+			            
+			        }else{
+			            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
+			            $("input[name=chk]").prop("checked",false);
+			            
+			        }
+			    })
+			})
+			$('#button1').click(function () {
+			       if (!$('#check').is(':checked')) {
+			           alert('필수 항목에 동의해주세요.');
+			           return false;
+			       }
 			});
 				
 		});

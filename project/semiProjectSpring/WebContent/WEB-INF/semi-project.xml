@@ -39,4 +39,30 @@
 				<ref bean="loginInterceptor"></ref>
 			</mvc:interceptor>
 		</mvc:interceptors>
+		
+		 <!-- 메일 보내기 (SEND) -->
+   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+      <property name="host" value="smtp.gmail.com" />
+      <property name="port" value="587" />
+      <property name="username" value="coaudwjd@gmail.com" />
+      <property name="password" value="audwjd2718" />
+      
+    
+
+      <!-- email 요청시는 SMTP -->
+      <property name="javaMailProperties">
+         <props>
+            <prop key="mail.transport.protocol">smtp</prop>
+            <prop key="mail.smtp.auth">true</prop>
+            <prop key="mail.smtp.starttls.enable">true</prop>
+            <prop key="mail.debug">true</prop>
+            <prop key ="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+         </props>
+      </property>
+   </bean>
+   
+   	<bean id="email" class="semiproject.mvc.email.Email">
+	</bean>
+	<bean id="emailSender" class="semiproject.mvc.email.EmailSender">
+	</bean>
 </beans>

@@ -34,17 +34,10 @@ public class PaymentPage {
 		ModelAndView mav = new ModelAndView();	
 		mav.addObject("vo", vo);
 		mav.addObject("pvo", paymentdao.paymentname(anum));
-		mav.setViewName("payment/payment1-1");
+		mav.setViewName("payment/payment");
 		return mav;
 	}
-	@RequestMapping(value = "/pay12")
-	public String pay12(PaymentVO vo){
-		
-	return "payment/payment1";
-		
-		 
-	}
-	
+
 	@RequestMapping(value="/pay2")
 	public String pay2() {
 		return "payment/payment2";
@@ -55,31 +48,44 @@ public class PaymentPage {
 	}
 	@RequestMapping(value = "/pay4")
 	public String pay4() {
-		return "payment/payment1-1";
+		return "payment/payment";
 	}
 	@RequestMapping(value = "/pay5")
 	public String pay5() {
 		return "payment/payment1-2";	
 	}
-	
-	
-	
-	@RequestMapping(value = "/paymentUpdate", method = RequestMethod.POST)
+	//결제 완료창
+	@RequestMapping(value = "/pay3")
+	public String pay3() {
+		return "payment/paymentSuccess";
+	}
+	//인증번호에서 뒤로가기
+	@RequestMapping(value = "/pay6")
+	public String pay6() {
+		return "payment/paymentDetail";
+	}
+
+	@RequestMapping(value = "/paymentUpdate", method=RequestMethod.POST)
 	public ModelAndView paymentUpdate(PaymentVO vo, Payment_DetailVO vo1) {
 		ModelAndView mav = new ModelAndView();
 		paymentService.addPayment(vo,vo1);
-		mav.setViewName("payment/payment3");
+		System.out.println("vo :"+vo.getPpay());
+		System.out.println("vo :"+vo.getPsdate());
+		System.out.println("vo :"+vo.getPedate());
+		System.out.println("vo :"+vo.getMonthnum());
+		System.out.println("vo :"+vo.getPway());
+		System.out.println("vo1 :"+vo1.getInment());
+		System.out.println("vo1 :"+vo1.getKinds());
+		System.out.println("vo1 :"+vo1.getMentnum());
+		mav.setViewName("payment/paymentSuccess");
 		return mav;
 	}
 	@RequestMapping(value = "/paymentDetail", method = RequestMethod.POST)
 	public ModelAndView paymentDetail(PaymentVO vo) {
-		System.out.println(vo.getPway());
 		ModelAndView mav = new ModelAndView();
 		//paymentService.addPayment(vo, vo1);
-		mav.setViewName("payment/payment1");
-		mav.addObject("vo", vo);
-		
-		
+		mav.setViewName("payment/paymentDetail");
+		mav.addObject("vo", vo);	
 		return mav;
 		
 	}

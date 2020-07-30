@@ -3,13 +3,13 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="auctionsale">
 	<select id="sales" parameterType="string" resultType="sale">
-			select
+		select
 		a.anum,p.ipnum, a.bid,fn_yongdo_name(a.byongdo) as yongdo,a.baddra as
 		addr,a.bweight,a.tweight,a.hit
 		,b.wimage,TO_CHAR(p.ideprice,'FM999,999,999,999') as
 		ideprice,p.subject,TO_CHAR(p.enddate,'YYYY"년"MM"월"DD"일" HH24"시"MI"분"')
 		as 
-		enddate, nvl(fn_higt_ipchalper(p.ipnum),0)
+		enddate, TO_CHAR(nvl(fn_higt_ipchalper(p.ipnum),0),'FM999,999,999,999')
 		as hprice
 		, fn_basedata_name(3,1,p.status) as
 		status,TO_CHAR(a.indate,'YYYY.MM.DD') as indate

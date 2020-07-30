@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -130,22 +130,22 @@ table.type09 td {
 				<tr>
 					<td rowspan="11">
 						<div id="target" class="bul">
-							<img src="img/${result.wimage}" id="main1" onError="this.style.visibility='hidden'"
+							<img src="img/${result.wimage}" id="main1" onerror="this.src='img/noimg.jpg'"
 								style="width: 550px; margin: 0 auto;">
 						</div>
 						<table id="bul" style="width: 550px; height: 110px">
 							<tr>
 								<td style="width: 25%; float: left;"><img
-									src="img/${result.wimage}" class="im" onError="this.style.visibility='hidden'"
+									src="img/${result.wimage}" class="im" onerror="this.src='img/noimg.jpg'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								<td style="width: 25%; float: left;"><img
-									src="img/${result.imagea}" class="im" onError="this.style.visibility='hidden'"
+									src="img/${result.imagea}" class="im" onerror="this.src='img/noimg.jpg'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								<td style="width: 25%; float: left;"><img
-									src="img/${result.imageb}" class="im" onError="this.style.visibility='hidden'"
+									src="img/${result.imageb}" class="im" onerror="this.src='img/noimg.jpg'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								<td style="width: 25%; float: left;"><img
-									src="img/${result.imagec}" class="im" onError="this.style.visibility='hidden'"
+									src="img/${result.imagec}" class="im" onerror="this.src='img/noimg.jpg'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								</tr>
 						</table>
@@ -192,9 +192,9 @@ table.type09 td {
 					</tbody>
 				</table>
 	</div>
- 	<%--   <div
+ 	 <%--  <div
 		class="card text-black bg-secondary my-6 py-4 text-center col-lg-12 bg-white">
-		<h2>내 물건을 입찰한 금액</h2>
+		<h2>입찰자와 입찰 금액</h2>
 	<table class="type09">
     <thead>
     <tr>
@@ -205,14 +205,14 @@ table.type09 td {
     <tbody>
     <c:forEach items="${list}" var="mlist">
     <tr>
-        <th scope="row">${mlist.ipnum}</th>
+        <td scope="row">${mlist.ipnum}</td>
         <td>${mlist.ipprice}</td>
     </tr>
  
     </c:forEach>
     </tbody>
 </table>
-	</div>  --%>  
+	</div>   --%>
 	<div id="ex1" class="modal">
 		<div class="modal-body">
 			<table class="table-data" id="sellCreditTable" style="width: 100%;">

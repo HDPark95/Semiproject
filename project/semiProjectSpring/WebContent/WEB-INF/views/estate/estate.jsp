@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="../include/header_index.jsp"%>
+<%@ include file="../include/header_main.jsp"%>
 <link  href="/resources/css/estate/paging.css"/>
 <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
 <link rel="stylesheet" href="resources/css/estate/ion.rangeSlider.min.css"/>

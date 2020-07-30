@@ -99,9 +99,20 @@
 	text-align: left;
 }
 
+#connect {
+	color: black;
+}
+
 #connectarea {
 	text-align: left;
-	padding: 15px 15px 15px 15px;
+	padding: 10px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	border-style: groove;
+	border-color: #BDBDBD;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
 }
 
 .replyarea {
@@ -140,13 +151,13 @@
 	font-size: 12px;
 }
 
-textarea {
+#replyin {
 	width: 560px;
 	height: 50px;
 	margin: 0px 15px 15px 15px;
 }
 
-#reinsert {
+#reinsert, #replylogin {
 	padding: 0.5rem 0.5rem;
 	float: right;
 	width: 80px;
@@ -155,15 +166,37 @@ textarea {
 	border: 1px solid gray;
 }
 
-.replyupdate{
+.replyupdate, .replydelete {
 	font-size: 11px;
 	text-align: right;
 	display: inline;
 	border: none;
+	padding-left: 2px;
+	padding-right: 2px;
 }
 
-.commentUpdate{
+.commentUpdate {
 	display: none;
+}
+
+.cupdatearea {
+	width: 650px;
+	height: 50px;
+}
+
+.updateClose {
+	text-align: right;
+	font-size: 11px;
+	color: black;
+	display: block;
+}
+
+.updateSubmit {
+	width: 650px;
+	height: 50px;
+	border: 1px solid #BDC3C7;
+	font-size: 15px;
+	padding: 0;
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -275,6 +308,47 @@ textarea {
 			$('#commentUpdate'+renum).hide();
 		}
 	}
+	
+	function showClose(renum){
+		$('#comment'+renum).show();
+		$('#commentUpdate'+renum).hide();
+	}
+	
+	function replydelete(renum){
+		var result = confirm('정말 삭제하시겠습니까?');
+		if(result) {
+			alert('댓글이 삭제되었습니다.');
+			$.ajax({
+				url:"replydel?wnum=${list.wnum}&renum="+renum,
+				success:location="writing_detail?wnum=${list.wnum}"
+			})
+		}
+	}
+	
+	function replyLogin(){
+		alert('댓글 작성은 로그인 후 가능합니다.');
+		var result = confirm('로그인 하시겠습니까?');
+		if(result) {
+			$.ajax({
+				success:location="login"
+			});
+		}
+	}
+	
+	var submitAction = function(e) {
+		e.preventDefault();
+	    e.stopPropagation();
+	};
+	
+	function replyCheck(){
+		var reply = $('#replyin').val().trim();
+		if(reply === ''){
+			alert('내용을 입력해주세요.');
+			$('form').bind('submit', submitAction);
+		}else{
+			$('form').unbind();
+		}
+	}
 </script>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
@@ -316,7 +390,7 @@ textarea {
 						</tr>
 						<tr>
 							<td><div id="toggle">
-									<span><i class="fas fa-portrait"></i>&nbsp;${list.aid}****</span>&nbsp;||
+									<span><i class="fas fa-portrait"></i>&nbsp;${list.paid}****</span>&nbsp;||
 									<span><i class="fas fa-calendar-day"></i>&nbsp;${list.wchgdate}</span>&nbsp;||
 									<span><i class="fas fa-mouse"></i>&nbsp;${list.whit}</span>
 								</div></td>
@@ -336,15 +410,30 @@ textarea {
 										<dt>${reply.pr_writer}****</dt>
 										<dd class="date">${reply.rindate}</dd>
 										<c:if test="${user.aid==reply.r_writer}">
-											<button type="button" class="replyupdate" onclick="showUpdate(${reply.renum})">
+											<button type="button" class="replyupdate"
+												onclick="showUpdate(${reply.renum})">
 												<i class="fas fa-pen"></i>&nbsp;수정
 											</button>
+											<form action="replydel" class="replydelete">
+												<input type="hidden" name="wnum" value="${reply.wnum}">
+												<input type="hidden" name="renum" value="${reply.renum}">
+												<button type="button" class="replydelete"
+													onclick="replydelete(${reply.renum})">
+													<i class="fas fa-trash-alt"></i>&nbsp;삭제
+												</button>
+											</form>
 										</c:if>
-										<dd id="commentUpdate${reply.renum}" class="commentUpdate">
-										<textarea rows="20" cols="80" name="r_text"></textarea>
-										<a id="#">확인</a>
-										<a id="#">취소</a>
-										</dd>
+										<form action="replyup" method="post">
+											<div id="commentUpdate${reply.renum}" class="commentUpdate">
+												<input type="hidden" name="wnum" value="${reply.wnum}">
+												<input type="hidden" name="renum" value="${reply.renum}">
+												<a class="updateClose" onclick="showClose(${reply.renum})">닫기</a>
+												<textarea class="cupdatearea" rows="20" cols="80"
+													name="r_text">${reply.r_text}</textarea>
+												<button type="submit" class="btn btn-default updateSubmit"
+													onclick="location.href='writing_detail?wnum=${reply.wnum}'">등록</button>
+											</div>
+										</form>
 										<dd id="comment${reply.renum}" class="comment">${reply.r_text}</dd>
 									</dl>
 								</li>
@@ -355,21 +444,32 @@ textarea {
 						<%@include file="include/pageprocess_reply.jsp"%>
 					</div>
 					<div id="writebox_area">
-						<form action="replyin" method="post">
-							<input type="hidden" name="wnum" value="${list.wnum}"> <input
-								type="hidden" name="r_writer" value="${user.aid}">
-							<table>
-								<tbody>
-									<tr>
-										<td><textarea rows="20" cols="80" name="r_text"></textarea></td>
-										<td><button type="submit" class="btn btn-default"
-												id="reinsert">
+						<table>
+							<tbody>
+								<tr>
+									<c:if test="${ user.aid == null }">
+										<td><textarea id="replyin" rows="20" cols="80"
+												name="r_text"></textarea></td>
+										<td><button type="button" class="btn btn-default"
+												id="replylogin" onclick="replyLogin()">
 												<i class="fas fa-pencil-alt"></i>&nbsp;입력
 											</button></td>
-									</tr>
-								</tbody>
-							</table>
-						</form>
+									</c:if>
+									<form action="replyin" method="post">
+										<c:if test="${ user.aid != null }">
+											<input type="hidden" name="wnum" value="${list.wnum}">
+											<input type="hidden" name="r_writer" value="${user.aid}">
+											<td><textarea id="replyin" rows="20" cols="80"
+													name="r_text"></textarea></td>
+											<td><button type="submit" class="btn btn-default"
+													id="reinsert" name="reinsert" onclick="replyCheck()">
+													<i class="fas fa-pencil-alt"></i>&nbsp;입력
+											</button></td>
+										</c:if>
+									</form>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
@@ -377,17 +477,19 @@ textarea {
 				<button type="button" class="btn btn-default btn-sm" id="golist">
 					<i class="fas fa-bars"></i>&nbsp;목록
 				</button>
-				<button type="button" class="btn btn-default btn-sm"
-					id="updatedetail"
-					onclick="location.href='updatedetailform?wnum=${list.wnum}'">
-					<i class="fas fa-feather-alt"></i>&nbsp;수정
-				</button>
-				<form name="delete" action="dedetail">
+				<c:if test="${user.aid == list.aid}">
 					<button type="button" class="btn btn-default btn-sm"
-						id="deletedetail" onclick="deleteClick()">
-						<i class="fas fa-times"></i>&nbsp;삭제
+						id="updatedetail"
+						onclick="location.href='updatedetailform?wnum=${list.wnum}'">
+						<i class="fas fa-feather-alt"></i>&nbsp;수정
 					</button>
-				</form>
+					<form name="delete" action="dedetail">
+						<button type="button" class="btn btn-default btn-sm"
+							id="deletedetail" onclick="deleteClick()">
+							<i class="fas fa-times"></i>&nbsp;삭제
+						</button>
+					</form>
+				</c:if>
 			</div>
 		</div>
 	</div>

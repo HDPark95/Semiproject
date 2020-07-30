@@ -19,4 +19,11 @@ public class SignUpRestPage {
 		int cnt = signUpDao.aidCheck(aid);
 		return cnt;
 	}
+	
+	@RequestMapping(value = "/nameChk")
+	@ResponseBody
+	public int dnameChk(String dname) {
+		int cnt = signUpDao.dnameCheck(dname);
+		return cnt;
+	}
 }

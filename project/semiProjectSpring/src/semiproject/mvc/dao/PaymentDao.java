@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import semiproject.mvc.vo.Member_DetailVO;
 import semiproject.mvc.vo.PaymentVO;
 import semiproject.mvc.vo.Payment_DetailVO;
-import semiproject.mvc.vo.SignUpVO;
+
 @Repository
 public class PaymentDao {
 	@Autowired

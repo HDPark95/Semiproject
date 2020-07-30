@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,13 +39,16 @@ public class AuctionHyuntaePage {
 	private AuctionHyuntaeDao auctionhyuntaedao;
 
 	@RequestMapping(value = "/auctionDetail")
-	public ModelAndView acutionGGG(int anum) {
+	public ModelAndView acutionGGG(int anum, HttpServletRequest request,HttpSession httpsession) throws Exception {
 		System.out.println("물건번호 : " + anum);
 		ModelAndView mav = new ModelAndView("auction/auctionDetail");
+		UserVO vo1 = (UserVO) httpsession.getAttribute("user");
+		String aid = vo1.getAid();
 		auctionhyuntaedao.auctionHit(anum);
 		AuctionDetailVO vo = auctionhyuntaedao.getAuctionDetail(anum);
 		mav.addObject("result", vo);
 		mav.addObject("list", anum);
+		mav.addObject("aid", aid);
 		return mav;
 	}
 
@@ -77,11 +81,13 @@ public class AuctionHyuntaePage {
 	}
 
 	@RequestMapping(value = "/auctionSaleManagement")
-	public ModelAndView saleManagement(int anum) {
+	public ModelAndView saleManagement(int anum , IpchalperVO vo1) {
 		System.out.println("물건번호 : " + anum);
 		ModelAndView mav = new ModelAndView("auction/auctionSaleManagement");
 		auctionhyuntaedao.auctionHit(anum);
 		AuctionDetailVO vo = auctionhyuntaedao.getAuctionDetail(anum);
+		System.out.println(vo.getIpnum());
+		System.out.println(vo1.getIpprice());
 		mav.addObject("result", vo);
 		mav.addObject("anum", anum);
 		return mav;

@@ -33,7 +33,7 @@ div.final_price {
 </head>
 
 	<h2>결제확인창</h2>
-	<form action="paymentUpdate" method="post">
+	<form action="sendSMS" method="post">
 	<div class="container">
 		<div class="etc_payment">
 			<span style="display:"> <label class="selected"><input
@@ -176,7 +176,7 @@ div.final_price {
 	
 	<div class="my_agrmt_wrap container">
 		<h5>
-			<input type="checkbox" id="check" name="check" > 개인정보 판매자
+			<input type="checkbox" id="check" name="chk" > 개인정보 판매자
 			제공에 동의합니다.(필수)
 		</h5>
 		<div>
@@ -214,19 +214,19 @@ div.final_price {
 	</div>
 	<div class="container">
 		<h5>
-			<input type="checkbox" id="check" name="check" > 개인정보 수집 및 이용에 동의합니다.(필수)
+			<input type="checkbox" id="check" name="chk" > 개인정보 수집 및 이용에 동의합니다.(필수)
 		</h5>
 		<p>고객님께서는 아래 내용에 대하여 동의를 거부하실 수 있으며, 거부 시 상품배송, 구매 및 결제, 일부 포인트
 			적립이 제한됩니다.</p>
 
 		<h5>
-			<input type="checkbox" id="check" name="check" >주문 상품정보에 동의합니다.(필수)
+			<input type="checkbox" id="check" name="chk" >주문 상품정보에 동의합니다.(필수)
 		</h5>
 		<p>주문 상품의 상품명,가격,배송정보에 동의합니다.</p>
-		<input type="checkbox" id="check" name="check" >위 내용을 모두 확인하였으며, 이 내용에 모두 동의하시겠습니까?(필수)<br>
+		<input type="checkbox" id="checkall" name="chk" >위 내용을 모두 확인하였으며, 이 내용에 모두 동의하시겠습니까?(필수)<br>
 		<button type="submit" class="btn btn-success" id="button1">결제하기</button>
 		<button type="button" class="btn btn-danger" id="button1"
-			onclick="location='pay4'">취소</button>
+			onclick="location='pay4'">뒤로가기</button>
 
 	</div>
 </form>
@@ -267,7 +267,25 @@ div.final_price {
 			           return false;
 			       }
 			});
-			
+			$(document).ready(function(){
+			    //최상단 체크박스 클릭
+			    $("#checkall").click(function(){
+			        //클릭되었으면
+			        if($("#checkall").prop("checked")){
+			            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 true로 정의
+			            $("input[name=chk]").prop("checked",true);
+			            //클릭이 안되있으면
+			            alert("모두 동의하시겠습니까?")
+			            
+			        }else{
+			            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
+			            $("input[name=chk]").prop("checked",false);
+			            
+			        }
+			    })
+			})
+
+
 		});
 	</script>
 

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
- <div class="container2 fixed-top " id="search-nav"style="margin-top: 88px;height: 80px;background-color: #f8f9fa;padding-top: auto;padding-top: 20px;">
+ <div class="container2 fixed-top " id="search-nav"style="margin-top: 60px;height: 88px;background-color: #f8f9fa;padding-top: auto;padding-top: 20px;">
 
 		<div class="row">
 			<div class="col-md-6 mt-6 search">
@@ -31,12 +31,12 @@
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
 	            			<h3 style="margin-top: 30px;">매물 종류 <label style="font-size: 11px;">중복선택이 가능합니다</label></h3><br>
-	            			<input type="checkbox" class="rentv checked" value="0">	<label>월세</label>
-	            			<input type="checkbox" class="rentv checked" value="1">	<label>전세 </label>
-	            			<input type="checkbox" class="rentv checked" value="2">	<label>매매</label>
+	            			<input type="checkbox"name="rentv" class=" checked rentv" value="0">	<label>월세</label>
+	            			<input type="checkbox"name="rentv" class=" checked rentv" value="1">	<label>전세 </label>
+	            			<input type="checkbox"name="rentv" class=" checked rentv" value="2">	<label>매매</label>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div" style="height: 500px;">
-	            			<div class="col-md-12">
+	            			<div  class="col-md-12 deposits">
 		            			<div id="slider1" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top:10px; display:inline-block;">
 									<label>보증금/전세가</label>
 										<span id="deposits" class="invisible slider"></span>
@@ -48,7 +48,7 @@
 									<input type="hidden" name="deposits_to" readonly="readonly" id="deposits_to"></label>
 								</div>
 							</div>
-							<div class="col-md-12">
+							<div class="col-md-12 monthmoenys">
 								<div id="slider2" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top: 70px;display:inline-block;">
 									<label>월세</label>
 										<span id="monthmoenys" class="invisible slider"></span>
@@ -61,7 +61,7 @@
 									<input type="hidden" name="monthmoenys_to" readonly="readonly" id="monthmoenys_to">
 									</label></div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-6 trades">
 								<div id="slider3" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top: 70px;display:inline-block;">
 									<label>매매가</label>
 										<span id="trades" class="invisible slider"></span>
@@ -78,7 +78,7 @@
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
 	            			<h3 style="margin-top: 30px;">방크기(전용면적)</h3><br>
 	            			<div class="col-md-12">
-								<div id="slider3" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top: 10px;display:inline-block;">
+								<div id="slider4" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top: 10px;display:inline-block;">
 									
 										<span id="roomArea" class="invisible slider"></span>
 		
@@ -94,7 +94,7 @@
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
 	            			<h3 style="margin-top: 30px;">관리비</h3><br>
 	            			<div class="col-md-12">
-								<div id="slider3" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top: 10px;display:inline-block;">
+								<div id="slider5" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top: 10px;display:inline-block;">
 									
 										<span id="roomCare" class="invisible slider"></span>
 		
@@ -108,23 +108,23 @@
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
 	            			<h3 style="margin-top: 30px;">층수 <label style="font-size: 11px;">중복선택이 가능합니다</label></h3><br>
-	            			<input type="checkbox" name="floor " value="0">	<label>전체</label>
-	            			<input type="checkbox" name="floor "value="1" class="checked">	<label>1층</label>
-	            			<input type="checkbox" name="floor "value="2" class="checked">	<label>2층</label>
-	            			<input type="checkbox" name="floor "value="3" class="checked">	<label>3층</label>
-	            			<input type="checkbox" name="floor "value="4" class="checked">	<label>4층</label>
-	            			<input type="checkbox" name="floor "value="5" class="checked">	<label>5층</label>
-	            			<input type="checkbox" name="floor "value="6" class="checked">	<label>6층</label>
-	            			<input type="checkbox" name="floor "value="7" class="checked">	<label>7층이상</label>
-	            			<input type="checkbox" name="floor" value="8">	<label>반지층</label>
-	            			<input type="checkbox" name="floor" value="9">	<label>옥탑</label>
+	            			<input type="checkbox" name="floor" value="0" class="floor_all">	<label>전체</label>
+	            			<input type="checkbox" name="floor"value="1" class="checked floor">	<label>1층</label>
+	            			<input type="checkbox" name="floor"value="2" class="checked floor">	<label>2층</label>
+	            			<input type="checkbox" name="floor"value="3" class="checked floor">	<label>3층</label>
+	            			<input type="checkbox" name="floor"value="4" class="checked floor">	<label>4층</label>
+	            			<input type="checkbox" name="floor"value="5" class="checked floor">	<label>5층</label>
+	            			<input type="checkbox" name="floor"value="6" class="checked floor">	<label>6층</label>
+	            			<input type="checkbox" name="floor"value="7" class="checked floor">	<label>7층이상</label>
+	            			<input type="checkbox" name="floor" value="8" class="floor">	<label>반지층</label>
+	            			<input type="checkbox" name="floor" value="9" class="floor">	<label>옥탑</label>
 	            		</div>
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
 	            			<h3 style="margin-top: 30px;">방구조<label style="font-size: 11px;">중복선택이 가능합니다</label></h3><br>
 	            			
 	            			<input type="checkbox" name="room"value="0" class="checked">	<label>주방분리형(1.5룸)</label>
 	            			<input type="checkbox" name="room"value="1" class="checked">	<label>복층</label>
-	            			<input type="checkbox" name="room"value="2" class="checked">	<label>투름</label>
+	            			<input type="checkbox" name="room"value="2" class="checked">	<label>투룸</label>
 	            			<input type="checkbox" name="room"value="3" class="checked">	<label>쓰리룸</label>
 	            			
 							<input type="hidden" name="cntPerPage" id="cntPerPage_val" value="10">
@@ -148,10 +148,164 @@
 	</div>
 	
 <script>
+
+
+
+
 	$(function(){
-		$(".checked").prop("checked",true)
+		$(".checked").prop("checked",true);
+		$(".floor_all").click(function(){
+			var bool=$(".floor_all").prop("checked");
+			
+			if(bool===true){
+				$(".floor").prop("checked",true);				
+			}else{
+				$(".floor").prop("checked",false);
+				$(".checked").prop("checked",true);
+			}
+		});
+		$(".floor").click(function() {
+			$(".floor").each(function() {
+				if(!$(this).prop('checked')){
+					$(".floor_all").prop("checked",false);
+				}
+			})
+			
+		})
+		$(".rentv").click(function(){
+			var bool=$(this).prop("checked")
+			var index = $(this).val();
+			var trades=true;
+			console.log(bool+" / "+typeof(index))
+			
+			if(bool===false){
+				switch(index) {
+				  case "0":
+					  var type=$(".rentv:nth-of-type(1)").prop('checked')
+					  if(!type){
+						  trades=$(".monthmoenys").children().hasClass("invisible");
+							if(trades===false){
+								$(".monthmoenys").children().addClass("invisible");
+								$(".monthmoenys").children().removeClass("visible");
+								$("#slider2 .irs-from").addClass("invisible");
+								$("#slider2 .irs-to").addClass("invisible");
+								$("#slider2 .irs-from").removeClass("visible");
+								$("#slider2 .irs-to").removeClass("visible");
+							}
+					  }
+					
+					var type=$(".rentv:nth-of-type(2)").prop('checked')
+					if(!type){	
+						 trades=$(".deposits").children().hasClass("invisible");
+						if(trades===false){
+							$(".deposits").children().addClass("invisible");
+							$(".deposits").children().removeClass("visible");
+							$("#slider1 .irs-from").addClass("invisible");
+							$("#slider1 .irs-to").addClass("invisible");
+							$("#slider1 .irs-from").removeClass("visible");
+							$("#slider1 .irs-to").removeClass("visible");
+						}
+					}
+				    break;
+				  case "1":
+					var type=$(".rentv:nth-of-type(1)").prop('checked')
+					console.log("1번째 값"+type)
+					if(!type){	
+						 trades=$(".deposits").children().hasClass("invisible");
+						if(trades===false){
+							$(".deposits").children().addClass("invisible");
+							$(".deposits").children().removeClass("visible");
+							$("#slider1 .irs-from").addClass("invisible");
+							$("#slider1 .irs-to").addClass("invisible");
+							$("#slider1 .irs-from").removeClass("visible");
+							$("#slider1 .irs-to").removeClass("visible");
+						}
+					}
+				
+					
+				    break;
+				  case "2":
+						var type=$(".rentv:nth-of-type(3)").prop('checked')
+						if(!type){
+							trades=$(".trades").children().hasClass("invisible");
+							if(trades===false){
+								$(".trades").children().addClass("invisible");
+								$(".trades").children().removeClass("visible");
+								$("#slider3 .irs-from").addClass("invisible");
+								$("#slider3 .irs-to").addClass("invisible");
+								$("#slider3 .irs-from").removeClass("visible");
+								$("#slider3 .irs-to").removeClass("visible");
+							}
+						}
+					 
+				    break;
+				}
+			}else{
+				switch(index) {
+				  case "0":
+					  var type=$(".rentv:nth-of-type(1)").prop('checked')
+					  if(type){
+						  trades=$(".monthmoenys").children().hasClass("visible");
+							if(trades===false){
+								$(".monthmoenys").children().addClass("visible");
+								$(".monthmoenys").children().removeClass("invisible");
+								$("#slider2 .irs-from").addClass("visible");
+								$("#slider2 .irs-to").addClass("visible");
+								$("#slider2 .irs-from").removeClass("invisible");
+								$("#slider2 .irs-to").removeClass("invisible");
+							}
+					  }
+					  
+						  trades=$(".deposits").children().hasClass("visible");
+							if(trades===false){
+								$(".deposits").children().addClass("visible");
+								$(".deposits").children().removeClass("invisible");
+								$("#slider1 .irs-from").addClass("visible");
+								$("#slider1 .irs-to").addClass("visible");
+								$("#slider1 .irs-from").removeClass("invisible");
+								$("#slider1 .irs-to").removeClass("invisible");
+							}
+					  
+						 
+				    break;
+				  case "1":
+					  var type=$(".rentv:nth-of-type(2)").prop('checked')
+					  if(type){
+						  trades=$(".deposits").children().hasClass("visible");
+							if(trades===false){
+								$(".deposits").children().addClass("visible");
+								$(".deposits").children().removeClass("invisible");
+								$("#slider1 .irs-from").addClass("visible");
+								$("#slider1 .irs-to").addClass("visible");
+								$("#slider1 .irs-from").removeClass("invisible");
+								$("#slider1 .irs-to").removeClass("invisible");
+							}
+					  }
+					  
+				    break;
+				  case "2":
+					  var type=$(".rentv:nth-of-type(3)").prop('checked')
+					  if(type){
+						  trades=$(".trades").children().hasClass("visible");
+							if(trades===false){
+								$(".trades").children().addClass("visible");
+								$(".trades").children().removeClass("invisible");
+								$("#slider3 .irs-from").addClass("visible");
+								$("#slider3 .irs-to").addClass("visible");
+								$("#slider3 .irs-from").removeClass("invisible");
+								$("#slider3 .irs-to").removeClass("invisible");
+							}
+					  }
+					 
+				    break;
+				}
+			}
 		
-		
+				
+			
+			
+			
+		});
 		
 		 var custom_values = ['0만원','500만원','1000만원','1500만원','2000만원','2500만원','3000만원','3500만원','4000만원','4500만원',
 			 '5000만원','5500만원','6000만원','6500만원','7000만원','7500만원','8000만원','8500만원','9000만원','9500만원','1억',

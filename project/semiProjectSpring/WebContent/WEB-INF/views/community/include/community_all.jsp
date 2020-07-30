@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <style>
 #checkorder1 {
 	text-align: right;
@@ -34,31 +35,39 @@
 	margin-right: 5px;
 }
 
-#pagenum1{
+#pagenum1 {
 	display: table;
 	margin-left: auto;
 	margin-right: auto;
 }
-#total{
+
+#total {
 	color: blue;
 }
 </style>
 <div class="tab-pane fade show active" id="all">
 	<br>
 	<div>
-	<p>총 <a id="total">${total}</a>건의 글이 검색되어 있습니다.</p>
+		<p>
+			총 <a id="total">${total}</a>건의 글이 검색되어 있습니다.
+		</p>
 		<div id="checkorder1">
 			<div class="form-check-inline">
-				<input type="button" id="wnumBtn" name="wnumBtn" class="btn-outline-info btn-sm" value="최신순▼">
+				<input type="button" id="wnumBtn" name="wnumBtn"
+					class="btn-outline-info btn-sm" value="최신순▼">
 			</div>
 			<div class="form-check-inline">
-				<input type="button" id="whitBtn" name="whitBtn" class="btn-outline-secondary btn-sm" value="조회순■">
+				<input type="button" id="whitBtn" name="whitBtn"
+					class="btn-outline-secondary btn-sm" value="조회순■">
 			</div>
 			<div class="form-check-inline">
-				<input type="button" id="wrecBtn" name="wrecBtn" class="btn-outline-secondary btn-sm" value="추천순■">
-				&nbsp;&nbsp;&nbsp;
-			<input type="hidden" id="sortindex" name="sortindex" value="${paging.sortindex}">
-				<button type="button" class="btn-primary btn-sm" id="writeBtn1">글쓰기</button>
+				<input type="button" id="wrecBtn" name="wrecBtn"
+					class="btn-outline-secondary btn-sm" value="추천순■">
+				&nbsp;&nbsp;&nbsp; <input type="hidden" id="sortindex"
+					name="sortindex" value="${paging.sortindex}">
+				<c:if test="${user.aid != null}">
+					<button type="button" class="btn-primary btn-sm" id="writeBtn1">글쓰기</button>
+				</c:if>
 			</div>
 		</div>
 	</div>
@@ -76,24 +85,35 @@
 		<tbody>
 			<c:forEach var="alist" items="${listall}">
 				<tr>
-					<th scope="row">${alist.wloc1}&nbsp;${alist.wloc2}&nbsp;[${alist.wgubun}]</th>
-					<td><a href="writing_detail?wnum=${alist.wnum}">${alist.wtitle}</a></td>
-					<td>${alist.wchgdate}</td>
-					<td>${alist.whit}</td>
-					<td>${alist.wrec}</td>
+					<c:if test="${fn:length(alist.wtitle) >= 30}">
+						<th scope="row">${alist.wloc1}&nbsp;${alist.wloc2}&nbsp;[${alist.wgubun}]</th>
+						<td><a href="writing_detail?wnum=${alist.wnum}">${fn:substring(alist.wtitle,0,30)}...</a></td>
+						<td>${alist.wchgdate}</td>
+						<td>${alist.whit}</td>
+						<td>${alist.wrec}</td>
+					</c:if>
+					<c:if test="${fn:length(alist.wtitle) < 30}">
+						<th scope="row">${alist.wloc1}&nbsp;${alist.wloc2}&nbsp;[${alist.wgubun}]</th>
+						<td><a href="writing_detail?wnum=${alist.wnum}">${alist.wtitle}</a></td>
+						<td>${alist.wchgdate}</td>
+						<td>${alist.whit}</td>
+						<td>${alist.wrec}</td>
+					</c:if>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	
+
 	<div class="form-check-inline" id="searchform1">
 		<select class="custom-select" id="searchType" name="searchType">
 			<option value="title">제목</option>
 			<option value="contents">내용</option>
 			<option value="comugu">구</option>
 			<option value="comudong">동</option>
-		</select> <input type="text" class="form-control" id="searchValue" name="searchValue">
-		<button type="submit" class="btn-primary btn-sm" id="btnSearch" value="Search">검색</button>
+		</select> <input type="text" class="form-control" id="searchValue"
+			name="searchValue">
+		<button type="submit" class="btn-primary btn-sm" id="btnSearch"
+			value="Search">검색</button>
 	</div>
 	<!-- 페이지 프로세스 include 처리 -->
 	<%@include file="pageprocess_all.jsp"%>
@@ -101,60 +121,60 @@
 <script>
 	$(function() {
 		// 매개변수가 변함에 따라 버튼을 바꾸는 함수
-		if($('#sortindex').val()==='2'){
+		if ($('#sortindex').val() === '2') {
 			$("#wnumBtn").val('최신순▲');
-			$("#wnumBtn").attr('class','btn-outline-danger btn-sm');
-		}else if($('#sortindex').val()==='1'){
+			$("#wnumBtn").attr('class', 'btn-outline-danger btn-sm');
+		} else if ($('#sortindex').val() === '1') {
 			$("#wnumBtn").val('최신순▼');
-		}else if($('#sortindex').val()==='4'){
+		} else if ($('#sortindex').val() === '4') {
 			$("#whitBtn").val('조회순▲');
-			$("#whitBtn").attr('class','btn-outline-danger btn-sm');
-		}else if($('#sortindex').val()==='3'){
+			$("#whitBtn").attr('class', 'btn-outline-danger btn-sm');
+		} else if ($('#sortindex').val() === '3') {
 			$("#whitBtn").val('조회순▼');
-			$("#whitBtn").attr('class','btn-outline-info btn-sm');
-		}else if($('#sortindex').val()==='6'){
+			$("#whitBtn").attr('class', 'btn-outline-info btn-sm');
+		} else if ($('#sortindex').val() === '6') {
 			$("#wrecBtn").val('추천순▲');
-			$("#wrecBtn").attr('class','btn-outline-danger btn-sm');
-		}else{
+			$("#wrecBtn").attr('class', 'btn-outline-danger btn-sm');
+		} else {
 			$("#wrecBtn").val('추천순▼');
-			$("#wrecBtn").attr('class','btn-outline-info btn-sm');
+			$("#wrecBtn").attr('class', 'btn-outline-info btn-sm');
 		}
-		
-		
+
 		// 매개변수가 변함에 따라 주소를 바꾸는 함수
-		$("#wnumBtn").click(function(){
+		$("#wnumBtn").click(function() {
 			var sortindex = $("#sortindex").val();
-			if(sortindex == '2'){
-				location.href="comuMain?sortindex=1";
-			}else{
-				location.href="comuMain?sortindex=2";
+			if (sortindex == '2') {
+				location.href = "comuMain?sortindex=1";
+			} else {
+				location.href = "comuMain?sortindex=2";
 			}
 		});
-		
-		$("#whitBtn").click(function(){
+
+		$("#whitBtn").click(function() {
 			var sortindex = $("#sortindex").val();
-			if(sortindex == '4'){
-				location.href="comuMain?sortindex=3";
-			}else{
-				location.href="comuMain?sortindex=4";
+			if (sortindex == '4') {
+				location.href = "comuMain?sortindex=3";
+			} else {
+				location.href = "comuMain?sortindex=4";
 			}
-			
+
 		});
-		
-		$("#wrecBtn").click(function(){
+
+		$("#wrecBtn").click(function() {
 			var sortindex = $("#sortindex").val();
-			if(sortindex == '6'){
-				location.href="comuMain?sortindex=5";
-			}else{
-				location.href="comuMain?sortindex=6";
+			if (sortindex == '6') {
+				location.href = "comuMain?sortindex=5";
+			} else {
+				location.href = "comuMain?sortindex=6";
 			}
 		});
-		
-		 $(document).on('click', '#btnSearch', function(e){
+
+		$(document).on('click', '#btnSearch', function(e) {
 			var url = "comuMain";
 			url = url + "?searchType=" + $('#searchType').val();
 			url = url + "&searchValue=" + $('#searchValue').val();
 			location.href = url;
-		}); 
+		});
 	});
+
 </script>

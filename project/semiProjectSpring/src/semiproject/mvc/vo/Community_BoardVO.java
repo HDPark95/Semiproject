@@ -4,7 +4,7 @@ public class Community_BoardVO {
 	
 	private int wnum, whit, wrec, wdel, anum;
 	private String wgubun, wloc1, wloc2, wtitle, wcontents, wchgdate;
-	private String aid;
+	private String aid, paid;
 	
 	public int getWnum() {
 		return wnum;
@@ -65,6 +65,13 @@ public class Community_BoardVO {
 	}
 	public void setAid(String aid) {
 		this.aid = aid;
+	}
+	
+	public String getPaid() {
+		return paid;
+	}
+	public void setPaid(String paid) {
+		this.paid = paid;
 	}
 	public String getWchgdate() {
 		return wchgdate;

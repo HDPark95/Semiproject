@@ -25,7 +25,7 @@ public class CommunityPage {
 	
 	@Autowired
 	private CommunityDao communityDao;
-
+	
 	@RequestMapping(value = "/wriCom")
 	public String writeCommercial() {
 		return "community/writing_commercial";
@@ -50,9 +50,10 @@ public class CommunityPage {
 	}
 	
 	@RequestMapping(value = "/comugu")
-	public String getGu(Model model) {
+	public String getGu(Model model,Community_BoardVO vo, String cate) {
 		List<String> list = communityDao.getGu();
 		model.addAttribute("result",list);
+		model.addAttribute("cate",cate);
 		return "community/server/searchServer";
 	}
 	

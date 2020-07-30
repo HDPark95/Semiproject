@@ -30,5 +30,10 @@ public class SignUpDao {
 	
 	public int aidCheck(String aid) {
 		return ss.selectOne("signup.idChk", aid);
+}
+
+	public int dnameCheck(String dname) {
+		
+		return ss.selectOne("signup.dnameChk", dname);
 	}
 }

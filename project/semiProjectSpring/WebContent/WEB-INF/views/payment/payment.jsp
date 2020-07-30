@@ -18,7 +18,7 @@
 		<h4>맘에 들지 않으신다면, 구독권을 변경하거나 취소 하실 수 있습니다.</h4>
 	</div>
 	<div class="container">
-	<form method="post" action="paymentDetail" id="premiumProlongpay">
+	<form method="post" action="paymentDetail" id="paymentDetail">
 		<div id="payment">	
 			구독을 하면 얻게되는 혜택 공인중개사<br>
 			<br>
@@ -69,7 +69,7 @@
 					<td><input type="button" value="뒤로" id="ff"
 						style="background-color: red;"
 						onclick="location='index#footerMenu69'"></td>
-					<td><input type="submit" value="다음" id="ee"
+					<td><input type="button" value="다음" id="ee"
 						style="background-color: green;"></td>
 					<td></td>
 				</tr>
@@ -142,10 +142,10 @@
 			});
 
 			$('#ee').click(function() {
-				if ($('#ee').val() == "") {
+				if ($('#dd').val() == "") {
 					alert('선택해주세요.');
 				} else{
-					$("#premiumProlongpay").submit();
+					$("#paymentDetail").submit();
 				}
 					
 					

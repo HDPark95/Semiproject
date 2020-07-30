@@ -21,7 +21,7 @@
  
  <select id="wridetail" parameterType="int" resultType="cboardvo">
  select w.wnum wnum, w.wgubun wgubun, w.wloc1 wloc1, w.wloc2 wloc2, w.wtitle wtitle, w.wcontents wcontents, w.wchgdate wchgdate, 
- w.whit whit, w.wrec wrec, substr(s.aid,1,4) aid from signup s, community_board w where s.anum = w.anum and wnum=#{wnum}
+ w.whit whit, w.wrec wrec, s.aid aid, substr(s.aid,1,4) paid from signup s, community_board w where s.anum = w.anum and wnum=#{wnum}
  </select>
  
  <update id="updatewhit" parameterType="int">

@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -38,6 +39,8 @@
 <div id="new" class="collapse navbar-collapse"
 	style="width: 1200px; margin: 0 auto; display: block;">
 	<div class="container default" style="border-bottom: 1px solid black;">
+	<input type="hidden" value="${user.dname}">
+	<input type="hidden" value="${user.aid}">
 		<div class="row">
 			<h2 class="fs-md col-sm-6" style="margin-top: 50px;">
 				<strong>${result.subject} [${result.yongdo}]</strong>
@@ -50,23 +53,24 @@
 			<table style="margin-top: 10px;">
 				<tr>
 					<td rowspan="11">
+					
 						<div id="target" class="bul">
-							<img src="img/${result.wimage}"onError="this.style.visibility='hidden'" id="main1"
+							<img src="img/${result.wimage}"onerror="this.src='img/noimg.jpg'" id="main1"
 								style="width: 550px; margin: 0 auto;">
 						</div>
 						<table id="bul" style="width: 550px; height: 110px">
 							<tr>
 							<td style="width: 25%; float: left;"><img
-									src="img/${result.wimage}" class="im"onError="this.style.visibility='hidden'"
+									src="img/${result.wimage}" class="im"onerror="this.src='img/noimg.jpg'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								<td style="width: 25%; float: left;"><img
-									src="img/${result.imagea}" class="im" onError="this.style.visibility='hidden'"
+									src="img/${result.imagea}" class="im" onerror="this.src='img/noimg.jpg'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								<td style="width: 25%; float: left;"><img
-									src="img/${result.imageb}" class="im"onError="this.style.visibility='hidden'"
+									src="img/${result.imageb}" class="im"onerror="this.src='img/noimg.jpg'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								<td style="width: 25%; float: left;"><img
-									src="img/${result.imagec}" class="im"onError="this.style.visibility='hidden'"
+									src="img/${result.imagec}" class="im"onerror="this.src='img/noimg.jpg'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								</tr>
 						</table>
@@ -195,6 +199,8 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script>
 
+
+
 function test(){
 	var ipprice = $("#ipprice").val();
 		ipprice = Number(ipprice);
@@ -226,17 +232,31 @@ function test(){
 	function close_pop(flag) {
 		$('#ex1').hide();
 	};
-	$('#sal').click(function(event){	
+	
+	$('#sal').click(function(event){
+		var bid = "${result.bid}";
+		var name = "${user.aid}";
+		console.log(bid)
+		console.log(name)
+		if(bid == name){
+			alert("판매자와 물건을 등록한 사람이 같습니다. 입찰 할 수 없습니다.")
+			event.stopPropagation();
+			$('#sal').attr('class', "btn btn-primary btn-lg disabled");
+		}if(bid != name){
+			alert("경매가 진행중인 물건입니다.")
+		}
 		if($('.timer').html() == "EXPIRED"){
 			event.stopPropagation();
 			alert("물건 경매가 마감되었습니다.")
 			$('#sal').attr('class', "btn btn-primary btn-lg disabled");
 			
 		}else{
-			alert("경매가 진행중인 물건입니다.")
+			
 			
 		}
+		
 	});
+
 	
 
 	/* var i= 0;

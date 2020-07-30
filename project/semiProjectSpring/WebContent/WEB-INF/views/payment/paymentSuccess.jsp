@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 
 <%@ include file="../include/header_index.jsp"%>
- <link href="resources/css/community/subscriptioncheck_lessor.css" rel="stylesheet">
 <%@ include file="../include/header_menu.jsp"%>
+ <link href="resources/css/community/subscriptioncheck_lessor.css" rel="stylesheet">
 <style>
 .btn {
 
