@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<context:component-scan
+		base-package="semiproject.mvc" />
+	<mvc:annotation-driven />
+	<mvc:resources location="/resources/"
+		mapping="/resources/**" />
+	<mvc:resources location="file:///C:/ikosmo64/pics/"
+		mapping="/img/*" />
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	<bean id="JsonView"
+		class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
+	<!-- <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"> 
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/> 
+		<property name="order" value="0"/> </bean> -->
+	<!-- <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"> 
+		<property name="definitions"> <list> <value>/WEB-INF/tiles/tiles-definitions.xml</value> 
+		</list> </property> </bean> -->
+	<bean id="loginInterceptor"
+		class="semiproject.mvc.interceptor.LoginInterceptor">
+	</bean>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="loginPost" />
+			<ref bean="loginInterceptor"></ref>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	 <!-- 메일 보내기 (SEND) -->
+   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+      <property name="host" value="smtp.gmail.com" />
+      <property name="port" value="587" />
+      <property name="username" value="coaudwjd@gmail.com" />
+      <property name="password" value="audwjd2718" />
+     
+      <!-- email 요청시는 SMTP -->
+      <property name="javaMailProperties">
+         <props>
+            <prop key="mail.transport.protocol">smtp</prop>
+            <prop key="mail.smtp.auth">true</prop>
+            <prop key="mail.smtp.starttls.enable">true</prop>
+            <prop key="mail.debug">true</prop>
+            <prop key ="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+         </props>
+      </property>
+   </bean>
+   
+   	<bean id="email" class="semiproject.mvc.email.Email">
+	</bean>
+	<bean id="emailSender" class="semiproject.mvc.email.EmailSender">
+	</bean>
+	
+</beans>

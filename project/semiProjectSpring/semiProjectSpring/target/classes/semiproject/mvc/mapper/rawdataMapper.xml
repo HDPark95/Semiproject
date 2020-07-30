@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data">	
+	<select id="gu" resultType="String">
+		 select distinct sname from writing_tag order by 1 asc
+	</select>
+	<select id="dong" parameterType="String" resultType="String">
+		select distinct hname from writing_tag where sname = #{guName} order by 1 asc
+	</select>
+	<select id="large" resultType="String">
+		select distinct 상권업종대분류명 from commercial
+	</select>
+	<select id="medium" parameterType="String" resultType="String">
+		select distinct 상권업종중분류명 from commercial where 상권업종대분류명 = #{largeName}
+	</select>
+	<select id="small" parameterType="commercial" resultType="String">
+		select distinct 상권업종소분류명 from commercial where 상권업종대분류명 = #{largeName} and 상권업종중분류명 = #{mediumName}
+	</select>
+	<select id="map" parameterType="commercial" resultType="commercial">
+		select 위도 lat, 경도 lng from commercial where 시군구명 = #{target} and 상권업종대분류명 = #{largeName} and 상권업종중분류명 = #{mediumName} and 상권업종소분류명 = #{smallName}
+	</select>
+	<select id="totalcount" resultType="commercial">
+		select count(*), 시군구명 from commercial group by 시군구명
+	</select>
+	<select id="gucount" resultType="commercial">
+		select count(*), 시군구명, 상권업종대분류명 from commercial group by 시군구명, 상권업종대분류명
+	</select>
+	<select id="information" parameterType="String" resultType="commercial"> 
+		select count(*) as num, 시군구명 as guName, 상권업종대분류명 as largeName from commercial where 시군구명 = #{guName} group by 시군구명, 상권업종대분류명
+	</select>
+	<select id="information2" parameterType="commercial" resultType="commercial">
+		select count(*) as num, 상권업종대분류명 as largeName, 시군구명  as guName, 행정동명 as dongName from commercial where 시군구명 = #{guName} and 행정동명 = #{dongName} group by 상권업종대분류명, 시군구명, 행정동명 
+	</select> 
+</mapper>

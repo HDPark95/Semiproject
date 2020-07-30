@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases> 
+		<typeAlias type="semiproject.mvc.vo.CommunityVO"
+			alias="comuVO" />
+	
+		
+		<typeAlias type="semiproject.mvc.vo.DataVO"
+			alias="commercial" />
+		<typeAlias type="semiproject.mvc.vo.MyPageVO"
+			alias="mypagevo" />
+		<typeAlias type="semiproject.mvc.vo.PaymentVO"
+			alias="paymentvo" />
+			
+			
+		<typeAlias type="semiproject.mvc.vo.AuctionAddMainVO"
+			alias="amainvo" />
+		<typeAlias type="semiproject.mvc.vo.AuctionAddDeVO"
+			alias="adevo" />
+		<typeAlias type="semiproject.mvc.vo.AuctionAddIpVO"
+			alias="aipvo" />
+		<typeAlias type="semiproject.mvc.vo.AuctionPageVO" alias="aviewpage" />
+		<typeAlias type="semiproject.mvc.vo.AuctionViewVO" alias="aviewmain" />		
+		<!--경매 config 종료  -->
+		<typeAlias type="semiproject.mvc.vo.CommercialProductVO"
+			alias="cpvo" />
+		<typeAlias type="semiproject.mvc.vo.UserVO" alias="uservo" />
+		<typeAlias type="semiproject.mvc.vo.SignUpVO"
+			alias="signVO"/>	
+		<typeAlias type="semiproject.mvc.vo.AuctionDetailVO" alias="actdetail"/>
+		<typeAlias type="semiproject.mvc.vo.Member_DetailVO"
+			alias="member_detailvo" />
+		<typeAlias type="semiproject.mvc.vo.Payment_DetailVO"
+			alias="payment_detailvo" />
+				<typeAlias type="semiproject.mvc.vo.PageVO"
+			alias="pvo" />
+			<typeAlias type="semiproject.mvc.vo.Community_BoardVO"
+			alias="cboardvo" />
+		<typeAlias type="semiproject.mvc.vo.Community_PageVO"
+			alias="commupvo"/>
+			<typeAlias type="semiproject.mvc.vo.AuctionSaleVO" alias="sale"/>
+<typeAlias type="semiproject.mvc.vo.IpchalperVO" alias="ipchal"/>
+
+	
+		
+		<typeAlias type="semiproject.mvc.vo.Customer_BoardVO" alias="cbvo" />
+		    
+		<typeAlias type="semiproject.mvc.vo.LoginDTO" alias="logindto" />
+			<typeAlias type="semiproject.mvc.vo.RealPriceVO" alias="realvo" />	
+		<!-- 부동산 -->
+		<typeAlias type="semiproject.mvc.vo.EstateVO" alias="evo"/>
+		<typeAlias type="semiproject.mvc.vo.EstatePageVO" alias="epvo"/>
+		<typeAlias type="semiproject.mvc.vo.AddInfoVO" alias="aivo"/>
+		<typeAlias type="semiproject.mvc.vo.RentVO" alias="rentvo"/>
+		<typeAlias type="semiproject.mvc.vo.SubBuildVO" alias="sbvo"/>
+		<typeAlias type="semiproject.mvc.vo.AdministrativeVO" alias="adminvo"/>
+		<typeAlias type="semiproject.mvc.vo.Option_SelVO" alias="osvo"/>
+		<typeAlias type="semiproject.mvc.vo.OptionVO" alias="ovo"/>
+		<typeAlias type="semiproject.mvc.vo.Product_ImgVO" alias="pimgvo"/>
+	</typeAliases>
+
+</configuration>
