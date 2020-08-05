@@ -33,7 +33,7 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">로그인</h1>
+                    <h1 class="h4 text-gray-900 mb-4">환영합니다!</h1>
                   </div>
                   <form action="loginPost" method="post">
                     <div class="form-group">
@@ -90,6 +90,7 @@
 <script>
 	var newForm=$("#user");
 	function idchk(){
+		console.log($('#exampleInputEmail').val())
 			$.ajax({
 			url : "loginPost" ,
 			type : "post" ,
@@ -98,6 +99,12 @@
 					tab : 'ajax'	 	
 			},
 			success : function(result) {
+				try{
+					tokenins();	
+				}catch(err){
+					alert(err)
+				}
+				
 				location = "loginPost?aid="+$('#exampleInputEmail').val()+"&apwd="+$('#exampleInputPassword').val()+"&tab=location"
 			} ,
 			error : function(result){
@@ -112,6 +119,21 @@
 		newForm.submit();		
 		
 	}
+	
+	function tokenins(){
+	
+	messaging.getToken().then(token =>{
+		$.ajax({
+			url : "logintokenins?aid="+$('#exampleInputEmail').val()+"&token="+token,
+			type : "get" ,
+			success : function(result) {
+					console.log("pass");
+			}
+		});
+	});
+	
+	}
+	
 	</script>
 </body>
 <div style="margin-bottom: 150px;">

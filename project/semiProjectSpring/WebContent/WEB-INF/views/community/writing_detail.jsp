@@ -164,6 +164,7 @@
 	height: 52px;
 	margin: 0px 0px 22px 0px;
 	border: 1px solid gray;
+	background-color: #FFFFFF;
 }
 
 .replyupdate, .replydelete {

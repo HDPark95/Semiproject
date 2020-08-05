@@ -30,16 +30,6 @@ public class CommunityPage {
 	public String writeCommercial() {
 		return "community/writing_commercial";
 	}
-
-	@RequestMapping(value = "/wriEst")
-	public String writeEstate() {
-		return "community/writing_estate";
-	}
-
-	@RequestMapping(value = "/wriAuc")
-	public String writeAuction() {
-		return "community/writing_auction";
-	}
 	
 	@RequestMapping(value = "/updateWrec")
 	public String updateWrec(Model model, int wnum, HttpServletRequest request, HttpServletResponse response) {
@@ -84,22 +74,7 @@ public class CommunityPage {
 	@RequestMapping(value = "/writing_commercial_in",method = RequestMethod.POST)
 	public ModelAndView writingCommercial(Community_BoardVO vo) {
 		ModelAndView mav = new ModelAndView("redirect:comuMain");
-		communityDao.cWriting(vo);
-		return mav;
-		
-	}
-	
-	@RequestMapping(value = "/writing_estate_in",method = RequestMethod.POST)
-	public ModelAndView writingEstate(Community_BoardVO vo) {
-		ModelAndView mav = new ModelAndView("redirect:comuMain");
-		communityDao.eWriting(vo);
-		return mav;
-	}
-	
-	@RequestMapping(value = "/writing_auction_in",method = RequestMethod.POST)
-	public ModelAndView writingAuction(Community_BoardVO vo) {
-		ModelAndView mav = new ModelAndView("redirect:comuMain");
-		communityDao.aWriting(vo);
+		communityDao.Writing(vo);
 		return mav;
 	}
 	

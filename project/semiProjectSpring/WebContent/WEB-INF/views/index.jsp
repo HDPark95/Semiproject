@@ -37,7 +37,7 @@
 	font-family: 'Noto Sans KR',sans-serif;
 }
 
-.topContainer {
+.topContainer,.estateContainer,.subscribeContainer {
 	width: 100%;
 	font-family: 'Noto Sans KR',sans-serif;
 	height: 907px;
@@ -132,17 +132,54 @@
 	</div>
 </div>
 <div class="commercialContainer">
-	상가에 관한 설명이 들어갈 Div
+	<div class="topArea">
+		<div class="topImage"></div>
+		<div class="topText">
+			<p>상가에 대해서 쏼라쏼라1111</p>
+			<p>상가에 대해서 쏼라쏼라2222</p>
+			<button onclick="location.href='commercialMain'">상가로 가기</button>
+		</div>
+	</div>
 </div>
 
 <div class="estateContainer">
-	부동산에 관한 설명이 들어갈 Div
+	<div class="topArea">
+		<div class="topImage"></div>
+		<div class="topText">
+			<p>부동산에 대해서 쏼라쏼라1111</p>
+			<p>부동산에 대해서 쏼라쏼라2222</p>
+			<button onclick="location.href='estateMain'">부동산으로 가기</button>
+		</div>
+	</div>
 </div>
 <div class="auctionContainer">
-	경매에 관한 설명이 들어갈 Div
+	<div class="topArea">
+		<div class="topImage"></div>
+		<div class="topText">
+			<p>경매에 대해서 쏼라쏼라1111</p>
+			<p>경매에 대해서 쏼라쏼라2222</p>
+			<button onclick="location.href='auctionMain'">경매로 가기</button>
+		</div>
+	</div>
 </div>
 <div class="subscribeContainer">
-	구독에 관한 설명이 들어갈 Div
+	<div class="topArea">
+		<div class="topImage"></div>
+		<div class="topText">
+			<p>구독에 대해서 쏼라쏼라1111</p>
+			<p>구독에 대해서 쏼라쏼라2222</p>
+			<c:catch>
+				<c:choose>
+					<c:when test="${empty user}">
+						<button onclick="location.href='login'">구독하러 가기</button>
+					</c:when>
+					<c:otherwise>
+						<button onclick="location.href='mypage_lessor?aid=${user.aid}'">구독하러 가기</button>
+					</c:otherwise>
+				</c:choose>
+			</c:catch>
+		</div>
+	</div>
 </div>
 <button onclick="topFunction()" id="scrollTopBtn" title="Go to top">맨 위로 가기</button>
 <%@ include file="include/footer.jsp"%>

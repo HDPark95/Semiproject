@@ -30,20 +30,11 @@ public class CommunityDao {
 		return list;
 	}
 	
-	// 상가 부문에서의 글 작성을 하는 DAO
-	public void cWriting(Community_BoardVO vo) {
-		ss.insert("commuwriting.Cwriting", vo);
+	// 글 작성을 하는 DAO
+	public void Writing(Community_BoardVO vo) {
+		ss.insert("commuwriting.writing", vo);
 	}
-	
-	// 부동산 부문에서의 글 작성을 하는 DAO
-	public void eWriting(Community_BoardVO vo) {
-		ss.insert("commuwriting.Ewriting", vo);
-	}
-	
-	// 경매 부문에서의 글 작성을 하는 DAO
-	public void aWriting(Community_BoardVO vo) {
-		ss.insert("commuwriting.Awriting", vo);
-	}
+
 	
 	// 작성한 글을 보여주는데 사용되는 DAO
 	public Community_BoardVO WriDetail(int wnum){

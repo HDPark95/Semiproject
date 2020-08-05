@@ -2,8 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
-<%@ include file="../include/header_index.jsp"%>
+<%@ include file="../include/header_main.jsp"%>
 <%@ include file="../include/header_menu.jsp"%>
+<%@ include file="../include/header_CoEstateSubMenu.jsp"%>
 <%@include file="sidemenu.jsp"%>
 <style>
 h2{

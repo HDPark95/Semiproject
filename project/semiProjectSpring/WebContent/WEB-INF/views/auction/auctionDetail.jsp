@@ -124,6 +124,10 @@
 				<td>${result.bid}</td>
 			</tr>
 			<tr>
+				<th>현재가</th>
+				<td style="color: blue; font-weight: 900">${result.hprice}</td>
+			</tr>
+			<tr>
 				<td colspan="2"><a href="#ex1" rel="modal:open"
 					class="btn btn-primary btn-lg" id="sal">입찰하기</a></td>
 					
@@ -165,6 +169,11 @@
 						
 					</tr>
 					<tr>
+						<th colspan="2">입찰자</th>
+						<td colspan="2" id="2">${user.aid}</td>
+						
+					</tr>
+					<tr>
 						<th colspan="2">남은기간</th>
 						<td colspan="2" class="timer"></td>
 					</tr>
@@ -174,7 +183,7 @@
 					</tr>
 					<tr>
 						<th colspan="2">현재가</th>
-						<td colspan="2" id="4">${result.hprice}</td>
+						<td colspan="2" id="4" style="color: blue">${result.hprice}</td>
 					</tr>
 					<tr>
 						<th colspan="2">입찰금액</th>
@@ -205,10 +214,11 @@ function test(){
 	var ipprice = $("#ipprice").val();
 		ipprice = Number(ipprice);
 	var ipnum = "${result.ipnum}";
-	var bid = "${result.bid}";
+	var bid = "${user.aid}";
+	//var aid = "";
 	var anum = "${result.anum}";
 	var url = "?ipprice=" + ipprice + "&ipnum="+ipnum +"&bid="+bid
-	location = 'purchase'+url
+	//location = 'purchase'+url
 	
 	console.log(ipprice);
 	console.log(typeof(${result.hprice}));
@@ -217,11 +227,22 @@ function test(){
 	alert("numvv:"+numvv+"ipprice:"+ipprice);
 	if(numvv > $("#ipprice").val()){	
 		alert('입찰금액이 현재가 보다 낮습니다. 다시 입력해주세요.')
-			location.reload();
+			//location.reload();
 	}else{
+		fcmpush(ipnum);
+		location = 'purchase'+url
 		alert('입찰되었습니다! 축하드립니다!')
 	}
 };
+function fcmpush(ipnum){
+	$.ajax({
+		url : "fcmcall?ipnum="+ipnum,
+		type : "get" ,
+		success : function(result) {
+				console.log("pass");
+		}
+	});
+}
 	$(document).ready(function() {
 		var $node = $('div').children();
 		$('.im').click(function() {	

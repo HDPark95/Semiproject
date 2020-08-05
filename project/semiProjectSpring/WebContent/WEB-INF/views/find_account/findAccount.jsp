@@ -64,7 +64,8 @@ $(function() {
 					}else{
 						$('#idtarget').html("<p style='color:red'>ID가 존재하지 않습니다.</p>");						
 					}
-				}		
+				}
+				
 			});
 		});
 	});
@@ -72,4 +73,3 @@ $(function() {
 </script>
 
 <%@ include file="../include/footer.jsp"%>
-	

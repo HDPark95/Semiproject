@@ -26,7 +26,9 @@
 		<typeAlias type="semiproject.mvc.vo.AuctionViewVO" alias="aviewmain" />
 		<typeAlias type="semiproject.mvc.vo.AuctionMyipViewVO" alias="amyview" />
 		<typeAlias type="semiproject.mvc.vo.AuctionmypageipVO" alias="aiplist" />
-		<typeAlias type="semiproject.mvc.vo.AuctionMyJsonVO" alias="alct" />	
+		<typeAlias type="semiproject.mvc.vo.AuctionMyJsonVO" alias="alct" />
+		<typeAlias type="semiproject.mvc.vo.LogintokenVO" alias="ltoken" />
+		<typeAlias type="semiproject.mvc.vo.FcmidVO" alias="fcmt" />	
 		<!--경매 config 종료  -->
 		<typeAlias type="semiproject.mvc.vo.CommercialProductVO"
 			alias="cpvo" />

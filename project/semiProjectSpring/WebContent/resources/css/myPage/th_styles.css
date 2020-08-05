@@ -16,7 +16,7 @@
 }
  
 .mypagesection{
-	height: 1200px;
+	height: 850px;
 } 
  
 #p_list {
@@ -185,16 +185,13 @@ table.type12 td {
 
 .th_li_sub {
 	width: 50%;
+	border: 1px solid #e6e6e6;
+	background-color: #FFFFFF;
 }
 
-.th_atwi {
-	text-align: center;
+/* .th_atwi:focus {
 	color: black;
-}
-
-.th_atwi:focus {
-	color: black;
-}
+} */
 
 .selc {
 	width: 155px;
@@ -230,7 +227,8 @@ table.type12 td {
 
 .th_page_space {
 	width: auto;
-	height: 800px;
+	height: 450px;
+    padding-top: 50px;
 }
 
 .th_img_boxlist {
@@ -437,54 +435,54 @@ table.type12 td {
 }
 
 .th_nav-link:hover {
-	
+	color: #FD7400;
 }
 
-.th_nav-link:focus {
-	background-color: #778899;
-	border-color: #444 #444 transparent;
-	color: #fff;
-}
+/* .th_nav-link:focus {
+	border: 2px solid #FD7400;
+	color: #000000;
+} */
 
 .th_nav-link {
 	display: block;
 	padding: 0.5rem 1rem;
 }
 
-#customers {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+.customers {
+	font-family: 'Noto Sans KR',sans-serif;
 	border-collapse: collapse;
 	width: 100%;
 	border: 1px solid #ddd;
 }
 
-#customers th {
+.customers th {
 	border: 1px solid #ddd;
 	padding: 8px;
 }
 
-#customers td {
+.customers td {
 	padding: 8px;
 }
 
-#customers #management {
+/* #customers #management {
 	padding: 4px;
+} */
+
+.customers tr:nth-child(even) {
+	border-top: 1px solid #E6E6E6;
+	border-bottom: 1px solid #E6E6E6;
 }
 
-#customers tr:nth-child(even) {
-	background-color: #f2f2f2;
-}
-
-#customers tr:hover {
+/* #customers tr:hover {
 	background-color: #ddd;
-}
+} */
 
-#customers th {
+.customers th {
 	padding-top: 12px;
 	padding-bottom: 12px;
 	text-align: center;
-	background-color: #778899;
-	color: white;
+	background-color: #FFFFFF;
+	color: #000000;
 }
 
 table.type02 {
@@ -515,4 +513,73 @@ table.type02 td {
 	vertical-align: top;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
+}
+
+/* CSS 통합을 위한 고유 CSS 설계 영역 시작 
+   button1 : 검색 버튼
+   button2 : 글쓰기 버튼
+   button3 : 확인 버튼
+   button4 : 취소 버튼
+*/
+
+.button1{
+	height: 40px;
+	background-color: #FFFFFF;
+    border: 1px solid #D8D8D8;
+    color: #000000;
+    font-family: 'Noto Sans KR',sans-serif;
+    line-height: 3px;
+    font-size: 15px;
+    padding: 5px 20px 5px 20px;
+}
+.button1:hover{
+	border: 1px solid #F24607;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+.button2{
+	height: 40px;
+	background-color: #FFFFFF;
+    border: 2px solid #D8D8D8;
+    color: #000000;
+    line-height: 3px;
+    font-size: 15px;
+    padding: 5px 15px 5px 15px;
+}
+.button2:hover{
+	border: 2px solid #F24607;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+.button3{
+	height: 40px;
+	background-color: #FFFFFF;
+    border: 2px solid #D8D8D8;
+    color: #000000;
+    line-height: 3px;
+    font-size: 15px;
+    padding: 5px 15px 5px 15px;
+}
+.button3:hover{
+	border: 2px solid #FD7400;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+.button4{
+	height: 40px;
+	background-color: #FFFFFF;
+    border: 2px solid #D8D8D8;
+    color: #000000;
+    line-height: 3px;
+    font-size: 15px;
+    padding: 5px 15px 5px 15px;
+}
+.button4:hover{
+	border: 2px solid #004358;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+tr > td > a:hover{
+	color: #F55900;
 }

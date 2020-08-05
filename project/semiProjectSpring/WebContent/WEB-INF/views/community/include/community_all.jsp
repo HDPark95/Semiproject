@@ -33,6 +33,17 @@
 
 #btnSearch {
 	margin-right: 5px;
+    background-color: #FFFFFF;
+    border: 1px solid #D8D8D8;
+    color: #000000;
+    width: 90px;
+    height: 38px;
+    border-radius: 0.25rem;
+}
+#btnSearch:hover {
+	border: 1px solid #F24607;
+	background-color: #FFFFFF;
+	color: #000000;
 }
 
 #pagenum1 {
@@ -44,6 +55,31 @@
 #total {
 	color: blue;
 }
+#all{
+	font-family: 'Noto Sans KR',sans-serif;
+}
+th{
+	font-weight: normal; 
+}
+
+.btn{
+	padding: 0.75rem 0.75rem;
+	letter-spacing: 0.05rem;
+	font-size: 90%;
+}
+
+.btn:hover{
+	text-decoration: underline;
+	color: #000000;
+}
+
+.btn.btn-inactive{
+	color: #A4A4A4;
+}
+
+.btn.btn-active{
+	color: #000000;
+}
 </style>
 <div class="tab-pane fade show active" id="all">
 	<br>
@@ -54,19 +90,21 @@
 		<div id="checkorder1">
 			<div class="form-check-inline">
 				<input type="button" id="wnumBtn" name="wnumBtn"
-					class="btn-outline-info btn-sm" value="최신순▼">
+					class="btn btn-active btn-sm" value="최신순▼">
 			</div>
+			<a> | </a>
 			<div class="form-check-inline">
 				<input type="button" id="whitBtn" name="whitBtn"
-					class="btn-outline-secondary btn-sm" value="조회순■">
+					class="btn btn-inactive btn-sm" value="조회순■">
 			</div>
+			<a> | </a>
 			<div class="form-check-inline">
 				<input type="button" id="wrecBtn" name="wrecBtn"
-					class="btn-outline-secondary btn-sm" value="추천순■">
+					class="btn btn-inactive btn-sm" value="추천순■">
 				&nbsp;&nbsp;&nbsp; <input type="hidden" id="sortindex"
 					name="sortindex" value="${paging.sortindex}">
 				<c:if test="${user.aid != null}">
-					<button type="button" class="btn-primary btn-sm" id="writeBtn1">글쓰기</button>
+					<button type="button" class="btn-sm button2" id="writeBtn1"><i class="fas fa-pen"></i>&nbsp;글쓰기</button>
 				</c:if>
 			</div>
 		</div>
@@ -94,7 +132,7 @@
 					</c:if>
 					<c:if test="${fn:length(alist.wtitle) < 30}">
 						<th scope="row">${alist.wloc1}&nbsp;${alist.wloc2}&nbsp;[${alist.wgubun}]</th>
-						<td><a href="writing_detail?wnum=${alist.wnum}">${alist.wtitle}</a></td>
+						<td><a href="writing_detail?wnum=${alist.wnum}" title="${alist.wtitle}">${alist.wtitle}</a></td>
 						<td>${alist.wchgdate}</td>
 						<td>${alist.whit}</td>
 						<td>${alist.wrec}</td>
@@ -112,7 +150,7 @@
 			<option value="comudong">동</option>
 		</select> <input type="text" class="form-control" id="searchValue"
 			name="searchValue">
-		<button type="submit" class="btn-primary btn-sm" id="btnSearch"
+		<button type="submit" id="btnSearch"
 			value="Search">검색</button>
 	</div>
 	<!-- 페이지 프로세스 include 처리 -->
@@ -123,21 +161,34 @@
 		// 매개변수가 변함에 따라 버튼을 바꾸는 함수
 		if ($('#sortindex').val() === '2') {
 			$("#wnumBtn").val('최신순▲');
-			$("#wnumBtn").attr('class', 'btn-outline-danger btn-sm');
+			$("#wnumBtn").attr('class', 'btn btn-active btn-sm');
 		} else if ($('#sortindex').val() === '1') {
 			$("#wnumBtn").val('최신순▼');
+			
 		} else if ($('#sortindex').val() === '4') {
 			$("#whitBtn").val('조회순▲');
-			$("#whitBtn").attr('class', 'btn-outline-danger btn-sm');
+			$("#whitBtn").attr('class', 'btn btn-active btn-sm');
+			
+			$("#wnumBtn").val('최신순■');
+			$("#wnumBtn").attr('class', 'btn btn-inactive btn-sm');
 		} else if ($('#sortindex').val() === '3') {
 			$("#whitBtn").val('조회순▼');
-			$("#whitBtn").attr('class', 'btn-outline-info btn-sm');
+			$("#whitBtn").attr('class', 'btn btn-active btn-sm');
+			
+			$("#wnumBtn").val('최신순■');
+			$("#wnumBtn").attr('class', 'btn btn-inactive btn-sm');
 		} else if ($('#sortindex').val() === '6') {
 			$("#wrecBtn").val('추천순▲');
-			$("#wrecBtn").attr('class', 'btn-outline-danger btn-sm');
+			$("#wrecBtn").attr('class', 'btn btn-active btn-sm');
+			
+			$("#wnumBtn").val('최신순■');
+			$("#wnumBtn").attr('class', 'btn btn-inactive btn-sm');
 		} else {
 			$("#wrecBtn").val('추천순▼');
-			$("#wrecBtn").attr('class', 'btn-outline-info btn-sm');
+			$("#wrecBtn").attr('class', 'btn btn-active btn-sm');
+			
+			$("#wnumBtn").val('최신순■');
+			$("#wnumBtn").attr('class', 'btn btn-inactive btn-sm');
 		}
 
 		// 매개변수가 변함에 따라 주소를 바꾸는 함수

@@ -38,9 +38,9 @@ and c_num = #{c_num}
 <select id="listall" parameterType="commupvo" resultType="cbvo">
 select * from (
 select rownum rnum, a.* from (
-select c.c_num,c.c_subject,substr(s.aid,1,4) aid,c_regdate,c_anschk 
+select c.c_num,c.c_subject,s.aid,c.c_regdate,c.c_anschk,c.c_type 
 from customer_board c, signup s 
-where s.anum = c.anum AND c_del = 0
+where s.anum = c.anum AND c_del = 0 
 		<trim>
 			<if test="searchType=='title'">
 				AND c_subject like '%'||#{searchValue}||'%'

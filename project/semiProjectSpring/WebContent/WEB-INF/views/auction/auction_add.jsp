@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="../include/header_index.jsp"%>
+
+<%@ include file="../include/header_main.jsp"%>
+<%@ include file="../include/header_menu.jsp"%>
+
 <link rel="stylesheet" href="resources/css/auction/main/bootstrap.css">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <script type="text/javascript" src="resources/edit/js/service/HuskyEZCreator.js" charset="UTF-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-<%@ include file="../include/header_menu.jsp"%>
 <style>
 body {
   margin: 0;

@@ -92,6 +92,19 @@ order by a.hit desc
 	<update id="upstaus">
 	{CALL update_auction_status}
 	</update>
+	<update id="tokenins" parameterType="ltoken">
+	update LOGINTOKEN set token = #{token} where aid = #{aid} and gubun = 'P'
+	</update>
+	<select id="selaid" parameterType="int" resultType="String">
+	select a.bid from( 
+	select bid from ipchalper where ipnum = #{ipnum} order by ipdate desc) a
+	where rownum = 1 
+	</select>
+	<select id="fcmid" parameterType="fcmt" resultType="fcmt">
+	select token, (select subject from ipchal where ipnum = #{ipnum}) as subject  
+  	  from logintoken
+	 where aid = #{aid}
+	</select>
 </mapper>
 
 

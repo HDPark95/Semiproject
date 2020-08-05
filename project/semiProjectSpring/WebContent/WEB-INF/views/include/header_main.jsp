@@ -20,35 +20,3 @@
 <link href="resources/css/styles.css" rel="stylesheet" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-	<%--  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About us</a></li>
-                       <c:catch>
-                       <c:choose>
-                       <c:when test="${empty user}">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login">고객센터</a></li>
-                        </c:when>
-                        <c:otherwise>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="list1">고객센터</a></li>
-                        </c:otherwise>
-                        </c:choose>
-                        </c:catch>
-                         <c:catch>
-                       <c:choose>
-                       <c:when test="${empty user}">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login">로그인</a></li>
-                        </c:when>
-                        <c:otherwise>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout">로그아웃</a></li>
-                        </c:otherwise>
-                        </c:choose>
-                        </c:catch>
-                    </ul>
-                </div>
-            </div>
-        </nav> --%>

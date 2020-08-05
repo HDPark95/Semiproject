@@ -110,7 +110,7 @@
  		) A
  	</insert>
  	<insert id="addlocation" parameterType="evo">
- 		insert into product_location values(product_location_seq.nextVal,#{pdnum},0,0,#{plocation},#{detaillocation})
+ 		insert into product_location values(product_location_seq.nextVal,#{pdnum},#{lat},#{lng},#{plocation},#{detaillocation})
  	</insert>
  	<select id="productnum" parameterType="evo" resultType="int">
  		select pdnum from product where anum=#{anum} and ATCLFETRDESC = #{title} and flrinfo=#{floor}
@@ -202,6 +202,8 @@
  		<result property="supply" column="spc1"/>
  		<result property="exclusive" column="spc2"/>
  		<result property="title" column="atclfetrdesc"/>
+ 		<result property="lat" column="lat"/>
+ 		<result property="lng" column="lng"/>
  		<collection property="rent" javaType="java.util.List" resultMap="rentm" ofType="rentvo" />
  		<collection property="img" javaType="java.util.List" resultMap="imgv" ofType="pimgvo" />
  	</resultMap>
@@ -237,6 +239,8 @@
  		<result property="title" column="atclfetrdesc"/>
  		<result property="plocation" column="plocation"/>
  		<result property="rltrnm" column="rltrnm"/>
+ 		<result property="lat" column="lat"/>
+ 		<result property="lng" column="lng"/>
  		<association property="addinfo" column="pdnum"  javaType="aivo">
  			<id property="pidnum" column="pidnum"/>
  			<result property="aspay" column="aspay"/>

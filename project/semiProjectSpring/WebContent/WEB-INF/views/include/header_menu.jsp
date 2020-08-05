@@ -36,7 +36,7 @@ a:hover {
 	font-family: 'Noto Sans KR',sans-serif;
 }
 
-.navbar-nav.mr-auto.commercial{
+.collapse.navbar-collapse > ul:first-child{
 	margin-left: auto !important;
 }
 
@@ -64,6 +64,7 @@ a:hover {
 
 .dropdown-menu {
 	margin-top: -0.5px;
+	z-index: 1030;
 }
 
 .dropdown-menu > li{
@@ -93,15 +94,27 @@ a:hover {
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarColor03">
-			<ul class="navbar-nav mr-auto commercial">
+			<c:catch>
+                	<c:choose>
+                    	<c:when test="${empty user}">
+                    	</c:when>
+						<c:otherwise>	
+							<ul class="navbar-nav mr-auto">
+								<li class="nav-item addestate">
+									<a class="nav-link" onclick="location.href='addestate'">매물 등록&nbsp;<i class="fas fa-file-upload"></i></a>
+								</li>
+							</ul>
+						</c:otherwise>
+				</c:choose>
+            </c:catch>		
+			<ul class="navbar-nav mr-auto">
 				<li class="nav-item dropdown commercial" class="dropdown-toggle" data-toggle="dropdown">
 				<a class="nav-link" onclick="location.href='commercialMain'">상가&nbsp;<i class="fas fa-store"></i></a>
 					<ul class="dropdown-menu commercial">
           				<li><a href="#" onclick="location.href='realprice'">실거래가</a></li>
           				<li><a href="#" onclick="location.href='nearEstate'">주변 부동산</a></li>
           				<li><a href="#" onclick="location.href='product'">매물 검색</a></li>
-          				
-		                       	<li><a href="#" onclick="location.href='newsList'">뉴스</a></li>
+		                <li><a href="#" onclick="location.href='newsList'">뉴스</a></li>
         			</ul>
 				</li>
 			</ul>
@@ -109,9 +122,9 @@ a:hover {
 				<li class="nav-item dropdown estate">
 				<a class="nav-link" onclick="location.href='estateMain'">부동산&nbsp;<i class="fas fa-building"></i></a>
 					<ul class="dropdown-menu estate">
-          					<li><a href="#"  onclick="location.href='estateMain'">매물</a></li>
-		                      	<li><a href="#"  onclick="location.href='realprice'">실거래가</a></li>
-		                       	<li><a href="#"  onclick="location.href='nearEstate'">주변부동산</a></li>
+          				<li><a href="#"  onclick="location.href='estateMain'">매물</a></li>
+		                <li><a href="#"  onclick="location.href='realprice'">실거래가</a></li>
+		                <li><a href="#"  onclick="location.href='nearEstate'">주변 부동산</a></li>
         			</ul>
 				</li>
 			</ul>	
@@ -119,10 +132,21 @@ a:hover {
 				<li class="nav-item dropdown auction">
 				<a class="nav-link" onclick="location.href='auctionMain'">경매&nbsp;<i class="fas fa-money-bill-alt"></i></a>
 					<ul class="dropdown-menu auction">
-          					<li><a href="#" onclick="location.href='auctionMain'">물건검색</a></li>
-		                       	<li><a href="#" onclick="location.href='auction_sales?aid=${user.aid }'">판매관리</a></li>
-		                       
-		                       	<li><a href="#" onclick="location.href='auctionAdd'">부동산등록</a></li>
+          				<li>
+          					<a href="#" onclick="location.href='auctionMain'">물건검색</a>
+          				</li>
+		                <c:catch>
+                			<c:choose>
+                    			<c:when test="${empty user}">
+									<li><a href="#" onclick="loginCheck()">판매관리</a></li>
+		                			<li><a href="#" onclick="loginCheck()">부동산등록</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="#" onclick="location.href='auction_sales?aid=${user.aid }'">판매관리</a></li>
+		                			<li><a href="#" onclick="location.href='auctionAdd'">부동산등록</a></li>
+								</c:otherwise>
+                    		</c:choose>
+                		</c:catch>
         			</ul>
 				</li>
 			</ul>	
@@ -193,120 +217,19 @@ function loginCheck(){
 	alert('로그인이 필요한 서비스입니다. 로그인 페이지로 이동합니다.');
 	location.href = 'login';
 }
-</script>
-<%-- 	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav2">
-		<div class="container col-md-12">
-			<a class="navbar-brand js-scroll-trigger menu-other" href="index">메인메뉴테스트</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
-				Menu<i class="fas fa-bars"></i>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto menu-other">
-					<c:catch>
-						<c:choose>
-							<c:when test="${empty user}">
-								<li class="nav-item2"><a
-									class="nav-link2 js-scroll-trigger" href="mypage"> </a></li>
-							</c:when>
-							<c:otherwise>
-								<li class="nav-item2"><a
-									class="nav-link2 js-scroll-trigger" href="#">${user.dname}님
-										환영합니다.</a></li>
-							</c:otherwise>
-						</c:choose>
-					</c:catch>
-				</ul>
-				<ul class="navbar-nav ml-auto2">
-					<c:catch>
-						<c:choose>
-							<c:when test="${empty user}">
-								<li class="nav-item2"><a
-									class="nav-link2 js-scroll-trigger" href="mypage"> </a></li>
-							</c:when>
-							<c:otherwise>
-								<li class="nav-item"><a class="nav-link js-scroll-trigger"
-									href="addestate">매물등록</a></li>
-							</c:otherwise>
-						</c:choose>
-					</c:catch>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="commercialMain">상가</a>
-						<ul class="invisible sub-menu">
-							<li><a href="realprice">실거래가</a></li>
-							<li><a href="nearEstate">주변부동산</a></li>
-							<li><a href="product">매물</a></li>
-						</ul></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="estateMain">부동산</a>
-						<ul class="invisible sub-menu">
-							<li><a href="estateMain">매물</a></li>
-							<li><a href="realprice">실거래가</a></li>
-							<li><a href="nearEstate">주변부동산</a></li>
-						</ul></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="auctionMain">경매</a>
-						<ul class="invisible sub-menu">
-							<li><a href="auctionMain">물건검색</a></li>
-							<li><a href="auction_sales?aid=${user.aid }">판매관리</a></li>
-							<li><a href="auctionAdd">부동산등록</a></li>
-						</ul></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="comuMain">커뮤니티</a></li>
-					<li class="nav-item"><c:catch>
-							<c:choose>
-								<c:when test="${empty user}">
-									<li class="nav-item"><a class="nav-link js-scroll-trigger"
-										href="login">고객센터</a></li>
-								</c:when>
-								<c:otherwise>
-									<li class="nav-item"><a class="nav-link js-scroll-trigger"
-										href="list1">고객센터</a></li>
-								</c:otherwise>
-							</c:choose>
-						</c:catch></li>
-				</ul>
-				<ul class="navbar-nav ml-auto2 menu-other">
-					<li class="nav-item"><c:choose>
-							<c:when test="${user.agubun eq '공인중개사'}">
-								<a class="nav-link js-scroll-trigger"
-									href="mypage_lessor?aid=${user.aid }">내정보</a>
-							</c:when>
-							<c:when test="${user.agubun eq '임대인'}">
-								<a class="nav-link js-scroll-trigger"
-									href="mypage_lessor?aid=${user.aid }">내정보</a>
-							</c:when>
-							<c:otherwise>
-								<a class="nav-link js-scroll-trigger" href="login">내정보</a>
-							</c:otherwise>
-						</c:choose> <input type="hidden" value="mypage"></li>
-					<c:catch>
-						<c:choose>
-							<c:when test="${empty user}">
-								<li class="nav-item"><a class="nav-link js-scroll-trigger"
-									href="login">로그인</a></li>
-							</c:when>
-							<c:otherwise>
-								<li class="nav-item"><a class="nav-link js-scroll-trigger"
-									href="logout">로그아웃</a></li>
-							</c:otherwise>
-						</c:choose>
-					</c:catch>
-				</ul>
 
-			</div>
-		</div>
-		<br>
-	</nav> --%>
-<script>
-	function register_func() {
-		var aid = "${user.aid}";
-		if (aid === null || aid === "") {
-			alert("로그인하십시오.");
-		} else {
-			location = "register";
-		}
+function register_func() {
+	var aid = "${user.aid}";
+	if (aid === null || aid === "") {
+		alert("로그인하십시오.");
+	} else {
+		location = "register";
 	}
+}
 </script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+<script src="resources/js/auction/fcmScript.js"></script>
+	            

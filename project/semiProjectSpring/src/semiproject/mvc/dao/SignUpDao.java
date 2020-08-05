@@ -32,8 +32,8 @@ public class SignUpDao {
 		return ss.selectOne("signup.idChk", aid);
 }
 
-	public int dnameCheck(String dname) {
-		
-		return ss.selectOne("signup.dnameChk", dname);
+	public int dnameCheck(SignUpVO vo) {
+		System.out.println("dao 동작 ? :");
+		return  ss.selectOne("signup.dnameChk", vo);
 	}
 }

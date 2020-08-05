@@ -63,25 +63,28 @@
 		</div>
 	</div>
 	<input type="hidden" name="anum" value="${user.anum }">
+	<input type="hidden" name="aid" value="${user.aid }">
 	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th scope="col">번호</th>
 				<th scope="col">제목</th>
-				<th scope="col">글쓴이</th>
+				<th scope="col">문의 유형</th>
 				<th scope="col">등록일</th>
 				<th scope="col">답변상태</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="list" items="${listall}">
+			<c:forEach var="clist" items="${listall}">
+			<c:if test="${user.aid == clist.aid}">
 				<tr>
-					<th class="num">${list.c_num}</th>
-					<td class="tit"><a  href="Detail?c_num=${list.c_num}">${list.c_subject}</a></td>
-					<td class="writer">${list.aid}</td>
-					<td class="date">${list.c_regdate}</td>
-					<td class="view chkview">${list.c_anschk}</td>
+					<th class="num">${clist.c_num}</th>
+					<td class="tit"><a  href="Detail?c_num=${clist.c_num}">${clist.c_subject}</a></td>
+					<td class="type">${clist.c_type}</td>
+					<td class="date">${clist.c_regdate}</td>
+					<td class="view chkview">${clist.c_anschk}</td>
 				</tr>
+			</c:if>
 			</c:forEach>
 		</tbody>
 	</table>
@@ -99,56 +102,7 @@
 </div>
 <script>
 	$(function() {
-		// 매개변수가 변함에 따라 버튼을 바꾸는 함수
-		if($('#sortindex').val()==='2'){
-			$("#wnumBtn").val('최신순▲');
-			$("#wnumBtn").attr('class','btn-outline-danger btn-sm');
-		}else if($('#sortindex').val()==='1'){
-			$("#wnumBtn").val('최신순▼');
-		}else if($('#sortindex').val()==='4'){
-			$("#whitBtn").val('조회순▲');
-			$("#whitBtn").attr('class','btn-outline-danger btn-sm');
-		}else if($('#sortindex').val()==='3'){
-			$("#whitBtn").val('조회순▼');
-			$("#whitBtn").attr('class','btn-outline-info btn-sm');
-		}else if($('#sortindex').val()==='6'){
-			$("#wrecBtn").val('추천순▲');
-			$("#wrecBtn").attr('class','btn-outline-danger btn-sm');
-		}else{
-			$("#wrecBtn").val('추천순▼');
-			$("#wrecBtn").attr('class','btn-outline-info btn-sm');
-		}
-		
-		
-		// 매개변수가 변함에 따라 주소를 바꾸는 함수
-		$("#wnumBtn").click(function(){
-			var sortindex = $("#sortindex").val();
-			if(sortindex == '2'){
-				location.href="comuMain?sortindex=1";
-			}else{
-				location.href="comuMain?sortindex=2";
-			}
-		});
-		
-		$("#whitBtn").click(function(){
-			var sortindex = $("#sortindex").val();
-			if(sortindex == '4'){
-				location.href="comuMain?sortindex=3";
-			}else{
-				location.href="comuMain?sortindex=4";
-			}
-			
-		});
-		
-		$("#wrecBtn").click(function(){
-			var sortindex = $("#sortindex").val();
-			if(sortindex == '6'){
-				location.href="comuMain?sortindex=5";
-			}else{
-				location.href="comuMain?sortindex=6";
-			}
-		});
-		
+	
 		 $(document).on('click', '#btnSearch', function(e){
 			var url = "listall";
 			url = url + "?searchType=" + $('#searchType').val();
@@ -156,6 +110,9 @@
 			location.href = url;
 		}); 
 	});
-	
+	$(function(){
+		console.log("user.aid:"+"${user.aid}");
+		
+	});
 	
 </script>

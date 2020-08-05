@@ -4,23 +4,13 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="commuwriting">
  
- <insert id="Cwriting" parameterType="cboardvo">
- insert into community_board values(community_writing_seq.nextVal,'상가',
+ <insert id="writing" parameterType="cboardvo">
+ insert into community_board values(community_writing_seq.nextVal,#{wgubun},
  #{wloc1},#{wloc2},#{wtitle},#{wcontents},sysdate,sysdate,0,0,0,#{anum})
  </insert>
- 
- <insert id="Ewriting" parameterType="cboardvo">
- insert into community_board values(community_writing_seq.nextVal,'부동산',
- #{wloc1},#{wloc2},#{wtitle},#{wcontents},sysdate,sysdate,0,0,0,#{anum})
- </insert>
- 
- <insert id="Awriting" parameterType="cboardvo">
- insert into community_board values(community_writing_seq.nextVal,'경매',
- #{wloc1},#{wloc2},#{wtitle},#{wcontents},sysdate,sysdate,0,0,0,#{anum})
- </insert>
- 
+
  <select id="wridetail" parameterType="int" resultType="cboardvo">
- select w.wnum wnum, w.wgubun wgubun, w.wloc1 wloc1, w.wloc2 wloc2, w.wtitle wtitle, w.wcontents wcontents, w.wchgdate wchgdate, 
+ select w.wnum wnum, w.wgubun wgubun, w.wloc1 wloc1, w.wloc2 wloc2, w.wtitle wtitle, w.wcontents wcontents, TO_CHAR(w.wchgdate, 'YYYY"년 "MM"월 "DD"일" HH24"시" MI"분"') wchgdate, 
  w.whit whit, w.wrec wrec, s.aid aid, substr(s.aid,1,4) paid from signup s, community_board w where s.anum = w.anum and wnum=#{wnum}
  </select>
  
@@ -33,7 +23,7 @@
  </update>
  
  <update id="updatedetail" parameterType="cboardvo">
- update community_board set wtitle = #{wtitle}, wcontents = #{wcontents}, wloc1 = #{wloc1}, wloc2 = #{wloc2}, wchgdate = sysdate 
+ update community_board set wgubun = #{wgubun}, wtitle = #{wtitle}, wcontents = #{wcontents}, wloc1 = #{wloc1}, wloc2 = #{wloc2}, wchgdate = sysdate 
  where wnum = #{wnum}
  </update>
  
@@ -44,7 +34,7 @@
  <select id="listall" parameterType="commupvo" resultType="cboardvo">
 select * from (
 select rownum rnum, a.* from (
-select wnum,wgubun,wloc1,wloc2,wtitle,wchgdate,whit,wrec from community_board where wdel = 0
+select wnum,wgubun,wloc1,wloc2,wtitle,TO_CHAR(wchgdate, 'YYYY"년 "MM"월" DD"일" HH24"시 "MI"분"') wchgdate,whit,wrec from community_board where wdel = 0
 <trim>
 			<if test="searchType=='title'">
 				AND wtitle like '%'||#{searchValue}||'%'

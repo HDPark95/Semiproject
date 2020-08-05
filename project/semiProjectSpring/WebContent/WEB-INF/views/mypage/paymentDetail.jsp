@@ -1,13 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
-<link href="resources/css/myPage/th_bootstrap.css?after"
-	rel="stylesheet" />
-<link href="resources/css/myPage/th_styles.css?after" rel="stylesheet" />
-
-
-
 <div class="container">
 	<h4 class="subtopma">${vo.memberinfor.dname }님의결제 정보 입니다.</h4>
 	<form class="form-horizontal" action="inforDetailUpdate" method="post">
@@ -70,8 +62,6 @@
 		</div>
 	</form>
 </div>
-
-
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 	$(function() {

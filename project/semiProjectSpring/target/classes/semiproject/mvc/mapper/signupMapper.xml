@@ -27,6 +27,10 @@ from signup s , member_detail d
 WHERE s.aid=#{aid} and d.dname = #{dname}  
 </select>
 
+
+<insert id="addtoken" parameterType="signVO">
+insert into LOGINTOKEN values(LOGINTOKEN_seq.nextVal,null,'P','Y',sysdate,#{aid})
+</insert>
 <!-- <update id="newPassword" parameterType="signVO"> -->
 <!-- update signup -->
 <!-- set apwd = #{apwd} -->

@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ include file="../include/header_main.jsp"%>
+<%@ include file="../include/header_menu.jsp"%>
+<%@ include file="../include/header_CoEstateSubMenu.jsp"%>
 <link  href="/resources/css/estate/paging.css"/>
 <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
 <link rel="stylesheet" href="resources/css/estate/ion.rangeSlider.min.css"/>
@@ -201,12 +202,11 @@
 }
 </style>
 
-<%@ include file="../include/header_menu.jsp"%>
 <section class="contact-section " >
 	<%@ include file="../include/searchFilter.jsp" %>
-	<div class="container2" style="margin-top: 50px; height: 80%;">
+	<div class="container2" style="height: 100%; margin-top: 10px">
 		<div class="row">
-			<div class="col-md-12 mt-5">
+			<div class="col-md-12">
 				<!--  body -->
 				<div class="col-md-8 col-sm-8 float-left">
 					<div class="map_wrap">
@@ -225,7 +225,7 @@
 		
 		
 	</div>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5d751c35293b0473bc14f09aa6b0ca97&libraries=services,clusterer,drawing" ></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d3da01cea8b26f7180225f6a45645c2c&libraries=services,clusterer,drawing" ></script>
 		<script>
 			// 마커를 담을 배열입니다
 			var markers = [];
@@ -475,7 +475,7 @@
 					}
 				});
 				
-				
+				$(".subMenuBar").css("z-index",1030);
 				
 				
 			});

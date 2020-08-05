@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
- <div class="container2 fixed-top " id="search-nav"style="margin-top: 60px;height: 88px;background-color: #f8f9fa;padding-top: auto;padding-top: 20px;">
+ <div class="container2 fixed-top " id="search-nav"style="margin-top: 60px;height: 88px;background-color: #f8f9fa;padding-top: auto;padding-top: 20px; position:absolute;">
 
 		<div class="row">
 			<div class="col-md-6 mt-6 search">
@@ -17,7 +17,7 @@
                
             </div> 
             </div>
-            <div class="col-md-12 mt-12 filter-page invisible fixed-top" id="filter-page">
+            <div class="col-md-12 mt-12 filter-page invisible fixed-top" id="filter-page" style="position: static; margin-top: 10px;">
             <form action="" method="post" name="search_form" id="search_form"   style="height: 100%; overflow: scroll;">
             	<div class="col-md-12 mt-12 filter-sub-page" >
 		            
@@ -133,10 +133,10 @@
 	            			<input type="hidden" id="esvo" value="${esvo}">
 	            			<input type="hidden" id="paging_val" name="paging" value="">
 	            		</div>	            		
-	            		<div class="col-md-12 mt-12 filter-sub-page-div filter-div last">
+	            		<div class="col-md-12 mt-12 filter-sub-page-div filter-div last" style='padding-top: 30px'>
 	            			
-	            				<a class="btn" id="filter_apply" onclick="submit()" href="#page-up">적용하기</a>
-	            				<a class="btn" id="filter_close" href="#page-up">닫기</a>
+	            				<a class="btn" id="filter_apply" onclick="submit()" href="#page-top">적용하기</a>
+	            				<a class="btn" id="filter_close" href="#page-top">닫기</a>
 	            		</div>
             	
 	            	
@@ -191,6 +191,19 @@
 								$("#slider2 .irs-to").addClass("invisible");
 								$("#slider2 .irs-from").removeClass("visible");
 								$("#slider2 .irs-to").removeClass("visible");
+								if($("#slider2 .irs").children().hasClass("irs-min")){
+									
+									$("#slider2 .irs .irs-min").css("visibility","hidden");
+									
+									//$("#slider2 .irs .irs-min").removeClass("visible");									
+									}
+									if($("#slider2 .irs").children().hasClass("irs-max")){
+										
+										$("#slider2 .irs .irs-max").css("visibility","hidden");
+										
+										//$("#slider2 .irs .irs-max").removeClass("visible");
+									}
+								
 							}
 					  }
 					
@@ -204,6 +217,19 @@
 							$("#slider1 .irs-to").addClass("invisible");
 							$("#slider1 .irs-from").removeClass("visible");
 							$("#slider1 .irs-to").removeClass("visible");
+							
+							if($("#slider1 .irs").children().hasClass("irs-min")){
+								
+								$("#slider1 .irs .irs-min").css("visibility","hidden")
+								
+								//$("#slider1 .irs .irs-min").removeClass("visible");									
+								}
+								if($("#slider1 .irs").children().hasClass("irs-max")){
+									
+									$("#slider1 .irs .irs-max").css("visibility","hidden")
+									
+									//$("#slider1 .irs .irs-max").removeClass("visible");
+								}
 						}
 					}
 				    break;
@@ -219,6 +245,18 @@
 							$("#slider1 .irs-to").addClass("invisible");
 							$("#slider1 .irs-from").removeClass("visible");
 							$("#slider1 .irs-to").removeClass("visible");
+							if($("#slider1 .irs").children().hasClass("irs-min")){
+								
+								$("#slider1 .irs .irs-min").css("visibility","hidden")
+								
+								//$("#slider1 .irs .irs-min").removeClass("visible");									
+								}
+								if($("#slider1 .irs").children().hasClass("irs-max")){
+									
+									$("#slider1 .irs .irs-max").css("visibility","hidden")
+									
+									//$("#slider1 .irs .irs-max").removeClass("visible");
+								}
 						}
 					}
 				
@@ -235,6 +273,19 @@
 								$("#slider3 .irs-to").addClass("invisible");
 								$("#slider3 .irs-from").removeClass("visible");
 								$("#slider3 .irs-to").removeClass("visible");
+								if($("#slider3 .irs").children().hasClass("irs-min")){
+									
+									$("#slider3 .irs .irs-min").css("visibility","hidden")
+									
+									//$("#slider3 .irs .irs-min").removeClass("visible");									
+									}
+									if($("#slider3 .irs").children().hasClass("irs-max")){
+										
+										$("#slider3 .irs .irs-max").css("visibility","hidden")
+										
+										//$("#slider3 .irs .irs-max").removeClass("visible");
+									}
+								
 							}
 						}
 					 
@@ -253,6 +304,18 @@
 								$("#slider2 .irs-to").addClass("visible");
 								$("#slider2 .irs-from").removeClass("invisible");
 								$("#slider2 .irs-to").removeClass("invisible");
+								if($("#slider2 .irs").children().hasClass("irs-min")){
+									if($("#slider2 .irs-from").text()!=='0만원'){
+									$("#slider2 .irs .irs-min").css("visibility","visible")
+									}
+									//$("#slider2 .irs .irs-min").removeClass("invisible");									
+									}
+									if($("#slider2 .irs").children().hasClass("irs-max")){
+										if($("#slider2 .irs-to").text()!=='무제한'){
+										$("#slider2 .irs .irs-max").css("visibility","visible")
+										}
+										//$("#slider2 .irs .irs-max").removeClass("invisible");
+									}
 							}
 					  }
 					  
@@ -264,6 +327,18 @@
 								$("#slider1 .irs-to").addClass("visible");
 								$("#slider1 .irs-from").removeClass("invisible");
 								$("#slider1 .irs-to").removeClass("invisible");
+								if($("#slider1 .irs").children().hasClass("irs-min")){
+									if($("#slider1 .irs-from").text()!=='0만원'){
+									$("#slider1 .irs .irs-min").css("visibility","visible")
+									}
+									//$("#slider1 .irs .irs-min").removeClass("invisible");									
+									}
+									if($("#slider1 .irs").children().hasClass("irs-max")){
+										if($("#slider1 .irs-to").text()!=='무제한'){
+										$("#slider1 .irs .irs-max").css("visibility","visible")
+										}
+										//$("#slider1 .irs .irs-max").removeClass("invisible");
+									}
 							}
 					  
 						 
@@ -279,6 +354,24 @@
 								$("#slider1 .irs-to").addClass("visible");
 								$("#slider1 .irs-from").removeClass("invisible");
 								$("#slider1 .irs-to").removeClass("invisible");
+								if($("#slider1 .irs").children().hasClass("irs-min")){
+									console.log("사라지냐?");
+									
+									console.log()
+									if($("#slider1 .irs-from").text()!=='0만원'){
+									$("#slider1 .irs .irs-min").css("visibility","visible")
+									}
+									//$("#slider1 .irs .irs-min").removeClass("invisible");									
+									}
+									if($("#slider1 .irs").children().hasClass("irs-max")){
+										console.log("사라지냐?");
+										if($("#slider1 .irs-to").text()!=='무제한'){
+											
+										$("#slider1 .irs .irs-max").css("visibility","visible")
+										}
+										
+										//$("#slider1 .irs .irs-max").removeClass("invisible");
+									}
 							}
 					  }
 					  
@@ -294,6 +387,18 @@
 								$("#slider3 .irs-to").addClass("visible");
 								$("#slider3 .irs-from").removeClass("invisible");
 								$("#slider3 .irs-to").removeClass("invisible");
+								if($("#slider3 .irs").children().hasClass("irs-min")){
+									if($("#slider3 .irs-from").text()!=='0만원'){
+									$("#slider3 .irs .irs-min").css("visibility","visible")
+									}
+									//$("#slider3 .irs .irs-min").removeClass("invisible");									
+									}
+									if($("#slider3 .irs").children().hasClass("irs-max")){
+										if($("#slider3 .irs-to").text()!=='무제한'){
+										$("#slider3 .irs .irs-max").css("visibility","visible")
+										}
+										//$("#slider3 .irs .irs-max").removeClass("invisible");
+									}
 							}
 					  }
 					 

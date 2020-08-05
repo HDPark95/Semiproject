@@ -2,14 +2,11 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ include file="../include/header_index.jsp"%>
-<link href="resources/css/myPage/th_bootstrap.css?after"
-	rel="stylesheet" />
+<link href="resources/css/myPage/th_bootstrap.css?after"rel="stylesheet" />
 <link href="resources/css/myPage/th_styles.css?after" rel="stylesheet" />
 <%@ include file="../include/header_menu.jsp"%>
-
-
-	<script src="https://code.jquery.com/jquery-latest.js"></script>
-
+<%@ include file="../include/header_MyPageSubMenu.jsp"%>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 <style>
 .modal {
             display: none; /* Hidden by default */
@@ -33,7 +30,7 @@
             width: 30%; /* Could be more or less, depending on screen size */                          
         }
 .th_li {
-	width: 25%;
+	width: 200px;
 }
 
 .table-hover2 tbody tr:hover {
@@ -72,70 +69,109 @@ height: 260px;
     top: 0px;
     right: 0px;
 }
-        
-</style>
-<section class="contact-section container topma mypagesection" style=""> 
+.mypagesection{
+	font-family: 'Noto Sans KR',sans-serif;
+}
+.nav-link{
+	padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.card-header{
+	background-color: #FFFFFF;
+	text-align: left;
+	font-weight: 500;
+	font-size: 20px;
+}
 
+.btn.btn-success{
+	height: 40px;
+	background-color: #FFFFFF;
+    border: 2px solid #D8D8D8;
+    color: #000000;
+    line-height: 3px;
+    font-size: 15px;
+    padding: 5px 15px 5px 15px;
+    font-weight: bold;
+    border-radius: 1px;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.btn.btn-success:hover{
+	border: 2px solid #FD7400;
+	background-color: #FFFFFF;
+	color: #000000;
+	font-weight: bold;
+	border-radius: 1px;
+}
+.btn.btn-success:focus{
+	box-shadow: 0 0 0 0.2rem #FD7400;
+}
+.card-text{
+	text-align: left;
+}
+body{
+	background-color: #FBF8EF;
+}
+.card-text > em{
+	color: #FD7400;
+	font-style: normal;
+}
+#mypage_posts{
+	padding-top: 0px;
+}
+#customers{
+	background-color: #FFFFFF;
+	border-left: 2px solid #F2B90C;
+	border-right: 2px solid #F2B90C;
+	border-bottom: 2px solid #F2B90C;
+}
+#CommunityTab{
+	border: 2px solid #F2B90C;
+}
+#MypageTab{
+	border-bottom: 2px solid #F2B90C;
+}
+#managementTable{
+	border: 2px solid #F2B90C;
+}
+</style>
+<section class="contact-section container topma mypagesection"> 
 	<div id="my_pop" class="modal">
 		<div class="modal-content">
 		</div>
 	</div>
-
-	<h2 class="th_mypage_maintext">MY 부동산 페이지(${vo.agubun })</h2>
-  
-
-	<ul class="nav nav-tabs th_ul">
-		<li class="th_li"><a class="nav-link active th_atwi"
-			data-toggle="tab" href="#myinformation">정보수정</a></li>
-		<li class="th_li"><a class="nav-link th_atwi " data-toggle="tab" id="selectmyposts"
-			href="#myposts">쓴 게시글 관리</a></li>
-		<li class="th_li"><a class="nav-link th_atwi " data-toggle="tab" id="selectmyproduct"
-			href="#myproduct">내 매물관리</a></li>
-		<li class="th_li"><a class="nav-link th_atwi " data-toggle="tab" id="selectmyauction"
-			href="#myauction">내 경매관리</a></li>	
-
-	</ul>
 	<div id="myTabContent" class="tab-content" >
 		<div class="tab-pane  th_page_space  fade show active row "
 			style="text-align: center; margin-top: 30px;" id="myinformation">
- 
 			<%@ include file="../mypage/myinformation.jsp"%>
-
 		</div>
-		<div class="tab-pane fade th_page_space" style="text-align: center;"
-			id="myposts">
-			
-
+		
+		<div class="tab-pane fade th_page_space" style="text-align: center;" id="myposts">
 			<ul class="nav nav-tabs">
-				<li class="th_li_sub"><a class="th_nav-link active th_atwi" id="myposts_1"
+				<li class="th_li_sub" id="CommunityTab"><a class="th_nav-link active th_atwi" id="myposts_1"
 					data-toggle="tab" href="#mypage_posts">커뮤니티</a></li>
-				<li class="th_li_sub"><a class="th_nav-link th_atwi "	id="mycustomer_1"
+				<li class="th_li_sub" id="MypageTab"><a class="th_nav-link th_atwi " id="mycustomer_1"
 					data-toggle="tab" href="#mypage_posts">고객센터 문의</a></li>
 			</ul>
-
 			<div id="myTabContent" class="tab-content">
-				<div class="tab-pane  th_page_space  fade show active "
-					style="text-align: center;" id="mypage_posts">
-					
-				</div>
-
-				
-
+				<div class="tab-pane  th_page_space  fade show active " style="text-align: center;" id="mypage_posts"></div>
 			</div>
 		</div>
-		<div class="tab-pane fade th_page_space" style="text-align: center;"
-			id="myproduct">
+		
+		<div class="tab-pane fade th_page_space" style="text-align: center;" id="myproduct">
 			<%@ include file="../mypage/include/infor_management.jsp"%>
 		</div>
+		
 		<div class="tab-pane fade th_page_space" id="myauction">
 <%--         <%@ include file="../auction/auctionmypage.jsp"%> --%>
 		</div>
 	</div>
-
 </section>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-	$(function() { 
+	$(function() {
 		$('#memberdetail_btn').click(function() {
 			$('#my_pop').show();
 			$.ajax({
@@ -147,6 +183,7 @@ height: 260px;
 				}
 			});
 		});
+		
 		$('#logindetail_btn').click(function() {
 			$('#my_pop').show();
 			$.ajax({
@@ -159,6 +196,7 @@ height: 260px;
 				}
 			});
 		});
+		
 		$('#paymentdetail_btn').click(function() {
 			$('#my_pop').show();
 			$.ajax({
@@ -171,20 +209,6 @@ height: 260px;
 				}
 			});
 			
-		});
-		$('#member_secession_btn').click(function() {
-			
-		});
-		
-		$('#selectmyposts').click(function() {
-			$.ajax({
-				url : "infor_posts" ,
-				type : "post" ,
-				data : {anum : "${vo.anum }"},
-				success : function(result) {
-					$('#mypage_posts').html(result);
-				}
-			});
 		});
 		
 		$('#myposts_1').click(function() {
@@ -209,20 +233,6 @@ height: 260px;
 			});
 		});
 		
-		
-		$('#selectmyproduct').click(function() {
-			$.ajax({
-				url : "infor_product" ,
-				type : "post" ,
-				data : {anum : "${vo.anum }"},
-				success : function(result) {
-					console.log(result)
-					$('#myproduct').html(result);
-				}
-			});
-			
-		});
-		
 		$('#member_secession_btn').click(function() {
 			
 			$.ajax({
@@ -244,16 +254,64 @@ height: 260px;
 			
 		});
 		
+		// 페이지 이동을 위한 자바스크립트
+
+		$('#selectmyposts').click(function() {
+			$.ajax({
+				url : "infor_posts" ,
+				type : "post" ,
+				data : {anum : "${vo.anum }"},
+				success : function(result) {
+					$('#mypage_posts').html(result);
+				}
+			});
+		});
+		
+		$('#selectmyproduct').click(function() {
+			$.ajax({
+				url : "infor_product" ,
+				type : "post" ,
+				data : {anum : "${vo.anum }"},
+				success : function(result) {
+					$('#myproduct').html(result);
+				}
+			});
+		});
+		
 		$('#selectmyauction').click(function() {
 			$.ajax({
 				url : "auction_myinfo" ,
 				type : "post" ,
 				data : {aid : "${vo.aid}"},
 				success : function(result) {
-					console.log(result)
- 					$('#myauction').html(result);
+  					$('#myauction').html(result);
 				}
-			});			
+			});
+		});
+		
+		// 탭 이동에 따른 css변경
+		$('#myposts_1').click(function() {
+			$('#CommunityTab').css({
+				border: '2px solid #F2B90C'
+			})
+			$('#MypageTab').css({
+				'border-top': '0px',
+				'border-left': '0px',
+				'border-right': '0px',
+				'border-bottom': '2px solid #F2B90C'
+			})
+		});
+
+		$('#mycustomer_1').click(function() {
+			$('#MypageTab').css({
+				border: '2px solid #F2B90C'
+			})
+			$('#CommunityTab').css({
+				'border-top': '0px',
+				'border-left': '0px',
+				'border-right': '0px',
+				'border-bottom': '2px solid #F2B90C'
+			})
 		});
 	});
 </script>

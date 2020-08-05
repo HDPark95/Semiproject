@@ -25,6 +25,7 @@ import semiproject.mvc.vo.AuctionAddIpVO;
 import semiproject.mvc.vo.AuctionAddMainVO;
 import semiproject.mvc.vo.AuctionPageVO;
 import semiproject.mvc.vo.AuctionViewVO;
+import semiproject.mvc.vo.LogintokenVO;
 import semiproject.mvc.vo.UserVO;
 
 
@@ -42,12 +43,32 @@ public class AuctionPage{
 //		return "auction/auction_main";
 //	}
 	
-	@Scheduled(fixedRate = 180000)
+	@Scheduled(fixedRate = 18000000)//180000 3분
 	public void updatestatus() {
 		SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date rm = new Date();
 		System.out.println("예약작업:"+fm.format(rm));
 		auctiondao.updatestatus();
+	}
+	
+	//logintokenins
+	@RequestMapping(value = "/logintokenins",method = RequestMethod.GET)
+	public void instoken(String aid,String token) {
+		System.out.println("to:"+token);
+		LogintokenVO vo = new LogintokenVO();
+		vo.setAid(aid);
+		vo.setToken(token);
+		auctiondao.instokendao(vo);
+	}
+	
+	@RequestMapping(value="/fcm")
+	public String fcmrun() {
+		return "auction/fcm_noti";
+	}
+	
+	@RequestMapping(value="/sse")
+	public String sserun() {
+		return "auction/sse_noti";
 	}
 	
 	@RequestMapping(value="/auctionAdd")

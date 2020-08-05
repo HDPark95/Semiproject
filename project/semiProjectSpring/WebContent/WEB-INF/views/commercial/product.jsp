@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="../include/header_index.jsp"%>
+<%@ include file="../include/header_main.jsp"%>
 <%@ include file="../include/header_menu.jsp"%>
+<%@ include file="../include/header_CoEstateSubMenu.jsp"%>
 <style>
 #Select1, #Select2 {
 	margin-left: 10px;

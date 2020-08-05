@@ -158,9 +158,9 @@ display:inline-block;
 		<div class="col-md-12 mt-4 add-page" >
 			<h1>방 내놓기</h1>
 			<hr>
-			
-				
+			<form  id="estater" enctype="multipart/form-data">
 				<div class="col-md-9 add-page" style="margin-left: 100px;">
+				
 						<div class="col-md-12 mt-12 add-sub-page ">
 	            			<table >
 	            				<tr>
@@ -524,11 +524,11 @@ display:inline-block;
 	            					<td >
 	            						파일 업로드
 	            					</td>
-	            					<td>
-	            						<form id="file" method="post" action="" enctype="multipart/form-data">
-	            							<input  type="file" name="mfile" value=""><input type="button" onclick="fileUpload()" class="btn img-btn" value="이미지업로드">
-	            							<input type='hidden' value='${user.anum}' name='anum'>
-	            						</form>
+	            					<td id="imageinputlist">
+	            					
+	            							<input  type="file" name="mfile" value=""><input type="button" onclick="inputFilePlus()" class="btn img-btn" value="이미지업로드"><br>
+	            							
+	            						
 	            					</td>
 	            				</tr>
 	            			</table>
@@ -543,15 +543,18 @@ display:inline-block;
 	            				
 	            			</div>
 	            			<div class="col-md-12" id="result"  style="text-align: center;">
-	            				<form  id="estater">
-	            					<input type='hidden' value='${user.anum}' name='anum'>
-	            				</form>
 	            				
+	            					<input type='hidden' value='${user.anum}' name='anum'>
+	            				    <input type="hidden" value="" name="lat" id="lat">
+	            				    <input type="hidden" value="" name="lng" id="lng">
+	            					<input type="hidden" value="" name="gu" id="gu">
 	            				<a class="btn" id="filter_apply" onclick="submit()">매물등록</a>
 	            				<a class="btn" id="filter_close" href="semi.Project?page=estate&code=1">취소</a>
+	            				
 	            				</div>
 	            		</div>
 	          	 </div>
+	            		</form>
 	          	 <div class="col-md-3">
   	 <%
 UserVO vo = (UserVO) session.getAttribute("user");
@@ -564,6 +567,7 @@ if(vo.getPgubun().equals("구독"))  {
 }
 %>
 	          	 </div>
+	          	 
 		</div>
 	</div>
 <script >
@@ -585,10 +589,11 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 		buldMnnm, buldSlno, mtYn, lnbrMnnm, lnbrSlno, emdNo) {
 	// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
 	// document.form.roadFullAddr.value = roadFullAddr;
-
-
+	
+	console.log(roadAddrPart1)
 	$('#roadAddrPart1').val(roadAddrPart1);
 	$("#addrDetail").val(roadAddrPart2+addrDetail);
+	$("#gu").val(roadAddrPart1.split(" ")[1]);
 	$("#zipNo").val(zipNo);
 	mapSearchAddress();
 }
@@ -603,12 +608,12 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 		
 		var startTime = new Date().getTime();
 		
-		if($('#check').val()!==''){
+		if($('#check').prop('checked')){
 			addestate();
 			
 			newForm.attr('method','post');
-			newForm.attr("action", "/semiProjectSpring/insertestate");
-			
+			newForm.attr("action", "insertestate");
+			/* /semiProjectSpring/ */
 			
 				console.log(newForm.toString());		
 		
@@ -620,7 +625,7 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 				}
 		}else{
 			alert("CheckBox를 체크해주세요.");
-			$('#check').focusin();
+			$('#check').focus();
 		}
 		var endTime = new Date().getTime();
 		alert(endTime - startTime);
@@ -1159,7 +1164,9 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 		loopKey=false;
 	}
 	
-	
+	function inputFilePlus(){
+		$("#imageinputlist").append('<input  type="file" name="mfile" value=""><br>')
+	}
 	var filenum=1;
 	function fileUpload(){
 		
@@ -1226,7 +1233,7 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 		})
 	});
 </script>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5d751c35293b0473bc14f09aa6b0ca97&libraries=services,clusterer,drawing" ></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d3da01cea8b26f7180225f6a45645c2c&libraries=services,clusterer,drawing" ></script>
 		<script>
 			// 마커를 담을 배열입니다
 			var markers = [];
@@ -1234,7 +1241,7 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			mapOption = {
 				center : new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-				level : 5
+				level : 4
 			// 지도의 확대 레벨
 			};
 
@@ -1261,13 +1268,17 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 				     if (status === kakao.maps.services.Status.OK) {
 
 				        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
+						
+						
+						document.getElementById("lat").value=coords.getLat() 
+						document.getElementById("lng").value=coords.getLng() 
+						console.log(coords.getLat() +"/"+ coords.getLng())
 				        // 결과값으로 받은 위치를 마커로 표시합니다
 				        var marker = new kakao.maps.Marker({
 				            map: map,
 				            position: coords
 				        });
-
+						
 				        // 인포윈도우로 장소에 대한 설명을 표시합니다
 				        /* var infowindow = new kakao.maps.InfoWindow({
 				            ontent: '<div style="width:150px;text-align:center;padding:6px 0;"></div>'
@@ -1315,6 +1326,8 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 					var bounds = new kakao.maps.LatLngBounds();
 					for (var i = 0; i < data.length; i++) {
 						bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+						console.log(new kakao.maps.LatLng(data[i].y, data[i].x).getLat() +
+								new kakao.maps.LatLng(data[i].y, data[i].x).getLng())
 					}
 					// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 					map.setBounds(bounds);
@@ -1324,7 +1337,8 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail,
 
 					// 페이지 번호를 표출합니다
 					displayPagination(pagination);
-
+					 var swLatLng = bounds.getSouthWest(); //남서쪽
+					 var neLatLng = bounds.getNorthEast(); // 북동쪽
 				} else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
 					alert('검색 결과가 존재하지 않습니다.');

@@ -76,10 +76,12 @@
 <h4>비밀번호 찾기</h4>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
-		<form method="get" action="passwordFind" class="form-horizontal"
-			autocomplete="off">
-			<input type="hidden" id="email" value="${email}">
-			<input type="hidden" id="username" value="${username}">			
+		<form method="post" action="passwordFind" class="form-horizontal"
+			autocomplete="off" id = "form1" name = "form1">
+<%-- 			<input type="hidden" id="email" value="${email}"> --%>
+<%-- 			<input type="hidden" id="username" value="${username}">			 --%>
+<%-- 				<input type="hidden" id="map" value="${map.dname}"> --%>
+<%-- 				<input type="hidden" id="map" value="${map.aid}">			  --%>
 			<div id="idtarget"></div>
 			<div class="form-group">
 				<label for="apwd" class="col-sm-2 control-label">아이디 입력</label>
@@ -103,65 +105,46 @@
 				<div class="col-sm-offset-2 col-sm-10" id="signup">
 					<button type="button" class="btn btn-secondary btn-lg"
 						onclick="location = 'login'">취소</button>
-					<input type="submit" class="btn btn-success btn-lg" id="submitA"  value="확인">
+					<input type="button" class="btn btn-success btn-lg" id="submitA"  value="확인">
 				</div>
 			</div>
 		</form>
 	</div>
 </section>
 <script>
+var submitAction = function(e){
+	e.preventDefault();
+	e.stopPropagation();
+}
 
-$(function(){	
+
+$(function(){
 	$('#submitA').click(function(){
+		var dname = $('#dname').val()
+		var aid = $('#aid').val()
 		$.ajax({
-			url: "nameChk?dname="+$('#dname').val(),
+			url: "nameChk",
+			data : {
+				'dname':dname,
+				'aid':aid
+			},
 			success : function(data){
 				if(data === 1){
-					alert('비밀번호가 발송되었습니다.');
+
+					alert('비밀번호가 발송됐습니다.')
+					$('#form1').submit();
+					
 				}else{
-					alert('회원정보가 일치하지 않습니다.');
+					alert('회원정보가 일치하지 않습니다.')
 				}
+				
+			},
+			error : function(data){
+				console.log('error:' + data);
 			}
 		});
-	
-});
 	});
-
-// var submitAction = function(e){
-// 	e.preventDefault();
-// 	e.stopPropagation();
-// }
-// function submitA(){
-// 	var email = $('#email').val()
-// 	var username = $('#username').val();
-// 	console.log($('#aid').val())
-// 	console.log(email)
-// 	console.log($('#dname').val())
-// 	console.log(username)
-// 	if($('#aid').val()!= email || $('#dname').val() != username){
-// 		alert('회원정보가 일치하지 않습니다.');
-		
-
-// 		$('form').bind('submit', submitAction);
-// 	}else{
-// 		$('form').unbind();
-// 	}
-	
-// };
-// var submitAction = function(e) {
-// e.preventDefault();
-// e.stopPropagation();
-// };
-
-// function replyCheck(){
-// 	var reply = $('#replyin').val().trim();
-// 	if(reply === ''){
-// 		alert('내용을 입력해주세요.');
-// 		$('form').bind('submit', submitAction);
-// 	}else{
-// 		$('form').unbind();
-// 	}
-// }
+});
 
 
 </script>

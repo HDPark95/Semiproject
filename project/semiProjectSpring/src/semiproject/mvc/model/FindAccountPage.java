@@ -1,6 +1,6 @@
 package semiproject.mvc.model;
 
-import java.io.PrintWriter;
+
 import java.util.Map;
 
 
@@ -27,7 +27,7 @@ import semiproject.mvc.email.Email;
 
 
 import semiproject.mvc.service.MemberService;
-import semiproject.mvc.vo.SignUpVO;
+
 
 
 @RestController
@@ -75,7 +75,7 @@ public class FindAccountPage {
 	
 
 	
-	@RequestMapping(value = "/passwordFind", method = RequestMethod.GET)
+	@RequestMapping(value = "/passwordFind", method = RequestMethod.POST)
 	public ModelAndView sendEmail(@RequestParam Map<String, Object> paramMap, ModelMap model, HttpServletResponse response) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		String USERNAME = (String) paramMap.get("dname");
@@ -83,8 +83,7 @@ public class FindAccountPage {
 		String PASSWORD = memberService.getPw(paramMap);
 		mv.addObject("email", EMAIL);
 		mv.addObject("username", USERNAME);
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
+
 		if(PASSWORD!=null) {
 			email.setContent("비밀번호는 "+PASSWORD+" 입니다."); // 이메일로 보낼 메시지
 			email.setReceiver(EMAIL); // 받는이의 이메일 주소
@@ -109,10 +108,7 @@ public class FindAccountPage {
 			mv.setViewName("redirect:login");
 			return mv;
 		}else {
-//			out.print("<script>");
-//			out.print("alert('회원정보가 일치하지 않습니다.')");
-//			out.print("</script>");
-//			out.close();
+
 			mv.setViewName("redirect:passwordFindform");
 			return mv;
 		}
@@ -120,53 +116,6 @@ public class FindAccountPage {
 		
 	
 
-//	@RequestMapping(value = "/passwordFind", method = RequestMethod.GET)
-//	public ModelAndView sendEmail(String apwd, ModelMap model, ModelAndView mv, HttpServletResponse response) throws Exception {
-//		String USERNAME = vo.getDname();
-//		String EMAIL = vo.getAid();
-//		String PASSWORD = memberService.getPw(apwd);
-//	
-//		if(PASSWORD!=null) {
-//			email.setContent("비밀번호는 "+PASSWORD+" 입니다."); // 이메일로 보낼 메시지
-//			email.setReceiver(EMAIL); // 받는이의 이메일 주소
-//			email.setSubject(USERNAME+"님 비밀번호 찾기 메일입니다."); // 이메일로 보낼 제목
-//			mv.addObject("username", USERNAME);
-//			mv.addObject("email", EMAIL);
-//			System.out.println(EMAIL);
-//			System.out.println(USERNAME);
-//			try {
-//				MimeMessage msg = mailSender.createMimeMessage();
-//				MimeMessageHelper messageHelper 
-//				= new MimeMessageHelper(msg, true, "UTF-8");
-//				
-//				messageHelper.setSubject(email.getSubject());
-//				messageHelper.setText(email.getContent());
-//				messageHelper.setTo(email.getReceiver());
-//				messageHelper.setFrom("coaudwjd@gmail.com"); 
-//				msg.setRecipients(MimeMessage.RecipientType.TO , InternetAddress.parse(email.getReceiver()));
-//				mailSender.send(msg);
-//				
-//			}catch(MessagingException e) {
-//				System.out.println("MessagingException");
-//				e.printStackTrace();
-//			}
-//			mv.setViewName("redirect:login");
-//			return mv;
-//		}else {
-//			response.setContentType("text/html;charset=utf-8");
-//			PrintWriter out = response.getWriter();
-////			out.print("<script>");
-////			out.print("alert('회원정보가 일치하지 않습니다.')");
-////			out.print("</script>");
-////			out.close();
-//			mv.setViewName("redirect:passwordChangeform");
-//			mv.addObject("username", USERNAME);
-//			mv.addObject("email", EMAIL);
-//			System.out.println(EMAIL);
-//			System.out.println(USERNAME);
-//			return mv;
-//		}
-//		
 	}
 	
 

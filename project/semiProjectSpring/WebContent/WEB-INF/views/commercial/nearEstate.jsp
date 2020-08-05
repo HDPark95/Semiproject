@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/header_index.jsp"%>
-<link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
+
+
+<%@ include file="../include/header_main.jsp"%>
 <%@ include file="../include/header_menu.jsp"%>
+<%@ include file="../include/header_CoEstateSubMenu.jsp"%>
+<link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
 <style>
 .map_wrap, .map_wrap * {
 	margin: 0;

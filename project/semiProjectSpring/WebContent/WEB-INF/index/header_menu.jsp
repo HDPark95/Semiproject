@@ -26,7 +26,7 @@
 <%--                         </c:otherwise> --%>
                         </c:choose>	
                         </c:catch>
-                                            </ul>  
+                   </ul>  
                                                             
                     <ul class="navbar-nav ml-auto2">
                      <c:catch>

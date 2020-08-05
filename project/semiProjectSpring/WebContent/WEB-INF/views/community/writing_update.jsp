@@ -9,25 +9,9 @@
 	<div class="container">
 		<form action="updetail" method="post">
 			<input type="hidden" value="${list.wgubun}" id="gubun" name="gubun">
-			<input type="hidden" value="${list.wnum}" id="wnum" name="wnum">
-			<ul class="nav nav-tabs">
-				<li class="nav-item"><a class="nav-link active"
-					data-toggle="tab" href="#commercial" id="com">상가</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab"
-					href="#estate" id="est">부동산</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab"
-					href="#auction" id="auc">경매</a></li>
-			</ul>
+			<input type="hidden" value="${list.wnum}" id="wnum" name="wnum">			
 			<div id="myTabContent" class="tab-content">
-				<div class="tab-pane fade active show" id="commercial">
-					<p>내가 사는, 알고 있는 지역에 관한 상가 정보를 알려주세요.</p>
-				</div>
-				<div class="tab-pane fade" id="estate">
-					<p>내가 사는, 알고 있는 지역에 관한 부동산 정보를 알려주세요.</p>
-				</div>
-				<div class="tab-pane fade" id="auction">
-					<p>내가 사는, 알고 있는 지역에 관한 경매 정보를 알려주세요.</p>
-				</div>
+				<p>내가 사는, 알고 있는 지역에 관한 정보를 알려주세요.</p>
 			</div>
 			<div class="form-group">
 				<div class="form-inline form-group">
@@ -41,6 +25,11 @@
 					<br>
 					<div class="form-inline form-group">
 						<label for="Select1">구/동 선택</label>
+						<select class="form-control col-md-2" id="Select0" name="wgubun">
+							<option value="상가">상가</option>
+							<option value="부동산">부동산</option>
+							<option value="경매">경매</option>
+						</select>
 						<input type="hidden" id="input_gu" value="${list.wloc1}"> 
 						<select class="form-control col-md-2" id="Select1" name="wloc1">
 							<option selected="selected">${list.wloc1}</option>
@@ -54,18 +43,24 @@
 				${list.wcontents}
 				</textarea>
 				<div id="writebutton">
-					<button id="runin" type="submit" class="btn btn-success">수정</button>
-					<button type="button" class="btn btn-secondary"
-						onclick="location.href='writingdetail?wnum=${list.wnum}'">취소</button>
+					<button id="runin" type="submit" class="btn button3"><i class="fas fa-check"></i>&nbsp;수정</button>
+					<button type="button" class="btn button4"
+						onclick="location.href='writingdetail?wnum=${list.wnum}'"><i class="fas fa-times"></i>&nbsp;취소</button>
 				</div>
 			</div>
 		</form>
 	</div>
 </section>
 <style>
-#Select1, #Select2 {
-	margin-left: 10px;
-	margin-right: 10px;
+#projects{
+	font-family: 'Noto Sans KR',sans-serif;
+}
+#Select0, #Select1, #Select2 {
+	margin: 10px;
+}
+.tab-content > p{
+	border-bottom: 1px solid #D8D8D8;
+	font-size: 20px;
 }
 </style>
 <script>
@@ -83,7 +78,19 @@
 					var val1 = oEditors.getById["ir1"].exec(
 							"UPDATE_CONTENTS_FIELD", []);
 				});
-
+		
+		// 글의 분류를 자동으로 설정하기 위한 javascript
+		$(function(){
+			$("#Select0").children("option").each(function(i){
+				var text = $(this).val();
+				var option = $("#gubun").val();
+				if(text===option){
+					$(this).attr("selected","selected")
+				}
+			});
+		});
+		
+		// 글의 구를 자동으로 설정하기 위한 javascript
 		var cate = $('#Select1').attr('id');
 		var url = "comugu?cate=" + encodeURIComponent(cate);
 		$.ajax({
@@ -97,7 +104,6 @@
 						$(this).attr("selected", "selected")
 					}	
 				});
-				
 			}
 		})
 
