@@ -9,6 +9,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+	
 <!-- <title>CMJ - Start Estate Management</title> -->
 <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
