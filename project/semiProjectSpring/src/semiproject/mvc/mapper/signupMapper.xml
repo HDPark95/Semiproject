@@ -39,4 +39,5 @@ insert into LOGINTOKEN values(LOGINTOKEN_seq.nextVal,null,'P','Y',sysdate,#{aid}
 
 </mapper>
  
+
  
