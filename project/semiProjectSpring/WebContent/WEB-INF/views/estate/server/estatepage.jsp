@@ -23,3 +23,4 @@ pageEncoding="UTF-8"%>
 <input type="hidden" id="cntPerPage" value="${paging.cntPerPage}">
 <input type="hidden" id="paging" value="${paging}"> 
 </div>
+  
