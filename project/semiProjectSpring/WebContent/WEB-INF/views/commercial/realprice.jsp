@@ -18,31 +18,65 @@
 #location1 {
 	margin-bottom: 0;
 }
+
 tr th {
-width:150px;}
+	width: 150px;
+}
+.searchtop{
+	border: 1px solid gray;
+    border-radius: 5px 5px 5px 5px;
+    border-style: groove;
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.searchselect{
+	width: 100px;
+	height: 37px;
+	display: inline;
+}
+.button1{
+	padding: 0.75rem 0.75rem;
+    letter-spacing: 0.05rem;
+    float: right;
+    width: 80px;
+    border-radius: 5px;
+}
+.emphasize{
+	text-decoration: none;
+	font-style: normal;
+	color: #F27405;
+	font-weight: 600;
+	font-size: 11px;
+}
+.searchTitle{
+	text-align: center;
+	width: 100%;
+	margin-bottom:30px;
+}
 </style>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
 		<div class="form-inline form-group" id="location1">
-			<h1>실거래가 정보</h1>
+			<h1 class="searchTitle">실거래가 정보</h1>
 		</div>
-		<div>
-			<select id="gulist">
-			
-			</select>
-			<select id="donglist">
+		<div class="searchtop">
+			<select id="gulist" class="form-control searchselect">
+			</select> 
+			<select id="donglist" class="form-control searchselect">
 				<option>동 선택</option>
 			</select>
-			<button onclick="searchList()">검색 하기</button>
+			<button class="button1"onclick="searchList()">검색</button>
 		</div>
-		<table class="table table-hover" id="dataList" style="width: 1300px;">
+		<table class="table table-hover" id="dataList" style="width: 1114px;">
 			<thead>
 				<tr>
 					<th>번호</th>
-					<th>구</th>
-					<th>동</th>
-					<th>가격   (만원)</th>
-					<th>전용면적</th>
+					<th>지역구</th>
+					<th>지역동</th>
+					<th>가격<em class="emphasize">(단위:만원)</em></th>
+					<th>전용면적<em class="emphasize">(단위:평)</em></th>
 					<th>건축년도</th>
 				</tr>
 			</thead>
@@ -60,42 +94,43 @@ width:150px;}
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="8" id="pageTd"><%@ include file="pageProcess2.jsp"%>
+					<td colspan="8" id="pageTd">
+						<%@ include file="server/realpricePaging.jsp"%>
 					</td>
 				</tr>
 			</tfoot>
 		</table>
 	</div>
 	<script>
-		$(function(){
+		$(function() {
 			$.ajax({
-				url: "gu?cate=combobox1",
-				success: function(d){
+				url : "gu?cate=combobox1",
+				success : function(d) {
 					$("#gulist").html(d);
 				}
 			})
 		})
-		
-		function searchList(){
+
+		function searchList() {
 			var param = $("#gulist").val();
 			var param2 = $("#donglist").val();
-			if(param2 === null || param2 === ""){
-				location = "realprice?searchType=1&searchValue="+param;
+			if (param2 === null || param2 === "") {
+				location = "realprice?searchType=1&searchValue=" + param;
 				$.ajax({
-					url:"dong?cate=combobox2&guName="+param,
-					success:function(d){
-						$("#donglist").html(d)	
+					url : "dong?cate=combobox2&guName=" + param,
+					success : function(d) {
+						$("#donglist").html(d)
 					}
 				})
-			}else{
-				location = "realprice?searchType=2&searchValue="+param2;
+			} else {
+				location = "realprice?searchType=2&searchValue=" + param2;
 			}
 		}
-		$("#gulist").change(function(){
+		$("#gulist").change(function() {
 			var param = $(this).val();
 			$.ajax({
-				url:"dong?cate=combobox2&guName="+param,
-				success:function(d){
+				url : "dong?cate=combobox2&guName=" + param,
+				success : function(d) {
 					$("#donglist").html(d)
 				}
 			})

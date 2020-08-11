@@ -2,37 +2,149 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../include/header_index.jsp"%>
-<link rel="stylesheet" type="text/css"
-	href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
 <%@ include file="../include/header_menu.jsp"%>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
-
-<section class="contact-section ">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<style>
+.card-body{
+	margin: 0 auto;
+	width: 955px;
+	padding: 0px;
+}
+.commercialContainer{
+	border: 4px solid #F2A81D;
+    width: 960px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+.commercialSection{
+	border: 0px;
+	background-color: #F2A81D;
+}
+.commercialBorder{
+	border-left: 4px solid #F2A81D;
+	border-right: 4px solid #F2A81D;
+	border-bottom: 4px solid #F2A81D;
+}
+.container{
+	font-family: 'Noto Sans KR',sans-serif;
+	padding-top: 10px;
+}
+em{
+	font-style: normal;
+	color: #F25C05;
+}
+#product{
+	text-align: center;
+	border: 4px double #004358;
+	width: 1116px;
+}
+.noSearchData{
+	margin: 0 auto;
+	font-size: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+/* .chartTable{
+	text-align: center;
+    border: 4px double #004358;
+    padding: 0px;
+} */
+.modalServer{
+	width: 95%;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#productdesc{
+	margin-left: 0px;
+	margin-right: 0px;
+	border-bottom: 4px double #004358;
+	margin-top: 10px;
+	width: 1108px;
+}
+.locationinfo{
+	font-size: 2.0rem;
+	margin-top: 0px !important;
+	margin-bottom: 10px !important;
+	width: 100%;
+}
+.locationinfo > em {
+	font-size: 16px;
+	font-weight: 600;
+}
+.infobutton{
+	width: 55%;
+	font-size: 15px;
+	height: 40px;
+    background-color: #FFFFFF;
+    border: 2px solid #004358;
+    border-radius: 0px;
+    color: #000000;
+    line-height: 3px;
+    padding: 5px 15px 5px 15px;
+}
+.infobutton2{
+	width: 85%;
+	font-size: 15px;
+	height: 40px;
+    background-color: #FFFFFF;
+    border-radius: 1px;
+    color: #000000;
+    padding: 5px 10px 5px 10px;
+}
+.infobutton2:hover{
+	text-decoration: none;
+	color: #000000;
+	
+}
+.infobutton2 > span:hover{
+	text-decoration: none;
+	color: #000000;
+}
+.populationButton{
+	width: 50%;
+	font-size: 17px;
+	height: 40px;
+    background-color: #FFFFFF;
+    border: 2px solid #004358;
+    border-radius: 1px;
+    color: #000000;
+    margin: 0 auto;
+    padding: 5px 10px 5px 10px;
+}
+.populationButton:hover{
+	text-decoration: none;
+	color: #000000;
+}
+.container{
+	height: 1600px;
+}
+</style>
+<section class="contact-section">
 	<!-- Page Content -->
 	<div class="container">
 		<!-- Call to Action Well -->
 		<script src="resources/js/commercial/json2.js"></script>
-		<div
-			class="card text-white bg-secondary my-6 py-4 text-center col-lg-12">
+		<div class="commercialSection">
 			<div class="card-body">
-				<form class="form-inline">
+				<form class="form-inline commercialContainer">
 					<select id="combobox1" class="form-control"
-						style="margin-right: 30px; width: 120px">
+						style="margin-right: 10px; width: 120px">
 						<!-- <input type="text" autocomplete="off" placeholder="Select a State" class="combobox input-large form-control"> -->
 						<option>구 선택</option>
 					</select> <select id="combobox2" class="form-control"
-						style="margin-right: 30px; width: 120px">
+						style="margin-right: 10px; width: 120px">
 						<!-- <input type="text" autocomplete="off" placeholder="Select a State" class="combobox input-large form-control"> -->
 						<option>동 선택</option>
 					</select> <select id="combobox3" class="form-control"
-						style="margin-right: 30px; width: 200px">
+						style="margin-right: 10px; width: 200px">
 						<option>업종대분류</option>
 					</select> <select id="combobox4" class="form-control"
-						style="margin-right: 30px; width: 250px">
+						style="margin-right: 10px; width: 250px">
 						<option>업종중분류</option>
 					</select> <select id="combobox5" class="form-control"
-						style="margin-right: 30px; width: 200px">
+						style="width: 200px">
 						<option>업종소분류</option>
 					</select>
 				</form>
@@ -40,7 +152,7 @@
 			</div>
 		</div>
 		<!-- Heading Row -->
-		<blockquote class="border">
+		<blockquote class="commercialBorder">
 			<div class="row align-items-center my-7">
 				<div id="map" class="col-lg-7"
 					style="width: 100%; height: 655px; z-index: 0; margin-left: 10px">
@@ -136,8 +248,11 @@
 				</script>
 				<div class="col-lg-4" id="information">
 					<h2>현재 영업중인 상권정보</h2>
-					<p>창업을 원하시는 입지의 좌표를 선택해주세요. 그 입지 근처의 유동인구, 주변 상권분석, 실거래가 등 다양한
-						정보를 제공해드립니다. 조금 더 자세한 정보를 얻고 싶으시면 상세하게 검색해보세요.</p>
+					<p>창업을 원하시는 입지의 <em>좌표</em>를 선택해주세요.<br>
+					그 입지 근처의 유동인구, 주변 상권분석,<br> 
+					실거래가 등 다양한 정보를 제공해드립니다.<br>
+					조금 더 자세한 정보를 얻고 싶으시면<br>
+					<em>분류 선택</em>을 통해 상세하게 검색해보세요.</p>
 				</div>
 				<!-- /.col-md-4 -->
 			</div>
@@ -146,8 +261,8 @@
 		<!-- Content Row -->
 		<div
 			class="card text-black bg-secondary my-6 py-4 text-center col-lg-12 bg-white">
-			<div class="row" id="product" style="text-align: center;">
-				<h4>검색 된 결과가 없습니다.</h4>
+			<div class="row" id="product">
+				<p class="noSearchData">검색된 결과가 없습니다.</p>
 			</div>
 			<!-- /.row -->
 		</div>
@@ -283,6 +398,7 @@
 			var timePopChartSplitGender = 0;
 			var openBusiBarChart = 0;
 			getOpenBusiData();
+			// 빠른 차트 로딩을 위한 세 번의 반복 작업 설정
 			draw_timePop();
 			draw_OpenBusiBarChart();
 			draw_OpenBusiBarChart();
@@ -305,6 +421,10 @@
 					$("#keyValue").attr("value", key)
 					var value = d["value"]
 					timePopChart = c3.generate({
+						size:{
+							height: 300,
+							width: 500
+						},
 						bindto : "#timePopChart",
 						data : {
 							columns : [ value ]
@@ -318,7 +438,7 @@
 					});
 					$("#location").text(guName);
 					$("#timePopButton").attr("onclick", "split_gender()")
-					$("#timePopButton > span").text("성별 그래프")
+					$("#timePopButton > span").text("성별 차트 보기")
 				}
 			});
 		}
@@ -336,6 +456,10 @@
 					var valueMale = d["남성"]
 					timePopChartSplitGender = c3.generate({
 						bindto : "#timePopChart",
+						size:{
+							height: 300,
+							width: 500
+						},
 						data : {
 							columns : [ valueFemale, valueMale ],
 						},
@@ -348,7 +472,7 @@
 					});
 					$("#location").text(guName);
 					$("#timePopButton").attr("onclick", "draw_timePop()")
-					$("#timePopButton > span").text("통합 그래프")
+					$("#timePopButton > span").text("통합 차트 보기")
 				},
 				error : function(e) {
 					console.log(e);
@@ -375,7 +499,7 @@
 			})
 		}
 		function draw_OpenBusiBarChart() {
-			console.log("실행!")
+			/* console.log("실행!") */
 			var guName = $("#combobox1").val();
 			var url = "getOuterDataforChart?guName="
 					+ encodeURIComponent(guName);
@@ -391,6 +515,10 @@
 					seoulMeanClose = d["SeoulMeanClose"]
 					openBusiBarChart = c3.generate({
 						bindto : "#quaterOpenChart",
+						size:{
+							height: 300,
+							width: 500
+						},
 						data : {
 							columns : [ meanOper ],
 							type : 'bar'
@@ -432,25 +560,25 @@
 		}
 		function deleteMeanOper() {
 			openBusiBarChart.unload({
-				ids : '평균 운영 개월'
+				ids : '지역구 - 운영'
 			})
 			$("#add_button1").attr("onclick", "addMeanOper()")
 		}
 		function deletemeanClose() {
 			openBusiBarChart.unload({
-				ids : '평균 폐업 개월'
+				ids : '지역구 - 폐업'
 			})
 			$("#add_button2").attr("onclick", "addmeanClose()")
 		}
 		function deleteseoulMeanOper() {
 			openBusiBarChart.unload({
-				ids : '서울 평균 운영 개월'
+				ids : '서울 - 운영'
 			})
 			$("#add_button3").attr("onclick", "addseoulMeanOper()")
 		}
 		function deleteseoulMeanClose() {
 			openBusiBarChart.unload({
-				ids : '서울 평균 폐업 개월'
+				ids : '서울 - 폐업'
 			})
 			$("#add_button4").attr("onclick", "addseoulMeanClose()")
 		}

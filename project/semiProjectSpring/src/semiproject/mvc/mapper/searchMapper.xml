@@ -108,7 +108,7 @@
 		resultType="outervo">
 		select * from (
 		select rownum rnum, a.* from (
-		select title, link, datetime, source, searchlocation, content from
+		select distinct title, link, datetime, source, searchlocation from
 		newsdata
 		<where>
 		<trim>
@@ -153,7 +153,7 @@
 		</where>
 	</select>
 	<select id="keyword" resultType="keyvo">
-		select * from mostfrequency
+		select distinct * from mostfrequency order by num
 	</select> 
 </mapper>
 

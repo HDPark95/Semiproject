@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="th_page_space">
+
 	<div class="th_card th_infor_card " style="float: left;">
 		<form action="inforDetail" method="post">
 			<div class="card-header">회원 정보 관리</div>
@@ -9,7 +10,6 @@
 					<p class="card-text">CMJ에서의 <em>'나'를 표현하는 프로필</em> 정보입니다.<br>수정 화면에서 프로필 정보를 변경하실 수 있습니다.</p>
 					<input type="hidden" value="${user.aid}" name="aid">
 					<button type="button" class="btn btn-success" id="memberdetail_btn">수정하기</button>
-
 				</div>
 			</div>
 		</form>
@@ -26,8 +26,6 @@
 		</form>
 	</div>
 	
-	
-	
 	<div class="th_card th_infor_card" style="float: left;">
 		<form action="paymentDetail" method="post" >
 			<div class="card-header">구독 결제 정보</div>
@@ -39,6 +37,7 @@
 			</div>
 		</form>
 	</div>
+	
 	<div class="th_card th_infor_card" style="float: left;">
 		<form action="memberdelete" method="post">
 			<div class="card-header">회원 탈퇴</div>
@@ -50,4 +49,5 @@
 			</div>
 		</form>
 	</div>
+	
 </div>

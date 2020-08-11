@@ -335,10 +335,17 @@ public class CommercialPage {
 		List<String> listSeoulMeanClose = new ArrayList<String>();
 		List<String> listQuater = new ArrayList<String>();
 		Map<String, List> map = new HashMap<String, List>();
-		listMeanOper.add("평균 운영 개월");
-		listMeanClose.add("평균 폐업 개월");
-		listSeoulMeanOper.add("서울 평균 운영 개월");
-		listSeoulMeanClose.add("서울 평균 폐업 개월");
+		/*
+		 * listMeanOper.add("평균 운영 개월"); 
+		 * listMeanClose.add("평균 폐업 개월");
+		 * listSeoulMeanOper.add("서울 평균 운영 개월"); 
+		 * listSeoulMeanClose.add("서울 평균 폐업 개월");
+		 */
+		// 프론트와의 명칭 통일을 위한 이름 변경
+		listMeanOper.add("지역구 - 운영");
+		listMeanClose.add("지역구 - 폐업");
+		listSeoulMeanOper.add("서울 - 운영");
+		listSeoulMeanClose.add("서울 - 폐업");
 		for(OuterDataVO e: list) {
 			listSeoulMeanClose.add(e.getTotalclosemean());
 			listSeoulMeanOper.add(e.getTotalopermean());
@@ -361,7 +368,7 @@ public class CommercialPage {
 		System.out.println(object);
 		return object;
 	}
-	//
+	
 	@RequestMapping(value="/outerDataBusi")
 	public ModelAndView getOpenBusiData(OuterDataVO vo) {
 		ModelAndView mav = new ModelAndView("commercial/server/modalServer2");
@@ -373,6 +380,7 @@ public class CommercialPage {
 		System.out.println(closebusi.getTotalclosemean());
 		return mav;
 	}
+	
 	@RequestMapping(value="/keyword")
 	public ModelAndView getKeywordList() {
 		ModelAndView mav = new ModelAndView("commercial/sidemenu");
@@ -394,6 +402,10 @@ public class CommercialPage {
 		pvo = new Community_PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), Integer.parseInt(sortindex));
 		pvo.setSearchType(searchType);
 		pvo.setSearchValue(searchValue);
+		List<OuterDataVO> list = commercialDao.getAllNews(pvo);
+		for(OuterDataVO e: list) {
+			System.out.println(e.getTitle());
+		}
 		model.addAttribute("paging", pvo);
 		model.addAttribute("newsList", commercialDao.getAllNews(pvo));
 		model.addAttribute("total", total);

@@ -6,6 +6,7 @@
 #checkorder1 {
 	text-align: right;
 	margin-bottom: 0.5rem;
+	margin-top: 0.5rem;
 }
 
 #location1 {
@@ -80,11 +81,16 @@ th{
 .btn.btn-active{
 	color: #000000;
 }
+.communityLabel{
+	margin: 0px;
+	border-bottom: 1px solid #D8D8D8;
+    padding-bottom: 15px;
+}
 </style>
 <div class="tab-pane fade show active" id="all">
 	<br>
 	<div>
-		<p>
+		<p class="communityLabel">
 			총 <a id="total">${total}</a>건의 글이 검색되어 있습니다.
 		</p>
 		<div id="checkorder1">

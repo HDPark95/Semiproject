@@ -41,17 +41,29 @@
     padding: 0px;
 }
 </style>
-<article class="subMenuBar">
-		<a href="realprice">실거래가</a>
-		<div class="subMenuLine"></div>
-		<a href="nearEstate">주변 부동산</a>
-		<div class="subMenuLine"></div>
-		<a href="product">매물 검색</a>
-		<div class="subMenuLine"></div>
-		<a href="estateMain">매물 현황</a>
-		<div class="subMenuLine"></div>
-		<a href="newsList">뉴스</a>
-</article>
+<c:catch>
+	<c:choose>
+    	<c:when test="${empty user}">
+			<article class="subMenuBar">
+				<a href="auctionMain">물건검색</a>
+				<div class="subMenuLine"></div>
+				<a href="#" onclick="loginCheck()">판매관리</a>
+				<div class="subMenuLine"></div>
+				<a href="#" onclick="loginCheck()">부동산등록</a>
+			</article>
+		</c:when>
+		<c:otherwise>
+			<article class="subMenuBar">
+				<a href="auctionMain">물건검색</a>
+				<div class="subMenuLine"></div>
+				<a href="auction_sales?aid=${user.aid}">판매관리</a>
+				<div class="subMenuLine"></div>
+				<a href="auctionAdd">부동산등록</a>
+			</article>
+		</c:otherwise>
+	</c:choose>
+</c:catch>
+
 <script>
 function loginCheck(){
 	alert('로그인이 필요한 서비스입니다. 로그인 페이지로 이동합니다.');

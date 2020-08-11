@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
- <div class="container2 fixed-top " id="search-nav"style="z-index:1000; margin-top: 60px;height: 88px;background-color: #f8f9fa;padding-top: auto;padding-top: 20px; position:absolute;">
+ <div class="container2 fixed-top " id="search-nav"style="margin-top: 60px;height: 88px;background-color: #f8f9fa;padding-top: auto;padding-top: 20px; position:absolute;">
 
 		<div class="row">
 			<div class="col-md-6 mt-6 search">
@@ -24,7 +24,7 @@
 	            		<div class="col-md-12 mt-12 filter-sub-page-div">
 	            			<h3 id="page-up" style="margin-top: 30px;">방종류 <label style="font-size: 11px;">중복선택이 가능합니다<span style="padding-left: 10px;">(상가/사무실,아파트 제외)</span></label></h3> 
 	            			<input type="checkbox"value="0" name="build" class="room checked" onclick="search_build('room')"><label class="room_check" style="margin-left: 10px;">원룸 </label>
-	            			<input type="checkbox"value="1" name="build" class="room checked" onclick="search_build('room')"><label class="room_check" style="margin-left: 10px;">주택</label>
+	            			<input type="checkbox"value="1" name="build" class="room checked" onclick="search_build('room')"><label class="room_check" style="margin-left: 10px;">투ㆍ쓰리룸</label>
 	            			<input type="checkbox"value="2" name="build" class="room checked" onclick="search_build('room')"><label class="room_check" style="margin-left: 10px;">오피스텔</label>
 	            			<input type="checkbox"value="3" name="build" class="apt " onclick="search_build('apt')"><label class="room_check" style="padding-top: 40px;margin-left: 10px;">아파트</label>
 	            			<input type="checkbox"value="4 " name="build" class="store" onclick="search_build('store')"><label class="room_check " style="margin-left: 10px;">상가/사무실 </label>
@@ -537,7 +537,7 @@
 		       
 		    });
 		    var roomArea=[]
-		    for(i=0;i<=190;i++){
+		    for(i=0;i<=115;i++){
 		    	var pung=i/3.305785;
 		    	pung=Math.floor(pung);
 		    	roomArea.push(i+"m²("+pung+")평")

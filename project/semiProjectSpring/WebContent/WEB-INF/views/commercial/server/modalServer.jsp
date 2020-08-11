@@ -1,11 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<link rel="stylesheet" href="resources/css/styles.css"/>
+<style>
+.modal-content{
+	width: 60%;
+	text-align: center;
+}
+.modalServerImage{
+	width: 300px;
+	height: 200px;
+}
+</style>
 <div class="modal-content">
 	<h3>매물 정보</h3>
 	<div class="row" id="productdesc">
-		<table class="table">
+		<table class="table table-hover">
 			<tr>
 				<td>매물 특징</td>
 				<td colspan="3">${result.atclfetrdesc}</td>
@@ -27,26 +37,26 @@
 				<td>${result.atclno}</td>
 			</tr> 
 			<tr>
-				<td rowspan="3">중개인</td>
-				<td rowspan="3" colspan="3">${result.rltrnm}</td>
+				<td>중개인</td>
+				<td colspan="3">${result.rltrnm}</td>
 			</tr>
-			<tr>
+<!-- 			<tr>
 				<td></td>
 				<td></td>
-			</tr>
+			</tr> -->
 		</table>
 		<div class="row centered" id="product" style="margin:0 auto;">
-			<div class="modalimg">
+			<div>
 				<img src="resources/images/commercial/gangdong1.jpg"
-					class="modalImage">
+					class="modalServerImage">
 			</div>
-			<div class="modalimg">
+			<div>
 				<img src="resources/images/commercial/gangdong2.jpg"
-					class="modalImage">
+					class="modalServerImage">
 			</div>
-			<div class="modalimg">
+			<div>
 				<img src="resources/images/commercial/gangdong3.jpg"
-					class="modalImage">
+					class="modalServerImage">
 			</div>
 		</div>
 	</div>
@@ -64,3 +74,11 @@
 	</div>
 	
 </div>
+<script>
+	var a = '${result.taglist}';
+	var b = '${result.atclno}';
+	var c = '${result.rltrnm}';
+	console.log(a);
+	console.log(b);
+	console.log(c);
+</script>

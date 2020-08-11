@@ -33,6 +33,7 @@ a:hover {
 	font-size: 15px;
 	font-weight: bold;
 	margin-right: 10px;
+	cursor: pointer;
 	font-family: 'Noto Sans KR',sans-serif;
 }
 
@@ -71,6 +72,7 @@ a:hover {
 	text-align: center;
 	border-bottom: 1px solid #E6E6E6;
 	padding-bottom: 3px;
+	cursor: pointer;
 }
 
 .dropdown-menu > li > a{
@@ -85,7 +87,7 @@ a:hover {
 </style>
 <body id="page-top">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="/semiProjectSpring/"><img
+		<a class="navbar-brand" href="/"><img
 			style="width: 50px; height: 50px;"
 			src="resources/assets/img/logo.png"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"

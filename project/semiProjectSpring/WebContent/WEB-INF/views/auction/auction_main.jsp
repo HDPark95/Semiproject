@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header_index.jsp"%>
+<%@ include file="../include/header_menu.jsp"%>
+<%@ include file="../include/header_AuctionSubMenu.jsp"%>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 <!-- <link rel="stylesheet" href="resources/css/auction/main/bootstrap.css"> -->
 <link rel="stylesheet" href="resources/css/auction/main/banner.css">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script> 		
-<%@ include file="../include/header_menu.jsp"%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script> 		
 <style>
 body {
   margin: 0;
@@ -252,7 +252,7 @@ body {
 			<div id="leftcontents"
 				style="position: relative; width: 80%; margin: auto;">
 				<div id="searchtop" name="searchtop"
-					style="">
+					>
 					<div class="form-group" style="margin-top: 7px;">
 						진행사항:<select class="form-control select" id="statussel"
 							style="width: 100px; display: inline;">
@@ -300,15 +300,14 @@ body {
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th scope="col"></th>
-								<th scope="col"></th>
+								<th scope="col" style="text-align: center;">건물 이미지</th>
 								<th scope="col">제목/물건용도/주소지/토지면적/건물면적/경매만료일</th>
 								<th scope="col" colspan="2">시작가/현재가</th>
 								<th scope="col" style="text-align: center;">상태/등록일/조회수</th>
 							</tr>
 						</thead>
 						<tbody style="border-bottom: 1px solid gray; font-size: 1rem;">
-						<%@ include file="auction_mainview.jsp"%>
+							<%@ include file="auction_mainview.jsp"%>
 						</tbody>
 					</table>
 				</div>

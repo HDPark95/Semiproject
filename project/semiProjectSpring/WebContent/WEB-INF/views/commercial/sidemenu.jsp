@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
+<!-- <link href="resources/css/commercial/sidebar.css" rel="stylesheet"/> -->
 <div id="response">
 	<div id="rightSide" style="overflow-y: auto;">
 		<div id="right_zzim" style="overflow-y: auto;">
 			<div class="recTit" style="overflow-y: auto;">
-				뉴스 핵심 키워드
+				<a class="sidebarTitle">뉴스 핵심 키워드</a>
 				<div id="recentCnt">
-					<table class="table" style="overflow-y: auto;">
+					<table class="table sideMenuTable" style="overflow-y: auto;">
 						<thead>
 							<tr>
 								<th>랭킹</th>

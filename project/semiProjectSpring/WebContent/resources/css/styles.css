@@ -228,10 +228,10 @@ button {
 	border-radius: 0;
 }
 
-button:focus {
+/* button:focus {
 	outline: 1px dotted;
 	outline: 5px auto -webkit-focus-ring-color;
-}
+} */
 
 input, button, select, optgroup, textarea {
 	margin: 0;
@@ -1506,10 +1506,18 @@ pre code {
 	border-top: 1px solid #dee2e6;
 }
 
-.table thead th {
-	vertical-align: bottom;
-	border-bottom: 2px solid #dee2e6;
+/* 테이블 헤더 부분 CSS 시작 */
+.table thead th{
+	border-top: 2px solid #F27405;
+	border-bottom: 2px solid #F27405;
 }
+.table thead th:first-child{
+	border-left: 2px solid #F27405;
+}
+.table thead th:last-child{
+	border-right: 2px solid #F27405;
+}
+/* 테이블 헤더 부분 CSS 끝 */
 
 .table tbody+tbody {
 	border-top: 2px solid #dee2e6;
@@ -6529,7 +6537,7 @@ a.bg-primary:hover, a.bg-primary:focus, button.bg-primary:hover, button.bg-prima
 }
 
 .bg-secondary {
-	background-color: #6c757d !important;
+	background-color: #FFFFFF !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus, button.bg-secondary:hover,
@@ -7615,7 +7623,7 @@ a.bg-black:hover, a.bg-black:focus, button.bg-black:hover, button.bg-black:focus
 	top: 0;
 	right: 0;
 	left: 0;
-	z-index: 1030;
+	z-index: 1000;
 }
 
 .fixed-bottom {
@@ -7953,17 +7961,17 @@ supports ((position: -webkit-sticky ) or (position: sticky )) { .sticky-top
 	padding: 1.5rem !important;
 }
 
-.pt-4, .py-4 {
+/* .pt-4, .py-4 {
 	padding-top: 1.5rem !important;
-}
+} */
 
 .pr-4, .px-4 {
 	padding-right: 1.5rem !important;
 }
 
-.pb-4, .py-4 {
+/* .pb-4, .py-4 {
 	padding-bottom: 1.5rem !important;
-}
+} */
 
 .pl-4, .px-4 {
 	padding-left: 1.5rem !important;
@@ -9846,8 +9854,7 @@ body {
 } */
 
 .contact-section .card {
-	border: 0;
-	border-bottom: 0.25rem solid #64a19d;
+	
 }
 
 .contact-section .card h4 {
@@ -9905,9 +9912,7 @@ body {
 }
 
 .filter-section .filter-div a:hover {
-	color: white;
 	cursor: pointer;
-	background-color: #7db4ea;
 }
 
 .search input {
@@ -9953,9 +9958,7 @@ body {
 }
 
 .filter-sub-page-div a:hover {
-	color: white;
 	cursor: pointer;
-	background-color: #7db4ea;
 }
 
 .last .btn {
@@ -9981,25 +9984,24 @@ body {
 	height: 95%;
 	margin-top: 5px;
 	margin-bottom: 5px;
-	border: 1px solid black;
+	border: 1px solid #ddd;
 }
 
 .add-sub-page tr {
 	border: 1px solid black;
 }
 
-.add-sub-page td {
+/* .add-sub-page td {
 	border: 1px solid black;
-}
+} */
 
-.add-sub-page>table>tbody>tr>td:nth-child(odd) {
-	background-color: #E6E6E6;
-}
+/* .add-sub-page>table>tbody>tr>td:nth-child(odd) {
+	background-color: #FFFFFF;
+	border: 2px solid #F27405;
+} */
 
 .add-sub-page a:hover {
-	color: white;
 	cursor: pointer;
-	background-color: #7db4ea;
 }
 
 .address-search {
@@ -10011,7 +10013,6 @@ body {
 .sub-menu {
 	width: 200px;
 	background-color: #778899;
-	
 	color: white;
 	z-index: 1030;
 	position: absolute;
@@ -10049,14 +10050,10 @@ body {
 
 .square:hover {
 	cursor: pointer;
-	background-color: #7db4ea;
-	color: white;
 }
 
 .seleted-div {
 	height: 80px;
-	margin-top: 30px;
-	padding: auto;
 }
 
 .search-div {
@@ -10081,14 +10078,12 @@ body {
 }
 
 .address-btn:hover, .img-btn:hover {
-	color: white;
 	cursor: pointer;
-	background-color: #7db4ea;
 }
 
 .close-x {
 	display: marker;
-	border: 0.5px solid black;
+	/* border: 0.5px solid black; */
 	padding: 5px;
 	left: 50%;
 	font-size: 16px;

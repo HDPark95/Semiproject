@@ -33,6 +33,7 @@ public class PaymentPage {
 	public ModelAndView pay1(PaymentVO vo , int anum) {
 		ModelAndView mav = new ModelAndView();	
 		mav.addObject("vo", vo);
+		
 		mav.addObject("pvo", paymentdao.paymentname(anum));
 		mav.setViewName("payment/payment");
 		return mav;
@@ -84,8 +85,12 @@ public class PaymentPage {
 	public ModelAndView paymentDetail(PaymentVO vo) {
 		ModelAndView mav = new ModelAndView();
 		//paymentService.addPayment(vo, vo1);
+		
+		
+		System.out.println("회원번호 : "+vo.getAnum());
 		mav.setViewName("payment/paymentDetail");
 		mav.addObject("vo", vo);	
+		mav.addObject("name", paymentdao.paymentname(vo.getAnum()));	
 		return mav;
 		
 	}

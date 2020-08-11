@@ -32,7 +32,7 @@
 		<table class="table table-hover" style="width:1300px">
 			<thead>
 				<tr>
-					<th colspan="8">매물정보</th>
+					<th colspan="8" class=>매물정보</th>
 				</tr>
 				<tr>
 					<th>번호</th>

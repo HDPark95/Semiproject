@@ -51,12 +51,10 @@
 }
 
 table.type11 {
-	width: 100%;
+	width: 97%;
     border-collapse: separate;
     border-spacing: 1px;
-    text-align: center;
     line-height: 1.5;
-    margin: 20px 10px;
 }
 table.type11 th {
     width: auto;
@@ -69,36 +67,35 @@ table.type11 th {
 table.type11 td {
     width: auto;
     padding: 10px;
-    vertical-align: top;
     border-bottom: 1px solid #ccc;
     background: white;
     
 }
 
 table.type12 {
-	width: 100%;
+	width: 97%;
     border-collapse: separate;
     border-spacing: 1px;
     text-align: center;
     line-height: 1.5;
-    margin: 20px 10px;
 }
 table.type12 th {
     width: auto;
     padding: 10px;
     font-weight: bold;
-    vertical-align: top;
-    color: #fff;
-    background: #ce4869 ;
+    background: #F27405;
+}
+table.type12 th > pre{
+	color: #FFFFFF;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+	margin-bottom: 0px;
 }
 table.type12 td {
-    width: auto;
-    height: auto;
     padding: 10px;
-    vertical-align: top;
     border-bottom: 1px solid #ccc;
     background: white;
-    
 }
 
 .th-btn{
@@ -334,14 +331,15 @@ float: left; border: 1px solid; margin-right: 10px;
 }
 
 .th_property_img{
-	 float: left;
+	float: left;
 	width: 554px;
 	height: 368.75px;
 }
 
 .th_property_subimg{
-	width: 277px; float: left;
-	height: 184.38px;
+	width: 367px; 
+	float: left;
+	height: 230px;
 }
 
 .property_color{
@@ -349,8 +347,7 @@ float: left; border: 1px solid; margin-right: 10px;
 }
 
 .property_border_st{
-	border-radius:0.25rem; 
-	border: 1px solid black;
+
 }
 
 .property_card_back{

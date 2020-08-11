@@ -5,7 +5,7 @@
 	<c:choose>
 		<c:when test="${paging.startPage != 1 }">
 			<li class="page-item"> 
-				<a class="page-link" href="product?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&searchType=${paging.searchType}&searchValue=${paging.seachValue}">&laquo;</a>
+				<a class="page-link" href="product?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&searchType=${paging.searchType}&searchValue=${paging.searchValue}">&laquo;</a>
 			</li>
 		</c:when>
 		<c:otherwise>
@@ -20,14 +20,14 @@
 				<li class="page-item active"><a class="page-link" href="#">${p}</a></li>
 			</c:when>
 			<c:when test="${p != paging.nowPage }">
-				<li class="page-item"> <a class="page-link" href="product?nowPage=${p }&cntPerPage=${paging.cntPerPage}&searchType=${paging.searchType}&searchValue=${paging.seachValue}">${p}</a></li>
+				<li class="page-item"> <a class="page-link" href="product?nowPage=${p }&cntPerPage=${paging.cntPerPage}&searchType=${paging.searchType}&searchValue=${paging.searchValue}">${p}</a></li>
 			</c:when>
 		</c:choose>
 	</c:forEach>
 	<c:choose>
 		<c:when test="${paging.endPage != paging.lastPage}">
 			<li class="page-item">
-				<a class="page-link" href="product?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&searchType=${paging.searchType}&searchValue=${paging.seachValue}">&raquo;</a>
+				<a class="page-link" href="product?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&searchType=${paging.searchType}&searchValue=${paging.searchValue}">&raquo;</a>
 			</li>
 		</c:when>
 		<c:otherwise>
@@ -37,4 +37,4 @@
 		</c:otherwise>
 	</c:choose>	
 	</ul>
-</div> 
+</div>

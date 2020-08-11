@@ -9,7 +9,7 @@
 							<c:forEach items="${list }" var="e" varStatus="i">
 								<li class="list-inline" style="text-overflow: ellipsis;">
 									<div class="col-md-6 col-sm-6 float-left" >
-										<a class="estateList" href="estateDetail?num=${e.pdnum}">
+										<a href="estateDetail?num=${e.pdnum}">
 											<div class="col-md-12 col-sm-12">
 												<img src="img/${e.img[0].img }"  style="width: 100%; height: 120px;">
 												

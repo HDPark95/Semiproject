@@ -22,9 +22,9 @@ public class PaymentDao {
 	public void PaymentPage(Payment_DetailVO vo1) {
 		ss.update("payment.payment_detailup", vo1);
 	    }
-	public Member_DetailVO paymentname(int anum) {
-		Member_DetailVO vo = ss.selectOne("payment.paymentid", anum);
-		return vo;
+	public String paymentname(int anum) {
+		
+		return ss.selectOne("payment.paymentid", anum);
 		
 	}
 	public Member_DetailVO getdname(String dname){

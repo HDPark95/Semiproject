@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div class="container membertarget" style="height: 556.63px;">
-	<h6 class="subtopma" style="margin-bottom: 40px;">
-		회원 탈퇴 를 하시려면 <br> ${vo.memberinfor.dname }님의 아이디 와 <br>비밀번호
-		를 입력해 주세요
-	</h6>
+<div class="container membertarget">
+	<h3 class="subtopma">회원 탈퇴</h3>
+	<p class="modalInfo"><em>아이디</em>와 <em>비밀번호</em>를 입력하여 탈퇴하실 수 있습니다.</p>
 	<form class="form-horizontal" action="deletemember" method="post">
 		<table class="type02">
 			<tr>
@@ -18,10 +16,9 @@
 					id="apwd" value=""></td>
 			</tr>
 		</table>
-		<div class="container" id="signup" style="">
-			<button type="button" class="btn btn-success btn-lg"
-				id="member_secession_btn" onclick="deletemtpage();">삭제하기</button>
-			<button type="button" class="btn btn-success btn-lg" id="mypage_refresh_btn">취소</button>
+		<div class="container buttonSet" id="signup" style="">
+			<button type="button" class="btn button3" id="member_secession_btn" onclick="deletemtpage();"><i class="fas fa-check"></i>&nbsp;확인</button>
+			<button type="button" class="btn button4" id="mypage_refresh_btn"><i class="fas fa-times"></i>&nbsp;취소</button>
 		</div>
 	</form>
 </div>
@@ -49,7 +46,7 @@ $(function(){
 					});
 				}
 		}else{
-			alert("틀리셧습니다. 다시 입력하세요.");
+			alert("아이디 및 비밀번호가 일치하지 않습니다. 다시 입력하세요.");
 		}
 	}
 

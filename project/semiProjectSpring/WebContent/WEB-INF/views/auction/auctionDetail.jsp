@@ -1,43 +1,34 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/header_index.jsp"%>
-
 <%@ include file="../include/header_menu.jsp"%>
-<link rel="stylesheet" href="resources/css/auction/hyunstyle.css" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="resources/css/auction/ggg.css" />
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
-
+<!-- <link rel="stylesheet" href="resources/css/auction/hyunstyle.css" /> -->
+<link rel="stylesheet" href="resources/css/styles.css?after"/>
+<link rel="stylesheet" href="resources/css/auction/ggg.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style>
 .modal a.close-modal {
 	top: 0px;
 	right: 0px;
 }
-
 .search {
 	float: left;
 	margin-right: 20px;
 }
- 
 .modal {
 	height: unset;
 }
 @media (min-width: 768px)
 .navbar-collapse.collapse {
+	display: flex!important;
     height: auto!important;
     padding-bottom: 0;
     overflow: visible!important;
 }
+
 </style>
-<div id="new" class="collapse navbar-collapse"
-	style="width: 1200px; margin: 0 auto; display: block;">
+<div id="new" class="collapse navbar-collapse" style="width: 1200px; margin: 0 auto;">
 	<div class="container default" style="border-bottom: 1px solid black;">
 	<input type="hidden" value="${user.dname}">
 	<input type="hidden" value="${user.aid}">
@@ -53,7 +44,6 @@
 			<table style="margin-top: 10px;">
 				<tr>
 					<td rowspan="11">
-					
 						<div id="target" class="bul">
 							<img src="img/${result.wimage}"onerror="this.src='img/noimg.jpg'" id="main1"
 								style="width: 550px; margin: 0 auto;">
@@ -152,9 +142,7 @@
 			${result.bplan}
 		</textarea>
 	</div>
-	<div id="ex1" class="modal">
-
-	
+	<div id="ex1" class="modal">W
 		<div class="modal-body">
 			<table class="table-data" id="sellCreditTable" style="width: 100%;">
 				<thead>
@@ -200,12 +188,9 @@
 	</div>
 </div>
 <input type="hidden" id="valtest" value="${result.htprice}">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script>
 
 

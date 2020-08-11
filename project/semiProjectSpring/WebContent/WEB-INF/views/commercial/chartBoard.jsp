@@ -39,7 +39,7 @@ width:150px;}
 					<th>번호</th>
 					<th>구</th>
 					<th>동</th>
-					<th>가격   (만원)</th>
+					<th>가격(만원)</th>
 					<th>전용면적</th>
 					<th>건축년도</th>
 				</tr>
@@ -58,7 +58,8 @@ width:150px;}
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="8" id="pageTd"><%@ include file="pageProcess2.jsp"%>
+					<td colspan="8" id="pageTd">
+						<%@ include file="server/pageProcess.jsp"%>
 					</td>
 				</tr>
 			</tfoot>

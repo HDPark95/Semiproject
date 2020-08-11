@@ -1,34 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@ include file="../include/header_index.jsp"%>
-<link href="resources/css/myPage/th_bootstrap.css?after"rel="stylesheet" />
+<link href="resources/css/myPage/th_bootstrap.css?after" rel="stylesheet" />
 <link href="resources/css/myPage/th_styles.css?after" rel="stylesheet" />
+<%@ include file="../include/header_index.jsp"%>
 <%@ include file="../include/header_menu.jsp"%>
 <%@ include file="../include/header_MyPageSubMenu.jsp"%>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <style>
 .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        }
+	background-color: rgba(0, 0, 0, 0.7);
+	overflow-x: hidden;
+    overflow-y: auto;
+	opacity: 1;
+	text-align: center;
+    padding: 0!important;
+    z-index: 1050;
+    outline: 0;
+    position:fixed; 
+    top:50%; 
+    left:50%; 
+    transform: translate(-50%,-50%);
+}
     
-        /* Modal Content/Box */
- .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto; /* 15% from the top and centered */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 30%; /* Could be more or less, depending on screen size */                          
-        }
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    display: inline-block;
+    margin-top: 10%;
+    width: 450px;                          
+}
+
 .th_li {
 	width: 200px;
 }
@@ -37,26 +40,11 @@
 	background-color: rgba(0, 0, 0, 0.075);
 }
 
-.modal{
-    overflow-x: hidden;
-    overflow-y: auto;
-	opacity: 1;
-	text-align: center;
-    padding: 0!important;
-    position: fixed;
-    z-index: 1050;
-    outline: 0;
-    position:fixed; 
-    top:50%; 
-    left:50%; 
-    transform: translate(-50%,-50%);
-    max-width: 1000px;
+#myModal2{
+	width: 700px;
+	height: 260px;
 }
 
-#myModal2{
-width: 700px;
-height: 260px;
-}
 #modal-dialog{
     display: inline-block;
     text-align: left;
@@ -135,6 +123,41 @@ body{
 }
 #managementTable{
 	border: 2px solid #F2B90C;
+}
+.pwdCheck{
+	width: 100%;
+	height: 40px;
+	background-color: #FFFFFF;
+    border: 2px solid #000000;
+    color: #000000;
+    line-height: 3px;
+    font-size: 15px;
+}
+
+.buttonSet{
+	margin-top: 10px;
+}
+.subtopma {
+	margin-bottom: 10px;
+}
+.modalInfo {
+	color: #9B9B9B;
+	font-weight: inherit;
+    font-family: -webkit-body;
+    letter-spacing: normal;
+    font-size: 15px;
+}
+.modalInfo > em{
+	font-style: normal;
+	color: #F25C05;
+}
+.MiGuDok{
+	font-size: 22px;
+	color: #000000;
+}
+.MiGuDok > em{
+	font-style: normal;
+	color: red;
 }
 </style>
 <section class="contact-section container topma mypagesection"> 

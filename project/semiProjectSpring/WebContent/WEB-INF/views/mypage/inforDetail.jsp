@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<div class="container membertarget" style="height: 556.63px;">
-	<h4 class="subtopma" style="margin-bottom: 40px;">${vo.memberinfor.dname }님의 회원 정보 입니다.</h4>
+<div class="container membertarget">
+	<h3 class="subtopma">회원 정보 관리</h3>
+	<p class="modalInfo"><em>이름</em> 및 <em>전화번호</em>를 변경하실 수 있습니다.</p>
 	<form class="form-horizontal" action="inforDetailUpdate" method="post">
-		<input type="hidden" class="form-control" name="aid" id="aid"
-			placeholder="" readonly="readonly" value="${vo.aid }"> <input
-			type="hidden" class="form-control" name="apwd" placeholder="Password"
-			value="${vo.apwd }"> 
-		<table class="type02"  style="height:330px; ">
+		<input type="hidden" class="form-control" name="aid" id="aid" value="${vo.aid }">
+		<input type="hidden" class="form-control" name="apwd" value="${vo.apwd }"> 
+		<table class="type02">
 			<tr>
 				<th scope="row">이름</th>
 				<td><input type="text" class="form-control" name="dname" id="dname"
@@ -36,17 +34,12 @@
 			</tr>
 			
 		</table>
-		<div class="container" id="signup"
-			style="">
-
-			<button type="submit" class="btn btn-success btn-lg" id="inforDetailUpdate_btn">수정하기</button>
-			<button type="button" class="btn btn-success btn-lg" id="inforrefresh_btn">뒤로가기
-			</button>
+		<div class="container buttonSet" id="signup">
+			<button type="submit" class="btn button3" id="inforDetailUpdate_btn"><i class="fas fa-check"></i>&nbsp;확인</button>
+			<button type="button" class="btn button4" id="inforrefresh_btn"><i class="fas fa-times"></i>&nbsp;취소</button>
 		</div>
 	</form>
 </div>
-
-
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 	$(function() { 
@@ -62,11 +55,9 @@
 		+ dbirth.substr(5, 2) + " 월 " + dbirth.substr(8, 2) + " 일 ";  // yyyy 년 mm 월 dd 일 
 		
 		$("#dbirth").val(dbirth_theorem);
-		
 			$('#inforrefresh_btn').click(function() {
 				location.reload();
 			});
-
 	});
 </script>
 

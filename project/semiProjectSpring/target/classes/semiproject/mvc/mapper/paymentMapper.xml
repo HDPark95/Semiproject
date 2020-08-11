@@ -22,8 +22,8 @@
 		inment =#{inment} 
 		where pnum=#{pnum}
 	</update>
-	<select id="paymentid" parameterType="int" resultType="member_detailvo">
-		select * from member_detail where anum =#{anum}
+	<select id="paymentid" parameterType="int" resultType="String">
+		select dname from member_detail where anum =#{anum}
 	</select>
 
 </mapper>
