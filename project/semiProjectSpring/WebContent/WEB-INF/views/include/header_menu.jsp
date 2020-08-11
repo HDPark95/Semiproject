@@ -235,3 +235,4 @@ function register_func() {
 <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
 <script src="resources/js/auction/fcmScript.js"></script>
 	            
+	
