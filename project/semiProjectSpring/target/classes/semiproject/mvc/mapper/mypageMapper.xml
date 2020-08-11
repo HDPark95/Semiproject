@@ -54,7 +54,7 @@
 	</update>
 	
 	<select id="infor_postslist" parameterType="int" resultType="cboardvo">
-	select * from community_board where anum = #{anum}
+	select * from community_board where anum = #{anum} and wdel = 0
 	</select>
 	
 	<select id="mypage_product_infor" parameterType="int" resultType="cpvo">
@@ -95,7 +95,7 @@
 	
 	</update>
 	
-	<select id="mypage_customer" parameterType="int" resultType="cbvo1">
+	<select id="mypage_customer" parameterType="int" resultType="cbvo">
 	select * from customer_board1 where anum = #{anum}
 	</select>
 	

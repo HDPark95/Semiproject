@@ -5,12 +5,17 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.collections.map.HashedMap;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import semiproject.mvc.dao.CommercialDao;
@@ -25,9 +31,13 @@ import semiproject.mvc.dao.CommercialProductDao;
 import semiproject.mvc.service.CommercialService;
 import semiproject.mvc.vo.AddInfoVO;
 import semiproject.mvc.vo.AdministrativeVO;
+import semiproject.mvc.vo.ChartVO;
 import semiproject.mvc.vo.CommercialProductVO;
+import semiproject.mvc.vo.Community_PageVO;
 import semiproject.mvc.vo.DataVO;
 import semiproject.mvc.vo.EstateVO;
+import semiproject.mvc.vo.KeywordVO;
+import semiproject.mvc.vo.OuterDataVO;
 import semiproject.mvc.vo.PageVO;
 import semiproject.mvc.vo.RealPriceVO;
 import semiproject.mvc.vo.RentVO;
@@ -126,9 +136,9 @@ public class CommercialPage {
 	@RequestMapping(value = "/largename")
 	public String getLarge(Model model, String cate) {
 		List<String> list = commercialDao.getLarge();
-		
 		model.addAttribute("result", list);
 		model.addAttribute("cate", cate);
+		System.out.println(list);
 		return "commercial/server/searchServer";
 	}
 
@@ -260,5 +270,145 @@ public class CommercialPage {
 		
 		commercialService.deleteCommercial(pdnum);
 		return mav;
+	}
+	@ResponseBody
+	@RequestMapping(value="/getTimePopChart", produces = "application/json; charset=utf8")
+	public JSONObject getTimePopChart(Model model, String guName) {
+		List<ChartVO> list = commercialDao.getTimePopChart(guName);
+		List<String> listValue = new ArrayList<String>();
+		List<String> listKey = new ArrayList<String>();
+		listValue.add("pop");
+		Map<String, List> map = new HashMap<String, List>();
+		for(ChartVO e: list) {
+			listKey.add(e.getHour());
+			listValue.add(e.getPop());
+		}
+		map.put("value",listValue);
+		map.put("key",listKey);
+		JSONObject object = new JSONObject();
+		for( Entry<String, List> entry : map.entrySet() ) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            object.put(key, value);
+        }
+		model.addAttribute(object);
+		System.out.println(object);
+		return object;
+	}
+	@ResponseBody
+	@RequestMapping(value="/getTimePopChartByGender", produces = "application/json; charset=utf8")
+	public JSONObject getTimePopChartByGender(Model model, String guName) {
+		List<ChartVO> list = commercialDao.getTimePopChartByGender(guName);
+		List<String> listValueMale = new ArrayList<String>();
+		List<String> listValueFemale = new ArrayList<String>();
+		Map<String, List> map = new HashMap<String, List>();
+		listValueFemale.add("여자");
+		listValueMale.add("남자");
+		for(ChartVO e: list) {
+			if(e.getGender().equals("여성")) {
+				listValueFemale.add(e.getPop());
+			}else {
+				listValueMale.add(e.getPop());
+			}
+		}
+		System.out.println(listValueFemale);
+		map.put("남성",listValueFemale);
+		map.put("여성",listValueMale);
+		JSONObject object = new JSONObject();
+		for( Entry<String, List> entry : map.entrySet() ) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            object.put(key, value);
+        }
+		model.addAttribute(object);
+		System.out.println(object);
+		return object;
+	}
+	//평균 운영 폐업 개월 차트 데이터
+	@ResponseBody
+	@RequestMapping(value="/getOuterDataforChart", produces = "application/json; charset=utf8")
+	public JSONObject getOuterDataforChart(Model model, String guName) {
+		List<OuterDataVO> list = commercialDao.getCloseChartData(guName);
+		List<String> listMeanOper = new ArrayList<String>();
+		List<String> listMeanClose = new ArrayList<String>();
+		List<String> listSeoulMeanOper = new ArrayList<String>();
+		List<String> listSeoulMeanClose = new ArrayList<String>();
+		List<String> listQuater = new ArrayList<String>();
+		Map<String, List> map = new HashMap<String, List>();
+		/*
+		 * listMeanOper.add("평균 운영 개월"); 
+		 * listMeanClose.add("평균 폐업 개월");
+		 * listSeoulMeanOper.add("서울 평균 운영 개월"); 
+		 * listSeoulMeanClose.add("서울 평균 폐업 개월");
+		 */
+		// 프론트와의 명칭 통일을 위한 이름 변경
+		listMeanOper.add("지역구 - 운영");
+		listMeanClose.add("지역구 - 폐업");
+		listSeoulMeanOper.add("서울 - 운영");
+		listSeoulMeanClose.add("서울 - 폐업");
+		for(OuterDataVO e: list) {
+			listSeoulMeanClose.add(e.getTotalclosemean());
+			listSeoulMeanOper.add(e.getTotalopermean());
+			listMeanClose.add(e.getCloseoper());
+			listMeanOper.add(e.getMeanoper());
+			listQuater.add(e.getQuater());
+		}
+		map.put("SeoulMeanClose",listSeoulMeanClose);
+		map.put("SeoulMeanOper",listSeoulMeanOper);
+		map.put("MeanClose",listMeanClose);
+		map.put("MeanOper",listMeanOper);
+		map.put("key",listQuater);
+		JSONObject object = new JSONObject();
+		for( Entry<String, List> entry : map.entrySet() ) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            object.put(key, value);
+        }
+		model.addAttribute(object);
+		System.out.println(object);
+		return object;
+	}
+	
+	@RequestMapping(value="/outerDataBusi")
+	public ModelAndView getOpenBusiData(OuterDataVO vo) {
+		ModelAndView mav = new ModelAndView("commercial/server/modalServer2");
+		OuterDataVO openbusi =commercialDao.getOpenBusiData(vo);
+		OuterDataVO closebusi = commercialDao.getCloseBusiData(vo.getGuname());
+		mav.addObject("openbusi", openbusi);
+		mav.addObject("closebusi", closebusi);
+		System.out.println(openbusi.getBusiopenratio());
+		System.out.println(closebusi.getTotalclosemean());
+		return mav;
+	}
+	
+	@RequestMapping(value="/keyword")
+	public ModelAndView getKeywordList() {
+		ModelAndView mav = new ModelAndView("commercial/sidemenu");
+		List<KeywordVO> list = commercialDao.getKeyword();
+		mav.addObject("keywordlist", list);		
+		for(KeywordVO e: list) {
+			System.out.println(e.getKeyword());
+		}
+		return mav;
+	}
+	@RequestMapping(value = "/newsList")
+	public String newsAllList(Community_PageVO pvo, Model model,
+			@RequestParam(value = "nowPage", required = false, defaultValue = "1") String nowPage,
+			@RequestParam(value = "cntPerPage", required = false, defaultValue = "10") String cntPerPage,
+			@RequestParam(value = "sortindex", required = false, defaultValue = "1") String sortindex,
+			@RequestParam(required = false) String searchType,
+			@RequestParam(required = false) String searchValue) {
+		int total = commercialDao.getTotalCount(pvo);
+		pvo = new Community_PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), Integer.parseInt(sortindex));
+		pvo.setSearchType(searchType);
+		pvo.setSearchValue(searchValue);
+		List<OuterDataVO> list = commercialDao.getAllNews(pvo);
+		for(OuterDataVO e: list) {
+			System.out.println(e.getTitle());
+		}
+		model.addAttribute("paging", pvo);
+		model.addAttribute("newsList", commercialDao.getAllNews(pvo));
+		model.addAttribute("total", total);
+		return "commercial/newsPage";
 	}
 }

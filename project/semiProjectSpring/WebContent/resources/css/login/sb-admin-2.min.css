@@ -2231,14 +2231,14 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-primary {
 	color: #fff;
-	background-color: #4e73df;
-	border-color: #4e73df
+	background-color: #F28705;
+	border-color: #F28705;
 }
 
 .btn-primary:hover {
 	color: #fff;
-	background-color: #2e59d9;
-	border-color: #2653d4
+	background-color: #F27405;
+	border-color: #F27405;
 }
 
 .btn-primary.focus, .btn-primary:focus {

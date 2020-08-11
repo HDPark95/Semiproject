@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<%@ include file="../include/header_index.jsp"%>
+<%@ include file="../include/header_main.jsp"%>
+<%@ include file="../include/header_menu.jsp"%>
+<%@ include file="../include/header_CoEstateSubMenu.jsp"%>
 <link  href="/resources/css/estate/paging.css"/>
 <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
+<link rel="stylesheet" href="resources/css/estate/ion.rangeSlider.min.css"/>
 <style>
 .paging{
 	color: #64a19d;
@@ -200,16 +202,15 @@
 }
 </style>
 
-<%@ include file="../include/header_menu.jsp"%>
 <section class="contact-section " >
 	<%@ include file="../include/searchFilter.jsp" %>
-	<div class="container2" style="margin-top: 50px; height: 80%;">
+	<div class="container2" style="height: 100%; margin-top: 10px">
 		<div class="row">
-			<div class="col-md-12 mt-5">
+			<div class="col-md-12">
 				<!--  body -->
 				<div class="col-md-8 col-sm-8 float-left">
 					<div class="map_wrap">
-					<div id="map" class="col-md-12 col-sm-12" style=" width: 100%;height: 1440px; position: relative; overflow: hidden;"></div>
+					<div id="map" class="col-md-12 col-sm-12" style=" width: 100%;height: 1240px; position: relative; overflow: hidden;"></div>
 					
 					
 					</div>
@@ -224,7 +225,7 @@
 		
 		
 	</div>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5d751c35293b0473bc14f09aa6b0ca97&libraries=services,clusterer,drawing" ></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d3da01cea8b26f7180225f6a45645c2c&libraries=services,clusterer,drawing" ></script>
 		<script>
 			// 마커를 담을 배열입니다
 			var markers = [];
@@ -457,18 +458,24 @@
 				if(msg!==''){
 					alert(msg);
 				}
-				
+				var formData=new $("#search_form").serialize();
 				
 				
 				$.ajax({
 					url:'estatelist',
+					type:'post',
+					data:formData,
 					
 					success:function(data){
 						$('#listtarget').html(data);
+						
+						$("#cntPerPage_val").val($('#cntPerPage').val())
+					},error:function(data){
+						console.log(data)
 					}
 				});
 				
-				
+				$(".subMenuBar").css("z-index",1030);
 				
 				
 			});
@@ -476,17 +483,30 @@
 				var url='';
 				if(text==='이후'){
 					url='estatelist?nowPage='+$('#endPage').val()+'&cntPerPage='+$('#cntPerPage').val();
+					$("#cntPerPage_val").val($('#cntPerPage').val());
+					$("#nowPage").val($("#endPage").val());
 				}else if(text==='이전'){
 					url='estatelist?nowPage='+$('#startPage').val()+'&cntPerPage='+$('#cntPerPage').val();
+					$("#nowPage").val($("#startPage"),val());
+					$("#cntPerPage_val").val($('#cntPerPage').val());
 				}else{
 					url='estatelist?nowPage='+text+'&cntPerPage='+$('#cntPerPage').val();
+					$("#nowPage").val(text);
+					$("#cntPerPage_val").val($('#cntPerPage').val());
 				}
-				
-				
+				var esvo=$("#esvo").val();
+				if(esvo !=null && esvo!==''){
+					url=url+'&esvo='+esvo;
+				}
+				var formData= $("#search_form").serialize();
 				$.ajax({
-					url:url,
+					url:'estatelist',
+					type:'post',
+					data: formData,
 					success: function(data){
 						$('#listtarget').html(data);
+						$("#cntPerPage_val").val($('#cntPerPage').val())
+						$("#paging_val").val($("#paing").val())
 					}
 				});
 			}

@@ -106,9 +106,6 @@
 			$('#rec_update').css('border', '1px solid white');
 		});
 	});
-	function upWrec(){
-		location = "updateWrec?&wnum="+${list.wnum};
-	}
 </script>
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
@@ -136,7 +133,7 @@
 							<td id="total">
 								<form action="updateWrec" method="get">	
 								<div>
-									<button type="button" class="btn btn-default" onclick="upWrec()" id="rec_update">
+									<button type="button" class="btn btn-default" id="rec_update">
 										<i class="fas fa-thumbs-up"></i>&nbsp; <span id="wrec">${list.wrec}</span>
 									</button>
 								</div>

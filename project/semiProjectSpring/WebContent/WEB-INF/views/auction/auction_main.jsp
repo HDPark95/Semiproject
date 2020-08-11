@@ -1,14 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header_index.jsp"%>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
-<link rel="stylesheet" href="resources/css/auction/main/bootstrap.css">
-<link rel="stylesheet" href="resources/css/auction/main/banner.css">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script> 		
 <%@ include file="../include/header_menu.jsp"%>
+<%@ include file="../include/header_AuctionSubMenu.jsp"%>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<!-- <link rel="stylesheet" href="resources/css/auction/main/bootstrap.css"> -->
+<link rel="stylesheet" href="resources/css/auction/main/banner.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script> 		
 <style>
+body {
+  margin: 0;
+  /* font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+  font-family: 'Noto Sans KR',sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #FCFCFC;
+}
 /* BANNER */
 #banner {
 	width: 100%;
@@ -182,12 +192,43 @@
 	background-image: url(resources/images/auction/icon/1next.png);
 }
 
+.select{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.btn{
+	padding: 0.75rem 0.75rem;
+	letter-spacing: 0.05rem;
+}
+.btn.btn-inactive{
+	color: #A4A4A4;
+}
+
+.btn.btn-active{
+	color: #000000;
+}
+.btn-group{
+	display: inline;
+	margin-top: 15px;
+	font-size: 16px;
+	font-family: 'Noto Sans KR',sans-serif;
+}
+.btn-group > a{
+	color: #000000;
+}
+#searchtop{
+    border: 1px solid gray;
+    border-radius: 5px 5px 5px 5px;
+    border-style: groove;
+    width: 100%; 
+    height: 60px;  
+    padding: 10px;
+}
 </style>
 </head>
 <body>
 	<div style="width: 1500px; margin: 80px auto;">
-
-	
 		<div>
 			<section id="banner" class="swiper-container main-banner-container">
 				<div class="swiper-wrapper">
@@ -211,17 +252,17 @@
 			<div id="leftcontents"
 				style="position: relative; width: 80%; margin: auto;">
 				<div id="searchtop" name="searchtop"
-					style="width: 100%; height: 65px; border: 1px solid gray; padding: 10px;">
+					>
 					<div class="form-group" style="margin-top: 7px;">
-						진행사항:<select class="form-control" id="statussel"
-							style="width: 100px;">
+						진행사항:<select class="form-control select" id="statussel"
+							style="width: 100px; display: inline;">
 							<option value="0">전체</option>
 							<option value="1">신건</option>
 							<option value="2">유찰</option>
 							<option value="3">진행</option>
 							<option value="4">낙찰</option>
-						</select> 물건용도:<select class="form-control" id="mulgun"
-							style="width: 100px;">
+						</select> 물건용도:<select class="form-control select" id="mulgun"
+							style="width: 100px; display: inline;">
 							<option value="0">전체</option>
 							<option value="1">아파트</option>
 							<option value="2">주택/빌라</option>
@@ -231,9 +272,9 @@
 							<option value="6">기타</option>
 						</select>
 						<form action="auctionMain" method="post" style="margin-top: -35px;">
-      					<input class="btn btn-primary" id="searchBtn" style="float: right;" type="submit" value="검색"/>
+      					<input class="btn btn-primary button1" id="searchBtn" style="float: right; " type="submit" value="검색"/>
       					<input class="form-control mr-sm-2" id="searchValue" name="searchValue" type="text" style="width: 200px;float: right;" placeholder="Search" value="${paging.searchValue}">
-      					<select class="form-control" id="searchType" name="searchType" 
+      					<select class="form-control select" id="searchType" name="searchType" 
 							style="width: 100px;float: right;">
 							<option value="0">제목</option>
 							<option value="1">주소</option>
@@ -241,17 +282,16 @@
 						</form>
 					</div>
 				</div>
-				<div id="datalisttop" style="width: 100%; margin-top: 20px;">
-					<div class="btn-group" role="group" aria-label="Basic example"
-						style="float: left;">
-						<input type="button" id="lowpBtn" name="lowpBtn" class="btn btn-outline-primary" value="최저가순 ▲"/>
-						<input type="button" id="maeBtn" name="maeBtn" class="btn btn-outline-primary" value="매각기일순 ▲"/>
-						<input type="button" id="hitBtn" name="hitBtn" class="btn btn-outline-primary" value="조회수순 ▲"/>
+				<div id="datalisttop">
+					<div class="btn-group" role="group" aria-label="Basic example" style="float: left;">
+						<input type="button" id="lowpBtn" name="lowpBtn" class="btn btn-inactive" value="최저가순 ▲"/>
+						<a>|</a>
+						<input type="button" id="maeBtn" name="maeBtn" class="btn btn-inactive" value="매각기일순 ▲"/> 
+						<a>|</a>
+						<input type="button" id="hitBtn" name="hitBtn" class="btn btn-inactive" value="조회수순 ▲"/>
 						<input type="hidden" id="sortindex" name="sortindex" value="${paging.sortindex}"/>
 						<input type="hidden" id="sbid" name="sbid" value="${sbid}"/>
-					</div>
-					<div style="float: left;">
-						<label id="sumres" style="margin-top: 5px; margin-left: 10px;">(총
+						<label id="sumres">(총
 							<b>${paging.total}</b>건)
 						</label>
 					</div>
@@ -260,20 +300,19 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th scope="col"></th>
-								<th scope="col"></th>
+								<th scope="col" style="text-align: center;">건물 이미지</th>
 								<th scope="col">제목/물건용도/주소지/토지면적/건물면적/경매만료일</th>
 								<th scope="col" colspan="2">시작가/현재가</th>
-								<th scope="col">상태/등록일/조회수</th>
+								<th scope="col" style="text-align: center;">상태/등록일/조회수</th>
 							</tr>
 						</thead>
 						<tbody style="border-bottom: 1px solid gray; font-size: 1rem;">
-						<%@ include file="auction_mainview.jsp"%>
+							<%@ include file="auction_mainview.jsp"%>
 						</tbody>
 					</table>
 				</div>
 				<div style="width: 100%">
-					<ul class="pagination" style="width:300px;margin: 0 auto;">
+					<ul class="pagination pagination-lg" style="width:300px;margin: 0 auto;">
 						<c:choose>
 							<c:when test="${paging.startPage != 1 }">
 								<li class="page-item"><a class="page-link"
@@ -346,22 +385,22 @@
 		//alert($('#sortindex').val());
 		if($('#sortindex').val()==='1'){
 			$('#lowpBtn').val('최저가순 ▲');
-			$('#lowpBtn').attr('class','btn btn-outline-primary active')
+			$('#lowpBtn').attr('class','btn btn-active')
 		}else if($('#sortindex').val()==='2'){
 			$('#lowpBtn').val('최저가순 ▼');
-			$('#lowpBtn').attr('class','btn btn-outline-primary active')
+			$('#lowpBtn').attr('class','btn btn-active')
 		}else if($('#sortindex').val()==='3'){
 			$('#maeBtn').val('매각기일순 ▲');
-			$('#maeBtn').attr('class','btn btn-outline-primary active')
+			$('#maeBtn').attr('class','btn btn-active')
 		}else if($('#sortindex').val()==='4'){
 			$('#maeBtn').val('매각기일순 ▼');
-			$('#maeBtn').attr('class','btn btn-outline-primary active')
+			$('#maeBtn').attr('class','btn btn-active')
 		}else if($('#sortindex').val()==='5'){
 			$('#hitBtn').val('조회수순 ▲');
-			$('#hitBtn').attr('class','btn btn-outline-primary active')
+			$('#hitBtn').attr('class','btn btn-active')
 		}else if($('#sortindex').val()==='6'){
 			$('#hitBtn').val('조회수순 ▼');
-			$('#hitBtn').attr('class','btn btn-outline-primary active')
+			$('#hitBtn').attr('class','btn btn-active')
 		}
 		
 		$('#statussel').val(${param.statussel});
@@ -442,15 +481,7 @@
 			$('.' + i).append(v);
 		});
 	}
-	function loginChk(){
-		var aid = $("#aid").val();
-		if (aid===null || aid === ""){
-			alert("로그인하세요.")
-		}else{
-			location = "auction_sales?aid="+aid;
-		}
-	}
 	
 	</script>
-	<%@ include file="../include/footer2.jsp"%>
+<%@ include file="../include/footer.jsp"%>
 	

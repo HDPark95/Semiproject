@@ -40,20 +40,20 @@
         target: "#mainNav",
         offset: 100,
     });
-    $("body").scrollspy({
+   /* $("body").scrollspy({
         target: "#mainNav2",
         offset: 100,
-    });
+    });*/
   
     // Collapse Navbar
     var navbarCollapse = function () {
     	
     		 if ($("#mainNav").offset().top > 100) {
     	            $("#mainNav").addClass("navbar-shrink");
-    	            $("#mainNav2").addClass("navbar-shrink");
+    	            //$("#mainNav2").addClass("navbar-shrink");
     	        } else {
     	            $("#mainNav").removeClass("navbar-shrink");
-    	            $("#mainNav2").removeClass("navbar-shrink");
+    	           // $("#mainNav2").removeClass("navbar-shrink");
     	        }
     	
     	

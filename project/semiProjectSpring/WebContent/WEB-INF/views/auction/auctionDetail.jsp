@@ -1,30 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/header_index.jsp"%>
-
 <%@ include file="../include/header_menu.jsp"%>
-<link rel="stylesheet" href="resources/css/auction/hyunstyle.css" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="resources/css/auction/ggg.css" />
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
-
+<!-- <link rel="stylesheet" href="resources/css/auction/hyunstyle.css" /> -->
+<link rel="stylesheet" href="resources/css/styles.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="resources/css/auction/ggg.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <style>
 .modal a.close-modal {
 	top: 0px;
 	right: 0px;
 }
-
 .search {
 	float: left;
 	margin-right: 20px;
 }
- 
 .modal {
 	height: unset;
 }
@@ -35,9 +26,10 @@
     overflow: visible!important;
 }
 </style>
-<div id="new" class="collapse navbar-collapse"
-	style="width: 1200px; margin: 0 auto; display: block;">
+<div id="new" class="collapse navbar-collapse" style="width: 1200px; margin: 0 auto;">
 	<div class="container default" style="border-bottom: 1px solid black;">
+	<input type="hidden" value="${user.dname}">
+	<input type="hidden" value="${user.aid}">
 		<div class="row">
 			<h2 class="fs-md col-sm-6" style="margin-top: 50px;">
 				<strong>${result.subject} [${result.yongdo}]</strong>
@@ -50,23 +42,24 @@
 			<table style="margin-top: 10px;">
 				<tr>
 					<td rowspan="11">
+					
 						<div id="target" class="bul">
-							<img src="img/${result.wimage}" id="main1"
+							<img src="img/${result.wimage}"onerror="this.src='img/noimg.jpg'" id="main1"
 								style="width: 550px; margin: 0 auto;">
 						</div>
 						<table id="bul" style="width: 550px; height: 110px">
 							<tr>
-								<td style="width: 25%; float: left;"><img
-									src="img/${result.wimage}" class="im"
+							<td style="width: 25%; float: left;"><img
+									src="img/${result.wimage}" class="im"onerror="this.src='img/noimg.jpg'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								<td style="width: 25%; float: left;"><img
-									src="img/${result.imagea}" class="im"
+									src="img/${result.imagea}" class="im" onerror="this.src='img/noimg.jpg'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								<td style="width: 25%; float: left;"><img
-									src="img/${result.imageb}" class="im"
+									src="img/${result.imageb}" class="im"onerror="this.src='img/noimg.jpg'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								<td style="width: 25%; float: left;"><img
-									src="img/${result.imagec}" class="im"
+									src="img/${result.imagec}" class="im"onerror="this.src='img/noimg.jpg'"
 									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								</tr>
 						</table>
@@ -120,6 +113,10 @@
 				<td>${result.bid}</td>
 			</tr>
 			<tr>
+				<th>현재가</th>
+				<td style="color: blue; font-weight: 900">${result.hprice}</td>
+			</tr>
+			<tr>
 				<td colspan="2"><a href="#ex1" rel="modal:open"
 					class="btn btn-primary btn-lg" id="sal">입찰하기</a></td>
 					
@@ -144,9 +141,7 @@
 			${result.bplan}
 		</textarea>
 	</div>
-	<div id="ex1" class="modal">
-
-	
+	<div id="ex1" class="modal">W
 		<div class="modal-body">
 			<table class="table-data" id="sellCreditTable" style="width: 100%;">
 				<thead>
@@ -161,6 +156,11 @@
 						
 					</tr>
 					<tr>
+						<th colspan="2">입찰자</th>
+						<td colspan="2" id="2">${user.aid}</td>
+						
+					</tr>
+					<tr>
 						<th colspan="2">남은기간</th>
 						<td colspan="2" class="timer"></td>
 					</tr>
@@ -170,11 +170,11 @@
 					</tr>
 					<tr>
 						<th colspan="2">현재가</th>
-						<td colspan="2" id="4">${result.hprice}</td>
+						<td colspan="2" id="4" style="color: blue">${result.hprice}</td>
 					</tr>
 					<tr>
 						<th colspan="2">입찰금액</th>
-						<td colspan="2" id="5"><input type="text" name="ipprice" id="ipprice" value="${vo.ipprice}"></td>
+						<td colspan="2" id="5"><input type="text" name="ipprice" id="ipprice" ></td>
 					</tr>
 				</tbody>
 			</table>
@@ -186,56 +186,84 @@
 		</div>
 	</div>
 </div>
-<input type="hidden" id="valtest" value="${result.hprice}">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<input type="hidden" id="valtest" value="${result.htprice}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script>
+
+
 
 function test(){
 	var ipprice = $("#ipprice").val();
 		ipprice = Number(ipprice);
 	var ipnum = "${result.ipnum}";
-	var bid = "${result.bid}";
+	var bid = "${user.aid}";
+	//var aid = "";
 	var anum = "${result.anum}";
 	var url = "?ipprice=" + ipprice + "&ipnum="+ipnum +"&bid="+bid
-	location = 'purchase'+url
+	//location = 'purchase'+url
 	
 	console.log(ipprice);
 	console.log(typeof(${result.hprice}));
 	
-	var numvv = parseInt($('#valtest').val().replace(",",""),10)
+	var numvv = $('#valtest').val();
+	alert("numvv:"+numvv+"ipprice:"+ipprice);
 	if(numvv > $("#ipprice").val()){	
 		alert('입찰금액이 현재가 보다 낮습니다. 다시 입력해주세요.')
-			location.reload();
+			//location.reload();
 	}else{
+		fcmpush(ipnum);
+		location = 'purchase'+url
 		alert('입찰되었습니다! 축하드립니다!')
 	}
 };
+function fcmpush(ipnum){
+	$.ajax({
+		url : "fcmcall?ipnum="+ipnum,
+		type : "get" ,
+		success : function(result) {
+				console.log("pass");
+		}
+	});
+}
 	$(document).ready(function() {
 		var $node = $('div').children();
-		$('.im').click(function() {
+		$('.im').click(function() {	
 			$('#target img').attr('src', $(this).attr('src'));
+			
 		});
 	});
 	function close_pop(flag) {
 		$('#ex1').hide();
 	};
-	$('#sal').click(function(event){	
+	
+	$('#sal').click(function(event){
+		var bid = "${result.bid}";
+		var name = "${user.aid}";
+		console.log(bid)
+		console.log(name)
+		if(bid == name){
+			alert("판매자와 물건을 등록한 사람이 같습니다. 입찰 할 수 없습니다.")
+			event.stopPropagation();
+			$('#sal').attr('class', "btn btn-primary btn-lg disabled");
+		}if(bid != name){
+			alert("경매가 진행중인 물건입니다.")
+		}
 		if($('.timer').html() == "EXPIRED"){
 			event.stopPropagation();
 			alert("물건 경매가 마감되었습니다.")
 			$('#sal').attr('class', "btn btn-primary btn-lg disabled");
 			
 		}else{
-			alert("경매가 진행중인 물건입니다.")
+			
 			
 		}
-
+		
 	});
+
+	
+
 	/* var i= 0;
 	var menu =$('#bul > ul > li').length;
 	var inter = setInterval(function() {

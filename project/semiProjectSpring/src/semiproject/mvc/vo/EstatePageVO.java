@@ -13,9 +13,16 @@ public class EstatePageVO {
  private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
  private int cntPage = 5;
  private String searchType,searchValue;
+ private EstateSearchVO esvo;
  
  
- public int getCntPage() {
+ public EstateSearchVO getEsvo() {
+	return esvo;
+}
+public void setEsvo(EstateSearchVO esvo) {
+	this.esvo = esvo;
+}
+public int getCntPage() {
   return cntPage;
  }
  public void setCntPage(int cntPage) {

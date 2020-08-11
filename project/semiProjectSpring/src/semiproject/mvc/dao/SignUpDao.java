@@ -28,7 +28,12 @@ public class SignUpDao {
 		ss.insert("signup.addmember4");
 	}
 	
-	public int aidHeaderCheck(String aid) {
+	public int aidCheck(String aid) {
 		return ss.selectOne("signup.idChk", aid);
+}
+
+	public int dnameCheck(SignUpVO vo) {
+		System.out.println("dao 동작 ? :");
+		return  ss.selectOne("signup.dnameChk", vo);
 	}
 }

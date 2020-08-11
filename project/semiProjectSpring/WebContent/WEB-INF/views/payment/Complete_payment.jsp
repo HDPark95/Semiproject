@@ -19,7 +19,7 @@
 		<div class="container">
 			<table class="table">
 				<tr class="success">
-					<th colspan="2"><a>${vo.memberinfor.dname } 님 </a><br>구독권 연장 감사합니다.</th>
+					<th colspan="2"><a>${vo.memberinfor.dname}님 </a><br>구독권 연장 감사합니다.</th>
 				</tr>
 				<tr>
 					<td colspan="2" id="welcome1">연장된 혜택을 맘껏 누리세요!</td>

@@ -1,16 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-		
 <%@ include file="../include/header_index.jsp"%>
-<link href="resources/css/myPage/th_bootstrap.css?after" rel="stylesheet" />
-<link href="resources/css/myPage/th_styles.css?after" rel="stylesheet" />
-
 <%@ include file="../include/header_menu.jsp"%>
-	
 	<div class="tab-pane  th_page_space  fade show active "
 			style="text-align: center; margin-top: 200px;" id="a">
 <h4 class="subtopma">${vo.memberinfor.dname } 님의 결제 정보 입니다.</h4>
- 
 <div class="container" > 
 	<form class="form-horizontal" action="inforDetailUpdate" method="post">
 		<div class="form-group ">

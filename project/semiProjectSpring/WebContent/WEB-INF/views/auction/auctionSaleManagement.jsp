@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -107,9 +107,15 @@ table.type09 td {
     vertical-align: top;
     border-bottom: 1px solid #ccc;
 }
+.footer {
+    padding: 8rem 0;
+}
 </style>
 <div id="new" class="collapse navbar-collapse"
 	style="width: 1200px; margin: 0 auto; display: block;">
+	<div style="margin-bottom: 60px;">
+	
+	</div>
 	<div class="container default" style="border-bottom: 1px solid black;">
 		<div class="row">
 			<h2 class="fs-md col-sm-6" style="margin-top: 50px;">
@@ -120,36 +126,31 @@ table.type09 td {
 	</div>
 	<div id="container" style="width: 100%; margin-top: 10px;">
 		<div id="left" style="float: left; width: 48%;">
-			<div>
-				<table style="margin-top: 10px;">
-					<tr>
-						<td rowspan="11">
-							<div id="target" class="bul">
-								<img src="img/${result.wimage}" id="main1"
-									style="width: 464px; margin: 0 auto;" height="300px;">
-							</div>
-							<table id="bul" style="width: 500px; height: 110px">
-								<tr>
-									<td style="width: 25%; float: left;"><img
-										src="img/${result.wimage}" class="im"
-										style="width: 86.5px; height: 75px; margin-top: 10px;"></td>
-									<td style="width: 25%; float: left;"><img
-										src="img/${result.imagea}" class="im"
-										style="width: 86.5px; height: 75px; margin-top: 10px;"></td>
-									<td style="width: 25%; float: left;"><img
-										src="img/${result.imageb}" class="im"
-										style="width: 86.5px; height: 75px; margin-top: 10px;"></td>
-									<td style="width: 25%; float: left;"><img
-										src="img/${result.imagec}" class="im"
-										style="width: 86.5px; height: 75px; margin-top: 10px;"></td>
+			<table style="margin-top: 10px;">
+				<tr>
+					<td rowspan="11">
+						<div id="target" class="bul">
+							<img src="img/${result.wimage}" id="main1" onerror="this.src='img/noimg.jpg'"
+								style="width: 550px; margin: 0 auto;">
+						</div>
+						<table id="bul" style="width: 550px; height: 110px">
+							<tr>
+								<td style="width: 25%; float: left;"><img
+									src="img/${result.wimage}" class="im" onerror="this.src='img/noimg.jpg'"
+									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
+								<td style="width: 25%; float: left;"><img
+									src="img/${result.imagea}" class="im" onerror="this.src='img/noimg.jpg'"
+									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
+								<td style="width: 25%; float: left;"><img
+									src="img/${result.imageb}" class="im" onerror="this.src='img/noimg.jpg'"
+									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
+								<td style="width: 25%; float: left;"><img
+									src="img/${result.imagec}" class="im" onerror="this.src='img/noimg.jpg'"
+									style="width: 137.5px; height: 128px; margin-top: 10px;"></td>
 								</tr>
-							</table>
-					</tr>
-				</table>
-				<br>
-
-				
-			</div>
+						</table>
+				</tr>
+			</table>
 		</div>
 	</div>
 	<div id="space" style="float: left; width: 4%;">
@@ -157,8 +158,8 @@ table.type09 td {
 	</div>
 	<div id="right" style="float: left; width: 48%">
 		<table id="tal"
-					style="margin-top: 50px; text-align: center; width: 500px; height: 300px;">
-					<h3>나의물건정보</h3>
+					style="margin-top: 80px; text-align: center; width: 500px; height: 300px;">
+					<h1>나의물건정보</h1>
 					<tbody style="border-top: 1px solid black;">
 						<tr>
 							<th><div class="C">물건번호</div></th>
@@ -191,27 +192,27 @@ table.type09 td {
 					</tbody>
 				</table>
 	</div>
-	<div
+ 	 <%--  <div
 		class="card text-black bg-secondary my-6 py-4 text-center col-lg-12 bg-white">
-		<h2>내 물건을 입찰한 사람들</h2>
+		<h2>입찰자와 입찰 금액</h2>
 	<table class="type09">
     <thead>
     <tr>
-        <th scope="cols">입찰자번호</th>
+        <th scope="cols">입찰물건번호</th>
         <th scope="cols">입찰금액</th>
     </tr>
     </thead>
     <tbody>
     <c:forEach items="${list}" var="mlist">
     <tr>
-        <th scope="row">${mlist.ipnum}</th>
+        <td scope="row">${mlist.ipnum}</td>
         <td>${mlist.ipprice}</td>
     </tr>
  
     </c:forEach>
     </tbody>
 </table>
-	</div>
+	</div>   --%>
 	<div id="ex1" class="modal">
 		<div class="modal-body">
 			<table class="table-data" id="sellCreditTable" style="width: 100%;">

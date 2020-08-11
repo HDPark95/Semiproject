@@ -9,19 +9,18 @@
 		insert into actmainde values(actmainde_seq.nextVal,actmain_seq.currVal,#{managepee},#{bplan},#{wimage},#{imagea},#{imageb},#{imagec},sysdate,null)
 	</insert>
 	<insert id="addip" parameterType="aipvo">
-		insert into ipchal values(ipchal_seq.nextVal,actmain_seq.currVal,TO_DATE(#{enddate},'YYYY-MM-DD HH24:MI'),#{ipdanwe},#{ideprice},1,#{subject},#{text},sysdate,null)
+		insert into ipchal values(ipchal_seq.nextVal,actmain_seq.currVal,TO_DATE(#{enddate},'YYYY-MM-DD HH24:MI'),#{ipdanwe},#{ideprice},1,#{subject},#{text},sysdate,null,null)
 	</insert>
 	
 	<select id="mainsel" resultType="aviewmain" parameterType="aviewpage">
-		select * from (
-			select rownum r_num, a.* from (
-			select a.anum,a.bid,fn_yongdo_name(a.byongdo) as yongdo,a.baddra as addr,a.bweight,a.tweight,a.hit
-	                ,b.wimage,TO_CHAR(p.ideprice,'FM999,999,999,999') as ideprice,p.subject,TO_CHAR(p.enddate,'YYYY"년"MM"월"DD"일" HH24"시"MI"분"') as enddate,
-	                TO_CHAR( DECODE(nvl(fn_higt_ipchalper(p.ipnum),0),0,nvl(p.ideprice,0),nvl(fn_higt_ipchalper(p.ipnum),0)),'FM999,999,999,999') as hprice
-	                , fn_basedata_name(3,1,p.status) as status,TO_CHAR(a.indate,'YYYY.MM.DD') as indate  
-			 from actmain a , actmainde b , ipchal p
-			where b.anum = a.anum
-			  and p.anum = a.anum
+	select * from (
+		select rownum r_num, a.* from (
+		select a.anum,a.bid,fn_yongdo_name(a.byongdo) as yongdo,a.baddra as addr,a.bweight,a.tweight,a.hit
+                ,b.wimage,TO_CHAR(p.ideprice,'FM999,999,999,999') as ideprice,p.subject,TO_CHAR(p.enddate,'YYYY"년"MM"월"DD"일" HH24"시"MI"분"') as enddate,TO_CHAR( DECODE(nvl(fn_higt_ipchalper(p.ipnum),0),0,nvl(p.ideprice,0),nvl(fn_higt_ipchalper(p.ipnum),0)),'FM999,999,999,999') as hprice
+                , fn_basedata_name(3,1,p.status) as status,TO_CHAR(a.indate,'YYYY.MM.DD') as indate  
+ from actmain a , actmainde b , ipchal p
+where b.anum = a.anum
+  and p.anum = a.anum
 <if test="searchValue != null">
 	<choose>
 		<when test='searchType=="0"'>  
@@ -90,6 +89,22 @@ order by a.hit desc
 		update actmain set hit = hit
 		+1 where anum =#{anum}
 	</update>
+	<update id="upstaus">
+	{CALL update_auction_status}
+	</update>
+	<update id="tokenins" parameterType="ltoken">
+	update LOGINTOKEN set token = #{token} where aid = #{aid} and gubun = 'P'
+	</update>
+	<select id="selaid" parameterType="int" resultType="String">
+	select a.bid from( 
+	select bid from ipchalper where ipnum = #{ipnum} order by ipdate desc) a
+	where rownum = 1 
+	</select>
+	<select id="fcmid" parameterType="fcmt" resultType="fcmt">
+	select token, (select subject from ipchal where ipnum = #{ipnum}) as subject  
+  	  from logintoken
+	 where aid = #{aid}
+	</select>
 </mapper>
 
 

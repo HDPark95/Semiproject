@@ -1,12 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
-
-<div class="container" style="height: 556.63px;">
-	<h4 class="subtopma">${user.aid }님의로그인 정보 입니다.</h4>
+<div class="container">
+	<h3 class="subtopma">로그인 정보 관리</h3>
+	<p class="modalInfo"><em>주기적인 비밀번호 변경</em>을 통해 <br>개인정보를 안전하게 보호하세요.</p>
 	<form class="form-horizontal" action="mypageloginUpdate" method="post">
-
 		<table class="type02">
 			<tr>
 				<th scope="row">아이디</th>
@@ -17,7 +14,7 @@
 				<th scope="row">비밀번호</th>
 				<td><input type="password" class="form-control" name="apwd"
 					id="apwd" value="${vo.apwd }"> <input type="button"
-					id="cbtn" class="" value="비번확인"></td>
+					id="cbtn" class="pwdCheck" value="보이기"></td>
 			</tr>
 			<tr>
 				<th scope="row">가입날짜</th>
@@ -29,16 +26,15 @@
 				<td><input type="text" class="form-control" name="achgday"
 					id="achgday" readonly="readonly" value="${vo.achgday }"></td>
 			</tr>
-			<tr>
+<%-- 			<tr>
 				<th scope="row">아이디 구분</th>
 				<td><input type="text" class="form-control" name="agubun"
 					readonly="readonly" value="${vo.agubun }"></td>
-			</tr>
+			</tr> --%>
 		</table>
-		<div class="container" id="signup" style="">
-
-			<button type="submit" class="btn btn-success btn-lg">수정하기</button>
-			<button type="button" class="btn btn-success btn-lg" id="mypage_loginfor_refresh">뒤로가기</button>
+		<div class="container buttonSet" id="signup">
+			<button type="submit" class="btn button3"><i class="fas fa-exchange-alt"></i>&nbsp;변경</button>
+			<button type="button" class="btn button4" id="mypage_loginfor_refresh"><i class="fas fa-times"></i>&nbsp;취소</button>
 		</div>
 	</form>
 </div>
@@ -71,7 +67,7 @@
 			} else if (cnum === 1) {
 				cnum = 0;
 				$('#apwd').attr('type', 'password');
-				$('#cbtn').val('비번확인');
+				$('#cbtn').val('보이기');
 			}
 
 		});
@@ -79,6 +75,8 @@
 	$('#mypage_loginfor_refresh').click(function() {
 		location.reload();
 	});
+	
+	
 	});
 </script>
 

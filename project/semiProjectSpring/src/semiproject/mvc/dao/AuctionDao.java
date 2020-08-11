@@ -11,6 +11,9 @@ import semiproject.mvc.vo.AuctionAddIpVO;
 import semiproject.mvc.vo.AuctionAddMainVO;
 import semiproject.mvc.vo.AuctionPageVO;
 import semiproject.mvc.vo.AuctionViewVO;
+import semiproject.mvc.vo.FcmidVO;
+import semiproject.mvc.vo.IpchalperVO;
+import semiproject.mvc.vo.LogintokenVO;
 
 @Repository
 public class AuctionDao {
@@ -41,6 +44,22 @@ public class AuctionDao {
 	
 	public List<AuctionViewVO> getAuctionbanner(){
 		return ss.selectList("auction.banner");
+	}
+	
+	public void updatestatus() {
+		ss.update("auction.upstaus");
+	}
+	
+	public void instokendao(LogintokenVO vo) {
+		ss.update("auction.tokenins",vo);
+	}
+	
+	public String getipid(int ipnum) {
+		return ss.selectOne("auction.selaid",ipnum);
+	}
+	
+	public List<FcmidVO> getfcmidlist(FcmidVO vo){
+		return ss.selectList("auction.fcmid",vo);
 	}
 	
 }

@@ -57,9 +57,9 @@
 				</tr>
 				<tr>
 					<td>가격</td>
-					<td class="basic return">29,900</td>
-					<td class="st return">23,900</td>
-					<td class="pr return">18,900</td>
+					<td class="basic return">29,900 </td>
+					<td class="st return">23,900月</td>
+					<td class="pr return">18,900月</td>
 				</tr>
 				<tr>
 					<td></td>

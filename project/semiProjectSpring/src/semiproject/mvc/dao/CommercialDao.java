@@ -7,7 +7,11 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import semiproject.mvc.vo.ChartVO;
+import semiproject.mvc.vo.Community_PageVO;
 import semiproject.mvc.vo.DataVO;
+import semiproject.mvc.vo.KeywordVO;
+import semiproject.mvc.vo.OuterDataVO;
 @Repository
 public class CommercialDao {
 	@Autowired
@@ -61,5 +65,35 @@ public class CommercialDao {
 		List<String> list = ss.selectList("data.dong", guName);
 		return list;
 	}
-	
+	public List<ChartVO> getTimePopChart(String guName){
+		List<ChartVO> list = ss.selectList("data.timePopChart", guName);
+		return list;
+	}
+	public List<ChartVO> getTimePopChartByGender(String guName){
+		List<ChartVO> list = ss.selectList("data.timePopChartByGender", guName);
+		return list;
+	}
+	public OuterDataVO getOpenBusiData(OuterDataVO vo){
+		OuterDataVO result = ss.selectOne("data.openBusi",vo); 
+		return result;
+	}
+	public OuterDataVO getCloseBusiData(String guname){
+		OuterDataVO vo = ss.selectOne("data.closeBusi", guname);
+		return vo;
+	}
+	public List<OuterDataVO> getCloseChartData(String guname) {
+		List<OuterDataVO> list = ss.selectList("data.closeChart", guname);
+		return list;
+	}
+	public List<OuterDataVO> getAllNews(Community_PageVO pvo){
+		List<OuterDataVO> list = ss.selectList("search.listall", pvo);
+		return list;
+	}
+	public List<KeywordVO> getKeyword(){
+		List<KeywordVO> list = ss.selectList("search.keyword");
+		return list;
+	}
+	public int getTotalCount(Community_PageVO pvo) {
+		return ss.selectOne("search.countall", pvo); 
+	}
 }

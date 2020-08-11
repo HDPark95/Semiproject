@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="../include/header_index.jsp"%>
+<%@ include file="../include/header_main.jsp"%>
 <%@ include file="../include/header_menu.jsp"%>
 <style>
 #Select1, #Select2 {
@@ -32,7 +32,7 @@
 		<table class="table table-hover" style="width:1300px">
 			<thead>
 				<tr>
-					<th colspan="8">매물정보</th>
+					<th colspan="8" class=>매물정보</th>
 				</tr>
 				<tr>
 					<th>번호</th>

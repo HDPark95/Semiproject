@@ -9,7 +9,7 @@ public class EstateVO {
 	// C02 = 투룸
 	// C03 = 쓰리룸
 	private int pdnum,anum,r_num,idx;
-	private String build,floor,plocation,detaillocation;
+	private String build,floor,plocation,detaillocation,lat,lng;
 	private String[] subbuild;
 	private List<SubBuildVO> subvo;
 	private double supply,exclusive; //공급 / 전용면적
@@ -24,6 +24,18 @@ public class EstateVO {
 	
 	
 	
+	public String getLat() {
+		return lat;
+	}
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+	public String getLng() {
+		return lng;
+	}
+	public void setLng(String lng) {
+		this.lng = lng;
+	}
 	public int getIdx() {
 		return idx;
 	}

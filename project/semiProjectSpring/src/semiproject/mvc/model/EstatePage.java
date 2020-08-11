@@ -33,10 +33,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import semiproject.mvc.dao.EstateDAO;
 import semiproject.mvc.service.EstateService;
+import semiproject.mvc.util.ImageUploadFile;
 import semiproject.mvc.vo.AddInfoVO;
 import semiproject.mvc.vo.AdministrativeVO;
 import semiproject.mvc.vo.CommercialProductVO;
 import semiproject.mvc.vo.EstatePageVO;
+import semiproject.mvc.vo.EstateSearchVO;
 import semiproject.mvc.vo.EstateVO;
 import semiproject.mvc.vo.PageVO;
 import semiproject.mvc.vo.RentVO;
@@ -48,6 +50,10 @@ public class EstatePage{
 	
 	@Autowired
 	private EstateService estateService;
+	
+	@Autowired
+	private ImageUploadFile imageUploadFile;
+	
 	
 	@RequestMapping(value="/estateMain")
 	public String goEstate() {
@@ -67,13 +73,22 @@ public class EstatePage{
 		return "estate/estateDetaile";
 	} 
 	@RequestMapping(value = "/insertestate",method = RequestMethod.POST)
-	public ModelAndView insertestate(EstateVO estate,AddInfoVO addinfo,String[] rentv, String[] rpay,String[] pay,String[] administrat,String[] option,String[] imgName,String mainaddr,String subaddr,String zipNo,String[] structure) {
+	public ModelAndView insertestate(HttpServletRequest request,MultipartFile[] mfile,EstateVO estate,AddInfoVO addinfo,String[] rentv, String[] rpay,String[] pay,String[] administrat,String[] option,String[] imgName,String mainaddr,String subaddr,String zipNo,String[] structure) {
 			ModelAndView mav= new ModelAndView("estate/estate");
 			long time1=System.currentTimeMillis();
 			System.out.println("등록시작");
 			estate.setDetaillocation(mainaddr+subaddr);
-			
-			
+			List<String> imageName= new ArrayList<String>();
+			System.out.println("파일의 갯수는?"+mfile.length);
+			int filenum=1;
+			for(MultipartFile m:mfile) {
+				System.out.println();
+				String name=imageUploadFile.imgupload(m, request, estate.getAnum(),"estate",filenum);
+				if(!name.equals("")) {
+					imageName.add(name);					
+				}
+				filenum+=1;
+			}
 //			StringTokenizer st=new StringTokenizer(mainaddr," ");
 //			int num=0;
 //			while(st.hasMoreTokens()) {
@@ -90,11 +105,11 @@ public class EstatePage{
 			addinfo.setAdministrat(administrat);
 			addinfo.setPay(pay);
 
-			addinfo.setImgName(imgName);
+			addinfo.setImgName(imageName.toArray(new String[imageName.size()]));
 			addinfo.setStructure(structure);
 			addinfo.setOption(option);
 			
-			
+			System.out.println(addinfo.getImgName());
 //			if(rentv!=null&&rpay!=null) {
 //				List<RentVO> list = new ArrayList<RentVO>();
 //				for(int i=0;i<rentv.length;i++) {
@@ -109,7 +124,7 @@ public class EstatePage{
 //				estate.setRent(list);
 //			}
 			System.out.println("서비스 시작");
-			estateService.addEstate(estate, addinfo);
+			//estateService.addEstate(estate, addinfo);
 			
 			mav.addObject("msg","등록이 완료되었습니다.");
 			long time2=System.currentTimeMillis();
@@ -117,12 +132,19 @@ public class EstatePage{
 		return mav;
 	}
 
-	@RequestMapping(value = "/estatelist")
+	@RequestMapping(value = "/estatelist",method = RequestMethod.POST)
 	public ModelAndView estatelist(EstatePageVO pvo,@RequestParam(value = "nowPage", required = false, defaultValue = "1") String nowPage,
-			@RequestParam(value = "cntPerPage", required = false, defaultValue = "10") String cntPerPage) {
+			@RequestParam(value = "cntPerPage", required = false, defaultValue = "10") String cntPerPage,EstateSearchVO esvo) {
 		ModelAndView mav = new ModelAndView("estate/server/estatelist");
-		pvo = new EstatePageVO(estateDAO.listCount(), Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		pvo = new EstatePageVO(estateDAO.listCount(esvo), Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		
+		if(esvo!=null && !esvo.equals("")) {
+			pvo.setEsvo(esvo);
+		}
+		System.out.println("실행?");
+		System.out.println(esvo.toString());
 			List<EstateVO> list= estateService.estatelist(pvo);
+		System.out.println(list.toString());
 		mav.addObject("list",	list);
 		mav.addObject("paging",pvo);
 		

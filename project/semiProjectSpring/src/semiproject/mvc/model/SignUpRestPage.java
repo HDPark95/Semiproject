@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import semiproject.mvc.dao.SignUpDao;
+import semiproject.mvc.vo.SignUpVO;
 
 @RestController
 public class SignUpRestPage {
@@ -15,8 +16,15 @@ public class SignUpRestPage {
 	
 	@RequestMapping(value = "/idChk")
 	@ResponseBody
-	public int idChk(String aidheader) {
-		int cnt = signUpDao.aidHeaderCheck(aidheader);
+	public int idChk(String aid) {
+		int cnt = signUpDao.aidCheck(aid);
+		return cnt;
+	}
+	
+	@RequestMapping(value = "/nameChk")
+	@ResponseBody
+	public int dnameChk(SignUpVO vo) {
+		int cnt = signUpDao.dnameCheck(vo);
 		return cnt;
 	}
 }

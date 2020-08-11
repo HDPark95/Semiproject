@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<table id="customers">
+<table class="customers" id="customers">
 	<tr>
 		<th colspan="5" id="management">전체 선택 , 삭제 등 들어갈 자리</th>
-
 	</tr>
 	<tr>
 		<th id="">글번호</th>
@@ -21,9 +20,7 @@
 			<td>${cutslist.c_regdate }</td>
 			<td class="chkview">${cutslist.c_anschk }</td>
 		</tr>
-
 	</c:forEach>
-
 </table>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>

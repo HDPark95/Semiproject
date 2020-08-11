@@ -157,7 +157,7 @@ sup {
 }
 
 a {
-	color: #64a19d;
+	color: #000000;
 	text-decoration: none;
 	background-color: transparent;
 }
@@ -228,10 +228,10 @@ button {
 	border-radius: 0;
 }
 
-button:focus {
+/* button:focus {
 	outline: 1px dotted;
 	outline: 5px auto -webkit-focus-ring-color;
-}
+} */
 
 input, button, select, optgroup, textarea {
 	margin: 0;
@@ -1506,10 +1506,18 @@ pre code {
 	border-top: 1px solid #dee2e6;
 }
 
-.table thead th {
-	vertical-align: bottom;
-	border-bottom: 2px solid #dee2e6;
+/* 테이블 헤더 부분 CSS 시작 */
+.table thead th{
+	border-top: 2px solid #F27405;
+	border-bottom: 2px solid #F27405;
 }
+.table thead th:first-child{
+	border-left: 2px solid #F27405;
+}
+.table thead th:last-child{
+	border-right: 2px solid #F27405;
+}
+/* 테이블 헤더 부분 CSS 끝 */
 
 .table tbody+tbody {
 	border-top: 2px solid #dee2e6;
@@ -1844,9 +1852,9 @@ pre code {
 .form-control:focus {
 	color: #495057;
 	background-color: #fff;
-	border-color: #b3d1cf;
 	outline: 0;
-	box-shadow: 0 0 0 0.2rem rgba(100, 161, 157, 0.25);
+	border-color: #FFFFFF;
+	box-shadow: 0 0 0 0.2rem #FFC107;
 }
 
 .form-control::-webkit-input-placeholder {
@@ -1955,7 +1963,7 @@ textarea.form-control {
 }
 
 .form-group {
-	margin-bottom: 1rem;
+	display: inline;
 }
 
 .form-text {
@@ -2000,7 +2008,6 @@ textarea.form-control {
 	display: inline-flex;
 	align-items: center;
 	padding-left: 0;
-	margin-right: 0.75rem;
 }
 
 .form-check-inline .form-check-input {
@@ -2341,7 +2348,7 @@ textarea.form-control {
 
 .btn:focus, .btn.focus {
 	outline: 0;
-	box-shadow: 0 0 0 0.2rem rgba(100, 161, 157, 0.25);
+	box-shadow: 0;
 }
 
 .btn.disabled, .btn:disabled {
@@ -4105,24 +4112,15 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 	list-style: none;
 }
 
-.nav-link {
-	display: block;
-	padding: 0.5rem 1rem;
-}
-
-.nav-link:hover, .nav-link:focus {
-	text-decoration: none;
-}
-
 .nav-link.disabled {
 	color: #6c757d;
 	pointer-events: none;
 	cursor: default;
 }
 
-.nav-tabs {
+/* .nav-tabs {
 	border-bottom: 1px solid #dee2e6;
-}
+} */
 
 .nav-tabs .nav-item {
 	margin-bottom: -1px;
@@ -4190,7 +4188,6 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0.5rem 1rem;
 }
 
 .navbar .container, .navbar .container2, .navbar .container-fluid,
@@ -4246,6 +4243,7 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 	flex-basis: 100%;
 	flex-grow: 1;
 	align-items: center;
+	height: 60px;
 }
 
 .navbar-toggler {
@@ -4470,15 +4468,6 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 
 .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
 	color: rgba(0, 0, 0, 0.9);
-}
-
-.navbar-light .navbar-nav .nav-link {
-	color: rgba(0, 0, 0, 0.5);
-}
-
-.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus
-	{
-	color: rgba(0, 0, 0, 0.7);
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
@@ -4825,9 +4814,8 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 	padding: 0.5rem 0.75rem;
 	margin-left: -1px;
 	line-height: 1.25;
-	color: #64a19d;
-	background-color: #fff;
-	border: 1px solid #dee2e6;
+	color: #000000;
+	background-color: #FFFFFF;
 }
 
 .page-link:hover {
@@ -4846,20 +4834,21 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 
 .page-item:first-child .page-link {
 	margin-left: 0;
-	border-top-left-radius: 0.25rem;
-	border-bottom-left-radius: 0.25rem;
 }
 
 .page-item:last-child .page-link {
-	border-top-right-radius: 0.25rem;
-	border-bottom-right-radius: 0.25rem;
 }
 
 .page-item.active .page-link {
 	z-index: 3;
-	color: #fff;
-	background-color: #64a19d;
-	border-color: #64a19d;
+	color: #F55900;
+	border: 1px solid #BDBDBD;
+}
+
+.page-item .page-link:hover {
+	border: 1px solid #BDBDBD;
+	background-color: #FFFFFF;
+	color: #F55900;
 }
 
 .page-item.disabled .page-link {
@@ -4871,19 +4860,17 @@ input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].bt
 }
 
 .pagination-lg .page-link {
-	padding: 0.75rem 1.5rem;
+	padding: 0.5rem 1.2rem;
 	font-size: 1.25rem;
 	line-height: 1.5;
 }
 
 .pagination-lg .page-item:first-child .page-link {
-	border-top-left-radius: 0.3rem;
-	border-bottom-left-radius: 0.3rem;
+	
 }
 
 .pagination-lg .page-item:last-child .page-link {
-	border-top-right-radius: 0.3rem;
-	border-bottom-right-radius: 0.3rem;
+	
 }
 
 .pagination-sm .page-link {
@@ -6550,7 +6537,7 @@ a.bg-primary:hover, a.bg-primary:focus, button.bg-primary:hover, button.bg-prima
 }
 
 .bg-secondary {
-	background-color: #6c757d !important;
+	background-color: #FFFFFF !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus, button.bg-secondary:hover,
@@ -6595,7 +6582,7 @@ a.bg-danger:hover, a.bg-danger:focus, button.bg-danger:hover, button.bg-danger:f
 }
 
 .bg-light {
-	background-color: #f8f9fa !important;
+	background-color: #FFFFFF;
 }
 
 a.bg-light:hover, a.bg-light:focus, button.bg-light:hover, button.bg-light:focus
@@ -7636,7 +7623,7 @@ a.bg-black:hover, a.bg-black:focus, button.bg-black:hover, button.bg-black:focus
 	top: 0;
 	right: 0;
 	left: 0;
-	z-index: 1030;
+	z-index: 1000;
 }
 
 .fixed-bottom {
@@ -7974,17 +7961,17 @@ supports ((position: -webkit-sticky ) or (position: sticky )) { .sticky-top
 	padding: 1.5rem !important;
 }
 
-.pt-4, .py-4 {
+/* .pt-4, .py-4 {
 	padding-top: 1.5rem !important;
-}
+} */
 
 .pr-4, .px-4 {
 	padding-right: 1.5rem !important;
 }
 
-.pb-4, .py-4 {
+/* .pb-4, .py-4 {
 	padding-bottom: 1.5rem !important;
-}
+} */
 
 .pl-4, .px-4 {
 	padding-left: 1.5rem !important;
@@ -8118,7 +8105,7 @@ supports ((position: -webkit-sticky ) or (position: sticky )) { .sticky-top
 	margin-top: auto !important;
 }
 
-.mr-auto, .mx-auto {
+.mx-auto {
 	margin-right: auto !important;
 }
 
@@ -9728,7 +9715,6 @@ body {
 }
 
 .btn {
-	box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
 	padding: 1.25rem 2rem;
 	font-family: "Varela Round", -apple-system, BlinkMacSystemFont,
 		"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
@@ -9808,7 +9794,7 @@ body {
 }
 
 .projects-section {
-	padding: 10rem 0;
+	padding: 2.5rem 0;
 }
 
 .projects-section .featured-text {
@@ -9863,13 +9849,12 @@ body {
 	border: 0;
 }
 
-.contact-section {
+/* .contact-section {
 	padding-top: 5rem;
-}
+} */
 
 .contact-section .card {
-	border: 0;
-	border-bottom: 0.25rem solid #64a19d;
+	
 }
 
 .contact-section .card h4 {
@@ -9927,9 +9912,7 @@ body {
 }
 
 .filter-section .filter-div a:hover {
-	color: white;
 	cursor: pointer;
-	background-color: #7db4ea;
 }
 
 .search input {
@@ -9972,13 +9955,10 @@ body {
 
 .last {
 	text-align: center;
-	padding-top: 30px;
 }
 
 .filter-sub-page-div a:hover {
-	color: white;
 	cursor: pointer;
-	background-color: #7db4ea;
 }
 
 .last .btn {
@@ -10004,25 +9984,24 @@ body {
 	height: 95%;
 	margin-top: 5px;
 	margin-bottom: 5px;
-	border: 1px solid black;
+	border: 1px solid #ddd;
 }
 
 .add-sub-page tr {
 	border: 1px solid black;
 }
 
-.add-sub-page td {
+/* .add-sub-page td {
 	border: 1px solid black;
-}
+} */
 
-.add-sub-page>table>tbody>tr>td:nth-child(odd) {
-	background-color: #E6E6E6;
-}
+/* .add-sub-page>table>tbody>tr>td:nth-child(odd) {
+	background-color: #FFFFFF;
+	border: 2px solid #F27405;
+} */
 
 .add-sub-page a:hover {
-	color: white;
 	cursor: pointer;
-	background-color: #7db4ea;
 }
 
 .address-search {
@@ -10034,7 +10013,6 @@ body {
 .sub-menu {
 	width: 200px;
 	background-color: #778899;
-	
 	color: white;
 	z-index: 1030;
 	position: absolute;
@@ -10072,14 +10050,10 @@ body {
 
 .square:hover {
 	cursor: pointer;
-	background-color: #7db4ea;
-	color: white;
 }
 
 .seleted-div {
 	height: 80px;
-	margin-top: 30px;
-	padding: auto;
 }
 
 .search-div {
@@ -10104,14 +10078,12 @@ body {
 }
 
 .address-btn:hover, .img-btn:hover {
-	color: white;
 	cursor: pointer;
-	background-color: #7db4ea;
 }
 
 .close-x {
 	display: marker;
-	border: 0.5px solid black;
+	/* border: 0.5px solid black; */
 	padding: 5px;
 	left: 50%;
 	font-size: 16px;
@@ -10148,4 +10120,73 @@ body {
 }
 .productmain{
 	height:350px;
+}
+
+/* CSS 통합을 위한 고유 CSS 설계 영역 시작 
+   button1 : 검색 버튼
+   button2 : 글쓰기 버튼
+   button3 : 확인 버튼
+   button4 : 취소 버튼
+*/
+
+.button1{
+	height: 40px;
+	background-color: #FFFFFF;
+    border: 1px solid #D8D8D8;
+    color: #000000;
+    font-family: 'Noto Sans KR',sans-serif;
+    line-height: 3px;
+    font-size: 15px;
+    padding: 5px 20px 5px 20px;
+}
+.button1:hover{
+	border: 1px solid #F24607;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+.button2{
+	height: 40px;
+	background-color: #FFFFFF;
+    border: 2px solid #D8D8D8;
+    color: #000000;
+    line-height: 3px;
+    font-size: 15px;
+    padding: 5px 15px 5px 15px;
+}
+.button2:hover{
+	border: 2px solid #F24607;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+.button3{
+	height: 40px;
+	background-color: #FFFFFF;
+    border: 2px solid #D8D8D8;
+    color: #000000;
+    line-height: 3px;
+    font-size: 15px;
+    padding: 5px 15px 5px 15px;
+}
+.button3:hover{
+	border: 2px solid #FD7400;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+.button4{
+	height: 40px;
+	background-color: #FFFFFF;
+    border: 2px solid #D8D8D8;
+    color: #000000;
+    line-height: 3px;
+    font-size: 15px;
+    padding: 5px 15px 5px 15px;
+}
+.button4:hover{
+	border: 2px solid #004358;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+tr > td > a:hover{
+	color: #F55900;
 }
