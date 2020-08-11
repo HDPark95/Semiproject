@@ -71,3 +71,4 @@ td.infotd{
 		<td colspan="2" class="infotd"><button onclick="open_pop2()" class="btn infobutton"><i class="fas fa-chevron-down"></i>&nbsp;상세 정보 보기</button></td>
 	</tr>
 </table>
+
