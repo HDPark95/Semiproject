@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@ include file="../include/header_index.jsp"%>
+<%@ include file="../include/header_main.jsp"%>
+<%@ include file="../include/header_menu.jsp"%>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,7 @@
   <!-- Custom styles for this template-->
   <link href="resources/css/customer_board/sb-admin-2.min.css" rel="stylesheet">
   
-<%@ include file="../include/header_menu.jsp"%>
+
 
 <body class="bg-gradient-primary">
 
@@ -99,12 +99,12 @@
 					tab : 'ajax'	 	
 			},
 			success : function(result) {
-				try{
-					tokenins();	
+			/* 	try{
+					tokenins();	 https:// 보안 허용 
 				}catch(err){
 					alert(err)
 				}
-				
+				 */
 				location = "loginPost?aid="+$('#exampleInputEmail').val()+"&apwd="+$('#exampleInputPassword').val()+"&tab=location"
 			} ,
 			error : function(result){

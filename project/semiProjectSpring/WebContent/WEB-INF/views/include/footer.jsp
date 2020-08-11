@@ -114,10 +114,15 @@
 	$(function() {
 		$(".irs-from").addClass('invisible');
 		$(".irs-to").addClass('invisible');
+		$('.filter-page').slideUp(1000);
+		
 		var invisible = 'invisible';
 		var visible = 'visible';
 		var className = 'invisible';
-	
+		if(!$('.filter-page').hasClass('invisible')){
+			$('.filter-page').addClass('invisible')
+		
+		}
 		$('.filter-div').children('.btn').click(function() {
 
 			$('.filter-page').removeClass(invisible);
@@ -137,6 +142,7 @@
 			} else {
  				
 				$('.filter-page').slideDown(1000);
+				$('.filter-page').css("z-index",'1030');
 			}
 			className = visible;
 			visible = invisible;

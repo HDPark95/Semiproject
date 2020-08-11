@@ -54,8 +54,8 @@ public class EstateDAO {
 	}
 	
 
-	public int listCount(EstateSearchVO esvo) {
-		return ss.selectOne("estate.pcount",esvo);
+	public int listCount() {
+		return ss.selectOne("estate.pcount");
 	}
 	public EstateVO estateDetail(int num) {
 		return ss.selectOne("estate.Detail",num);

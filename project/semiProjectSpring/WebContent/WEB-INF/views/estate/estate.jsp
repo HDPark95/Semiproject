@@ -200,9 +200,14 @@
 	cursor: default;
 	color: #777;
 }
+.estateList:hover {
+	cursor: pointer;
+	font-weight: bold;
+	text-decoration: none;
+}
 </style>
 
-<section class="contact-section " >
+<section class="contact-section ">
 	<%@ include file="../include/searchFilter.jsp" %>
 	<div class="container2" style="height: 100%; margin-top: 10px">
 		<div class="row">
@@ -458,7 +463,7 @@
 				if(msg!==''){
 					alert(msg);
 				}
-				var formData=new $("#search_form").serialize();
+				var formData=$("#search_form").serialize();
 				
 				
 				$.ajax({
@@ -475,7 +480,7 @@
 					}
 				});
 				
-				$(".subMenuBar").css("z-index",1030);
+				
 				
 				
 			});

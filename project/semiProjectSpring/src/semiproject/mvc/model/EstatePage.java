@@ -135,8 +135,11 @@ public class EstatePage{
 	@RequestMapping(value = "/estatelist",method = RequestMethod.POST)
 	public ModelAndView estatelist(EstatePageVO pvo,@RequestParam(value = "nowPage", required = false, defaultValue = "1") String nowPage,
 			@RequestParam(value = "cntPerPage", required = false, defaultValue = "10") String cntPerPage,EstateSearchVO esvo) {
+		long start=System.currentTimeMillis();
+		System.out.println("시작시간 :"+start);
 		ModelAndView mav = new ModelAndView("estate/server/estatelist");
-		pvo = new EstatePageVO(estateDAO.listCount(esvo), Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		System.out.println(esvo.toString());
+		pvo = new EstatePageVO(estateDAO.listCount(), Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		
 		if(esvo!=null && !esvo.equals("")) {
 			pvo.setEsvo(esvo);
@@ -147,7 +150,8 @@ public class EstatePage{
 		System.out.println(list.toString());
 		mav.addObject("list",	list);
 		mav.addObject("paging",pvo);
-		
+		long end = System.currentTimeMillis();
+		System.out.println("걸린시간 :"+(end-start));
 		return mav;
 	}
 	

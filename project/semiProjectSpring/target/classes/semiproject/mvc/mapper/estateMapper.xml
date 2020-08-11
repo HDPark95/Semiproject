@@ -125,27 +125,106 @@
  	</select>
  <!-- <select id="pcount" parameterType="esvo" resultType="int">
   select count(*) cnt from product p,product_info pi,product_location pl,product_sale_info ps where p.pdnum = pi.pdnum and p.pdnum=ps.pdnum
-  <choose>
-  	<when test="esvo != null">
+
 		<if test="build != null">
 			
-			<foreach collection="build" item="i" open="and" separator="or" >
-				 p.RLETTPCD='${i}'
+			<foreach collection="build" item="i" open="or" separator="or" >
+			<choose>
+				<when test="i == 0">
+					p.RLETTPCD='원룸'
+				</when>
+				<when test="i == 1">
+					p.RLETTPCD like '%'||'투ㆍ쓰리룸'||'%' or p.RLETTPCD like '%'||'주택'||'%' 
+				</when>
+				<when test="i == 2">
+					p.RLETTPCD='오피스텔'
+				</when>
+				<when test="i == 3">
+					p.RLETTPCD='아파트'
+				</when>
+				<when test="i == 4">
+					p.RLETTPCD='상가/사무실' or p.RLETTPCD='빌딩' 
+				</when>
+			</choose>
+				<if test="i == 0">
+					p.RLETTPCD='원룸'
+				</if>
+				<if test="i == 1">
+					p.RLETTPCD like '%'||'투ㆍ쓰리룸'||'%' or p.RLETTPCD like '%'||'주택'||'%' 
+				</if>
+				<if test="i == 2">
+					p.RLETTPCD='오피스텔'
+				</if>
+				<if test="i == 3">
+					p.RLETTPCD='아파트'
+				</if>
+				<if test="i == 4">
+					p.RLETTPCD='상가/사무실' or p.RLETTPCD='빌딩' 
+				</if>
+				
+				 
 			</foreach>
 		</if>
 		 <if test="rentv != null">
-		 	<foreach collection="rentv" item="i" open="and" separator="or">
-		 		ps.TRADTPCD='${i}'
+		 	<foreach collection="rentv" item="i" open="or" separator="or">
+		 	<if test="i == 0">
+					ps.TRADTPCD='월세'
+				</if>
+				<if test="i == 1">
+					ps.TRADTPCD='전세'
+				</if>
+				<if test="i == 2">
+					ps.TRADTPCD='매매'
+				</if>
+		 	<choose>
+				<when test="i == 0">
+					ps.TRADTPCD='월세'
+				</when>
+				<when test="i == 1">
+					ps.TRADTPCD='전세'
+				</when>
+				<when test="i == 2">
+					ps.TRADTPCD='매매'
+				</when>
+				
+			</choose>
 		 	</foreach>
 		 </if> 		
 		 <if test="floor != null">
-		 	<foreach collection="floor" item="i" open="and" separator="or" >
-		 		p.FLRINFO='${i}'
+		 	<foreach collection="floor" item="i" open="or" separator="or" >
+				<if test="i == 1">
+					p.FLRINFO='1층' or p.FLRINFO='저층'
+				</if><if test="i == 2">
+					p.FLRINFO='2층' or p.FLRINFO='저층'
+				</if><if test="i == 3">
+					p.FLRINFO='3층' or p.FLRINFO='저층'
+				</if><if test="i == 4">
+					p.FLRINFO='4층' or p.FLRINFO='저층'
+				</if><if test="i == 5">
+					p.FLRINFO='5층' or p.FLRINFO='중층'
+				</if><if test="i == 6">
+					p.FLRINFO='6층' or p.FLRINFO='중층'
+				</if><if test="i == 7">
+					p.FLRINFO not in('1층','2층','3층','4층','5층','6층') or p.FLRINFO='고층'
+				</if><if test="i == 8">
+					p.FLRINFO like '%'||'지하'||'%' or p.FLRINFO='저층'
+				</if><if test="i == 9">
+					p.FLRINFO='옥탑' or p.FLRINFO='고층'
+				</if>
+		 		
 		 	</foreach>
 		 </if>
 		 <if test="room != null">
-		 	<foreach collection="room" item="i" open="and" separator="or">
-						 		
+		 	<foreach collection="room" item="i" open="or" separator="or">
+						 		<if test="i == 0">
+					ps.TRADTPCD='주방분리형(1.5룸)'
+				</if><if test="i == 1">
+					ps.TRADTPCD='복층'
+				</if><if test="i == 2">
+					ps.TRADTPCD='투룸'
+				</if><if test="i == 3">
+					ps.TRADTPCD='쓰리룸'
+				</if>
 		 	</foreach>
 		 </if>
 		 <if test=" deposits_from != null and deposits_to !=null">
@@ -160,9 +239,9 @@
 		 <if test=" roomCare_from != null and roomCare_to !=null">
 		 	or pi.aspay between #{roomCare_from} and #{roomCare_to}
 		 </if>
-  	</when>
-  </choose>
- </select> -->
+		 
+  	
+ </select>  -->
  <select id="pcount"  resultType="int">
   select count(*) cnt from product 
  

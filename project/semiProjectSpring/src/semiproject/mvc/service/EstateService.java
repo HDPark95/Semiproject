@@ -11,6 +11,7 @@ import semiproject.mvc.dao.EstateDAO;
 import semiproject.mvc.vo.AddInfoVO;
 import semiproject.mvc.vo.AdministrativeVO;
 import semiproject.mvc.vo.EstatePageVO;
+import semiproject.mvc.vo.EstateSearchVO;
 import semiproject.mvc.vo.EstateVO;
 import semiproject.mvc.vo.Option_SelVO;
 import semiproject.mvc.vo.Product_ImgVO;
@@ -56,6 +57,19 @@ public class EstateService {
 	
 	
 	public List<EstateVO> estatelist(EstatePageVO vo){
+		if(vo.getEsvo()!=null) {
+			EstateSearchVO esvo=vo.getEsvo();
+			String roomAreaTo=esvo.getRoomArea_to();
+			if(!esvo.getRoomArea_to().equals("무제한")) {
+				roomAreaTo=esvo.getRoomArea_to().substring(esvo.getRoomArea_to().indexOf("("), esvo.getRoomArea_to().indexOf(")"));
+			}
+			String roomAreaFrom=esvo.getRoomArea_from().substring(esvo.getRoomArea_from().indexOf("("), esvo.getRoomArea_from().indexOf(")"));
+			roomAreaFrom.replace("(", "");
+			roomAreaFrom.replace(")", "");
+			esvo.setRoomArea_from(roomAreaFrom);
+			esvo.setRoomArea_to(roomAreaTo);
+			vo.setEsvo(esvo);
+		}
 		List<Integer> list=estateDAO.eList(vo);
 		List<EstateVO> elist = new ArrayList<EstateVO>();
 		

@@ -526,7 +526,7 @@ display:inline-block;
 	            					</td>
 	            					<td id="imageinputlist">
 	            					
-	            							<input  type="file" name="mfile" value=""><input type="button" onclick="inputFilePlus()" class="btn img-btn" value="이미지업로드"><br>
+	            							<input  type="file" name="mfile" value=""><input type="button" onclick="inputFilePlus()" class="btn img-btn" value="파일추가"><br>
 	            							
 	            						
 	            					</td>
