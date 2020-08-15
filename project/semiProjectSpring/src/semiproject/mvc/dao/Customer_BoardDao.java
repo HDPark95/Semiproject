@@ -33,6 +33,12 @@ public class Customer_BoardDao implements Customer_BoardInter{
 		
 		return ss.selectOne("cboard.viewDetail",c_num);
 	}
+	
+	public Customer_BoardVO getReply(int c_num) throws Exception{
+		return ss.selectOne("cboard.replyDetail", c_num);
+		
+		
+	}
 
 //	@Override
 //	public void updateAns(Customer_BoardVO vo) throws Exception {
@@ -62,13 +68,9 @@ public class Customer_BoardDao implements Customer_BoardInter{
 		ss.update("cboard.deletedetail", c_num);
 		
 	}
-	
-		@Override
-		public void updateDetail(Customer_BoardVO vo) throws Exception{			
-			ss.update("cboard.updatedetail", vo);
-			
-			
-			
-		}
+	@Override
+	public void updateDetail(Customer_BoardVO vo) throws Exception{			
+		ss.update("cboard.updatedetail", vo);
+	}
 
 }

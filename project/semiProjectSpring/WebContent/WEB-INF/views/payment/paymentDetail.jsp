@@ -20,11 +20,9 @@ div.final_price {
 	margin-left: 50px;
 	margin-right: 50px;
 }
-
 #cardnumber1, #cardnumber2, #cardnumber3, #cardnumber4 {
 	width: 65px;
 }
-
 .container {
 	margin-top: 20px;
 }
@@ -34,14 +32,12 @@ div.final_price {
 	height: 969px;
 	font-family: 'Noto Sans KR', sans-serif;
 }
-
 .payCheck{
     padding-bottom: 10px;
     width: 700px;
     border-bottom: 1px solid #E6E6E6;
     margin-left: 50px;
 }
-
 .paymentBody {
 	background-color: #FFFFFF;
 	max-width: 800px;
@@ -53,33 +49,27 @@ div.final_price {
 	-moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 	box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
-
 #title {
 	text-align: center;
 	font-size: 25px;
 	padding-top: 20px;
 }
-
 .etc_payment {
 	border-bottom: 1px solid #E6E6E6;
 	margin-left: 50px;
 	margin-right: 50px;
 }
-
 .paymentCard {
 	display: flex;
 	padding-top: 10px;
 }
-
 .paymentCardLabel {
 	font-size: 17px;
 	margin-top: 5px;
 }
-
 label {
 	margin-bottom: 10px;
 }
-
 .paymentNotice {
 	margin-left: 50px;
 	margin-right: 50px;
@@ -87,7 +77,6 @@ label {
 	border-bottom: 1px solid #E6E6E6;
 	padding-bottom: 10px;
 }
-
 #Table1 {
 	display: flex;
 	padding-top: 10px;
@@ -96,7 +85,6 @@ label {
 	border-bottom: 1px solid #E6E6E6;
 	padding-bottom: 10px;
 }
-
 .TotalCost {
 	width: 800px; 
 	text-align : center;
@@ -157,7 +145,6 @@ label {
 	overflow: hidden;
     height: 100%;
 }
-
 </style>
 </head>
 <div class="paymentSecond">
@@ -225,12 +212,12 @@ label {
 						<p class="paymentCardLabel">카드번호</p>
 						<div>
 							<input type="text" min="1000" max="9999" maxlength="4"
-								id="cardnumber1" required="required"> - <input
+								id="cardnumber1"> - <input
 								type="text" min="1000" max="9999" id="cardnumber2" maxlength="4"
-								required="required"> - <input type="text" min="1000"
-								max="9999" id="cardnumber3" maxlength="4" required="required">
+								> - <input type="text" min="1000"
+								max="9999" id="cardnumber3" maxlength="4">
 							- <input type="text" min="1000" max="9999" id="cardnumber4"
-								maxlength="4" required="required"> <input type="hidden"
+								maxlength="4"> <input type="hidden"
 								name="mentnum" id="mentnum" value="">
 						</div>
 					</div>
@@ -269,7 +256,7 @@ label {
 					</div>
 					<div style="margin-right: 15px;">
 						<p class="paymentCardLabel">계좌번호 입력</p>
-						<input type="text" placeholder="계좌번호입력">
+						<input type="text" placeholder="계좌번호입력" id="bankbooknumber">
 					</div>
 					<div>
 						<p class="paymentCardLabel">입금자 성명</p>
@@ -332,12 +319,10 @@ label {
 					var cardnumber2 = $('#cardnumber2').val();
 					var cardnumber3 = $('#cardnumber3').val();
 					var cardnumber4 = $('#cardnumber4').val();
-
 					$('#mentnum').val(
 							cardnumber1 + "-" + cardnumber2 + "-" + cardnumber3
 									+ "-" + cardnumber4);
 				});
-
 		$('#aa').show(); //페이지를 로드할 때 표시할 요소
 		$('#PayOnline').hide(); //페이지를 로드할 때 숨길 요소
 		$('.pay1').change(function() {
@@ -349,14 +334,24 @@ label {
 				$('#aa').show();
 				$('#PayOnline').hide();
 			}
-
 		});
+		
 		$('#button1').click(function() {
 			if (!$('#check').is(':checked')) {
 				alert('필수 항목에 동의해주세요.');
 				return false;
 			}
 		});
+		
+		// 숫자 입력 처리
+		$("#cardnumber1,#cardnumber2,#cardnumber3,#cardnumber4,#bankbooknumber").keyup(function (event) {
+	        regexp = /[^0-9]/gi;
+	        v = $(this).val();
+	        if (regexp.test(v)) {
+	            $(this).val(v.replace(regexp, ''));
+	        }
+	    });
+		
 		$(document).ready(function() {
 			
 			//최상단 체크박스 클릭

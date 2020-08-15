@@ -79,6 +79,7 @@ a:hover {
 	background-color: white;
 	color: black;
 	font-family: 'Noto Sans KR',sans-serif;
+	font-size: 1rem;
 }
 
 .dropdown-menu > li > a:hover{

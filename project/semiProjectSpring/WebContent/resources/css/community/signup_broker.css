@@ -1,6 +1,3 @@
-body {
-background-color: #F2F2F2;
-}
 h1{
 	text-align: center;
 	font-size: 70px;
@@ -8,29 +5,12 @@ h1{
 	margin-bottom: -20px;
 }
 
-h4 {
-	text-align: center;
-}
-.container {
-	position: relative;
-	left: 80px;
-}
-
 .row {
 	margin-left: 0px;
 	margin-right: 0px;
-} 
-
-div, label {
-	margin-top: 20px;
 }
-
 .col-sm-2 {
 	font-size: 20px;
-}
-
-.form-horizontal .control-label {
-	text-align: center;
 }
 
 .form-control {
@@ -56,20 +36,4 @@ div, label {
 
 #year {
 	padding-left: 16px;
-}
-
-#checkrobot {
-	font-size: 20px;
-}
-
-#checkrobot {
-	right: 50px;
-}
-
-#signup {
-	right: 20px;
-}
-#cancel {
-	background-color: #6E6E6E;
-	color: white;
 }

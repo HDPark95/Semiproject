@@ -1,158 +1,368 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>    
+<style>
+/* 여기서부터 subMenuBar에 대한 CSS */
+.subMenuBar{
+	height: 60px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px;
+    text-align: center;
+    line-height: 59px;
+    background: #FFFFFF;
+    font-family: 'Noto Sans KR',sans-serif;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 1px double #D8D8D8;
+    z-index: 1030;
+    width: 1920px;
+}
+.subMenuBar > a{
+	height: 14px;
+    font-size: 15px;
+    color: #000000;
+    font-family: 'Noto Sans KR',sans-serif;
+    vertical-align: middle;
+    padding-bottom: 10px;
+    text-decoration: none;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.subMenuLine{
+	display: inline-block;
+    width: 1px;
+    height: 14px;
+    vertical-align: middle;
+    background-color: #D8D8D8;
+    font-family: 'Noto Sans KR',sans-serif;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+/*subMenuBar에 대한 CSS 끝*/
 
- <div class="container2 fixed-top " id="search-nav"style="margin-top: 60px;height: 88px;background-color: #f8f9fa;padding-top: auto;padding-top: 20px; position:absolute;">
+/* button CSS */
+.filterButton{
+	height: 40px;
+	background-color: #FFFFFF;
+    border: 2px solid #D8D8D8;
+    color: #000000;
+    line-height: 3px;
+    font-size: 15px;
+    padding: 5px 15px 5px 15px;
+}
+.filterButton:hover{
+	border: 2px solid #FD7400;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+.button3{
+	height: 40px;
+	background-color: #FFFFFF;
+    border: 2px solid #D8D8D8;
+    color: #000000;
+    line-height: 3px;
+    font-size: 15px;
+    padding: 5px 15px 5px 15px;
+}
+.button3:hover{
+	border: 2px solid #FD7400;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+.button4{
+	height: 40px;
+	background-color: #FFFFFF;
+    border: 2px solid #D8D8D8;
+    color: #000000;
+    line-height: 3px;
+    font-size: 15px;
+    padding: 5px 15px 5px 15px;
+}
+.button4:hover{
+	border: 2px solid #004358;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+/* button CSS 끝 */
 
-		<div class="row">
-			<div class="col-md-6 mt-6 search">
-			
-					<input type="text" id="keyword"  ><span class="btn" id="search_btn" onclick="search_estate()">검색</span>
-			
-				
+/* 필터 버튼 통합을 위한 CSS 시작 */
+#search-nav{
+	height: 61px;
+}
+#keyword{
+	height: 35px;
+}
+.searchArea{
+	float: left;
+	padding-left: 30px;
+}
+.filter-section{
+	float: right;
+	display: flex;
+	padding-right: 30px;
+	padding-left: 0px;
+}
+/* 필터 버튼 통합을 위한 CSS 끝 */
+
+/* 필터 부분 메인 CSS 시작 */
+#filter-page{
+	position: static;
+	font-family: 'Noto Sans KR',sans-serif;
+}
+.filterTitle{
+	margin-top: 20px;
+    font-size: 25px;
+    margin-left: 30px;
+    margin-bottom: 0px;
+    display: grid;
+}
+.depositTitle{
+	margin-top: 20px;
+    font-size: 25px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    display: grid;
+}
+.checkBoxArea{
+	margin-left: 15px;
+	padding-top: 20px;
+}
+.filterlabel{
+	font-size: 13px;
+    margin-top: 5px;
+    color: #BDBDBD;
+}
+.filter-sub-page-div input[type=checkbox]{ 
+	margin-right: 3px;
+}
+.deposits,.monthmoenys,.trades,.roomSizes,.roomCost{
+	margin-left: 15px;
+	width: 1050px;
+}
+
+#slider1,#slider2,#slider3,#slider4,#slider5{
+	display: inline-flex;
+}
+
+#slider1 > span:first-child, 
+#slider2 > span:first-child,
+#slider3 > span:first-child,
+#slider4 > span:first-child,
+#slider5 > span:first-child {
+	margin-left: 25px;
+	width: 600px;
+}
+.sliderLabel{
+	padding-left: 25px;
+    padding-top: 25px;
+}
+.fa-star{
+	color: #FFE11A;
+}
+.fa-exclamation-circle{
+	color: #ED2F3B;
+}
+.fa-check{
+	color: #000000;
+}
+.fa-times{
+	color: #ED2F3B;
+}
+.fa-cog{
+	color: #FD7400;
+}
+.fa-undo{
+	color: #004358;
+}
+.subMenuBar{
+	z-index: 1020 !important;
+}
+/* 필터 부분 메인 CSS 끝 */
+</style>
+<div class="container2" id="search-nav">
+	<div class="row">
+		<article class="subMenuBar">
+			<div class="searchArea">
+				<input type="text" id="keyword">
+				<span class="button3" id="search_btn" onclick="search_estate()">검색</span>
 			</div>
-			<div class="col-md-6 mt-6 filter-section " >
-			 <div class="container .col-md-12 filter-div">
-                <a class="navbar-brand js-scroll-trigger btn" href="#page-top">필터</a>
-                <a class="navbar-brand js-scroll-trigger btn" href="#page-top">초기화</a>
-               
-            </div> 
-            </div>
-            <div class="col-md-12 mt-12 filter-page invisible fixed-top" id="filter-page" style="position: static; margin-top: 10px;">
-            <form action="" method="post" name="search_form" id="search_form"   style="height: 100%; overflow: scroll;">
+			<a href="realprice">실거래가</a>
+			<div class="subMenuLine"></div>
+			<a href="nearEstate">주변 부동산</a>
+			<div class="subMenuLine"></div>
+			<a href="product">매물 검색</a>
+			<div class="subMenuLine"></div>
+			<a href="estateMain">매물 현황</a>
+			<div class="subMenuLine"></div>
+			<a href="newsList">뉴스</a>
+			<div class="filter-section">
+				<div class="filter-div">
+					<a class="filterButton js-scroll-trigger" href="#page-top"><i class="fas fa-cog"></i>&nbsp;필터</a>
+        			<a class="button4 js-scroll-trigger" href="#page-top"><i class="fas fa-undo"></i>&nbsp;초기화</a>
+        		</div>
+        	</div>
+		</article>
+		<div class="col-md-12 mt-12 filter-page invisible fixed-top" id="filter-page">
+            <form action="" method="post" name="search_form" id="search_form" style="height: 100%; overflow: scroll;">
             	<div class="col-md-12 mt-12 filter-sub-page" >
-		            
-	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h3 id="page-up" style="margin-top: 30px;">방종류 <label style="font-size: 11px;">중복선택이 가능합니다<span style="padding-left: 10px;">(상가/사무실,아파트 제외)</span></label></h3> 
-	            			<input type="checkbox"value="0" name="build" class="room checked" onclick="search_build('room')"><label class="room_check" style="margin-left: 10px;">원룸 </label>
-	            			<input type="checkbox"value="1" name="build" class="room checked" onclick="search_build('room')"><label class="room_check" style="margin-left: 10px;">투ㆍ쓰리룸</label>
-	            			<input type="checkbox"value="2" name="build" class="room checked" onclick="search_build('room')"><label class="room_check" style="margin-left: 10px;">오피스텔</label>
-	            			<input type="checkbox"value="3" name="build" class="apt " onclick="search_build('apt')"><label class="room_check" style="padding-top: 40px;margin-left: 10px;">아파트</label>
-	            			<input type="checkbox"value="4 " name="build" class="store" onclick="search_build('store')"><label class="room_check " style="margin-left: 10px;">상가/사무실 </label>
+            	
+            			<!-- 방종류를 선택하는 영역 시작 -->
+	            		<div class="filter-sub-page-div">
+	            			<p class="filterTitle" id="page-up">방종류<label class="filterlabel"><i class="fas fa-star"></i>&nbsp;중복선택이 가능합니다.&nbsp;(상가/사무실,아파트 제외)</label></p> 
+	            			<div class="checkBoxArea">
+	            				<input type="checkbox" value="0" name="build" class="room checked" onclick="search_build('room')"><label class="room_check">원룸 </label>
+	            				<input type="checkbox" value="1" name="build" class="room checked" onclick="search_build('room')"><label class="room_check">투ㆍ쓰리룸</label>
+	            				<input type="checkbox" value="2" name="build" class="room checked" onclick="search_build('room')"><label class="room_check">오피스텔</label>
+	            				<input type="checkbox" value="3" name="build" class="apt " onclick="search_build('apt')"><label class="room_check ">아파트</label>
+	            				<input type="checkbox" value="4 " name="build" class="store" onclick="search_build('store')"><label class="room_check ">상가/사무실 </label>
+	            				<label class="filterlabel" style="margin-left:10px;"><i class="fas fa-exclamation-circle"></i>&nbsp;다중 선택 시 아파트, 상가/사무실은 포함할 수 없습니다.</label>
+	            			</div>
 	            		</div>
-	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h3 style="margin-top: 30px;">매물 종류 <label style="font-size: 11px;">중복선택이 가능합니다</label></h3><br>
-	            			<input type="checkbox"name="rentv" class=" checked rentv" value="0">	<label>월세</label>
-	            			<input type="checkbox"name="rentv" class=" checked rentv" value="1">	<label>전세 </label>
-	            			<input type="checkbox"name="rentv" class=" checked rentv" value="2">	<label>매매</label>
+	            		<!-- 방종류를 선택하는 영역 끝 -->
+	            		
+	            		<!-- 매물 종류를 선택하는 영역 시작 -->
+	            		<div class="filter-sub-page-div">
+	            			<p class="filterTitle">매물 종류<label class="filterlabel"><i class="fas fa-star"></i>&nbsp;중복선택이 가능합니다.</label></p>
+	            			<div class="checkBoxArea">
+	            				<input type="checkbox" name="rentv" class=" checked rentv" value="0"><label>월세</label>
+	            				<input type="checkbox" name="rentv" class=" checked rentv" value="1"><label>전세 </label>
+	            				<input type="checkbox" name="rentv" class=" checked rentv" value="2"><label>매매</label>
+	            			</div>
 	            		</div>
-	            		<div class="col-md-12 mt-12 filter-sub-page-div" style="height: 500px;">
-	            			<div  class="col-md-12 deposits">
-		            			<div id="slider1" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top:10px; display:inline-block;">
-									<label>보증금/전세가</label>
-										<span id="deposits" class="invisible slider"></span>
-								</div>
-								<div class="col-md-6" style="display:inline; ">
-									<label style="margin-left: 50px; margin-top: 80px;">
+	            		<!-- 매물 종류를 선택하는 영역 끝 -->
+	            		
+	            		<!-- 매물 종류의 선택에 따라 보여지는 영역 시작 -->
+	            		<div class="filter-sub-page-div" style="height: 410px;">
+	            		<!-- 보증금 전세가 시작 -->
+	            			<div class="deposits">
+								<p class="depositTitle">보증금/전세가</p>
+		            			<div id="slider1" class="slider">
+									<span id="deposits" class="invisible slider"></span>
+									<div class="sliderLabel">
 										<span id="deposits_val1"></span> / <span id="deposits_val2"></span>
-									<input type="hidden" name="deposits_from" id="deposits_from" readonly="readonly" >
-									<input type="hidden" name="deposits_to" readonly="readonly" id="deposits_to"></label>
+										<input type="hidden" name="deposits_from" id="deposits_from" readonly="readonly" >
+										<input type="hidden" name="deposits_to" readonly="readonly" id="deposits_to">
+									</div>
 								</div>
 							</div>
-							<div class="col-md-12 monthmoenys">
-								<div id="slider2" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top: 70px;display:inline-block;">
-									<label>월세</label>
-										<span id="monthmoenys" class="invisible slider"></span>
-									
-								</div>
-								<div class="col-md-6" style="display:inline; margin-top: 30px"><label>
-
-									<span id="monthmoenys_val1"></span> / <span id="monthmoenys_val2"></span>
-									<input type="hidden" name="monthmoenys_from" id="monthmoenys_from" readonly="readonly" >
-									<input type="hidden" name="monthmoenys_to" readonly="readonly" id="monthmoenys_to">
-									</label></div>
+						<!-- 보증금 전세가 끝 -->
+						
+						<!-- 월세 시작 -->	
+							<div class="monthmoenys">
+								<p class="depositTitle">월세</p>
+								<div id="slider2" class="slider">
+									<span id="monthmoenys" class="invisible slider"></span>
+									<div class="sliderLabel">
+										<span id="monthmoenys_val1"></span> / <span id="monthmoenys_val2"></span>
+										<input type="hidden" name="monthmoenys_from" id="monthmoenys_from" readonly="readonly">
+										<input type="hidden" name="monthmoenys_to" readonly="readonly" id="monthmoenys_to">
+									</div>
+								</div>	
 							</div>
-							<div class="col-md-6 trades">
-								<div id="slider3" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top: 70px;display:inline-block;">
-									<label>매매가</label>
-										<span id="trades" class="invisible slider"></span>
-		
+						<!-- 월세 끝 -->
+					
+						<!-- 매매가 시작 -->	
+							<div class="trades">
+								<p class="depositTitle">매매가</p>
+								<div id="slider3" class="slider">
+									<span id="trades" class="invisible slider"></span>
+									<div class="sliderLabel">
+										<span id="trades_val1"></span> / <span id="trades_val2"></span>
+										<input type="hidden" name="trades_from" id="trades_from" readonly="readonly" >
+										<input type="hidden" name="trades_to" readonly="readonly" id="trades_to">
+									</div>
 								</div>
-								<div class="col-md-6" style="display:inline;"><label>
-								
-								<span id="trades_val1"></span> / <span id="trades_val2"></span>
-									<input type="hidden" name="trades_from" id="trades_from" readonly="readonly" >
-									<input type="hidden" name="trades_to" readonly="readonly" id="trades_to">
-								</label></div>
+							</div>
+							<!-- 매매가 끝 -->
+	            		</div>
+	            		<!-- 매물 종류의 선택에 따라 보여지는 영역 끝 -->
+	            		
+	            		<!-- 방크기 (전용면적)을 조정하는 영역 시작 -->
+	            		<div class="filter-sub-page-div">
+	            			<div class="roomSizes">
+	            				<p class="depositTitle">방크기(전용면적)</p>
+								<div id="slider4" class="slider">
+									<span id="roomArea" class="invisible slider"></span>
+									<div class="sliderLabel">
+										<span id="roomArea_val1"></span> / <span id="roomArea_val2"></span>
+										<input type="hidden" name="roomArea_from" id="roomArea_from" readonly="readonly" >
+										<input type="hidden" name="roomArea_to" readonly="readonly" id="roomArea_to">
+									</div>
+								</div>
 							</div>
 	            		</div>
-	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h3 style="margin-top: 30px;">방크기(전용면적)</h3><br>
-	            			<div class="col-md-12">
-								<div id="slider4" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top: 10px;display:inline-block;">
-									
-										<span id="roomArea" class="invisible slider"></span>
-		
+	            		<!-- 방크기 (전용면적)을 조정하는 영역 끝 -->
+	            		
+	            		<!-- 관리비를 조정하는 영역 시작 -->
+	            		<div class="filter-sub-page-div">
+	            			<div class="roomCost">
+	            				<p class="depositTitle">관리비</p>
+								<div id="slider5" class="slider">
+									<span id="roomCare" class="invisible slider"></span>
+									<div class="sliderLabel">
+										<span id="roomCare_val1"></span> / <span id="roomCare_val2"></span>
+										<input type="hidden" name="roomCare_from" id="roomCare_from" readonly="readonly" >
+										<input type="hidden" name="roomCare_to" readonly="readonly" id="roomCare_to">
+									</div>
 								</div>
-								<div class="col-md-6" style="display:inline;"><label>
-								
-								<span id="roomArea_val1"></span> / <span id="roomArea_val2"></span>
-									<input type="hidden" name="roomArea_from" id="roomArea_from" readonly="readonly" >
-									<input type="hidden" name="roomArea_to" readonly="readonly" id="roomArea_to">
-								</label></div>
 							</div>
 	            		</div>
-	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h3 style="margin-top: 30px;">관리비</h3><br>
-	            			<div class="col-md-12">
-								<div id="slider5" class="col-md-6 slider" style="text-align: center; padding-left: 10px;padding-top: 10px;display:inline-block;">
-									
-										<span id="roomCare" class="invisible slider"></span>
-		
-								</div>
-								<div class="col-md-6" style="display:inline;"><label>
-									<span id="roomCare_val1"></span> / <span id="roomCare_val2"></span>
-									<input type="hidden" name="roomCare_from" id="roomCare_from" readonly="readonly" >
-									<input type="hidden" name="roomCare_to" readonly="readonly" id="roomCare_to">
-								</label></div>
-							</div>
+	            		<!-- 관리비를 조정하는 영역 끝 -->
+	            		
+	            		<!-- 층수를 선택하는 영역 시작 -->
+	            		<div class="filter-sub-page-div">
+	            			<p class="filterTitle">층수 <label class="filterlabel"><i class="fas fa-star"></i>&nbsp;중복선택이 가능합니다.</label></p>
+	            			<div class="checkBoxArea">
+	            				<input type="checkbox" name="floor" value="0" class="floor_all">	<label>전체</label>
+	            				<input type="checkbox" name="floor"value="1" class="checked floor">	<label>1층</label>
+	            				<input type="checkbox" name="floor"value="2" class="checked floor">	<label>2층</label>
+	            				<input type="checkbox" name="floor"value="3" class="checked floor">	<label>3층</label>
+	            				<input type="checkbox" name="floor"value="4" class="checked floor">	<label>4층</label>
+	            				<input type="checkbox" name="floor"value="5" class="checked floor">	<label>5층</label>
+	            				<input type="checkbox" name="floor"value="6" class="checked floor">	<label>6층</label>
+	            				<input type="checkbox" name="floor"value="7" class="checked floor">	<label>7층이상</label>
+	            				<input type="checkbox" name="floor" value="8" class="floor">	<label>반지층</label>
+	            				<input type="checkbox" name="floor" value="9" class="floor">	<label>옥탑</label>
+	            			</div>
 	            		</div>
-	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h3 style="margin-top: 30px;">층수 <label style="font-size: 11px;">중복선택이 가능합니다</label></h3><br>
-	            			<input type="checkbox" name="floor" value="0" class="floor_all">	<label>전체</label>
-	            			<input type="checkbox" name="floor"value="1" class="checked floor">	<label>1층</label>
-	            			<input type="checkbox" name="floor"value="2" class="checked floor">	<label>2층</label>
-	            			<input type="checkbox" name="floor"value="3" class="checked floor">	<label>3층</label>
-	            			<input type="checkbox" name="floor"value="4" class="checked floor">	<label>4층</label>
-	            			<input type="checkbox" name="floor"value="5" class="checked floor">	<label>5층</label>
-	            			<input type="checkbox" name="floor"value="6" class="checked floor">	<label>6층</label>
-	            			<input type="checkbox" name="floor"value="7" class="checked floor">	<label>7층이상</label>
-	            			<input type="checkbox" name="floor" value="8" class="floor">	<label>반지층</label>
-	            			<input type="checkbox" name="floor" value="9" class="floor">	<label>옥탑</label>
-	            		</div>
-	            		<div class="col-md-12 mt-12 filter-sub-page-div">
-	            			<h3 style="margin-top: 30px;">방구조<label style="font-size: 11px;">중복선택이 가능합니다</label></h3><br>
+	            		<!-- 층수를 선택하는 영역 끝 -->
+	            		
+	            		<!-- 방구조를 선택하는 영역 시작 -->
+	            		<div class="filter-sub-page-div">
+	            			<p class="filterTitle">방구조<label class="filterlabel"><i class="fas fa-star"></i>중복선택이 가능합니다.</label></p>
+	            			<div class="checkBoxArea">
+	            				<input type="checkbox" name="room"value="0" class="checked">	<label>주방분리형(1.5룸)</label>
+	            				<input type="checkbox" name="room"value="1" class="checked">	<label>복층</label>
+	            				<input type="checkbox" name="room"value="2" class="checked">	<label>투룸</label>
+	            				<input type="checkbox" name="room"value="3" class="checked">	<label>쓰리룸</label>
 	            			
-	            			<input type="checkbox" name="room"value="0" class="checked">	<label>주방분리형(1.5룸)</label>
-	            			<input type="checkbox" name="room"value="1" class="checked">	<label>복층</label>
-	            			<input type="checkbox" name="room"value="2" class="checked">	<label>투룸</label>
-	            			<input type="checkbox" name="room"value="3" class="checked">	<label>쓰리룸</label>
-	            			
-							<input type="hidden" name="cntPerPage" id="cntPerPage_val" value="10">
-							<input type="hidden" name="nowPage" id="nowPage"value="1"> 
-							<input type="hidden" name="keyword" id="keyword_val">
-	            			<input type="hidden" id="esvo" value="${esvo}">
-	            			<input type="hidden" id="paging_val" name="paging" value="">
-	            		</div>	            		
+								<input type="hidden" name="cntPerPage" id="cntPerPage_val" value="10">
+								<input type="hidden" name="nowPage" id="nowPage"value="1"> 
+								<input type="hidden" name="keyword" id="keyword_val">
+	            				<input type="hidden" id="esvo" value="${esvo}">
+	            				<input type="hidden" id="paging_val" name="paging" value="">
+	            			</div>
+	            		</div>
+	            		<!-- 방구조를 선택하는 영역 끝 -->
+	            			            		
 	            		<div class="col-md-12 mt-12 filter-sub-page-div filter-div last" style='padding-top: 30px'>
-	            			
-	            				<a class="btn" id="filter_apply" onclick="submit()" href="#page-top">적용하기</a>
-	            				<a class="btn" id="filter_close" href="#page-top">닫기</a>
+	            			<a class="button3 filterButton" id="filter_apply" onclick="submit()" href="#page-top"><i class="fas fa-check"></i>&nbsp;적용하기</a>
+	            			<a class="button4 filterButton" id="filter_close" href="#page-top"><i class="fas fa-times"></i>&nbsp;닫기</a>
 	            		</div>
-            	
-	            	
-            	</div>
+            		</div>
             	</form>
-            	
             </div>
-		</div>
 	</div>
-	
+</div>
 <script>
 
 
 
 
 	$(function(){
+	
+		
 		$(".checked").prop("checked",true);
 		$(".floor_all").click(function(){
 			var bool=$(".floor_all").prop("checked");

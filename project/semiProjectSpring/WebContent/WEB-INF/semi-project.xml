@@ -21,17 +21,8 @@
 	<task:annotation-driven executor="excutor" scheduler="scheduler"/>
 	<task:scheduler id="scheduler" pool-size="5"/>
 	<task:executor id="excutor" keep-alive="5" pool-size="1-2" queue-capacity="1" rejection-policy="ABORT"/>
-	<!-- <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
-		<property name="order" value="0"/>	
-	</bean> -->
-	<!-- <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-		<property name="definitions">
-			<list>
-				<value>/WEB-INF/tiles/tiles-definitions.xml</value>
-			</list>
-		</property>
-	</bean> --> 
+	
+	
 	<bean id="loginInterceptor" class="semiproject.mvc.interceptor.LoginInterceptor">	</bean>
 		<mvc:interceptors>
 			<mvc:interceptor>

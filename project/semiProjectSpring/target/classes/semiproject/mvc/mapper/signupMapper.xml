@@ -5,10 +5,12 @@
  <mapper namespace="signup">
 <insert id="addmember1" parameterType="signVO"> 
 insert into signup values (signup_seq.nextVal,#{aid},#{apwd},SYSDATE,SYSDATE,#{agubun},0) </insert>
+
 <insert id="addmember2" parameterType="signVO"> 
 insert into member_detail values (member_detail_seq.nextVal,signup_seq.currVal,
-#{dname},to_date(#{dbirth},'yyyy-mm-dd'),#{dgender},#{dtel}) </insert>
-<insert id="addmember3"> 
+#{dname},to_date(#{dbirth},'yyyy-mm-dd'),#{dgender},#{dtel},#{dcname},#{daddress}) </insert>
+
+<insert id="addmember3">
 insert into payment values (payment_seq.nextVal,signup_seq.currVal,null,null,null,null,'미구독',0) </insert>
 <insert id="addmember4"> 
 insert into payment_detail values (payment_detail_seq.nextVal,payment_seq.currVal,null,null,null) </insert>
@@ -21,21 +23,15 @@ insert into payment_detail values (payment_detail_seq.nextVal,payment_seq.currVa
  where d.anum = s.anum and d.dname = #{dname} and s.aid = #{aid}
  </select>
 
-<select id="findpw" resultType="String"> 
-SELECT apwd 
+<select id="findpw" resultType="String" parameterType="Map">
+SELECT distinct apwd 
 from signup s , member_detail d 
-WHERE s.aid=#{aid} and d.dname = #{dname}  
+WHERE s.aid=#{aid} and d.dname = #{dname}  	
 </select>
-
 
 <insert id="addtoken" parameterType="signVO">
 insert into LOGINTOKEN values(LOGINTOKEN_seq.nextVal,null,'P','Y',sysdate,#{aid})
 </insert>
-<!-- <update id="newPassword" parameterType="signVO"> -->
-<!-- update signup -->
-<!-- set apwd = #{apwd} -->
-<!-- where aid=#{aid} -->
-<!-- </update> -->
 
 </mapper>
  

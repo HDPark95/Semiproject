@@ -308,18 +308,16 @@ body {
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th scope="col"></th>
-								<th scope="col"></th>
+								<th scope="col" style="text-align: center;">건물 이미지</th>
 								<th scope="col">제목/물건용도/주소지/토지면적/건물면적/경매만료일</th>
 								<th scope="col" colspan="2">시작가/현재가</th>
-								<th scope="col">상태/등록일/조회수</th>
+								<th scope="col" style="text-align: center;">상태/등록일/조회수</th>
 							</tr>
 						</thead>
 						<tbody style="border-bottom: 1px solid gray; font-size: 1rem;">
 							<!-- sale view 나의 판매 현황을 보기 위 한 foreach문 -->
 							<c:forEach var="slist" items="${list}">
 								<tr class="sales">
-									<th></th>
 									<th id="colchk1" scope="row" style="width: 130px;"><img
 										src="img/${slist.wimage}" onerror="this.src='img/noimg.jpg'"
 										style="width: 120px; height: 120px; float: left;"></th>

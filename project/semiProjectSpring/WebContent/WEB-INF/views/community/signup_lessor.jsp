@@ -1,131 +1,194 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/header_index.jsp"%>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link href="resources/css/community/signup_lessor.css" rel="stylesheet">
-<%@ include file="../include/header_menu.jsp"%>
+<!-- <link href="resources/css/community/signup_broker.css" rel="stylesheet"> -->
+<link href="resources/css/styles.css" rel="stylesheet"/>
+<script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
-#projects {
-	padding: 0 0 0 0;
-	width: 700px;
+/* 200812 CSS 수정 */
+.projects-section {
+    padding: 0px;
+}
+p{
+	margin-bottom: 0px;
+}
+.signUpBroker{
+	background-image: url("resources/images/index/backgroundImageDark.jpg");
+	height: 969px;
+	font-family: 'Noto Sans KR', sans-serif;
+	overflow: hidden;
+}
+.signUpBody{
+	background-color: #FFFFFF;
+	max-width: 400px;
 	margin: 0 auto;
-	margin-bottom: 150px;
+	border-radius: 10px;
+	margin-top: 70px;
+	height: 830px;
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+.title{
+	text-align: center;
+	font-size: 25px;
+	padding-top: 20px;
+}
+.title > p{
+	border-bottom: 1px solid #E6E6E6; 
+	padding-bottom: 10px; 
+	margin-bottom: 20px;
+}
+.title > p > em{
+	font-style: normal;
+	color: #F25C05;
 }
 
-#tel1, #dbirth1 {
-	padding-left: 16px;
+.signupArea{
+	display: flex;
+	font-size: 15px;
+	margin-left: 50px;
+	margin-right: 50px;
 }
-
-#tel2, #dbirth2 {
-	padding-left: 0px;
-	padding-right: 20px;
+.signupLabel{
+	font-size: 20px;
+	margin-left: 50px;
+	margin-bottom: 0px;
 }
-
-#tel3, #dbirth3 {
-	padding-left: 0px;
-	padding-right: 20px;
-	right: 15px;
+#aid{
+	margin-right: 5px;
+	width: 170px;
+    height: 30px;
+    border: 1px solid #004358;
 }
-
-#aidheader {
-	width: 110px;
+.certify{
+	height: 31px;
 }
-
-#emailLabel {
-	width: 20px;
-	margin-left: 20px;
+#certifyInsert{
+	border: 1px solid #004358;
+	width: 295px;
+	background-color: #D8D8D8;
+	margin-bottom: 20px;
+	height: 30px;
 }
-
-#aidfooter {
-	width: 110px;
+#certifyArea{
+	margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 5px;
 }
-
-#idtarget {
-	position: relative;
-	left: 190px;
-	width: 400px;
-	margin-top: 0px;
-	margin-bottom: 10px;
+#apwd{
+	width: 295px;
+	height: 30px;
 }
-
-#pwdtarget {
-	position: relative;
-	right: 0px;
-	width: 400px;
-	margin-top: 0px;
-	padding-top: 10px;
+#passwordCheck{
+	width: 295px;
+	height: 30px;
+	border: 1px solid #004358;
 }
-
-#aidheader, #aidfooter{
-	ime-mode: disabled;
+#dname,#dgender{
+	width: 295px;
+	height: 30px;
+	border: 1px solid #004358;
+	margin-bottom: 20px;
 }
-
-#chktarget,#nametarget,#yeartarget {
-	width: 500px;
-	position: relative;
-	left: 190px;
-	margin-top: 0px;
+#pwdtarget,#chktarget{
+	color: #FE2E2E;
+	font-size: 14px;
+	height: 20px;
+}
+#yeartarget{
+	color: #FE2E2E;
+	font-size: 14px;
+	height: 20px;
+	margin-left: 50px;
+}
+.birthArea,.telArea{
+	display: flex;
+	font-size: 15px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+.dbirth,.dtel{
+	width: 90px;
+	height: 30px;
+}
+#dmonth,#dtelmiddle{
+	margin-left: 12px;
+    margin-right: 12px;
+}
+.buttonArea{
+	display: flex;
+	font-size: 15px;
+	margin-left: 50px;
+	margin-right: 50px;
+	padding-left: 35px;
+	margin-top: 20px;
 }
 </style>
-<h1>CMJ</h1>
-<br>
-<h4>임대인 회원가입</h4>
-<section class="projects-section bg-light" id="projects">
-	<div class="container">
-		<form method="post" action="signup_lessor_in" class="form-horizontal"
-			autocomplete="off">
-			<div class="form-group">
-				<label for="aidheader" class="col-sm-2 control-label">아이디</label>
-				<div class="col-md-1" id="inputidheader">
-					<input type="text" class="form-control" id="aidheader"
-						name="aidheader" placeholder="id" maxlength="20"  required="required">
+<div class="signUpBroker">
+<section class="projects-section" id="projects">
+	<div class="signUpBody">
+		<div class="title">
+			<p><em>임대인</em> 회원가입</p>
+		</div>
+<!-- 		signup_broker_in -->
+		<form method="post" action="signup_lessor_in" autocomplete="off" id="signup_form" name="signup_form">
+			
+			<!-- 회원가입 ID 영역 -->
+			<p class="signupLabel">아이디</p>
+			<div class="signupArea">
+				<div id="inputid">
+					<input type="email" id="aid" name="aid" placeholder="email" maxlength="50">
 				</div>
-				<label for="aidfooter" class="col-sm-1 control-label"
-					id="emailLabel">@</label>
-				<div class="col-md-1" id="inputidfooter">
-					<input type="text" class="form-control" id="aidfooter"
-						name="aidfooter" placeholder="email" maxlength="30" required="required">
+				<div id="idCertify">
+					<button type="button" class="certify button3" id="certify">인증번호 전송</button>
 				</div>
-				<input type="hidden" id="aid" name="aid" value="${userid}">
 			</div>
-			<div id="idtarget"></div>
-			<div class="form-group">
-				<label for="apwd" class="col-sm-2 control-label">비밀번호</label>
-				<div class="col-sm-3">
-					<input type="password" class="form-control" id="apwd" name="apwd"
-						placeholder="영문+숫자,6자 이상" required="required">
+			<div id="certifyArea">
+				<input type="text" id="certifyInsert" name="certifyInsert" placeholder="인증번호를 입력하여 주십시오." readonly="true">
+			</div>
+			<!-- 회원가입 ID 영역 -->
+			
+			<!-- 회원가입 PASSWORD 영역 -->
+			<p class="signupLabel">비밀번호</p>
+			<div class="signupArea">
+				<div>
+					<input type="password" id="apwd" name="apwd" placeholder="영문+숫자, 6자 이상">
 					<div id="pwdtarget"></div>
 				</div>
 			</div>
-			<div class="form-group">
-				<label for="PasswordCheck" class="col-sm-2 control-label">비밀번호
-					재확인</label>
-				<div class="col-sm-3">
-					<input type="password" class="form-control" id="PasswordCheck"
-						placeholder="비밀번호 재확인" required="required">
+			<!-- 회원가입 PASSWORD 영역 -->
+			
+			<!-- 회원가입 PASSWORD 확인 영역 -->
+			<p class="signupLabel">비밀번호 재확인</p>
+			<div class="signupArea">
+				<div>
+					<input type="password" id="passwordCheck" placeholder="비밀번호 재확인">
+					<div id="chktarget"></div>
 				</div>
 			</div>
-			<div id="chktarget"></div>
-			<div class="form-group">
-				<label for="dname" class="col-sm-2 control-label">이름/회사명</label>
-				<div class="col-sm-3">
-					<input type="text" class="form-control" id="dname" name="dname"
-						placeholder="가입자 성명 또는 회사명" required="required">
+			
+			<!-- 회원가입 PASSWORD 확인 영역 -->
+			
+			<!-- 회원가입 이름 영역 -->
+			<p class="signupLabel">이름</p>
+			<div class="signupArea">
+				<div>
+					<input type="text" id="dname" name="dname" placeholder="가입자 성명">
 				</div>
 			</div>
-			<div class="form-group">
-				<div class="row">
-					<label for="inputName" class="col-sm-2 control-label">생년월일</label>
-					<div class="col-xs-1" id="dbirth1">
-						<input type="number" class="form-control" placeholder="년(4자)"
-							id="dyear" name="dyear" maxlength="4" min="1920">
+			<!-- 회원가입 이름 영역 -->
+			
+			<!-- 회원가입 생년월일 영역 -->
+			<p class="signupLabel">생년월일</p>
+				<div class="birthArea">
+					<div>
+						<input type="text" class="dbirth" placeholder="년(4자)" id="dyear" name="dyear" maxlength="4">
 					</div>
-					<div class="col-xs-1" id="dbirth2">
-						<select class="form-control" id="dmonth" name="dmonth">
-							<option selected="selected">월</option>
+					<div>
+						<select id="dmonth" name="dmonth" class="dbirth">
+							<option selected="selected" disabled>월</option>
 							<option>01</option>
 							<option>02</option>
 							<option>03</option>
@@ -140,144 +203,114 @@
 							<option>12</option>
 						</select>
 					</div>
-					<div class="col-xs-1" id="dbirth3">
-						<input type="number" class="form-control" placeholder="일" id="dday"
-							name="dday" maxlength="2" min="1" max="31">
+					<div>
+						<input type="number" placeholder="일" id="dday" name="dday" class="dbirth" maxlength="2" min="1" max="31">
 					</div>
 				</div>
-			</div>
-			<div id="yeartarget"></div>
-			<div class="form-group">
-				<label for="inputName" class="col-sm-2 control-label">성별</label>
-				<div class="col-sm-3">
-					<select class="form-control" id="dgender" name="dgender" required="required">
+				<div id="yeartarget"></div>
+			<!-- 회원가입 생년월일 영역 -->
+			
+			<!-- 회원가입 성별 영역 -->
+			<p class="signupLabel">성별</p>
+			<div class="signupArea">
+				<div>
+					<select id="dgender" name="dgender">
 						<option selected="selected" disabled>성별</option>
 						<option>남자</option>
 						<option>여자</option>
 					</select>
 				</div>
 			</div>
-			<div class="form-group">
-				<div class="row">
-					<label for="dtelheader" class="col-sm-2 control-label">전화번호</label>
-					<div class="col-xs-1" id="tel1">
-						<select class="form-control" id="dtelheader" name="dtelheader">
-							<option selected="selected">010</option>
-							<option>011</option>
-							<option>016</option>
-							<option>017</option>
-							<option>018</option>
-							<option>019</option>
-						</select>
-					</div>
-					<div class="col-xs-1" id="tel2">
-						<input type="number" class="form-control" id="dtelmiddle"
-							name="dtelmiddle" maxlength="4" min="100" max="9999">
-					</div>
-					<div class="col-xs-1" id="tel3">
-						<input type="number" class="form-control" id="dtelfooter"
-							name="dtelfooter" maxlength="4" min="1000" max="9999">
-					</div>
+			<!-- 회원가입 성별 영역 -->
+			
+			<!-- 회원가입  전화번호 영역 -->
+			<p class="signupLabel">전화번호</p>
+			<div class="telArea">
+				<div id="tel1">
+					<select id="dtelheader" name="dtelheader" class="dtel">
+						<option selected="selected">010</option>
+						<option>011</option>
+						<option>016</option>
+						<option>017</option>
+						<option>018</option>
+						<option>019</option>
+					</select>
+				</div>
+				<div id="tel2">
+					<input type="text" id="dtelmiddle" name="dtelmiddle" class="dtel" maxlength="4">
+				</div>
+				<div id="tel3">
+					<input type="text" id="dtelfooter" name="dtelfooter" class="dtel" maxlength="4">
 				</div>
 			</div>
-			<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-10" id="signup">
-					<button type="button" class="btn btn-secondary btn-lg"
-						onclick="location = 'login'">취소</button>
-					<button type="submit" class="btn btn-success btn-lg" id="submit">확인</button>
+			<!-- 회원가입  전화번호 영역 -->
+			
+			<!-- 회원가입  버튼 영역 -->
+			<div class="buttonArea">
+				<div id="signup">
+					<button type="button" class="button4" onclick="location = 'index'"><i class="fas fa-home"></i>&nbsp;메인으로</button>
+					<button type="submit" class="button3" id="submit"><i class="fas fa-signature"></i>&nbsp;가입하기</button>
 				</div>
 			</div>
-			<input type="hidden" id="agubun" name="agubun" value="공인중개사">
+			<input type="hidden" id="agubun" name="agubun" value="임대인">
+			<input type="hidden" id="daddress" name="daddress" value="-">
+			<input type="hidden" id="dcname" name="dcname" value="-">
+			<!-- 회원가입  버튼 영역 -->
 		</form>
 	</div>
 </section>
+</div>
 <script>
-btn = document.getElementById('submit');
 $(function() {
-	$('#aidheader').keyup(function(e){
+	var rest='';
+	// 아이디 한글 입력 방지 처리
+	$('#aid').keyup(function(e){
 		if (!(e.keyCode >=37 && e.keyCode<=40)) {
 			var v = $(this).val();
-			$(this).val(v.replace(/[^a-z0-9]/gi,''));
+			$(this).val(v.replace(/[^a-z0-9@.]/gi,''));
 		}
 	});
-	
-	$('#aidheader,#aidfooter').keyup(function(e){
-	// 아이디 양식 체크	
-		var userid = $('#aidheader').val()+"@"+$('#aidfooter').val();
-		var idheader = $('#aidheader').val();
-		var idfooter = $('#aidfooter').val();
-		console.log(userid);
-			$.ajax({
-				url:'idChk?aid='+encodeURIComponent(userid),
-				success: function(data){
-					// 기존에 있는 아이디가 아닐 때,
-					if(data===0){
-						// 메일링을 제외한 아이디가 비어 있을 때,
-						if(idheader.length===0){
-							$('#idtarget').html("<p style='color:red'>아이디를 입력하여 주십시오.</p>");
-						}else{
-						// 메일링을 제외한 아이디가 비어 있지 않고 5자 이상을 넘지 않을 때,	
-							if(idheader.length>=1&&idheader.length<=4){
-								$('#idtarget').html("<p style='color:red'>아이디는 최소 5자 이상 입력하셔야 합니다.</p>");	
-							}else{
-								// 메일링 부분이 비어 있을 때,
-								if(idfooter.length===0){
-									$('#idtarget').html("<p style='color:red'>메일 주소를 입력하여 주십시오.</p>");
-								}else{
-								// 메일링 부분이 비어 있지 않을 때,
-									if(idfooter.length<=7){
-										$('#idtarget').html("<p style='color:red'>메일 주소를 입력하여 주십시오.</p>");
-									}else{
-										$('#idtarget').html("<p style='color:green'>멋진 아이디네요!</p>");
-									}
-								}
-							}
-						}
-					// 기존에 있는 아이디일 때,	
-					}else{
-						$('#idtarget').html("<p style='color:red'>이미 사용중이거나 탈퇴한 아이디입니다.</p>");
-					}
-				}
-		});
-	});
-	
+
 	// 비밀번호 양식 체크
 	$('#apwd').keyup(function(e){
 		var pwd = "";
 		pwd = String($('#apwd').val());
-		console.log(pwd);
 		if(pwd.length===0){
-			$('#pwdtarget').html("<p style='color:red'>비밀번호를 입력하여 주십시오.</p>");
+			$('#pwdtarget').html("<p>비밀번호를 입력하여 주십시오.</p>");
 		}else if(pwd.length>=1&&pwd.length<=5){
-			$('#pwdtarget').html("<p style='color:red'>6자 이상의 영문 및 숫자를 사용하여 주십시오.</p>");
+			$('#pwdtarget').html("<p>6자 이상의 영문 및 숫자를 사용하여 주십시오.</p>");
 		}else{
+			// 양식이 맞을 경우, 메시지를 출력하지 않음.
 			$('#pwdtarget').html("");
+			// 비밀번호가 양식에 맞을 때에만 확인 체크
+			$('#passwordCheck').keyup(function(){
+				var pwd1= String($("#apwd").val());
+				var pwd2= String($("#passwordCheck").val());
+				if(pwd1.length>=1 || pwd2.length>=1){ 
+					if(pwd1 == pwd2){ 
+						$("#chktarget").html("<p style='color:green'>비밀번호가 일치합니다.</p>");
+					}else{ 
+						$("#chktarget").html("<p style='color:red'>비밀번호가 일치하지 않습니다.</p>");
+					}
+				}else{
+					$("#chktarget").html("");
+				}
+			});	
 		}
 	});
-	
-	// 비밀번호 확인 체크
-	$('#PasswordCheck').keyup(function(){
-		var pwd1=$("#apwd").val();
-		var pwd2=$("#PasswordCheck").val();
-		if(pwd1.length>=1 || pwd2.length>=1){ 
-			if(pwd1 == pwd2){ 
-			$("#chktarget").html("<p style='color:green'>비밀번호가 일치합니다.</p>");	
-			}else{ 
-			$("#chktarget").html("<p style='color:red'>비밀번호가 일치하지 않습니다.</p>"); 
-			}
-		}
-	});	
+
 	
 	// 연도 설정
 	$('#dyear').keyup(function(){
 		var year=$("#dyear").val();
 		var currentyear = new Date().getFullYear();
+		
 		if(year>currentyear){
-			$("#yeartarget").html("<p style='color:red'>미래에서 오셨군요!</p>");
+			$("#yeartarget").html("<p>미래에서 오셨군요!</p>");
 		}else if(year>currentyear-18){
-			$("#yeartarget").html("<p style='color:red'>만 18세 미만은 가입하실 수 없습니다!</p>");
+			$("#yeartarget").html("<p>만 18세 미만은 가입하실 수 없습니다!</p>");
 		}else if(year<1920){
-			$("#yeartarget").html("<p style='color:red'>과거에서 오셨군요!</p>");
+			$("#yeartarget").html("<p>과거에서 오셨군요!</p>");
 		}else{
 			$("#yeartarget").html("");
 		}
@@ -287,24 +320,25 @@ $(function() {
 	$('#dday').keyup(function(){
 		var day = $(this).val();
 		var month = $('#dmonth option:selected').val();
+		
 		if(month===0){
 		$("#yeartarget").html("<p style='color:red'>월을 입력해 주세요.</p>");
 		}else{
 			if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){
 				if(day<1||day>31){
-					$("#yeartarget").html("<p style='color:red'>생년월일을 다시 확인해주세요.</p>");	
+					$("#yeartarget").html("<p>생년월일을 다시 확인해주세요.</p>");	
 				}else{
 					$("#yeartarget").html("");
 				}
 			}else if(month==2){
 				if(day<1||day>29){
-					$("#yeartarget").html("<p style='color:red'>생년월일을 다시 확인해주세요.</p>");
+					$("#yeartarget").html("<p>생년월일을 다시 확인해주세요.</p>");
 				}else{
 					$("#yeartarget").html("");
 				}
 			}else{
 				if(day<1||day>30){
-					$("#yeartarget").html("<p style='color:red'>생년월일을 다시 확인해주세요.</p>");
+					$("#yeartarget").html("<p>생년월일을 다시 확인해주세요.</p>");
 				}else{
 					$("#yeartarget").html("");
 				}
@@ -320,6 +354,45 @@ $(function() {
             $(this).val(v.replace(regexp, ''));
         }
     });
-})
+	
+	// 이메일 양식 인증
+	$("#certify").click(function(){
+		var aid = $('#aid').val();
+		// 중복 계정 체크
+		$.ajax({
+			url:'idChk?aid='+encodeURIComponent(aid),
+			success: function(data){
+				if(data === 1){
+					// 이미 가입이 되어 있는 경우
+					alert('이미 가입된 계정입니다. 다른 이메일을 입력하여 주십시오.');
+				}else{
+					$.ajax({
+						url: "emailCheck?aid="+aid,
+						success:function(res){
+							rest=res
+							alert('인증번호가 전송되었습니다. 이메일을 확인하여 주십시오.');
+							$('#certifyInsert').attr('readonly',false)
+							$('#certifyInsert').css('background-color', '#FFFFFF');
+							console.log(res);
+						},
+						error:function(e){
+							alert(e);
+						}
+					});
+				}
+			}		
+		})
+	});
+	
+	// 가입하기 버튼 클릭 시, 가입 조건 확인
+	$('#submit').click(function(e){
+		// 인증 번호 체크
+		if($.trim(rest) !== $('#certifyInsert').val()){
+			alert('인증번호가 맞지 않습니다.');
+			e.preventDefault();
+		}else{
+			alert('가입이 완료되었습니다!');
+		}
+	});
+});
 </script>
-<%@ include file="../include/footer.jsp"%>

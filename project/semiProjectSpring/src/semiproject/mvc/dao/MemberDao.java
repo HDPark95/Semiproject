@@ -16,7 +16,7 @@ public class MemberDao {
 	
 	public MemberDao() {}
 	
-	public String getPw(Map<String, Object> paramMap) {
+	public String getPw(Map<String, String> paramMap) {
 		return (String) ss.selectOne("signup.findpw", paramMap);
 	}
 	

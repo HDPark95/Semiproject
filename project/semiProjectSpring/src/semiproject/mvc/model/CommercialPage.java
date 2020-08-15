@@ -365,7 +365,7 @@ public class CommercialPage {
             object.put(key, value);
         }
 		model.addAttribute(object);
-		System.out.println(object);
+		
 		return object;
 	}
 	
@@ -376,8 +376,7 @@ public class CommercialPage {
 		OuterDataVO closebusi = commercialDao.getCloseBusiData(vo.getGuname());
 		mav.addObject("openbusi", openbusi);
 		mav.addObject("closebusi", closebusi);
-		System.out.println(openbusi.getBusiopenratio());
-		System.out.println(closebusi.getTotalclosemean());
+	
 		return mav;
 	}
 	

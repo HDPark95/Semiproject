@@ -5,8 +5,23 @@ import java.util.Arrays;
 public class EstateSearchVO {
 	private int[] build,rentv,floor,room;
 	private String deposits_from,deposits_to,monthmoenys_from,monthmoenys_to,trades_from,trades_to,
-	roomArea_from,roomArea_to,roomCare_from,roomCare_to;
+	roomArea_from,roomArea_to,roomCare_from,roomCare_to,keyword;
+	private String buildType;
 	
+	
+	
+	public String getBuildType() {
+		return buildType;
+	}
+	public void setBuildType(String buildType) {
+		this.buildType = buildType;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 	public int[] getBuild() {
 		return build;
 	}

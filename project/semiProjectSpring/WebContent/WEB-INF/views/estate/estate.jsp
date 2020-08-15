@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header_main.jsp"%>
 <%@ include file="../include/header_menu.jsp"%>
-<%@ include file="../include/header_CoEstateSubMenu.jsp"%>
 <link  href="/resources/css/estate/paging.css"/>
 <link href="resources/css/commercial/sidebar.css" rel="stylesheet" />
 <link rel="stylesheet" href="resources/css/estate/ion.rangeSlider.min.css"/>

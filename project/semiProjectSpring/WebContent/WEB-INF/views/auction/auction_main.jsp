@@ -251,8 +251,7 @@ body {
 		<div id="body" style="width: 100%; height: 100%; margin: auto;">
 			<div id="leftcontents"
 				style="position: relative; width: 80%; margin: auto;">
-				<div id="searchtop" name="searchtop"
-					>
+				<div id="searchtop" name="searchtop">
 					<div class="form-group" style="margin-top: 7px;">
 						진행사항:<select class="form-control select" id="statussel"
 							style="width: 100px; display: inline;">
@@ -465,7 +464,7 @@ body {
 		        '</p>',
 	        "r2" :
 		        '<p class="bantxt" style="color:#70727f; left: 66%;"><span class="bantxt-bold">신규 오픈 감사 이벤트</span><br>'+
-		            '<span class="bantxt-bold">6월 한달간 수수료 50% 감면!!</span><br>'+
+		            '<span class="bantxt-bold">8월 한달간 수수료 50% 감면!!</span><br>'+
 		            '<span class="bantxt-bold"></span>'+
 		        '</p>',
 			"r3" :

@@ -56,10 +56,12 @@
 	<select id="infor_postslist" parameterType="int" resultType="cboardvo">
 	select * from community_board where anum = #{anum} and wdel = 0
 	</select>
-	
+	<!-- 여기서 필요한 컬럼이 뭐야 -->
+	<!--  뭘 띄우는 페이지랑 연결된거야? -->
 	<select id="mypage_product_infor" parameterType="int" resultType="cpvo">
-	select * from PRODUCT PRO , PRODUCT_SALE_INFO PSLE , PRODUCT_LOCATION PLO 
-	where PRO.anum = #{anum} and PRO.PDNUM = PSLE.PRNUM and PRO.PDNUM = PLO.PDNUM
+	<!-- select * from PRODUCT PRO , PRODUCT_SALE_INFO PSLE , PRODUCT_LOCATION PLO 
+	where PRO.anum = #{anum} and PRO.PDNUM = PSLE.PRNUM and PRO.PDNUM = PLO.PDNUM -->
+	select * from fsale f , fsale_info fi where f.fnum=fi.fnum and f.anum=#{anum}
 	</select>
 	
 	<select id="premiumProlong" parameterType="int" resultMap="payment">
@@ -96,7 +98,7 @@
 	</update>
 	
 	<select id="mypage_customer" parameterType="int" resultType="cbvo">
-	select * from customer_board1 where anum = #{anum}
+	select * from customer_board where anum = #{anum}
 	</select>
 	
 	

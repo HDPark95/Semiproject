@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="update">
+ 	<update id="anum_update" parameterType="fvo">
+ 		update fsale set anum = #{anum} where fnum=#{fnum}
+ 	</update>
+ 	<select id="anum_select" resultType="fvo">
+ 		select anum from signup where agubun='공인중개사'
+ 	</select>
+ 	<select id="fnum_select" resultType="fvo">
+ 		select fnum from fsale
+ 	</select>
+ </mapper>

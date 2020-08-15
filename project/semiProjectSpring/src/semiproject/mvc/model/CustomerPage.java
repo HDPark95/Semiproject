@@ -92,14 +92,24 @@ public class CustomerPage{
 	
   
 	// 게시판 상세보기 
+//		@RequestMapping(value="/Detail", method = RequestMethod.GET)
+//		public String customerDetail(Model model, HttpServletRequest req) throws Exception {
+//			
+//			
+//			
+//			String c_num = req.getParameter("c_num");
+//			
+//			model.addAttribute("detail", customerdao.getDetail(Integer.parseInt(c_num)));
+//			
+//			return "customer_board1/customerboardDetail";
+//			 
+//		}
+		
 		@RequestMapping(value="/Detail", method = RequestMethod.GET)
-		public String customerDetail(Model model, HttpServletRequest req) throws Exception {
+		public String customerDetail(Model model, int c_num) throws Exception {
 			
-			
-			
-			String c_num = req.getParameter("c_num");
-			
-			model.addAttribute("detail", customerdao.getDetail(Integer.parseInt(c_num)));
+			model.addAttribute("detail", customerdao.getDetail(c_num));
+			model.addAttribute("reply",customerdao.getReply(c_num));
 			
 			return "customer_board1/customerboardDetail";
 			 
@@ -135,29 +145,7 @@ public class CustomerPage{
 		}
 		
 		
-		//게시판 업데이트 CRUD 중 U -> 답변등록 진행중
-//		@RequestMapping(value = "ans1")
-//		public ModelAndView ansPage(HttpServletRequest req) throws Exception{
-//			ModelAndView mav = new ModelAndView();
-//			
-//			String c_num = req.getParameter("c_num");
-//			mav.addObject("detail1", customerdao.getDetail(Integer.parseInt(c_num)));
-//			mav.setViewName("customer_board1/boardAnsTest");
-//			
-//			return mav;
-//		}
-		
-//	@RequestMapping(value = "ansinsert1", method = RequestMethod.POST)
-//	public ModelAndView ansInsert(Customer_Board1VO vo) throws Exception{
-//		ModelAndView mav = new ModelAndView();
-//	
-//		customerdao.updateAns(vo);
-//	
-//		
-//		mav.setViewName("redirect:list1");
-//		return mav;
-//		
-//	}
+
 		
 
 }

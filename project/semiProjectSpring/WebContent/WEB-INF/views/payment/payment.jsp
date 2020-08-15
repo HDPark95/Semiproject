@@ -116,7 +116,6 @@ a:hover{
 								<a>월 29,900원</a>
 								<p>월 23,900원</p>
 							</div>
-							
 						</div>
 						<div class="pr box" id="pr" name="pr">
 							<input type="hidden" value="12" id="twelve">
@@ -125,13 +124,12 @@ a:hover{
 								<a>월 29,900원</a>
 								<p>월 18,900원</p>
 							</div>
-							
 						</div>
 					</div>
 					<div>
 						<div style="padding-top:40px;">
-							<button type="button" class="button4" id="ff" onclick="location='index#footerMenu69'"><i class="fas fa-chevron-left"></i>&nbsp;뒤로</button>
-							<button type="button" class="button3" id="ee">다음&nbsp;<i class="fas fa-chevron-right"></i></button>
+							<button type="button" class="button4" id="ff" onclick="location='index#footerMenu69'"><i class="fas fa-home"></i>&nbsp;메인으로</button>
+							<button type="button" class="button3" id="ee">다음으로&nbsp;<i class="fas fa-chevron-right"></i></button>
 						</div>
 					</div>
 				</div>
@@ -154,7 +152,6 @@ a:hover{
 	var month2 = new Date();
 	month2 = (month2.getFullYear() + 1) + "-" + (month2.getMonth() + 1) + "-"
 			+ (month2.getDate() - 1);
-
 	$(function() {
 		$('#basic').click(function() {
 			$('#cc').val(date);

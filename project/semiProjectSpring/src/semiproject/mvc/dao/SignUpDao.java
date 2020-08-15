@@ -13,8 +13,6 @@ public class SignUpDao {
 	private SqlSessionTemplate ss;
 	
 	public void addSignUp1(SignUpVO vo) {
-		String aid = vo.getAidheader() + "@" + vo.getAidfooter();
-		vo.setAid(aid);
 		ss.insert("signup.addmember1", vo);
 	}
 	
@@ -30,10 +28,9 @@ public class SignUpDao {
 	
 	public int aidCheck(String aid) {
 		return ss.selectOne("signup.idChk", aid);
-}
+	}
 
 	public int dnameCheck(SignUpVO vo) {
-		System.out.println("dao 동작 ? :");
 		return  ss.selectOne("signup.dnameChk", vo);
 	}
 }

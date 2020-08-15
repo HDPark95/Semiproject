@@ -55,6 +55,13 @@
 	background-image: url("resources/images/index/indexImage1.png");
 	float: right;
 }
+.commercialImage {
+    width: 650px;
+    height: 433px;
+    background-image: url(resources/images/commercial/mainCommercial.png);
+    float: left;
+    margin-top: 100px;
+}
 .topText {
 	display: flex;
     flex-direction: column;
@@ -62,13 +69,21 @@
     justify-content: center;
     height: 680px;
 }
-.topText > p {
+.commercialText{
+	display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 680px;
+    float: right;
+}
+.topText > p, .commercialText > p{
 	font-size: 40px;
 	font-weight: bold;
 	letter-spacing: -0.9px;
     line-height: 1.3;
 }
-.topText > button {
+.topText > button,.commercialText > button{
 	color: rgb(255, 255, 255);
     font-weight: 700;
     background-color: #F28705;
@@ -85,13 +100,13 @@
     border-radius: 2px;
     margin-top: 15px;
 }
-.topText > button:hover{
+.topText > button:hover, .commercialText > button:hover{
 	background-color: white;
 	border: 1px solid #F28705;
 	border-radius: 2px;
 	color: #F28705;
 }
-.topText > button:focus{
+.topText > button:focus, .commercialText > button:focus{
 	background-color: white;
 	border: 1px solid #F28705;
 	border-radius: 2px;
@@ -133,12 +148,12 @@
 </div>
 <div class="commercialContainer">
 	<div class="topArea">
-		<div class="topImage"></div>
-		<div class="topText">
-			<p>상가에 대해서 쏼라쏼라1111</p>
-			<p>상가에 대해서 쏼라쏼라2222</p>
+		<div class="commercialText">
+			<p>성공적인 창업 </p>
+			<p>내 집 마련을 위한 상권분석</p>
 			<button onclick="location.href='commercialMain'">상가로 가기</button>
 		</div>
+		<div class="commercialImage"></div>
 	</div>
 </div>
 

@@ -40,6 +40,7 @@ import semiproject.mvc.vo.CommercialProductVO;
 import semiproject.mvc.vo.EstatePageVO;
 import semiproject.mvc.vo.EstateSearchVO;
 import semiproject.mvc.vo.EstateVO;
+import semiproject.mvc.vo.ForSaleVO;
 import semiproject.mvc.vo.PageVO;
 import semiproject.mvc.vo.RentVO;
 
@@ -57,7 +58,17 @@ public class EstatePage{
 	
 	@RequestMapping(value="/estateMain")
 	public String goEstate() {
-		
+//		List<ForSaleVO> anumList=estateDAO.anumSelect();
+//		List<ForSaleVO> fnumList=estateDAO.fnumSelect();
+//		int num = 0;
+//		for(ForSaleVO fvo : fnumList) {
+//			if(num==anumList.size()-1) {
+//				num=0;
+//			}
+//			fvo.setAnum(anumList.get(num).getAnum());
+//			estateDAO.anumUpdate(fvo);
+//			num++;
+//		}
 		
 		return "estate/estate";
 	}
@@ -139,16 +150,38 @@ public class EstatePage{
 		System.out.println("시작시간 :"+start);
 		ModelAndView mav = new ModelAndView("estate/server/estatelist");
 		System.out.println(esvo.toString());
-		pvo = new EstatePageVO(estateDAO.listCount(), Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		
+		System.out.println(estateDAO.listCount2(esvo));
+		String to = "무제한";
+		
+		esvo.setDeposits_to(to);
+		esvo.setMonthmoenys_to(to);
+		esvo.setRoomArea_to(to);
+		esvo.setRoomCare_to(to);
+		esvo.setTrades_to(to);
+		
+		
+		esvo.setDeposits_from("0");
+		esvo.setMonthmoenys_from("0");
+		esvo.setRoomArea_from("0");
+		esvo.setRoomCare_from("0");
+		esvo.setTrades_from("0");
+
+		long end2 = System.currentTimeMillis();
+		System.out.println(" 카운트 걸린시간 :"+(end2-start));
+		pvo = new EstatePageVO(estateDAO.listCount2(esvo), Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		
 		if(esvo!=null && !esvo.equals("")) {
 			pvo.setEsvo(esvo);
 		}
 		System.out.println("실행?");
 		System.out.println(esvo.toString());
-			List<EstateVO> list= estateService.estatelist(pvo);
-		System.out.println(list.toString());
-		mav.addObject("list",	list);
+		List<ForSaleVO> forlist=estateDAO.fsalelist(pvo);
+		//List<EstateVO> list= estateService.estatelist(pvo);
+		//System.out.println(list.toString());
+		//mav.addObject("list",	list);
+		System.out.println(forlist.toString());
+		mav.addObject("fsale",forlist);
 		mav.addObject("paging",pvo);
 		long end = System.currentTimeMillis();
 		System.out.println("걸린시간 :"+(end-start));

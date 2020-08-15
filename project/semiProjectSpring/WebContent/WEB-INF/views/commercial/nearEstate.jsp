@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
 <%@ include file="../include/header_main.jsp"%>
 <%@ include file="../include/header_menu.jsp"%>
 <%@ include file="../include/header_CoEstateSubMenu.jsp"%>
@@ -193,8 +191,13 @@
 	cursor: default;
 	color: #777;
 }
-</style>
 
+/* 200814 ButtonCSS */
+.button3{
+	height: 23px;
+}
+/*  */
+</style>
 <section class="contact-section bg-white">
 	<div id="container">
 		<div class="map_wrap">
@@ -204,7 +207,7 @@
 					<div>
 						<form onsubmit="searchPlaces(); return false;">
 							키워드 : <input type="text" value="부동산" id="keyword" size="15">
-							<button type="submit">검색하기</button>
+							<button class="button3" type="submit">검색하기</button>
 						</form>
 					</div>
 				</div>

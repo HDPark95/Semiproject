@@ -118,7 +118,7 @@
 		var visible = 'visible';
 		var className = 'invisible';
 	
-		$('.filter-div').children('.btn').click(function() {
+		$('.filter-div').children('.filterButton').click(function() {
 
 			$('.filter-page').removeClass(invisible);
 			$('.filter-page').addClass(visible);

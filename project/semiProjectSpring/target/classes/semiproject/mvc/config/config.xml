@@ -62,6 +62,11 @@
 		<typeAlias type="semiproject.mvc.vo.LoginDTO" alias="logindto" />
 			<typeAlias type="semiproject.mvc.vo.RealPriceVO" alias="realvo" />	
 		<!-- 부동산 -->
+		<typeAlias type="semiproject.mvc.vo.ForSaleVO" alias="fvo"/>
+		<typeAlias type="semiproject.mvc.vo.ForSale_InfoVO" alias="fivo"/>
+		<typeAlias type="semiproject.mvc.vo.ForSale_Info_EstateVO" alias="fievo"/>
+		<typeAlias type="semiproject.mvc.vo.ForSale_Info_StoreVO" alias="fisvo"/>
+		<typeAlias type="semiproject.mvc.vo.Forsale_ImgVO" alias="fimgvo"/>
 		<typeAlias type="semiproject.mvc.vo.EstateVO" alias="evo"/>
 		<typeAlias type="semiproject.mvc.vo.EstatePageVO" alias="epvo"/>
 		<typeAlias type="semiproject.mvc.vo.EstateSearchVO" alias="esvo"/>

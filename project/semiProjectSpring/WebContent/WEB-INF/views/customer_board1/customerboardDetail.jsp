@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>		
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ include file="../include/header_index.jsp"%>
 <%@ include file="../include/header_menu.jsp"%>
 <style>
@@ -51,7 +52,7 @@
 	color: #787878;
 }
 
-#rec_update {
+#rec_update, #new_Login {
 	width: 100px;
 	color: blue;
 	font-size: 15px;
@@ -64,7 +65,7 @@
 	font-size: 13px;
 }
 
-#updatedetail{
+#updatedetail {
 	padding: 0.5rem 0.5rem;
 	margin-top: 5px;
 	background-color: #FF8000;
@@ -73,7 +74,7 @@
 	margin-left: 5px;
 }
 
-#golist{
+#golist {
 	padding: 0.5rem 0.5rem;
 	margin-top: 5px;
 	background-color: #0174DF;
@@ -81,20 +82,123 @@
 	float: left;
 }
 
-#deletedetail{
+#deletedetail {
 	padding: 0.5rem 0.5rem;
 	margin-top: 5px;
 	background-color: #FE2E2E;
 	color: #FFFFFF;
 	float: right;
 }
+
 #buttons {
 	width: 698px;
 	margin: 0 auto;
 }
-#textbody{
+
+#textbody {
 	padding: 15px 15px 15px 15px;
 	text-align: left;
+}
+
+#connect {
+	color: black;
+}
+
+#connectarea {
+	text-align: left;
+	padding: 10px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	border-style: groove;
+	border-color: #BDBDBD;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.replyarea {
+	background-color: #F2F3F4;
+}
+
+#replyarea ul {
+	list-style: none;
+	margin: 0px 15px 15px 15px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+#replyarea ul li {
+	border-bottom: 1px solid #ededed;
+}
+
+#replyarea dl {
+	text-align: left;
+}
+
+#replyarea ul li dt {
+	display: inline;
+	margin-right: 12px;
+	font-size: 12px;
+	text-align: left;
+}
+
+#replyarea ul li dl .date {
+	display: inline;
+	font-size: 11px;
+}
+
+#replyarea ul li dl .comment {
+	margin-top: 7px;
+	font-size: 12px;
+}
+
+#replyin {
+	width: 560px;
+	height: 50px;
+	margin: 0px 15px 15px 15px;
+}
+
+#reinsert, #replylogin {
+	padding: 0.5rem 0.5rem;
+	float: right;
+	width: 80px;
+	height: 52px;
+	margin: 0px 0px 22px 0px;
+	border: 1px solid gray;
+	background-color: #FFFFFF;
+}
+
+.replyupdate, .replydelete {
+	font-size: 11px;
+	text-align: right;
+	display: inline;
+	border: none;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.commentUpdate {
+	display: none;
+}
+
+.cupdatearea {
+	width: 650px;
+	height: 50px;
+}
+
+.updateClose {
+	text-align: right;
+	font-size: 11px;
+	color: black;
+	display: block;
+}
+
+.updateSubmit {
+	width: 650px;
+	height: 50px;
+	border: 1px solid #BDC3C7;
+	font-size: 15px;
+	padding: 0;
 }
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -117,13 +221,7 @@
 		});
 		$('#golist').click(function() {
 			location = 'listall';
-		});
-		$('#rec_update').hover(function() {
-			$('#rec_update').css('border', '1px solid blue');
-		},function(){
-			$('#rec_update').css('border', '1px solid white');
-		});
-			
+		});		
 	});
 	function deleteClick(){
 			var result = confirm('정말 삭제하시겠습니까?');
@@ -135,19 +233,25 @@
 				});
 			}
 	}
+	function connect(){
+		if($('.replyarea').css('display') == 'none'){
+            $('.replyarea').show();
+        }else{
+            $('.replyarea').hide();
+        }
+	}
 	
 </script>
 
 <section class="projects-section bg-light" id="projects">
 	<div class="container">
-	<input type="hidden" name="anum" value="${user.anum }">
-	
-
+		<input type="hidden" name="anum" value="${user.anum}">
 		<div id="area">
 			<div id="location">
 				<h4>고객 센터</h4>
 				<div id="tag">
-					<p id="tag2"><i class="fas fa-vihara"></i>&nbsp;${detail.c_type}
+					<p id="tag2">
+						<i class="fas fa-user-circle"></i>&nbsp;${detail.c_type}
 					</p>
 				</div>
 			</div>
@@ -156,41 +260,40 @@
 					<table>
 						<tr>
 							<td><h3 id="title">${detail.c_subject}</h3></td>
-<!-- 							<td id="rec" rowspan="2">추천하기 -->
-<!-- 								<form action="updateWrec" method="post">	 -->
-<!-- 									<button type="button" class="btn btn-default" onclick="upWrec()" id="rec_update"> -->
-<%-- 										<i class="fas fa-thumbs-up"></i>&nbsp; <span id="wrec">${list.wrec}</span> --%>
-<!-- 									</button> -->
-<!-- 								</form> -->
-<!-- 							</td>	 -->
 						</tr>
 						<tr>
-							<td><div id="toggle">
+							<td>
+								<div id="toggle">
 									<span><i class="fas fa-portrait"></i>&nbsp;${detail.aid}****</span>&nbsp;||
 									<span><i class="fas fa-calendar-day"></i>&nbsp;${detail.c_regdate}</span>&nbsp;
-<%-- 									<span><i class="fas fa-mouse"></i>&nbsp;${list.whit}</span> --%>
-							</div></td>	
+								</div>
+							</td>
 						</tr>
 					</table>
 				</div>
-				<div id="textbody">
-				${detail.c_content}
+				<div id="textbody">${detail.c_content}</div>
+				<div id="connectarea">
+					<a id="connect" onclick="connect()">답변</a>
+					<ul style="text-align: left;">
+						${reply.c_ans}
+					</ul>
 				</div>
 			</div>
-			<div id="buttons">
-				<button type="button" class="btn btn-default btn-sm" id="golist" >
+		</div>
+		<div id="buttons">
+			<button type="button" class="btn btn-default btn-sm" id="golist">
 				<i class="fas fa-bars"></i>&nbsp;목록
-				</button>
-				<button type="button" class="btn btn-default btn-sm" id="updatedetail"
-				onclick="location.href='updatedetail?c_num=${detail.c_num}'">
-				<i class="fas fa-feather-alt"></i>&nbsp;수정
+			</button>
+			<c:if test="${fn:length(reply.c_ans) == 0}">
+				<button type="button" class="btn btn-default btn-sm" id="updatedetail" onclick="location.href='updatedetail?c_num=${detail.c_num}'">
+					<i class="fas fa-feather-alt"></i>&nbsp;수정
 				</button>
 				<form name="delete" action="cusBoardDelete">
-				<button type="button" class="btn btn-default btn-sm" id="deletedetail" onclick="deleteClick()">
-				<i class="fas fa-times"></i>&nbsp;삭제
-				</button>
+					<button type="button" class="btn btn-default btn-sm" id="deletedetail" onclick="deleteClick()">
+						<i class="fas fa-times"></i>&nbsp;삭제
+					</button>
 				</form>
-			</div>
+			</c:if>
 		</div>
 	</div>
 </section>

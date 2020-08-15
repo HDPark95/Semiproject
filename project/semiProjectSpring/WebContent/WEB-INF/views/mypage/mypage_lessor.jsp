@@ -336,6 +336,20 @@ body{
 				'border-bottom': '2px solid #F2B90C'
 			})
 		});
+		
+		/* active 클래스가 생겨 페이지 이동에 제한이 걸리는 부분을 해결 */
+		$('#selectmyinfo').click(function() {
+			$(this).attr("class", "");
+		});
+		$('#selectmyproduct').click(function() {
+			$(this).attr("class", "");
+		});
+		$('#selectmyposts').click(function() {
+			$(this).attr("class", "");
+		});
+		$('#selectmyauction').click(function() {
+			$(this).attr("class", "");
+		});
 	});
 </script>
 
