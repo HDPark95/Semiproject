@@ -7,7 +7,8 @@
 <link href="resources/css/estate_one/th_styles.css" rel="stylesheet" />
 <link href="resources/css/estate_one/sideber.css" rel="stylesheet" />
 <link href="resources/css/styles.css" rel="stylesheet" />
-<script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"
+	crossorigin="anonymous"></script>
 <style>
 body {
 	font-family: 'Noto Sans KR', sans-serif;
@@ -87,67 +88,67 @@ body {
 .description {
 	margin: 1em 0px;
 }
-#home{
+
+#home {
 	height: auto;
 }
-.estateimage{
+
+.estateimage {
 	margin-top: 30px;
 }
-.chbutton{
+
+.chbutton {
 	font-size: 15px;
 	border: 1px solid #D8D8D8;
 	border-radius: 5px;
 	padding: 5px 10px 5px 10px;
 }
-.chbutton:hover{
+
+.chbutton:hover {
 	border: 1px solid #F27405;
 }
-.listButton{
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
-    border: 1px;
-    border-style: solid;
-    border-color: rgba(77,77,77,0.1);
-    outline: none;
-    background-color: #F28705;
-    color: #ffffff;
-    font-size: 1em;
-    font-weight: bold;
-    font-family: 'Noto Sans KR',sans-serif;
-    cursor: pointer;
-    padding: 25px 29px;
-    border-radius: 45px;
+
+.listButton {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 99;
+	border: 1px;
+	border-style: solid;
+	border-color: rgba(77, 77, 77, 0.1);
+	outline: none;
+	background-color: #F28705;
+	color: #ffffff;
+	font-size: 1em;
+	font-weight: bold;
+	font-family: 'Noto Sans KR', sans-serif;
+	cursor: pointer;
+	padding: 25px 29px;
+	border-radius: 45px;
 }
-.listButton:hover{
+
+.listButton:hover {
 	background-color: white;
-  	color: #F28705;
-  	border: 1px solid #F28705;
+	color: #F28705;
+	border: 1px solid #F28705;
 }
 </style>
-<section class="contact-section container topma" style="height: 1000px;">
-	<div>
+<section class="contact-section container topma" style="width: 1300px; max-width: 1300px">
+	<div >
 		<!-- detailHeader 시작 -->
-		<table class="estateDetailHeader">
+		<table class="estateDetailHeader" style="width: 100%">
 			<c:forEach items="${vo.rent}" var="r">
 				<tr>
 					<td style="padding-bottom: 30px;"><a class="estatebuild">
-							<c:choose>
-								<c:when test="${vo.build == 'A01' }">아파트</c:when>
-								<c:when test="${vo.build == 'A02' }">오피스텔</c:when>
-								<c:when test="${vo.build == 'C01' }">원룸</c:when>
-								<c:when test="${vo.build == 'C03' }">주택</c:when>
-							</c:choose>
-					</a><br> <a class="estaterentv"> <c:choose>
-								<c:when test="${r.rentv == 'A1' }">매매 ${r.rpay}</c:when>
-								<c:when test="${r.rentv == 'B1' }">전세 ${r.rpay}</c:when>
-								<c:when test="${r.rentv == 'B2' }">월세 ${r.rpay}</c:when>
-							</c:choose> <em class="moneyunit">(단위:만원)</em>
+							${vo.fkind} </a><br> <a class="estaterentv"> ${vo.fsalekind }<em
+							class="moneyunit"> ${vo.deposit } <c:if
+									test="${vo.rent != '0' || vo.rent != null }"> / ${vo.rent }</c:if>
+								(단위:만원)
+						</em>
 					</a></td>
 					<td class="estateaddress">
-						<p class="estaterltrnm">${vo.rltrnm}<br> <em
-								class="estatename">이은희</em>
+						<p class="estaterltrnm">${vo.sign.dname}<br> <em
+								class="estatename">${vo.sign.dtel }</em>
 						</p>
 					</td>
 					<td class="estatetel"><a href="#"
@@ -158,91 +159,214 @@ body {
 		</table>
 		<!-- detailHeader 끝 -->
 		<!-- detailMiddle 시작 -->
-		<div id="myTabContent" class="tab-content bg-white container">
+		<div id="myTabContent" class="tab-content bg-white container" style="max-width: 1300px">
 			<div id="home">
-				<input type="hidden" value="${vo.supply }" id="supply"> 
-				<input type="hidden" value="${vo.exclusive }" id="exclusive">
+				<input type="hidden" value="${vo.finvo.fsuparea}" id="supply">
+				<input type="hidden" value="${vo.finvo.fexarea}" id="exclusive">
 				<table class="type11">
 					<tbody>
 						<tr>
-							<td><strong>해당층/건물층 : </strong> ${vo.floor }층</td>
-							<td><strong>공급/전용면적 : </strong> 
-							<label id="text"> ${vo.supply } / ${vo.exclusive}㎡ </label> 
-								<input type="button" onclick="change('↔평')" class="chbutton" value="↔평"> 
-								<input type="hidden" onclick="change('↔㎡')" class="chbutton" value="↔㎡">
-							</td>
-							<td><strong>난방종류 : </strong> ${vo.addinfo.heating}</td>
+							<td><strong>해당층/건물층 : </strong> ${vo.finvo.tfloor } /
+								${vo.finvo.bfloor }</td>
+							<td><strong>공급/전용면적 : </strong> <label id="text">
+									${vo.finvo.fsuparea } / ${vo.finvo.fexarea}㎡ </label> <input
+								type="button" onclick="change('↔평')" class="chbutton" value="↔평">
+								<input type="hidden" onclick="change('↔㎡')" class="chbutton"
+								value="↔㎡"></td>
+							<td><strong>관리비 : </strong> <c:choose>
+									<c:when test="${vo.finvo.fadmin!= null}">${vo.finvo.fadmin  }</c:when>
+									<c:otherwise>-</c:otherwise>
+								</c:choose></td>
+							<td><strong>관리비옵션 : </strong> <c:choose>
+									<c:when test="${vo.finvo.fadop!= null}">${vo.finvo.fadop  }</c:when>
+									<c:otherwise>-</c:otherwise>
+								</c:choose></td>
 						</tr>
 						<tr>
-							<td><strong>빌트인 : </strong> <c:choose>
-									<c:when test="${vo.addinfo.built==1 }">있음</c:when>
-									<c:otherwise> 없음</c:otherwise>
-								</c:choose></td>
-							<td><strong>엘리베이터 : </strong> <c:choose>
-									<c:when test="${vo.addinfo.elevator==1 }">있음</c:when>
-									<c:otherwise> 없음</c:otherwise>
-								</c:choose></td>
-							<td><strong>관리비 : </strong> ${vo.addinfo.aspay } 원</td>
-						</tr>
-						<tr>
+							<td><strong>입주가능일 : </strong>	<c:choose>
+											<c:when test="${vo.finvo.fmove!= null}">${vo.finvo.fmove}</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose>
+									</td>
 							<td><strong>주차 : </strong> <c:choose>
-									<c:when test="${vo.addinfo.park==1 }">가능</c:when>
-									<c:otherwise> 불가능</c:otherwise>
+									<c:when test="${vo.finvo.fadmin!= null}">${vo.finvo.fadmin} 대</c:when>
+									<c:otherwise>-</c:otherwise>
 								</c:choose></td>
-							<td><strong>반려동물 : </strong> <c:choose>
-									<c:when test="${vo.addinfo.pets==1 }">가능</c:when>
-									<c:otherwise> 불가능</c:otherwise>
-								</c:choose></td>
-							<td><strong>베란다/발코니 : </strong> <c:choose>
-									<c:when test="${vo.addinfo.balcony==1 }">있음</c:when>
-									<c:otherwise> 없음</c:otherwise>
-								</c:choose></td>
-						</tr>
-						<tr>
-							<td><strong>전세자금대출 : </strong> <c:choose>
-									<c:when test="${vo.addinfo.chartered==1 }">가능</c:when>
-									<c:otherwise>불가능</c:otherwise>
-								</c:choose></td>
-							<td><strong>입주가능일 : </strong> ${vo.addinfo.pmove}</td>
-							<td><strong>옵션 : </strong> <c:forEach
-									items="${vo.addinfo.poption}" var="op" varStatus="i">
-										${op.option }<c:choose>
-										<c:when test="${i.last }"></c:when>
-										<c:otherwise>,</c:otherwise>
-									</c:choose>
-								</c:forEach></td>
-						</tr>
+						
+						<c:choose>
+							<c:when test="${vo.fkind =='상가/사무실' }">
+
+								
+									<td><strong>난방종류 
+									(난방/냉방) : </strong> <c:choose>
+											<c:when test="${vo.finvo.heating!= null}">${vo.finvo.heating}</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose> <c:choose>
+											<c:when test="${vo.finvo.fisvo.cooling != null }"> / ${vo.finvo.fisvo.cooling }</c:when>
+											<c:otherwise> / -</c:otherwise>
+										</c:choose></td>
+
+									<td><strong>용도지역
+									 (주용도/용도지역) : </strong> <c:choose>
+											<c:when test="${vo.finvo.fisvo.mpurpo != null}">${vo.finvo.fisvo.mpurpo}</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose><c:choose>
+											<c:when test="${vo.finvo.fisvo.usearea != null}">${vo.finvo.fisvo.usearea}</c:when>
+											<c:otherwise> / -</c:otherwise>
+										</c:choose></td>
+										</tr>
+								<tr>
+									<td><strong>독립공간 : </strong> <c:choose>
+											<c:when test="${vo.finvo.fisvo.independent!= null}">${vo.finvo.fisvo.independent }</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose></td>
+									<td><strong>화장실 : </strong> <c:choose>
+											<c:when test="${vo.finvo.fisvo.toilet != null }">${vo.finvo.fisvo.toilet}</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose></td>
+								
+									<td><strong>예상 수익률 : </strong> <c:choose>
+											<c:when test="${vo.finvo.fisvo.revenue != null }"> ${vo.finvo.fisvo.revenue}</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose></td>
+									<td><strong>권리금 : </strong> <c:choose>
+											<c:when test="${vo.finvo.fisvo.fright != null }">
+												${vo.finvo.fisvo.fright }
+											</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose></td>
+								</tr>
+								<tr>										
+									<td><strong>융자금 : </strong> <c:choose>
+											<c:when test="${vo.finvo.fisvo.financing !=null }">${vo.finvo.fisvo.financing }</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose></td>
+									<td><strong> - </strong> -</td>
+									<td><strong> - </strong> -</td>
+									<td><strong> - </strong> -</td>
+									</tr>
+							</c:when>
+							<c:otherwise>
+								
+									<td><strong>난방종류 : </strong> <c:choose>
+											<c:when test="${vo.finvo.heating!= null}">${vo.finvo.heating}</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose></td>
+
+									<td><strong>빌트인 : </strong> <c:choose>
+											<c:when test="${vo.finvo.fievo.built != null}">${vo.finvo.fievo.built}</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose></td>
+										</tr>
+										<tr>
+									<td><strong>엘리베이터 : </strong> <c:choose>
+											<c:when test="${vo.finvo.eleva!= null}">${vo.finvo.eleva }</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose></td>
+									<td><strong>반려동물 : </strong>
+									<c:choose>
+											<c:when test="${vo.finvo.fievo.animal!= null}">${vo.finvo.fievo.animal }</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose>
+									</td>
+								
+									<td><strong>베란다/발코니 : </strong>
+									
+										<c:choose>
+											<c:when test="${vo.finvo.fievo.veranda!= null}">${vo.finvo.fievo.veranda}</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose>
+									</td>
+									<td><strong>전세자금대출 : </strong>
+										
+										<c:choose>
+											<c:when test="${vo.finvo.fievo.fcharter!= null}">${vo.finvo.fievo.fcharter}</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose>
+									
+									</td>
+								</tr>
+								<tr>	
+									<td colspan="4"><strong>옵션 : </strong> 	<c:choose>
+											<c:when test="${vo.finvo.fievo.foption!= null}">${vo.finvo.fievo.foption}</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose>
+									</td>
+							
+								</tr>
+							</c:otherwise>
+						</c:choose>
+
+
 					</tbody>
 				</table>
-				<div class="container topma">
+				<div class="container topma" style="width: 100%" >
 					<table class="type12">
 						<thead>
 							<tr>
-								<th scope="col"><pre>${vo.title }</pre></th>
+								<th scope="col"><pre
+										style="width: 1050px; overflow: hidden;">${vo.subject}</pre></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td><pre class="description">${vo.addinfo.description }</pre>
-								</td>
+								<td><pre class="description">${vo.finvo.fcontent }</pre></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
-				<!-- 이미지를 순서대로 보여주는 부분 시작 -->
-			<div class="estateimage">
-				<c:forEach items="${vo.img}" var="e" varStatus="i">
+			<!-- 이미지를 순서대로 보여주는 부분 시작 -->
+			<div class="estateimage" style="display: flex; margin-left:80px;margin-bottom:50px; width: 100%">
+				<c:forEach items="${vo.fimg}" var="e">
 					<div style="cursor: pointer;">
-						<img class="th_property_subimg" src="img/${e.img}"></img>
+						<img class="th_property_subimg" src="img/${e.fname}.${e.ftype}"
+							onerror="this.src='img/noimg.jpg'"></img>
 					</div>
 				</c:forEach>
 			</div>
 			<!-- 이미지를 순서대로 보여주는 부분 끝 -->
+			<%-- <c:choose>
+				<c:when test="${vo.fkind !='상가/사무실' }">
+						<div class="bg-white container" style="display: block; width: 100%">
+								<table style="display: block; width: 100% ; border: 1px solid black;">
+									<tr>
+										<th>월세</th>
+										<th>전세</th>
+									</tr>
+									<tr>
+										<td>
+											<c:choose>
+												<c:when test="${vo.finvo.fievo.monthly !=null }">
+													${vo.finvo.fievo.monthly }
+												</c:when>
+												<c:otherwise>-</c:otherwise>
+											</c:choose>
+										
+										</td>
+										<td>
+											<c:choose>
+												<c:when test="${vo.finvo.fievo.charter!=null }">
+												${vo.finvo.fievo.charter }
+												</c:when>
+												<c:otherwise>-</c:otherwise>
+											</c:choose>
+										
+										</td>
+									
+									</tr>
+								</table>
+						</div>		
+				</c:when>
+			</c:choose> --%>
+		
 		</div>
 	</div>
 	<div>
-		<button type="button" class="listButton" onclick="location.href='product'"><i class="fas fa-bars"></i>&nbsp;목록으로</button>
+		<button type="button" class="listButton"
+			onclick="location.href='product'">
+			<i class="fas fa-bars"></i>&nbsp;목록으로
+		</button>
 	</div>
 	<!-- <div class="th_card bg-white property_border_st">
 		<div class="th_card-body">
@@ -330,26 +454,29 @@ body {
 	function change(text) {
 		var supply;
 		var exclusive;
-		$('.chbutton').each(function(i) {
-			if ($(this).val() === text) {
-				if (text === '↔평') {
-					supply = $('#supply').val() / 3.305785;
-					exclusive = $('#exclusive').val() / 3.305785;
-					supply = Math.floor(supply);
-					exclusive = Math.floor(exclusive);
-				} else {
-					supply = $('#supply').val();
-					exclusive = $('#exclusive').val();
-				}
+		$('.chbutton').each(
+				function(i) {
+					if ($(this).val() === text) {
+						if (text === '↔평') {
+							supply = $('#supply').val() / 3.305785;
+							exclusive = $('#exclusive').val() / 3.305785;
+							supply = Math.floor(supply);
+							exclusive = Math.floor(exclusive);
+						} else {
+							supply = $('#supply').val();
+							exclusive = $('#exclusive').val();
+						}
 
-			}
-			if (text === $(this).val()) {
-				$(this).attr("type", "hidden");
-				$('#text').html(supply + '/' + exclusive + ' ' + text.substring(2,1));
-			} else {
-				$(this).attr("type", "button");
-			}
-		})
+					}
+					if (text === $(this).val()) {
+						$(this).attr("type", "hidden");
+						$('#text').html(
+								supply + '/' + exclusive + ' '
+										+ text.substring(2, 1));
+					} else {
+						$(this).attr("type", "button");
+					}
+				})
 	}
 </script>
 <%@ include file="../include/footer.jsp"%>

@@ -301,7 +301,7 @@ label {
 			<input type="checkbox" id="checkall" name="chk">&nbsp;위의 사항에 대하여 모두 동의합니다.(모두 체크)
 			</p>
 			<div style="margin-top: 30px;">
-			<button type="button" class="button4" onclick="location='pay4'"><i class="fas fa-chevron-left"></i>&nbsp;뒤로가기</button>
+			<button type="button" class="button4" onclick="location='paymentView'"><i class="fas fa-chevron-left"></i>&nbsp;뒤로가기</button>
 			<button type="submit" class="button3" id="button1"><i class="fas fa-key"></i>&nbsp;결제하기</button>
 			</div>
 			</div>
@@ -363,8 +363,6 @@ label {
 					$('input[id=checkall]').prop('checked',false);
 				}
 			});
-			
-			
 		})
 	});
 </script>

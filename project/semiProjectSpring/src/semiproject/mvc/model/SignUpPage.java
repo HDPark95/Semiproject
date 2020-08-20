@@ -1,16 +1,24 @@
 package semiproject.mvc.model;
 
+import java.util.Random;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import semiproject.mvc.dao.LoginDao;
 import semiproject.mvc.dao.SignUpDao;
+import semiproject.mvc.email.Email;
 import semiproject.mvc.vo.LoginDTO;
 import semiproject.mvc.vo.SignUpVO;
 import semiproject.mvc.vo.UserVO;
@@ -34,11 +42,6 @@ public class SignUpPage {
 		return "community/signup_lessor";
 	}
 
-	@RequestMapping(value = "/choose")
-	public String signChoose() {
-		return "community/signup_choose";
-	}
-
 	@RequestMapping(value = "/subBroke")
 	public String subBroker() {
 		return "community/subscriptioncheck_broker";
@@ -54,7 +57,7 @@ public class SignUpPage {
 		ModelAndView mav = new ModelAndView();
 		signUpDao.addSignUp1(vo);
 		signUpDao.addSignUp2(vo);
-		mav.setViewName("community/subscriptioncheck_broker");
+		mav.setViewName("index");
 		loginDTO.setAid(vo.getAid());
 		loginDTO.setApwd(vo.getApwd());
 		loginDTO.setAgubun(vo.getAgubun());
@@ -71,7 +74,7 @@ public class SignUpPage {
 		ModelAndView mav = new ModelAndView();
 		signUpDao.addSignUp1(vo);
 		signUpDao.addSignUp2(vo);
-		mav.setViewName("community/subscriptioncheck_lessor");
+		mav.setViewName("index");
 		loginDTO.setAid(vo.getAid());
 		loginDTO.setApwd(vo.getApwd());
 		loginDTO.setAgubun(vo.getAgubun());
@@ -81,5 +84,42 @@ public class SignUpPage {
 		mav.addObject("user", vo2);
 		httpsession.setAttribute("user", vo2);
 		return mav;
+	}
+	
+	// 이메일 인증을 통한 아이디 회원가입 처리
+	
+	@Autowired
+	private Email email;
+	
+	@Autowired
+	private JavaMailSender mailSender;
+
+	@RequestMapping(value="/emailCheck")
+	@ResponseBody
+	public String emailCheck(String aid) {
+		// 랜덤한 4자리 숫자를 만듬
+		Random random = new Random();
+		String certifyNumber = "";
+		for(int i=0; i<4; i++) {
+			String sample = Integer.toString(random.nextInt(10));
+			certifyNumber += sample;
+		}
+		// 숫자를 메일로 보냄
+		email.setContent("인증번호는 "+certifyNumber+" 입니다.");
+		email.setReceiver(aid);
+		email.setSubject("CMJ 가입을 위한 이메일 인증 메일입니다.");
+		try {
+			MimeMessage msg = mailSender.createMimeMessage();
+			MimeMessageHelper messageHelper = new MimeMessageHelper(msg, true, "UTF-8");
+			messageHelper.setSubject(email.getSubject());
+			messageHelper.setText(email.getContent());
+			messageHelper.setTo(email.getReceiver());
+			messageHelper.setFrom("coaudwjd@gmail.com");
+			msg.setRecipients(MimeMessage.RecipientType.TO, InternetAddress.parse(email.getReceiver()));
+			mailSender.send(msg);
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
+		return certifyNumber;
 	}
 }

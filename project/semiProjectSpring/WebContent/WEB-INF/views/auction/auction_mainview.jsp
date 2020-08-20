@@ -23,6 +23,8 @@
 		<td style="padding-left: 3px;">
 			<b>${list.ideprice}</b><br/>
 			<span style="color: blue;"><b>${list.hprice}</b></span>
+			<br/>
+			<b>${list.youc}</b>
 		</td>
 		<td style="text-align: center;">
 			${list.status}<br/>${list.indate}<br/>${list.hit}

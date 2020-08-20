@@ -33,4 +33,8 @@ public class SignUpDao {
 	public int dnameCheck(SignUpVO vo) {
 		return  ss.selectOne("signup.dnameChk", vo);
 	}
+	
+	public String gudokCheck(SignUpVO vo) {
+		return ss.selectOne("signup.gudokCheck",vo);
+	}
 }

@@ -12,8 +12,8 @@ public class AddInfoVO {
 	private String pets,elevator,balcony,built,chartered,description,heating,pmove;
 	private String[] structure,move, pay,administrat,imgName;
 	private String pstructure;
-	private List<AdministrativeVO> administrative;
-	private List<Option_SelVO> poption;
+
+
 	
 	private String[] option;
 
@@ -117,18 +117,7 @@ public class AddInfoVO {
 	public void setPdnum(int pdnum) {
 		this.pdnum = pdnum;
 	}
-	public List<Option_SelVO> getPoption() {
-		return poption;
-	}
-	public void setPoption(List<Option_SelVO> poption) {
-		this.poption = poption;
-	}
-	public List<AdministrativeVO> getAdministrative() {
-		return administrative;
-	}
-	public void setAdministrative(List<AdministrativeVO> administrative) {
-		this.administrative = administrative;
-	}
+
 	public String[] getStructure() {
 		return structure;
 	}

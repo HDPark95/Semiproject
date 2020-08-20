@@ -29,40 +29,35 @@ public class PaymentPage {
 	@Autowired
 	private PaymentService paymentService;
 	
-	@RequestMapping(value="/pay1")
-	public ModelAndView pay1(PaymentVO vo , int anum) {
+	
+	
+	@RequestMapping(value="/payment")
+	public ModelAndView payment(PaymentVO vo , int anum) {
 		ModelAndView mav = new ModelAndView();	
 		mav.addObject("vo", vo);
-		
 		mav.addObject("pvo", paymentdao.paymentname(anum));
 		mav.setViewName("payment/payment");
 		return mav;
 	}
 
-	@RequestMapping(value="/pay2")
-	public String pay2() {
-		return "payment/payment2";
+	@RequestMapping(value="/paymentextensionDetail")
+	public String paymentextensionDetail() {
+		return "payment/paymentextensionDetail";
 	}
-	@RequestMapping(value="/bank")
-	public String bank() {
-		return "payment/bankbook";
-	}
-	@RequestMapping(value = "/pay4")
-	public String pay4() {
+	
+	@RequestMapping(value = "/paymentView")
+	public String paymentView() {
 		return "payment/payment";
 	}
-	@RequestMapping(value = "/pay5")
-	public String pay5() {
-		return "payment/payment1-2";	
-	}
-	//결제 완료창
-	@RequestMapping(value = "/pay3")
-	public String pay3() {
-		return "payment/paymentSuccess";
-	}
+	/*
+	 * //결제 완료창
+	 * 
+	 * @RequestMapping(value = "/pay3") public String pay3() { return "index"; }
+	 */
+	
 	//인증번호에서 뒤로가기
-	@RequestMapping(value = "/pay6")
-	public String pay6() {
+	@RequestMapping(value = "/payback")
+	public String payback() {
 		return "payment/paymentDetail";
 	}
 
@@ -70,29 +65,28 @@ public class PaymentPage {
 	public ModelAndView paymentUpdate(PaymentVO vo, Payment_DetailVO vo1) {
 		ModelAndView mav = new ModelAndView();
 		paymentService.addPayment(vo,vo1);
-		System.out.println("vo :"+vo.getPpay());
-		System.out.println("vo :"+vo.getPsdate());
-		System.out.println("vo :"+vo.getPedate());
-		System.out.println("vo :"+vo.getMonthnum());
-		System.out.println("vo :"+vo.getPway());
-		System.out.println("vo1 :"+vo1.getInment());
-		System.out.println("vo1 :"+vo1.getKinds());
-		System.out.println("vo1 :"+vo1.getMentnum());
-		mav.setViewName("payment/paymentSuccess");
+		System.out.println("업데이트 부분 :"+vo.getPpay());
+		System.out.println("업데이트 부분 :"+vo.getPsdate());
+		System.out.println("업데이트 부분 :"+vo.getPedate());
+		System.out.println("업데이트 부분 :"+vo.getMonthnum());
+		System.out.println("업데이트 부분 :"+vo.getPway());
+		System.out.println("업데이트 부분 :"+vo1.getInment());
+		System.out.println("업데이트 부분 :"+vo1.getKinds());
+		System.out.println("업데이트 부분 :"+vo1.getMentnum());
+		mav.setViewName("redirect:index");
 		return mav;
 	}
+	
+	
 	@RequestMapping(value = "/paymentDetail", method = RequestMethod.POST)
 	public ModelAndView paymentDetail(PaymentVO vo) {
 		ModelAndView mav = new ModelAndView();
-		//paymentService.addPayment(vo, vo1);
-		
-		
+		// paymentService.addPayment(vo, vo1);
 		System.out.println("회원번호 : "+vo.getAnum());
 		mav.setViewName("payment/paymentDetail");
 		mav.addObject("vo", vo);	
 		mav.addObject("name", paymentdao.paymentname(vo.getAnum()));	
 		return mav;
-		
 	}
 
 }

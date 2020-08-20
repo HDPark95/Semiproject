@@ -43,17 +43,26 @@ public class AuctionHyuntaePage {
 	private AuctionDao auctionDao;
 
 	@RequestMapping(value = "/auctionDetail")
-	public ModelAndView acutionGGG(int anum, HttpServletRequest request,HttpSession httpsession) throws Exception {
+	public ModelAndView acutionGGG(int anum, HttpServletRequest request, HttpSession httpsession) throws Exception {
 		System.out.println("물건번호 : " + anum);
 		ModelAndView mav = new ModelAndView("auction/auctionDetail");
 		UserVO vo1 = (UserVO) httpsession.getAttribute("user");
-		String aid = vo1.getAid();
-		auctionhyuntaedao.auctionHit(anum);
-		AuctionDetailVO vo = auctionhyuntaedao.getAuctionDetail(anum);
-		mav.addObject("result", vo);
-		mav.addObject("list", anum);
-		mav.addObject("aid", aid);
-		return mav;
+
+		if (vo1 == null) {
+			ModelAndView mav1 = new ModelAndView("auction/auctionMsg");
+			mav1.addObject("msg", "로그인이 필요한 페이지 입니다.");
+			mav1.addObject("url", "login");
+			return mav1;
+		} else {
+			String aid = vo1.getAid();
+			auctionhyuntaedao.auctionHit(anum);
+			AuctionDetailVO vo = auctionhyuntaedao.getAuctionDetail(anum);
+			
+			mav.addObject("result", vo);
+			mav.addObject("list", anum);
+			mav.addObject("aid", aid);
+			return mav;
+		}
 	}
 
 	@RequestMapping(value = "/auction_sale")
@@ -85,7 +94,7 @@ public class AuctionHyuntaePage {
 	}
 
 	@RequestMapping(value = "/auctionSaleManagement")
-	public ModelAndView saleManagement(int anum , IpchalperVO vo1) {
+	public ModelAndView saleManagement(int anum, IpchalperVO vo1) {
 		System.out.println("물건번호 : " + anum);
 		ModelAndView mav = new ModelAndView("auction/auctionSaleManagement");
 		auctionhyuntaedao.auctionHit(anum);
@@ -114,30 +123,37 @@ public class AuctionHyuntaePage {
 		return mav;
 
 	}
-	//@RequestMapping(value = "/auction_sales")
-	//public String auctionviewlist(AuctionPageVO vo,Model model,HttpServletRequest request,@RequestParam(value = "nowPage",required = false,defaultValue = "1") String nowPage, 
-			//@RequestParam(value = "cntPage",required = false,defaultValue = "5") String cntPerPage,
-			//@RequestParam(value = "statussel",required = false,defaultValue = "0") String statussel,
-			//@RequestParam(value = "mulgun",required = false,defaultValue = "0") String mulgun,
-			//@RequestParam(value = "sortindex",required = false,defaultValue = "0") String sortindex,
-			//@RequestParam(value = "searchType",required = false) String searchType,
-			//@RequestParam(value = "searchValue",required = false) String searchValue
-			//) {
-		//int total = auctionhyuntaedao.getTotalCnt(vo);
-		//vo = new AuctionPageVO(total,Integer.parseInt(nowPage),Integer.parseInt(cntPerPage),Integer.parseInt(statussel),Integer.parseInt(mulgun),Integer.parseInt(sortindex),vo.getSearchType(),vo.getSearchValue());
-		//System.out.println(vo.getSearchType()+"::"+vo.getSearchValue());
-		//세션 값
-		//HttpSession session = request.getSession();
-		//UserVO sbid =(UserVO) session.getAttribute("user");
-		//model.addAttribute("paging",vo);
-		//List<AuctionSaleVO> list = auctionhyuntaedao.getAuctionsale(sbid.getAid());
-		//model.addAttribute("list",list);
-		
-		//세션 테스트
-		//session.setAttribute("user","tests");
-	
-		//model.addAttribute("sbid",sbid.getAid().equals(null)?"":sbid.getAid());
-		//return "auction/auction_sale";
+	// @RequestMapping(value = "/auction_sales")
+	// public String auctionviewlist(AuctionPageVO vo,Model model,HttpServletRequest
+	// request,@RequestParam(value = "nowPage",required = false,defaultValue = "1")
+	// String nowPage,
+	// @RequestParam(value = "cntPage",required = false,defaultValue = "5") String
+	// cntPerPage,
+	// @RequestParam(value = "statussel",required = false,defaultValue = "0") String
+	// statussel,
+	// @RequestParam(value = "mulgun",required = false,defaultValue = "0") String
+	// mulgun,
+	// @RequestParam(value = "sortindex",required = false,defaultValue = "0") String
+	// sortindex,
+	// @RequestParam(value = "searchType",required = false) String searchType,
+	// @RequestParam(value = "searchValue",required = false) String searchValue
+	// ) {
+	// int total = auctionhyuntaedao.getTotalCnt(vo);
+	// vo = new
+	// AuctionPageVO(total,Integer.parseInt(nowPage),Integer.parseInt(cntPerPage),Integer.parseInt(statussel),Integer.parseInt(mulgun),Integer.parseInt(sortindex),vo.getSearchType(),vo.getSearchValue());
+	// System.out.println(vo.getSearchType()+"::"+vo.getSearchValue());
+	// 세션 값
+	// HttpSession session = request.getSession();
+	// UserVO sbid =(UserVO) session.getAttribute("user");
+	// model.addAttribute("paging",vo);
+	// List<AuctionSaleVO> list = auctionhyuntaedao.getAuctionsale(sbid.getAid());
+	// model.addAttribute("list",list);
+
+	// 세션 테스트
+	// session.setAttribute("user","tests");
+
+	// model.addAttribute("sbid",sbid.getAid().equals(null)?"":sbid.getAid());
+	// return "auction/auction_sale";
 
 //	}	
 

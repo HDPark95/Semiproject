@@ -3,13 +3,89 @@ package semiproject.mvc.vo;
 
 public class DataVO {
 	private int num;
+	private String busipop, fpop, alpop,total_selling;
+	public String getTotal_selling() {
+		return total_selling;
+	}
+
+	public void setTotal_selling(String total_selling) {
+		this.total_selling = total_selling;
+	}
+
+	public String getBusipop() {
+		return busipop;
+	}
+
+	public void setBusipop(String busipop) {
+		this.busipop = busipop;
+	}
+
+	public String getFpop() {
+		return fpop;
+	}
+
+	public void setFpop(String fpop) {
+		this.fpop = fpop;
+	}
+
+	public String getAlpop() {
+		return alpop;
+	}
+
+	public void setAlpop(String alpop) {
+		this.alpop = alpop;
+	}
+
+	private String shopN;
+	public String getShopN() {
+		return shopN;
+	}
+
+	public void setShopN(String shopN) {
+		this.shopN = shopN;
+	}
+
 	private String guName;
 	private String dongName;
 	private String cate;
 	private String largeName;
 	private String mediumName;
-	private String smallName;
-	
+	private String sigungu;
+	private String dong;
+	private String x;
+	public String getX() {
+		return x;
+	}
+
+	public void setX(String x) {
+		this.x = x;
+	}
+
+	public String getY() {
+		return y;
+	}
+
+	public void setY(String y) {
+		this.y = y;
+	}
+
+	private String y;
+	public String getSigungu() {
+		return sigungu;
+	}
+
+	public void setSigungu(String sigungu) {
+		this.sigungu = sigungu;
+	}
+
+	public String getDong() {
+		return dong;
+	}
+
+	public void setDong(String dong) {
+		this.dong = dong;
+	}
+
 	public String getCate() {
 		return cate;
 	}
@@ -56,14 +132,6 @@ public class DataVO {
 
 	public void setMediumName(String mediumName) {
 		this.mediumName = mediumName;
-	}
-
-	public String getSmallName() {
-		return smallName;
-	}
-
-	public void setSmallName(String smallName) {
-		this.smallName = smallName;
 	}
 
 }

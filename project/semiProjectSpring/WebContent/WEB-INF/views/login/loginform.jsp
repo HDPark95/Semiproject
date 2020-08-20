@@ -179,7 +179,7 @@
 				try{
 					tokenins();	
 				}catch(err){
-					alert(err)
+					//alert(err)
 				}
 				location = "loginPost?aid="+$('#exampleInputEmail').val()+"&apwd="+$('#exampleInputPassword').val()+"&tab=location"
 			} ,

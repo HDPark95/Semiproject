@@ -7,9 +7,16 @@ where b.anum = a.anum
   and p.anum = a.anum
 */
 public class AuctionViewVO {
-	private int anum,hit;
+	private int anum,hit,youc;
 	private double tweight,bweight;
 	private String bid,yongdo,addr,wimage,subject,enddate,ideprice,hprice,status,indate;
+	
+	public int getYouc() {
+		return youc;
+	}
+	public void setYouc(int youc) {
+		this.youc = youc;
+	}
 	public int getAnum() {
 		return anum;
 	}

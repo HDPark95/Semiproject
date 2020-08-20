@@ -77,18 +77,20 @@ tr th {
 					<th>지역동</th>
 					<th>가격<em class="emphasize">(단위:만원)</em></th>
 					<th>전용면적<em class="emphasize">(단위:평)</em></th>
+					<th>층</th>
 					<th>건축년도</th>
 				</tr>
 			</thead>
 			<tbody id="productBody">
 				<c:forEach var="listv" items="${list}">
 					<tr>
-						<th>${listv.num}</th>
-						<td>${listv.gu}</td>
+						<th>${listv.transaction_id}</th>
+						<td>${listv.sigungu}</td>
 						<td>${listv.dong}</td>
-						<td>${listv.prc}</td>
-						<td>${listv.spc2}</td>
-						<td>${listv.year}</td>
+						<td>${listv.transaction_real_price}</td>
+						<td>${listv.exclusive_use_area}</td>
+						<td>${listv.floor}</td>
+						<td>${listv.year_of_completion}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -129,7 +131,7 @@ tr th {
 		$("#gulist").change(function() {
 			var param = $(this).val();
 			$.ajax({
-				url : "dong?cate=combobox2&guName=" + param,
+				url : "dongList?cate=combobox2&guName=" + param,
 				success : function(d) {
 					$("#donglist").html(d)
 				}

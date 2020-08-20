@@ -28,6 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import semiproject.mvc.dao.CommercialDao;
 import semiproject.mvc.dao.CommercialProductDao;
+import semiproject.mvc.service.CalculatePopScore;
 import semiproject.mvc.service.CommercialService;
 import semiproject.mvc.vo.AddInfoVO;
 import semiproject.mvc.vo.AdministrativeVO;
@@ -39,12 +40,14 @@ import semiproject.mvc.vo.EstateVO;
 import semiproject.mvc.vo.KeywordVO;
 import semiproject.mvc.vo.OuterDataVO;
 import semiproject.mvc.vo.PageVO;
+import semiproject.mvc.vo.PopVO;
 import semiproject.mvc.vo.RealPriceVO;
 import semiproject.mvc.vo.RentVO;
 import semiproject.mvc.vo.UserVO;
 
 @Controller
 public class CommercialPage {
+	private CalculatePopScore calcPopScore; 
 	@Autowired
 	private CommercialDao commercialDao;
 	@Autowired
@@ -117,9 +120,7 @@ public class CommercialPage {
 
 	@RequestMapping(value = "/gu")
 	public String getGu(Model model, String cate) {
-		
 		List<String> list = commercialDao.getGu();
-		
 		model.addAttribute("result", list);
 		model.addAttribute("cate", cate);
 		return "commercial/server/searchServer";
@@ -132,10 +133,18 @@ public class CommercialPage {
 		model.addAttribute("cate", cate);
 		return "commercial/server/searchServer";
 	}
-
+	@RequestMapping(value = "/dongList")
+	public String getDongList(Model model, String guName, String cate) {
+		List<String> list = commercialDao.getRealDongList(guName);
+		model.addAttribute("result", list); 
+		model.addAttribute("cate", cate);
+		return "commercial/server/searchServer";
+	}
 	@RequestMapping(value = "/largename")
-	public String getLarge(Model model, String cate) {
-		List<String> list = commercialDao.getLarge();
+	public String getLarge(Model model, String cate, DataVO vo) {
+		System.out.println(vo.getGuName());
+		System.out.println(vo.getDongName());
+		List<String> list = commercialDao.getLarge(vo);
 		model.addAttribute("result", list);
 		model.addAttribute("cate", cate);
 		System.out.println(list);
@@ -143,20 +152,8 @@ public class CommercialPage {
 	}
 
 	@RequestMapping(value = "/mediumname")
-	public String getMedium(Model model, String largeName, String cate) {
-		List<String> list = commercialDao.getMedium(largeName);
-		model.addAttribute("result", list);
-		model.addAttribute("cate", cate);
-		return "commercial/server/searchServer";
-	}
-
-	@RequestMapping(value = "/smallname")
-	public String getSmall(Model model, String largeName, String mediumName, String cate) {
-		DataVO vo = new DataVO();
-		vo.setLargeName(largeName);
-		vo.setMediumName(mediumName);
-
-		List<DataVO> list = commercialDao.getSmall(vo);
+	public String getMedium(Model model, DataVO vo, String cate) {
+		List<String> list = commercialDao.getMedium(vo);
 		model.addAttribute("result", list);
 		model.addAttribute("cate", cate);
 		return "commercial/server/searchServer";
@@ -229,8 +226,6 @@ public class CommercialPage {
 	public ModelAndView goupdateCommercial(String pdnum) {
 		ModelAndView mav = new ModelAndView("commercial/updateForm");
 		List<CommercialProductVO> vo = commercialProductDao.getProductDetail(pdnum);
-		
-		
 		mav.addObject("result", vo.get(0));
 		return mav;
 	}
@@ -365,7 +360,7 @@ public class CommercialPage {
             object.put(key, value);
         }
 		model.addAttribute(object);
-		
+		System.out.println(object);
 		return object;
 	}
 	
@@ -376,7 +371,8 @@ public class CommercialPage {
 		OuterDataVO closebusi = commercialDao.getCloseBusiData(vo.getGuname());
 		mav.addObject("openbusi", openbusi);
 		mav.addObject("closebusi", closebusi);
-	
+		System.out.println(openbusi.getBusiopenratio());
+		System.out.println(closebusi.getTotalclosemean());
 		return mav;
 	}
 	
@@ -409,5 +405,35 @@ public class CommercialPage {
 		model.addAttribute("newsList", commercialDao.getAllNews(pvo));
 		model.addAttribute("total", total);
 		return "commercial/newsPage";
+	}
+	@RequestMapping(value="/goAnalysisResult")
+	public String goAnalysisResult(Model model, DataVO vo) {
+		model.addAttribute("result", vo);
+		return "commercial/nearEstate";
+	}
+	
+	@RequestMapping(value="/getAnalysisResult")
+	public ModelAndView commecialAnalysis(DataVO vo) {
+		ModelAndView mav = new ModelAndView("commercial/server/commercialAnalysisServer");
+		DataVO datavo = commercialDao.getShopData(vo);
+		DataVO popvo = commercialDao.getPopData(vo);
+		PopVO popdata = commercialDao.getStatisticPop();
+		DataVO resultPopvo = getCalcPopData(vo);
+		mav.addObject("settinginfo", vo);
+		mav.addObject("searchinfo", datavo);
+		mav.addObject("popinfo", popvo);
+		mav.addObject("popResult", resultPopvo);
+		
+		return mav;
+	}
+	public DataVO getCalcPopData(DataVO vo) {
+		DataVO popvo = commercialDao.getPopData(vo);
+		PopVO popdata = commercialDao.getStatisticPop();
+		CalculatePopScore method = new CalculatePopScore(popdata);
+		DataVO resultPopvo = new DataVO(); 
+		resultPopvo.setAlpop(method.getAlPopScore(Float.parseFloat(popvo.getAlpop())));
+		resultPopvo.setFpop(method.getfPopScore(Float.parseFloat(popvo.getFpop())));
+		resultPopvo.setBusipop(method.getBusiPopScore(Float.parseFloat(popvo.getBusipop())));
+		return resultPopvo;
 	}
 }

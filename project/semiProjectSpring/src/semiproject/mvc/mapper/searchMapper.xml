@@ -43,15 +43,15 @@
 		select * from (
 		select rownum r_num, a.* from
 		(
-		select * from realprice
+		select * from realdealprice
 		<if test="searchType != null">
 			<where>
 				<choose>
 					<when test="searchType == 1">
-						and gu like '%'|| #{searchValue} ||'%'
+						and sigungu =  #{searchValue} 
 					</when>
 					<when test="searchType == 2">
-						and dong like '%'|| #{searchValue} ||'%'
+						and dong = #{searchValue}
 					</when>
 				</choose>
 			</where>
@@ -60,12 +60,12 @@
 		) where r_num between #{start} and #{end}
 	</select>
 	<select id="totalCount2" resultType="int" parameterType="pvo">
-		select count(*) cnt from realprice
+		select count(*) cnt from realdealprice
 		<if test="searchType != null">
 			<where>
 				<choose>
 					<when test="searchType == 1">
-						and gu = #{searchValue}
+						and sigungu = #{searchValue}
 					</when>
 					<when test="searchType == 2">
 						and dong = #{searchValue}
@@ -154,6 +154,12 @@
 	</select>
 	<select id="keyword" resultType="keyvo">
 		select distinct * from mostfrequency order by num
+	</select> 
+	<select id="catelocation" resultType="commercial">
+		select * from index_commercial where commercialcode = #{cate}
+	</select>
+	<select id="dongList" parameterType="String" resultType="String">
+		select distinct dong from realdealprice where sigungu = #{largeName}
 	</select> 
 </mapper>
 

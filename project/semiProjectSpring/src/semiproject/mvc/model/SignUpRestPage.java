@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import semiproject.mvc.dao.SignUpDao;
 import semiproject.mvc.vo.SignUpVO;
@@ -27,4 +28,19 @@ public class SignUpRestPage {
 		int cnt = signUpDao.dnameCheck(vo);
 		return cnt;
 	}
+	
+	@RequestMapping(value ="/analysisCheck")
+	@ResponseBody
+	public int analysisCheck(String aid) {
+		System.out.println(aid);
+		SignUpVO si=new SignUpVO();
+		si.setAid(aid);
+		String  check=signUpDao.gudokCheck(si);
+		int num=0;
+		if(check.equals("구독")) {
+			num=1;
+		}
+		return num;
+	}
+	
 }

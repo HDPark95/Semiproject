@@ -11,7 +11,22 @@ public class SignUpVO {
 	private Member_DetailVO memberinfor ;
 	private PaymentVO payvo;
 	
+	// 200813 공인중개사 주소를 위한 컬럼 추가
+	private String daddress, dcname;
 	
+	public String getDaddress() {
+		return daddress;
+	}
+	public void setDaddress(String daddress) {
+		this.daddress = daddress;
+	}
+	public String getDcname() {
+		return dcname;
+	}
+	public void setDcname(String dcname) {
+		this.dcname = dcname;
+	}
+	// 200813 공인중개사 주소를 위한 컬럼 추가
 	
 	public String getAchgday() {
 		return achgday;

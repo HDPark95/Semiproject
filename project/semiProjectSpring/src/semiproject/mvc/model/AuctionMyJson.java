@@ -1,6 +1,7 @@
 package semiproject.mvc.model;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,22 +25,22 @@ public class AuctionMyJson {
 	private AuctionMypageDao auctionmypagedao;
 	
 	@ResponseBody
-	@RequestMapping(value = "/auctionjson",method =RequestMethod.GET,produces = "application/json; charset=euc-kr")
+	@RequestMapping(value = "/auctionjson",method =RequestMethod.GET,produces = "application/json; charset=UTF-8")
 	public String getjlist(int num){
 		System.out.println("num:"+num);
 		List<AuctionMyJsonVO> list = auctionmypagedao.getAuctionJson(num);
-		Map<Integer, Integer> map = new HashMap<>();
+		List<Object> list2 = new ArrayList<Object>();
+		list2.add("입찰가");
 		
-		int idx = 1;
 		for(AuctionMyJsonVO e : list) {
-			map.put(idx, e.getIpprice());
-			idx+=1; 
+			list2.add(e.getIpprice());
 		}
-		System.out.println("Size:"+list.size());
+		
+		System.out.println("Size:"+list2.size());
 		String result = null;
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			result = mapper.writeValueAsString(map);
+			result = mapper.writeValueAsString(list2);
 		} catch (JsonMappingException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

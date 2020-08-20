@@ -184,7 +184,7 @@
 	<div class="row">
 		<article class="subMenuBar">
 			<div class="searchArea">
-				<input type="text" id="keyword">
+				<input type="text" id="keyword_val" style="height: 35px;">
 				<span class="button3" id="search_btn" onclick="search_estate()">검색</span>
 			</div>
 			<a href="realprice">실거래가</a>
@@ -211,7 +211,7 @@
 	            		<div class="filter-sub-page-div">
 	            			<p class="filterTitle" id="page-up">방종류<label class="filterlabel"><i class="fas fa-star"></i>&nbsp;중복선택이 가능합니다.&nbsp;(상가/사무실,아파트 제외)</label></p> 
 	            			<div class="checkBoxArea">
-	            				<input type="checkbox" value="0" name="build" class="room checked" onclick="search_build('room')"><label class="room_check">원룸 </label>
+	            				<input type="checkbox" value="0" name="build" class="room checked " onclick="search_build('room')"><label class="room_check">원룸 </label>
 	            				<input type="checkbox" value="1" name="build" class="room checked" onclick="search_build('room')"><label class="room_check">투ㆍ쓰리룸</label>
 	            				<input type="checkbox" value="2" name="build" class="room checked" onclick="search_build('room')"><label class="room_check">오피스텔</label>
 	            				<input type="checkbox" value="3" name="build" class="apt " onclick="search_build('apt')"><label class="room_check ">아파트</label>
@@ -225,9 +225,9 @@
 	            		<div class="filter-sub-page-div">
 	            			<p class="filterTitle">매물 종류<label class="filterlabel"><i class="fas fa-star"></i>&nbsp;중복선택이 가능합니다.</label></p>
 	            			<div class="checkBoxArea">
-	            				<input type="checkbox" name="rentv" class=" checked rentv" value="0"><label>월세</label>
-	            				<input type="checkbox" name="rentv" class=" checked rentv" value="1"><label>전세 </label>
-	            				<input type="checkbox" name="rentv" class=" checked rentv" value="2"><label>매매</label>
+	            				<input type="checkbox" name="rentv" class="checked rentv" value="0"><label>월세</label>
+	            				<input type="checkbox" name="rentv" class="checked rentv" value="1"><label>전세 </label>
+	            				<input type="checkbox" name="rentv" class="checked rentv" value="2"><label>매매</label>
 	            			</div>
 	            		</div>
 	            		<!-- 매물 종류를 선택하는 영역 끝 -->
@@ -324,27 +324,16 @@
 	            				<input type="checkbox" name="floor"value="7" class="checked floor">	<label>7층이상</label>
 	            				<input type="checkbox" name="floor" value="8" class="floor">	<label>반지층</label>
 	            				<input type="checkbox" name="floor" value="9" class="floor">	<label>옥탑</label>
+	            				<input type="hidden" name="cntPerPage" id="cntPerPage_val" value="10">
+								<input type="hidden" name="nowPage" id="nowPage"value="1"> 
+								<input type="hidden" name="keyword" id="keyword">
+	            				
+	            				
 	            			</div>
 	            		</div>
 	            		<!-- 층수를 선택하는 영역 끝 -->
 	            		
-	            		<!-- 방구조를 선택하는 영역 시작 -->
-	            		<div class="filter-sub-page-div">
-	            			<p class="filterTitle">방구조<label class="filterlabel"><i class="fas fa-star"></i>중복선택이 가능합니다.</label></p>
-	            			<div class="checkBoxArea">
-	            				<input type="checkbox" name="room"value="0" class="checked">	<label>주방분리형(1.5룸)</label>
-	            				<input type="checkbox" name="room"value="1" class="checked">	<label>복층</label>
-	            				<input type="checkbox" name="room"value="2" class="checked">	<label>투룸</label>
-	            				<input type="checkbox" name="room"value="3" class="checked">	<label>쓰리룸</label>
-	            			
-								<input type="hidden" name="cntPerPage" id="cntPerPage_val" value="10">
-								<input type="hidden" name="nowPage" id="nowPage"value="1"> 
-								<input type="hidden" name="keyword" id="keyword_val">
-	            				<input type="hidden" id="esvo" value="${esvo}">
-	            				<input type="hidden" id="paging_val" name="paging" value="">
-	            			</div>
-	            		</div>
-	            		<!-- 방구조를 선택하는 영역 끝 -->
+	            		
 	            			            		
 	            		<div class="col-md-12 mt-12 filter-sub-page-div filter-div last" style='padding-top: 30px'>
 	            			<a class="button3 filterButton" id="filter_apply" onclick="submit()" href="#page-top"><i class="fas fa-check"></i>&nbsp;적용하기</a>
@@ -361,9 +350,51 @@
 
 
 	$(function(){
-	
+		
+
 		
 		$(".checked").prop("checked",true);
+		
+		$("input[name=build]").click(function() {
+			var bool=0;
+			var input=$("input[name=build]");
+			$("input[name=build]").each(function(i, element) {
+				
+				
+				if($(this).prop("checked") === false){
+					bool=bool+1;
+				}
+				
+			
+			});
+			
+			if(bool===5){
+				$(this).prop("checked",true);
+				bool=1;
+			}
+			
+		})
+		
+		$("input[name=rentv]").click(function() {
+			var bool=0;
+			var input=$("input[name=rentv]");
+			$("input[name=rentv]").each(function(i, element) {
+				
+				
+				if($(this).prop("checked") === false){
+					bool=bool+1;
+				}
+				
+			
+			});
+			
+			if(bool===3){
+				$(this).prop("checked",true);
+				bool=1;
+			}
+			
+		})
+		
 		$(".floor_all").click(function(){
 			var bool=$(".floor_all").prop("checked");
 			
@@ -445,7 +476,7 @@
 				    break;
 				  case "1":
 					var type=$(".rentv:nth-of-type(1)").prop('checked')
-					console.log("1번째 값"+type)
+					
 					if(!type){	
 						 trades=$(".deposits").children().hasClass("invisible");
 						if(trades===false){
@@ -612,6 +643,7 @@
 							}
 					  }
 					 
+					  
 				    break;
 				}
 			}
@@ -852,9 +884,12 @@
 		if(text==='filter'){
 			formData= data.serialize();
 		}else if(text==='button'){
-			$("#keyword_val").val($("#keyword").val());
+			$("#keyword").val($("#keyword_val").val());
 			formData= data.serialize();
 		}
+		
+		console.log($("#keyword").val())
+		$("#nowPage").val("1");
 		$.ajax({
 			cache: false,
 			url:'estatelist',

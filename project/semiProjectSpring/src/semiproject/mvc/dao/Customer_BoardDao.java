@@ -10,6 +10,7 @@ import semiproject.mvc.vo.Community_BoardVO;
 import semiproject.mvc.vo.Community_PageVO;
 
 import semiproject.mvc.vo.Customer_BoardVO;
+import semiproject.mvc.vo.Customer_PageVO;
 
 @Repository
 public class Customer_BoardDao implements Customer_BoardInter{
@@ -54,12 +55,12 @@ public class Customer_BoardDao implements Customer_BoardInter{
 	}
 
 	@Override
-	public List<Customer_BoardVO> listAll(Community_PageVO pvo)throws Exception {
+	public List<Customer_BoardVO> listAll(Customer_PageVO pvo)throws Exception {
 		return ss.selectList("cboard.listall",pvo);
 	}
 
 	@Override
-	public int getCountAll(Community_PageVO pvo) throws Exception {
+	public int getCountAll(Customer_PageVO pvo) throws Exception {
 		
 		return ss.selectOne("cboard.countall",pvo);
 	}

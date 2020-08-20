@@ -376,6 +376,9 @@ button4:hover{
 	width: 298px; 
 	height: 200px;
 }
+#filter_apply:hover {
+	cursor: pointer;
+}
 </style>
 <%@ include file="../include/header_menu.jsp"%>
 <section class="contact-section">
@@ -396,7 +399,7 @@ button4:hover{
 									<td class="enrollBody">
 										<div id="productvary">
 											<span class="square build false" onclick="changeSelect(0)">원룸</span>
-											<span class="square build false" onclick="changeSelect(1)">주택</span>
+											<span class="square build false" onclick="changeSelect(1)">투룸ㆍ쓰리룸</span>
 											<span class="square build false" onclick="changeSelect(2)">상가/사무실</span>
 											<span class="square build false" onclick="changeSelect(3)">오피스텔(도시형)</span>
 											<span class="square build false" onclick="changeSelect(4)">아파트</span>
@@ -528,12 +531,14 @@ button4:hover{
 												<option>개별난방</option>
 												<option>지역난방</option>
 											</select>
+											
+											
 										</div>
 									</td>
 								</tr>
 								<tr>
 									<td class="enrollSideHeader">입주 가능일</td>
-									<td colspan="3" class="enrollrentBody">
+									<td colspan="3" class="enrollBody">
 										<div class="indayCheck">
 											<span class="square move-in false"
 												onclick="clicksub(0,'move-in')">즉시입주</span> <span
@@ -547,7 +552,7 @@ button4:hover{
 						</div>
 						<!-- 건물 기본 정보 끝 -->
 						<!-- 건물 추가 정보 끝 -->
-						<div class="col-md-12 mt-12  add-sub-page">
+						<div class="col-md-12 mt-12  add-sub-page" id="addinfo">
 							<table>
 								<tr>
 									<td colspan="4" class="enrollHeader">추가정보</td>
@@ -581,9 +586,9 @@ button4:hover{
 									<td class="enrollSideHeader">주차여부</td>
 									<td class="enrollrentBody">
 										<div class="text-left">
-											<span class="square parking false" onclick="clickpark(0)">가능</span>
-											<span class="square parking false" onclick="clickpark(1)">불가능</span>
-											<input type="text" id="pamount" class="input-val"
+											<span class="square parking false" onclick="clickpark(0,'parking')">가능</span>
+											<span class="square parking false" onclick="clickpark(1,'parking')">불가능</span>
+											<input type="text" id="parking" class="input-val"
 												disabled="disabled" placeholder="0" value="0" style="margin-left:5px;">&nbsp;원
 										</div>
 									</td>
@@ -618,23 +623,15 @@ button4:hover{
 								</tr>
 
 								<tr>
-									<td class="enrollSideHeader">빌트인</td>
-									<td class="enrollrentBody">
+									<td colspan="2" class="enrollSideHeader">빌트인</td>
+									<td colspan="2" class="enrollrentBody">
 										<div class="text-left">
 											<span class="square built false"
 												onclick="clicksubto(0,'built')">있음</span> <span
 												class="square built false" onclick="clicksubto(1,'built')">없음</span>
 										</div>
 									</td>
-									<td class="enrollSideHeader">구조</td>
-									<td class="enrollrentBody">
-										<div class="text-left">
-											<span class="square structure false"
-												onclick="clicksub(0,'structure')">복층</span> <span
-												class="square structure false"
-												onclick="clicksub(1,'structure')">1.5룸/주방분리형</span>
-										</div>
-									</td>
+									
 								</tr>
 								<tr>
 									<td rowspan="2" class="enrollSideHeader">옵션 항목</td>
@@ -724,10 +721,7 @@ button4:hover{
 								<tr>
 									<td colspan="2" class="enrollHeader">사진등록</td>
 								</tr>
-								<tr>
-									<td class="enrollSideHeader">사진</td>
-									<td id="imgList" class="enrollrentBody"><img src=""></td>
-								</tr>
+								
 								<tr>
 									<td class="enrollSideHeader">파일 업로드</td>
 									<td id="imageinputlist" class="enrollrentBody">
@@ -750,6 +744,7 @@ button4:hover{
 								<input type="hidden" value="" name="lat" id="lat"> 
 								<input type="hidden" value="" name="lng" id="lng"> 
 								<input type="hidden" value="" name="gu" id="gu"> 
+								<input type="hidden" value="" name="admindong" id="admindong">
 								<a class="button3" id="filter_apply" onclick="submit()">매물등록</a> 
 								<a class="button4" id="filter_close" href="semi.Project?page=estate&code=1">취소</a>
 							</div>
@@ -793,7 +788,7 @@ button4:hover{
 					lnbrSlno, emdNo) {
 				// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
 				// document.form.roadFullAddr.value = roadFullAddr;
-
+				$("#admindong").val(jibunAddr.split(" ")[1])
 				console.log(roadAddrPart1)
 				$('#roadAddrPart1').val(roadAddrPart1);
 				$("#addrDetail").val(roadAddrPart2 + addrDetail);
@@ -802,10 +797,14 @@ button4:hover{
 				mapSearchAddress();
 			}
 
-			var classEach = [ "build", "sub-build", "rent", "move-in",
-					"administrative", "parking", "pets", "elevator", "balcony",
-					"built", "option", "chartered", "structure" ];
-
+			var classEach = [ "build", "sub-build", "rent", "move-in"
+					];
+			var estateList=["administrative", "parking", "pets", "elevator", "balcony",
+				"built", "option", "chartered", "structure" ]
+			var storeList=[
+				"administrative","parking","elevator"
+				
+			]
 			var newForm = $("#estater");
 
 			function submit() {
@@ -820,6 +819,9 @@ button4:hover{
 					/* /semiProjectSpring/ */
 
 					console.log(newForm.toString());
+					console.log(newForm)
+					
+			
 
 					if (confirm("등록하시겠습니까?")) {
 
@@ -832,7 +834,7 @@ button4:hover{
 					$('#check').focus();
 				}
 				var endTime = new Date().getTime();
-				alert(endTime - startTime);
+				
 			}
 
 			function addestate() {
@@ -849,6 +851,45 @@ button4:hover{
 							addData(classEach[e], text);
 						}
 					})
+				}
+				
+				if(build==='상가'){
+					for (var e = 0; e < storeList.length; e++) {
+						var name = '.' + storeList[e];
+						var num = $(name + '.true').length;
+
+						var inum = 1;
+						$(name).each(function(i) {
+							if ($(this).hasClass("true")) {
+								var text = $(this).text();
+
+								addStore(storeList[e], text);
+							}
+						})
+					}
+					
+					
+					input += "<input type='hidden' value='"+$('#toilet').val()+"' name='toilet'>";
+					input += "<input type='hidden' value='"+$('#independent').val()+"' name='independent'>";
+					input += "<input type='hidden' value='"+$('#cooling').val()+"' name='cooling'>";
+					
+					
+					input += "<input type='hidden' value='"+$('#usearea').val()+"' name='usearea'>";
+					input += "<input type='hidden' value='"+$('#mpurpo').val()+"' name='mpurpo'>";
+				}else{
+					for (var e = 0; e < estateList.length; e++) {
+						var name = '.' + estateList[e];
+						var num = $(name + '.true').length;
+
+						var inum = 1;
+						$(name).each(function(i) {
+							if ($(this).hasClass("true")) {
+								var text = $(this).text();
+
+								addEstate(estateList[e], text);
+							}
+						})
+					}
 				}
 
 				input += "<input type='hidden' value='"
@@ -877,19 +918,22 @@ button4:hover{
 				newForm.append(input);
 
 			}
+			var build="";
 
+		
+			
 			function addData(className, text) {
 
 				var values = '';
 				var input = '';
-
 				if (className === "build") {
 					if (text === '원룸') {
 						values = 'C01';
-					} else if (text === '주택') {
+					} else if (text === '투룸ㆍ쓰리룸') {
 						values = 'C03';
-					} else if (text === '상가') {
+					} else if (text === '상가/사무실') {
 						values = 'D02';
+						build="상가";
 					} else if (text === '오피스텔(도시형)') {
 						values = 'A02';
 					} else if (text === '아파트') {
@@ -897,17 +941,13 @@ button4:hover{
 					}
 
 					input += "<input type='hidden' value='"+values+"' name='build'>";
-				} else if (className === "sub-build") {
-					values = text;
+					
+				}  else if (className === "rent") {
 
-					input += "<input type='hidden' value='"+values+"' name='subbuild'>";
-
-				} else if (className === "rent") {
-
-					var dans = false;
+					var dans = '불가능';
 
 					if (text === '단기가능') {
-						dans = true;
+						dans = '가능';
 					}
 
 					var num = text.toString().indexOf(',');
@@ -915,7 +955,7 @@ button4:hover{
 						text = text.toString().substring(0, num);
 
 					}
-
+					 input+="<input type='hidden' value='"+dans+"' name='dan'>"; 
 					if (text === '월세') {
 						var rpay = '';
 						$('.deposit')
@@ -926,12 +966,12 @@ button4:hover{
 
 											values = $(this).val() + '/'
 													+ thisv[i].value;
-											// input+="<input type='hidden' value='"+dans+"' name='dan'>"; 
+											
 
 											input += "<input type='hidden' value='B2' name='rentv'>";
 
 											input += "<input type='hidden' value='"+values+"' name='rpay'>";
-
+									
 										});
 
 					}
@@ -940,7 +980,7 @@ button4:hover{
 						input += "<input type='hidden' value='B1' name='rentv'>";
 						//	input+="<input type='hidden' value='"+dans+"' name='dan'>"; 
 						input += "<input type='hidden' value='"+values+"' name='rpay'>";
-
+						
 					}
 					if (text === '매매') {
 						values = $('#tradingv').val();
@@ -948,6 +988,7 @@ button4:hover{
 						input += "<input type='hidden' value='A1' name='rentv'>";
 						//	input+="<input type='hidden' value='"+dans+"' name='dan'>";
 						input += "<input type='hidden' value='"+values+"' name='rpay'>";
+						
 					}
 
 				} else if (className === "move-in") {
@@ -955,7 +996,53 @@ button4:hover{
 
 					input += "<input type='hidden' value='"+values+"' name='move'>";
 					console.log(input);
-				} else if (className === "administrative") {
+				}
+				
+				
+				
+				newForm.append(input);
+				
+
+				
+			}
+			
+			function addStore(className, text){
+				var values = '';
+				var input = '';
+				if (className === "administrative") {
+
+					values = $('#adminpay').val();
+					;
+
+					input += "<input type='hidden' value='"+values+"' name='pay'>";
+
+					values = text;
+
+					input += "<input type='hidden' value='"+values+"' name='administrat'>";
+				}else if (className === "parking") {
+					var bool = '불가능';
+					if (text === '가능') {
+						bool = '가능';
+					}
+
+					input += "<input type='hidden' value='"+bool+"' name='parkings'>";
+					input += "<input type='hidden' value='"
+							+ $('#parking').val() + "' name='parking'>";
+				}   else if (className === "elevator") {
+					var bool = '0';
+
+					if (text === '있음') {
+						bool = '1';
+					}
+
+					input += "<input type='hidden' value='"+bool+"' name='elevator'>";
+				}
+				newForm.append(input);
+			}
+			function addEstate(className, text){
+				var values = '';
+				var input = '';
+				if (className === "administrative") {
 
 					values = $('#adminpay').val();
 					;
@@ -971,13 +1058,13 @@ button4:hover{
 						bool = '1';
 					}
 
-					input += "<input type='hidden' value='"+bool+"' name='park'>";
+				
 					input += "<input type='hidden' value='"
-							+ $('#pamount').val() + "' name='ppay'>";
+							+ $('#parking').val() + "' name='fparking'>";
 				} else if (className === "pets") {
-					var bool = '0';
+					var bool = '불가능';
 					if (text === '가능') {
-						bool = '1';
+						bool = '가능';
 					}
 
 					name = 'pets';
@@ -992,19 +1079,20 @@ button4:hover{
 
 					input += "<input type='hidden' value='"+bool+"' name='elevator'>";
 				} else if (className === "balcony") {
-					var bool = '0';
+					var bool = '없음';
 
 					if (text === '있음') {
-						bool = '1';
+						bool = '있음';
+					
 					}
 
 					input += "<input type='hidden' value='"+bool+"' name='balcony'>";
 
 				} else if (className === "built") {
-					var bool = '0';
+					var bool = '없음';
 
 					if (text === '있음') {
-						bool = '1';
+						bool = '있음';
 					}
 
 					input += "<input type='hidden' value='"+bool+"' name='built'>";
@@ -1014,9 +1102,9 @@ button4:hover{
 					input += "<input type='hidden' value='"+text+"' name='option'>";
 
 				} else if (className === "chartered") {
-					var bool = '0';
+					var bool = '불가능';
 					if (text === '가능') {
-						bool = '1';
+						bool = '가능';
 					}
 
 					input += "<input type='hidden' value='"+bool+"' name='chartered'>";
@@ -1025,10 +1113,8 @@ button4:hover{
 
 					input += "<input type='hidden' value='"+text+"' name='structure'>";
 				}
-
 				newForm.append(input);
 			}
-
 			/* 단기가능 버튼 함수 시작 */
 			function deal() {
 				if ($('.deal').hasClass('false')) {
@@ -1107,18 +1193,18 @@ button4:hover{
 						})
 			}
 
-			function clickpark(num) {
-				$(('.parking')).each(
+			function clickpark(num,text) {
+				$(('.'+text)).each(
 						function(i) {
 							if (i === num) {
 								$(this).css('color', 'white').css(
 										'background-color', '#FD7400');
 								$(this).removeClass("false").addClass("true");
 								if (num === 0) {
-									$('#pamount').attr("disabled", false);
+									$('#'+text).attr("disabled", false);
 								} else {
 
-									$('#pamount').attr("disabled", true);
+									$('#'+text).attr("disabled", true);
 								}
 							} else {
 								$(this).css('color', 'black').css(
@@ -1133,31 +1219,28 @@ button4:hover{
 			//------------------------------------------------------------------------------- 매물정보 시작
 			function changeSelect(num) {
 				var html = '';
+				
 				if (num === 3) {
 					name = ""
-					html = "<td >	종류선택</td>"
-							+ "<td >"
-							+ "<div class=\"enrollBody\">"
-							+ "<span class=\"square sub-build true\" onclick=\"clicksub(0,'sub-build')\" >오피스텔 </span>"
-							+ "<span class=\"square sub-build false\" onclick=\"clicksub(1,'sub-build')\" >도시형주택</span> "
-							+
-
-							"</div> " + "</td>";
+					html="estate"
 				} else if (num === 4) {
-					html = "";
+					html="estate"
 				} else if (num === 2) {
-					html = "";
+					html = "addinfo";
+					
 				} else {
-					html = "<td >	종류선택</td>"
-							+ "<td >"
-							+ "<div class=\"enrollBody\">"
-							+ "<span class=\"square sub-build false\" onclick=\"clicksub(0,'sub-build')\">단독</span>\n"
-							+ "<span class=\"square sub-build false\" onclick=\"clicksub(1,'sub-build')\" >다가구</span>\n"
-							+ "<span class=\"square sub-build false\" onclick=\"clicksub(2,'sub-build')\" >빌라/연립/다세대</span>\n"
-							+ "<span class=\"square sub-build false\" onclick=\"clicksub(3,'sub-build')\" >상가주택</span>\n"
-							+ "</div> " + "</td>";
+					html="estate"
 				}
+				
+				$.ajax({
+					url :"infoHtml?kind="+html,
+					type:'get',
+					success: function(d){
+						$("#addinfo").html(d);
+					}
+				});
 				/* $('#select-target').html(html); */
+			
 				var searchValue = '';
 				$('.build').each(
 						function(i) {
@@ -1290,7 +1373,18 @@ button4:hover{
 			function sendKeyword(num) {
 				var supply = $('#supply').val();
 				var exclusive = $('#exclusive').val();
-				if (exclusive > supply || exclusive === supply) {
+				if(supply ==='' && exclusive ==='' ){
+					$('#supply-area').val("");
+					$("#exclusive-area").val("");
+					return;
+				}else if(supply ===''){
+					alert("공급면적이 비어있습니다. 공급면적을 먼저 입력해주세요.");
+					$('#exclusive').val("");
+					$("#exclusive-area").val("");
+					$('#supply-area').val("");
+					return;
+				}
+				else if (exclusive > supply || exclusive === supply) {
 					alert("전용면적은 공급면적보다 크거나 같을 수 없습니다.");
 					$('#exclusive').val("");
 					$("#exclusive-area").val("");
@@ -1335,7 +1429,7 @@ button4:hover{
 						'<br><input type="file" name="mfile" value="" class="mfile">')
 			}
 			var filenum = 1;
-			function fileUpload() {
+			/* function fileUpload() {
 
 				if (filenum < 4) {
 					var formData = new FormData($('#file')[0]);
@@ -1362,7 +1456,7 @@ button4:hover{
 					alert("파일은 3개까지만 등록 가능합니다.");
 				}
 
-			}
+			} */
 			function close_pop(flag) {
 				$('#myModal').hide();
 			};
@@ -1442,6 +1536,7 @@ button4:hover{
 
 						document.getElementById("lat").value = coords.getLat()
 						document.getElementById("lng").value = coords.getLng()
+				
 						console.log(coords.getLat() + "/" + coords.getLng())
 						// 결과값으로 받은 위치를 마커로 표시합니다
 						var marker = new kakao.maps.Marker({

@@ -10,10 +10,10 @@
 		<option>동 선택</option>
 	</c:when>
 	<c:when test="${cate eq 'combobox3'}">
-		<option>업종대분류</option>
+		<option>상권 선택</option>
 	</c:when>
 	<c:when test="${cate eq 'combobox4'}">
-		<option>업종중분류</option>
+		<option>업종선택</option>
 	</c:when>
 	<c:when test="${cate eq 'combobox5'}">
 		<option>업종소분류</option>

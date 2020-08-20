@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/header_index.jsp"%>
 <!-- <link rel="stylesheet" href="resources/css/auction/hyunstyle.css" /> -->
-<link rel="stylesheet" href="resources/css/auction/ggg.css"/>
+<!-- <link rel="stylesheet" href="resources/css/auction/ggg.css"/> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -341,7 +341,7 @@ a.disabled{
 	</div>
 	
 	<div class="DownTitleContainer">
-		<p class="downTitle">관리비 내역</p>
+		<p class="downTitle">부가정보</p>
 	</div>
 	<div class="descriptionArea">
 			${result.managepee}
@@ -375,7 +375,7 @@ a.disabled{
 						<p class="timer"></p>
 					</div>
 					<div class="modalText">
-						<p>입찰단위(만원)</p>
+						<p>입찰단위</p>
 						<p id="3">${result.ipdanwe}</p>
 					</div>
 					<div class="modalText">

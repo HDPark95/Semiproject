@@ -301,7 +301,7 @@ body {
 							<tr>
 								<th scope="col" style="text-align: center;">건물 이미지</th>
 								<th scope="col">제목/물건용도/주소지/토지면적/건물면적/경매만료일</th>
-								<th scope="col" colspan="2">시작가/현재가</th>
+								<th scope="col" colspan="2">시작가/현재가/유찰횟수</th>
 								<th scope="col" style="text-align: center;">상태/등록일/조회수</th>
 							</tr>
 						</thead>

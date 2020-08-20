@@ -33,6 +33,10 @@ WHERE s.aid=#{aid} and d.dname = #{dname}
 insert into LOGINTOKEN values(LOGINTOKEN_seq.nextVal,null,'P','Y',sysdate,#{aid})
 </insert>
 
+<select id="gudokCheck" parameterType="signVO" resultType="String">
+	select pgubun from signup s, payment p where s.anum = p.anum and s.aid = #{aid}
+</select>
+
 </mapper>
  
  

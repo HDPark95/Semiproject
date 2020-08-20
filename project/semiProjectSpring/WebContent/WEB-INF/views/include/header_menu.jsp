@@ -8,7 +8,7 @@
 }
 .header_main_right {
 	color: black;
-	font-size: 15px;
+	font-size: 20px;
 	font-weight: bold;
 	border: 2px solid #D8D8D8;
 	padding: 5px;
@@ -22,6 +22,7 @@
 	border: 2px solid #F28705;
 	padding: 5px;
 	border-radius: 15px;
+	text-decoration: none;
 }
 
 a:hover {
@@ -30,13 +31,15 @@ a:hover {
 
 .mr-auto {
 	color: black;
-	font-size: 15px;
+	font-size: 20px;
 	font-weight: bold;
 	margin-right: 10px;
 	cursor: pointer;
 	font-family: 'Noto Sans KR',sans-serif;
 }
-
+.nav-link:hover{
+	text-decoration: none !important;
+}
 .collapse.navbar-collapse > ul:first-child{
 	margin-left: auto !important;
 }
@@ -45,8 +48,11 @@ a:hover {
 	margin-right: auto;
 }
 .nav-item,.nav-link {
-	width: 130px;
+	width: 150px;
 	text-align: center;
+}
+.nav-link:hover{
+	cursor: pointer;
 }
 
 .nav-item.dropdown {
@@ -87,10 +93,10 @@ a:hover {
 }
 </style>
 <body id="page-top">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="/"><img
-			style="width: 50px; height: 50px;"
-			src="resources/assets/img/logo.png"></a>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 100px;">
+		<a class="navbar-brand" href="/" style="margin-left: 20px; font-size: 40px; height:auto;font-family:'CookieRun Black',serif; font-weight: bold;" ><img
+			style="width: 100px; height: 100px; margin-right: 20px; display: inline;"
+			src="resources/assets/img/logo.png">꿀방</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarColor03" aria-controls="navbarColor03"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +109,7 @@ a:hover {
                     	</c:when>
 						<c:otherwise>	
 							<ul class="navbar-nav mr-auto">
-								<li class="nav-item addestate">
+								<li class="nav-item addestate dropdown">
 									<a class="nav-link" onclick="location.href='addestate'">매물 등록&nbsp;<i class="fas fa-file-upload"></i></a>
 								</li>
 							</ul>
@@ -112,12 +118,10 @@ a:hover {
             </c:catch>		
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item dropdown commercial" class="dropdown-toggle" data-toggle="dropdown">
-				<a class="nav-link" onclick="location.href='commercialMain'">상가&nbsp;<i class="fas fa-store"></i></a>
+				<a class="nav-link" onclick="analysisCheck('분석')">분석&nbsp;<i class="fas fa-store"></i></a>
 					<ul class="dropdown-menu commercial">
-          				<li><a href="#" onclick="location.href='realprice'">실거래가</a></li>
-          				<li><a href="#" onclick="location.href='nearEstate'">주변 부동산</a></li>
-          				<li><a href="#" onclick="location.href='product'">매물 검색</a></li>
-		                <li><a href="#" onclick="location.href='newsList'">뉴스</a></li>
+          				<li><a href="#" onclick="analysisCheck('실거래가')">실거래가</a></li>
+		                <li><a href="#" onclick="analysisCheck('뉴스')">뉴스</a></li>
         			</ul>
 				</li>
 			</ul>
@@ -154,12 +158,12 @@ a:hover {
 				</li>
 			</ul>	
 			<ul class="navbar-nav mr-auto">	
-				<li class="nav-item community">
+				<li class="nav-item community dropdown">
 				<a class="nav-link" onclick="location.href='comuMain'">커뮤니티&nbsp;<i class="fas fa-comments"></i></a>
 				</li>
 			</ul>	
 			<ul class="navbar-nav mr-auto last">	
-				<li class="nav-item service">
+				<li class="nav-item service dropdown">
 				<c:catch>
                 	<c:choose>
                     	<c:when test="${empty user}">
@@ -173,7 +177,7 @@ a:hover {
 				</li>
 			</ul>
 			
-			<form class="form-inline my-2 my-lg-0">
+			<form class="form-inline my-2 my-lg-0" style="padding-top: 20px;">
 			<c:catch>
             	<c:choose>
                 	<c:when test="${empty user}">
@@ -227,6 +231,40 @@ function register_func() {
 		alert("로그인하십시오.");
 	} else {
 		location = "register";
+	}
+}
+
+function analysisCheck(text){
+	var aid = "${user.aid}";
+	
+	if (aid === null || aid === "") {
+		alert('로그인이 필요한 서비스입니다. 로그인 페이지로 이동합니다.');
+		location.href = 'login';
+	} else {
+			$.ajax({
+				url:"analysisCheck?aid="+aid,
+				type:"get",
+				success: function(data){
+					alert(data)
+					if(data ===1){
+						if(text==='분석'){
+							location.href = 'commercialMain';
+						}else if(text==='실거래가'){
+							location.href = 'realprice';
+						}
+						else if(text==='뉴스'){
+							location.href = 'newsList';
+						}
+						
+					}else{
+						alert('구독이 필요한 서비스입니다. 구독 페이지로 이동합니다.');
+						var anum = "${user.anum}";
+						location.href = 'payment?anum='+anum;
+					}
+				}
+				
+				
+			});
 	}
 }
 </script>

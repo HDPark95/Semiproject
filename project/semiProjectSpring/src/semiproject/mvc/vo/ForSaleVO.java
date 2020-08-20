@@ -14,11 +14,41 @@ public class ForSaleVO {
 //	fstatus	VARCHAR2(255)		NULL,-- 거래상태
 //   addDate DATE default sysdate -- 등록날짜
 	
- private int fnum,anum;
- private String fkind,fsalekind,deposit,rent,fstatus,addDate;
+ private int fnum,anum,idx;
+ 
+ private String fkind,fsalekind,deposit,rent,fstatus,addDate,subject;
  private ForSale_InfoVO finvo;
  private List<Forsale_ImgVO> fimg;
+ private SignUpVO sign;
+ private List<Integer> nums;
  
+ 
+ 
+public List<Integer> getNums() {
+	return nums;
+}
+public void setNums(List<Integer> nums) {
+	this.nums = nums;
+}
+public String getSubject() {
+	return subject;
+}
+public void setSubject(String subject) {
+	this.subject = subject;
+}
+public int getIdx() {
+	return idx;
+}
+public void setIdx(int idx) {
+	this.idx = idx;
+}
+public SignUpVO getSign() {
+	return sign;
+}
+public void setSign(SignUpVO sign) {
+	this.sign = sign;
+}
+
 public List<Forsale_ImgVO> getFimg() {
 	return fimg;
 }

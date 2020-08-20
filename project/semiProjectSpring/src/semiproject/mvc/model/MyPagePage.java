@@ -109,7 +109,7 @@ public class MyPagePage {
 
 	@RequestMapping(value = "/premiumProlong")
 	public ModelAndView premiumProlong(int anum) {
-		ModelAndView mav = new ModelAndView("payment/payment1-4");
+		ModelAndView mav = new ModelAndView("payment/paymentextension");
 		PaymentVO vo = mypagedao.premiumProlong(anum);
 		mav.addObject("vo", vo);
 		return mav;
@@ -118,7 +118,7 @@ public class MyPagePage {
 
 	@RequestMapping(value = "/premiumProlongpay", method = RequestMethod.POST)
 	public ModelAndView premiumProlongpay(PaymentVO beforevo, int anum) {
-		ModelAndView mav = new ModelAndView("payment/payment2");
+		ModelAndView mav = new ModelAndView("payment/paymentextensionDetail");
 		PaymentVO vo = mypagedao.premiumProlong(anum);
 		SignUpVO vo3 = mypagedao.getloginINFORNUM(anum);
 		mav.addObject("bvo", beforevo);
@@ -134,7 +134,7 @@ public class MyPagePage {
 		myservice.service_premiumProlong(vo, dvo);
 		
 		SignUpVO svo = mypagedao.getloginINFORNUM(vo.getPnum());
-		ModelAndView mav = new ModelAndView("payment/Complete_payment");
+		ModelAndView mav = new ModelAndView("index");
 	
 		mav.addObject("vo" , svo);
 		return mav;

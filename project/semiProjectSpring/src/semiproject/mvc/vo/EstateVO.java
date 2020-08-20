@@ -14,10 +14,10 @@ public class EstateVO {
 	private List<SubBuildVO> subvo;
 	private double supply,exclusive; //공급 / 전용면적
 	private List<RentVO> rent; // 매매,전세,월세
-	private String  title; //  제목
+	private String  title,dan; //  제목
 	private AddInfoVO addinfo;
 	private String rltrnm;
-	private String[] imgName,rentv,dan,rpay; 
+	private String[] imgName,rentv,rpay; 
 	private List<Product_ImgVO> img;
 	
 	
@@ -48,10 +48,10 @@ public class EstateVO {
 	public void setRentv(String[] rentv) {
 		this.rentv = rentv;
 	}
-	public String[] getDan() {
+	public String getDan() {
 		return dan;
 	}
-	public void setDan(String[] dan) {
+	public void setDan(String dan) {
 		this.dan = dan;
 	}
 	public String[] getRpay() {

@@ -214,7 +214,7 @@
 					
 					</div>
 				</div>
-				<div class="col-md-4 col-sm-4 float-left" id="listtarget">
+				<div class="col-md-4 col-sm-4 float-left" id="listtarget" style="height: 1240px;">
 					
 				</div>
 
@@ -480,6 +480,27 @@
 			});
 			function paging(text){
 				var url='';
+
+				$("#deposits_from").val($(".deposits .irs-from").text())
+		    	$("#deposits_to").val($(".deposits .irs-to").text());
+				
+				
+				$("#monthmoenys_from").val(		$(".monthmoenys .irs-from").text())
+		    	$("#monthmoenys_to").val($(".monthmoenys .irs-to").text());
+		    
+				
+				
+				$("#trades_from").val($(".trades .irs-from").text())
+		    	$("#trades_to").val($(".trades .irs-to").text());
+				
+				
+		    	$("#roomArea_from").val($(".roomSizes .irs-from").text())
+		    	$("#roomArea_to").val($(".roomSizes .irs-to").text());
+		    	
+		    	
+		    	$("#roomCare_from").val($(".roomCost .irs-from").text())
+		    	$("#roomCare_to").val($(".roomCost .irs-to").text());
+				
 				if(text==='이후'){
 					url='estatelist?nowPage='+$('#endPage').val()+'&cntPerPage='+$('#cntPerPage').val();
 					$("#cntPerPage_val").val($('#cntPerPage').val());
@@ -493,11 +514,10 @@
 					$("#nowPage").val(text);
 					$("#cntPerPage_val").val($('#cntPerPage').val());
 				}
-				var esvo=$("#esvo").val();
-				if(esvo !=null && esvo!==''){
-					url=url+'&esvo='+esvo;
-				}
+				
 				var formData= $("#search_form").serialize();
+				console.log("페이지 클릭 "+text);
+				console.log(formData.toString());
 				$.ajax({
 					url:'estatelist',
 					type:'post',
@@ -505,7 +525,7 @@
 					success: function(data){
 						$('#listtarget').html(data);
 						$("#cntPerPage_val").val($('#cntPerPage').val())
-						$("#paging_val").val($("#paing").val())
+						
 					}
 				});
 			}
