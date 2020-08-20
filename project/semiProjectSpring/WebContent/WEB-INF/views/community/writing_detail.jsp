@@ -200,6 +200,150 @@
 	padding: 0;
 }
 </style>
+<section class="projects-section bg-light" id="projects">
+	<div class="container">
+		<input type="hidden" id="list" name="list" value="${list}">
+		<div id="area">
+			<div id="location">
+				<h4>우리동네 ${list.wgubun}이야기</h4>
+				<div id="tag">
+					<p id="tag2">
+						<i class="fas fa-vihara"></i>&nbsp;${list.wloc1} <i
+							class="fas fa-home"></i>&nbsp;${list.wloc2} <i
+							class="fas fa-comments-dollar"></i>&nbsp;${list.wgubun}
+					</p>
+				</div>
+			</div>
+			<div id="writingarea">
+				<div id="head">
+					<table>
+						<tr>
+							<td><h3 id="title">${list.wtitle}</h3></td>
+							<c:if test="${ user.aid == null }">
+								<td id="rec" rowspan="2">추천하기
+									<button type="button" class="btn btn-default"
+										onclick="loginCheck()" id="new_Login">
+										<i class="fas fa-thumbs-up"></i>&nbsp; <span id="wrec">${list.wrec}</span>
+									</button>
+								</td>
+							</c:if>
+							<c:if test="${ user.aid != null }">
+								<td id="rec" rowspan="2">추천하기
+									<form action="updateWrec" method="post">
+										<button type="button" class="btn btn-default"
+											onclick="upWrec()" id="rec_update">
+											<i class="fas fa-thumbs-up"></i>&nbsp; <span id="wrec">${list.wrec}</span>
+										</button>
+									</form>
+								</td>
+							</c:if>
+						</tr>
+						<tr>
+							<td><div id="toggle">
+									<span><i class="fas fa-portrait"></i>&nbsp;${list.paid}****</span>&nbsp;||
+									<span><i class="fas fa-calendar-day"></i>&nbsp;${list.wchgdate}</span>&nbsp;||
+									<span><i class="fas fa-mouse"></i>&nbsp;${list.whit}</span>
+								</div></td>
+						</tr>
+					</table>
+				</div>
+				<div id="textbody">${list.wcontents}</div>
+				<div id="connectarea">
+					<a id="connect" onclick="connect()">댓글 ${replytotal}개</a>
+				</div>
+				<div class="replyarea">
+					<div id="replyarea">
+						<ul>
+							<c:forEach var="reply" items="${replyList}">
+								<li>
+									<dl>
+										<dt>${reply.pr_writer}****</dt>
+										<dd class="date">${reply.rindate}</dd>
+										<c:if test="${user.aid==reply.r_writer}">
+											<button type="button" class="replyupdate"
+												onclick="showUpdate(${reply.renum})">
+												<i class="fas fa-pen"></i>&nbsp;수정
+											</button>
+											<form action="replydel" class="replydelete">
+												<input type="hidden" name="wnum" value="${reply.wnum}">
+												<input type="hidden" name="renum" value="${reply.renum}">
+												<button type="button" class="replydelete"
+													onclick="replydelete(${reply.renum})">
+													<i class="fas fa-trash-alt"></i>&nbsp;삭제
+												</button>
+											</form>
+										</c:if>
+										<form action="replyup" method="post">
+											<div id="commentUpdate${reply.renum}" class="commentUpdate">
+												<input type="hidden" name="wnum" value="${reply.wnum}">
+												<input type="hidden" name="renum" value="${reply.renum}">
+												<a class="updateClose" onclick="showClose(${reply.renum})">닫기</a>
+												<textarea class="cupdatearea" rows="20" cols="80"
+													name="r_text">${reply.r_text}</textarea>
+												<button type="submit" class="btn btn-default updateSubmit"
+													onclick="location.href='writing_detail?wnum=${reply.wnum}'">등록</button>
+											</div>
+										</form>
+										<dd id="comment${reply.renum}" class="comment">${reply.r_text}</dd>
+									</dl>
+								</li>
+							</c:forEach>
+						</ul>
+					</div>
+					<div id="pagingarea">
+						<%@include file="include/pageprocess_reply.jsp"%>
+					</div>
+					<div id="writebox_area">
+						<table>
+							<tbody>
+								<tr>
+									<c:if test="${ user.aid == null }">
+										<td><textarea id="replyin" rows="20" cols="80"
+												name="r_text"></textarea></td>
+										<td><button type="button" class="btn btn-default"
+												id="replylogin" onclick="replyLogin()">
+												<i class="fas fa-pencil-alt"></i>&nbsp;입력
+											</button></td>
+									</c:if>
+									<form action="replyin" method="post">
+										<c:if test="${ user.aid != null }">
+											<input type="hidden" name="wnum" value="${list.wnum}">
+											<input type="hidden" name="r_writer" value="${user.aid}">
+											<td><textarea id="replyin" rows="20" cols="80"
+													name="r_text"></textarea></td>
+											<td><button type="submit" class="btn btn-default"
+													id="reinsert" name="reinsert" onclick="replyCheck()">
+													<i class="fas fa-pencil-alt"></i>&nbsp;입력
+											</button></td>
+										</c:if>
+									</form>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div id="buttons">
+				<button type="button" class="btn btn-default btn-sm" id="golist">
+					<i class="fas fa-bars"></i>&nbsp;목록
+				</button>
+				<c:if test="${user.aid == list.aid}">
+					<button type="button" class="btn btn-default btn-sm"
+						id="updatedetail"
+						onclick="location.href='updatedetailform?wnum=${list.wnum}'">
+						<i class="fas fa-feather-alt"></i>&nbsp;수정
+					</button>
+					<form name="delete" action="dedetail">
+						<button type="button" class="btn btn-default btn-sm"
+							id="deletedetail" onclick="deleteClick()">
+							<i class="fas fa-times"></i>&nbsp;삭제
+						</button>
+					</form>
+				</c:if>
+			</div>
+		</div>
+	</div>
+</section>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 	$(function() {
@@ -351,147 +495,3 @@
 		}
 	}
 </script>
-<section class="projects-section bg-light" id="projects">
-	<div class="container">
-		<input type="hidden" id="list" name="list" value="${list}">
-		<div id="area">
-			<div id="location">
-				<h4>우리동네 ${list.wgubun}이야기</h4>
-				<div id="tag">
-					<p id="tag2">
-						<i class="fas fa-vihara"></i>&nbsp;${list.wloc1} <i
-							class="fas fa-home"></i>&nbsp;${list.wloc2} <i
-							class="fas fa-comments-dollar"></i>&nbsp;${list.wgubun}
-					</p>
-				</div>
-			</div>
-			<div id="writingarea">
-				<div id="head">
-					<table>
-						<tr>
-							<td><h3 id="title">${list.wtitle}</h3></td>
-							<c:if test="${ user.aid == null }">
-								<td id="rec" rowspan="2">추천하기
-									<button type="button" class="btn btn-default"
-										onclick="loginCheck()" id="new_Login">
-										<i class="fas fa-thumbs-up"></i>&nbsp; <span id="wrec">${list.wrec}</span>
-									</button>
-								</td>
-							</c:if>
-							<c:if test="${ user.aid != null }">
-								<td id="rec" rowspan="2">추천하기
-									<form action="updateWrec" method="post">
-										<button type="button" class="btn btn-default"
-											onclick="upWrec()" id="rec_update">
-											<i class="fas fa-thumbs-up"></i>&nbsp; <span id="wrec">${list.wrec}</span>
-										</button>
-									</form>
-								</td>
-							</c:if>
-						</tr>
-						<tr>
-							<td><div id="toggle">
-									<span><i class="fas fa-portrait"></i>&nbsp;${list.paid}****</span>&nbsp;||
-									<span><i class="fas fa-calendar-day"></i>&nbsp;${list.wchgdate}</span>&nbsp;||
-									<span><i class="fas fa-mouse"></i>&nbsp;${list.whit}</span>
-								</div></td>
-						</tr>
-					</table>
-				</div>
-				<div id="textbody">${list.wcontents}</div>
-				<div id="connectarea">
-					<a id="connect" onclick="connect()">댓글 ${replytotal}개</a>
-				</div>
-				<div class="replyarea">
-					<div id="replyarea">
-						<ul>
-							<c:forEach var="reply" items="${replyList}">
-								<li>
-									<dl>
-										<dt>${reply.pr_writer}****</dt>
-										<dd class="date">${reply.rindate}</dd>
-										<c:if test="${user.aid==reply.r_writer}">
-											<button type="button" class="replyupdate"
-												onclick="showUpdate(${reply.renum})">
-												<i class="fas fa-pen"></i>&nbsp;수정
-											</button>
-											<form action="replydel" class="replydelete">
-												<input type="hidden" name="wnum" value="${reply.wnum}">
-												<input type="hidden" name="renum" value="${reply.renum}">
-												<button type="button" class="replydelete"
-													onclick="replydelete(${reply.renum})">
-													<i class="fas fa-trash-alt"></i>&nbsp;삭제
-												</button>
-											</form>
-										</c:if>
-										<form action="replyup" method="post">
-											<div id="commentUpdate${reply.renum}" class="commentUpdate">
-												<input type="hidden" name="wnum" value="${reply.wnum}">
-												<input type="hidden" name="renum" value="${reply.renum}">
-												<a class="updateClose" onclick="showClose(${reply.renum})">닫기</a>
-												<textarea class="cupdatearea" rows="20" cols="80"
-													name="r_text">${reply.r_text}</textarea>
-												<button type="submit" class="btn btn-default updateSubmit"
-													onclick="location.href='writing_detail?wnum=${reply.wnum}'">등록</button>
-											</div>
-										</form>
-										<dd id="comment${reply.renum}" class="comment">${reply.r_text}</dd>
-									</dl>
-								</li>
-							</c:forEach>
-						</ul>
-					</div>
-					<div id="pagingarea">
-						<%@include file="include/pageprocess_reply.jsp"%>
-					</div>
-					<div id="writebox_area">
-						<table>
-							<tbody>
-								<tr>
-									<c:if test="${ user.aid == null }">
-										<td><textarea id="replyin" rows="20" cols="80"
-												name="r_text"></textarea></td>
-										<td><button type="button" class="btn btn-default"
-												id="replylogin" onclick="replyLogin()">
-												<i class="fas fa-pencil-alt"></i>&nbsp;입력
-											</button></td>
-									</c:if>
-									<form action="replyin" method="post">
-										<c:if test="${ user.aid != null }">
-											<input type="hidden" name="wnum" value="${list.wnum}">
-											<input type="hidden" name="r_writer" value="${user.aid}">
-											<td><textarea id="replyin" rows="20" cols="80"
-													name="r_text"></textarea></td>
-											<td><button type="submit" class="btn btn-default"
-													id="reinsert" name="reinsert" onclick="replyCheck()">
-													<i class="fas fa-pencil-alt"></i>&nbsp;입력
-											</button></td>
-										</c:if>
-									</form>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-			<div id="buttons">
-				<button type="button" class="btn btn-default btn-sm" id="golist">
-					<i class="fas fa-bars"></i>&nbsp;목록
-				</button>
-				<c:if test="${user.aid == list.aid}">
-					<button type="button" class="btn btn-default btn-sm"
-						id="updatedetail"
-						onclick="location.href='updatedetailform?wnum=${list.wnum}'">
-						<i class="fas fa-feather-alt"></i>&nbsp;수정
-					</button>
-					<form name="delete" action="dedetail">
-						<button type="button" class="btn btn-default btn-sm"
-							id="deletedetail" onclick="deleteClick()">
-							<i class="fas fa-times"></i>&nbsp;삭제
-						</button>
-					</form>
-				</c:if>
-			</div>
-		</div>
-	</div>
-</section>

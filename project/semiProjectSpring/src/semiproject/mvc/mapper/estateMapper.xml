@@ -4,355 +4,75 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="estate">
  
- 	<insert id="addproduct" parameterType="evo">
- 		insert into product values(product_seq.nextVal,#{anum},#{build},#{floor},#{supply},#{exclusive},#{title},null,null)
- 	</insert>
- 	
- 	
- 	
- 	<!-- 반복 -->
- 	<insert id="addproductsale" parameterType="evo">
+ 	<insert id="addproduct" parameterType="fvo">
  		<selectKey keyProperty="idx" resultType="int" order="BEFORE">
- 			select product_seq.currVal FROM DUAL
+ 			select max(fnum)+1 from fsale
  		</selectKey>
- 	 	insert into product_sale_info(prnum,pdnum,TRADTPCD,prc)
- 		select product_sale_info_seq.nextVal,A.* from (
-	 	<foreach collection="rentv" item="e" separator="UNION ALL"
-	 		open="" close="" index="i">
-	 	<!--  into product_sale_info values(product_sale_info_seq.nextVal,#{idx},'${e}','${rpay[i]}')  -->
-	 	select #{idx} as pdnum,'${e}' as TRADTPCD,'${rpay[i]}' as prc from dual 
-	 	</foreach>
-	) A
+ 		insert into fsale values(#{idx},#{anum},#{fkind},#{fsalekind},#{deposit},#{rent},#{fstatus},sysdate)
  	</insert>
  	
  	
  	
  	
  	
- 	<insert id="addproductinfo" parameterType="aivo">
+ 	<insert id="addproductinfo" parameterType="fivo">
  		<selectKey keyProperty="idx" resultType="int" order="BEFORE">
- 			select product_seq.currVal FROM DUAL
+ 			select max(fnum) FROM fsale
  		</selectKey>
- 	
- 		insert into product_info values(product_info_seq.nextVal,#{idx},#{aspay},#{pets},#{park},#{ppay},#{elevator},#{balcony},#{built},
- 		<choose>
- 			<when test="structure != null">
- 				
- 				<foreach collection="structure" item="e"  separator=" " open="'" close="'" >
- 					${e}
- 				</foreach>
- 			
- 			</when>
- 			
- 			<otherwise>
- 				''
- 			</otherwise>
- 		</choose>
  		
- 		
- 		, #{chartered},
- 		<choose>
- 			<when test="move != null">
- 			
- 				<foreach collection="move" item="e"  separator="/" open="'" close="'" >
- 					${e}
- 				</foreach>
- 		
- 			</when>
- 			
- 			<otherwise>
- 				''
- 			</otherwise>
- 		</choose>
- 		,
- 		
- 		#{heating},#{description}  )
+ 		insert into fsale_info values(fsale_info_seq.nextVal,#{idx},#{flocation},#{zipNo},#{tfloor},#{bfloor}, #{fexarea},#{fsuparea},#{heating},#{fcontent}
+ 		, #{fadmin} ,#{fadop},#{eleva},#{fmove}, #{district}, #{admindong},#{lat} ,#{lng},#{fsubject}
+ 		)
+
+ 		 
  	</insert>
  	<!-- 반복 -->
- 	<insert id="addadmin" parameterType="aivo">
- 		<selectKey keyProperty="idx" resultType="int" order="BEFORE">
- 			select product_info_seq.currVal FROM DUAL
+	<insert id="addFinfoStore" parameterType="fisvo">
+		<selectKey keyProperty="fpnum" resultType="int" order="BEFORE">
+			select max(fpnum) FROM fsale_info
+		</selectKey>
+		insert into fsale_info_store values(fsale_info_store_seq.nextVal,#{fpnum},#{toilet},#{fparking},#{usearea},#{mpurpo},#{independent},#{cooling},'-')
+	</insert>
+ 	<!-- 반복 -->
+ 	<insert id="addFinfoEstate">
+ 		<selectKey keyProperty="fpnum" resultType="int" order="BEFORE">
+ 			select max(fpnum) FROM fsale_info
  		</selectKey>
- 		insert into administrative(adnum,pidnum,item) 
- 		select administrative_seq.nextVal as adnum ,A.* from (
- 		<foreach collection="administrat" item="e" separator="UNION ALL" open="" close="">
- 			<!--  into administrative values(administrative_seq.nextVal,#{idx},'${e}') -->
- 			select #{idx} as pidnum,'${e}' as item from dual
- 		</foreach>
- 	) A
+ 		insert into fsale_info_estate values(fsale_info_estate_seq.nextVal,#{fpnum},#{animal},#{fcharter},#{built},#{veranda},#{mpurpo},#{foption},#{fsecuri},#{shortrent},#{monthly},#{charter},#{fsubject},#{trades})
  	</insert>
  	<!-- 반복 -->
- 	<insert id="addoptionsel" parameterType="aivo" >
+ 	<insert id="addImg" parameterType="fvo">
  		<selectKey keyProperty="idx" resultType="int" order="BEFORE">
- 			select product_info_seq.currVal FROM DUAL
+ 			select max(fnum) FROM fsale
  		</selectKey>
  		
- 		insert into option_sel(osnum,pidnum,poption) 
- 		select option_sel_seq.nextVal as osnum ,A.* from (
- 		<foreach collection="option" item="e" separator="UNION ALL" open="" close="" >
- 		<!-- into option_sel values(option_sel_seq.nextVal,#{idx},'${e}') -->
- 			select #{idx} as pidnum,'${e}' as popion from dual
- 		</foreach>
- 		 	) A
- 	</insert>
- 	<!-- 반복 -->
- 	<insert id="addImg" parameterType="aivo">
- 		<selectKey keyProperty="idx" resultType="int" order="BEFORE">
- 			select product_info_seq.currVal FROM DUAL
- 		</selectKey>
- 		
- 		insert into product_img(IMGNUM,pidnum,IMG) 
- 		select product_img_seq.nextVal as IMGNUM ,A.* from (
- 		<foreach collection="imgName" item="e" separator="UNION ALL" >
+ 		insert into fsale_img(finum,fnum,fname,ftype) 
+ 		select  B.finum as finum,A.* from (
+ 		<foreach collection="fimg" item="e" separator="UNION ALL" >
  			<!--  into product_img values(product_img_seq.nextVal,#{idx},'${e}') -->
- 				select #{idx} as pidnum,'${e}' as IMG from dual
+ 				select #{idx} as fnum,'${e.fname}' as fname , '${e.ftype}' as ftype from dual
  		</foreach>
- 		) A
+ 		) A,(select max(finum)+1 as finum from Fsale_img ) B
  	</insert>
- 	<insert id="addlocation" parameterType="evo">
- 		insert into product_location values(product_location_seq.nextVal,#{pdnum},#{lat},#{lng},#{plocation},#{detaillocation})
- 	</insert>
- 	<select id="productnum" parameterType="evo" resultType="int">
- 		select pdnum from product where anum=#{anum} and ATCLFETRDESC = #{title} and flrinfo=#{floor}
- 	</select>
- 	<select id="productinfonum" parameterType="aivo" resultType="int">
- 		select pidnum from product_info where pdnum=#{pdnum} and aspay=#{aspay} and ppay=#{ppay} 
- 	</select>
+ 	
 
  	<select id="fileid" parameterType="int" resultType="String">
  		select aid from signup where anum=#{num}
  	
  	</select>
- <!-- <select id="pcount" parameterType="esvo" resultType="int">
-  select count(*) cnt from product p,product_info pi,product_location pl,product_sale_info ps where p.pdnum = pi.pdnum and p.pdnum=ps.pdnum
-
-		<if test="build != null">
-			
-			<foreach collection="build" item="i" open="or" separator="or" >
-			<choose>
-				<when test="i == 0">
-					p.RLETTPCD='원룸'
-				</when>
-				<when test="i == 1">
-					p.RLETTPCD like '%'||'투ㆍ쓰리룸'||'%' or p.RLETTPCD like '%'||'주택'||'%' 
-				</when>
-				<when test="i == 2">
-					p.RLETTPCD='오피스텔'
-				</when>
-				<when test="i == 3">
-					p.RLETTPCD='아파트'
-				</when>
-				<when test="i == 4">
-					p.RLETTPCD='상가/사무실' or p.RLETTPCD='빌딩' 
-				</when>
-			</choose>
-				<if test="i == 0">
-					p.RLETTPCD='원룸'
-				</if>
-				<if test="i == 1">
-					p.RLETTPCD like '%'||'투ㆍ쓰리룸'||'%' or p.RLETTPCD like '%'||'주택'||'%' 
-				</if>
-				<if test="i == 2">
-					p.RLETTPCD='오피스텔'
-				</if>
-				<if test="i == 3">
-					p.RLETTPCD='아파트'
-				</if>
-				<if test="i == 4">
-					p.RLETTPCD='상가/사무실' or p.RLETTPCD='빌딩' 
-				</if>
-				
-				 
-			</foreach>
-		</if>
-		 <if test="rentv != null">
-		 	<foreach collection="rentv" item="i" open="or" separator="or">
-		 	<if test="i == 0">
-					ps.TRADTPCD='월세'
-				</if>
-				<if test="i == 1">
-					ps.TRADTPCD='전세'
-				</if>
-				<if test="i == 2">
-					ps.TRADTPCD='매매'
-				</if>
-		 	<choose>
-				<when test="i == 0">
-					ps.TRADTPCD='월세'
-				</when>
-				<when test="i == 1">
-					ps.TRADTPCD='전세'
-				</when>
-				<when test="i == 2">
-					ps.TRADTPCD='매매'
-				</when>
-				
-			</choose>
-		 	</foreach>
-		 </if> 		
-		 <if test="floor != null">
-		 	<foreach collection="floor" item="i" open="or" separator="or" >
-				<if test="i == 1">
-					p.FLRINFO='1층' or p.FLRINFO='저층'
-				</if><if test="i == 2">
-					p.FLRINFO='2층' or p.FLRINFO='저층'
-				</if><if test="i == 3">
-					p.FLRINFO='3층' or p.FLRINFO='저층'
-				</if><if test="i == 4">
-					p.FLRINFO='4층' or p.FLRINFO='저층'
-				</if><if test="i == 5">
-					p.FLRINFO='5층' or p.FLRINFO='중층'
-				</if><if test="i == 6">
-					p.FLRINFO='6층' or p.FLRINFO='중층'
-				</if><if test="i == 7">
-					p.FLRINFO not in('1층','2층','3층','4층','5층','6층') or p.FLRINFO='고층'
-				</if><if test="i == 8">
-					p.FLRINFO like '%'||'지하'||'%' or p.FLRINFO='저층'
-				</if><if test="i == 9">
-					p.FLRINFO='옥탑' or p.FLRINFO='고층'
-				</if>
-		 		
-		 	</foreach>
-		 </if>
-		 <if test="room != null">
-		 	<foreach collection="room" item="i" open="or" separator="or">
-						 		<if test="i == 0">
-					ps.TRADTPCD='주방분리형(1.5룸)'
-				</if><if test="i == 1">
-					ps.TRADTPCD='복층'
-				</if><if test="i == 2">
-					ps.TRADTPCD='투룸'
-				</if><if test="i == 3">
-					ps.TRADTPCD='쓰리룸'
-				</if>
-		 	</foreach>
-		 </if>
-		 <if test=" deposits_from != null and deposits_to !=null">
-		 	or ps.prc between #{deposits_from} and #{deposits_to}
-		 </if>
-		 <if test=" monthmoenys_from != null and monthmoenys_to !=null">
-		 	or ps.prc between #{monthmoenys_from} and #{monthmoenys_to}
-		 </if>
-		 <if test=" roomArea_from != null and roomArea_to !=null">
-		 	or p.spc2 between #{roomArea_from} and #{roomArea_to}
-		 </if>
-		 <if test=" roomCare_from != null and roomCare_to !=null">
-		 	or pi.aspay between #{roomCare_from} and #{roomCare_to}
-		 </if>
-		 
-  	
- </select>  -->
- <select id="pcount"  resultType="int">
-  select count(*) cnt from product 
  
- </select>
- 	<!-- 메인페이지 리스트  -->
- 	<!-- <select id="estatemlist" resultMap="mlist" parameterType="epvo">
- 		select * from (
-			select rownum r_num, a.* from
-			(
-				select p.pdnum pdnum,p.rlettpcd rlettpcd,p.spc1 spc1,p.spc2 spc2,p.atclfetrdesc atclfetrdesc,ps.prnum prnum,ps.tradtpcd tradtpcd, ps.prc prc,pi.img img,pi.imgnum imgnum from product p, product_sale_info ps,product_img pi,product_info pin where p.pdnum=ps.pdnum and p.pdnum=pin.pdnum and pin.pidnum=pi.pidnum 
-				and p.rlettpcd not in('E03','D01','D02','E02','C02','A03','D04','E04')
-			order by p.pdnum desc
-		) a
-		) where r_num between #{start} and #{end} 
- 	</select> -->
- 	
- 	
- 	<select id="emlist" resultType="int" parameterType="epvo">
- 		select pdnum from (
-			select rownum r_num, a.* from
-			(
-				select p.pdnum pdnum from product p where p.rlettpcd not in('E03','D01','D02','E02','C02','A03','D04','E04')
-			order by p.pdnum desc
-		) a
-		) where r_num between #{start} and #{end} 
- 	</select>
- 	<select id="estateMlist" resultMap="mlist" parameterType="int">
- 		select p.pdnum pdnum,p.rlettpcd rlettpcd,p.spc1 spc1,p.spc2 spc2,p.atclfetrdesc atclfetrdesc,ps.prnum prnum,ps.tradtpcd tradtpcd, ps.prc prc,pi.img img,pi.imgnum imgnum
- 		 from product p, product_sale_info ps,product_img pi,product_info pin where p.pdnum=#{num} and p.pdnum=ps.pdnum and p.pdnum=pin.pdnum and pin.pidnum=pi.pidnum 
-				and p.rlettpcd not in('E03','D01','D02','E02','C02','A03','D04','E04')
-			order by p.pdnum desc
- 	</select>
- 	<resultMap type="evo" id="mlist">
- 		<id property="pdnum" column="pdnum"/>
- 		<result property="r_num" column="r_num"/>
- 		<result property="build" column="rlettpcd"/>
- 		<result property="supply" column="spc1"/>
- 		<result property="exclusive" column="spc2"/>
- 		<result property="title" column="atclfetrdesc"/>
- 		<result property="lat" column="lat"/>
- 		<result property="lng" column="lng"/>
- 		<collection property="rent" javaType="java.util.List" resultMap="rentm" ofType="rentvo" />
- 		<collection property="img" javaType="java.util.List" resultMap="imgv" ofType="pimgvo" />
- 	</resultMap>
- 	
- 	
- 	<resultMap type="pimgvo" id="imgv">
- 		<id property="imgnum" column="imgnum"/>
- 		<result property="img" column="img"/>
- 	</resultMap>
- 	<resultMap type="rentvo" id="rentm">
- 		<id column="prnum" property="prnum"/>
- 		<result property="rentv" column="tradtpcd"/>
- 		<result property="rpay" column="prc"/>
- 	</resultMap>
- 		<resultMap type="adminvo" id="adminlist">
- 		<id property="adnum" column="adnum"/>
- 		<result property="administrat" column="item"/>
- 	
- 	</resultMap>
- 	<resultMap type="osvo" id="optionlist">
- 		<id property="osnum" column="osnum" />
- 		<result property="option" column="poption"/>
- 	</resultMap>
- 	
- 	<!-- 디테일 -->
- 	<resultMap type="evo" id="detail">
- 		<id property="pdnum" column="pdnum"/>
- 		<result property="anum" column="anum"/>
- 		<result property="build" column="rlettpcd"/>
- 		<result property="floor" column="flrinfo"/>
- 		<result property="supply" column="spc1"/>
- 		<result property="exclusive" column="spc2"/>
- 		<result property="title" column="atclfetrdesc"/>
- 		<result property="plocation" column="plocation"/>
- 		<result property="rltrnm" column="rltrnm"/>
- 		<result property="lat" column="lat"/>
- 		<result property="lng" column="lng"/>
- 		<association property="addinfo" column="pdnum"  javaType="aivo">
- 			<id property="pidnum" column="pidnum"/>
- 			<result property="aspay" column="aspay"/>
- 			<result property="pets" column="pets"/>
- 			<result property="park" column="parking"/>
- 			<result property="ppay" column="ppay"/>
- 			<result property="elevator" column="elevator"/>
- 			<result property="balcony" column="balcony"/>
- 			<result property="built" column="built"/>
- 			<result property="pstructure" column="pstructure"/>
- 			<result property="chartered" column="chartered"/>
- 			<result property="pmove" column="pmove"/>
- 			<result property="heating" column="heating"/>
- 			<result property="description" column="pdescription"/>
- 			<collection property="administrative" javaType="java.util.List" resultMap="adminlist" ofType="adminvo"/>
- 			<collection property="poption" javaType="java.util.List" resultMap="optionlist" ofType="osvo"/>
- 			
- 		</association>
- 		<collection property="rent" javaType="java.util.List" resultMap="rentm" ofType="rentvo" />
- 		<collection property="img" javaType="java.util.List" resultMap="imgv" ofType="pimgvo"/>
- 	</resultMap>
+ 
  
  	
  	<!-- 디테일  -->
- 	<select id="Detail" resultMap="detail" parameterType="int" >
- 		select p.pdnum pdnum, p.rlettpcd rlettpcd , p.flrinfo flrinfo, p.spc1 spc1,p.spc2 spc2,
- 		p.atclfetrdesc atclfetrdesc , pl.plocation plocation ,ps.prnum prnum, ps.tradtpcd tradtpcd, ps.prc prc,
- 		 pi.pidnum pidnum,pi.aspay aspay,pi.pets pets,pi.parking parking, pi.ppay ppay,pi.elevator elevator, pi.balcony balcony,
- 		  pi.built built, pi.pstructure pstructure,pi.chartered chartered, pi.pmove pmove,pi.heating heating , ad.item item,ad.adnum adnum,os.poption poption,os.osnum osnum,pi.PDESCRIPTION pdescription,
- 		  p.rltrnm rltrnm,p.anum anum , img.img img,img.imgnum imgnum
+ 	<select id="Detail" resultMap="f_detail" parameterType="int" >
+ 		
  	
- 		from product p , product_info pi,product_sale_info ps,product_location pl,administrative ad,option_sel os,product_img img
- 		 where p.pdnum=#{num} and p.pdnum=pl.pdnum and p.pdnum=ps.pdnum and p.pdnum=pi.pdnum and pi.pidnum=ad.pidnum and pi.pidnum=os.pidnum and pi.pidnum=img.pidnum
+ 		select *
+ 	
+ 		from fsale f , fsale_info fi , fsale_img fimg 
+ 		
+ 		 where f.fnum = fi.fpnum and f.fnum = fimg.fnum and f.fnum=#{num}
  	</select>
  	
  	
@@ -374,7 +94,7 @@
  			<result property="zipNo" column="zipno"/>
  			<result property="tfloor" column="tfloor"/>
  			<result property="bfloor" column="bfloor"/>
- 			<result property="fexrea" column="fexrea"/>
+ 			<result property="fexarea" column="fexarea"/>
  			<result property="fsuparea" column="fsuparea"/>
  			<result property="heating" column="heating"/>
  			<result property="fcontent" column="fcontent"/>
@@ -412,8 +132,14 @@
  				<result property="fright" column="fright"/>
  				<result property="financing" column="financing"/>
  			</association>
- 			<collection property="fimg" javaType="java.util.List" resultMap="fimg" ofType="fimgvo"/>
  		</association>
+ 			<association property="sign" column="anum"  javaType="signVO">
+ 				<id property="dnum" column="dnum"/>
+ 				<result property="dname" column="dname"/>
+ 				<result property="dtel" column="dtel"/>
+ 			</association>
+ 			
+ 			<collection property="fimg" javaType="java.util.List" resultMap="fimg" ofType="fimgvo"/>
  		
  	</resultMap>
  	<resultMap type="fimgvo" id="fimg">
@@ -422,7 +148,11 @@
  		<result property="fname" column="fname" />
  		<result property="ftype" column="ftype" />
  	</resultMap>
- 	
+ 	<resultMap type="signVO" id="sign_detail">
+ 		<id property="anum" column="anum"/>
+ 		<result property="dname" column="dname"/>
+ 		<result property="dtel" column="dtel"/>
+ 	</resultMap>
  	<select id="fsale_detail_main" resultMap="f_detail" parameterType="fvo" >
  		
 select 
@@ -432,16 +162,16 @@ select
                 select rownum rnum,S.* from fsale S where fnum =#{fnum})A WHERE rnum=1) 
  f, fsale_info fi,
  <choose>
- 	<when test="fkind == 4">
+ 	<when test="fkind == '상가/사무실'">
  		fsale_info_store fis
  	</when>
  	<otherwise>
  		fsale_info_estate fie
  	</otherwise>
  </choose>
- 		 where  f.fnum=fi.fnum AND f.fnum=#{fnum}  and 
+ 		 where  f.fnum=fi.fnum   and 
  		 <choose>
- 		 	<when test="fkind == 4">
+ 		 	<when test="fkind == '상가/사무실'">
  		 		 fi.fpnum=fis.fpnum
  		 	</when>
  		 	<otherwise>
@@ -450,43 +180,39 @@ select
  		 </choose>
  		 
  	</select>
+ 	<select id="fsale_detail_signup" parameterType="int" resultMap="sign_detail">
+ 		select md.dname dname,md.dtel dtel from signup sign, member_detail md where sign.anum=#{num} and sign.anum=md.anum
+ 	</select>
+ 	
+ 	<select id="fsale_info_store" parameterType="int" resultType="fisvo">
+ 		select * from fsale_info_store where fpnum = #{num}
+ 	</select>
+ 		<select id="fsale_info_estate" parameterType="int" resultType="fievo">
+ 		select * from fsale_info_estate where fpnum = #{num}
+ 	</select >
+ 	<select id="fsale_info_img" parameterType="int" resultType="fimgvo">
+ 		select * from fsale_img where fnum=#{num}
+ 	</select>
+ 	
  	
  	<select id="fsale_count" resultType="int" parameterType="esvo">
  		
-select count(rownum) rnum FROM(
-SELECT f.fnum,fi.fpnum,fie.fpenum FROM (select * from fsale where fsalekind='매매' and fkind in('아파트')) f ,(SELECT fnum,fpnum FROM  fsale_info where flocation like '%강남구%' and heating like '%개별%') fi,
-(select * from fsale_info_estate where  foption like '%세탁기%' ) fie where fi.fpnum=fie.fpnum and f.fnum=fi.fnum  ) A 
- 	</select>
- 	
- 	<select id="fsale_list" resultType="fvo" parameterType="epvo">
-select rownum,a.* from (
-	SELECT f.fnum,f.anum,f.fkind,f.fsalekind,f.deposit,f.rent,f.fstatus,fi.flocation<!--, fie.fsubject --> FROM
- 		(select * from fsale where fsalekind in(
- 			<foreach collection="esvo.rentv" item="i" separator=",">
- 			
- 				<choose>
- 					<when test="i == 0">
- 						'월세'
- 					</when>
- 					<when test="i == 1">
- 						'전세'
- 					</when>
- 					<when test="i == 2">
- 						'매매'
- 					</when>
- 					
- 				</choose>
- 			</foreach>
- 		) 
- 			and fkind in(
- 			<foreach collection="esvo.build" item="k" separator=",">
- 				
- 				<choose>
- 					<when test="k == 0">
+
+
+ 	select count(rownum)  from 
+ 		(select DISTINCT f.fnum,f.fkind,f.fsalekind,f.deposit,f.rent,fi.tfloor,fi.fexarea,fi.fcontent,fi.flocation,fi.lat,fi.lng,fi.fadmin,fi.fadop from fsale f,fsale_info fi
+ 		 where f.fnum=fi.fnum and f.fstatus='N' ) a where
+ 		  a.fkind in(
+ 		  <foreach collection="build"  item="k" separator="," >
+    	<choose>
+    		<when test="k == 0 ||k == 1 || k == 2 || k == 3">
+    			
+    			<choose>
+    				<when test="k == 0">
  						'원룸'
  					</when>
  					<when test="k == 1">
- 						'투ㆍ쓰리룸'
+ 						'투룸' ,'쓰리룸'
  					</when>
  					<when test="k == 2">
  						'오피스텔'
@@ -494,133 +220,330 @@ select rownum,a.* from (
  					<when test="k == 3">
  						'아파트'
  					</when>
- 					<when test="k == 4">
- 						(select fkind from fsale where fkind not in('원룸','투ㆍ쓰리룸','오피스텔','아파트') gruop by fkind) 
- 					</when>
- 				</choose>
- 			</foreach>
- 			) and
- 			<foreach collection="esvo.rentv" item="i"  separator="or" open="(" close=")">
- 				<choose>
- 					<when test="i==2">
- 						<choose>
- 							<when test="esvo.trades_to == '무제한'">
- 								deposit >= #{esvo.trades_from} 
+    			</choose>
+    			
+    		</when>
+    		<when test="k== 4">
+    			'상가/사무실'
+    		</when>
+    	</choose>
+    </foreach>
+ 		  
+ 		  ) and a.fsalekind in (
+ 		  
+ 		
+ 		  <foreach collection="rentv" item='i' separator=",">
+    <choose>
+    	<when test="i == 0">
+    		'월세'
+    	</when>
+    	<when test="i == 1">
+    		'전세' 
+    	</when>
+    	<when test="i == 2">
+    		'매매'
+    	</when>
+    </choose>
+    </foreach>
+    
+ 		  ) and
+ 		  ( <foreach collection="rentv" item="k" separator="and"> 
+	     <choose>
+	     	<when test="k == 2">
+	     			<choose>
+ 							<when test="trades_to == '무제한'">
+ 								deposit > TO_NUMBER(#{trades_from}) 
  							</when>
  							<otherwise>
- 								deposit between #{esvo.trades_from} and #{esvo.trades_to} 
+ 								deposit between TO_NUMBER(#{trades_from}) and TO_NUMBER(#{trades_to}) 
  							</otherwise>
  						</choose>
- 						  
+	     	</when>
+	     	<when test="k == 0 or k == 1">
+ 						<choose>
+ 							<when test="deposits_to == '무제한'">
+ 								deposit > TO_NUMBER(#{deposits_from})
+ 								
+ 								
+ 							</when>
+ 							<otherwise>
+ 								deposit between TO_NUMBER(#{deposits_from}) and TO_NUMBER(#{deposits_to})
+ 							</otherwise>
+ 						</choose>
+ 						<choose>
+ 							<when test="k == 0">
+ 								<choose>
+ 									<when test="monthmoenys_to == '무제한'">
+ 									and	rent > TO_NUMBER(#{monthmoenys_from}) 
+ 									</when>
+ 									<otherwise>
+ 									and rent between TO_NUMBER#{monthmoenys_from}) and TO_NUMBER(#{monthmoenys_to}) 
+ 									</otherwise>
+ 								</choose>
+ 							</when>
+ 						</choose>
+ 						
  					</when>
- 					<when test="i == 0 or i == 1">
+	     </choose>
+     </foreach>
+ 		   
+ 		   )
+ 		   and
+ 		   
+ <foreach collection="floor" item="i" separator="or" open="(" close=")">
+    	<choose>
+    		<when test="i ==1 or i ==2 or i ==3 or i ==4 or i ==5 or i ==6">
+    			<choose>
+    				<when test="i == 1">
+    					 tfloor like '1층%'
+    				</when>
+    				<when test="i == 2">
+    					 tfloor like '2층%'
+    				</when>
+    				<when test="i == 3">
+    				 tfloor like '3층%'
+    				 </when>
+    				<when test="i == 4">
+    					 tfloor like '4층%'
+    				</when>
+    				<when test="i == 5">
+    					 tfloor like '5층%'
+    				</when>
+    				<when test="i == 6">
+    					 tfloor like '6층%'
+    				</when>
+    			</choose>
+    		  
+    		</when>
+    		<when test="i == 7">
+    			tfloor in (select tfloor from fsale_info where  tfloor like '1층%' or  tfloor like '2층%'or  tfloor like '3층%' or  tfloor like '4층%' or  tfloor like '6층%' or  tfloor like '지하%' or  tfloor like '옥탑' group by tfloor)
+    		</when>
+    		<when test="i == 8">
+    			tfloor like "%지하%"
+    		</when>
+    		<when test="i == 8">
+    			tfloor like "%옥탑%" or    tfloor like "%옥상%"
+      		</when>
+    	</choose>
+    </foreach>
+
+and
+<choose>
+ 							<when test="roomArea_to == '무제한'">
+ 								a.fexarea > TO_NUMBER(#{roomArea_from})
+ 								
+ 								
+ 							</when>
+ 							<otherwise>
+ 								a.fexarea between TO_NUMBER(#{roomArea_from}) and TO_NUMBER(#{roomArea_to})
+ 							</otherwise>
+ 						</choose>
+
+<!-- and
+<choose>
+ 							<when test="roomCare_to == '무제한'">
+ 								a.fadmin > TO_NUMBER(#{roomCare_from})
+ 								
+ 								
+ 							</when>
+ 							<otherwise>
+ 								a.fadmin between TO_NUMBER(#{roomCare_from}) and TO_NUMBER(#{roomCare_to})
+ 							</otherwise>
+ 						</choose> -->
+<if test="keyword != null and keyword != '' ">
+	and (
+		a.flocation like '%'||'#{keyword}'||'%' or a.fcontent like '%'||'#{keyword}'||'%'  or a.fadop like '%||'#{keyword}'||%'
+	)
+</if>
+
+ 	</select>
+ 	
+ 	
+ 	
+ 	
+ 	<select id="fsale_list" resultMap="f_detail" parameterType="epvo">
+
+ 	select * from (select rownum as rnum ,a.fnum,a.fkind,a.fsalekind,a.deposit,a.rent,a.tfloor,a.fexarea,a.fcontent,a.flocation,a.lat,a.lng,a.fadmin,a.fadop  from 
+ 		(select DISTINCT f.fnum,f.fkind,f.fsalekind,f.deposit,f.rent,fi.tfloor,fi.fexarea,fi.fcontent,fi.flocation,fi.lat,fi.lng,fi.fadmin,fi.fadop from fsale f,fsale_info fi
+ 		 where f.fnum=fi.fnum and f.fstatus='N') a where
+ 		  a.fkind in(
+ 		  <foreach collection="esvo.build"  item="k" separator="," >
+    	<choose>
+    		<when test="k == 0 ||k == 1 || k == 2 || k == 3">
+    			
+    			<choose>
+    				<when test="k == 0">
+ 						'원룸'
+ 					</when>
+ 					<when test="k == 1">
+ 						'투룸' ,'쓰리룸'
+ 					</when>
+ 					<when test="k == 2">
+ 						'오피스텔'
+ 					</when>
+ 					<when test="k == 3">
+ 						'아파트'
+ 					</when>
+    			</choose>
+    			
+    		</when>
+    		<when test="k== 4">
+    			'상가/사무실'
+    		</when>
+    	</choose>
+    </foreach>
+ 		  
+ 		  ) and a.fsalekind in (
+ 		  
+ 		
+ 		  <foreach collection="esvo.rentv" item='i' separator=",">
+    <choose>
+    	<when test="i == 0">
+    		'월세'
+    	</when>
+    	<when test="i == 1">
+    		'전세' 
+    	</when>
+    	<when test="i == 2">
+    		'매매'
+    	</when>
+    </choose>
+    </foreach>
+    
+ 		  ) and
+ 		  ( <foreach collection="esvo.rentv" item="k" separator="and"> 
+	     <choose>
+	     	<when test="k == 2">
+	     			<choose>
+ 							<when test="esvo.trades_to == '무제한'">
+ 								deposit > TO_NUMBER(#{esvo.trades_from}) 
+ 							</when>
+ 							<otherwise>
+ 								deposit between TO_NUMBER(#{esvo.trades_from}) and TO_NUMBER(#{esvo.trades_to}) 
+ 							</otherwise>
+ 						</choose>
+	     	</when>
+	     	<when test="k == 0 or k == 1">
  						<choose>
  							<when test="esvo.deposits_to == '무제한'">
- 								deposit >= #{esvo.deposits_from} 
+ 								deposit > TO_NUMBER(#{esvo.deposits_from})
+ 								
+ 								
  							</when>
  							<otherwise>
- 								deposit between #{esvo.deposits_from} and #{esvo.deposits_to}
+ 								deposit between TO_NUMBER(#{esvo.deposits_from}) and TO_NUMBER(#{esvo.deposits_to})
  							</otherwise>
+ 						</choose>
+ 						<choose>
+ 							<when test="k == 0">
+ 								<choose>
+ 									<when test="esvo.monthmoenys_to == '무제한'">
+ 									and	rent > TO_NUMBER(#{esvo.monthmoenys_from}) 
+ 									</when>
+ 									<otherwise>
+ 									and rent between TO_NUMBER#{esvo.monthmoenys_from}) and TO_NUMBER(#{esvo.monthmoenys_to}) 
+ 									</otherwise>
+ 								</choose>
+ 							</when>
  						</choose>
  						
  					</when>
- 				</choose>
- 			</foreach>
- 
- 			 and
- 				<foreach collection="esvo.rentv" item="i" open="(" close=")">
- 					<if test="i == 0">
- 						<choose>
- 							<when test="esvo.monthmoenys_to == '무제한'">
- 								 rent >= #{esvo.monthmoenys_from} 
+	     </choose>
+     </foreach>
+ 		   
+ 		   )
+ 		 and
+ 		   
+ <foreach collection="esvo.floor" item="i" separator="or" open="(" close=")">
+    	<choose>
+    		<when test="i ==1 or i ==2 or i ==3 or i ==4 or i ==5 or i ==6">
+    			<choose>
+    				<when test="i == 1">
+    					 tfloor like '1층%'
+    				</when>
+    				<when test="i == 2">
+    					 tfloor like '2층%'
+    				</when>
+    				<when test="i == 3">
+    				 tfloor like '3층%'
+    				 </when>
+    				<when test="i == 4">
+    					 tfloor like '4층%'
+    				</when>
+    				<when test="i == 5">
+    					 tfloor like '5층%'
+    				</when>
+    				<when test="i == 6">
+    					 tfloor like '6층%'
+    				</when>
+    			</choose>
+    		  
+    		</when>
+    		<when test="i == 7">
+    			tfloor in (select tfloor from fsale_info where  tfloor like '1층%' or  tfloor like '2층%'or  tfloor like '3층%' or  tfloor like '4층%' or  tfloor like '6층%' or  tfloor like '지하%' or  tfloor like '옥탑' group by tfloor)
+    		</when>
+    		<when test="i == 8">
+    			tfloor like "%지하%"
+    		</when>
+    		<when test="i == 8">
+    			tfloor like "%옥탑%" or    tfloor like "%옥상%"
+      		</when>
+    	</choose>
+    </foreach>
+
+and
+<choose>
+ 							<when test="esvo.roomArea_to == '무제한'">
+ 								a.fexarea > TO_NUMBER(#{esvo.roomArea_from})
+ 								
+ 								
  							</when>
  							<otherwise>
- 								 rent between #{esvo.monthmoenys_from} and #{esvo.monthmoenys_to}
+ 								a.fexarea between TO_NUMBER(#{esvo.roomArea_from}) and TO_NUMBER(#{esvo.roomArea_to})
  							</otherwise>
  						</choose>
- 						
- 					</if>
- 				</foreach>
- 				
- 			) f ,
- 		(SELECT * FROM  fsale_info where
- 			<if test="esvo.keyword != null and esvo.keyword!=''">
- 				flocation like '%'||#{esvo.keyword}||'%' and heating like '%'||#{esvo.keyword}||'%' and
- 			</if>
- 			 <if test="esvo.roomArea_from != null and esvo.roomArea_to != null">
- 			 	<choose>
- 			 		<when test="esvo.roomArea_to =='무제한'">
- 			 			FEXAREA >= #{esvo.roomArea_from} and
- 			 		</when>
- 			 		<otherwise>
- 			 			FEXAREA between #{esvo.roomArea_from} and #{esvo.roomArea_to} and
- 			 		</otherwise>
- 			 	</choose>
- 			 </if>
- 			 <if test="esvo.roomCare_from != null and esvo.roomCare_to != null">
- 			 	<choose>
- 			 		<when test="esvo.roomCare_to =='무제한'">
- 			 			fadmin >= #{esvo.roomCare_from} and
- 			 		</when>
- 			 		<otherwise>
- 			 			fadmin between #{esvo.roomCare_from} and #{esvo.roomCare_to} and
- 			 		</otherwise>
- 			 	</choose>
- 			 </if>
- 			 <if test="esvo.floor != null">
- 			 	tfloor in(
- 			 	<foreach collection="esvo.floor" item="i" separator=",">
- 			 		<choose>
- 			 			<when test="i == 0">
- 			 				(select  tfloor from fsale_info group by tfloor)
- 			 			</when>
- 			 			<when test="i == 1">
- 			 				(select  tfloor from fsale_info where tfloor like '%'||'1층'||'%' group by tfloor)
- 			 			</when>
- 			 			<when test="i == 2">
- 			 				(select  tfloor from fsale_info where tfloor like '%'||'2층'||'%' group by tfloor)
- 			 			</when>
- 			 			<when test="i == 3">
- 			 				(select  tfloor from fsale_info where tfloor like '%'||'3층'||'%' group by tfloor)
- 			 			</when>
- 			 			<when test="i == 4">
- 			 				(select  tfloor from fsale_info where tfloor like '%'||'4층'||'%' group by tfloor)
- 			 			</when>
- 			 			<when test="i == 5">
- 			 				(select  tfloor from fsale_info where tfloor like '%'||'5층'||'%' group by tfloor)
- 			 			</when>
- 			 			<when test="i == 6">
- 			 				(select  tfloor from fsale_info where tfloor like '%'||'6층'||'%' group by tfloor)
- 			 			</when>
- 			 			<when test="i == 7">
- 			 				(select  tfloor from fsale_info where tfloor not in('1층','2층','3층','4층','5층','6층','저층','중층') and tfloor not like '%'||'지하'||'%' group by tfloor)
- 			 			</when>
- 			 			<when test="i == 8">
- 			 				(select  tfloor from fsale_info where tfloor like '%'||'지하'||'%' group by tfloor)
- 			 			</when>
- 			 			<when test="i == 9">
- 			 				(select  tfloor from fsale_info where tfloor like '%'||'옥탑'||'%' group by tfloor)
- 			 			</when>
- 			 		</choose>
- 			 		
- 			 	</foreach>
- 			 	)
- 			 </if>
- 		) fi<!-- ,
- 		
- 			 				
- 							(select * from fsale_info_store 
- 							
- 							) fis,
- 						
- 				
- 			
- 					(select * from fsale_info_estate ) fie  -->
- 				
- 	
- 	
-		
-	where <!-- fi.fpnum=fie.fpnum and --> f.fnum=fi.fnum <!-- and fi.fpnum=fis.fpnum -->)
- a where rownum BETWEEN #{start} and #{end}
+
+<!-- and
+<choose>
+ 							<when test="esvo.roomCare_to == '무제한'">
+ 								a.fexarea > TO_NUMBER(#{esvo.roomCare_from})
+ 								
+ 								
+ 							</when>
+ 							<otherwise>
+ 								a.fexarea between TO_NUMBER(#{esvo.roomCare_from}) and TO_NUMBER(#{esvo.roomCare_to})
+ 							</otherwise>
+ 						</choose> -->
+<if test="esvo.keyword != null and esvo.keyword != ''">
+	and (
+		a.flocation like '%'||'#{esvo.keyword}'||'%' or a.fcontent like '%'||'#{esvo.keyword}'||'%'  or a.fadop like '%||'#{esvo.keyword}'||%'
+	)
+</if>
+)where
+ 
+  rnum between #{start} and #{end}
  	</select>
+ 	
+ 	<select id="getListNum" parameterType="int" resultMap="f_detail">
+ 		select * from fsale f, fsale_info fi  where f.fnum=fi.fnum and f.fnum=#{num}
+ 	
+ 	</select>
+ 	
+ 	<select id="list_img" parameterType="int" resultType="fimgvo">
+ 		select rownum , A.* from (select * from fsale_img where fnum=#{num}) A where rownum = 1 
+ 	</select>
+ 	
+ 	
+ 	<!-- <select id="estate.fnumList" resultType="fvo">
+ 		select * from fsale  where fnum  between 100000 and 14660167
+ 	</select>
+ 	
+ 	<select id="estate.finumList" resultType="fimgvo">
+ 		select rownum , A.fnum from (
+		select * from fsale_img where fnum not in(select f.fnum from fsale f, fsale_img fi where f.fnum=fi.fnum) 
+		order by 1 asc) A  where rownum between 1 and 4
+ 	</select>
+ 	<update id="fimgUpdate" parameterType="fvo" >
+ 		update fsale_img set fnum=#{nums[0]} where fnum=#{nums[1]}
+ 	</update> -->
  </mapper>

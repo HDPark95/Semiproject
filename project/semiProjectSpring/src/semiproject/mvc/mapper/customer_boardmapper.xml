@@ -5,25 +5,24 @@
 	
 <mapper namespace="cboard">
 <insert id="insert" parameterType="cbvo"> <!-- 게시글 작성 -->
-insert into customer_board(c_num,c_type,c_subject,c_content,anum)
-values(customer_board_seq.nextVal,#{c_type},#{c_subject},#{c_content},#{anum})
+insert into customer_board(c_num,c_type,c_subject,c_content,anum,aid)
+values(customer_board_seq.nextVal,#{c_type},#{c_subject},#{c_content},#{anum},#{aid})
 </insert>
 
 <select id="list" resultType="cbvo">
-select c.c_num,c.c_subject, substr(s.aid,1,4) aid,c.c_regdate,c.c_anschk 
-from customer_board c, signup s
-where s.anum = c.anum
-order by c_num desc 
+select c_num,c_subject,aid,c_regdate,c_anschk,c_type 
+from customer_board c 
+order by c_num desc
 </select>
 
 <select id="viewDetail" resultType="cbvo" parameterType="int">
-select c.c_num, c.c_subject, substr(s.aid,1,4) aid,c.c_regdate,c_content
+select c.c_num, c.c_subject, substr(s.aid,1,4) aid,c.c_regdate,c.c_content,c.c_type
 from customer_board  c, signup s 
 where s.anum = c.anum and c_num = #{c_num}
 </select>
 
 <select id="replyDetail" resultType="cbvo" parameterType="int">
-select c.c_num, c.c_subject, substr(s.aid,1,4) aid,c.c_regdate,c_content,a.c_ans
+select c.c_num, c.c_subject, substr(s.aid,1,4) aid,c.c_regdate,c_content,c.c_type,a.c_ans
 from customer_board  c, signup s, ADMIN_ANS a 
 where s.anum = c.anum and a.c_num = c.c_num and c.c_num = #{c_num}
 </select>
@@ -40,12 +39,12 @@ where s.anum = c.anum and a.c_num = c.c_num and c.c_num = #{c_num}
  where c_num = #{c_num}
  </update>
 
-<select id="listall" parameterType="commupvo" resultType="cbvo">
+<select id="listall" parameterType="cuspvo" resultType="cbvo">
 select * from (
 select rownum rnum, a.* from (
-select c.c_num,c.c_subject,s.aid,c.c_regdate,c.c_anschk,c.c_type 
+select c.c_num,c.c_subject,c.aid,c.c_regdate,c.c_anschk,c.c_type 
 from customer_board c, signup s 
-where s.anum = c.anum AND c_del = 0 
+where s.aid = c.aid AND c_del = 0 
 		<trim>
 			<if test="searchType=='title'">
 				AND c_subject like '%'||#{searchValue}||'%'
@@ -59,7 +58,7 @@ where s.anum = c.anum AND c_del = 0
  order by c_num desc
  </select>
 
- <select id="countall" parameterType="commupvo" resultType="int">
+ <select id="countall" parameterType="cuspvo" resultType="int">
  select count(*) cnt from customer_board
  where c_del = 0
  <trim>

@@ -245,7 +245,7 @@ td {
 									class="form-control" style="width: 400px;" placeholder="상세주소" /></td>
 							</tr>
 							<tr>
-								<th><label for="managepee">관리비내용</label></th>
+								<th><label for="managepee">부가정보</label></th>
 								<td><textarea name="managepee" id="managepee" rows="10"
 										cols="110"></textarea></td>
 							</tr>

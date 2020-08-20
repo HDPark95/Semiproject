@@ -257,54 +257,10 @@ body {
 		<div id="body" style="width: 100%; height: 100%; margin: auto;">
 			<div id="leftcontents"
 				style="position: relative; width: 80%; margin: auto;">
-				<div id="searchtop" name="searchtop">
-					<div class="form-group" style="margin-top: 7px;">
-						진행사항:<select class="form-control select" id="statussel"
-							style="width: 100px; display: inline;">
-							<option value="0">전체</option>
-							<option value="1">신건</option>
-							<option value="2">유찰</option>
-							<option value="3">진행</option>
-							<option value="4">낙찰</option>
-						</select> 물건용도:<select class="form-control select" id="mulgun"
-							style="width: 100px; display: inline;">
-							<option value="0">전체</option>
-							<option value="1">아파트</option>
-							<option value="2">주택/빌라</option>
-							<option value="3">상업/업무</option>
-							<option value="4">공장/창고</option>
-							<option value="5">토지</option>
-							<option value="6">기타</option>
-						</select>
-						<form action="auction_sales" method="post"
-							style="margin-top: -35px;">
-							<input class="btn btn-primary button1" id="searchBtn"
-								style="float: right;" type="submit" value="검색" /> <input
-								class="form-control mr-sm-2" id="searchValue" name="searchValue"
-								type="text" style="width: 200px; float: right;"
-								placeholder="Search" value="${paging.searchValue}"> <select
-								class="form-control select" id="searchType" name="searchType"
-								style="width: 100px; float: right;">
-								<option value="0">제목</option>
-								<option value="1">주소</option>
-							</select>
-						</form>
-					</div>
-				</div>
-				<div id="datalisttop">
-					<div class="btn-group" role="group" aria-label="Basic example"
-						style="float: left;">
-						<input type="button" id="lowpBtn" name="lowpBtn"
-							class="btn btn-inactive" value="최저가순 ▲" /> <a>|</a> <input
-							type="button" id="maeBtn" name="maeBtn" class="btn btn-inactive"
-							value="매각기일순 ▲" /> <a>|</a> <input type="button" id="hitBtn"
-							name="hitBtn" class="btn btn-inactive" value="조회수순 ▲" /> <input
-							type="hidden" id="sortindex" name="sortindex"
-							value="${paging.sortindex}" /> <input type="hidden" id="sbid"
-							name="sbid" value="${sbid}" />
-					</div>
-				</div>
+				
 				<div id="datalist" style="margin-top: 70px;">
+				<input type="button" id="sale" name="sale"
+						class="btn btn-outline-primary" value="${user.aid}님의 판매현황 ☜" />
 					<table class="table table-hover">
 						<thead>
 							<tr>
@@ -323,7 +279,8 @@ body {
 										style="width: 120px; height: 120px; float: left;"></th>
 									<td id="coltd1_2" style="width: 630px;"><label
 										id="t1addr1_1"><a
-											href="auctionSaleManagement?anum=${slist.anum}"
+									
+											href="auctionDetail?anum=${slist.anum}"
 											style="color: black;"> <input type="hidden" value=""
 												name="ipnum" id="ipnum"> <span id="mainsubject">${slist.subject}</span><br />
 												<b>[${slist.yongdo}]</b><br />${slist.addr}</a></label> <br /> <label
@@ -342,40 +299,6 @@ body {
 						</tbody>
 					</table>
 				</div>
-				<%-- 		<div style="width: 100%">
-				<ul class="pagination" style="width: 300px; margin: 0 auto;">
-					<c:choose>
-						<c:when test="${paging.startPage != 1 }">
-							<li class="page-item"><a class="page-link"
-								href="auction_sales?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&sortindex=${paging.sortindex}&statussel=${paging.statussel}&mulgun=${paging.mulgun}">&laquo;</a></li>
-						</c:when>
-						<c:otherwise>
-							<li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
-						</c:otherwise>
-					</c:choose>
-					<c:forEach begin="${paging.startPage}" end="${paging.endPage}"
-						var="p">
-						<c:choose>
-							<c:when test="${p == paging.nowPage }">
-								<li class="page-item active"><a class="page-link" href="#">${p}</a></li>
-							</c:when>
-							<c:when test="${p != paging.nowPage }">
-								<li class="page-item"><a class="page-link"
-									href="auction_sales?nowPage=${p }&cntPerPage=${paging.cntPerPage}&sortindex=${paging.sortindex}&statussel=${paging.statussel}&mulgun=${paging.mulgun}">${p}</a></li>
-							</c:when>
-						</c:choose>
-					</c:forEach>
-					<c:choose>
-						<c:when test="${paging.endPage != paging.lastPage}">
-							<li class="page-item"><a class="page-link"
-								href="auction_sales?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&sortindex=${paging.sortindex}&statussel=${paging.statussel}&mulgun=${paging.mulgun}">&raquo;</a></li>
-						</c:when>
-						<c:otherwise>
-							<li class="page-item disabled"><a class="page-link" href="#">&raquo;</a></li>
-						</c:otherwise>
-					</c:choose>
-				</ul>
-			</div> --%>
 			</div>
 		</div>
 	</div>
@@ -411,74 +334,6 @@ body {
 				clickable : true,
 			},
 		});
-		
-		set_bantxt();
-		//값세팅하기
-		$('#searchType').val(${param.searchType});
-
-		//alert($('#sortindex').val());
-		if($('#sortindex').val()==='1'){
-			$('#lowpBtn').val('최저가순 ▲');
-			$('#lowpBtn').attr('class','btn btn-outline-primary active')
-		}else if($('#sortindex').val()==='2'){
-			$('#lowpBtn').val('최저가순 ▼');
-			$('#lowpBtn').attr('class','btn btn-outline-primary active')
-		}else if($('#sortindex').val()==='3'){
-			$('#maeBtn').val('매각기일순 ▲');
-			$('#maeBtn').attr('class','btn btn-outline-primary active')
-		}else if($('#sortindex').val()==='4'){
-			$('#maeBtn').val('매각기일순 ▼');
-			$('#maeBtn').attr('class','btn btn-outline-primary active')
-		}else if($('#sortindex').val()==='5'){
-			$('#hitBtn').val('조회수순 ▲');
-			$('#hitBtn').attr('class','btn btn-outline-primary active')
-		}else if($('#sortindex').val()==='6'){
-			$('#hitBtn').val('조회수순 ▼');
-			$('#hitBtn').attr('class','btn btn-outline-primary active')
-		}
-		
-		$('#statussel').val(${param.statussel});
-		$('#mulgun').val(${param.mulgun});
-		
-		//소팅
-		$('#lowpBtn').click(function(){
-			$('#lowpBtn').attr('class','btn btn-outline-primary active')
-			var lbta = $('#sortindex').val();
-			if(lbta==='1'){
-				location.href = "auction_sales?sortindex=2&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val()+"&searchType="+$('#searchType').val()+"&searchValue="+$('#searchValue').val();
-			}else{
-				location.href = "auction_sales?sortindex=1&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val()+"&searchType="+$('#searchType').val()+"&searchValue="+$('#searchValue').val();
-			}
-		});
-		
-		$('#maeBtn').click(function(){
-			$('#maeBtn').attr('class','btn btn-outline-primary active')
-			var lbtb = $('#sortindex').val();
-			if(lbtb==='3'){
-				location.href = "auction_sales?sortindex=4&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val()+"&searchType="+$('#searchType').val()+"&searchValue="+$('#searchValue').val();
-			}else{
-				location.href = "auction_sales?sortindex=3&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val()+"&searchType="+$('#searchType').val()+"&searchValue="+$('#searchValue').val();
-			}
-		});
-		
-		$('#hitBtn').click(function(){
-			$('#maeBtn').attr('class','btn btn-outline-primary active')
-			var lbtc = $('#sortindex').val(); 
-			if(lbtc==='5'){
-				location.href = "auction_sales?sortindex=6&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val()+"&searchType="+$('#searchType').val()+"&searchValue="+$('#searchValue').val();
-			}else{
-				location.href = "auction_sales?sortindex=5&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val()+"&searchType="+$('#searchType').val()+"&searchValue="+$('#searchValue').val();
-			}
-		});
-		//진행사항/물건용도
-		$('#statussel').change(function(){
-			location.href ="auction_sales?sortindex="+$('#sortindex').val()+"&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val()+"&searchType="+$('#searchType').val()+"&searchValue="+$('#searchValue').val();
-		});
-		
-		$('#mulgun').change(function(){
-			location.href ="auction_sales?sortindex="+$('#sortindex').val()+"&statussel="+$('#statussel').val()+"&mulgun="+$('#mulgun').val()+"&searchType="+$('#searchType').val()+"&searchValue="+$('#searchValue').val();
-		});
-		
 	});
 	
 /* 	function apagemove(){

@@ -139,14 +139,11 @@ em{
 						<option>동 선택</option>
 					</select> <select id="combobox3" class="form-control"
 						style="margin-right: 10px; width: 200px">
-						<option>업종대분류</option>
+						<option>상권 선택</option>
 					</select> <select id="combobox4" class="form-control"
 						style="margin-right: 10px; width: 250px">
-						<option>업종중분류</option>
-					</select> <select id="combobox5" class="form-control"
-						style="width: 200px">
-						<option>업종소분류</option>
-					</select>
+						<option>업종 선택</option>
+					</select> 
 				</form>
 				<!-- <p class="text-white m-0">지도 위치 선택 버튼 들어올 자리</p> -->
 			</div>
@@ -159,7 +156,7 @@ em{
 					<!-- <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400"> -->
 				</div>
 				<script type="text/javascript"
-					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5d751c35293b0473bc14f09aa6b0ca97&libraries=services,clusterer,drawing"></script>
+					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d3da01cea8b26f7180225f6a45645c2c&libraries=services,clusterer,drawing"></script>
 				<script>
 					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 					mapOption = {
@@ -167,7 +164,6 @@ em{
 						level : 3
 					// 지도의 확대 레벨
 					};
-
 					// 지도를 생성합니다    
 					var map = new kakao.maps.Map(mapContainer, mapOption);
 
@@ -180,19 +176,19 @@ em{
 					$("#combobox2").change(function() {
 						ps.keywordSearch($(this).val(), placesSearchCB1);
 					})
+					$("#combobox3").change(function(){
+						ps.keywordSearch($(this).val(), placesSearchCB);
+					})
+					
 					$("#combobox4").change(
 							function() {
-								var keyword = $("#combobox1").val() + " " + $("#combobox2").val() + $(this).val()
+								var keyword = $("#combobox2").val() + " " +  $(this).val();
 								ps.keywordSearch(keyword, placesSearchCB2);
 							})
-					$("#combobox5").change(
-							function() {
-								var keyword = $("#combobox1").val() + " "
-										+ $("#combobox2").val() + $(this).val()
-								ps.keywordSearch(keyword, placesSearchCB2);
-							})
+					
 					function placesSearchCB1(data, status, pagination) {
 						if (status === kakao.maps.services.Status.OK) {
+						
 							// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
 							// LatLngBounds 객체에 좌표를 추가합니다
 							var bounds = new kakao.maps.LatLngBounds();
@@ -284,16 +280,6 @@ em{
 					console.log("Error : " + e);
 				}
 			});
-			var url = 'largename?cate=combobox3'
-			$.ajax({
-				url : url,
-				success : function(d) {
-					$('#combobox3').html(d);
-				},
-				error : function(e) {
-					console.log("Error : " + e);
-				}
-			});
 		});
 		$(function() {
 			$('#combobox1').change(
@@ -343,15 +329,26 @@ em{
 								console.log("Error : " + e);
 							}
 						});
+						var url = 'largename?cate=combobox3&guName='+ encodeURIComponent(param) +"&dongName="+ encodeURIComponent(param2)
+						$.ajax({
+							url : url,
+							success : function(d) {
+								$('#combobox3').html(d);
+							},
+							error : function(e) {
+								console.log("Error : " + e);
+							}
+						});
 					});
 		});
 		$(function() {
 			$('#combobox3').change(
 					function() {
-						var param = $('#combobox3').val()
+						var guName = $('#combobox1').val()
+						var dongName = $('#combobox2').val()
+						var largeName = $('#combobox3').val()
 						var cate = $(this).attr('id')
-						var url = 'mediumname?largeName='
-								+ encodeURIComponent(param) + '&cate=combobox4'
+						var url = 'mediumname?largeName=' + encodeURIComponent(largeName) + '&cate=combobox4' + "&guName=" + encodeURIComponent(guName) +"&dongName=" + encodeURIComponent(dongName)
 						$.ajax({
 							url : url,
 							success : function(d) {
@@ -364,28 +361,6 @@ em{
 					});
 		});
 
-		$(function() {
-			$('#combobox4').change(
-					function() {
-						var largeName = $('#combobox3').val();
-						var mediumName = $(this).val();
-						var cate = $(this).attr('id')
-						var url = 'smallname?largeName='
-								+ encodeURIComponent(largeName)
-								+ "&mediumName="
-								+ encodeURIComponent(mediumName)
-								+ '&cate=combobox5'
-						$.ajax({
-							url : url,
-							success : function(d) {
-								$('#combobox5').html(d);
-							},
-							error : function(e) {
-								console.log("Error : " + e);
-							}
-						});
-					});
-		});
 		function open_pop2() {
 			var key = 0;
 			var quater = 0;
@@ -584,6 +559,17 @@ em{
 		}
 		$('#loadingmessage').hide();
 		var loadingMessage = $("#loadingmessage").html();
+		function startAnalysis(){
+			var guName = $("#combobox1").val()
+			var dongName = $("#combobox2").val()
+			var largeName = $("#combobox3").val()
+			var cate = $("#combobox4").val()
+			if(guName == '' || dongName==''||largeName==''||cate==''||guName == null || dongName==null||largeName==null||cate==null){
+				alert("선택 조건을 모두 골라주세요.")
+			}else{
+				location.href="goAnalysisResult?guName="+guName +"&dongName="+dongName +"&largeName="+largeName+"&cate="+cate	
+			}
+		}
 	</script>
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<script

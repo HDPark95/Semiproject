@@ -19,11 +19,25 @@ public class ForSale_InfoVO {
 //	admindong varchar2(255) null, -- 동
 //	lat varchar2(255) null, --위도
 //	lng varchar2(255) null, --경도
-	private int fpnum,fnum;
-	private String flocation,zipNo,tfloor,bfloor,fexarea,fsuparea,heating,fcontent,fadmin,fadop,eleva,fmove,district,admindong,lat,lng;
+// fsubject varchar2(500) null,
+	private int fpnum,fnum,idx;
+	private String flocation,zipNo,tfloor,bfloor,fexarea,fsuparea,heating,fcontent,fadmin,fadop,eleva,fmove,district,admindong,lat,lng,fsubject;
 	private ForSale_Info_EstateVO fievo;
 	private ForSale_Info_StoreVO fisvo;
 	
+	
+	public String getFsubject() {
+		return fsubject;
+	}
+	public void setFsubject(String fsubject) {
+		this.fsubject = fsubject;
+	}
+	public int getIdx() {
+		return idx;
+	}
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
 	public String getDistrict() {
 		return district;
 	}

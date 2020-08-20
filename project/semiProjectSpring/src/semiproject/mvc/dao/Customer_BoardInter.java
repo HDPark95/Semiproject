@@ -6,6 +6,7 @@ import java.util.List;
 import semiproject.mvc.vo.Community_PageVO;
 
 import semiproject.mvc.vo.Customer_BoardVO;
+import semiproject.mvc.vo.Customer_PageVO;
 
 public interface Customer_BoardInter {
 	
@@ -19,9 +20,9 @@ public interface Customer_BoardInter {
 	
 	public int delete(int c_num) throws Exception;
 	
-	public List<Customer_BoardVO> listAll(Community_PageVO pvo) throws Exception;
+	public List<Customer_BoardVO> listAll(Customer_PageVO pvo) throws Exception;
 
-	public int getCountAll(Community_PageVO pvo) throws Exception;
+	public int getCountAll(Customer_PageVO pvo) throws Exception;
 	
 	public void deleteDetail(int c_num) throws Exception;
 	

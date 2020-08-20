@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <link href="https://fonts.googleapis.com/css?family=Noto Sans KR" rel="stylesheet"/>
@@ -57,8 +57,8 @@ td.infotd{
 <input type="hidden" value="${result[0].guName}">
 <table class="table" style="text-align: center;">
 	<tr>
-		<th>»ó±Ç¾÷Á¾´ëºÐ·ù¸í</th>
-		<th>¼ö</th>
+		<th>ìƒê¶Œì—…ì¢…ëŒ€ë¶„ë¥˜ëª…</th>
+		<th>ìˆ˜</th>
 	</tr>
 	<tr>
 		<c:forEach items="${result}" var="e">
@@ -68,6 +68,6 @@ td.infotd{
 			</tr>
 		</c:forEach>
 	<tr>
-		<td colspan="2" class="infotd"><button onclick="open_pop2()" class="btn infobutton"><i class="fas fa-chevron-down"></i>&nbsp;»ó¼¼ Á¤º¸ º¸±â</button></td>
+		<td colspan="2" class="infotd"><button onclick="open_pop2()" class="btn infobutton"><i class="fas fa-chevron-down"></i>&nbsp;ìƒì„¸ ì •ë³´ ë³´ê¸°</button></td>
 	</tr>
 </table>

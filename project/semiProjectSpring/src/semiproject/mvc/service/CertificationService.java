@@ -10,10 +10,15 @@ import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Service
 public class CertificationService {
+	
+	private final static String api_key="NCSNKGYCDFPWLUYT";
+	private final static String api_secret="OZGGHPWWEPA2YE5XWWWT1DDY53S4X5OW";
+	
 	 public void certifiedPhoneNumber(String phoneNumber, String cerNum) {
 
-	        String api_key = "NCSNKGYCDFPWLUYT";
-	        String api_secret = "OZGGHPWWEPA2YE5XWWWT1DDY53S4X5OW";
+//	        String api_key = "NCSPDKQSYEWUXMTE";
+//	        String api_secret = "YIV4JEKILRJEW2OXJDPCZAIZDPFSPUYK";
+		 	
 	        Message coolsms = new Message(api_key, api_secret);
 
 	        // 4 params(to, from, type, text) are mandatory. must be filled

@@ -74,7 +74,7 @@
 	border: 2px solid #D8D8D8;
 	color: #000000;
 	line-height: 3px;
-	font-size: 15px;
+	font-size: 14px;
 	padding: 0px 15px 0px 15px;
 	width: 120px;
 	margin-left: 5px;
@@ -93,13 +93,13 @@
 #inputPhoneNumber1 {
 	width: 85px;
 	text-align: center;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 #inputPhoneNumber2, #inputPhoneNumber3 {
 	width: 100px;
 	text-align: center;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .paymentCertify {
@@ -118,7 +118,7 @@
 	border: 2px solid #D8D8D8;
 	color: #000000;
 	line-height: 3px;
-	font-size: 15px;
+	font-size: 14px;
 	padding: 5px 15px 5px 15px;
 	width: 150px;
 }
@@ -135,7 +135,7 @@
 	border: 2px solid #D8D8D8;
 	color: #000000;
 	line-height: 3px;
-	font-size: 15px;
+	font-size: 14px;
 	padding: 5px 15px 5px 15px;
 	width: 150px;
 }
@@ -153,6 +153,10 @@
 
 #inputCertifiedNumber {
 	text-align: center;
+}
+button.disabled{
+	pointer-events: none;
+  	cursor: default;
 }
 </style>
 </head>
@@ -186,8 +190,11 @@
 									title="휴대전화 가운데 자리 입력" required="required"> - <input
 									type="text" id="inputPhoneNumber3" name="inputPhoneNumber"
 									maxlength="4" title="휴대전화 끝자리 입력" required="required">
-								<input type="button" value="인증번호받기" title="인증번호받기"
-									id="sendPhoneNumber" class="button3">
+<!-- 								<input type="button" value="인증번호받기" title="인증번호받기"
+									id="sendPhoneNumber" class="button3"> -->
+								<button type="button" title="인증번호받기" id="sendPhoneNumber" class="button3">
+									인증번호받기
+								</button>	
 								<ul id="left">
 									<li>* 휴대전화번호 입력 후 인증번호 받기 버튼을 눌러 주세요.</li>
 									<li>* 휴대전화 문자메시지에서 인증번호를 확인 후 인증번호 입력란에 인증번호를 입력하세요.</li>
@@ -197,7 +204,7 @@
 								<p class="subTitle">인증번호 입력</p>
 								<input type="text" id="inputCertifiedNumber"
 									name="inputCertifiedNumber" maxlength="4" value=""
-									required="required">
+									required="required">	
 								<div class="paymentInfo">
 									<ul>
 										<li>* 결제 간 보안을 위해 휴대전화 인증을 시행하고 있습니다.</li>
@@ -209,10 +216,9 @@
 						</div>
 					</div>
 					<div class="paymentButton">
-						<input type="button" value="뒤로가기" title="뒤로가기" name="checkBtn"
-							class="button5" onclick="location='pay6'"> <input
-							type="submit" value="휴대전화인증 확인" title="휴대전화인증 확인" id="checkBtn"
-							name="checkBtn" class="button4">
+						<input type="button" value="뒤로가기" title="뒤로가기"
+							class="button5" onclick="location='payback'"> 
+						<input type="submit" value="휴대전화인증 확인" title="휴대전화인증 확인" id="checkBtn" name="checkBtn" class="button4">
 					</div>
 				</form>
 			</div>
@@ -221,53 +227,60 @@
 	</div>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script>
-		$('#sendPhoneNumber')
-				.click(
-						function(e) {
-							phoneNumber = $('#inputPhoneNumber1').val()
-									+ $('#inputPhoneNumber2').val()
-									+ $('#inputPhoneNumber3').val();
-							if ($('#inputPhoneNumber1').val() == ""
-									|| $('#inputPhoneNumber2').val() == ""
-									|| $('#inputPhoneNumber3').val() == "") {
-								alert("휴대폰 번호를 입력해 주세요.")
-								$('form').bind('submit', submitAction);
-							} else {
-								console.log(phoneNumber)
-								alert("인증번호가 전송되었습니다.");
-							}
-							$
-									.ajax({
-										url : "sendSMS2?phoneNumber="
-												+ phoneNumber,
-										success : function(res) {
-											console.log(res)
-											$('#checkBtn')
-													.click(
-															function(e) {
-																if ($.trim(res) == $(
-																		'#inputCertifiedNumber')
-																		.val()) {
-																	alert("구독 가입이 완료되었습니다.")
+	$('#sendPhoneNumber').click(function(e) {
+		phoneNumber = $('#inputPhoneNumber1').val()
+				+ $('#inputPhoneNumber2').val()
+				+ $('#inputPhoneNumber3').val();
+		if ($('#inputPhoneNumber1').val() == "" || $('#inputPhoneNumber2').val() == "" || $('#inputPhoneNumber3').val() == "" ) {
+			alert("휴대폰 번호를 입력해 주세요.")
+			$('form').bind('submit', submitAction);
+		} else {
 
-																	location.href = "index"
-																} else {
-																	alert("인증번호가 맞지 않습니다. 다시 입력해주세요.")
-																	e
-																			.preventDefault();
-																}
-																var submitAction = function(
-																		e) {
-																	e
-																			.preventDefault();
-																	e
-																			.stopPropagation();
-																};
+		}
+		console.log(phoneNumber)
+		alert("인증번호 전송완료!");
+		var time = 180;
+		var min = ""; // 분
+		var sec = ""; //초
+		var x = setInterval(function(){
+			min = parseInt(time/60);
+			sec = time%60;
+		document.getElementById("sendPhoneNumber").innerHTML = min + "분" + sec + "초";
+		$('#sendPhoneNumber').addClass('disabled');	
+		$('#sendPhoneNumber').css('color', '#FF0000');
+		time --;
+		if(time< 0){
+			clearInterval(x);
+			document.getElementById("sendPhoneNumber").innerHTML = "시간초과";
+			alert("입력값 입력시간이 경과되었습니다. 다시 입력해주세요.")
+			$('#sendPhoneNumber').css('color', '#000000');
+			location.reload();
+		}	
+		},1000)
+		$.ajax({
+					url : "sendSMS2?phoneNumber="
+							+ phoneNumber,
+					success : function(res) {
+						console.log(res)
+						$('#checkBtn').click(
+										function(e) {
+											if ($.trim(res) == $(
+													'#inputCertifiedNumber').val()) {
+												alert("인증성공! 휴대폰 인증이 정상적으로 완료되었습니다.!")
+												location.href = "pay3"
+											} else {
+												alert("인증번호가 맞지 않습니다. 다시 입력해주세요.")
+												e.preventDefault()
 
-															});
-										}
-									});
-						});
-	</script>
+											}
+											var submitAction = function(e) {
+												e.preventDefault();
+											 	e.stopPropagation();
+										};	
+										})
+								}
+					})
+	});
+</script>
 </body>
 </html>

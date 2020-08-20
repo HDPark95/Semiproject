@@ -21,7 +21,7 @@ p{
 }
 .signUpBody{
 	background-color: #FFFFFF;
-	max-width: 400px;
+	max-width: 450px;
 	margin: 0 auto;
 	border-radius: 10px;
 	margin-top: 70px;
@@ -301,7 +301,7 @@ $(function() {
 
 	
 	// 연도 설정
-	$('#dyear').keyup(function(){
+	/* $('#dyear').keyup(function(){
 		var year=$("#dyear").val();
 		var currentyear = new Date().getFullYear();
 		
@@ -344,7 +344,55 @@ $(function() {
 				}
 			}
 		}
-	});
+	}); */
+	
+	function daycheck(){
+		var year=$("#dyear").val();
+		var currentyear = new Date().getFullYear();
+		var day = $(this).val();
+		var month = $('#dmonth option:selected').val();
+		if(year>currentyear){
+			$("#yeartarget").html("<p>미래에서 오셨군요!</p>");
+		}else if(year>currentyear-18){
+			$("#yeartarget").html("<p>만 18세 미만은 가입하실 수 없습니다!</p>");
+		}else if(year<1920){
+			$("#yeartarget").html("<p>과거에서 오셨군요!</p>");
+		}else{
+			if(month===0){
+				$("#yeartarget").html("<p style='color:red'>월을 입력해 주세요.</p>");
+				}else{
+					if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){
+						if(day<1||day>31){
+							$("#yeartarget").html("<p>생년월일을 다시 확인해주세요.</p>");	
+						}else{
+							$("#yeartarget").html("");
+						}
+					}else if(month==2){
+						if(day<1||day>29){
+							$("#yeartarget").html("<p>생년월일을 다시 확인해주세요.</p>");
+						}else{
+							$("#yeartarget").html("");
+						}
+					}else{
+						if(day<1||day>30){
+							$("#yeartarget").html("<p>생년월일을 다시 확인해주세요.</p>");
+						}else{
+							$("#yeartarget").html("");
+						}
+					}
+				}
+			}
+	}
+	
+	$("#dmonth").change(function() {
+			console.log("값?"+$(this).val())
+			daycheck()
+	})
+	$('#dyear,#dday').keyup(function(){
+	
+			daycheck()
+		
+		});
 	
 	// 숫자 입력 처리
 	$("#dyear,#dday,#dtelmiddle,#dtelfooter").keyup(function (event) {
@@ -366,6 +414,7 @@ $(function() {
 					// 이미 가입이 되어 있는 경우
 					alert('이미 가입된 계정입니다. 다른 이메일을 입력하여 주십시오.');
 				}else{
+					alert('이메일을 전송 중입니다. 잠시만 기다려 주십시오.')
 					$.ajax({
 						url: "emailCheck?aid="+aid,
 						success:function(res){

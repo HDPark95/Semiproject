@@ -21,7 +21,8 @@ p{
 }
 .signUpBody{
 	background-color: #FFFFFF;
-	max-width: 400px;
+	max-width: 500px;
+	width:500px;
 	margin: 0 auto;
 	border-radius: 10px;
 	margin-top: 50px;
@@ -133,7 +134,7 @@ p{
 .buttonArea{
 	display: flex;
 	font-size: 15px;
-	margin-left: 50px;
+	margin-left: 85px;
 	margin-right: 50px;
 	padding-left: 35px;
 	margin-top: 20px;
@@ -148,11 +149,12 @@ p{
     font-size: 14px;
     font-family: 'Noto Sans KR',sans-serif;
     border-radius: 3px;
-	width: 85px;
+	width: auto;
 	cursor: pointer;
 }
 #daddress1{
 	height: 30px;
+	width: 296px;
 }
 #daddress2{
 	width: 295px;
@@ -257,7 +259,7 @@ p{
 						</select>
 					</div>
 					<div>
-						<input type="number" placeholder="일" id="dday" name="dday" class="dbirth" maxlength="2" min="1" max="31">
+						<input type="number" placeholder="일" id="dday" name="dday" class="dbirth" maxlength="2"   min="1" max="31">
 					</div>
 				</div>
 				<div id="yeartarget"></div>
@@ -374,9 +376,10 @@ $(function() {
 		
 	});
 
+	// 연도 / 일 연동되게 만들기
 	
 	// 연도 설정
-	$('#dyear').keyup(function(){
+	/* $('#dyear').keyup(function(){
 		var year=$("#dyear").val();
 		var currentyear = new Date().getFullYear();
 		
@@ -419,8 +422,65 @@ $(function() {
 				}
 			}
 		}
-	});
+	}); */
+	function daycheck(){
+		var year=$("#dyear").val();
+		var currentyear = new Date().getFullYear();
+		var day = $("#dday").val();
+		var month = $('#dmonth option:selected').val();
+		if(day>31){
+			alert("날짜는 31까지만 입력해주세요.")
+			$("#dday").val("");
+		}
+		else if(year ===""){
+			$("#yeartarget").html("<p>년도를 입력해주세요.</p>");
+		}else if(month ===""){
+			$("#yeartarget").html("<p> 월 을 선택해주세요.</p>");
+		}else if(day ===""){
+			$("#yeartarget").html("<p>날짜를 입력해주세요.</p>");
+		}
+		else if(year>currentyear){
+			$("#yeartarget").html("<p>미래에서 오셨군요!</p>");
+		}else if(year>currentyear-18){
+			$("#yeartarget").html("<p>만 18세 미만은 가입하실 수 없습니다!</p>");
+		}else if(year<1920){
+			$("#yeartarget").html("<p>과거에서 오셨군요!</p>");
+		}else{
+			if(month===0){
+				$("#yeartarget").html("<p style='color:red'>월을 입력해 주세요.</p>");
+				}else{
+					if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){
+						if(day<1||day>31){
+							$("#yeartarget").html("<p>생년월일을 다시 확인해주세요.</p>");	
+						}else{
+							$("#yeartarget").html("");
+						}
+					}else if(month==2){
+						if(day<1||day>29){
+							$("#yeartarget").html("<p>생년월일을 다시 확인해주세요.</p>");
+						}else{
+							$("#yeartarget").html("");
+						}
+					}else{
+						if(day<1||day>30){
+							$("#yeartarget").html("<p>생년월일을 다시 확인해주세요.</p>");
+						}else{
+							$("#yeartarget").html("");
+						}
+					}
+				}
+			}
+	}
 	
+	$("#dmonth").change(function() {
+			
+			daycheck()
+	})
+	$('#dyear,#dday').keyup(function(){
+	
+			daycheck()
+		
+		});
 	// 숫자 입력 처리
 	$("#dyear,#dday,#dtelmiddle,#dtelfooter").keyup(function (event) {
         regexp = /[^0-9]/gi;
@@ -441,6 +501,7 @@ $(function() {
 					// 이미 가입이 되어 있는 경우
 					alert('이미 가입된 계정입니다. 다른 이메일을 입력하여 주십시오.');
 				}else{
+					alert('이메일을 전송 중입니다. 잠시만 기다려 주십시오.')
 					$.ajax({
 						url: "emailCheck?aid="+aid,
 						success:function(res){

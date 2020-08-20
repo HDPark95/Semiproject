@@ -20,11 +20,11 @@
 					<div class="form-inline form-group" style="margin-bottom: 10px;">
 						<label for="Select1" style="margin-right: 10px;">문의유형 : </label>
 						<select class="form-control" id="c_type" name="c_type" required="required">
-							<option>문의유형1</option>
-							<option>문의유형2</option>
-							<option>문의유형3</option>
-							<option>문의유형4</option>
-							<option>기타</option>
+							<option>매물문의</option>
+							<option>상가문의</option>
+							<option>경매문의</option>
+							<option>월세/전세문의</option>
+							<option>기타문의</option>
 						</select> 
 					</div>
 				</div>

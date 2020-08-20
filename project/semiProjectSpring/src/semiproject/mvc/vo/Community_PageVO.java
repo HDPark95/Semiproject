@@ -2,7 +2,7 @@ package semiproject.mvc.vo;
 
 public class Community_PageVO {
 	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end, sortindex;
-	
+	private String aid;
 	private int cntPage = 10;
 	
 	private String searchType,searchValue;
@@ -35,6 +35,16 @@ public class Community_PageVO {
 		memberStartEndPage(nowPage, cntPage);
 		memberStartEnd(nowPage, cntPerPage);
 	}
+	public Community_PageVO(int total, int nowPage, int cntPerPage,int sortindex,String aid) {
+		this.nowPage = nowPage;
+		this.cntPerPage = cntPerPage;
+		this.total = total;
+		this.sortindex = sortindex;
+		memberLastPage(total, cntPerPage);
+		memberStartEndPage(nowPage, cntPage);
+		memberStartEnd(nowPage, cntPerPage);
+	}
+
 
 	private void memberLastPage(int total, int cntPerPage) {
 		lastPage = (int) Math.ceil((double) total / (double) cntPerPage);

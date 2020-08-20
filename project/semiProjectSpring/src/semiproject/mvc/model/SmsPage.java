@@ -26,6 +26,7 @@ public class SmsPage {
 	
 	@Autowired
 	private CertificationService certificationService;
+	
 	@Autowired
 	private PaymentService paymentService;
 	
@@ -36,20 +37,23 @@ public class SmsPage {
 	@RequestMapping(value = "/sendSMS", method = RequestMethod.POST)
     public ModelAndView sendSMS(Model model,PaymentVO vo, Payment_DetailVO vo1) {
 		ModelAndView mav = new ModelAndView();
-		//paymentService.addPayment(vo,vo1);
 		mav.setViewName("payment/sendSMS");
 		mav.addObject("vo", vo);
 		mav.addObject("vo1", vo1);
-		System.out.println("vo :"+vo.getPpay());
-		System.out.println("vo :"+vo.getPsdate());
-		System.out.println("vo :"+vo.getPedate());
-		System.out.println("vo :"+vo.getMonthnum());
-		System.out.println("vo :"+vo.getPway());
-		System.out.println("vo :"+vo1.getInment());
-		System.out.println("vo :"+vo1.getKinds());
-		System.out.println("vo :"+vo1.getMentnum());
+		// paymentService.addPayment(vo,vo1);
+		/*
+		 * System.out.println("vo :"+vo.getPpay());
+		 * System.out.println("vo :"+vo.getPsdate());
+		 * System.out.println("vo :"+vo.getPedate());
+		 * System.out.println("vo :"+vo.getMonthnum());
+		 * System.out.println("vo :"+vo.getPway());
+		 * System.out.println("vo :"+vo1.getInment());
+		 * System.out.println("vo :"+vo1.getKinds());
+		 * System.out.println("vo :"+vo1.getMentnum());
+		 */
 		return mav;
     }
+	
 	@RequestMapping(value ="/sendSMS2")
 	@ResponseBody
 	public String sendMessage(String phoneNumber) {

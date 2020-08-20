@@ -10190,3 +10190,7 @@ body {
 tr > td > a:hover{
 	color: #F55900;
 }
+.nav-item,.nav-link {
+	width: 150px;
+	text-align: center;
+}

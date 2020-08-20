@@ -20,6 +20,7 @@ import semiproject.mvc.dao.Customer_BoardDao;
 import semiproject.mvc.vo.Community_PageVO;
 
 import semiproject.mvc.vo.Customer_BoardVO;
+import semiproject.mvc.vo.Customer_PageVO;
 
 
 
@@ -73,14 +74,15 @@ public class CustomerPage{
 	
 	//리스트목록 + 페이징
 	@RequestMapping(value = "/listall")
-	public String writingAllList(Community_PageVO pvo, Model model,
+	public String writingAllList(Customer_PageVO pvo, Model model,
 			@RequestParam(value = "nowPage", required = false, defaultValue = "1") String nowPage,
 			@RequestParam(value = "cntPerPage", required = false, defaultValue = "10") String cntPerPage,
 			@RequestParam(value = "sortindex", required = false, defaultValue = "1") String sortindex,
 			@RequestParam(required = false) String searchType,
-			@RequestParam(required = false) String searchValue) throws Exception{
+			@RequestParam(required = false) String searchValue,Customer_BoardVO vo) throws Exception{
+		System.out.println(pvo.getAnum(vo));
 		int total = customerdao.getCountAll(pvo);
-		pvo = new Community_PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), Integer.parseInt(sortindex));
+		pvo = new Customer_PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), Integer.parseInt(sortindex));
 		pvo.setSearchType(searchType);
 		pvo.setSearchValue(searchValue);
 		model.addAttribute("paging", pvo);

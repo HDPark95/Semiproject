@@ -12,6 +12,7 @@ import semiproject.mvc.vo.Community_PageVO;
 import semiproject.mvc.vo.DataVO;
 import semiproject.mvc.vo.KeywordVO;
 import semiproject.mvc.vo.OuterDataVO;
+import semiproject.mvc.vo.PopVO;
 @Repository
 public class CommercialDao {
 	@Autowired
@@ -24,25 +25,16 @@ public class CommercialDao {
 		return list;
 	} 
 
-	public List<String> getLarge() {
-		List<String> list = ss.selectList("data.large");
-	
+	public List<String> getLarge(DataVO vo) {
+		List<String> list = ss.selectList("data.large", vo);
 		return list;
 	}
 
-	public List<String> getMedium(String largeName) {
-		List<String> list = ss.selectList("data.medium", largeName);
-		
-	
+	public List<String> getMedium(DataVO vo) {
+		List<String> list = ss.selectList("data.medium", vo);
 		return list;
 	}
 
-	public List<DataVO> getSmall(DataVO vo) {
-		List<DataVO> list = ss.selectList("data.small", vo);
-		
-	
-		return list;
-	}
 	public List<DataVO> getMark(DataVO vo) {
 		List<DataVO> list = ss.selectList("data.map", vo);
 		
@@ -95,5 +87,20 @@ public class CommercialDao {
 	}
 	public int getTotalCount(Community_PageVO pvo) {
 		return ss.selectOne("search.countall", pvo); 
+	}
+	public DataVO getCateLocation(String cate) {
+		return ss.selectOne("search.catelocation", cate);
+	}
+	public DataVO getShopData(DataVO vo) {
+		return ss.selectOne("data.shopN", vo);
+	}
+	public DataVO getPopData(DataVO vo) {
+		return ss.selectOne("data.pop", vo);
+	}
+	public PopVO getStatisticPop() {
+		return ss.selectOne("data.popinfo");
+	}
+	public List<String> getRealDongList(String largeName){
+		return ss.selectList("search.dongList",largeName);
 	}
 }

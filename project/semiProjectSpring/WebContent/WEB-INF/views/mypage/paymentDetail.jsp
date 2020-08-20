@@ -74,7 +74,7 @@
 						회원님은 현재 <em>미구독</em> 상태입니다.<br>구독하러 가시겠습니까?
 					</p>
 					<div class="container buttonSet" id="signup">
-						<button type="button" class="btn button3" id="pay_cbtn" onclick="location.href='pay4'">
+						<button type="button" class="btn button3" id="pay_cbtn" onclick="location.href='paymentView'">
 							<i class="fas fa-check"></i>&nbsp;확인
 						</button>
 						<button type="button" class="btn button4" id="mypage_pay_refresh" onclick="location.reload()">
